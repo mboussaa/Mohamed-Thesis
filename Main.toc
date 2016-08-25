@@ -1,0 +1,55 @@
+\contentsline {chapter}{Contents}{1}{Doc-Start}
+\contentsline {chapter}{Introduction}{1}{chapter*.2}
+\contentsline {part}{I\hspace {1em}Background and State of the Art}{6}{part.1}
+\contentsline {chapter}{\numberline {1}Background}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}From classical software development to generative programming}{7}{section.1.1}
+\contentsline {section}{\numberline {1.2}Software development tool chain overview}{9}{section.1.2}
+\contentsline {section}{\numberline {1.3}Code generators}{10}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Complexity}{11}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Software-platform heterogeneity}{12}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Compilers}{13}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Complexity}{13}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Hardware-platform heterogeneity}{13}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}Compilers and Code generators non-functional testing}{13}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Problems that still remain}{13}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Resource usage monitoring}{13}{subsection.1.5.2}
+\contentsline {chapter}{\numberline {2}State of the art}{15}{chapter.2}
+\contentsline {part}{II\hspace {1em}Contributions}{16}{part.2}
+\contentsline {chapter}{\numberline {3}Optimizing compiler auto-tuning}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}Motivation}{19}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Compiler Optimizations}{19}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Example: GCC Compiler}{21}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Evolutionary Exploration of Compiler Optimizations }{21}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Novelty Search Adaptation}{21}{subsection.3.3.1}
+\contentsline {subsubsection}{Optimization Sequence Representation}{24}{section*.9}
+\contentsline {subsubsection}{Novelty Metric}{24}{section*.10}
+\contentsline {subsection}{\numberline {3.3.2}Novelty Search For Multi-objective Optimization}{25}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Evaluation}{25}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Research Questions}{26}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Experimental Setup}{26}{subsection.3.4.2}
+\contentsline {subsubsection}{Programs Used in the Empirical Study}{26}{section*.11}
+\contentsline {subsubsection}{Parameters Tuning}{27}{section*.12}
+\contentsline {subsubsection}{Evaluation Metrics Used}{28}{section*.13}
+\contentsline {subsubsection}{Setting up Infrastructure}{28}{section*.14}
+\contentsline {subsection}{\numberline {3.4.3}Experimental Methodology and Results}{29}{subsection.3.4.3}
+\contentsline {subsubsection}{RQ1. Mono-objective SBSE Validation}{29}{section*.15}
+\contentsline {paragraph}{Method}{29}{section*.16}
+\contentsline {paragraph}{Results}{30}{table.3.2}
+\contentsline {subsubsection}{RQ2. Sensitivity}{31}{section*.18}
+\contentsline {paragraph}{Method}{31}{section*.19}
+\contentsline {paragraph}{Results}{31}{section*.20}
+\contentsline {subsubsection}{RQ3. Impact of optimizations on resource usage}{32}{section*.21}
+\contentsline {paragraph}{Method}{32}{section*.22}
+\contentsline {paragraph}{Results}{33}{section*.23}
+\contentsline {subsubsection}{RQ4. Trade-offs between non-functional properties}{33}{section*.24}
+\contentsline {paragraph}{Method}{33}{section*.25}
+\contentsline {paragraph}{Results}{34}{section*.26}
+\contentsline {subsection}{\numberline {3.4.4}Discussions}{36}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}Threats to Validity}{36}{subsection.3.4.5}
+\contentsline {section}{\numberline {3.5}Conclusion and Future Work}{37}{section.3.5}
+\contentsline {chapter}{\numberline {4}Automatic non-functional testing of code generators families}{39}{chapter.4}
+\contentsline {chapter}{\numberline {5}An infrastructure for resource monitoring based on system containers}{40}{chapter.5}
+\contentsline {part}{III\hspace {1em}Conclusion and perspectives}{41}{part.3}
+\contentsline {chapter}{\numberline {6}Conclusion and perspectives}{42}{chapter.6}
+\contentsline {chapter}{\textbf {References}}{43}{section*.27}

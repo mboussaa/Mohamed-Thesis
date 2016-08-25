@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{betz2011improving}
+Tobias Betz, Lawrence Cabac, and Matthias G{\"u}ttler.
+\newblock Improving the development tool chain in the context of petri
+  net-based software development.
+\newblock In {\em PNSE}, pages 167--178. Citeseer, 2011.
+
+\bibitem{czarnecki2005overview}
+Krzysztof Czarnecki.
+\newblock Overview of generative software development.
+\newblock In {\em Unconventional Programming Paradigms}, pages 326--341.
+  Springer, 2005.
+
+\bibitem{Czarnecki:2000:GPM:345203}
+Krzysztof Czarnecki and Ulrich~W. Eisenecker.
+\newblock {\em Generative Programming: Methods, Tools, and Applications}.
+\newblock ACM Press/Addison-Wesley Publishing Co., New York, NY, USA, 2000.
+
+\end{thebibliography}

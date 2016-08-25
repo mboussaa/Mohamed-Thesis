@@ -1,0 +1,71 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Main.aux
+The style file: plain.bst
+Database file #1: uw-ethesis.bib
+Warning--I didn't find a database entry for "chen2016empirical"
+Warning--I didn't find a database entry for "hoste2008cole"
+Warning--I didn't find a database entry for "le2014compiler"
+Warning--I didn't find a database entry for "almagor2004finding"
+Warning--I didn't find a database entry for "pan2006fast"
+Warning--I didn't find a database entry for "molyneaux2009art"
+Warning--I didn't find a database entry for "ballal2015compiler"
+Warning--I didn't find a database entry for "chen2012deconstructing"
+Warning--I didn't find a database entry for "demertzi2011analyzing"
+Warning--I didn't find a database entry for "nagiub2013automatic"
+Warning--I didn't find a database entry for "lehman2008exploiting"
+Warning--I didn't find a database entry for "chen2010evaluating"
+Warning--I didn't find a database entry for "escobar2015evaluation"
+Warning--I didn't find a database entry for "martins2014exploration"
+Warning--I didn't find a database entry for "yang2011finding"
+Warning--I didn't find a database entry for "mboussaa"
+Warning--I didn't find a database entry for "banzhaf1996effect"
+Warning--I didn't find a database entry for "cooper2002adaptive"
+Warning--I didn't find a database entry for "lokuciejewski2010multi"
+Warning--I didn't find a database entry for "deb2002fast"
+Warning--I didn't find a database entry for "nagai2013scaling"
+Warning--I didn't find a database entry for "inden2013examination"
+Warning--I didn't find a database entry for "martinez2014multi"
+Warning--I didn't find a database entry for "stuermer2007systematic"
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            542 strings with 4950 characters,
+and the built_in function-call counts, 1201 in all, are:
+= -- 126
+> -- 38
+< -- 2
++ -- 15
+- -- 12
+* -- 66
+:= -- 183
+add.period$ -- 11
+call.type$ -- 3
+change.case$ -- 14
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 59
+empty$ -- 105
+format.name$ -- 12
+if$ -- 275
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 4
+newline$ -- 18
+num.names$ -- 6
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 12
+quote$ -- 0
+skip$ -- 43
+stack$ -- 0
+substring$ -- 79
+swap$ -- 22
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 10
+warning$ -- 0
+while$ -- 12
+width$ -- 4
+write$ -- 37
+(There were 24 warnings)
