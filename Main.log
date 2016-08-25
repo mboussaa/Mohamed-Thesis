@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  25 AUG 2016 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  25 AUG 2016 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -786,7 +786,7 @@ File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
 Package pdftex.def Info: Background/fig/background_overview2.pdf used on input 
-line 71.
+line 77.
 (pdftex.def)             Requested size: 306.64198pt x 177.46089pt.
  [10 <./Background/fig/background_overview2.pdf>] [11]
 <Background/fig/software-diversity.pdf, id=379, 590.205pt x 354.32375pt>
@@ -794,7 +794,7 @@ File: Background/fig/software-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/software-diversity.pdf>
 Package pdftex.def Info: Background/fig/software-diversity.pdf used on input li
-ne 109.
+ne 104.
 (pdftex.def)             Requested size: 383.6287pt x 230.3077pt.
 
 <Background/fig/hardware-diversity.pdf, id=380, 559.08875pt x 366.36874pt>
@@ -802,14 +802,14 @@ File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/hardware-diversity.pdf>
 Package pdftex.def Info: Background/fig/hardware-diversity.pdf used on input li
-ne 117.
+ne 112.
 (pdftex.def)             Requested size: 363.40337pt x 238.13686pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (15.20248pt too wide) in paragraph at lines 120--120
+Overfull \hbox (15.20248pt too wide) in paragraph at lines 115--115
 []\OT1/cmr/bx/n/17.28 Compilers and Code gen-er-a-tors non-functional test-
  []
 
@@ -1133,7 +1133,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr
 /local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Main.pdf (45 pages, 2227340 bytes).
+Output written on Main.pdf (45 pages, 2227264 bytes).
 PDF statistics:
  1037 PDF objects out of 1200 (max. 8388607)
  790 compressed objects within 8 object streams

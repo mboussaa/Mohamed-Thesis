@@ -59,6 +59,12 @@ Figure 2.2 review the different steps of this chain. We distinguish four main ta
 \item \textit{Software design:} As part of the generative programming process, the first step consists on representing the system abstraction. Thus, software designers define, at design time, software’s behavior using domain models or Domain-Specific Models (DSMs). A DSM is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain.
 
 \item \textit{Code generation:} Software developers use model-driven techniques in order to generate automatically code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. 
+
+TOFINISH
+\item \textit{Software development:}
+TODO
+\item \textit{Compilation:}
+TODO
 \end{itemize} 
 .
 %\begin{figure}[h]
@@ -74,20 +80,14 @@ Figure 2.2 review the different steps of this chain. We distinguish four main ta
 
 
 \section{Code generators}
-The main goal of generators is to produce software systems from higher-level specifications.
-Generators bridge the wide gap between the high-level system description and the
-executable. In particular, the implementation has to meet certain performance requirements (e.g. execution speed, response time, memory consumption, utilization of resources, etc.). The challenge is that the structure of the specification is usually very different from the structure of the implementation: there is no simple one-to-one correspondence between the concepts in the specification and the concepts in the implementation. 
-Efficient implementations are then computed at generation time by applying domain-specific optimizations and replacing, merging, adding, and removing components.
-Generators are based on domain-specific models which define the semantics of the system
-specification language and also contain the knowledge of how to produce efficient
-implementations. Two major techniques are used during generation: composition and
-transformation. Generators based on composition are referred to as compositional generators [REF], whereas generators primarily using transformations are called transformation systems. As an example, model-based code generators integrate rule-based model-to-model transformation languages (such as ATL) and template-based model-to-text transformation languages (such as Acceleo) to translate high-level system
-specifications into executable code and scripts.
+The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable. Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
+We distinguish two major types of code generators: rule-based model-to-model transformation languages (such as ATL) and template-based model-to-text transformation languages (such as Acceleo) to translate high-level system specifications into executable code and scripts.
 \subsection{Complexity}
-The complexity of code generators remains on the transformation rules and code generation process. In fact, code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose cognitive challenges for developers performing design, implementation, and maintenance tasks. 
-Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As a concrete example,
-in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. We believe that flexible traceability tools are needed to collect and visualize information about the
-architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle.[ref W]
+The complexity of code generators remains on the transformation rules and code generation process. In fact, code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
+Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. We believe that flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle.[ref W]
+
+Moreover, the generated code has to meet certain performance requirements (e.g. execution speed, response time, memory consumption, utilization of resources, etc.). The challenge is that the structure of the specification is usually very different from the structure of the implementation: there is no simple one-to-one correspondence between the concepts in the specification and the concepts in the implementation. 
+Efficient implementations are then computed at generation time by applying domain-specific optimizations and replacing, merging, adding, and removing components.
 
 \textbf{Challenge}: Fully automatic program synthesis offers many gains over traditional software development methods. e.g., speed of development, increased adaptability and reliability. But code generators are complex pieces of software themselves that may contain bugs.
 \begin{itemize}
@@ -98,12 +98,7 @@ architecture and operational mechanics of code generators, to reduce the challen
 The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Execution platforms of the generated code are heterogeneous 
 
 
-for example, although Android provides Java syntax, it uses its
-own Google libraries and creates byte code that will not run
-on the standard JVM (Java Virtual Machine). This means
-that consumers are carrying devices that support different
-programming languages and developers will usually need to
-create multiple clients in this heterogeneous environment.
+for example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/software-diversity.pdf}
