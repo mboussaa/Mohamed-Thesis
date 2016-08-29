@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  29 AUG 2016 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  29 AUG 2016 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -938,26 +938,28 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `Main.toc'.
 
- [3] (./Introduction/Introduction.texpdfTeX warning (ext4): destination with th
-e same identifier (name{page.1}) has been already used, duplicate ignored
+ [3]
+Chapter 1.
+(./Introduction/Introduction.texpdfTeX warning (ext4): destination with the sam
+e identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.18 
+l.14 
       [1
 
 
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 166.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 162.
 
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
 
-Overfull \hbox (4.20886pt too wide) in paragraph at lines 166--168
+Overfull \hbox (4.20886pt too wide) in paragraph at lines 162--164
 []\OT1/cmr/bx/n/12 Monitoring code gen-er-a-tors/-com-pil-ers be-hav-ior: \OT1/
 cmr/m/n/12 For test-ing the non-functional
  []
@@ -966,15 +968,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.168 \textbf
+l.164 \textbf
              {Tuning code generators/compilers:} The current innovations in ...
 [2]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.194 ...ding to the non-functional requirements.}
-                                                   [3]
-Overfull \hbox (10.82721pt too wide) in paragraph at lines 194--197
+l.189 
+       [3]
+Overfull \hbox (10.82721pt too wide) in paragraph at lines 190--193
 []\OT1/cmr/bx/n/12 Contribution: au-to-matic com-piler auto-tuning ac-cord-ing 
 to the non-functional
  []
@@ -983,22 +985,22 @@ Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
+[4]
+Missing character: There is no Ã in font cmr12!
+Missing character: There is no © in font cmr12!
 
-Overfull \hbox (3.58054pt too wide) in paragraph at lines 215--217
+Overfull \hbox (3.58054pt too wide) in paragraph at lines 216--220
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny, Benoit Baudry
 : \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
 
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
-[4]
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no © in font cmr12!
 ) [5] [6
 
 
 ]
-Chapter 1.
+Chapter 2.
 (./Background/Background.tex
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
@@ -1007,7 +1009,7 @@ Missing character: There is no ™ in font cmr12!
 
 
 ] [8]
-<Background/fig/GDM.pdf, id=332, 320.19624pt x 150.5625pt>
+<Background/fig/GDM.pdf, id=376, 320.19624pt x 150.5625pt>
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
@@ -1017,7 +1019,7 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
  [9 <./Background/fig/GDM.pdf>]
-<Background/fig/background_overview2.pdf, id=358, 471.7625pt x 273.02pt>
+<Background/fig/background_overview2.pdf, id=402, 471.7625pt x 273.02pt>
 File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
@@ -1025,7 +1027,7 @@ Package pdftex.def Info: Background/fig/background_overview2.pdf used on input
 line 77.
 (pdftex.def)             Requested size: 306.64198pt x 177.46089pt.
  [10 <./Background/fig/background_overview2.pdf>]
-<Background/fig/software-diversity.pdf, id=459, 590.205pt x 354.32375pt>
+<Background/fig/software-diversity.pdf, id=504, 590.205pt x 354.32375pt>
 File: Background/fig/software-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/software-diversity.pdf>
@@ -1041,7 +1043,7 @@ LaTeX Warning: Citation `almagor2004finding' on page 12 undefined on input line
 LaTeX Warning: Citation `pan2006fast' on page 12 undefined on input line 107.
 
 [12 <./Background/fig/software-diversity.pdf>]
-<Background/fig/hardware-diversity.pdf, id=528, 559.08875pt x 366.36874pt>
+<Background/fig/hardware-diversity.pdf, id=572, 559.08875pt x 366.36874pt>
 File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/hardware-diversity.pdf>
@@ -1049,7 +1051,7 @@ Package pdftex.def Info: Background/fig/hardware-diversity.pdf used on input li
 ne 113.
 (pdftex.def)             Requested size: 363.40337pt x 238.13686pt.
  [13 <./Background/fig/hardware-diversity.pdf>]) [14]
-Chapter 2.
+Chapter 3.
 (./SOTA/SOTA.tex
 
 LaTeX Warning: Citation `almagor2004finding' on page 15 undefined on input line
@@ -1153,7 +1155,7 @@ LaTeX Warning: Citation `jorges2014back' on page 16 undefined on input line 37.
 
 
 ]
-Chapter 3.
+Chapter 4.
 (./chapitre3/chapitre3.tex
 
 LaTeX Warning: Citation `chen2016empirical' on page 19 undefined on input line 
@@ -1239,7 +1241,7 @@ line 117.
 LaTeX Warning: Citation `yang2011finding' on page 22 undefined on input line 12
 2.
 
-<chapitre3/fig/autotuning.pdf, id=628, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=669, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
@@ -1271,7 +1273,7 @@ Overfull \hbox (17.62482pt too wide) detected at line 324
 [][] 
  []
 
-<chapitre3/fig/individual.png, id=709, 991.705pt x 153.57375pt>
+<chapitre3/fig/individual.png, id=750, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
@@ -1317,14 +1319,14 @@ LaTeX Warning: Citation `deb2002fast' on page 28 undefined on input line 430.
 LaTeX Warning: Citation `inden2013examination' on page 29 undefined on input li
 ne 439.
 
-[29] <chapitre3/fig/infraup.pdf, id=775, 469.755pt x 312.16624pt>
+[29] <chapitre3/fig/infraup.pdf, id=816, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
 Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 476.
 (pdftex.def)             Requested size: 368.57838pt x 244.93196pt.
  [30]
-<chapitre3/fig/sensitivity.pdf, id=783, 494.84875pt x 121.45375pt>
+<chapitre3/fig/sensitivity.pdf, id=824, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1335,7 +1337,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 546--551
 
  []
 
-<chapitre3/fig/box.pdf, id=914, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=955, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1354,7 +1356,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 570--574
 
 LaTeX Warning: Citation `deb2002fast' on page 35 undefined on input line 609.
 
-<chapitre3/fig/rq3.pdf, id=940, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=981, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1370,7 +1372,7 @@ Overfull \hbox (16.59723pt too wide) in paragraph at lines 609--616
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [35] [36 <./chapitre3/fig/rq3.pdf>]
-<chapitre3/fig/pareto.pdf, id=998, 756.8275pt x 488.82625pt>
+<chapitre3/fig/pareto.pdf, id=1040, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
@@ -1400,7 +1402,7 @@ LaTeX Warning: Citation `stuermer2007systematic' on page 40 undefined on input
 line 702.
 
 ) [40]
-Chapter 4.
+Chapter 5.
 (./chapitre4/chapitre4.tex
 
 LaTeX Warning: Citation `brambilla2012model' on page 41 undefined on input line
@@ -1431,7 +1433,7 @@ LaTeX Warning: Citation `pan2006fast' on page 42 undefined on input line 25.
 
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 42
  []
 
@@ -1442,7 +1444,7 @@ LaTeX Warning: Citation `dasnois2011haxe' on page 43 undefined on input line 59
 
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 43
  []
 
@@ -1469,7 +1471,7 @@ e 72.
 
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 44
  []
 
@@ -1483,11 +1485,11 @@ LaTeX Warning: Citation `hundt2011loop' on page 45 undefined on input line 80.
 
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 45
  []
 
-[45] <chapitre4/fig/background.pdf, id=1069, 930.47626pt x 303.1325pt>
+[45] <chapitre4/fig/background.pdf, id=1110, 930.47626pt x 303.1325pt>
 File: chapitre4/fig/background.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background.pdf>
@@ -1495,7 +1497,7 @@ Package pdftex.def Info: chapitre4/fig/background.pdf used on input line 112.
 (pdftex.def)             Requested size: 437.68376pt x 142.58792pt.
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 46
  []
 
@@ -1513,7 +1515,7 @@ LaTeX Warning: Citation `pan2006fast' on page 47 undefined on input line 124.
 
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 47
  []
 
@@ -1524,13 +1526,13 @@ ne 138.
 
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 48
  []
 
 [48]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 49
  []
 
@@ -1544,7 +1546,7 @@ Underfull \hbox (badness 1215) in paragraph at lines 186--186
 []|\OT1/cmr/m/n/12 Generation of ran-dom
  []
 
-<chapitre4/fig/settingup.pdf, id=1184, 482.80376pt x 337.26pt>
+<chapitre4/fig/settingup.pdf, id=1225, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
@@ -1552,7 +1554,7 @@ Package pdftex.def Info: chapitre4/fig/settingup.pdf used on input line 206.
 (pdftex.def)             Requested size: 460.72124pt x 321.84639pt.
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 50
  []
 
@@ -1982,56 +1984,56 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 51
  []
 
 [51 <./chapitre4/fig/settingup.pdf>]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 52
  []
 
 [52]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 53
  []
 
 [53]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 54
  []
 
 [54])
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 55
  []
 
 [55]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 56
  []
 
 [56]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 57
  []
 
 [57]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+\OT1/cmr/m/sl/12 CHAPTER 5.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
 S FAMILIES \OT1/cmr/m/n/12 58
  []
 
 [58]
-Chapter 5.
+Chapter 6.
 (./chapitre5/chapitre5.tex
-<chapitre5/fig/background2.pdf, id=1410, 1017.8025pt x 377.41pt>
+<chapitre5/fig/background2.pdf, id=1451, 1017.8025pt x 377.41pt>
 File: chapitre5/fig/background2.pdf Graphic file (type pdf)
 
 <use chapitre5/fig/background2.pdf>
@@ -2059,13 +2061,13 @@ line 43.
 
 
 Overfull \hbox (139.81328pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+\OT1/cmr/m/sl/12 CHAPTER 6.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
  SYSTEM CONTAINERS \OT1/cmr/m/n/12 60
  []
 
 [60 <./chapitre5/fig/background2.pdf>]
 Overfull \hbox (139.81328pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+\OT1/cmr/m/sl/12 CHAPTER 6.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
  SYSTEM CONTAINERS \OT1/cmr/m/n/12 61
  []
 
@@ -2079,7 +2081,7 @@ Overfull \hbox (28.84546pt too wide) in paragraph at lines 68--69
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 Overfull \hbox (139.81328pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+\OT1/cmr/m/sl/12 CHAPTER 6.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
  SYSTEM CONTAINERS \OT1/cmr/m/n/12 62
  []
 
@@ -2095,7 +2097,7 @@ Overfull \hbox (2.59227pt too wide) in paragraph at lines 103--103
 
 )
 Overfull \hbox (139.81328pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+\OT1/cmr/m/sl/12 CHAPTER 6.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
  SYSTEM CONTAINERS \OT1/cmr/m/n/12 63
  []
 
@@ -2103,31 +2105,25 @@ Overfull \hbox (139.81328pt too wide) has occurred while \output is active
 
 
 ]
-Chapter 6.
-[65
+Chapter 7.
+(./Conclusion/Conclusion.tex) [65
 
 
 ] (./Main.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
  [66
 
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
  (./Main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 369.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 371.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
+Package rerunfilecheck Info: File `Main.out' has not changed.
+(rerunfilecheck)             Checksum: 9872B115D125E61C25D6D5B037CFF608;4579.
 
-
-Package rerunfilecheck Warning: File `Main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Main.out':
-(rerunfilecheck)             Before: DE4766070FC29AEB277A94D5998359B9;3965
-(rerunfilecheck)             After:  DC1B38EB57826422B9663013BF8C9255;4158.
 
 LaTeX Warning: There were undefined references.
 
@@ -2140,10 +2136,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 19974 strings out of 493027
- 364410 string characters out of 6134069
+ 19989 strings out of 493027
+ 364611 string characters out of 6134069
  826999 words of memory out of 5000000
- 23009 multiletter control sequences out of 15000+600000
+ 23019 multiletter control sequences out of 15000+600000
  17280 words of font info for 66 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  42i,15n,46p,10384b,13917s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2163,10 +2159,10 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Main.pdf (69 pages, 3490211 bytes).
+Output written on Main.pdf (69 pages, 3490099 bytes).
 PDF statistics:
- 1711 PDF objects out of 1728 (max. 8388607)
- 1283 compressed objects within 13 object streams
- 234 named destinations out of 1000 (max. 500000)
- 495 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1754 PDF objects out of 2073 (max. 8388607)
+ 1325 compressed objects within 14 object streams
+ 235 named destinations out of 1000 (max. 500000)
+ 575 words of extra memory for PDF output out of 10000 (max. 10000000)
 
