@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  25 AUG 2016 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  29 AUG 2016 12:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -638,77 +638,308 @@ Package hyperref Info: Option `pdfmenubar' set `true' on input line 169.
 Package hyperref Info: Option `pdffitwindow' set `false' on input line 169.
 Package hyperref Info: Option `pdfnewwindow' set `true' on input line 169.
 Package hyperref Info: Option `colorlinks' set `true' on input line 169.
-(./Main.aux)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen177
+\extrarowheight=\dimen178
+\NC@list=\toks27
+\extratabsurround=\skip94
+\backup@length=\skip95
+)
+\everycr=\toks28
+\minrowclearance=\skip96
+)
+LaTeX Info: Redefining \color on input line 702.
+\rownum=\count170
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2016/03/01 v2.6q A comprehensive (SI) units package
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2016/03/28 v6468 LaTeX2e option processing using LaTeX3 keys
+)
+\l__siunitx_tmp_box=\box53
+\l__siunitx_tmp_dim=\dimen179
+\l__siunitx_tmp_int=\count171
+\l__siunitx_number_mantissa_length_int=\count172
+\l__siunitx_number_uncert_length_int=\count173
+\l__siunitx_round_int=\count174
+\l__siunitx_process_decimal_int=\count175
+\l__siunitx_process_uncertainty_int=\count176
+\l__siunitx_process_fixed_int=\count177
+\l__siunitx_process_integer_min_int=\count178
+\l__siunitx_process_precision_int=\count179
+\l__siunitx_group_min_int=\count180
+\l__siunitx_angle_marker_box=\box54
+\l__siunitx_angle_unit_box=\box55
+\l__siunitx_angle_marker_dim=\dimen180
+\l__siunitx_angle_unit_dim=\dimen181
+\l__siunitx_unit_int=\count181
+\l__siunitx_unit_denominator_int=\count182
+\l__siunitx_unit_numerator_int=\count183
+\l__siunitx_unit_prefix_int=\count184
+\l__siunitx_unit_prefix_base_int=\count185
+\l__siunitx_unit_prefix_gram_int=\count186
+\l__siunitx_number_product_int=\count187
+\c__siunitx_one_fill_skip=\skip97
+\l__siunitx_table_unit_align_skip=\skip98
+\l__siunitx_table_exponent_dim=\dimen182
+\l__siunitx_table_integer_dim=\dimen183
+\l__siunitx_table_mantissa_dim=\dimen184
+\l__siunitx_table_marker_dim=\dimen185
+\l__siunitx_table_result_dim=\dimen186
+\l__siunitx_table_uncert_dim=\dimen187
+\l__siunitx_table_fill_pre_dim=\dimen188
+\l__siunitx_table_fill_post_dim=\dimen189
+\l__siunitx_table_fill_mid_dim=\dimen190
+\l__siunitx_table_pre_box=\box56
+\l__siunitx_table_post_box=\box57
+\l__siunitx_table_mantissa_box=\box58
+\l__siunitx_table_result_box=\box59
+\l__siunitx_table_number_align_skip=\skip99
+\l__siunitx_table_text_align_skip=\skip100
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareBinaryPrefix with sig. 'mmm' on line 7218.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIPostPower with sig. 'mm' on line 7221.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIPrefix with sig. 'mmm' on line 7224.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIPrePower with sig. 'mm' on line 7227.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIQualifier with sig. 'mm' on line 7230.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIUnit with sig. 'O{}mm' on line 7233.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIUnitWithOptions with sig. 'mmm' on line 7236.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \ang with sig. 'o>{\SplitArgument {2}{;}}m' on line 7251.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \num with sig. 'om' on line 7260.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \numlist with sig. 'o>{\SplitList {;}}m' on line 7269.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \numrange with sig. 'omm' on line 7278.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \SIlist with sig. 'o>{\SplitList {;}}mm' on line 7290.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \SIrange with sig. 'ommm' on line 7302.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \SI with sig. 'omom' on line 7314.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \sisetup with sig. 'm' on line 7317.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \tablenum with sig. 'om' on line 7332.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \si with sig. 'om' on line 7344.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_num:w with sig. 'om' on line 7391.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_numrange:w with sig. 'omm' on line
+. 7393.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_SI:w with sig. 'omom' on line 7395.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_SIlist:w with sig. 'omm' on line 7397.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_SIrange:w with sig. 'ommm' on line
+. 7399.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_si:w with sig. 'om' on line 7400.
+.................................................
+\g__file_internal_ior=\read1
+(/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/translator-lang
+uage-mappings.tex))) (./Main.aux
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+)
 \openout1 = `Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 224.
-LaTeX Font Info:    ... okay on input line 224.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 224.
-LaTeX Font Info:    ... okay on input line 224.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 224.
-LaTeX Font Info:    ... okay on input line 224.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 224.
-LaTeX Font Info:    ... okay on input line 224.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 224.
-LaTeX Font Info:    ... okay on input line 224.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 224.
-LaTeX Font Info:    ... okay on input line 224.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 224.
-LaTeX Font Info:    ... okay on input line 224.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 284.
+LaTeX Font Info:    ... okay on input line 284.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 284.
+LaTeX Font Info:    ... okay on input line 284.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 284.
+LaTeX Font Info:    ... okay on input line 284.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 284.
+LaTeX Font Info:    ... okay on input line 284.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 284.
+LaTeX Font Info:    ... okay on input line 284.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 284.
+LaTeX Font Info:    ... okay on input line 284.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 284.
+LaTeX Font Info:    ... okay on input line 284.
  (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count170
-\scratchdimen=\dimen177
-\scratchbox=\box53
-\nofMPsegments=\count171
-\nofMParguments=\count172
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count173
-\MPscratchDim=\dimen178
-\MPnumerator=\count174
-\makeMPintoPDFobject=\count175
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count188
+\scratchdimen=\dimen191
+\scratchbox=\box60
+\nofMPsegments=\count189
+\nofMParguments=\count190
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count191
+\MPscratchDim=\dimen192
+\MPnumerator=\count192
+\makeMPintoPDFobject=\count193
+\everyMPtoPDFconversion=\toks30
 )
-\c@lstlisting=\count176
-\AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring ON on input line 224.
+\c@lstlisting=\count194
+\AtBeginShipoutBox=\box61
+Package hyperref Info: Link coloring ON on input line 284.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count177
+\c@section@level=\count195
 )
-LaTeX Info: Redefining \ref on input line 224.
-LaTeX Info: Redefining \pageref on input line 224.
-LaTeX Info: Redefining \nameref on input line 224.
+LaTeX Info: Redefining \ref on input line 284.
+LaTeX Info: Redefining \pageref on input line 284.
+LaTeX Info: Redefining \nameref on input line 284.
 
 (./Main.out) (./Main.out)
 \@outlinefile=\write3
 \openout3 = `Main.out'.
 
- (./Main.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-basic-dictionary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+File: siunitx-abbreviations.cfg 2016/03/01 v2.6q siunitx: Abbreviated units
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/siunitx/siunitx-binary.cfg
+File: siunitx-binary.cfg 2016/03/01 v2.6q siunitx: Binary units
+)
+\c__siunitx_mathsf_int=\count196
+LaTeX Font Info:    Try loading font information for U+msa on input line 284.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 284.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+\c__siunitx_mathtt_int=\count197
+ (./Main.toc
+[1
 
 
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2])
 \tf@toc=\write4
 \openout4 = `Main.toc'.
 
- [2]
-(./Introduction/Introduction.texpdfTeX warning (ext4): destination with the sam
-e identifier (name{page.1}) has been already used, duplicate ignored
+ [3] (./Introduction/Introduction.texpdfTeX warning (ext4): destination with th
+e same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.18 
@@ -737,7 +968,12 @@ been already used, duplicate ignored
                    \relax 
 l.168 \textbf
              {Tuning code generators/compilers:} The current innovations in ...
-[2] [3]
+[2]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) h
+as been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.194 ...ding to the non-functional requirements.}
+                                                   [3]
 Overfull \hbox (10.82721pt too wide) in paragraph at lines 194--197
 []\OT1/cmr/bx/n/12 Contribution: au-to-matic com-piler auto-tuning ac-cord-ing 
 to the non-functional
@@ -771,7 +1007,7 @@ Missing character: There is no ™ in font cmr12!
 
 
 ] [8]
-<Background/fig/GDM.pdf, id=247, 320.19624pt x 150.5625pt>
+<Background/fig/GDM.pdf, id=332, 320.19624pt x 150.5625pt>
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
@@ -781,231 +1017,325 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
  [9 <./Background/fig/GDM.pdf>]
-<Background/fig/background_overview2.pdf, id=273, 471.7625pt x 273.02pt>
+<Background/fig/background_overview2.pdf, id=358, 471.7625pt x 273.02pt>
 File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
 Package pdftex.def Info: Background/fig/background_overview2.pdf used on input 
 line 77.
 (pdftex.def)             Requested size: 306.64198pt x 177.46089pt.
- [10 <./Background/fig/background_overview2.pdf>] [11]
-<Background/fig/software-diversity.pdf, id=379, 590.205pt x 354.32375pt>
+ [10 <./Background/fig/background_overview2.pdf>]
+<Background/fig/software-diversity.pdf, id=459, 590.205pt x 354.32375pt>
 File: Background/fig/software-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/software-diversity.pdf>
 Package pdftex.def Info: Background/fig/software-diversity.pdf used on input li
-ne 104.
+ne 102.
 (pdftex.def)             Requested size: 383.6287pt x 230.3077pt.
+ [11]
 
-<Background/fig/hardware-diversity.pdf, id=380, 559.08875pt x 366.36874pt>
+LaTeX Warning: Citation `almagor2004finding' on page 12 undefined on input line
+ 107.
+
+
+LaTeX Warning: Citation `pan2006fast' on page 12 undefined on input line 107.
+
+[12 <./Background/fig/software-diversity.pdf>]
+<Background/fig/hardware-diversity.pdf, id=528, 559.08875pt x 366.36874pt>
 File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/hardware-diversity.pdf>
 Package pdftex.def Info: Background/fig/hardware-diversity.pdf used on input li
-ne 112.
+ne 113.
 (pdftex.def)             Requested size: 363.40337pt x 238.13686pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (15.20248pt too wide) in paragraph at lines 115--115
-[]\OT1/cmr/bx/n/17.28 Compilers and Code gen-er-a-tors non-functional test-
- []
-
-) [12 <./Background/fig/software-diversity.pdf>] [13 <./Background/fig/hardware
--diversity.pdf>] [14]
+ [13 <./Background/fig/hardware-diversity.pdf>]) [14]
 Chapter 2.
-(./SOTA/SOTA.tex) [15
+(./SOTA/SOTA.tex
+
+LaTeX Warning: Citation `almagor2004finding' on page 15 undefined on input line
+ 6.
 
 
-] [16
+LaTeX Warning: Citation `hoste2008cole' on page 15 undefined on input line 6.
+
+
+LaTeX Warning: Citation `pan2006fast' on page 15 undefined on input line 6.
+
+
+LaTeX Warning: Citation `pallister2015identifying' on page 15 undefined on inpu
+t line 6.
+
+
+LaTeX Warning: Citation `chen2012deconstructing' on page 15 undefined on input 
+line 6.
+
+
+LaTeX Warning: Citation `martins2014exploration' on page 15 undefined on input 
+line 6.
+
+
+LaTeX Warning: Citation `lin2008automatic' on page 15 undefined on input line 6
+.
+
+
+LaTeX Warning: Citation `martinez2014multi' on page 15 undefined on input line 
+6.
+
+
+LaTeX Warning: Citation `lehman2008exploiting' on page 15 undefined on input li
+ne 11.
+
+
+LaTeX Warning: Citation `risi2010evolving' on page 15 undefined on input line 1
+1.
+
+
+LaTeX Warning: Citation `krvcah2012solving' on page 15 undefined on input line 
+11.
+
+
+LaTeX Warning: Citation `boussaa2015novelty' on page 15 undefined on input line
+ 12.
+
+[15
+
+
+]
+
+LaTeX Warning: Citation `hoste2008cole' on page 16 undefined on input line 15.
+
+
+LaTeX Warning: Citation `martinez2014multi' on page 16 undefined on input line 
+15.
+
+
+LaTeX Warning: Citation `lokuciejewski2010multi' on page 16 undefined on input 
+line 15.
+
+
+LaTeX Warning: Citation `hoste2008cole' on page 16 undefined on input line 15.
+
+
+LaTeX Warning: Citation `stepasyuk2015evaluating' on page 16 undefined on input
+ line 27.
+
+
+LaTeX Warning: Citation `richard2013efficient' on page 16 undefined on input li
+ne 27.
+
+
+LaTeX Warning: Citation `vstrekelj2015performance' on page 16 undefined on inpu
+t line 27.
+
+
+LaTeX Warning: Citation `pazirandeh2015evaluation' on page 16 undefined on inpu
+t line 29.
+
+
+LaTeX Warning: Citation `hartmann2011cross' on page 16 undefined on input line 
+29.
+
+
+LaTeX Warning: Citation `li2015rest' on page 16 undefined on input line 31.
+
+
+LaTeX Warning: Citation `sun2016roar' on page 16 undefined on input line 31.
+
+
+LaTeX Warning: Citation `stuermer2007systematic' on page 16 undefined on input 
+line 33.
+
+
+LaTeX Warning: Citation `jorges2014back' on page 16 undefined on input line 37.
+
+
+[16]) [17] [18
 
 
 ]
 Chapter 3.
 (./chapitre3/chapitre3.tex
 
-LaTeX Warning: Citation `chen2016empirical' on page 17 undefined on input line 
+LaTeX Warning: Citation `chen2016empirical' on page 19 undefined on input line 
 45.
 
 
-LaTeX Warning: Citation `hoste2008cole' on page 17 undefined on input line 45.
+LaTeX Warning: Citation `hoste2008cole' on page 19 undefined on input line 45.
 
 
-LaTeX Warning: Citation `le2014compiler' on page 17 undefined on input line 45.
+LaTeX Warning: Citation `le2014compiler' on page 19 undefined on input line 45.
 
 
 
-LaTeX Warning: Citation `almagor2004finding' on page 17 undefined on input line
+LaTeX Warning: Citation `almagor2004finding' on page 19 undefined on input line
  47.
 
 
-LaTeX Warning: Citation `pan2006fast' on page 17 undefined on input line 47.
+LaTeX Warning: Citation `pan2006fast' on page 19 undefined on input line 47.
 
-[17
+[19
 
 
 ]
 
-LaTeX Warning: Citation `molyneaux2009art' on page 18 undefined on input line 5
+LaTeX Warning: Citation `molyneaux2009art' on page 20 undefined on input line 5
 0.
 
 
-LaTeX Warning: Citation `ballal2015compiler' on page 18 undefined on input line
+LaTeX Warning: Citation `ballal2015compiler' on page 20 undefined on input line
  58.
 
 
-LaTeX Warning: Citation `chen2012deconstructing' on page 18 undefined on input 
+LaTeX Warning: Citation `chen2012deconstructing' on page 20 undefined on input 
 line 58.
 
 
-LaTeX Warning: Citation `demertzi2011analyzing' on page 18 undefined on input l
+LaTeX Warning: Citation `demertzi2011analyzing' on page 20 undefined on input l
 ine 58.
 
 
-LaTeX Warning: Citation `nagiub2013automatic' on page 18 undefined on input lin
+LaTeX Warning: Citation `nagiub2013automatic' on page 20 undefined on input lin
 e 58.
 
-[18]
+[20]
 
-LaTeX Warning: Citation `lehman2008exploiting' on page 19 undefined on input li
+LaTeX Warning: Citation `lehman2008exploiting' on page 21 undefined on input li
 ne 75.
 
 
-LaTeX Warning: Citation `almagor2004finding' on page 19 undefined on input line
+LaTeX Warning: Citation `almagor2004finding' on page 21 undefined on input line
  108.
 
 
-LaTeX Warning: Citation `chen2012deconstructing' on page 19 undefined on input 
+LaTeX Warning: Citation `chen2012deconstructing' on page 21 undefined on input 
 line 108.
 
 
-LaTeX Warning: Citation `hoste2008cole' on page 19 undefined on input line 111.
+LaTeX Warning: Citation `hoste2008cole' on page 21 undefined on input line 111.
 
 
 
-LaTeX Warning: Citation `chen2010evaluating' on page 19 undefined on input line
+LaTeX Warning: Citation `chen2010evaluating' on page 21 undefined on input line
  111.
 
 
-LaTeX Warning: Citation `escobar2015evaluation' on page 19 undefined on input l
+LaTeX Warning: Citation `escobar2015evaluation' on page 21 undefined on input l
 ine 111.
 
 
-LaTeX Warning: Citation `almagor2004finding' on page 19 undefined on input line
+LaTeX Warning: Citation `almagor2004finding' on page 21 undefined on input line
  113.
 
-[19]
+[21]
 
-LaTeX Warning: Citation `hoste2008cole' on page 20 undefined on input line 117.
+LaTeX Warning: Citation `hoste2008cole' on page 22 undefined on input line 117.
 
 
 
-LaTeX Warning: Citation `martins2014exploration' on page 20 undefined on input 
+LaTeX Warning: Citation `martins2014exploration' on page 22 undefined on input 
 line 117.
 
 
-LaTeX Warning: Citation `yang2011finding' on page 20 undefined on input line 12
+LaTeX Warning: Citation `yang2011finding' on page 22 undefined on input line 12
 2.
 
-<chapitre3/fig/autotuning.pdf, id=532, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=628, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
 Package pdftex.def Info: chapitre3/fig/autotuning.pdf used on input line 129.
 (pdftex.def)             Requested size: 414.6463pt x 132.04805pt.
- [20 <./chapitre3/fig/autotuning.pdf>]
+ [22 <./chapitre3/fig/autotuning.pdf>]
 
-LaTeX Warning: Citation `mboussaa' on page 21 undefined on input line 148.
+LaTeX Warning: Citation `mboussaa' on page 23 undefined on input line 148.
 
 
-LaTeX Warning: Citation `lehman2008exploiting' on page 21 undefined on input li
+LaTeX Warning: Citation `lehman2008exploiting' on page 23 undefined on input li
 ne 264.
 
 
-LaTeX Warning: Citation `chen2012deconstructing' on page 21 undefined on input 
+LaTeX Warning: Citation `chen2012deconstructing' on page 23 undefined on input 
 line 268.
 
 
-LaTeX Warning: Citation `banzhaf1996effect' on page 21 undefined on input line 
+LaTeX Warning: Citation `banzhaf1996effect' on page 23 undefined on input line 
 272.
 
-[21]
+[23]
 
-LaTeX Warning: Citation `cooper2002adaptive' on page 22 undefined on input line
+LaTeX Warning: Citation `cooper2002adaptive' on page 24 undefined on input line
  278.
 
-[22]
+[24]
 Overfull \hbox (17.62482pt too wide) detected at line 324
 [][] 
  []
 
-<chapitre3/fig/individual.png, id=613, 991.705pt x 153.57375pt>
+<chapitre3/fig/individual.png, id=709, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
 Package pdftex.def Info: chapitre3/fig/individual.png used on input line 335.
 (pdftex.def)             Requested size: 460.72124pt x 71.34543pt.
- [23] [24 <./chapitre3/fig/individual.png>]
+ [25] [26 <./chapitre3/fig/individual.png>]
 
-LaTeX Warning: Citation `lokuciejewski2010multi' on page 25 undefined on input 
+LaTeX Warning: Citation `lokuciejewski2010multi' on page 27 undefined on input 
 line 360.
 
 
-LaTeX Warning: Citation `deb2002fast' on page 25 undefined on input line 360.
+LaTeX Warning: Citation `deb2002fast' on page 27 undefined on input line 360.
 
-[25]
+[27]
 
-LaTeX Warning: Citation `yang2011finding' on page 26 undefined on input line 39
+LaTeX Warning: Citation `yang2011finding' on page 28 undefined on input line 39
 1.
 
 
-LaTeX Warning: Citation `chen2016empirical' on page 26 undefined on input line 
+LaTeX Warning: Citation `chen2016empirical' on page 28 undefined on input line 
 392.
 
 
-LaTeX Warning: Citation `le2014compiler' on page 26 undefined on input line 392
+LaTeX Warning: Citation `le2014compiler' on page 28 undefined on input line 392
 .
 
 
-LaTeX Warning: Citation `nagai2013scaling' on page 26 undefined on input line 3
+LaTeX Warning: Citation `nagai2013scaling' on page 28 undefined on input line 3
 92.
 
 
-LaTeX Warning: Citation `mboussaa' on page 26 undefined on input line 394.
+LaTeX Warning: Citation `mboussaa' on page 28 undefined on input line 394.
 
 
-LaTeX Warning: Citation `cooper2002adaptive' on page 26 undefined on input line
+LaTeX Warning: Citation `cooper2002adaptive' on page 28 undefined on input line
  430.
 
 
-LaTeX Warning: Citation `deb2002fast' on page 26 undefined on input line 430.
+LaTeX Warning: Citation `deb2002fast' on page 28 undefined on input line 430.
 
-[26]
+[28]
 
-LaTeX Warning: Citation `inden2013examination' on page 27 undefined on input li
+LaTeX Warning: Citation `inden2013examination' on page 29 undefined on input li
 ne 439.
 
-[27] <chapitre3/fig/infraup.pdf, id=678, 469.755pt x 312.16624pt>
+[29] <chapitre3/fig/infraup.pdf, id=775, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
 Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 476.
 (pdftex.def)             Requested size: 368.57838pt x 244.93196pt.
- [28]
-<chapitre3/fig/sensitivity.pdf, id=686, 494.84875pt x 121.45375pt>
+ [30]
+<chapitre3/fig/sensitivity.pdf, id=783, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
 Package pdftex.def Info: chapitre3/fig/sensitivity.pdf used on input line 494.
 (pdftex.def)             Requested size: 460.72124pt x 113.07681pt.
- [29 <./chapitre3/fig/infraup.pdf>] [30 <./chapitre3/fig/sensitivity.pdf>]
+ [31 <./chapitre3/fig/infraup.pdf>] [32 <./chapitre3/fig/sensitivity.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 546--551
 
  []
 
-<chapitre3/fig/box.pdf, id=818, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=914, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1015,16 +1345,16 @@ Package pdftex.def Info: chapitre3/fig/box.pdf used on input line 562.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31]
+[33]
 Underfull \hbox (badness 10000) in paragraph at lines 570--574
 
  []
 
-[32 <./chapitre3/fig/box.pdf>]
+[34 <./chapitre3/fig/box.pdf>]
 
-LaTeX Warning: Citation `deb2002fast' on page 33 undefined on input line 609.
+LaTeX Warning: Citation `deb2002fast' on page 35 undefined on input line 609.
 
-<chapitre3/fig/rq3.pdf, id=843, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=940, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1039,71 +1369,770 @@ Overfull \hbox (16.59723pt too wide) in paragraph at lines 609--616
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33] [34 <./chapitre3/fig/rq3.pdf>]
-<chapitre3/fig/pareto.pdf, id=902, 756.8275pt x 488.82625pt>
+[35] [36 <./chapitre3/fig/rq3.pdf>]
+<chapitre3/fig/pareto.pdf, id=998, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
 Package pdftex.def Info: chapitre3/fig/pareto.pdf used on input line 636.
 (pdftex.def)             Requested size: 414.6463pt x 267.81847pt.
- [35 <./chapitre3/fig/pareto.pdf>]
+ [37 <./chapitre3/fig/pareto.pdf>]
 
-LaTeX Warning: Citation `chen2016empirical' on page 36 undefined on input line 
+LaTeX Warning: Citation `chen2016empirical' on page 38 undefined on input line 
 663.
 
 
-LaTeX Warning: Citation `yang2011finding' on page 36 undefined on input line 66
+LaTeX Warning: Citation `yang2011finding' on page 38 undefined on input line 66
 3.
 
-[36]
+[38]
 
-LaTeX Warning: Citation `hoste2008cole' on page 37 undefined on input line 665.
+LaTeX Warning: Citation `hoste2008cole' on page 39 undefined on input line 665.
 
 
 
-LaTeX Warning: Citation `martinez2014multi' on page 37 undefined on input line 
+LaTeX Warning: Citation `martinez2014multi' on page 39 undefined on input line 
 665.
 
-[37]
+[39]
 
-LaTeX Warning: Citation `stuermer2007systematic' on page 38 undefined on input 
+LaTeX Warning: Citation `stuermer2007systematic' on page 40 undefined on input 
 line 702.
 
-) [38]
+) [40]
 Chapter 4.
-(./chapitre4/chapitre4.tex) [39
+(./chapitre4/chapitre4.tex
+
+LaTeX Warning: Citation `brambilla2012model' on page 41 undefined on input line
+ 12.
+
+[41
 
 
 ]
+
+LaTeX Warning: Citation `france2007model' on page 42 undefined on input line 21
+.
+
+
+LaTeX Warning: Citation `guana2015developers' on page 42 undefined on input lin
+e 21.
+
+
+LaTeX Warning: Citation `guana2014chaintracker' on page 42 undefined on input l
+ine 25.
+
+
+LaTeX Warning: Citation `delgado2004taxonomy' on page 42 undefined on input lin
+e 25.
+
+
+LaTeX Warning: Citation `pan2006fast' on page 42 undefined on input line 25.
+
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 42
+ []
+
+[42]
+
+LaTeX Warning: Citation `dasnois2011haxe' on page 43 undefined on input line 59
+.
+
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 43
+ []
+
+[43]
+
+LaTeX Warning: Citation `fleurey2011mde' on page 44 undefined on input line 61.
+
+
+
+LaTeX Warning: Citation `rastogi2015safe' on page 44 undefined on input line 64
+.
+
+
+LaTeX Warning: Citation `jorges2014back' on page 44 undefined on input line 72.
+
+
+
+LaTeX Warning: Citation `stuermer2007systematic' on page 44 undefined on input 
+line 72.
+
+
+LaTeX Warning: Citation `sturmer2005overview' on page 44 undefined on input lin
+e 72.
+
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 44
+ []
+
+[44]
+
+LaTeX Warning: Citation `demertzi2011analyzing' on page 45 undefined on input l
+ine 78.
+
+
+LaTeX Warning: Citation `hundt2011loop' on page 45 undefined on input line 80.
+
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 45
+ []
+
+[45] <chapitre4/fig/background.pdf, id=1069, 930.47626pt x 303.1325pt>
+File: chapitre4/fig/background.pdf Graphic file (type pdf)
+
+<use chapitre4/fig/background.pdf>
+Package pdftex.def Info: chapitre4/fig/background.pdf used on input line 112.
+(pdftex.def)             Requested size: 437.68376pt x 142.58792pt.
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 46
+ []
+
+[46]
+
+LaTeX Warning: Citation `guana2014chaintracker' on page 47 undefined on input l
+ine 124.
+
+
+LaTeX Warning: Citation `delgado2004taxonomy' on page 47 undefined on input lin
+e 124.
+
+
+LaTeX Warning: Citation `pan2006fast' on page 47 undefined on input line 124.
+
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 47
+ []
+
+[47 <./chapitre4/fig/background.pdf>]
+
+LaTeX Warning: Citation `soltesz2007container' on page 48 undefined on input li
+ne 138.
+
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 48
+ []
+
+[48]
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 49
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+[]|\OT1/cmr/m/n/12 Color con-ver-sion
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 186--186
+[]|\OT1/cmr/m/n/12 Generation of ran-dom
+ []
+
+<chapitre4/fig/settingup.pdf, id=1184, 482.80376pt x 337.26pt>
+File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
+
+<use chapitre4/fig/settingup.pdf>
+Package pdftex.def Info: chapitre4/fig/settingup.pdf used on input line 206.
+(pdftex.def)             Requested size: 460.72124pt x 321.84639pt.
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 50
+ []
+
+[50]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 268.
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 336
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (13.74985pt too wide) detected at line 336
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 336
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 336
+ \OT1/cmr/m/n/12 x
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+Overfull \hbox (5.87494pt too wide) detected at line 357
+ 
+ []
+
+
+Overfull \hbox (6.20132pt too wide) detected at line 357
+ \OT1/cmr/m/n/12 x
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 51
+ []
+
+[51 <./chapitre4/fig/settingup.pdf>]
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 52
+ []
+
+[52]
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 53
+ []
+
+[53]
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 54
+ []
+
+[54])
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 55
+ []
+
+[55]
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 56
+ []
+
+[56]
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 57
+ []
+
+[57]
+Overfull \hbox (75.77623pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTING OF CODE GENERATOR
+S FAMILIES \OT1/cmr/m/n/12 58
+ []
+
+[58]
 Chapter 5.
-(./chapitre5/chapitre5.tex) [40
+(./chapitre5/chapitre5.tex
+<chapitre5/fig/background2.pdf, id=1410, 1017.8025pt x 377.41pt>
+File: chapitre5/fig/background2.pdf Graphic file (type pdf)
+
+<use chapitre5/fig/background2.pdf>
+Package pdftex.def Info: chapitre5/fig/background2.pdf used on input line 8.
+(pdftex.def)             Requested size: 437.68376pt x 162.29465pt.
 
 
-] [41
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Citation `merkel2014docker' on page 59 undefined on input line 2
+5.
+
+[59
+
+
+]
+
+LaTeX Warning: Citation `spoiala2016performance' on page 60 undefined on input 
+line 43.
+
+
+LaTeX Warning: Citation `nethercote2007valgrind' on page 60 undefined on input 
+line 43.
+
+
+Overfull \hbox (139.81328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+ SYSTEM CONTAINERS \OT1/cmr/m/n/12 60
+ []
+
+[60 <./chapitre5/fig/background2.pdf>]
+Overfull \hbox (139.81328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+ SYSTEM CONTAINERS \OT1/cmr/m/n/12 61
+ []
+
+[61]
+Overfull \hbox (28.84546pt too wide) in paragraph at lines 68--69
+\OT1/cmr/m/n/12 am-ple, the fol-low-ing query re-ports the max-i-mum mem-ory us
+-age of con-tainer $"\OML/cmm/m/it/12 generated[]code[]v\OT1/cmr/m/n/12 1"$
+ []
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+Overfull \hbox (139.81328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+ SYSTEM CONTAINERS \OT1/cmr/m/n/12 62
+ []
+
+[62]
+Overfull \hbox (3.24504pt too wide) in paragraph at lines 103--103
+[]|\OT1/cmr/m/n/12 Network| 
+ []
+
+
+Overfull \hbox (2.59227pt too wide) in paragraph at lines 103--103
+[]|\OT1/cmr/m/n/12 Memory| 
+ []
+
+)
+Overfull \hbox (139.81328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CHAPTER 5.  AN INFRASTRUCTURE FOR RESOURCE MONITORING BASED ON
+ SYSTEM CONTAINERS \OT1/cmr/m/n/12 63
+ []
+
+[63] [64
 
 
 ]
 Chapter 6.
-[42
+[65
 
 
 ] (./Main.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 309.
- [43
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
+ [66
 
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 309.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
  (./Main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 309.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 309.
-Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: D26C9A1D8CBAE5F3DA5BAF59D564AECA;2700.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 369.
 
+
+Package rerunfilecheck Warning: File `Main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Main.out':
+(rerunfilecheck)             Before: DE4766070FC29AEB277A94D5998359B9;3965
+(rerunfilecheck)             After:  DC1B38EB57826422B9663013BF8C9255;4158.
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
 
  )
 (\end occurred inside a group at level 1)
@@ -1111,13 +2140,13 @@ LaTeX Warning: There were undefined references.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 16683 strings out of 493027
- 283278 string characters out of 6134069
- 719999 words of memory out of 5000000
- 19854 multiletter control sequences out of 15000+600000
- 14159 words of font info for 53 fonts, out of 8000000 for 9000
+ 19974 strings out of 493027
+ 364410 string characters out of 6134069
+ 826999 words of memory out of 5000000
+ 23009 multiletter control sequences out of 15000+600000
+ 17280 words of font info for 66 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,11n,43p,10384b,11066s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,15n,46p,10384b,13917s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1132,11 +2161,12 @@ b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
 r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr
 /local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Main.pdf (45 pages, 2227264 bytes).
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Main.pdf (69 pages, 3490211 bytes).
 PDF statistics:
- 1037 PDF objects out of 1200 (max. 8388607)
- 790 compressed objects within 8 object streams
- 149 named destinations out of 1000 (max. 500000)
- 352 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1711 PDF objects out of 1728 (max. 8388607)
+ 1283 compressed objects within 13 object streams
+ 234 named destinations out of 1000 (max. 500000)
+ 495 words of extra memory for PDF output out of 10000 (max. 10000000)
 

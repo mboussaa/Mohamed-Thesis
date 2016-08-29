@@ -95,9 +95,7 @@ Efficient implementations are then computed at generation time by applying domai
 \item How can the correctness of the generated code be verified?
 \end{itemize}
 \subsection{Software-platform heterogeneity}
-The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Execution platforms of the generated code are heterogeneous 
-
-
+The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
 for example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
 \begin{figure}[h]
 	\center
@@ -106,13 +104,35 @@ for example, although Android provides Java syntax, it uses its own Google libra
 \end{figure}
 \section{Compilers}
 \subsection{Complexity}
+Modern compilers implement a number of optimizations. Each optimization tries to improve the performance of certain target applications. Improvement of source code programs in terms of performance can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
+Testing non-functional properties is more challenging 
+Thus, the determination of optimal settings of compiler optimizations has been identified as a major problem because compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the underlying system architecture, the target application, and the available optimizations of the compiler.
 \subsection{Hardware-platform heterogeneity}
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/hardware-diversity.pdf}
 	\caption{Overview of the Docker-based testing architecture}
 \end{figure}
-\section{Compilers and Code generators non-functional testing}
+Generally, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as arm, intel, amd processors. 
+
+Compilers can be classified depending on the platform on which their generated code executes. This is known as the target platform.
+A native compiler is one which output is intended to directly run on the same type of processor architecture and operating system that the compiler itself runs on. In the counter part, the output of a cross compiler is designed to run on a different platform. Cross compilers are often used when developing software for embedded systems that are not intended to support a software development environment.
+
+Given the complexity of new emerging processors architecture, rapidly evolving hardware and compiler options, it is not easy to deliver satisfactory levels of performance on modern processors.
+
+
+Some of the questions that developers have to answer when facing Hardware diversity which optimizations are applied by compiler users in order to satisfy the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
+
+
+
+
+
+
+%\section{Compilers and Code generators non-functional testing}
 \subsection{Problems that still remain}
-\subsection{Resource usage monitoring}
-Modern compilers implement a number of optimizations. Each optimization tries to improve the performance of certain target applications, although they are not always effective. The determination of optimal settings of compiler optimizations has been identified as a major problem. In fact, the effectiveness of compiler optimizations is determined by
+\begin{itemize}
+	\item Resource usage monitoring of generated code: Due to the software and hardware heterogeneity, monitoring the resource usage of each execution platform is still challenging and time-consuming. 
+	\item Auto-tuning compilers:
+	\item Detecting bugs in code generators: 
+%\subsection{Resource usage monitoring}
+\end{itemize}

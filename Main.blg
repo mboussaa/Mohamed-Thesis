@@ -3,11 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
+Warning--I didn't find a database entry for "almagor2004finding"
+Warning--I didn't find a database entry for "pan2006fast"
 Warning--I didn't find a database entry for "chen2016empirical"
 Warning--I didn't find a database entry for "hoste2008cole"
 Warning--I didn't find a database entry for "le2014compiler"
-Warning--I didn't find a database entry for "almagor2004finding"
-Warning--I didn't find a database entry for "pan2006fast"
 Warning--I didn't find a database entry for "molyneaux2009art"
 Warning--I didn't find a database entry for "ballal2015compiler"
 Warning--I didn't find a database entry for "chen2012deconstructing"
@@ -27,9 +27,24 @@ Warning--I didn't find a database entry for "nagai2013scaling"
 Warning--I didn't find a database entry for "inden2013examination"
 Warning--I didn't find a database entry for "martinez2014multi"
 Warning--I didn't find a database entry for "stuermer2007systematic"
+Warning--I didn't find a database entry for "brambilla2012model"
+Warning--I didn't find a database entry for "france2007model"
+Warning--I didn't find a database entry for "guana2015developers"
+Warning--I didn't find a database entry for "guana2014chaintracker"
+Warning--I didn't find a database entry for "delgado2004taxonomy"
+Warning--I didn't find a database entry for "dasnois2011haxe"
+Warning--I didn't find a database entry for "fleurey2011mde"
+Warning--I didn't find a database entry for "rastogi2015safe"
+Warning--I didn't find a database entry for "jorges2014back"
+Warning--I didn't find a database entry for "sturmer2005overview"
+Warning--I didn't find a database entry for "hundt2011loop"
+Warning--I didn't find a database entry for "soltesz2007container"
+Warning--I didn't find a database entry for "merkel2014docker"
+Warning--I didn't find a database entry for "spoiala2016performance"
+Warning--I didn't find a database entry for "nethercote2007valgrind"
 You've used 3 entries,
             2118 wiz_defined-function locations,
-            542 strings with 4950 characters,
+            557 strings with 5212 characters,
 and the built_in function-call counts, 1201 in all, are:
 = -- 126
 > -- 38
@@ -68,4 +83,4 @@ warning$ -- 0
 while$ -- 12
 width$ -- 4
 write$ -- 37
-(There were 24 warnings)
+(There were 39 warnings)
