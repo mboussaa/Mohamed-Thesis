@@ -1,86 +1,93 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
-The style file: plain.bst
+The style file: alpha.bst
 Database file #1: uw-ethesis.bib
 Warning--I didn't find a database entry for "almagor2004finding"
-Warning--I didn't find a database entry for "pan2006fast"
-Warning--I didn't find a database entry for "chen2016empirical"
 Warning--I didn't find a database entry for "hoste2008cole"
+Warning--I didn't find a database entry for "pallister2015identifying"
+Warning--I didn't find a database entry for "chen2012deconstructing"
+Warning--I didn't find a database entry for "martins2014exploration"
+Warning--I didn't find a database entry for "lin2008automatic"
+Warning--I didn't find a database entry for "martinez2014multi"
+Warning--I didn't find a database entry for "lehman2008exploiting"
+Warning--I didn't find a database entry for "risi2010evolving"
+Warning--I didn't find a database entry for "krvcah2012solving"
+Warning--I didn't find a database entry for "boussaa2015novelty"
+Warning--I didn't find a database entry for "lokuciejewski2010multi"
+Warning--I didn't find a database entry for "stepasyuk2015evaluating"
+Warning--I didn't find a database entry for "richard2013efficient"
+Warning--I didn't find a database entry for "vstrekelj2015performance"
+Warning--I didn't find a database entry for "pazirandeh2015evaluation"
+Warning--I didn't find a database entry for "hartmann2011cross"
+Warning--I didn't find a database entry for "li2015rest"
+Warning--I didn't find a database entry for "sun2016roar"
+Warning--I didn't find a database entry for "jorges2014back"
+Warning--I didn't find a database entry for "chen2016empirical"
 Warning--I didn't find a database entry for "le2014compiler"
 Warning--I didn't find a database entry for "molyneaux2009art"
 Warning--I didn't find a database entry for "ballal2015compiler"
-Warning--I didn't find a database entry for "chen2012deconstructing"
 Warning--I didn't find a database entry for "demertzi2011analyzing"
 Warning--I didn't find a database entry for "nagiub2013automatic"
-Warning--I didn't find a database entry for "lehman2008exploiting"
 Warning--I didn't find a database entry for "chen2010evaluating"
 Warning--I didn't find a database entry for "escobar2015evaluation"
-Warning--I didn't find a database entry for "martins2014exploration"
-Warning--I didn't find a database entry for "yang2011finding"
 Warning--I didn't find a database entry for "mboussaa"
 Warning--I didn't find a database entry for "banzhaf1996effect"
 Warning--I didn't find a database entry for "cooper2002adaptive"
-Warning--I didn't find a database entry for "lokuciejewski2010multi"
 Warning--I didn't find a database entry for "deb2002fast"
 Warning--I didn't find a database entry for "nagai2013scaling"
 Warning--I didn't find a database entry for "inden2013examination"
-Warning--I didn't find a database entry for "martinez2014multi"
-Warning--I didn't find a database entry for "stuermer2007systematic"
 Warning--I didn't find a database entry for "brambilla2012model"
-Warning--I didn't find a database entry for "france2007model"
-Warning--I didn't find a database entry for "guana2015developers"
-Warning--I didn't find a database entry for "guana2014chaintracker"
-Warning--I didn't find a database entry for "delgado2004taxonomy"
 Warning--I didn't find a database entry for "dasnois2011haxe"
 Warning--I didn't find a database entry for "fleurey2011mde"
 Warning--I didn't find a database entry for "rastogi2015safe"
-Warning--I didn't find a database entry for "jorges2014back"
 Warning--I didn't find a database entry for "sturmer2005overview"
 Warning--I didn't find a database entry for "hundt2011loop"
 Warning--I didn't find a database entry for "soltesz2007container"
 Warning--I didn't find a database entry for "merkel2014docker"
 Warning--I didn't find a database entry for "spoiala2016performance"
 Warning--I didn't find a database entry for "nethercote2007valgrind"
-You've used 3 entries,
-            2118 wiz_defined-function locations,
-            557 strings with 5212 characters,
-and the built_in function-call counts, 1201 in all, are:
-= -- 126
-> -- 38
-< -- 2
-+ -- 15
-- -- 12
-* -- 66
-:= -- 183
-add.period$ -- 11
-call.type$ -- 3
-change.case$ -- 14
-chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 59
-empty$ -- 105
-format.name$ -- 12
-if$ -- 275
-int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 4
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 24
+Warning--there's a number but no volume in fertalj2008source
+Warning--can't use both volume and number fields in yang2011finding
+You've used 13 entries,
+            2543 wiz_defined-function locations,
+            688 strings with 7437 characters,
+and the built_in function-call counts, 6172 in all, are:
+= -- 649
+> -- 261
+< -- 11
++ -- 91
+- -- 88
+* -- 415
+:= -- 951
+add.period$ -- 45
+call.type$ -- 13
+change.case$ -- 81
+chr.to.int$ -- 12
+cite$ -- 15
+duplicate$ -- 269
+empty$ -- 464
+format.name$ -- 103
+if$ -- 1333
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 14
+newline$ -- 68
+num.names$ -- 39
+pop$ -- 87
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 95
 quote$ -- 0
-skip$ -- 43
+skip$ -- 234
 stack$ -- 0
-substring$ -- 79
-swap$ -- 22
-text.length$ -- 2
-text.prefix$ -- 0
+substring$ -- 375
+swap$ -- 83
+text.length$ -- 11
+text.prefix$ -- 2
 top$ -- 0
-type$ -- 10
-warning$ -- 0
-while$ -- 12
-width$ -- 4
-write$ -- 37
-(There were 39 warnings)
+type$ -- 100
+warning$ -- 2
+while$ -- 66
+width$ -- 14
+write$ -- 178
+(There were 46 warnings)

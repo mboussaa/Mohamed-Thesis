@@ -34,7 +34,7 @@
 % pdflatex mythesis	-- first pass of the pdflatex processor
 % bibtex mythesis	-- generates bibliography from .bib data file(s) 
 % pdflatex mythesis	-- fixes cross-references, bibliographic references, etc
-% pdflatex mythesis	-- fixes cross-references, bibliographic references, etc
+% pdflatex mythesis	-- fixes cross-references, bibliographic redeferences, etc
 
 % If you use the recommended LaTeX editor, Texmaker, you would open the mythesis.tex
 % file, then click the pdflatex button. Then run BibTeX (under the Tools menu).
@@ -124,7 +124,13 @@
 % million places throughout your thesis!
 \newcommand{\package}[1]{\textbf{#1}} % package names in bold text
 \newcommand{\cmmd}[1]{\textbackslash\texttt{#1}} % command name in tt font 
-\newcommand{\href}[1]{#1} % does nothing, but defines the command so the
+\newcommand{\href}[1]{#1} 
+\newcommand{\ie}{\emph{i.e.}\xspace}
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\cf}{\emph{cf.}}
+\newcommand{\etal}{\emph{et al.}\xspace}
+
+% does nothing, but defines the command so the
     % print-optimized version will ignore \href tags (redefined by hyperref pkg).
 %\newcommand{\texorpdfstring}[2]{#1} % does nothing, but defines the command
 % Anything defined here may be redefined by packages added below...
@@ -274,17 +280,18 @@
 \renewcommand{\textfraction}{.2}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps} 
 
-
+\usepackage{amsthm}
+\newtheorem*{mydef}{Definition}
 
 \renewcommand{\floatpagefraction}{.9}
 \renewcommand{\textfraction}{.1}
 \renewcommand{\topfraction}{.8}
 \renewcommand{\bottomfraction}{.8}
+\newcommand*{\tabref}[1]{\tablename~\ref{#1}}
+\newcommand*{\figref}[1]{\figurename~\ref{#1}}
 
 \begin{document}
-\newcommand{\etal}{et al.}
-\newcommand{\eg}[0]{e.\,g.}
-\newcommand{\ie}[0]{i.\,e.}
+
 % For a large document, it is a good idea to divide your thesis
 % into several files, each one containing one chapter.
 % To illustrate this idea, the "front pages" (i.e., title page,
@@ -347,7 +354,7 @@
 % -----------------------
 
 % The following statement selects the style to use for references.  It controls the sort order of the entries in the bibliography and also the formatting for the in-text labels.
-\bibliographystyle{plain}
+\bibliographystyle{alpha}
 % This specifies the location of the file containing the bibliographic information.  
 % It assumes you're using BibTeX (if not, why not?).
 \cleardoublepage % This is needed if the book class is used, to place the anchor in the correct page,
@@ -359,6 +366,7 @@
 
 % Add the References to the Table of Contents
 \addcontentsline{toc}{chapter}{\textbf{References}}
+
 
 \bibliography{uw-ethesis}
 % Tip 5: You can create multiple .bib files to organize your references. 

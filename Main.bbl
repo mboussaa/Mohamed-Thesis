@@ -1,20 +1,79 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{YCER11}
 
-\bibitem{betz2011improving}
+\bibitem[BCG11]{betz2011improving}
 Tobias Betz, Lawrence Cabac, and Matthias G{\"u}ttler.
 \newblock Improving the development tool chain in the context of petri
   net-based software development.
 \newblock In {\em PNSE}, pages 167--178. Citeseer, 2011.
 
-\bibitem{czarnecki2005overview}
+\bibitem[CE00a]{czarnecki2000generative}
+Krzysztof Czarnecki and Ulrich~W Eisenecker.
+\newblock Generative programming.
+\newblock {\em Edited by G. Goos, J. Hartmanis, and J. van Leeuwen}, page~15,
+  2000.
+
+\bibitem[CE00b]{Czarnecki:2000:GPM:345203}
+Krzysztof Czarnecki and Ulrich~W. Eisenecker.
+\newblock {\em Generative Programming: Methods, Tools, and Applications}.
+\newblock ACM Press/Addison-Wesley Publishing Co., New York, NY, USA, 2000.
+
+\bibitem[Cza05]{czarnecki2005overview}
 Krzysztof Czarnecki.
 \newblock Overview of generative software development.
 \newblock In {\em Unconventional Programming Paradigms}, pages 326--341.
   Springer, 2005.
 
-\bibitem{Czarnecki:2000:GPM:345203}
-Krzysztof Czarnecki and Ulrich~W. Eisenecker.
-\newblock {\em Generative Programming: Methods, Tools, and Applications}.
-\newblock ACM Press/Addison-Wesley Publishing Co., New York, NY, USA, 2000.
+\bibitem[DGR04]{delgado2004taxonomy}
+Nelly Delgado, Ann~Q Gates, and Steve Roach.
+\newblock A taxonomy and catalog of runtime software-fault monitoring tools.
+\newblock {\em IEEE Transactions on software Engineering}, 30(12):859--872,
+  2004.
+
+\bibitem[FB08]{fertalj2008source}
+Kresimir Fertalj and Mario Brcic.
+\newblock A source code generator based on uml specification.
+\newblock {\em International journal of computers and communications},
+  (1):10--19, 2008.
+
+\bibitem[FR07]{france2007model}
+Robert France and Bernhard Rumpe.
+\newblock Model-driven development of complex software: A research roadmap.
+\newblock In {\em 2007 Future of Software Engineering}, pages 37--54. IEEE
+  Computer Society, 2007.
+
+\bibitem[GS14]{guana2014chaintracker}
+Victor Guana and Eleni Stroulia.
+\newblock Chaintracker, a model-transformation trace analysis tool for
+  code-generation environments.
+\newblock In {\em ICMT}, pages 146--153. Springer, 2014.
+
+\bibitem[GS15]{guana2015developers}
+Victor Guana and Eleni Stroulia.
+\newblock How do developers solve software-engineering tasks on model-based
+  code generators? an empirical study design.
+\newblock In {\em First International Workshop on Human Factors in Modeling
+  (HuFaMo 2015). CEUR-WS}, pages 33--38, 2015.
+
+\bibitem[McK98]{mckeeman1998differential}
+William~M McKeeman.
+\newblock Differential testing for software.
+\newblock {\em Digital Technical Journal}, 10(1):100--107, 1998.
+
+\bibitem[PE06]{pan2006fast}
+Zhelong Pan and Rudolf Eigenmann.
+\newblock Fast and effective orchestration of compiler optimizations for
+  automatic performance tuning.
+\newblock In {\em International Symposium on Code Generation and Optimization
+  (CGO'06)}, pages 12--pp. IEEE, 2006.
+
+\bibitem[SCDP07]{stuermer2007systematic}
+Ingo Stuermer, Mirko Conrad, Heiko Doerr, and Peter Pepper.
+\newblock Systematic testing of model-based code generators.
+\newblock {\em IEEE Transactions on Software Engineering}, 33(9):622, 2007.
+
+\bibitem[YCER11]{yang2011finding}
+Xuejun Yang, Yang Chen, Eric Eide, and John Regehr.
+\newblock Finding and understanding bugs in c compilers.
+\newblock In {\em ACM SIGPLAN Notices}, volume~46, pages 283--294. ACM, 2011.
 
 \end{thebibliography}

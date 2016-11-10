@@ -1,11 +1,12 @@
  
-In this chapter, we discuss different domains and concepts applied in our proposal, including compilers, code generators, optimizations and non-functional requirements.
+In this chapter, we discuss different domains and concepts applied in our proposal, including testing compilers and code generators, optimizations and non-functional requirements.
 The objective of this chapter is to give a brief introduction to these concerns, used throughout the thesis. This introduction aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
 
 The chapter is structured as follows:
 \section{From classical software development to generative programming}
+\label{sec:FROM} 
 %context
-The history of software development shows a continuous increase of complexity in several aspects of the software development process\cite{betz2011improving}. 
+The history of software development shows a continuous increase of complexity in several aspects of the software development process~\cite{betz2011improving}. 
 %Diversity
 In fact, modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of platforms and devices that provide a wide diversity of capabilities and services. These heterogeneous services may run in different environments ranging from cloud servers with virtually unlimited resources down to resource-constraint devices with only a few KB of RAM. Effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important and developing software. 
 %problem
@@ -14,12 +15,17 @@ Hence, more generic tools, methods and techniques are applied in order to keep t
 %GP
 As a consequence, generative programming (GP) techniques are increasingly applied to automatically generate and reuse software artifacts.
 %GP definition
-Generative programming \textit{is a software engineering paradigm based on modeling software families such that, given a particular requirements specification, a highly customized and optimized intermediate or end-product can be automatically manufactured on demand from elementary, reusable implementation components by means of configuration knowledge}\cite{Czarnecki:2000:GPM:345203}. 
+\begin{mydef}[\textbf{Generative programming}]
+		Generative programming is a software engineering paradigm based on modeling software families such that, given a particular requirements specification, a highly customized and optimized intermediate or end-product can be automatically manufactured on demand from elementary, reusable implementation components by means of configuration knowledge~\cite{Czarnecki:2000:GPM:345203}.
+\end{mydef}
+
+
+
 This paradigm offers the promise of moving from "one-of-a-kind" software systems to the semi-automated manufacture of wide diversity of software.
 
 %figure
-Generative software engineering consists on using higher-level programming techniques such as meta-programming, modeling, DSL, etc in order to automatically generate efficient code for the the target software platform. 
-In principle a software development process can be seen as a mapping between a problem space and a solution space\cite{czarnecki2005overview} (see Figure 2.1). 
+Generative software engineering consists on using higher-level programming techniques such as meta-programming, modeling, DSL, etc in order to automatically generate efficient code for the target software platform. 
+In principle a software development process can be seen as a mapping between a problem space and a solution space~\cite{czarnecki2005overview} (see Figure 2.1). 
 
 %problem space
 \textbf{The problem space} is a set of domain-specific abstractions that can be used by application engineers to express their needs and specify the desired system behavior. This space is generally defined  as DSLs or high-level models. 
@@ -50,21 +56,24 @@ Some commonly benefits of such software developing architecture are:
 \textbf{Among the main contributions of this thesis is to verify the correct mapping between the problem space and solution space. In other words, we would evaluate the impact of applied configurations during code transformation on the resource usage requirements.
 }
 
-In the following section, we present a general overview of the abstract software development tool chain and the main actors that are involved.
+In the following section, we present a general overview of the complete software development tool chain and the main actors that are involved from design time to runtime.
 
-\section{Software development tool chain overview}
+\section{An overview of the software development tool chain}
 The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and actors involved to transform high-level specification into executable programs and that from design time to runtime. 
-Figure 2.2 review the different steps of this chain. We distinguish four main tasks: 
+Figure 2.2 reviews the different steps of this chain. We distinguish four main tasks: 
 \begin{itemize}
-\item \textit{Software design:} As part of the generative programming process, the first step consists on representing the system abstraction. Thus, software designers define, at design time, software’s behavior using domain models or Domain-Specific Models (DSMs). A DSM is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain.
+\item \textit{Software design:} 
+
+As part of the generative programming process, the first step consists on representing the system abstraction. Thus, software designers define, at design time, software’s behavior using domain models or Domain-Specific Models (DSMs). A DSM is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain. Furthermore, software design can be provided as GUIs, GPLs, Models, etc.
 
 \item \textit{Code generation:} Software developers use model-driven techniques in order to generate automatically code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. 
+The code generation process start by taking the previously defined specification to translate a model to an implementation in a target language.
+In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
 
-TOFINISH
 \item \textit{Software development:}
-TODO
+Software development may be divided into two main parts. On the one hand, software developers generate code from a set of models to automatically produce code to a specific target software platforms. On the other hand, they may manually implement source code from scratch without using abstractions. This task really depends on the complexity of the generated code and need software experts that can easily update and maintain the code. 
 \item \textit{Compilation:}
-TODO
+Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code should run on different machines/devices the software developer need to use different compilers and deploy the generated executables within different machines which is a tedious and complicated task.
 \end{itemize} 
 .
 %\begin{figure}[h]
@@ -130,6 +139,7 @@ Some of the questions that developers have to answer when facing Hardware divers
 
 %\section{Compilers and Code generators non-functional testing}
 \section{Problems that still remain}
+
 \begin{itemize}
 	\item Resource usage monitoring of generated code: Due to the software and hardware heterogeneity, monitoring the resource usage of each execution platform is still challenging and time-consuming. 
 	\item Auto-tuning compilers:
