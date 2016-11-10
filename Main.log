@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  10 NOV 2016 13:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  10 NOV 2016 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2087,9 +2087,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
  (./Main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
-Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: B046D62636A4AE20E258EBC27BE248EE;4959.
 
+
+Package rerunfilecheck Warning: File `Main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Main.out':
+(rerunfilecheck)             Before: B046D62636A4AE20E258EBC27BE248EE;4959
+(rerunfilecheck)             After:  056193A5C55BB7DC609344686EA021DA;4943.
 
 LaTeX Warning: There were undefined references.
 
@@ -2125,7 +2131,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Main.pdf (75 pages, 3942294 bytes).
+Output written on Main.pdf (75 pages, 3942277 bytes).
 PDF statistics:
  1900 PDF objects out of 2073 (max. 8388607)
  1449 compressed objects within 15 object streams
