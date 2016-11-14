@@ -58,6 +58,11 @@ In the following section, we present a general overview of the complete software
 
 \section{An overview of the software development tool chain}
 \subsection{Automatic code generation}
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
+	\caption{Overview of the Docker-based testing architecture}
+\end{figure}
 The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and actors involved to transform high-level specification into executable programs and that from design time to runtime. 
 Figure 2.2 reviews the different steps of this chain. We distinguish four main tasks: 
 \begin{itemize}
@@ -89,11 +94,7 @@ Once code is generated or implemented, a classical compiler is used to translate
 %	\includegraphics[scale=0.65]{Background/fig/background_overview.pdf}
 %	\caption{Overview of the Docker-based testing architecture}
 %\end{figure}
-\begin{figure}[h]
-\center
-	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
-	\caption{Overview of the Docker-based testing architecture}
-\end{figure}
+
 \subsection{Code generation workflow}
 
 
@@ -146,6 +147,13 @@ for example, although Android provides Java syntax, it uses its own Google libra
 	\caption{Overview of the Docker-based testing architecture}
 \end{figure}
 \section{Compilers}
+The compilation is a process that translates a program in one language (the source
+language) into an equivalent program in another language (target language). 
+%Same as code generators, 
+Commonly, the source language is a high-level programming language (i.e. a problem-oriented language), and the target language is a machine language or assembly language.
+The key feature of compilers is to bridge source programs written in high-level languages with the underlying hardware architecture.
+%\subsection{Types of code generators}
+
 \subsection{Complexity}
 Modern compilers implement a number of optimizations. Each optimization tries to improve the performance of certain target applications. Improvement of source code programs in terms of performance can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
 Testing non-functional properties is more challenging 
@@ -156,8 +164,8 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 	\includegraphics[scale=0.65]{Background/fig/hardware-diversity.pdf}
 	\caption{Overview of the Docker-based testing architecture}
 \end{figure}
-Generally, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as arm, intel, amd processors. 
 
+Generally, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as arm, intel, amd processors. 
 Compilers can be classified depending on the platform on which their generated code executes. This is known as the target platform.
 A native compiler is one which output is intended to directly run on the same type of processor architecture and operating system that the compiler itself runs on. In the counter part, the output of a cross compiler is designed to run on a different platform. Cross compilers are often used when developing software for embedded systems that are not intended to support a software development environment.
 
