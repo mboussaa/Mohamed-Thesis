@@ -60,7 +60,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Complexity}{17}{subsection.2.5.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Hardware-platform heterogeneity}{18}{subsection.2.5.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Overview of the Docker-based testing architecture}}{18}{figure.2.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Challenges}{19}{section.2.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Testing challenges}{19}{section.2.6}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}State of the art}{20}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -109,65 +109,65 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Compiler Optimizations}{29}{subsection.4.2.1}}
 \citation{hoste2008cole,martins2014exploration}
 \citation{yang2011finding}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Process of compiler optimization exploration}}{30}{figure.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Process of compiler optimization exploration}}{31}{figure.4.2}}
 \citation{mboussaa}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Process of compiler optimization exploration}}{30}{figure.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Example: GCC Compiler}{30}{subsection.4.2.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Process of compiler optimization exploration}}{31}{figure.4.2}}
 \citation{lehman2008exploiting}
 \citation{chen2012deconstructing}
 \citation{banzhaf1996effect}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Example: GCC Compiler}{32}{subsection.4.2.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Evolutionary Exploration of Compiler Optimizations }{32}{section.4.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Novelty Search Adaptation}{32}{subsection.4.3.1}}
 \citation{cooper2002adaptive}
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Novelty search algorithm for compiler optimization exploration}}{34}{algocf.1}}
 \newlabel{algo:search}{{1}{34}{Novelty Search Adaptation}{algocf.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Optimization Sequence Representation}{35}{section*.5}}
+\@writefile{toc}{\contentsline {subsubsection}{Optimization Sequence Representation}{34}{section*.5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Solution representation}}{35}{figure.4.3}}
 \@writefile{toc}{\contentsline {subsubsection}{Novelty Metric}{35}{section*.6}}
 \citation{lokuciejewski2010multi,deb2002fast}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Novelty Search For Multi-objective Optimization}{36}{subsection.4.3.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.4}Evaluation}{36}{section.4.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Research Questions}{36}{subsection.4.4.1}}
 \citation{yang2011finding}
 \citation{chen2016empirical,le2014compiler,nagai2013scaling}
 \citation{mboussaa}
 \citation{cooper2002adaptive}
 \citation{deb2002fast}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Research Questions}{37}{subsection.4.4.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Experimental Setup}{37}{subsection.4.4.2}}
 \@writefile{toc}{\contentsline {subsubsection}{Programs Used in the Empirical Study}{37}{section*.7}}
+\@writefile{toc}{\contentsline {subsubsection}{Parameters Tuning}{37}{section*.8}}
 \citation{inden2013examination}
-\@writefile{toc}{\contentsline {subsubsection}{Parameters Tuning}{38}{section*.8}}
+\@writefile{toc}{\contentsline {subsubsection}{Evaluation Metrics Used}{38}{section*.9}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Algorithm parameters}}{39}{table.4.1}}
-\@writefile{toc}{\contentsline {subsubsection}{Evaluation Metrics Used}{39}{section*.9}}
 \@writefile{toc}{\contentsline {subsubsection}{Setting up Infrastructure}{39}{section*.10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces NOTICE experimental infrastructure}}{40}{figure.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Experimental Methodology and Results}{40}{subsection.4.4.3}}
-\@writefile{toc}{\contentsline {subsubsection}{RQ1. Mono-objective SBSE Validation}{40}{section*.11}}
-\@writefile{toc}{\contentsline {paragraph}{Method}{40}{section*.12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{41}{figure.4.5}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Results of mono-objective optimizations}}{41}{table.4.2}}
-\newlabel{my-label}{{4.2}{41}{Results of mono-objective optimizations}{table.4.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Results}{41}{table.4.2}}
-\@writefile{toc}{\contentsline {subsubsection}{RQ2. Sensitivity}{42}{section*.14}}
-\@writefile{toc}{\contentsline {paragraph}{Method}{42}{section*.15}}
-\@writefile{toc}{\contentsline {paragraph}{Results}{42}{section*.16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{43}{figure.4.6}}
-\@writefile{toc}{\contentsline {subsubsection}{RQ3. Impact of optimizations on resource usage}{43}{section*.17}}
-\@writefile{toc}{\contentsline {paragraph}{Method}{43}{section*.18}}
+\@writefile{toc}{\contentsline {subsubsection}{Tool Support}{40}{section*.11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Snapshot of NOTICE GUI interface}}{41}{figure.4.5}}
+\newlabel{fig:tool_support}{{4.5}{41}{Snapshot of NOTICE GUI interface}{figure.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Experimental Methodology and Results}{42}{subsection.4.4.3}}
+\@writefile{toc}{\contentsline {subsubsection}{RQ1. Mono-objective SBSE Validation}{42}{section*.12}}
+\@writefile{toc}{\contentsline {paragraph}{Method}{42}{section*.13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{42}{figure.4.6}}
+\@writefile{toc}{\contentsline {paragraph}{Results}{42}{table.4.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Results of mono-objective optimizations}}{43}{table.4.2}}
+\newlabel{my-label}{{4.2}{43}{Results of mono-objective optimizations}{table.4.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{RQ2. Sensitivity}{43}{section*.15}}
+\@writefile{toc}{\contentsline {paragraph}{Method}{43}{section*.16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{44}{figure.4.7}}
+\@writefile{toc}{\contentsline {paragraph}{Results}{44}{section*.17}}
 \citation{deb2002fast}
-\@writefile{toc}{\contentsline {paragraph}{Results}{44}{section*.19}}
-\@writefile{toc}{\contentsline {subsubsection}{RQ4. Trade-offs between non-functional properties}{44}{section*.20}}
-\@writefile{toc}{\contentsline {paragraph}{Method}{44}{section*.21}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{45}{figure.4.7}}
-\@writefile{toc}{\contentsline {paragraph}{Results}{45}{section*.22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{46}{figure.4.8}}
+\@writefile{toc}{\contentsline {subsubsection}{RQ3. Impact of optimizations on resource usage}{45}{section*.18}}
+\@writefile{toc}{\contentsline {paragraph}{Method}{45}{section*.19}}
+\@writefile{toc}{\contentsline {paragraph}{Results}{45}{section*.20}}
+\@writefile{toc}{\contentsline {subsubsection}{RQ4. Trade-offs between non-functional properties}{46}{section*.21}}
+\@writefile{toc}{\contentsline {paragraph}{Method}{46}{section*.22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{46}{figure.4.8}}
+\@writefile{toc}{\contentsline {paragraph}{Results}{47}{section*.23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{48}{figure.4.9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Discussions}{48}{subsection.4.4.4}}
 \citation{chen2016empirical,yang2011finding}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Discussions}{47}{subsection.4.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Threats to Validity}{47}{subsection.4.4.5}}
 \citation{hoste2008cole,martinez2014multi}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.6}Tool Support}{48}{subsection.4.4.6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Snapshot of NOTICE GUI interface}}{49}{figure.4.9}}
-\newlabel{fig:tool_support}{{4.9}{49}{Snapshot of NOTICE GUI interface}{figure.4.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Threats to Validity}{49}{subsection.4.4.5}}
 \citation{stuermer2007systematic}
 \@writefile{toc}{\contentsline {section}{\numberline {4.5}Conclusion and Future Work}{50}{section.4.5}}
 \citation{brambilla2012model}
@@ -186,9 +186,9 @@
 \citation{rastogi2015safe}
 \citation{jorges2014back,stuermer2007systematic}
 \citation{sturmer2005overview}
-\@writefile{toc}{\contentsline {paragraph}{a. Haxe.}{54}{section*.23}}
-\@writefile{toc}{\contentsline {paragraph}{b. ThingML.}{54}{section*.24}}
-\@writefile{toc}{\contentsline {paragraph}{c. TypeScript.}{54}{section*.25}}
+\@writefile{toc}{\contentsline {paragraph}{a. Haxe.}{54}{section*.24}}
+\@writefile{toc}{\contentsline {paragraph}{b. ThingML.}{54}{section*.25}}
+\@writefile{toc}{\contentsline {paragraph}{c. TypeScript.}{54}{section*.26}}
 \citation{demertzi2011analyzing}
 \citation{hundt2011loop}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Functional Correctness of a Code Generator Family}{55}{subsection.5.2.2}}
@@ -202,16 +202,16 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}An Infrastructure for Non-functional Testing Using System Containers}{58}{subsection.5.3.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.4}Evaluation}{58}{section.5.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Experimental Setup}{59}{subsection.5.4.1}}
-\@writefile{toc}{\contentsline {subsubsection}{Code Generators Under Test: Haxe compilers}{59}{section*.26}}
-\@writefile{toc}{\contentsline {subsubsection}{Cross-platform Benchmark}{59}{section*.27}}
+\@writefile{toc}{\contentsline {subsubsection}{Code Generators Under Test: Haxe compilers}{59}{section*.27}}
+\@writefile{toc}{\contentsline {subsubsection}{Cross-platform Benchmark}{59}{section*.28}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Description of selected benchmark libraries}}{60}{table.5.1}}
 \newlabel{my-label}{{5.1}{60}{Description of selected benchmark libraries}{table.5.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Evaluation Metrics Used}{60}{section*.28}}
-\@writefile{toc}{\contentsline {subsubsection}{Setting up Infrastructure}{61}{section*.29}}
+\@writefile{toc}{\contentsline {subsubsection}{Evaluation Metrics Used}{60}{section*.29}}
+\@writefile{toc}{\contentsline {subsubsection}{Setting up Infrastructure}{61}{section*.30}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Infrastructure settings for running experiments}}{61}{figure.5.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Experimental Results}{62}{subsection.5.4.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Evaluation using the standard deviation}{62}{section*.30}}
-\@writefile{toc}{\contentsline {subsubsection}{Analysis}{64}{section*.31}}
+\@writefile{toc}{\contentsline {subsubsection}{Evaluation using the standard deviation}{62}{section*.31}}
+\@writefile{toc}{\contentsline {subsubsection}{Analysis}{64}{section*.32}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Threats to Validity}{65}{subsection.5.4.3}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces The comparison results of running each test suite across five target languages: the metric used is the standard deviation between execution times }}{66}{table.5.2}}
 \newlabel{my-label}{{5.2}{66}{The comparison results of running each test suite across five target languages: the metric used is the standard deviation between execution times}{table.5.2}{}}
@@ -252,7 +252,7 @@
 \bibcite{banzhaf1996effect}{BFN96}
 \bibcite{bragancca2008transformation}{BM08}
 \bibcite{ballal2015compiler}{BSH15}
-\@writefile{toc}{\contentsline {chapter}{\textbf  {References}}{77}{section*.32}}
+\@writefile{toc}{\contentsline {chapter}{\textbf  {References}}{77}{section*.33}}
 \bibcite{czarnecki2000generative}{CE00a}
 \bibcite{Czarnecki:2000:GPM:345203}{CE00b}
 \bibcite{chen2012deconstructing}{CFH{$^{+}$}12}

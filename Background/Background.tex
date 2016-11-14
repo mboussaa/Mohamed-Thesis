@@ -170,11 +170,11 @@ Some of the questions that developers have to answer when facing Hardware divers
 
 
 %\section{Compilers and Code generators non-functional testing}
-\section{Challenges}
+\section{Testing challenges}
 
 \begin{itemize}
+	\item Auto-tuning compilers: Choosing which optimization the user should apply? Evaluate the efficiency of generated code? All these questions make the activity of testing compilers very challenging.
+	\item Detecting bugs in code generators: How to automatically detect issues wthin code generators? Proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test?
 	\item Resource usage monitoring of generated code: Due to the software and hardware heterogeneity, monitoring the resource usage of each execution platform is still challenging and time-consuming. 
-	\item Auto-tuning compilers:
-	\item Detecting bugs in code generators: 
 %\subsection{Resource usage monitoring}
 \end{itemize}

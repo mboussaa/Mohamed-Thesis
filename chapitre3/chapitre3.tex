@@ -68,15 +68,15 @@ Therefore, it is important to construct optimization levels that represent multi
 
 
 
-In this paper, we propose NOTICE (as NOn-functional TestIng of CompilErs), a component-based framework for non-functional testing of compilers through the monitoring of generated code in a controlled sand-boxing environment. Our approach is based on micro-services to automate the deployment and monitoring of different variants of optimized code. NOTICE is an on-demand tool that employs mono and multi-objective evolutionary search algorithms to construct optimization sequences that satisfy user key objectives (execution time, code size, compilation time, CPU or memory usage, etc.).
-In this paper, we make the following contributions:
+In this chapter, we propose NOTICE (as NOn-functional TestIng of CompilErs), a component-based framework for non-functional testing of compilers through the monitoring of generated code in a controlled sand-boxing environment. Our approach is based on micro-services to automate the deployment and monitoring of different variants of optimized code. NOTICE is an on-demand tool that employs mono and multi-objective evolutionary search algorithms to construct optimization sequences that satisfy user key objectives (execution time, code size, compilation time, CPU or memory usage, etc.).
+In this chapter, we make the following contributions:
 \begin{itemize} 
 	
 	\item We introduce a novel formulation of the compiler optimization problem using Novelty Search~\cite{lehman2008exploiting}. We evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler.
 	Our experimental results show that NOTICE is able to auto-tune compilers according to user choices (heuristics, objectives, programs, etc.) and construct optimizations that yield to better performance results than standard optimization levels.
 	% and, to the best of our knowledge, this is the first paper in the literature to %use Novelty Search to evaluate optimization sequences.
 	
-	\item We propose a micro-service infrastructure to ensure the deployment and monitoring of different variants of optimized code. In this paper, we focus more on the relationship between runtime execution of optimized code and resource consumption profiles (CPU and memory usage) by providing a fine-grained understanding and analysis of compilers behavior regarding optimizations.
+ 
 	
 	\item We also demonstrate that NOTICE can be used to automatically construct optimization levels that represent optimal trade-offs between multiple non-functional properties, such as execution time, memory usage, CPU consumption, etc.
 \end{itemize}
@@ -88,7 +88,7 @@ In this paper, we make the following contributions:
 
 
 
-The paper is organized as follows. Section II describes the motivation behind this work. A search-based technique for compiler optimization exploration is presented in Section III. We present in Section IV our infrastructure for non-functional testing using micro-services. The evaluation and results of our experiments are discussed in Section V. Finally, related work, concluding remarks, and future work are provided in Sections VI and VII\@.
+This chapter is organized as follows. Section II describes the motivation behind this work. A search-based technique for compiler optimization exploration is presented in Section III. We present in Section IV our infrastructure for non-functional testing using micro-services. The evaluation and results of our experiments are discussed in Section V. Finally, related work, concluding remarks, and future work are provided in Sections VI and VII\@.
 
 
 %The difference between classical compilers like GCC, LLVM and code generators is that code generators are used only by few people comparing to famous compilers like GCC. Moreover, code generators face a high rate of changes and update versions due to new development needs. Hence, it becomes necessary to check the quality of produced code. This will help software maintainers to verify the correct functioning of code generators.  Among the most important properties to check, we distinguish the non functional properties.
@@ -485,6 +485,32 @@ Then, we generate a new optimized code and deploy the output binary within a new
 
 To obtain comparable and reproducible results, we use the same hardware across all experiments: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory.
 
+\subsubsection{Tool Support}		
+NOTICE is also a GUI framework. It provides different features for non-functional testing of compilers.
+
+For instance, compiler users can:
+\begin{itemize} 
+	
+	
+	\item define input program under test: generate Csmith program or use Cbench benchmark programs
+	\item define datasets: select dataset for selected program
+	\item select target system architecture: choose processor architecture such as x64, x86, ARM. This is part of our future work since we are running experiments only on a x64 architecture. We are preparing a QEMU docker image to handle platforms heterogeneity.
+	\item define compiler versions: GCC compiler version from 3.x to 5.x
+	\item configure monitoring components: versions, labels, ports, logins, passwords
+	\item choose ip address of cloud host machine where experiments will be running
+	\item define resource constraints to running container: in case we would run optimizations under resource constraints.
+	\item choose search method: mono or multi-objective search
+	\item choose meta-heuristic algorithm: GA, RS, NS, NSGA-II
+	\item choose the number of iterations: number of evaluations
+	\item choose optimization goal: the goal can be execution time, memory, cpu, code size or compilation time optimizations. For multi objective search, users can choose trade-offs between these objectives.
+\end{itemize} 
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{chapitre3/fig/tool_support}
+	\caption{Snapshot of NOTICE GUI interface}
+	\label{fig:tool_support}
+\end{figure}
+The execution result of this tool will be the best optimization sequences corresponding to user requirements.
 
 \subsection{Experimental Methodology and Results}
 In the following paragraphs, we report the methodology and results of our experiments.
@@ -690,39 +716,14 @@ These results agree to the idea that compiler optimizations do not put too much 
 		\fi
 		
 		
-\subsection{Tool Support}		
-NOTICE is also a GUI framework. It provides different features for non-functional testing of compilers.
 
-For instance, compiler users can:
-\begin{itemize} 
-	
-
-\item define input program under test: generate Csmith program or use Cbench benchmark programs
-\item define datasets: select dataset for selected program
-\item select target system architecture: choose processor architecture such as x64, x86, ARM. This is part of our future work since we are running experiments only on a x64 architecture. We are preparing a QEMU docker image to handle platforms heterogeneity.
-\item define compiler versions: GCC compiler version from 3.x to 5.x
-\item configure monitoring components: versions, labels, ports, logins, passwords
-\item choose ip address of cloud host machine where experiments will be running
-\item define resource constraints to running container: in case we would run optimizations under resource constraints.
-\item choose search method: mono or multi-objective search
-\item choose meta-heuristic algorithm: GA, RS, NS, NSGA-II
-\item choose the number of iterations: number of evaluations
-\item choose optimization goal: the goal can be execution time, memory, cpu, code size or compilation time optimizations. For multi objective search, users can choose trade-offs between these objectives.
-\end{itemize} 
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{chapitre3/fig/tool_support}
-	\caption{Snapshot of NOTICE GUI interface}
-	\label{fig:tool_support}
-\end{figure}
-The execution result of this tool will be the best optimization sequences corresponding to user requirements.
 		
 \section{Conclusion and Future Work}
 %We present an automated approach for automatic extraction of non-functional properties of generated code.
 Modern compilers come with huge number of optimizations, making complicated for compiler users to find best optimization sequences. Furthermore, auto-tuning compilers to meet user requirements is a difficult task since optimizations may depend on different properties (e.g., platform architecture, software programs, target compiler, optimization objective, etc.).
 Hence, compiler users merely use standard optimization levels (O1, O2, O3 and Ofast) to enhance the code quality without taking too much care about the impact of optimizations on system resources.
 
-In this paper, we have introduced first a novel formulation of the compiler optimization problem based on Novelty Search. The idea of this approach is to drive the search for best optimizations toward novelty. Our work presents the first attempt to introduce diversity in iterative compilation. Experiments have shown that Novelty Search can be easily applied to mono and multi-objective search problems. In addition, we have reported the results of an empirical study of our approach compared to different state-of-the-art approaches, and the obtained results have provided evidence to support the claim that Novelty Search is able to generate effective optimizations.
+In this chapter, we have introduced first a novel formulation of the compiler optimization problem based on Novelty Search. The idea of this approach is to drive the search for best optimizations toward novelty. Our work presents the first attempt to introduce diversity in iterative compilation. Experiments have shown that Novelty Search can be easily applied to mono and multi-objective search problems. In addition, we have reported the results of an empirical study of our approach compared to different state-of-the-art approaches, and the obtained results have provided evidence to support the claim that Novelty Search is able to generate effective optimizations.
 Second, we have presented an automated tool for automatic extraction of non-functional properties of optimized code, called NOTICE. NOTICE applies different heuristics (including Novelty Search) and performs non-functional testing of compilers through the monitoring of generated code in a controlled sand-boxing environment. In fact, NOTICE uses a set of micro-services to provide a fine-grained understanding of optimization effects on resource consumption. 
 We evaluated the effectiveness of our approach by verifying the optimizations performed by GCC compiler. 
 %Then, we studied the impact of optimizations on memory consumption and execution time across two case studies. 
