@@ -3,91 +3,120 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: alpha.bst
 Database file #1: uw-ethesis.bib
-Warning--I didn't find a database entry for "almagor2004finding"
-Warning--I didn't find a database entry for "hoste2008cole"
-Warning--I didn't find a database entry for "pallister2015identifying"
-Warning--I didn't find a database entry for "chen2012deconstructing"
-Warning--I didn't find a database entry for "martins2014exploration"
-Warning--I didn't find a database entry for "lin2008automatic"
-Warning--I didn't find a database entry for "martinez2014multi"
-Warning--I didn't find a database entry for "lehman2008exploiting"
-Warning--I didn't find a database entry for "risi2010evolving"
-Warning--I didn't find a database entry for "krvcah2012solving"
-Warning--I didn't find a database entry for "boussaa2015novelty"
-Warning--I didn't find a database entry for "lokuciejewski2010multi"
-Warning--I didn't find a database entry for "stepasyuk2015evaluating"
-Warning--I didn't find a database entry for "richard2013efficient"
-Warning--I didn't find a database entry for "vstrekelj2015performance"
-Warning--I didn't find a database entry for "pazirandeh2015evaluation"
-Warning--I didn't find a database entry for "hartmann2011cross"
-Warning--I didn't find a database entry for "li2015rest"
-Warning--I didn't find a database entry for "sun2016roar"
-Warning--I didn't find a database entry for "jorges2014back"
-Warning--I didn't find a database entry for "chen2016empirical"
-Warning--I didn't find a database entry for "le2014compiler"
-Warning--I didn't find a database entry for "molyneaux2009art"
-Warning--I didn't find a database entry for "ballal2015compiler"
-Warning--I didn't find a database entry for "demertzi2011analyzing"
-Warning--I didn't find a database entry for "nagiub2013automatic"
-Warning--I didn't find a database entry for "chen2010evaluating"
-Warning--I didn't find a database entry for "escobar2015evaluation"
-Warning--I didn't find a database entry for "mboussaa"
-Warning--I didn't find a database entry for "banzhaf1996effect"
-Warning--I didn't find a database entry for "cooper2002adaptive"
-Warning--I didn't find a database entry for "deb2002fast"
-Warning--I didn't find a database entry for "nagai2013scaling"
-Warning--I didn't find a database entry for "inden2013examination"
-Warning--I didn't find a database entry for "brambilla2012model"
-Warning--I didn't find a database entry for "dasnois2011haxe"
-Warning--I didn't find a database entry for "fleurey2011mde"
-Warning--I didn't find a database entry for "rastogi2015safe"
-Warning--I didn't find a database entry for "sturmer2005overview"
-Warning--I didn't find a database entry for "hundt2011loop"
-Warning--I didn't find a database entry for "soltesz2007container"
-Warning--I didn't find a database entry for "merkel2014docker"
-Warning--I didn't find a database entry for "spoiala2016performance"
-Warning--I didn't find a database entry for "nethercote2007valgrind"
+Repeated entry---line 133 of file uw-ethesis.bib
+ : @inproceedings{france2007model
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 142 of file uw-ethesis.bib
+ : @article{mckeeman1998differential
+ :                                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 152 of file uw-ethesis.bib
+ : @inproceedings{yang2011finding
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 244 of file uw-ethesis.bib
+ : @inproceedings{guana2015developers
+ :                                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 252 of file uw-ethesis.bib
+ : @inproceedings{pan2006fast
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 261 of file uw-ethesis.bib
+ : @inproceedings{guana2014chaintracker
+ :                                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 270 of file uw-ethesis.bib
+ : @article{delgado2004taxonomy
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 290 of file uw-ethesis.bib
+ : @article{stuermer2007systematic
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 488 of file uw-ethesis.bib
+ : @inproceedings{nethercote2007valgrind
+ :                                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 547 of file uw-ethesis.bib
+ : @inproceedings{yang2011finding
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 578 of file uw-ethesis.bib
+ : @article{stuermer2007systematic
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 620 of file uw-ethesis.bib
+ : @article{brambilla2012model
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 630 of file uw-ethesis.bib
+ : @inproceedings{pan2006fast
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 731 of file uw-ethesis.bib
+ : @inproceedings{demertzi2011analyzing
+ :                                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 770 of file uw-ethesis.bib
+ : @inproceedings{li2015rest
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in mboussaa
+Warning--can't use both volume and number fields in czarnecki2003classification
+Warning--can't use both volume and number fields in chen2010evaluating
 Warning--there's a number but no volume in fertalj2008source
+Warning--can't use both volume and number fields in le2014compiler
+Warning--empty journal in luotowards
+Warning--empty year in luotowards
+Warning--can't use both volume and number fields in nethercote2007valgrind
+Warning--empty journal in pazirandeh2015evaluation
+Warning--can't use both volume and number fields in richard2013efficient
+Warning--can't use both volume and number fields in rastogi2015safe
+Warning--empty journal in stepasyuk2015evaluating
+Warning--can't use both volume and number fields in soltesz2007container
+Warning--can't use both volume and number fields in sturmer2005overview
 Warning--can't use both volume and number fields in yang2011finding
-You've used 13 entries,
+You've used 70 entries,
             2543 wiz_defined-function locations,
-            688 strings with 7437 characters,
-and the built_in function-call counts, 6172 in all, are:
-= -- 649
-> -- 261
-< -- 11
-+ -- 91
-- -- 88
-* -- 415
-:= -- 951
-add.period$ -- 45
-call.type$ -- 13
-change.case$ -- 81
-chr.to.int$ -- 12
-cite$ -- 15
-duplicate$ -- 269
-empty$ -- 464
-format.name$ -- 103
-if$ -- 1333
+            939 strings with 17785 characters,
+and the built_in function-call counts, 33960 in all, are:
+= -- 3491
+> -- 1654
+< -- 59
++ -- 593
+- -- 583
+* -- 2404
+:= -- 5301
+add.period$ -- 241
+call.type$ -- 70
+change.case$ -- 484
+chr.to.int$ -- 69
+cite$ -- 86
+duplicate$ -- 1412
+empty$ -- 2447
+format.name$ -- 651
+if$ -- 7224
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 14
-newline$ -- 68
-num.names$ -- 39
-pop$ -- 87
+missing$ -- 74
+newline$ -- 352
+num.names$ -- 207
+pop$ -- 534
 preamble$ -- 1
-purify$ -- 95
+purify$ -- 559
 quote$ -- 0
-skip$ -- 234
+skip$ -- 1197
 stack$ -- 0
-substring$ -- 375
-swap$ -- 83
-text.length$ -- 11
-text.prefix$ -- 2
+substring$ -- 1868
+swap$ -- 422
+text.length$ -- 59
+text.prefix$ -- 10
 top$ -- 0
-type$ -- 100
-warning$ -- 2
-while$ -- 66
-width$ -- 14
-write$ -- 178
-(There were 46 warnings)
+type$ -- 540
+warning$ -- 15
+while$ -- 341
+width$ -- 73
+write$ -- 937
+(There were 15 error messages)

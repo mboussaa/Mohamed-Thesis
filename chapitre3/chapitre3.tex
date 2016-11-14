@@ -132,7 +132,12 @@ Thus, it becomes necessary to test the non-functional properties of optimized co
 \end{figure}
 
 \subsection{Example: GCC Compiler}
-
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{chapitre3/fig/optimizations.png}
+	\caption{Process of compiler optimization exploration}
+	
+\end{figure}
 The GNU Compiler Collection, GCC, is a very popular collection of programming compilers, available for different platforms.
 GCC exposes its various optimizations via a number of flags that can be turned on or off through command-line compiler switches. 
 % We choose GCC compiler as a motivating example in order to explain how we would study the impact of compiler optimizations using a component-based infrastructure for testing and monitoring.
@@ -149,6 +154,7 @@ This results in a huge space with $2^{76}$ possible optimization combinations. T
 %In our approach, we did not consider some optimization options that are enabled by default, since they do not affect the performance of generated binaries.
 Optimization flags in GCC can be turned off by using \textit{"fno-"}+flag instead of \textit{"f"}+flag in the beginning of each optimization. 
 We use this technique to play with compiler switches.
+
 \iffalse
 \begin{table}
 	\label{table:options}

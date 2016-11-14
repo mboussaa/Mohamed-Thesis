@@ -19,12 +19,10 @@ As a consequence, generative programming (GP) techniques are increasingly applie
 		Generative programming is a software engineering paradigm based on modeling software families such that, given a particular requirements specification, a highly customized and optimized intermediate or end-product can be automatically manufactured on demand from elementary, reusable implementation components by means of configuration knowledge~\cite{Czarnecki:2000:GPM:345203}.
 \end{mydef}
 
-
-
 This paradigm offers the promise of moving from "one-of-a-kind" software systems to the semi-automated manufacture of wide diversity of software.
 
 %figure
-Generative software engineering consists on using higher-level programming techniques such as meta-programming, modeling, DSL, etc in order to automatically generate efficient code for the target software platform. 
+Generative software engineering consists on using higher-level programming techniques such as meta-programming, modeling, DSL, etc. in order to automatically generate efficient code for the target software platform. 
 In principle a software development process can be seen as a mapping between a problem space and a solution space~\cite{czarnecki2005overview} (see Figure 2.1). 
 
 %problem space
@@ -64,16 +62,25 @@ Figure 2.2 reviews the different steps of this chain. We distinguish four main t
 \begin{itemize}
 \item \textit{Software design:} 
 
-As part of the generative programming process, the first step consists on representing the system abstraction. Thus, software designers define, at design time, software’s behavior using domain models or Domain-Specific Models (DSMs). A DSM is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain. Furthermore, software design can be provided as GUIs, GPLs, Models, etc.
+As part of the generative programming process, the first step consists on representing the system behavior. 
+Software design/behavior is the input program for the code generators. On the input side we can either use code as the input or an abstract form that represents the design. It depends on the type of the code generator and on the input source program it requires. These programs can range from a formal specification of the system behavior to abstract models that represents the business logic.
+For example, software designers define, at design time, software’s behavior using for example Domain-Specific Models (DSMs), DSLs, Models, etc.
+A DSM, as an example, is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). %Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain. Furthermore, software design can be provided as GUIs, GPLs, Models, etc.
 
-\item \textit{Code generation:} Software developers use model-driven techniques in order to generate automatically code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. 
-The code generation process start by taking the previously defined specification to translate a model to an implementation in a target language.
-In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
+\item \textit{Code generation:} 
+Code generation is the technique of building code using programs. The common feature of the generator is to produce code that the software developer would otherwise write by hand.
+There is no one style of code generation. Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. Generators can work on the command line or using a GUI. 
+Code generation can build code for one or more target language, once or multiple times. There are different varieties of code generation aspects and it highly depends on the type of the input programs described in the previous step. 
+%Code generation techniques depends generally on these inputs.  
+For example, code generator developers use model-driven techniques in order to generate automatically code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. Thus, the code generation process start by taking the previously defined specification to translate a model to an implementation in a target language. We will see in the next section the different types of code generators.
+
+
+%In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
 
 \item \textit{Software development:}
-Software development may be divided into two main parts. On the one hand, software developers generate code from a set of models to automatically produce code to a specific target software platforms. On the other hand, they may manually implement source code from scratch without using abstractions. This task really depends on the complexity of the generated code and need software experts that can easily update and maintain the code. 
+Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system behavior in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. Generated code can even be edited in some cases by the end software developers. This task really depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. On the other hand, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
 \item \textit{Compilation:}
-Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code should run on different machines/devices the software developer need to use different compilers and deploy the generated executables within different machines which is a tedious and complicated task.
+Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
 \end{itemize} 
 .
 %\begin{figure}[h]
@@ -87,10 +94,35 @@ Once code is generated or implemented, a classical compiler is used to translate
 	\caption{Overview of the Docker-based testing architecture}
 \end{figure}
 
-
+%\section{Code generation workflow}
+In this thesis, we focus on testing the automatic code generation (highlighted with red box in figure 2.2). As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would to test.
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=1]{Background/fig/workflow}
+	\caption{Code generation workflow}
+\end{figure}
 \section{Code generators}
-The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable. Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
-We distinguish two major types of code generators: rule-based model-to-model transformation languages (such as ATL) and template-based model-to-text transformation languages (such as Acceleo) to translate high-level system specifications into executable code and scripts.
+The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable.
+\section{Types of code generators}
+There are many ways to categorize generators. We can differentiate them by their complexity, by usage, or by their input/output. According to\cite{herrington2003code} there are two main categories of automatic code generation: passive or active. Passive code generators build the code only once, then it’s up to the user to update and maintain the code.  Active code generators, run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator. With the active generator you first run the generator, then compile and test the output. At this point if you find a problem in the generated code, you alter the templates or input of the generator and re-generate. Active code generators are widely used in the literature. We focus on this thesis on testing active code generators.
+There are six categories of active code generators: 
+
+\begin{itemize}
+\item Code munger: A code munger reads code as input and then builds new code as output. This new code can either be partial or complete depending on the design of the generator. This kind of generators are often used for automatically generating documentations. 
+
+\item Inline code expander: This model reads code as input and the builds new code that uses the input code as a base but has sections of the code expanded based on designs in the original code. Embedded SQL languages, like Pro*C, are examples on inline code expanders. The SQL is written in the C code and the generator builds production C code by expanding the SQL into C code which implements the commands and queries. 
+
+\item Mixed code generator: This model use code as input and then builds new code using the input code as a base, but returning the output code back into the input file. Wizards are often implemented as mixed code generators. Special comments are embedded in the code which define regions where the generator adds new code. 
+
+\item Partial class generator: A partial class generator takes an abstract definition as input and then builds output code which is meant to be extended by the user by sub-classing the output code and extending methods to complete the design. 
+
+\item Tier generator: In this model the generator builds a complete set of output code from an abstract definition. This code is meant to be used as-is without extension. This is the most common form of open source and productized generator.
+
+\item Full-domain language: Domain languages are basically new languages that are used for a specific type of problem.  Domain languages are the extreme end of automatic code generation because you basically have to write a compiler for your problem. 
+
+\end{itemize}
+%Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
+%We distinguish two major types of code generators: rule-based model-to-model transformation languages (such as ATL) and template-based model-to-text transformation languages (such as Acceleo) to translate high-level system specifications into executable code and scripts.
 \subsection{Complexity}
 The complexity of code generators remains on the transformation rules and code generation process. In fact, code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
 Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. We believe that flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle.[ref W]

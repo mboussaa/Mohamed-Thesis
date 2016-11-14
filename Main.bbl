@@ -1,10 +1,47 @@
-\begin{thebibliography}{YCER11}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{M{\'A}CZCA{\etalchar{+}}14}
+
+\bibitem[ACG{\etalchar{+}}04]{almagor2004finding}
+Lelac Almagor, Keith~D Cooper, Alexander Grosul, Timothy~J Harvey, Steven~W
+  Reeves, Devika Subramanian, Linda Torczon, and Todd Waterman.
+\newblock Finding effective compilation sequences.
+\newblock {\em ACM SIGPLAN Notices}, 39(7):231--239, 2004.
+
+\bibitem[BBSB15]{boussaa2015novelty}
+Mohamed Boussaa, Olivier Barais, Gerson Suny{\'e}, and Benoit Baudry.
+\newblock A novelty search approach for automatic test data generation.
+\newblock In {\em 8th International Workshop on Search-Based Software Testing
+  SBST@ ICSE 2015}, page~4, 2015.
 
 \bibitem[BCG11]{betz2011improving}
 Tobias Betz, Lawrence Cabac, and Matthias G{\"u}ttler.
 \newblock Improving the development tool chain in the context of petri
   net-based software development.
 \newblock In {\em PNSE}, pages 167--178. Citeseer, 2011.
+
+\bibitem[BCW12]{brambilla2012model}
+Marco Brambilla, Jordi Cabot, and Manuel Wimmer.
+\newblock Model-driven software engineering in practice.
+\newblock {\em Synthesis Lectures on Software Engineering}, 1(1):1--182, 2012.
+
+\bibitem[BFN96]{banzhaf1996effect}
+Wolfgang Banzhaf, Frank~D Francone, and Peter Nordin.
+\newblock The effect of extensive use of the mutation operator on
+  generalization in genetic programming using sparse data sets.
+\newblock In {\em Parallel Problem Solving from Nature—PPSN IV}, pages
+  300--309. Springer, 1996.
+
+\bibitem[BM08]{bragancca2008transformation}
+Alexandre Bragan{\c{c}}a and Ricardo~J Machado.
+\newblock Transformation patterns for multi-staged model driven software
+  development.
+\newblock In {\em Software Product Line Conference, 2008. SPLC'08. 12th
+  International}, pages 329--338. IEEE, 2008.
+
+\bibitem[BSH15]{ballal2015compiler}
+Prathibha~A Ballal, H~Sarojadevi, and PS~Harsha.
+\newblock Compiler optimization: A genetic algorithm approach.
+\newblock {\em International Journal of Computer Applications}, 112(10), 2015.
 
 \bibitem[CE00a]{czarnecki2000generative}
 Krzysztof Czarnecki and Ulrich~W Eisenecker.
@@ -17,11 +54,61 @@ Krzysztof Czarnecki and Ulrich~W. Eisenecker.
 \newblock {\em Generative Programming: Methods, Tools, and Applications}.
 \newblock ACM Press/Addison-Wesley Publishing Co., New York, NY, USA, 2000.
 
+\bibitem[CFH{\etalchar{+}}12]{chen2012deconstructing}
+Yang Chen, Shuangde Fang, Yuanjie Huang, Lieven Eeckhout, Grigori Fursin,
+  Olivier Temam, and Chengyong Wu.
+\newblock Deconstructing iterative optimization.
+\newblock {\em ACM Transactions on Architecture and Code Optimization (TACO)},
+  9(3):21, 2012.
+
+\bibitem[CH03]{czarnecki2003classification}
+Krzysztof Czarnecki and Simon Helsen.
+\newblock Classification of model transformation approaches.
+\newblock In {\em Proceedings of the 2nd OOPSLA Workshop on Generative
+  Techniques in the Context of the Model Driven Architecture}, volume~45, pages
+  1--17. USA, 2003.
+
+\bibitem[CHE{\etalchar{+}}10]{chen2010evaluating}
+Yang Chen, Yuanjie Huang, Lieven Eeckhout, Grigori Fursin, Liang Peng, Olivier
+  Temam, and Chengyong Wu.
+\newblock Evaluating iterative optimization across 1000 datasets.
+\newblock In {\em ACM Sigplan Notices}, volume~45, pages 448--459. ACM, 2010.
+
+\bibitem[CHH{\etalchar{+}}16]{chen2016empirical}
+Junjie Chen, Wenxiang Hu, Dan Hao, Yingfei Xiong, Hongyu Zhang, Lu~Zhang, and
+  Bing Xie.
+\newblock An empirical comparison of compiler testing techniques.
+\newblock In {\em Proceedings of the 38th International Conference on Software
+  Engineering}, 2016.
+
+\bibitem[CST02]{cooper2002adaptive}
+Keith~D Cooper, Devika Subramanian, and Linda Torczon.
+\newblock Adaptive optimizing compilers for the 21st century.
+\newblock {\em The Journal of Supercomputing}, 23(1):7--22, 2002.
+
 \bibitem[Cza05]{czarnecki2005overview}
 Krzysztof Czarnecki.
 \newblock Overview of generative software development.
 \newblock In {\em Unconventional Programming Paradigms}, pages 326--341.
   Springer, 2005.
+
+\bibitem[DAH11]{demertzi2011analyzing}
+Melina Demertzi, Murali Annavaram, and Mary Hall.
+\newblock Analyzing the effects of compiler optimizations on application
+  reliability.
+\newblock In {\em Workload Characterization (IISWC), 2011 IEEE International
+  Symposium on}, pages 184--193. IEEE, 2011.
+
+\bibitem[Das11]{dasnois2011haxe}
+Benjamin Dasnois.
+\newblock {\em HaXe 2 Beginner's Guide}.
+\newblock Packt Publishing Ltd, 2011.
+
+\bibitem[Deb01]{deb2001multi}
+Kalyanmoy Deb.
+\newblock {\em Multi-objective optimization using evolutionary algorithms},
+  volume~16.
+\newblock John Wiley \& Sons, 2001.
 
 \bibitem[DGR04]{delgado2004taxonomy}
 Nelly Delgado, Ann~Q Gates, and Steve Roach.
@@ -29,17 +116,41 @@ Nelly Delgado, Ann~Q Gates, and Steve Roach.
 \newblock {\em IEEE Transactions on software Engineering}, 30(12):859--872,
   2004.
 
+\bibitem[DPAM02]{deb2002fast}
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and TAMT Meyarivan.
+\newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
+\newblock {\em Evolutionary Computation, IEEE Transactions on}, 6(2):182--197,
+  2002.
+
+\bibitem[EAC15]{escobar2015evaluation}
+Rodrigo~D Escobar, Alekya~R Angula, and Mark Corsi.
+\newblock Evaluation of gcc optimization parameters.
+\newblock {\em Revista Ingenierias USBmed}, 3(2):31--39, 2015.
+
 \bibitem[FB08]{fertalj2008source}
 Kresimir Fertalj and Mario Brcic.
 \newblock A source code generator based on uml specification.
 \newblock {\em International journal of computers and communications},
   (1):10--19, 2008.
 
+\bibitem[FMSB11]{fleurey2011mde}
+Franck Fleurey, Brice Morin, Arnor Solberg, and Olivier Barais.
+\newblock Mde to manage communications with and between resource-constrained
+  systems.
+\newblock In {\em International Conference on Model Driven Engineering
+  Languages and Systems}, pages 349--363. Springer, 2011.
+
 \bibitem[FR07]{france2007model}
 Robert France and Bernhard Rumpe.
 \newblock Model-driven development of complex software: A research roadmap.
 \newblock In {\em 2007 Future of Software Engineering}, pages 37--54. IEEE
   Computer Society, 2007.
+
+\bibitem[Fur09]{fursin2009collective}
+Grigori Fursin.
+\newblock Collective tuning initiative: automating and accelerating development
+  and optimization of computing systems.
+\newblock In {\em GCC Developers' Summit}, 2009.
 
 \bibitem[GS14]{guana2014chaintracker}
 Victor Guana and Eleni Stroulia.
@@ -54,10 +165,171 @@ Victor Guana and Eleni Stroulia.
 \newblock In {\em First International Workshop on Human Factors in Modeling
   (HuFaMo 2015). CEUR-WS}, pages 33--38, 2015.
 
+\bibitem[HE08]{hoste2008cole}
+Kenneth Hoste and Lieven Eeckhout.
+\newblock Cole: compiler optimization level exploration.
+\newblock In {\em Proceedings of the 6th annual IEEE/ACM international
+  symposium on Code generation and optimization}, pages 165--174. ACM, 2008.
+
+\bibitem[Her03]{herrington2003code}
+Jack Herrington.
+\newblock {\em Code generation in action}.
+\newblock Manning Publications Co., 2003.
+
+\bibitem[HGE10]{hoste2010automated}
+Kenneth Hoste, Andy Georges, and Lieven Eeckhout.
+\newblock Automated just-in-time compiler tuning.
+\newblock In {\em Proceedings of the 8th annual IEEE/ACM international
+  symposium on Code generation and optimization}, pages 62--72. ACM, 2010.
+
+\bibitem[HSD11]{hartmann2011cross}
+Gustavo Hartmann, Geoff Stead, and Asi DeGani.
+\newblock Cross-platform mobile development.
+\newblock {\em Mobile Learning Environment, Cambridge}, pages 1--18, 2011.
+
+\bibitem[Hun11]{hundt2011loop}
+Robert Hundt.
+\newblock Loop recognition in c++/java/go/scala.
+\newblock In {\em Proceedings of Scala Days 2011}, June 2011.
+
+\bibitem[IJH{\etalchar{+}}13]{inden2013examination}
+Benjamin Inden, Yaochu Jin, Robert Haschke, Helge Ritter, and Bernhard
+  Sendhoff.
+\newblock An examination of different fitness and novelty based selection
+  methods for the evolution of neural networks.
+\newblock {\em Soft Computing}, 17(5):753--767, 2013.
+
+\bibitem[IRH09]{ibrahim2009compiler}
+Mostafa~EA Ibrahim, Markus Rupp, and SE-D Habib.
+\newblock Compiler-based optimizations impact on embedded software power
+  consumption.
+\newblock In {\em Circuits and Systems and TAISA Conference, 2009.
+  NEWCAS-TAISA'09. Joint IEEE North-East Workshop on}, pages 1--4. IEEE, 2009.
+
+\bibitem[JK05]{jouault2005transforming}
+Fr{\'e}d{\'e}ric Jouault and Ivan Kurtev.
+\newblock Transforming models with atl.
+\newblock In {\em International Conference on Model Driven Engineering
+  Languages and Systems}, pages 128--138. Springer, 2005.
+
+\bibitem[JS14]{jorges2014back}
+Sven J{\"o}rges and Bernhard Steffen.
+\newblock Back-to-back testing of model-based code generators.
+\newblock In {\em International Symposium On Leveraging Applications of Formal
+  Methods, Verification and Validation}, pages 425--444. Springer, 2014.
+
+\bibitem[Kr{\v{c}}12]{krvcah2012solving}
+Peter Kr{\v{c}}ah.
+\newblock Solving deceptive tasks in robot body-brain co-evolution by searching
+  for behavioral novelty.
+\newblock In {\em Advances in Robotics and Virtual Reality}, pages 167--186.
+  Springer, 2012.
+
+\bibitem[KVI02]{kandemir2002compiler}
+Mahmut Kandemir, N~Vijaykrishnan, and Mary~Jane Irwin.
+\newblock Compiler optimizations for low power systems.
+\newblock In {\em Power aware computing}, pages 191--210. Springer, 2002.
+
+\bibitem[LAS14]{le2014compiler}
+Vu~Le, Mehrdad Afshari, and Zhendong Su.
+\newblock Compiler validation via equivalence modulo inputs.
+\newblock In {\em ACM SIGPLAN Notices}, volume~49, pages 216--226. ACM, 2014.
+
+\bibitem[LCL08]{lin2008automatic}
+San-Chih Lin, Chi-Kuang Chang, and San-Chih Lin.
+\newblock Automatic selection of gcc optimization options using a gene weighted
+  genetic algorithm.
+\newblock In {\em Computer Systems Architecture Conference, 2008. ACSAC 2008.
+  13th Asia-Pacific}, pages 1--8. IEEE, 2008.
+
+\bibitem[LPF{\etalchar{+}}10]{lokuciejewski2010multi}
+Paul Lokuciejewski, Sascha Plazar, Heiko Falk, Peter Marwedel, and Lothar
+  Thiele.
+\newblock Multi-objective exploration of compiler optimizations for real-time
+  systems.
+\newblock In {\em Object/Component/Service-Oriented Real-Time Distributed
+  Computing (ISORC), 2010 13th IEEE International Symposium on}, pages
+  115--122. IEEE, 2010.
+
+\bibitem[LS08]{lehman2008exploiting}
+Joel Lehman and Kenneth~O Stanley.
+\newblock Exploiting open-endedness to solve problems through the search for
+  novelty.
+\newblock In {\em ALIFE}, pages 329--336, 2008.
+
+\bibitem[LTC15]{li2015rest}
+Li~Li, Tony Tang, and Wu~Chou.
+\newblock A rest service framework for fine-grained resource management in
+  container-based cloud.
+\newblock In {\em 2015 IEEE 8th International Conference on Cloud Computing},
+  pages 645--652. IEEE, 2015.
+
+\bibitem[LYZ]{luotowards}
+Ruici Luo, Wei Ye, and Shikun Zhang.
+\newblock Towards a deployment system for cloud applications.
+
+\bibitem[M{\'A}CZCA{\etalchar{+}}14]{martinez2014multi}
+Antonio Mart{\'\i}nez-{\'A}lvarez, Jorge Calvo-Zaragoza, Sergio Cuenca-Asensi,
+  Andr{\'e}s Ortiz, and Antonio Jimeno-Morenilla.
+\newblock Multi-objective adaptive evolutionary strategy for tuning
+  compilations.
+\newblock {\em Neurocomputing}, 123:381--389, 2014.
+
+\bibitem[mbo]{mboussaa}
+Notice settings.
+\newblock \url{https://noticegcc.wordpress.com/}.
+
 \bibitem[McK98]{mckeeman1998differential}
 William~M McKeeman.
 \newblock Differential testing for software.
 \newblock {\em Digital Technical Journal}, 10(1):100--107, 1998.
+
+\bibitem[Mer14]{merkel2014docker}
+Dirk Merkel.
+\newblock Docker: lightweight linux containers for consistent development and
+  deployment.
+\newblock {\em Linux Journal}, 2014(239):2, 2014.
+
+\bibitem[MJL{\etalchar{+}}06]{musset2006acceleo}
+Jonathan Musset, {\'E}tienne Juliot, St{\'e}phane Lacrampe, William Piers,
+  C{\'e}dric Brun, Laurent Goubet, Yvan Lussaud, and Freddy Allilaire.
+\newblock Acceleo user guide.
+\newblock {\em See also http://acceleo. org/doc/obeo/en/acceleo-2.6-user-guide.
+  pdf}, 2, 2006.
+
+\bibitem[MND{\etalchar{+}}14]{martins2014exploration}
+Luiz~GA Martins, Ricardo Nobre, Alexandre~CB Delbem, Eduardo Marques, and
+  Jo{\~a}o~MP Cardoso.
+\newblock Exploration of compiler optimization sequences using clustering-based
+  selection.
+\newblock In {\em Proceedings of the 2014 SIGPLAN/SIGBED conference on
+  Languages, compilers and tools for embedded systems}, pages 63--72. ACM,
+  2014.
+
+\bibitem[Mol09]{molyneaux2009art}
+Ian Molyneaux.
+\newblock {\em The Art of Application Performance Testing: Help for Programmers
+  and Quality Assurance}.
+\newblock " O'Reilly Media, Inc.", 2009.
+
+\bibitem[NF13]{nagiub2013automatic}
+Mena Nagiub and Wael Farag.
+\newblock Automatic selection of compiler options using genetic techniques for
+  embedded software design.
+\newblock In {\em Computational Intelligence and Informatics (CINTI), 2013 IEEE
+  14th International Symposium on}, pages 69--74. IEEE, 2013.
+
+\bibitem[NHI13]{nagai2013scaling}
+Eriko Nagai, Atsushi Hashimoto, and Nagisa Ishiura.
+\newblock Scaling up size and number of expressions in random testing of
+  arithmetic optimization of c compilers.
+\newblock In {\em Workshop on Synthesis And System Integration of Mixed
+  Information Technologies (SASIMI 2013)}, pages 88--93, 2013.
+
+\bibitem[NS07]{nethercote2007valgrind}
+Nicholas Nethercote and Julian Seward.
+\newblock Valgrind: a framework for heavyweight dynamic binary instrumentation.
+\newblock In {\em ACM Sigplan notices}, volume~42, pages 89--100. ACM, 2007.
 
 \bibitem[PE06]{pan2006fast}
 Zhelong Pan and Rudolf Eigenmann.
@@ -66,10 +338,93 @@ Zhelong Pan and Rudolf Eigenmann.
 \newblock In {\em International Symposium on Code Generation and Optimization
   (CGO'06)}, pages 12--pp. IEEE, 2006.
 
+\bibitem[PHB15]{pallister2015identifying}
+James Pallister, Simon~J Hollis, and Jeremy Bennett.
+\newblock Identifying compiler options to minimize energy consumption for
+  embedded platforms.
+\newblock {\em The Computer Journal}, 58(1):95--109, 2015.
+
+\bibitem[PV15]{pazirandeh2015evaluation}
+Alireza Pazirandeh and Evelina Vorobyeva.
+\newblock Evaluation of cross-platform tools for mobile development.
+\newblock 2015.
+
+\bibitem[RFBJ13]{richard2013efficient}
+Julien Richard-Foy, Olivier Barais, and Jean-Marc J{\'e}z{\'e}quel.
+\newblock Efficient high-level abstractions for web programming.
+\newblock In {\em ACM SIGPLAN Notices}, volume~49, pages 53--60. ACM, 2013.
+
+\bibitem[RHS10]{risi2010evolving}
+Sebastian Risi, Charles~E Hughes, and Kenneth~O Stanley.
+\newblock Evolving plastic neural networks with novelty search.
+\newblock {\em Adaptive Behavior}, 18(6):470--491, 2010.
+
+\bibitem[RSF{\etalchar{+}}15]{rastogi2015safe}
+Aseem Rastogi, Nikhil Swamy, C{\'e}dric Fournet, Gavin Bierman, and Panagiotis
+  Vekris.
+\newblock Safe \& efficient gradual typing for typescript.
+\newblock In {\em ACM SIGPLAN Notices}, volume~50, pages 167--180. ACM, 2015.
+
+\bibitem[SA13]{sayyad2013pareto}
+Abdel~Salam Sayyad and Hany Ammar.
+\newblock Pareto-optimal search-based software engineering (posbse): A
+  literature survey.
+\newblock In {\em Realizing Artificial Intelligence Synergies in Software
+  Engineering (RAISE), 2013 2nd International Workshop on}, pages 21--27. IEEE,
+  2013.
+
 \bibitem[SCDP07]{stuermer2007systematic}
 Ingo Stuermer, Mirko Conrad, Heiko Doerr, and Peter Pepper.
 \newblock Systematic testing of model-based code generators.
 \newblock {\em IEEE Transactions on Software Engineering}, 33(9):622, 2007.
+
+\bibitem[SCTF16]{spoiala2016performance}
+Cristian~Constantin Spoiala, Alin Calinciuc, Corneliu~Octavian Turcu, and
+  Constantin Filote.
+\newblock Performance comparison of a webrtc server on docker versus virtual
+  machine.
+\newblock In {\em 2016 International Conference on Development and Application
+  Systems (DAS)}, pages 295--298. IEEE, 2016.
+
+\bibitem[{\v{S}}LG15]{vstrekelj2015performance}
+Domagoj {\v{S}}trekelj, Hrvoje Leventi{\'c}, and Irena Gali{\'c}.
+\newblock Performance overhead of haxe programming language for cross-platform
+  game development.
+\newblock {\em International Journal of Electrical and Computer Engineering
+  Systems}, 6(1):9--13, 2015.
+
+\bibitem[SP15]{stepasyuk2015evaluating}
+Stepan Stepasyuk and Yavor Paunov.
+\newblock Evaluating the haxe programming language-performance comparison
+  between haxe and platform-specific languages.
+\newblock 2015.
+
+\bibitem[SPF{\etalchar{+}}07]{soltesz2007container}
+Stephen Soltesz, Herbert P{\"o}tzl, Marc~E Fiuczynski, Andy Bavier, and Larry
+  Peterson.
+\newblock Container-based operating system virtualization: a scalable,
+  high-performance alternative to hypervisors.
+\newblock In {\em ACM SIGOPS Operating Systems Review}, volume~41, pages
+  275--287. ACM, 2007.
+
+\bibitem[SWC05]{sturmer2005overview}
+Ingo St{\"u}rmer, Daniela Weinberg, and Mirko Conrad.
+\newblock Overview of existing safeguarding techniques for automatically
+  generated code.
+\newblock In {\em ACM SIGSOFT Software Engineering Notes}, volume~30, pages
+  1--6. ACM, 2005.
+
+\bibitem[SWES16]{sun2016roar}
+Yu~Sun, Jules White, Sean Eade, and Douglas~C Schmidt.
+\newblock Roar: A qos-oriented modeling framework for automated cloud resource
+  allocation and optimization.
+\newblock {\em Journal of Systems and Software}, 116:146--161, 2016.
+
+\bibitem[VJ01]{valluri2001compiling}
+Madhavi Valluri and Lizy~K John.
+\newblock Is compiling for performance—compiling for power?
+\newblock In {\em Interaction between Compilers and Computer Architectures},
+  pages 101--115. Springer, 2001.
 
 \bibitem[YCER11]{yang2011finding}
 Xuejun Yang, Yang Chen, Eric Eide, and John Regehr.

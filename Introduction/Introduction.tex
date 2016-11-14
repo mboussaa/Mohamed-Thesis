@@ -63,24 +63,31 @@ Our experimental results show that our approach is able to auto-tune compilers a
 In this contribution, we propose a new approach for testing and monitoring of code generators families. This approach try to find automatically real issues in existing code generators. 
 It is based on the intuition that a code generator is often a member of a family of code generators. The availability of multiple generators with comparable functionality enables to apply the idea of differential testing\cite{mckeeman1998differential} to detect code generator issues.
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in Haxe code generators.
-In particular, we show that we could find two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
+In particular, we show that we could find two kinds of errors during code transformation: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
 
 \textbf{Contribution: a microservice-based infrastructure for runtime deployment and monitoring of generated code.}
-We propose a micro-service infrastructure to ensure the deployment and monitoring of different variants of generated code. This isolated and sand-boxing environment is based on system containers, as execution platforms, to provide a fine-grained understanding and analysis of resource usage in terms of CPU and memory. This approach constitutes the playground for testing and evaluating the generated code from either compilers or code generators. This contribution answers mainly \textit{RQ3} but the same infrastructure is used across all experiments in \textit{RQ1} and \textit{RQ2}.
+We propose a micro-service infrastructure to ensure the deployment and monitoring of different variants of generated code. 
+It will also automate the process of code compilation, deployment and execution in order to provide to software developers more facilities to test the generated code. 
+This isolated and sand-boxing environment is based on system containers, as execution platforms, to provide a fine-grained understanding and analysis of resource usage in terms of CPU and memory. This approach constitutes the playground for testing and evaluating the generated code from either compilers or code generators. This contribution answers mainly \textit{RQ3} but the same infrastructure is used across all experiments in \textit{RQ1} and \textit{RQ2}.
 
 \section{Overview of this thesis}
 The remainder of this thesis is organized  as follows:
-\textbf{Chapter 2} gives a background about the different concepts involved in the field of generative programming as well as an overview of the software development tool chain. 
 
-\textbf{Chapter 3} SOTA
+\textbf{Chapter 2} first contextualizes this research, situating it in the domain of generative programming. We give a background about the different concepts involved in the field of generative programming as well as an overview of the different aspects of automatic code generation in software development. 
 
-\textbf{Chapter 4} Contrib 1
 
-\textbf{Chapter 5} Contrib 2
+\textbf{Chapter 3}  presents the state of the art regarding our approach. This chapter
+provides a survey of the most used techniques for testing compilers and code generators. We focus more on the non-functional testing aspects.
+This chapter is divided on two parts. On the one hand, we study the previous approaches that have been applied for compiler auto-tuning. On the other hand, we study the different techniques used to test the functional and non-functional properties of code generators. 
 
-\textbf{Chapter 6} Contrib 3  
+\textbf{Chapter 4} resumes the work done related to compiler testing. To do so, we study the impact of compiler optimizations on the generated code. Thus, we present a search-based technique called Novelty search for compiler optimizations exploration. We provide two adaptations of this algorithm: mono and multi objective search. We also show how this technique can easily help compiler users to efficiently generate and evaluate the compiler optimizations. The non-functional metrics we are evaluating are the performance, memory and CPU usage. We evaluate this approach through an empirical study and we discuss the results.
 
-\textbf{Chapter 7} Conclusion
+\textbf{Chapter 5} presents our approach for the non-functional testing of code generators. It shows an adaptation of the idea of differential testing for detecting code generator issues. We report the results of testing multiple generators with comparable functionalities (a code generator family). The non-functional metrics we are evaluating in this section are the performance and memory usage of generated code. We also report the issues we have detected and we propose solutions for code generation improvement.
+
+\textbf{Chapter 6} shows the testing infrastructure used across all experiments. It shows the usefulness of such architecture, based on system containers, to automatically deploy and execute the generated code by either compilers or code generators. We report the comparison results of using this infrastructure and a non-containerized solution in terms of overhead and we discuss the results. 
+
+\textbf{Chapter 7} draws conclusions and identifies future work and perspectives for testing compilers and code generators.
+
 \section{Publications}
 
 \begin{itemize}
