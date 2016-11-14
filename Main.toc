@@ -9,15 +9,16 @@
 \contentsline {chapter}{\numberline {2}Background}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}From classical software development to generative programming}{9}{section.2.1}
 \contentsline {section}{\numberline {2.2}An overview of the software development tool chain}{11}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Code generation workflow}{14}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Code generators}{15}{section.2.3}
-\contentsline {section}{\numberline {2.4}Types of code generators}{15}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Complexity}{16}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Software-platform heterogeneity}{17}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}Compilers}{18}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Complexity}{18}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Hardware-platform heterogeneity}{18}{subsection.2.5.2}
-\contentsline {section}{\numberline {2.6}Testing challenges}{19}{section.2.6}
+\contentsline {subsection}{\numberline {2.2.1}Automatic code generation}{11}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Code generation workflow}{13}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Code generators}{14}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Types of code generators}{14}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Complexity}{16}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Software-platform heterogeneity}{17}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}Compilers}{18}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Complexity}{18}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Hardware-platform heterogeneity}{18}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Testing challenges}{19}{section.2.5}
 \contentsline {chapter}{\numberline {3}State of the art}{20}{chapter.3}
 \contentsline {section}{\numberline {3.1}Compilers}{20}{section.3.1}
 \contentsline {section}{\numberline {3.2}Compiler optimizations}{20}{section.3.2}
