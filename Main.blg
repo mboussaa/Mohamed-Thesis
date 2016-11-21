@@ -3,63 +3,67 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: alpha.bst
 Database file #1: uw-ethesis.bib
-Repeated entry---line 140 of file uw-ethesis.bib
+Repeated entry---line 32 of file uw-ethesis.bib
+ : @book{herrington2003code
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 145 of file uw-ethesis.bib
  : @inproceedings{france2007model
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 149 of file uw-ethesis.bib
+Repeated entry---line 154 of file uw-ethesis.bib
  : @article{mckeeman1998differential
  :                                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 159 of file uw-ethesis.bib
+Repeated entry---line 164 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 251 of file uw-ethesis.bib
+Repeated entry---line 256 of file uw-ethesis.bib
  : @inproceedings{guana2015developers
  :                                   ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 259 of file uw-ethesis.bib
+Repeated entry---line 264 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 268 of file uw-ethesis.bib
+Repeated entry---line 273 of file uw-ethesis.bib
  : @inproceedings{guana2014chaintracker
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 277 of file uw-ethesis.bib
+Repeated entry---line 282 of file uw-ethesis.bib
  : @article{delgado2004taxonomy
  :                             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 297 of file uw-ethesis.bib
+Repeated entry---line 302 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 495 of file uw-ethesis.bib
+Repeated entry---line 500 of file uw-ethesis.bib
  : @inproceedings{nethercote2007valgrind
  :                                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 554 of file uw-ethesis.bib
+Repeated entry---line 559 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 585 of file uw-ethesis.bib
+Repeated entry---line 590 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 627 of file uw-ethesis.bib
+Repeated entry---line 632 of file uw-ethesis.bib
  : @article{brambilla2012model
  :                            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 637 of file uw-ethesis.bib
+Repeated entry---line 642 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 738 of file uw-ethesis.bib
+Repeated entry---line 743 of file uw-ethesis.bib
  : @inproceedings{demertzi2011analyzing
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 777 of file uw-ethesis.bib
+Repeated entry---line 782 of file uw-ethesis.bib
  : @inproceedings{li2015rest
  :                          ,
 I'm skipping whatever remains of this entry
@@ -119,4 +123,4 @@ warning$ -- 15
 while$ -- 344
 width$ -- 74
 write$ -- 949
-(There were 15 error messages)
+(There were 16 error messages)

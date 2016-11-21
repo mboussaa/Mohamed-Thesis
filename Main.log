@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  21 NOV 2016 14:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  21 NOV 2016 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -954,22 +954,21 @@ l.9
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.21 
+l.23 
       [2]pdfTeX warning (ext4): destination with the same identifier (name{page
 .3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 \begin{itemize}
-                     [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+l.35 
+      [3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 42.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
 
-Overfull \hbox (4.20886pt too wide) in paragraph at lines 43--46
+Overfull \hbox (4.20886pt too wide) in paragraph at lines 45--48
 []\OT1/cmr/bx/n/12 Monitoring code gen-er-a-tors/-com-pil-ers be-hav-ior: \OT1/
 cmr/m/n/12 For test-ing the non-functional
  []
@@ -978,9 +977,10 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.47 
-      [4]
-Overfull \hbox (10.82721pt too wide) in paragraph at lines 70--74
+l.48 \textbf
+            {Tuning code generators/compilers:} The current innovations in s...
+[4]
+Overfull \hbox (10.82721pt too wide) in paragraph at lines 72--76
 []\OT1/cmr/bx/n/12 Contribution: au-to-matic com-piler auto-tuning ac-cord-ing 
 to the non-functional
  []
@@ -988,13 +988,13 @@ to the non-functional
 [5] [6]
 Missing character: There is no √ in font cmr12!
 Missing character: There is no © in font cmr12!
-Missing character: There is no √ in font cmr12!
-Missing character: There is no © in font cmr12!
  [7]
 Missing character: There is no √ in font cmr12!
 Missing character: There is no © in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no © in font cmr12!
 
-Overfull \hbox (3.58054pt too wide) in paragraph at lines 117--121
+Overfull \hbox (3.58054pt too wide) in paragraph at lines 119--123
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny, Benoit Baudry
 : \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
@@ -1014,7 +1014,7 @@ Missing character: There is no ô in font cmr12!
 
 
 ] [11]
-<Background/fig/GDM.pdf, id=449, 320.19624pt x 150.5625pt>
+<Background/fig/GDM.pdf, id=451, 320.19624pt x 150.5625pt>
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
@@ -1025,7 +1025,7 @@ Overfull \hbox (11.11642pt too wide) in paragraph at lines 59--59
 []\OT1/cmr/bx/n/17.28 An overview of the soft-ware de-vel-op-ment tool chain 
  []
 
-<Background/fig/background_overview2.pdf, id=450, 707.64375pt x 370.38374pt>
+<Background/fig/background_overview2.pdf, id=452, 707.64375pt x 370.38374pt>
 File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
@@ -1047,7 +1047,7 @@ Missing character: There is no ú in font cmti12!
 Missing character: There is no ‚ in font cmti12!
 Missing character: There is no Ä in font cmti12!
 Missing character: There is no ù in font cmti12!
- <Background/fig/workflow.png, id=579, 277.035pt x 199.74625pt>
+ <Background/fig/workflow.png, id=581, 277.035pt x 199.74625pt>
 File: Background/fig/workflow.png Graphic file (type png)
 
 <use Background/fig/workflow.png>
@@ -1062,7 +1062,7 @@ Missing character: There is no Ä in font cmr12!
 Missing character: There is no ò in font cmr12!
 
 [16] [17]
-<Background/fig/software-diversity.pdf, id=607, 590.205pt x 354.32375pt>
+<Background/fig/software-diversity.pdf, id=608, 590.205pt x 354.32375pt>
 File: Background/fig/software-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/software-diversity.pdf>
@@ -1074,7 +1074,7 @@ ne 154.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [18]
-<Background/fig/hardware-diversity.pdf, id=614, 559.08875pt x 366.36874pt>
+<Background/fig/hardware-diversity.pdf, id=615, 559.08875pt x 366.36874pt>
 File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/hardware-diversity.pdf>
@@ -1099,7 +1099,7 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
  [23]
-<SOTA/fig/iterative_compilation.pdf, id=770, 135.50626pt x 301.125pt>
+<SOTA/fig/iterative_compilation.pdf, id=771, 135.50626pt x 301.125pt>
 File: SOTA/fig/iterative_compilation.pdf Graphic file (type pdf)
 
 <use SOTA/fig/iterative_compilation.pdf>
@@ -1115,14 +1115,14 @@ Chapter 4.
 
 
 ] [30] [31]
-<chapitre3/fig/autotuning.pdf, id=906, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=907, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
 Package pdftex.def Info: chapitre3/fig/autotuning.pdf used on input line 128.
 (pdftex.def)             Requested size: 414.6463pt x 132.04805pt.
 
-<chapitre3/fig/optimizations.png, id=907, 592.2125pt x 868.24374pt>
+<chapitre3/fig/optimizations.png, id=908, 592.2125pt x 868.24374pt>
 File: chapitre3/fig/optimizations.png Graphic file (type png)
 
 <use chapitre3/fig/optimizations.png>
@@ -1139,14 +1139,14 @@ Overfull \hbox (17.62482pt too wide) detected at line 329
 [][] 
  []
 
-<chapitre3/fig/individual.png, id=1001, 991.705pt x 153.57375pt>
+<chapitre3/fig/individual.png, id=1002, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
 Package pdftex.def Info: chapitre3/fig/individual.png used on input line 340.
 (pdftex.def)             Requested size: 460.72124pt x 71.34543pt.
  [36] [37 <./chapitre3/fig/individual.png>]
-[38] [39] [40] <chapitre3/fig/infraup.pdf, id=1079, 469.755pt x 312.16624pt>
+[38] [39] [40] <chapitre3/fig/infraup.pdf, id=1080, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
@@ -1157,7 +1157,7 @@ Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 481.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [41] [42 <./chapitre3/fig/infraup.pdf>]
-<chapitre3/fig/tool_support.png, id=1189, 750.805pt x 439.6425pt>
+<chapitre3/fig/tool_support.png, id=1190, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
@@ -1170,7 +1170,7 @@ Overfull \hbox (27.29623pt too wide) in paragraph at lines 508--509
  []
 
 [43 <./chapitre3/fig/tool_support.png>]
-<chapitre3/fig/sensitivity.pdf, id=1196, 494.84875pt x 121.45375pt>
+<chapitre3/fig/sensitivity.pdf, id=1197, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1185,7 +1185,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 577--582
 
  []
 
-<chapitre3/fig/box.pdf, id=1223, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=1224, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1201,7 +1201,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 601--605
  []
 
 [46 <./chapitre3/fig/box.pdf>]
-<chapitre3/fig/rq3.pdf, id=1249, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=1250, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1214,7 +1214,7 @@ Overfull \hbox (16.59723pt too wide) in paragraph at lines 640--647
  []
 
 [47] [48 <./chapitre3/fig/rq3.pdf>]
-<chapitre3/fig/pareto.pdf, id=1308, 756.8275pt x 488.82625pt>
+<chapitre3/fig/pareto.pdf, id=1309, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
@@ -1253,7 +1253,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 S FAMILIES \OT1/cmr/m/n/12 57
  []
 
-[57] <chapitre4/fig/background.pdf, id=1405, 930.47626pt x 303.1325pt>
+[57] <chapitre4/fig/background.pdf, id=1406, 930.47626pt x 303.1325pt>
 File: chapitre4/fig/background.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background.pdf>
@@ -1293,7 +1293,7 @@ Underfull \hbox (badness 1215) in paragraph at lines 186--186
 []|\OT1/cmr/m/n/12 Generation of ran-dom
  []
 
-<chapitre4/fig/settingup.pdf, id=1524, 482.80376pt x 337.26pt>
+<chapitre4/fig/settingup.pdf, id=1525, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
@@ -1780,7 +1780,7 @@ S FAMILIES \OT1/cmr/m/n/12 70
 [70]
 Chapter 6.
 (./chapitre5/chapitre5.tex
-<chapitre5/fig/background2.pdf, id=1751, 1017.8025pt x 377.41pt>
+<chapitre5/fig/background2.pdf, id=1752, 1017.8025pt x 377.41pt>
 File: chapitre5/fig/background2.pdf Graphic file (type pdf)
 
 <use chapitre5/fig/background2.pdf>
@@ -1906,10 +1906,10 @@ local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (90 pages, 4110077 bytes).
+Output written on Main.pdf (90 pages, 4110363 bytes).
 PDF statistics:
- 2133 PDF objects out of 2487 (max. 8388607)
- 1661 compressed objects within 17 object streams
+ 2134 PDF objects out of 2487 (max. 8388607)
+ 1662 compressed objects within 17 object streams
  339 named destinations out of 1000 (max. 500000)
  651 words of extra memory for PDF output out of 10000 (max. 10000000)
 
