@@ -140,6 +140,13 @@ Franck Fleurey, Brice Morin, Arnor Solberg, and Olivier Barais.
 \newblock In {\em International Conference on Model Driven Engineering
   Languages and Systems}, pages 349--363. Springer, 2011.
 
+\bibitem[FMT{\etalchar{+}}08]{fursin2008milepost}
+Grigori Fursin, Cupertino Miranda, Olivier Temam, Mircea Namolaru, Elad
+  Yom-Tov, Ayal Zaks, Bilha Mendelson, Edwin Bonilla, John Thomson, Hugh
+  Leather, et~al.
+\newblock Milepost gcc: machine learning based research compiler.
+\newblock In {\em GCC Summit}, 2008.
+
 \bibitem[FR07]{france2007model}
 Robert France and Bernhard Rumpe.
 \newblock Model-driven development of complex software: A research roadmap.

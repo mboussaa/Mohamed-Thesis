@@ -3,63 +3,63 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: alpha.bst
 Database file #1: uw-ethesis.bib
-Repeated entry---line 133 of file uw-ethesis.bib
+Repeated entry---line 140 of file uw-ethesis.bib
  : @inproceedings{france2007model
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 142 of file uw-ethesis.bib
+Repeated entry---line 149 of file uw-ethesis.bib
  : @article{mckeeman1998differential
  :                                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 152 of file uw-ethesis.bib
+Repeated entry---line 159 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 244 of file uw-ethesis.bib
+Repeated entry---line 251 of file uw-ethesis.bib
  : @inproceedings{guana2015developers
  :                                   ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 252 of file uw-ethesis.bib
+Repeated entry---line 259 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 261 of file uw-ethesis.bib
+Repeated entry---line 268 of file uw-ethesis.bib
  : @inproceedings{guana2014chaintracker
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 270 of file uw-ethesis.bib
+Repeated entry---line 277 of file uw-ethesis.bib
  : @article{delgado2004taxonomy
  :                             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 290 of file uw-ethesis.bib
+Repeated entry---line 297 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 488 of file uw-ethesis.bib
+Repeated entry---line 495 of file uw-ethesis.bib
  : @inproceedings{nethercote2007valgrind
  :                                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 547 of file uw-ethesis.bib
+Repeated entry---line 554 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 578 of file uw-ethesis.bib
+Repeated entry---line 585 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 620 of file uw-ethesis.bib
+Repeated entry---line 627 of file uw-ethesis.bib
  : @article{brambilla2012model
  :                            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 630 of file uw-ethesis.bib
+Repeated entry---line 637 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 731 of file uw-ethesis.bib
+Repeated entry---line 738 of file uw-ethesis.bib
  : @inproceedings{demertzi2011analyzing
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 770 of file uw-ethesis.bib
+Repeated entry---line 777 of file uw-ethesis.bib
  : @inproceedings{li2015rest
  :                          ,
 I'm skipping whatever remains of this entry
@@ -78,45 +78,45 @@ Warning--empty journal in stepasyuk2015evaluating
 Warning--can't use both volume and number fields in soltesz2007container
 Warning--can't use both volume and number fields in sturmer2005overview
 Warning--can't use both volume and number fields in yang2011finding
-You've used 70 entries,
+You've used 71 entries,
             2543 wiz_defined-function locations,
-            939 strings with 17785 characters,
-and the built_in function-call counts, 33960 in all, are:
-= -- 3491
-> -- 1654
+            943 strings with 18065 characters,
+and the built_in function-call counts, 34596 in all, are:
+= -- 3541
+> -- 1719
 < -- 59
-+ -- 593
-- -- 583
-* -- 2404
-:= -- 5301
-add.period$ -- 241
-call.type$ -- 70
-change.case$ -- 484
-chr.to.int$ -- 69
-cite$ -- 86
-duplicate$ -- 1412
-empty$ -- 2447
-format.name$ -- 651
-if$ -- 7224
++ -- 618
+- -- 608
+* -- 2462
+:= -- 5416
+add.period$ -- 244
+call.type$ -- 71
+change.case$ -- 498
+chr.to.int$ -- 70
+cite$ -- 87
+duplicate$ -- 1429
+empty$ -- 2478
+format.name$ -- 676
+if$ -- 7343
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 74
-newline$ -- 352
-num.names$ -- 207
-pop$ -- 534
+missing$ -- 75
+newline$ -- 357
+num.names$ -- 210
+pop$ -- 551
 preamble$ -- 1
-purify$ -- 559
+purify$ -- 574
 quote$ -- 0
-skip$ -- 1197
+skip$ -- 1209
 stack$ -- 0
-substring$ -- 1868
-swap$ -- 422
+substring$ -- 1875
+swap$ -- 424
 text.length$ -- 59
 text.prefix$ -- 10
 top$ -- 0
-type$ -- 540
+type$ -- 548
 warning$ -- 15
-while$ -- 341
-width$ -- 73
-write$ -- 937
+while$ -- 344
+width$ -- 74
+write$ -- 949
 (There were 15 error messages)

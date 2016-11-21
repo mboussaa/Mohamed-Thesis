@@ -96,8 +96,6 @@ Once code is generated or implemented, a classical compiler is used to translate
 %\end{figure}
 
 \subsection{Code generation workflow}
-
-
 In this thesis, we focus on testing the automatic code generation (highlighted with red box in figure 2.2). As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would to test. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
 \begin{figure}[h]
 	\center
@@ -111,9 +109,19 @@ There are many ways to categorize generators. We can differentiate them by their
 There are six categories of active code generators: 
 
 \begin{itemize}
-\item Code munger: A code munger reads code as input and then builds new code as output. This new code can either be partial or complete depending on the design of the generator. This kind of generators are often used for automatically generating documentations. 
+\item Code munger: A code munger reads code as input and then builds new code as output. This new code can either be partial or complete depending on the design of the generator.
+A code munger is the most common form of code generators and are used widely. This kind of generators are often used for automatically generating documentations.
+A source-to-source compiler, transcompiler or transpiler \footnote{\url{"https://en.wikipedia.org/wiki/Source-to-source_compiler"}} can also be defined as code mungers. A transcompiler takes a code written in some programming language and translates it to a code written in some other language.
 
-\item Inline code expander: This model reads code as input and the builds new code that uses the input code as a base but has sections of the code expanded based on designs in the original code. Embedded SQL languages, like Pro*C, are examples on inline code expanders. The SQL is written in the C code and the generator builds production C code by expanding the SQL into C code which implements the commands and queries. 
+Examples:  C2J, JavaDoc, Jazillian, Closure Compiler, Coccinelle, CoffeeScript, Dart, Haxe, TypeScript and Emscripten
+
+
+
+\item Inline code expander: This model reads code as input and the builds new code that uses the input code as a base but has sections of the code expanded based on designs in the original code. Embedded SQL languages, like Pro*C, are examples on inline code expanders. The SQL is written in the C code and the generator builds production C code by expanding the SQL into C code which implements the commands and queries.
+Embedded SQL is a method of combining the computing power of a high-level language like Java or C/C++ and the database manipulation capabilities of SQL. 
+It allows you to execute any SQL statement from an application program. 
+In the example code, SQL is embedded into C source code files using special markup. These hybrid C files are given their own extension, such as '.sqlc‘:
+ 
 
 \item Mixed code generator: This model use code as input and then builds new code using the input code as a base, but returning the output code back into the input file. Wizards are often implemented as mixed code generators. Special comments are embedded in the code which define regions where the generator adds new code. 
 
