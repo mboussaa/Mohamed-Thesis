@@ -2,8 +2,8 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Context}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Challenges}{4}{section.1.2}
-\contentsline {section}{\numberline {1.3}Contributions}{5}{section.1.3}
-\contentsline {section}{\numberline {1.4}Overview of this thesis}{6}{section.1.4}
+\contentsline {section}{\numberline {1.3}Contributions}{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}Overview of this thesis}{7}{section.1.4}
 \contentsline {section}{\numberline {1.5}Publications}{8}{section.1.5}
 \contentsline {part}{I\hspace {1em}Background and State of the Art}{9}{part.1}
 \contentsline {chapter}{\numberline {2}Background}{10}{chapter.2}
