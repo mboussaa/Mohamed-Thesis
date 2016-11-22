@@ -153,6 +153,13 @@ Robert France and Bernhard Rumpe.
 \newblock In {\em 2007 Future of Software Engineering}, pages 37--54. IEEE
   Computer Society, 2007.
 
+\bibitem[FRSD15]{fumero2015runtime}
+Juan~Jos{\'e} Fumero, Toomas Remmelg, Michel Steuwer, and Christophe Dubach.
+\newblock Runtime code generation and data management for heterogeneous
+  computing in java.
+\newblock In {\em Proceedings of the Principles and Practices of Programming on
+  The Java Platform}, pages 16--26. ACM, 2015.
+
 \bibitem[Fur09]{fursin2009collective}
 Grigori Fursin.
 \newblock Collective tuning initiative: automating and accelerating development

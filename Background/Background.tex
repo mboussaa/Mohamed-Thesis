@@ -51,10 +51,37 @@ Some commonly benefits of such software developing architecture are:
 	\caption{Overview of the Docker-based testing architecture}
 \end{figure}
 
-\textbf{Among the main contributions of this thesis is to verify the correct mapping between the problem space and solution space. In other words, we would evaluate the impact of applied configurations during code transformation on the resource usage requirements.
+\textbf{Among the main contributions of this thesis is to verify the correct mapping between the problem space and solution space. In other words, we would evaluate the impact of applied configurations during code transformation (by wether code generators or compilers) on the resource usage requirements.
 }
 
 In the following section, we present a general overview of the complete software development tool chain and the main actors that are involved from design time to runtime.
+
+\section{Increasing of software and hardware diversity}
+\subsection{Software-platform heterogeneity}
+The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
+for example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/software-diversity.pdf}
+	\caption{Overview of the Docker-based testing architecture}
+\end{figure}
+
+
+\subsection{Hardware-platform heterogeneity}
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/hardware-diversity.pdf}
+	\caption{Overview of the Docker-based testing architecture}
+\end{figure}
+
+Generally, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as arm, intel, amd processors. 
+Compilers can be classified depending on the platform on which their generated code executes. This is known as the target platform.
+A native compiler is one which output is intended to directly run on the same type of processor architecture and operating system that the compiler itself runs on. In the counter part, the output of a cross compiler is designed to run on a different platform. Cross compilers are often used when developing software for embedded systems that are not intended to support a software development environment.
+
+Given the complexity of new emerging processors architecture, rapidly evolving hardware and compiler options, it is not easy to deliver satisfactory levels of performance on modern processors.
+
+
+Some of the questions that developers have to answer when facing Hardware diversity which optimizations are applied by compiler users in order to satisfy the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
 
 \section{An overview of the software development tool chain}
 \subsection{Automatic code generation}
@@ -146,14 +173,7 @@ Efficient implementations are then computed at generation time by applying domai
 \item Can you trust the code-generator?
 \item How can the correctness of the generated code be verified?
 \end{itemize}
-\subsection{Software-platform heterogeneity}
-The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
-for example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/software-diversity.pdf}
-	\caption{Overview of the Docker-based testing architecture}
-\end{figure}
+
 \section{Compilers}
 The compilation is a process that translates a program in one language (the source
 language) into an equivalent program in another language (target language). 
@@ -166,21 +186,7 @@ The key feature of compilers is to bridge source programs written in high-level 
 Modern compilers implement a number of optimizations. Each optimization tries to improve the performance of certain target applications. Improvement of source code programs in terms of performance can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
 Testing non-functional properties is more challenging 
 Thus, the determination of optimal settings of compiler optimizations has been identified as a major problem because compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the underlying system architecture, the target application, and the available optimizations of the compiler.
-\subsection{Hardware-platform heterogeneity}
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/hardware-diversity.pdf}
-	\caption{Overview of the Docker-based testing architecture}
-\end{figure}
 
-Generally, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as arm, intel, amd processors. 
-Compilers can be classified depending on the platform on which their generated code executes. This is known as the target platform.
-A native compiler is one which output is intended to directly run on the same type of processor architecture and operating system that the compiler itself runs on. In the counter part, the output of a cross compiler is designed to run on a different platform. Cross compilers are often used when developing software for embedded systems that are not intended to support a software development environment.
-
-Given the complexity of new emerging processors architecture, rapidly evolving hardware and compiler options, it is not easy to deliver satisfactory levels of performance on modern processors.
-
-
-Some of the questions that developers have to answer when facing Hardware diversity which optimizations are applied by compiler users in order to satisfy the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
 
 
 
