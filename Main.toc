@@ -8,17 +8,16 @@
 \contentsline {section}{\numberline {1.6}Publications}{8}{section.1.6}
 \contentsline {part}{I\hspace {1em}Background and State of the Art}{10}{part.1}
 \contentsline {chapter}{\numberline {2}Background}{11}{chapter.2}
-\contentsline {section}{\numberline {2.1}From classical software development to generative programming}{11}{section.2.1}
-\contentsline {section}{\numberline {2.2}Increasing of software and hardware diversity}{13}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Software-platform heterogeneity}{13}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Hardware-platform heterogeneity}{14}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.1}Diversity of hardware and software platforms}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Software-platform heterogeneity}{12}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Hardware-platform heterogeneity}{12}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}From classical software development to generative programming}{13}{section.2.2}
 \contentsline {section}{\numberline {2.3}An overview of the software development tool chain}{15}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Automatic code generation}{15}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Code generation workflow}{18}{subsection.2.3.2}
-\contentsline {section}{\numberline {2.4}Code generators}{19}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Types of code generators}{19}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Complexity}{20}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}Compilers}{21}{section.2.5}
+\contentsline {section}{\numberline {2.4}Testing code generators}{17}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Code generation workflow}{17}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Types of code generators}{17}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Complexity}{19}{subsection.2.4.3}
+\contentsline {section}{\numberline {2.5}Compilers auto-tuning}{21}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Complexity}{21}{subsection.2.5.1}
 \contentsline {section}{\numberline {2.6}Testing challenges}{22}{section.2.6}
 \contentsline {chapter}{\numberline {3}State of the art}{23}{chapter.3}

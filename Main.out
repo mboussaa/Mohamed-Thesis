@@ -8,65 +8,64 @@
 \BOOKMARK [1][-]{section.1.6}{Publications}{chapter.1}% 8
 \BOOKMARK [-1][-]{part.1}{I Background and State of the Art}{}% 9
 \BOOKMARK [0][-]{chapter.2}{Background}{part.1}% 10
-\BOOKMARK [1][-]{section.2.1}{From classical software development to generative programming}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.2}{Increasing of software and hardware diversity}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.1}{Software-platform heterogeneity}{section.2.2}% 13
-\BOOKMARK [2][-]{subsection.2.2.2}{Hardware-platform heterogeneity}{section.2.2}% 14
+\BOOKMARK [1][-]{section.2.1}{Diversity of hardware and software platforms}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.1.1}{Software-platform heterogeneity}{section.2.1}% 12
+\BOOKMARK [2][-]{subsection.2.1.2}{Hardware-platform heterogeneity}{section.2.1}% 13
+\BOOKMARK [1][-]{section.2.2}{From classical software development to generative programming}{chapter.2}% 14
 \BOOKMARK [1][-]{section.2.3}{An overview of the software development tool chain}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.3.1}{Automatic code generation}{section.2.3}% 16
-\BOOKMARK [2][-]{subsection.2.3.2}{Code generation workflow}{section.2.3}% 17
-\BOOKMARK [1][-]{section.2.4}{Code generators}{chapter.2}% 18
-\BOOKMARK [2][-]{subsection.2.4.1}{Types of code generators}{section.2.4}% 19
-\BOOKMARK [2][-]{subsection.2.4.2}{Complexity}{section.2.4}% 20
-\BOOKMARK [1][-]{section.2.5}{Compilers}{chapter.2}% 21
-\BOOKMARK [2][-]{subsection.2.5.1}{Complexity}{section.2.5}% 22
-\BOOKMARK [1][-]{section.2.6}{Testing challenges}{chapter.2}% 23
-\BOOKMARK [0][-]{chapter.3}{State of the art}{part.1}% 24
-\BOOKMARK [1][-]{section.3.1}{Compilers}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.2}{Compiler optimizations}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.3}{Iterative compilation}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.3.1}{Implementation of Iterative Compilation System}{section.3.3}% 28
-\BOOKMARK [1][-]{section.3.4}{Functional requirements}{chapter.3}% 29
-\BOOKMARK [1][-]{section.3.5}{Testing compilers}{chapter.3}% 30
-\BOOKMARK [1][-]{section.3.6}{Testing code generators}{chapter.3}% 31
-\BOOKMARK [-1][-]{part.2}{II Contributions}{}% 32
-\BOOKMARK [0][-]{chapter.4}{Automatic compiler auto-tuning}{part.2}% 33
-\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.2}{Motivation}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.2.1}{Compiler Optimizations}{section.4.2}% 36
-\BOOKMARK [2][-]{subsection.4.2.2}{Example: GCC Compiler}{section.4.2}% 37
-\BOOKMARK [1][-]{section.4.3}{Evolutionary Exploration of Compiler Optimizations }{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.3.1}{Novelty Search Adaptation}{section.4.3}% 39
-\BOOKMARK [2][-]{subsection.4.3.2}{Novelty Search For Multi-objective Optimization}{section.4.3}% 40
-\BOOKMARK [1][-]{section.4.4}{Evaluation}{chapter.4}% 41
-\BOOKMARK [2][-]{subsection.4.4.1}{Research Questions}{section.4.4}% 42
-\BOOKMARK [2][-]{subsection.4.4.2}{Experimental Setup}{section.4.4}% 43
-\BOOKMARK [2][-]{subsection.4.4.3}{Experimental Methodology and Results}{section.4.4}% 44
-\BOOKMARK [2][-]{subsection.4.4.4}{Discussions}{section.4.4}% 45
-\BOOKMARK [2][-]{subsection.4.4.5}{Threats to Validity}{section.4.4}% 46
-\BOOKMARK [1][-]{section.4.5}{Conclusion and Future Work}{chapter.4}% 47
-\BOOKMARK [0][-]{chapter.5}{Automatic non-functional testing of code generators families}{part.2}% 48
-\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 49
-\BOOKMARK [1][-]{section.5.2}{Motivation}{chapter.5}% 50
-\BOOKMARK [2][-]{subsection.5.2.1}{Code Generator Families}{section.5.2}% 51
-\BOOKMARK [2][-]{subsection.5.2.2}{Functional Correctness of a Code Generator Family}{section.5.2}% 52
-\BOOKMARK [2][-]{subsection.5.2.3}{Performance Evaluation of a Code Generator Family}{section.5.2}% 53
-\BOOKMARK [1][-]{section.5.3}{Approach Overview}{chapter.5}% 54
-\BOOKMARK [2][-]{subsection.5.3.1}{Non-Functional Testing of a Code Generator Family: a Common Process}{section.5.3}% 55
-\BOOKMARK [2][-]{subsection.5.3.2}{An Infrastructure for Non-functional Testing Using System Containers}{section.5.3}% 56
-\BOOKMARK [1][-]{section.5.4}{Evaluation}{chapter.5}% 57
-\BOOKMARK [2][-]{subsection.5.4.1}{Experimental Setup}{section.5.4}% 58
-\BOOKMARK [2][-]{subsection.5.4.2}{Experimental Results}{section.5.4}% 59
-\BOOKMARK [2][-]{subsection.5.4.3}{Threats to Validity}{section.5.4}% 60
-\BOOKMARK [0][-]{chapter.6}{An infrastructure for resource monitoring based on system containers}{part.2}% 61
-\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 62
-\BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 63
-\BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 64
-\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Component}{section.6.3}% 65
-\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Component}{section.6.3}% 66
-\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Component}{section.6.3}% 67
-\BOOKMARK [-1][-]{part.3}{III Conclusion and perspectives}{}% 68
-\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 69
-\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 70
-\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 71
-\BOOKMARK [0][-]{section*.33}{References}{part.3}% 72
+\BOOKMARK [1][-]{section.2.4}{Testing code generators}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.4.1}{Code generation workflow}{section.2.4}% 17
+\BOOKMARK [2][-]{subsection.2.4.2}{Types of code generators}{section.2.4}% 18
+\BOOKMARK [2][-]{subsection.2.4.3}{Complexity}{section.2.4}% 19
+\BOOKMARK [1][-]{section.2.5}{Compilers auto-tuning}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.5.1}{Complexity}{section.2.5}% 21
+\BOOKMARK [1][-]{section.2.6}{Testing challenges}{chapter.2}% 22
+\BOOKMARK [0][-]{chapter.3}{State of the art}{part.1}% 23
+\BOOKMARK [1][-]{section.3.1}{Compilers}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.2}{Compiler optimizations}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.3}{Iterative compilation}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.1}{Implementation of Iterative Compilation System}{section.3.3}% 27
+\BOOKMARK [1][-]{section.3.4}{Functional requirements}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.5}{Testing compilers}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.6}{Testing code generators}{chapter.3}% 30
+\BOOKMARK [-1][-]{part.2}{II Contributions}{}% 31
+\BOOKMARK [0][-]{chapter.4}{Automatic compiler auto-tuning}{part.2}% 32
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.2}{Motivation}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.2.1}{Compiler Optimizations}{section.4.2}% 35
+\BOOKMARK [2][-]{subsection.4.2.2}{Example: GCC Compiler}{section.4.2}% 36
+\BOOKMARK [1][-]{section.4.3}{Evolutionary Exploration of Compiler Optimizations }{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.3.1}{Novelty Search Adaptation}{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.2}{Novelty Search For Multi-objective Optimization}{section.4.3}% 39
+\BOOKMARK [1][-]{section.4.4}{Evaluation}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.4.1}{Research Questions}{section.4.4}% 41
+\BOOKMARK [2][-]{subsection.4.4.2}{Experimental Setup}{section.4.4}% 42
+\BOOKMARK [2][-]{subsection.4.4.3}{Experimental Methodology and Results}{section.4.4}% 43
+\BOOKMARK [2][-]{subsection.4.4.4}{Discussions}{section.4.4}% 44
+\BOOKMARK [2][-]{subsection.4.4.5}{Threats to Validity}{section.4.4}% 45
+\BOOKMARK [1][-]{section.4.5}{Conclusion and Future Work}{chapter.4}% 46
+\BOOKMARK [0][-]{chapter.5}{Automatic non-functional testing of code generators families}{part.2}% 47
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 48
+\BOOKMARK [1][-]{section.5.2}{Motivation}{chapter.5}% 49
+\BOOKMARK [2][-]{subsection.5.2.1}{Code Generator Families}{section.5.2}% 50
+\BOOKMARK [2][-]{subsection.5.2.2}{Functional Correctness of a Code Generator Family}{section.5.2}% 51
+\BOOKMARK [2][-]{subsection.5.2.3}{Performance Evaluation of a Code Generator Family}{section.5.2}% 52
+\BOOKMARK [1][-]{section.5.3}{Approach Overview}{chapter.5}% 53
+\BOOKMARK [2][-]{subsection.5.3.1}{Non-Functional Testing of a Code Generator Family: a Common Process}{section.5.3}% 54
+\BOOKMARK [2][-]{subsection.5.3.2}{An Infrastructure for Non-functional Testing Using System Containers}{section.5.3}% 55
+\BOOKMARK [1][-]{section.5.4}{Evaluation}{chapter.5}% 56
+\BOOKMARK [2][-]{subsection.5.4.1}{Experimental Setup}{section.5.4}% 57
+\BOOKMARK [2][-]{subsection.5.4.2}{Experimental Results}{section.5.4}% 58
+\BOOKMARK [2][-]{subsection.5.4.3}{Threats to Validity}{section.5.4}% 59
+\BOOKMARK [0][-]{chapter.6}{An infrastructure for resource monitoring based on system containers}{part.2}% 60
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 61
+\BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 62
+\BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 63
+\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Component}{section.6.3}% 64
+\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Component}{section.6.3}% 65
+\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Component}{section.6.3}% 66
+\BOOKMARK [-1][-]{part.3}{III Conclusion and perspectives}{}% 67
+\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 68
+\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 69
+\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 70
+\BOOKMARK [0][-]{section*.33}{References}{part.3}% 71

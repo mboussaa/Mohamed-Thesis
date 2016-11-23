@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  22 NOV 2016 15:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  23 NOV 2016 14:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1016,61 +1016,38 @@ Missing character: There is no © in font cmr12!
 
 ]
 Chapter 2.
-(./Background/Background.tex
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
- [11
+(./Background/Background.tex [11
 
 
 ] [12]
-<Background/fig/GDM.pdf, id=467, 320.19624pt x 150.5625pt>
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [13]
+<Background/fig/GDM.pdf, id=466, 320.19624pt x 150.5625pt>
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
-Package pdftex.def Info: Background/fig/GDM.pdf used on input line 50.
+Package pdftex.def Info: Background/fig/GDM.pdf used on input line 79.
 (pdftex.def)             Requested size: 208.12508pt x 97.86446pt.
 
-<Background/fig/software-diversity.pdf, id=468, 590.205pt x 354.32375pt>
-File: Background/fig/software-diversity.pdf Graphic file (type pdf)
-
-<use Background/fig/software-diversity.pdf>
-Package pdftex.def Info: Background/fig/software-diversity.pdf used on input li
-ne 65.
-(pdftex.def)             Requested size: 383.6287pt x 230.3077pt.
- [13 <./Background/fig/GDM.pdf>]
-<Background/fig/hardware-diversity.pdf, id=495, 559.08875pt x 366.36874pt>
-File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
-
-<use Background/fig/hardware-diversity.pdf>
-Package pdftex.def Info: Background/fig/hardware-diversity.pdf used on input li
-ne 73.
-(pdftex.def)             Requested size: 363.40337pt x 238.13686pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[14 <./Background/fig/software-diversity.pdf>]
-Overfull \hbox (11.11642pt too wide) in paragraph at lines 86--86
+Overfull \hbox (11.11642pt too wide) in paragraph at lines 89--89
 []\OT1/cmr/bx/n/17.28 An overview of the soft-ware de-vel-op-ment tool chain 
  []
 
-<Background/fig/background_overview2.pdf, id=559, 707.64375pt x 370.38374pt>
+<Background/fig/background_overview2.pdf, id=467, 707.64375pt x 370.38374pt>
 File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
 Package pdftex.def Info: Background/fig/background_overview2.pdf used on input 
-line 90.
+line 93.
 (pdftex.def)             Requested size: 459.963pt x 240.74657pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[15 <./Background/fig/hardware-diversity.pdf>]
+ [14 <./Background/fig/GDM.pdf>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [16 <./Background/fig/background_overview2.pdf>]
+
+[15 <./Background/fig/background_overview2.pdf>] [16]
 Missing character: There is no ‚ in font cmti12!
 Missing character: There is no Ä in font cmti12!
 Missing character: There is no ú in font cmti12!
@@ -1078,21 +1055,41 @@ Missing character: There is no ‚ in font cmti12!
 Missing character: There is no Ä in font cmti12!
 Missing character: There is no ù in font cmti12!
 
-<Background/fig/workflow.png, id=726, 277.035pt x 199.74625pt>
+<Background/fig/workflow.png, id=601, 277.035pt x 199.74625pt>
 File: Background/fig/workflow.png Graphic file (type png)
 
 <use Background/fig/workflow.png>
-Package pdftex.def Info: Background/fig/workflow.png used on input line 129.
+Package pdftex.def Info: Background/fig/workflow.png used on input line 132.
 (pdftex.def)             Requested size: 277.03432pt x 199.74576pt.
- [17] [18 <./Background/fig/workflow.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
+[17]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ò in font cmr12!
+ [18 <./Background/fig/workflow.png>] [19]
+<Background/fig/software-diversity.pdf, id=624, 590.205pt x 354.32375pt>
+File: Background/fig/software-diversity.pdf Graphic file (type pdf)
 
-[19] [20] [21]) [22]
+<use Background/fig/software-diversity.pdf>
+Package pdftex.def Info: Background/fig/software-diversity.pdf used on input li
+ne 176.
+(pdftex.def)             Requested size: 383.6287pt x 230.3077pt.
+
+<Background/fig/hardware-diversity.pdf, id=625, 559.08875pt x 366.36874pt>
+File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
+
+<use Background/fig/hardware-diversity.pdf>
+Package pdftex.def Info: Background/fig/hardware-diversity.pdf used on input li
+ne 196.
+(pdftex.def)             Requested size: 363.40337pt x 238.13686pt.
+ [20 <./Background/fig/software-diversity.pdf>] [21 <./Background/fig/hardware-
+diversity.pdf>]) [22]
 Chapter 3.
 (./SOTA/SOTA.tex [23
 
@@ -1105,7 +1102,7 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
  [24]
-<SOTA/fig/iterative_compilation.pdf, id=787, 135.50626pt x 301.125pt>
+<SOTA/fig/iterative_compilation.pdf, id=782, 135.50626pt x 301.125pt>
 File: SOTA/fig/iterative_compilation.pdf Graphic file (type pdf)
 
 <use SOTA/fig/iterative_compilation.pdf>
@@ -1121,14 +1118,14 @@ Chapter 4.
 
 
 ] [31] [32]
-<chapitre3/fig/autotuning.pdf, id=924, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=919, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
 Package pdftex.def Info: chapitre3/fig/autotuning.pdf used on input line 128.
 (pdftex.def)             Requested size: 414.6463pt x 132.04805pt.
 
-<chapitre3/fig/optimizations.png, id=925, 592.2125pt x 868.24374pt>
+<chapitre3/fig/optimizations.png, id=920, 592.2125pt x 868.24374pt>
 File: chapitre3/fig/optimizations.png Graphic file (type png)
 
 <use chapitre3/fig/optimizations.png>
@@ -1145,14 +1142,14 @@ Overfull \hbox (17.62482pt too wide) detected at line 329
 [][] 
  []
 
-<chapitre3/fig/individual.png, id=1018, 991.705pt x 153.57375pt>
+<chapitre3/fig/individual.png, id=1013, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
 Package pdftex.def Info: chapitre3/fig/individual.png used on input line 340.
 (pdftex.def)             Requested size: 460.72124pt x 71.34543pt.
  [37] [38 <./chapitre3/fig/individual.png>]
-[39] [40] [41] <chapitre3/fig/infraup.pdf, id=1096, 469.755pt x 312.16624pt>
+[39] [40] [41] <chapitre3/fig/infraup.pdf, id=1091, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
@@ -1163,7 +1160,7 @@ Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 481.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [42] [43 <./chapitre3/fig/infraup.pdf>]
-<chapitre3/fig/tool_support.png, id=1207, 750.805pt x 439.6425pt>
+<chapitre3/fig/tool_support.png, id=1202, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
@@ -1176,7 +1173,7 @@ Overfull \hbox (27.29623pt too wide) in paragraph at lines 508--509
  []
 
 [44 <./chapitre3/fig/tool_support.png>]
-<chapitre3/fig/sensitivity.pdf, id=1213, 494.84875pt x 121.45375pt>
+<chapitre3/fig/sensitivity.pdf, id=1208, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1191,7 +1188,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 577--582
 
  []
 
-<chapitre3/fig/box.pdf, id=1241, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=1236, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1207,7 +1204,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 601--605
  []
 
 [47 <./chapitre3/fig/box.pdf>]
-<chapitre3/fig/rq3.pdf, id=1266, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=1261, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1220,7 +1217,7 @@ Overfull \hbox (16.59723pt too wide) in paragraph at lines 640--647
  []
 
 [48] [49 <./chapitre3/fig/rq3.pdf>]
-<chapitre3/fig/pareto.pdf, id=1325, 756.8275pt x 488.82625pt>
+<chapitre3/fig/pareto.pdf, id=1320, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
@@ -1259,7 +1256,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 S FAMILIES \OT1/cmr/m/n/12 58
  []
 
-[58] <chapitre4/fig/background.pdf, id=1422, 930.47626pt x 303.1325pt>
+[58] <chapitre4/fig/background.pdf, id=1417, 930.47626pt x 303.1325pt>
 File: chapitre4/fig/background.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background.pdf>
@@ -1299,7 +1296,7 @@ Underfull \hbox (badness 1215) in paragraph at lines 186--186
 []|\OT1/cmr/m/n/12 Generation of ran-dom
  []
 
-<chapitre4/fig/settingup.pdf, id=1541, 482.80376pt x 337.26pt>
+<chapitre4/fig/settingup.pdf, id=1536, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
@@ -1786,7 +1783,7 @@ S FAMILIES \OT1/cmr/m/n/12 71
 [71]
 Chapter 6.
 (./chapitre5/chapitre5.tex
-<chapitre5/fig/background2.pdf, id=1768, 1017.8025pt x 377.41pt>
+<chapitre5/fig/background2.pdf, id=1763, 1017.8025pt x 377.41pt>
 File: chapitre5/fig/background2.pdf Graphic file (type pdf)
 
 <use chapitre5/fig/background2.pdf>
@@ -1877,7 +1874,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: 107EE1C13A688AEC47A8B73F6F6E7A72;5269.
+(rerunfilecheck)             Checksum: 1722AB3556C6743547CB663E005EA53D;5209.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1888,10 +1885,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 20160 strings out of 493027
- 367863 string characters out of 6134069
+ 20158 strings out of 493027
+ 367829 string characters out of 6134069
  826999 words of memory out of 5000000
- 23077 multiletter control sequences out of 15000+600000
+ 23076 multiletter control sequences out of 15000+600000
  17280 words of font info for 66 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  42i,15n,46p,10384b,15010s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1912,10 +1909,10 @@ local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (91 pages, 4112955 bytes).
+Output written on Main.pdf (91 pages, 4113307 bytes).
 PDF statistics:
- 2152 PDF objects out of 2487 (max. 8388607)
- 1679 compressed objects within 17 object streams
- 343 named destinations out of 1000 (max. 500000)
- 667 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2146 PDF objects out of 2487 (max. 8388607)
+ 1673 compressed objects within 17 object streams
+ 342 named destinations out of 1000 (max. 500000)
+ 659 words of extra memory for PDF output out of 10000 (max. 10000000)
 
