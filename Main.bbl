@@ -1,6 +1,13 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{M{\'A}CZCA{\etalchar{+}}14}
 
+\bibitem[ABB{\etalchar{+}}14]{acher2014software}
+Mathieu Acher, Olivier Barais, Benoit Baudry, Arnaud Blouin, Johann Bourcier,
+  Benoit Combemale, Jean-Marc J{\'e}z{\'e}quel, and No{\"e}l Plouzeau.
+\newblock Software diversity: Challenges to handle the imposed, opportunities
+  to harness the chosen.
+\newblock In {\em GDR GPL}, 2014.
+
 \bibitem[ACG{\etalchar{+}}04]{almagor2004finding}
 Lelac Almagor, Keith~D Cooper, Alexander Grosul, Timothy~J Harvey, Steven~W
   Reeves, Devika Subramanian, Linda Torczon, and Todd Waterman.
@@ -37,6 +44,12 @@ Alexandre Bragan{\c{c}}a and Ricardo~J Machado.
   development.
 \newblock In {\em Software Product Line Conference, 2008. SPLC'08. 12th
   International}, pages 329--338. IEEE, 2008.
+
+\bibitem[BM15]{baudry2015multiple}
+Benoit Baudry and Martin Monperrus.
+\newblock The multiple facets of software diversity: Recent developments in
+  year 2000 and beyond.
+\newblock {\em ACM Computing Surveys (CSUR)}, 48(1):16, 2015.
 
 \bibitem[BSH15]{ballal2015compiler}
 Prathibha~A Ballal, H~Sarojadevi, and PS~Harsha.
@@ -165,6 +178,12 @@ Grigori Fursin.
 \newblock Collective tuning initiative: automating and accelerating development
   and optimization of computing systems.
 \newblock In {\em GCC Developers' Summit}, 2009.
+
+\bibitem[GPB15]{ghazi2015heterogeneous}
+Ahmad~Nauman Ghazi, Kai Petersen, and J{\"u}rgen B{\"o}rstler.
+\newblock Heterogeneous systems testing techniques: An exploratory survey.
+\newblock In {\em International Conference on Software Quality}, pages 67--85.
+  Springer, 2015.
 
 \bibitem[GS14]{guana2014chaintracker}
 Victor Guana and Eleni Stroulia.
@@ -420,6 +439,13 @@ Stephen Soltesz, Herbert P{\"o}tzl, Marc~E Fiuczynski, Andy Bavier, and Larry
   high-performance alternative to hypervisors.
 \newblock In {\em ACM SIGOPS Operating Systems Review}, volume~41, pages
   275--287. ACM, 2007.
+
+\bibitem[SRC{\etalchar{+}}12]{schaefer2012software}
+Ina Schaefer, Rick Rabiser, Dave Clarke, Lorenzo Bettini, David Benavides,
+  Goetz Botterweck, Animesh Pathak, Salvador Trujillo, and Karina Villela.
+\newblock Software diversity: state of the art and perspectives.
+\newblock {\em International Journal on Software Tools for Technology
+  Transfer}, 14(5):477--495, 2012.
 
 \bibitem[SWC05]{sturmer2005overview}
 Ingo St{\"u}rmer, Daniela Weinberg, and Mirko Conrad.

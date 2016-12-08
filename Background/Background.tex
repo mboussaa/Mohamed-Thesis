@@ -5,28 +5,61 @@ The objective of this chapter is to give a brief introduction to these concerns,
 The chapter is structured as follows: In section 2.1 and 2.2 we present the generative programming approach and the different steps of code generation involved in the software development. Section 2.3 gives an overview of the types of code generators used in the literature. In Section 2.4, we describe compilers and their complexity.
 
 
-\section{Diversity of hardware and software platforms}
+\section{Diversity in software engineering}
 %context
-The history of software development shows a continuous increase of complexity in several aspects of the software development process~\cite{betz2011improving}. 
+The history of software development shows a continuous increase of complexity in several aspects of the software development process. This complexity is highly correlated with the actual technological advancement in the software industry as more and more heterogeneous devices are introduced in the market~\cite{betz2011improving}. 
+Generally, heterogeneity may occur in terms of different system complexities, diverse programming languages and platforms, types of systems, development processes and distribution among development sites\cite{ghazi2015heterogeneous}.
+%System heterogeneity we are discussing in this thesis is the software and hardware diversity.
+System heterogeneity is often led by software and hardware diversity.
+Diversity emerges as a critical concern that spans all activities in software engineering, from design to runtime\cite{acher2014software}. It appears in different domains such as adaptive systems, distributed and heterogeneous systems, Internet of Things, Internet of Services, etc.
+
+However, software and hardware diversity increases system complexity and leads to a greater risk for system failures due to continuous change in configurations and system specifications.
+As a matter of a fact, effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important.
+Furthermore, the increasing relevance of software in general and the higher demand in quality and performance contribute to the complexity of software development.
+
+In this background introduction, we discuss two different dimensions of diversity: (1) software diversity and (2) hardware heterogeneity.
+
+%The history of software development shows a continuous increase of complexity in several aspects of the software development process~\cite{betz2011improving}. 
 %Diversity
-In fact, modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of platforms and devices that provide a wide diversity of capabilities and services. These heterogeneous services may run in different environments ranging from cloud servers with virtually unlimited resources down to resource-constraint devices with only a few KB of RAM. Effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important. 
+ 
+ 
 %problem
-Furthermore, the increasing relevance of software in general and the higher demand in quality and performance contribute to the complexity of software development. 
+%Furthermore, the increasing relevance of software in general and the higher demand in quality and performance contribute to the complexity of software development. 
+%Today, softwares and services are running everywhere. These services are running on top of heterogeneous software and hardware platforms.
+\subsection{Software diversity}
+In today’s software systems, typically different system variants are developed simultaneously to address a wide range of application contexts or customer requirements\cite{schaefer2012software}. 
+This variation is referred to as \textit{software diversity}. 
+Baudry et al.\cite{baudry2015multiple} and Schaefer et al.\cite{schaefer2012software} have presented an exhaustive overview of the multiple facets of software diversity in software engineering. 
+Software diversity can emerge in different types and dimensions such as diversity of operating systems, languages, data structures, components, execution environments, etc. 
+Like all modern software systems, softwares have to be adapted to address changing requirements over time supporting system evolution, technology and market needs like considering new software platforms, new languages, new customer choices, etc.
+%We discuss in this section some of them which are the most relevant for this thesis.
 
-Today, softwares and services are running everywhere. These services are running on top of heterogeneous software and hardware platforms. In practice however, the extreme heterogeneity of platforms and hardwares becomes a major lock for software and service developers who are not able to exploit to their full potential the diversity of platforms capabilities
 
-\subsection{Software-platform heterogeneity}
-The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
-for example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
+As an example, \cite{schaefer2012software} survey software diversity by means of software product lines (SPL). This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
 
-\subsection{Hardware-platform heterogeneity}
+Accordingly, we want to give the following definition of software diversity: 
+\textit{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc.}
 
-Generally, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as arm, intel, amd processors. 
+%The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
+
+
+\subsection{Hardware heterogeneity}
+On the hardware side, modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of devices that provide a wide diversity of capabilities and services to the end users.
+These heterogeneous services may run in different environments ranging from cloud servers with virtually unlimited resources down to resource-constrained devices with only a few KB of RAM.
+Hardware heterogeneity comes from the continuous change of hardware evolutions to support new system configurations and architectural design (e.g., addition of new features, a change in the processor architecture, new hardware is made available, switch to low bandwidth wireless communication, etc). 
+Since the early 1970s, the increase in capacity of microprocessors has followed Moore's law for Intel processors. Indeed, we observe that the number of components (transistors) that can be fitted onto a chip doubles every year, increasing the performance and energy efficiency.
+For example, Intel Core 2 Duo processor was introduced in 2006 with 291 millions of transistors and 2.93 GHz clock speed. One year later, Intel has introduced the Core 2 Quad processors which came up with 2.66 GHz clock speed and the double number of transistors introduced in 2006 with 582 millions of transistors.
+ 
+ 
+
+
+Furthermore, given the complexity of new emerging processors architecture, rapidly evolving hardware and compiler options, it is not easy to deliver satisfactory levels of performance on modern processors.
+
+For instance, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as ARM, Intel, AMD processors. 
 Compilers can be classified depending on the platform on which their generated code executes. This is known as the target platform.
 A native compiler is one which output is intended to directly run on the same type of processor architecture and operating system that the compiler itself runs on. In the counter part, the output of a cross compiler is designed to run on a different platform. Cross compilers are often used when developing software for embedded systems that are not intended to support a software development environment.
 
-Given the complexity of new emerging processors architecture, rapidly evolving hardware and compiler options, it is not easy to deliver satisfactory levels of performance on modern processors.
-
+%Systems have to cope with heterogeneous hardware execution platforms. 
 
 Some of the questions that developers have to answer when facing Hardware diversity which optimizations are applied by compiler users in order to satisfy the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
 
@@ -35,11 +68,38 @@ Some of the questions that developers have to answer when facing Hardware divers
 
 Model-Driven Software Engineering and generative programming techniques to provide a new integrated software engineering approach which enables the advanced exploitation of the full range of diversity and specificity of the future computing continuum
 
+Diversity increases system complexity and leads to a greater risk for system failures. Efficient validation and verification methods are, thus, essential to guarantee qualities of diverse systems, such as security, consistency, correctness or performance
 
+\subsection{Matching software diversity to heterogeneous hardware}
+
+The hardware and software communities are thus both
+facing significant change and major challenges.
+
+
+%Meanwhile, software is facing challenges of a similar magnitude,
+%with major changes in the way software is deployed, is sold, and interacts with hardware
+
+%Software use to be a lot performance, about productivity, mamanging complexity, glueing lot of pieces together and give programmers the right abstraction for how things really work and what the data really is
+%Hardware is exposing us to more low level 
+%Software wants to be higher and higher level
+%hard and software are pulling us in opposite directions
+%hard is exposing us to more and more complxity  and software is higher level which is big problem for both communities
+%we need a marriage between hardware and software
+
+%In embeded devices we have seen a system on a chip on your phone. Nvidea and qualcome  are chipping single ISA heteregenous processors but the problem is that software is not ready for this hetergenouty 
+%hardware offer us energy efficiency but expose a lot of complexity for software engineers and developers. Software arestguliing with hetergenouity. If we add hetergenousty can we deal with that
+%What we have to do as software community to adress hetergenouity, we need some part of the work load or some ubiquity because hardware specialization for every single application is not a sustainable way of building chips. In order to improve and get that energy efficiency we have to havve common attributes of workload or somthing that works across across a big class of workloads in order that innovation in hardware can be exploided in the softare as well 
+
+%to handle hardware hetergenouty is parallalism ubiquity and differentiation
+
+
+ %abstract, choose, and exploit hardware heterogeneity providing computational power at low energy consumption levels.
+
+%For example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
 
 \section{From classical software development to generative programming}
 \label{sec:FROM} 
-In comparison to the classical approach where software development was carried out manually, today’s modern development requires more automatic and flexible approaches to handle this given complexity.
+In comparison to the classical approach where software development was carried out manually, today’s modern development requires more automatic and flexible approaches to handle software and hardware heterogeneity.
 Hence, more generic tools, methods and techniques are applied in order to keep the software development process as easy as possible for testing and maintenance and to handle the different requirements in a satisfyingly and efficient manner.
 %GP
 As a consequence, generative programming (GP) techniques are increasingly applied to automatically generate and reuse software artifacts.
@@ -87,7 +147,7 @@ In the following section, we present a general overview of the complete software
 
 
 \section{An overview of the software development tool chain}
-%\subsection{Automatic code generation}
+\subsection{Automatic code generation}
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
@@ -118,7 +178,7 @@ Software development may be divided into two main parts. On the one hand, softwa
 \item \textit{Compilation:}
 Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
 \end{itemize} 
-.
+\subsection{Actors/Roles}
 %\begin{figure}[h]
 %\center
 %	\includegraphics[scale=0.65]{Background/fig/background_overview.pdf}
@@ -202,9 +262,6 @@ The key feature of compilers is to bridge source programs written in high-level 
 Modern compilers implement a number of optimizations. Each optimization tries to improve the performance of certain target applications. Improvement of source code programs in terms of performance can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
 Testing non-functional properties is more challenging 
 Thus, the determination of optimal settings of compiler optimizations has been identified as a major problem because compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the underlying system architecture, the target application, and the available optimizations of the compiler.
-
-
-
 
 
 
