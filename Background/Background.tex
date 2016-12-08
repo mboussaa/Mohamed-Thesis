@@ -37,6 +37,18 @@ Like all modern software systems, softwares have to be adapted to address changi
 
 As an example, \cite{schaefer2012software} survey software diversity by means of software product lines (SPL). This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
 
+Another concrete example of how software diversity is managed in industry production is JHipster\footnote{https://jhipster.github.io/}. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
+The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
+For example, Table 1 shows a feature model of some configuration examples that the user would select. When building the applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
+Using this feature model more than 10k diverse architecture types of project can be selected, depending on the different criteria.
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/jhipster}
+	\caption{Example of JHipster feature model}
+\end{figure}
+
+Whatever configuration selected by the user, the application behavior will not change and the resulting application will share a similar architecture and fundamental code-base.
+
 Accordingly, we want to give the following definition of software diversity: 
 \textit{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc.}
 
@@ -49,19 +61,17 @@ These heterogeneous services may run in different environments ranging from clou
 Hardware heterogeneity comes from the continuous change of hardware evolutions to support new system configurations and architectural design (e.g., addition of new features, a change in the processor architecture, new hardware is made available, switch to low bandwidth wireless communication, etc). 
 Since the early 1970s, the increase in capacity of microprocessors has followed Moore's law for Intel processors. Indeed, we observe that the number of components (transistors) that can be fitted onto a chip doubles every year, increasing the performance and energy efficiency.
 For example, Intel Core 2 Duo processor was introduced in 2006 with 291 millions of transistors and 2.93 GHz clock speed. One year later, Intel has introduced the Core 2 Quad processors which came up with 2.66 GHz clock speed and the double number of transistors introduced in 2006 with 582 millions of transistors.
- 
- 
 
+So, given the complexity of new emerging processors architecture (x86, x64, etc) and CPU manufacturers like ARM, AMD and Intel, some of the questions that developers have to answer when facing hardware heterogeneity: 
+Is it easy to deliver satisfactory levels of performance on modern processors? How is it possible to produce machine code that can exploit efficiently the new hardware changes? 
 
-Furthermore, given the complexity of new emerging processors architecture, rapidly evolving hardware and compiler options, it is not easy to deliver satisfactory levels of performance on modern processors.
-
-For instance, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors such as ARM, Intel, AMD processors. 
+Thus, systems have to cope with heterogeneous hardware execution platforms.
+For instance, software developers use different compilers in order to compile their source code program and execute it on top of a board range target platforms and processors. 
 Compilers can be classified depending on the platform on which their generated code executes. This is known as the target platform.
 A native compiler is one which output is intended to directly run on the same type of processor architecture and operating system that the compiler itself runs on. In the counter part, the output of a cross compiler is designed to run on a different platform. Cross compilers are often used when developing software for embedded systems that are not intended to support a software development environment.
 
-%Systems have to cope with heterogeneous hardware execution platforms. 
+Which optimizations are applied by compiler users in order to satisfy  the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
 
-Some of the questions that developers have to answer when facing Hardware diversity which optimizations are applied by compiler users in order to satisfy the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
 
 %end 
 
