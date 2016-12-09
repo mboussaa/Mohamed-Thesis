@@ -56,6 +56,13 @@ Prathibha~A Ballal, H~Sarojadevi, and PS~Harsha.
 \newblock Compiler optimization: A genetic algorithm approach.
 \newblock {\em International Journal of Computer Applications}, 112(10), 2015.
 
+\bibitem[CBGM12]{cao2012yin}
+Ting Cao, Stephen~M Blackburn, Tiejun Gao, and Kathryn~S McKinley.
+\newblock The yin and yang of power and performance for asymmetric hardware and
+  managed software.
+\newblock In {\em ACM SIGARCH Computer Architecture News}, volume~40, pages
+  225--236. IEEE Computer Society, 2012.
+
 \bibitem[CE00a]{czarnecki2000generative}
 Krzysztof Czarnecki and Ulrich~W Eisenecker.
 \newblock Generative programming.
@@ -203,6 +210,13 @@ Kenneth Hoste and Lieven Eeckhout.
 \newblock Cole: compiler optimization level exploration.
 \newblock In {\em Proceedings of the 6th annual IEEE/ACM international
   symposium on Code generation and optimization}, pages 165--174. ACM, 2008.
+
+\bibitem[He10]{he2010computer}
+Liqiang He.
+\newblock Computer architecture education in multicore era: Is the time to
+  change.
+\newblock In {\em Computer Science and Information Technology (ICCSIT), 2010
+  3rd IEEE International Conference on}, volume~9, pages 724--728. IEEE, 2010.
 
 \bibitem[Her03]{herrington2003code}
 Jack Herrington.

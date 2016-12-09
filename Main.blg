@@ -7,67 +7,68 @@ Repeated entry---line 57 of file uw-ethesis.bib
  : @book{herrington2003code
  :                         ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 190 of file uw-ethesis.bib
+Repeated entry---line 211 of file uw-ethesis.bib
  : @inproceedings{france2007model
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 199 of file uw-ethesis.bib
+Repeated entry---line 220 of file uw-ethesis.bib
  : @article{mckeeman1998differential
  :                                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 209 of file uw-ethesis.bib
+Repeated entry---line 230 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 301 of file uw-ethesis.bib
+Repeated entry---line 322 of file uw-ethesis.bib
  : @inproceedings{guana2015developers
  :                                   ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 309 of file uw-ethesis.bib
+Repeated entry---line 330 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 318 of file uw-ethesis.bib
+Repeated entry---line 339 of file uw-ethesis.bib
  : @inproceedings{guana2014chaintracker
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 327 of file uw-ethesis.bib
+Repeated entry---line 348 of file uw-ethesis.bib
  : @article{delgado2004taxonomy
  :                             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 347 of file uw-ethesis.bib
+Repeated entry---line 368 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 545 of file uw-ethesis.bib
+Repeated entry---line 566 of file uw-ethesis.bib
  : @inproceedings{nethercote2007valgrind
  :                                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 604 of file uw-ethesis.bib
+Repeated entry---line 625 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 635 of file uw-ethesis.bib
+Repeated entry---line 656 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 677 of file uw-ethesis.bib
+Repeated entry---line 698 of file uw-ethesis.bib
  : @article{brambilla2012model
  :                            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 687 of file uw-ethesis.bib
+Repeated entry---line 708 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 788 of file uw-ethesis.bib
+Repeated entry---line 809 of file uw-ethesis.bib
  : @inproceedings{demertzi2011analyzing
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 827 of file uw-ethesis.bib
+Repeated entry---line 848 of file uw-ethesis.bib
  : @inproceedings{li2015rest
  :                          ,
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in mboussaa
+Warning--can't use both volume and number fields in cao2012yin
 Warning--can't use both volume and number fields in czarnecki2003classification
 Warning--can't use both volume and number fields in chen2010evaluating
 Warning--there's a number but no volume in fertalj2008source
@@ -82,45 +83,45 @@ Warning--empty journal in stepasyuk2015evaluating
 Warning--can't use both volume and number fields in soltesz2007container
 Warning--can't use both volume and number fields in sturmer2005overview
 Warning--can't use both volume and number fields in yang2011finding
-You've used 76 entries,
+You've used 78 entries,
             2543 wiz_defined-function locations,
-            968 strings with 19305 characters,
-and the built_in function-call counts, 37274 in all, are:
-= -- 3799
-> -- 1899
-< -- 61
-+ -- 686
-- -- 675
-* -- 2677
-:= -- 5860
-add.period$ -- 261
-call.type$ -- 76
-change.case$ -- 544
-chr.to.int$ -- 75
-cite$ -- 92
-duplicate$ -- 1522
-empty$ -- 2646
-format.name$ -- 746
-if$ -- 7886
+            979 strings with 19722 characters,
+and the built_in function-call counts, 38417 in all, are:
+= -- 3923
+> -- 1938
+< -- 66
++ -- 701
+- -- 689
+* -- 2755
+:= -- 6020
+add.period$ -- 269
+call.type$ -- 78
+change.case$ -- 557
+chr.to.int$ -- 77
+cite$ -- 95
+duplicate$ -- 1575
+empty$ -- 2734
+format.name$ -- 763
+if$ -- 8143
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 80
-newline$ -- 382
-num.names$ -- 225
-pop$ -- 598
+missing$ -- 82
+newline$ -- 392
+num.names$ -- 231
+pop$ -- 613
 preamble$ -- 1
-purify$ -- 625
+purify$ -- 640
 quote$ -- 0
-skip$ -- 1284
+skip$ -- 1331
 stack$ -- 0
-substring$ -- 1990
-swap$ -- 446
-text.length$ -- 61
-text.prefix$ -- 10
+substring$ -- 2069
+swap$ -- 471
+text.length$ -- 66
+text.prefix$ -- 11
 top$ -- 0
-type$ -- 588
-warning$ -- 15
-while$ -- 368
-width$ -- 79
-write$ -- 1015
+type$ -- 604
+warning$ -- 16
+while$ -- 379
+width$ -- 81
+write$ -- 1045
 (There were 16 error messages)
