@@ -37,7 +37,7 @@ Like all modern software systems, softwares have to be adapted to address changi
 
 As an example, \cite{schaefer2012software} survey software diversity by means of software product lines (SPL). This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
 
-Another concrete example of how software diversity is managed in industry production is JHipster\footnote{https://jhipster.github.io/}. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
+JHipster\footnote{https://jhipster.github.io/} is a concrete example that shows how software diversity is managed in industry production. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
 The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
 For example, Figure 2.1 shows a feature model of some configuration examples that the user would select. When building the applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
 Using this feature model more than 10k diverse architecture types of project can be selected, depending on the different criteria.
@@ -50,7 +50,9 @@ Using this feature model more than 10k diverse architecture types of project can
 \textbf{Whatever configuration selected by the user, the application behavior will not change and the resulting application will share a similar architecture and fundamental code-base.}
 
 Accordingly, we want to give the following definition of software diversity: 
-\textit{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc.}
+\textit{\textbf{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc. }}
+		
+We define as well the term \textbf{"software family"} to categorize these diverse programs that share the same behavior/functionality
 
 %The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
 
@@ -75,22 +77,10 @@ To cope with heterogeneous hardware execution platforms software developers use 
 
 As shown in Figure 2.2, a compiler is typically divided into two parts, a front end and a back end. The compiler front-end verifies syntax and semantics and analyzes the source code to build an internal representation of the program, called the intermediate representation or IR. For example, the GNU Compiler Collection (GCC) and LLVM support many front ends with languages such as C, C++, Objective-C, Objective-C++, Fortran, Java, Ada, and Go among others. 
 A compiler’s back end is typically responsible for code optimizations and code generation for a particular microprocessor. Today, GCC is able to generate code for approximately more than 40 different processor architectures.
+For example, one important option for compiler flags is -march. It tells the compiler what code it should produce for the system's processor architecture (or arch); it tells GCC that it should produce code for a certain kind of CPU. Using \textit{-march=native} apply all optimization flags applicable to the produce specific code for the native system's CPU, with all its capabilities, features, instruction sets, and so on. There exits many other optimizations options for the target CPU like \textit{--with-arch=corei7}, \textit{--with-cpu=corei7}, etc.
+Generally, each time a new family of processors is released, compiler developers release new compiler version with more sophisticated optimization options for the target platform. For example, old compilers produce only 32-bit programs. These programs still run on new 64-bit computers, but they may not exploit all processor capabilities (e.g. they will not use the new instructions that are offered by x64 CPU architecture). So, users may want a new compiler to truly take advantage of the new chip with more advanced optimizations for the new hardware chip.
 
 
-%The middle-end performs optimizations on a form other than the source code or machine code. This source code/machine code independence is intended to enable generic optimizations to be shared between versions of the compiler supporting different languages and target processors.
-%Last step is to perform more analysis, transformations and optimizations that are for a particular computer. Generates the target-dependent assembly code, performing register allocation in process. Performs optimizations of the target code utilization of the hardware, like figuring out how to keep parallel execution units busy by filling delay slots.
-
-
-%Also, processors come in families. When (for example) Intel releases a new processor, it does everything the old processor does, and more. This means that you can continue to use the existing compiler. It will make programs that work on the new processor. They will not use the new instructions that is offered, but they will still work.
-%For example, rather old compilers will only produce 32-bit programs. The programs still run on new 64-bit computers, but they do not run well.
-%You probably want a new compiler to truely take advantage of the new chip, but it isn't necessary. 
-
-%A native compiler is one which output is intended to directly run on the same type of processor architecture and operating system that the compiler itself runs on. In the counter part, the output of a cross compiler is designed to run on a different platform. Cross compilers are often used when developing software for embedded systems that are not intended to support a software development environment.
-
-%As shown in Figure 2.2 This front/middle/back-end approach makes it possible to combine front ends for different languages with back ends for different CPUs. Practical examples of this approach are the GNU Compiler Collection, LLVM,[15] and the Amsterdam Compiler Kit, which have multiple front-ends, shared analysis and multiple back-ends.
-
-%Compilers can be classified depending on the platform on which their generated code executes. Typically, compilers intend to generate the output of a back end is machine code specialized for a particular processor and operating system.
-%This is known as the target platform.
 
 
 %Which optimizations are applied by compiler users in order to satisfy  the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
