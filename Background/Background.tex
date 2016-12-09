@@ -94,28 +94,27 @@ Generally, each time a new family of processors is released, compiler developers
 
 \subsection{Matching software diversity to heterogeneous hardware: the marriage}
 
-The hardware and software communities are thus both facing significant change and major challenges. Hardware and software are pulling us in opposite directions. 
+The hardware and software communities are thus both facing significant change and major challenges. Hardware and software are pulling us in opposite directions. Figure 2.3 shows the challenges that both communities are facing.  
 
 On the one hand, software is facing challenges of a similar magnitude, with major changes in the way software is deployed, is sold, and interacts with hardware. 
-Software diversity as discussed in section 2.1.1 is driving the software development toward highly configurable and complex systems. This complexity is carried by the huge number of software technologies, customer configurations, execution environments, etc. This explosion of configurations that software is facing makes the activity of testing and validation very difficult and time consuming. 
-As consequence, software becomes higher and higher level, managing complexity and gluing lot of pieces together to give programmers the right abstraction for how things really work and how the data is really represented. 
-For example, model-driven software Engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
+Software diversity as discussed in section 2.1.1 is driven by software innovation, driving the software development toward highly configurable and complex systems. This complexity is carried by the huge number of software technologies, customer configurations, execution environments, programming languages, etc. This explosion of configurations that software is facing makes the activity of testing and validation very difficult and time consuming. 
+As a consequence, softwares become higher and higher level, managing complexity and gluing lot of pieces together to give programmers the right abstraction for how things really work and how the data is really represented. 
+For example, model-driven software engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
 
-On the other hand, hardware is exposing us to more low level details, heterogeneity and complexity.
-\cite{he2010computer} argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday’s life, we still do not know how to best organize and use them. 
+On the other hand, hardware is exposing us to more low level details and heterogeneity due to the continuous hardware innovation. 
+Hardware innovation offer us energy efficiency, performance improvement but expose a lot of complexity for software engineers and developers (e.g., compilers users/creators)
+\cite{he2010computer} argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday’s life, we still do not know how to best organize and use them.
+Meantime, hardware specialization for every single application is not a sustainable way of building chips.
+So, what would software community do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
+
 People who are writing compilers are also exposed to this complexity since they have to continuously enhance the way they are producing the assembly code by releasing new compiler versions to support hardware changes (i.e., new optimization flags)
 
-% Software arestguliing with hetergenouity. If we add hetergenousty can we deal with that
- %What we have to do as software community to adress hetergenouity, we need some part of the work load or some ubiquity because hardware specialization for every single application is not a sustainable way of building chips
-
+ 
 
 %which is big problem for both communities
 %we need a marriage between hardware and software
 
-%In embeded devices we have seen a system on a chip on your phone. Nvidea and qualcome  are chipping single ISA heteregenous processors but the problem is that software is not ready for this hetergenouty 
 
-%hardware offer us energy efficiency but expose a lot of complexity for software engineers and developers. Software arestguliing with hetergenouity. If we add hetergenousty can we deal with that
-%What we have to do as software community to adress hetergenouity, we need some part of the work load or some ubiquity because hardware specialization for every single application is not a sustainable way of building chips. In order to improve and get that energy efficiency we have to havve common attributes of workload or somthing that works across across a big class of workloads in order that innovation in hardware can be exploided in the softare as well 
 
 %to handle hardware hetergenouty is parallalism ubiquity and differentiation
 

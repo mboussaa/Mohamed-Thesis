@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  9 DEC 2016 14:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  9 DEC 2016 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1049,24 +1049,20 @@ Missing character: There is no ô in font cmr12!
 File: Background/fig/marriage.pdf Graphic file (type pdf)
 
 <use Background/fig/marriage.pdf>
-Package pdftex.def Info: Background/fig/marriage.pdf used on input line 129.
+Package pdftex.def Info: Background/fig/marriage.pdf used on input line 128.
 (pdftex.def)             Requested size: 380.36655pt x 133.7481pt.
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [16 <./Background/fig/marriage.pdf>]
-<Background/fig/GDM.pdf, id=579, 320.19624pt x 150.5625pt>
+ [16 <./Background/fig/marriage.pdf>] [17]
+<Background/fig/GDM.pdf, id=584, 320.19624pt x 150.5625pt>
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
-Package pdftex.def Info: Background/fig/GDM.pdf used on input line 172.
+Package pdftex.def Info: Background/fig/GDM.pdf used on input line 171.
 (pdftex.def)             Requested size: 208.12508pt x 97.86446pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17]
-Overfull \hbox (11.11642pt too wide) in paragraph at lines 182--182
+Overfull \hbox (11.11642pt too wide) in paragraph at lines 181--181
 []\OT1/cmr/bx/n/17.28 An overview of the soft-ware de-vel-op-ment tool chain 
  []
 
@@ -1075,7 +1071,7 @@ File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
 Package pdftex.def Info: Background/fig/background_overview2.pdf used on input 
-line 186.
+line 185.
 (pdftex.def)             Requested size: 459.963pt x 240.74657pt.
 
 
@@ -1096,41 +1092,34 @@ Missing character: There is no ù in font cmti12!
 File: Background/fig/workflow.png Graphic file (type png)
 
 <use Background/fig/workflow.png>
-Package pdftex.def Info: Background/fig/workflow.png used on input line 225.
+Package pdftex.def Info: Background/fig/workflow.png used on input line 224.
 (pdftex.def)             Requested size: 277.03432pt x 199.74576pt.
- [20]
+ [20] [21 <./Background/fig/workflow.png>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [21 <./Background/fig/workflow.png>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ò in font cmr12!
 
-[22] <Background/fig/software-diversity.pdf, id=735, 590.205pt x 354.32375pt>
+[22] [23]
+<Background/fig/software-diversity.pdf, id=739, 590.205pt x 354.32375pt>
 File: Background/fig/software-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/software-diversity.pdf>
 Package pdftex.def Info: Background/fig/software-diversity.pdf used on input li
-ne 269.
+ne 268.
 (pdftex.def)             Requested size: 383.6287pt x 230.3077pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Background/fig/hardware-diversity.pdf, id=736, 559.08875pt x 366.36874pt>
+<Background/fig/hardware-diversity.pdf, id=740, 559.08875pt x 366.36874pt>
 File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/hardware-diversity.pdf>
 Package pdftex.def Info: Background/fig/hardware-diversity.pdf used on input li
-ne 289.
+ne 288.
 (pdftex.def)             Requested size: 363.40337pt x 238.13686pt.
- [23]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[24 <./Background/fig/software-diversity.pdf>] [25 <./Background/fig/hardware-d
-iversity.pdf>]) [26]
+ [24 <./Background/fig/software-diversity.pdf>] [25 <./Background/fig/hardware-
+diversity.pdf>]) [26]
 Chapter 3.
 (./SOTA/SOTA.tex [27
 
@@ -1951,7 +1940,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (96 pages, 4387964 bytes).
+Output written on Main.pdf (96 pages, 4388584 bytes).
 PDF statistics:
  2271 PDF objects out of 2487 (max. 8388607)
  1767 compressed objects within 18 object streams
