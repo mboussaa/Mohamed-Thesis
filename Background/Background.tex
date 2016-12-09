@@ -82,7 +82,6 @@ Generally, each time a new family of processors is released, compiler developers
 
 
 
-
 %Which optimizations are applied by compiler users in order to satisfy  the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
 
 
@@ -103,7 +102,7 @@ As consequence, software becomes higher and higher level, managing complexity an
 For example, model-driven software Engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
 
 On the other hand, hardware is exposing us to more low level details, heterogeneity and complexity.
-\cite{he2010computer,cao2012yin} argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday’s life, we still do not know how to best organize and use them. 
+\cite{he2010computer} argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday’s life, we still do not know how to best organize and use them. 
 People who are writing compilers are also exposed to this complexity since they have to continuously enhance the way they are producing the assembly code by releasing new compiler versions to support hardware changes (i.e., new optimization flags)
 
 % Software arestguliing with hetergenouity. If we add hetergenousty can we deal with that
@@ -124,6 +123,12 @@ People who are writing compilers are also exposed to this complexity since they 
  %abstract, choose, and exploit hardware heterogeneity providing computational power at low energy consumption levels.
 
 %For example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/marriage}
+	\caption{Matching software to hardware}
+\end{figure}
 
 \section{From classical software development to generative programming}
 \label{sec:FROM} 
