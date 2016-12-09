@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  9 DEC 2016 15:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  9 DEC 2016 16:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1049,7 +1049,7 @@ Missing character: There is no ô in font cmr12!
 File: Background/fig/marriage.pdf Graphic file (type pdf)
 
 <use Background/fig/marriage.pdf>
-Package pdftex.def Info: Background/fig/marriage.pdf used on input line 128.
+Package pdftex.def Info: Background/fig/marriage.pdf used on input line 129.
 (pdftex.def)             Requested size: 380.36655pt x 133.7481pt.
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -1059,10 +1059,10 @@ Missing character: There is no ô in font cmr12!
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
-Package pdftex.def Info: Background/fig/GDM.pdf used on input line 171.
+Package pdftex.def Info: Background/fig/GDM.pdf used on input line 172.
 (pdftex.def)             Requested size: 208.12508pt x 97.86446pt.
 
-Overfull \hbox (11.11642pt too wide) in paragraph at lines 181--181
+Overfull \hbox (11.11642pt too wide) in paragraph at lines 182--182
 []\OT1/cmr/bx/n/17.28 An overview of the soft-ware de-vel-op-ment tool chain 
  []
 
@@ -1071,7 +1071,7 @@ File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
 Package pdftex.def Info: Background/fig/background_overview2.pdf used on input 
-line 185.
+line 186.
 (pdftex.def)             Requested size: 459.963pt x 240.74657pt.
 
 
@@ -1092,7 +1092,7 @@ Missing character: There is no ù in font cmti12!
 File: Background/fig/workflow.png Graphic file (type png)
 
 <use Background/fig/workflow.png>
-Package pdftex.def Info: Background/fig/workflow.png used on input line 224.
+Package pdftex.def Info: Background/fig/workflow.png used on input line 225.
 (pdftex.def)             Requested size: 277.03432pt x 199.74576pt.
  [20] [21 <./Background/fig/workflow.png>]
 Missing character: There is no ‚ in font cmr12!
@@ -1108,7 +1108,7 @@ File: Background/fig/software-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/software-diversity.pdf>
 Package pdftex.def Info: Background/fig/software-diversity.pdf used on input li
-ne 268.
+ne 269.
 (pdftex.def)             Requested size: 383.6287pt x 230.3077pt.
 
 <Background/fig/hardware-diversity.pdf, id=740, 559.08875pt x 366.36874pt>
@@ -1116,7 +1116,7 @@ File: Background/fig/hardware-diversity.pdf Graphic file (type pdf)
 
 <use Background/fig/hardware-diversity.pdf>
 Package pdftex.def Info: Background/fig/hardware-diversity.pdf used on input li
-ne 288.
+ne 289.
 (pdftex.def)             Requested size: 363.40337pt x 238.13686pt.
  [24 <./Background/fig/software-diversity.pdf>] [25 <./Background/fig/hardware-
 diversity.pdf>]) [26]
@@ -1917,7 +1917,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  20203 strings out of 493027
  368706 string characters out of 6134069
- 826999 words of memory out of 5000000
+ 825999 words of memory out of 5000000
  23099 multiletter control sequences out of 15000+600000
  17639 words of font info for 67 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -1940,7 +1940,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (96 pages, 4388584 bytes).
+Output written on Main.pdf (96 pages, 4388774 bytes).
 PDF statistics:
  2271 PDF objects out of 2487 (max. 8388607)
  1767 compressed objects within 18 object streams
