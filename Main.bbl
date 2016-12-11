@@ -239,6 +239,12 @@ Robert Hundt.
 \newblock Loop recognition in c++/java/go/scala.
 \newblock In {\em Proceedings of Scala Days 2011}, June 2011.
 
+\bibitem[HZG10]{hou2010spap}
+Qiming Hou, Kun Zhou, and Baining Guo.
+\newblock Spap: A programming language for heterogeneous many-core systems.
+\newblock Technical report, Technical report, Zhejiang University Graphics and
+  Parallel Systems Lab, 2010.
+
 \bibitem[IJH{\etalchar{+}}13]{inden2013examination}
 Benjamin Inden, Yaochu Jin, Robert Haschke, Helge Ritter, and Bernhard
   Sendhoff.
