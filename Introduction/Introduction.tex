@@ -44,19 +44,19 @@ On the one hand, since many different target software platforms can be targeted 
 On the other hand, we would help compiler users to select the best optimization sets that satisfy specific resource usage requirements for a broad range of programs and hardware architectures.
 
 \textit{This thesis addresses two problems: (1) the problem of non-functional testing of code generators and (2) the problem of automatically auto-tuning compilers} through the runtime execution and evaluation of the generated code. 
-In particular, it aims at offering effective support for collecting data about resource consumption (e.g., CPU, memory) and detect inconsistencies yielding to an intensive resource usage, as well as efficient mechanisms to help compiler users to choose the best configuration that satisfy specific non-functional requirements and lead to performance improvement.
+In particular, it aims at offering effective support for collecting data about resource consumption (e.g., CPU, memory) and detect inconsistencies yielding to an intensive resource usage, as well as an efficient mechanism to help compiler users to choose the best configuration that satisfy specific non-functional requirements and lead to performance improvement.
 
 In this thesis, we use the term \textbf{"compilers"} to refer to the traditional compilers that take as input a source code and translate it into machine code like GCC, LLVM, ect. Similarly, \textbf{"Code generators"} designate the software programs that transform an input program into source code like JAVA, C++, etc. As well, we use the term \textbf{"generators"} to designate both, code generators and compilers. 
 
 \section{Challenges}
-Due to new advances in hardware and system specification, creating an effective code generators (including compilers) is not simple and it is becoming more and more challenging.
-In existing solutions that aim to test code generators and compilers, we find two important challenges. Addressing these challenges, which are described below, is the objective of the present work.
+%Due to new advances in hardware and system specification, creating an effective code generators (including compilers) is not simple and it is becoming more and more challenging.
+In existing solutions that aim to test code generators and tune compilers, we find three important challenges. Addressing these challenges, which are described below, is the objective of the present work.
 \begin{itemize}
 \item
 \textbf{Oracle problem:} One of the most common challenges in software testing is the oracle problem. A test oracle is the mechanism by which a tester can determine whether a program has failed or not.
-When talking about the non-functional properties, this problem becomes more difficult because it is quite hard to determine the expected output of a compiler under test given some programs as the test inputs (e.g., memory usage of the running program). Determining  whether these non-functional outputs correspond to a anomaly or not is also not easy. In this case, testing generated code becomes very complex when the software user has no precise definition of the oracle he would define. So which kind of test oracles can we define? How can we automatically detect inconsistencies? All these questions pose important challenges in testing generators.
+When talking about the non-functional testing of generators, this problem becomes more challenging because it is quite hard to determine the expected output of a generator under test (e.g., memory consumption of the generated program). Determining whether these non-functional outputs correspond to a generator anomaly or not is also not obvious. That is why testing the generated code becomes very complex when the software user has no precise definition of the oracle he would define. So which kind of test oracles can we define? How can we automatically detect inconsistencies? All these questions pose important challenges in testing generators.
 
-
+\item
 \textbf{Monitoring code generators/compilers behavior:} For testing the non-functional properties of code generators and compilers, developers generally use to compile, deploy and execute generated software artifacts on different execution platforms. Then, they have to collect and compare information about the performance and efficiency of the generated code. Afterwards, they report issues related to the code generation process such as incorrect typing, memory management leaks, etc.
 Currently, there is a lack of automatic solutions to check the performance issues such as the inefficiency (high memory/CPU consumption) of the generated code. In fact, developers often use manually several platform-specific profilers, debuggers, and monitoring tools\cite{guana2014chaintracker,delgado2004taxonomy} in order to find some inconsistencies or bugs during code execution. Ensuring the quality of generated code in this case can refer to several non-functional properties such as code size, resource or energy consumption, execution time, among others\cite{pan2006fast}. Due to the heterogeneity of execution platforms and hardwares, collecting information about the non-functional properties of generated code becomes very hard and time-consuming task since developers have to analyze and verify the generated code for different target platforms using platform-specific tools. 
 \item
@@ -73,9 +73,9 @@ Currently, there is a lack of automatic solutions to check the performance issue
 \end{itemize}
 The challenges this research tackle can be summarized in the following research questions. These questions arise from the analysis of the drawbacks in the previous paragraphs.
 
-\textit{RQ1.} How can we help users to automatically choose the adequate compiler/code generator configuration that satisfy specific non-functional requirements?
+\textit{RQ1.} How can we help compiler users to automatically choose the adequate compiler configuration that satisfy specific non-functional requirements?
 
-\textit{RQ2.} How can we automatically detect inconsistencies and non-functional errors within code generators?
+\textit{RQ2.} How can we help code generator creators to automatically detect inconsistencies and non-functional errors within code generators?
 
 \textit{RQ3.} How can we provide efficient support for resource consumption monitoring and management?
 
