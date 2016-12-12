@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  12 DEC 2016 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  12 DEC 2016 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -968,31 +968,31 @@ l.25
                    \relax 
 l.41 
       [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 55.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 56.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.57 
+l.58 
       [4]
-Overfull \hbox (4.20886pt too wide) in paragraph at lines 59--62
+Overfull \hbox (4.20886pt too wide) in paragraph at lines 60--63
 []\OT1/cmr/bx/n/12 Monitoring code gen-er-a-tors/-com-pil-ers be-hav-ior: \OT1/
 cmr/m/n/12 For test-ing the non-functional
  []
 
 
-Overfull \hbox (14.49605pt too wide) in paragraph at lines 62--63
+Overfull \hbox (14.49605pt too wide) in paragraph at lines 63--64
 \OT1/cmr/m/n/12 increasing com-put-ing re-sources while plac-ing strict re-quir
 e-ments on many non-functional
  []
 
 [5]
-Overfull \hbox (10.82721pt too wide) in paragraph at lines 86--90
+Overfull \hbox (10.82721pt too wide) in paragraph at lines 87--91
 []\OT1/cmr/bx/n/12 Contribution: au-to-matic com-piler auto-tuning ac-cord-ing 
 to the non-functional
  []
@@ -1005,7 +1005,7 @@ Missing character: There is no © in font cmr12!
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
 
-Overfull \hbox (3.58054pt too wide) in paragraph at lines 133--137
+Overfull \hbox (3.58054pt too wide) in paragraph at lines 134--138
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny, Benoit Baudry
 : \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
@@ -1942,7 +1942,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (96 pages, 4389448 bytes).
+Output written on Main.pdf (96 pages, 4389529 bytes).
 PDF statistics:
  2274 PDF objects out of 2487 (max. 8388607)
  1770 compressed objects within 18 object streams
