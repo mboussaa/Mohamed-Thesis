@@ -34,7 +34,6 @@ Software diversity can emerge in different types and dimensions such as diversit
 Like all modern software systems, softwares have to be adapted to address changing requirements over time supporting system evolution, technology and market needs like considering new software platforms, new languages, new customer choices, etc.
 %We discuss in this section some of them which are the most relevant for this thesis.
 
-
 As an example, \cite{schaefer2012software} survey software diversity by means of software product lines (SPL). This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
 
 JHipster\footnote{https://jhipster.github.io/} is a concrete example that shows how software diversity is managed in industry production. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
@@ -96,6 +95,8 @@ So, users may want a new compiler to truly take advantage of the new chip with m
 
 \subsection{Matching software diversity to heterogeneous hardware: the marriage}
 
+
+
 The hardware and software communities are thus both facing significant change and major challenges. Hardware and software are pulling us in opposite directions. Figure 2.3 shows the challenges that both communities are facing.  
 
 On the one hand, software is facing challenges of a similar magnitude, with major changes in the way software is deployed, is sold, and interacts with hardware. 
@@ -103,14 +104,20 @@ Software diversity as discussed in section 2.1.1 is driven by software innovatio
 As a consequence, softwares become higher and higher level, managing complexity and gluing lot of pieces together to give programmers the right abstraction for how things really work and how the data is really represented. 
 For example, model-driven software engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
 
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/marriage}
+	\caption{Matching software to hardware}
+\end{figure}
+
 On the other hand, hardware is exposing us to more low level details and heterogeneity due to the continuous hardware innovation. 
 Hardware innovation offer us energy efficiency, performance improvement but expose a lot of complexity for software engineers and developers (e.g., compilers users/creators).
-\cite{he2010computer} argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday’s life, we still do not know how to best organize and use them. Hou et al.\cite{hou2010spap} have presented SPAP, a new container-based programming language for heterogenous many-core systems. SPAP abstracts away processing model specific concerns using high-level behavior consistent containers. It allows programmers to write unified programs that are able to run efficiently on heterogeneous processors.
+\cite{he2010computer} argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday’s life, we still do not know how to best organize and use them. 
 Meantime, hardware specialization for every single application is not a sustainable way of building chips.
 So, what would software community do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
-As consequence, people who are writing compilers have to continuously enhance the way the executables are produced by releasing new compiler versions to support hardware changes (i.e., new optimization flags).
-In contrast, devices may impose the support of specific programming languages such as in mobile development where the Java application run on Android smartphones and Objective-C for iOS products. This means that developers will usually need to
-create multiple clients in this heterogeneous environment.
+As consequence, people who are writing compilers have to continuously enhance the way the executables are produced by releasing new compiler versions to support new hardware changes (i.e., new optimization flags, instruction sets).
+For example, Hou et al.\cite{hou2010spap} have presented SPAP, a container-based programming language for heterogeneous many-core systems. This language allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. SPAP comes with a set of compilers and runtime environments.
+In contrast, devices may impose the support of specific programming languages such as in mobile development where the Java application run on Android smartphones and Objective-C for iOS products. This means that developers will usually need to create multiple clients in this heterogeneous environment. We can see also that C/C++ are the most used languages for targeting embedded systems.
 
  
 
@@ -126,15 +133,11 @@ create multiple clients in this heterogeneous environment.
 
 %For example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
 
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/marriage}
-	\caption{Matching software to hardware}
-\end{figure}
+
 
 \section{From classical software development to generative programming}
 \label{sec:FROM} 
-In comparison to the classical approach where software development was carried out manually, today’s modern development requires more automatic and flexible approaches to handle software and hardware heterogeneity.
+In comparison to the classical approach where software development was carried out manually, today’s modern development requires more automatic and flexible approaches to handle software diversity and hardware heterogeneity.
 Hence, more generic tools, methods and techniques are applied in order to keep the software development process as easy as possible for testing and maintenance and to handle the different requirements in a satisfyingly and efficient manner.
 %GP
 As a consequence, generative programming (GP) techniques are increasingly applied to automatically generate and reuse software artifacts.
@@ -280,8 +283,7 @@ Efficient implementations are then computed at generation time by applying domai
 \end{itemize}
 
 \section{Compilers auto-tuning}
-The compilation is a process that translates a program in one language (the source
-language) into an equivalent program in another language (target language). 
+The compilation is a process that translates a program in one language (the source language) into an equivalent program in another language (target language). 
 %Same as code generators, 
 Commonly, the source language is a high-level programming language (i.e. a problem-oriented language), and the target language is a machine language or assembly language.
 The key feature of compilers is to bridge source programs written in high-level languages with the underlying hardware architecture.
@@ -306,7 +308,7 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 
 \begin{itemize}
 	\item Auto-tuning compilers: Choosing which optimization the user should apply? Evaluate the efficiency of generated code? All these questions make the activity of testing compilers very challenging.
-	\item Detecting bugs in code generators: How to automatically detect issues wthin code generators? Proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test?
+	\item Detecting bugs in code generators: How to automatically detect issues within code generators? Proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test?
 	\item Resource usage monitoring of generated code: Due to the software and hardware heterogeneity, monitoring the resource usage of each execution platform is still challenging and time-consuming. 
 %\subsection{Resource usage monitoring}
 \end{itemize}
