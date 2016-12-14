@@ -190,13 +190,14 @@ In the following section, we present a general overview of the complete software
 
 \section{An overview of the software development tool chain}
 The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and actors involved to transform the high-level system specifications into executable programs and that from design time to runtime.
-\subsection{Automatic code generation}
-Figure 2.2 reviews the different steps of this software development chain. We distinguish four main tasks: 
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
 	\caption{Overview of the software development chain}
 \end{figure}
+\subsection{Automatic code generation}
+Figure 2.2 reviews the different steps of this software development chain. We distinguish four main tasks necessary for ensuring an automatic code generation: 
+
  
 
 \begin{enumerate}
@@ -218,29 +219,39 @@ For example, code generator developers use model-driven techniques in order to g
 
 \item \textbf{\textit{Software development:}}
 Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system specification described in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. Generated code can even be edited in some cases by the end software developers. This task really depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. On the other hand, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
-\item \textbf{\textit{Compilation:}}
-Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
-\end{enumerate} 
-\subsection{Stakeholders and roles for software testing}
-Software development involves different stakeholders that play different roles in validating and testing the software development chain described previously.
-Figure 2.6 depicts a use case 
 
+\item \textbf{\textit{Compilation:}}
+Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. 
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.5]{Background/fig/usecase}
+	\includegraphics[scale=0.54]{Background/fig/usecase}
 	\caption{Use case diagram of the different actors/roles involved in implementing and testing generators}
 \end{figure}
+As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and 
+
+deploy the generated executables within different machines which is a tedious and complicated task.
+
+\end{enumerate} 
+
+
+\subsection{Stakeholders and roles for software testing}
+Software development involves different stakeholders that play different roles in validating and testing the software development chain described previously.
+Figure 2.6 depicts a use case diagram describing these different concerns, actors and roles for testing generators.
+Basically, we distinguish two stakeholders for code generators and compilers: creators/maintainers and developers. Creators/maintainers are the software developers that provide
+their expertise and the methodology associated to the generators resulting in 
+
+
 %\begin{figure}[h]
 %\center
 %	\includegraphics[scale=0.65]{Background/fig/background_overview.pdf}
 %	\caption{Overview of the Docker-based testing architecture}
 %\end{figure}
 \section{Testing code generators}
-In this thesis, we focus on testing the automatic code generation (highlighted with red box in figure 2.2).
+In this thesis, we focus on testing the automatic code generation process (highlighted with red box in figure 2.2). To do so, we introduce in this section some basis about code generators. We give an overview of the different types of code generators and we discuss their complexity which constitute a major obstacle for testing.
 \subsection{Code generation workflow}
 The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable.
 
-As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would to test. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
+As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would test. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=1]{Background/fig/workflow}
@@ -338,6 +349,10 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 %qd le hardware impose le langage?
 %Relation 1 et 2
 %les répitions, uses cases, etc
+%talk about non-functional properties in background
+%Functional Testing of CG  in background
+%NON-functional workshop or journal
+%organisation
 
 %metamorphic testing
 %reorganisation
