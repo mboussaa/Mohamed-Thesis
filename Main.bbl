@@ -63,6 +63,12 @@ Ting Cao, Stephen~M Blackburn, Tiejun Gao, and Kathryn~S McKinley.
 \newblock In {\em ACM SIGARCH Computer Architecture News}, volume~40, pages
   225--236. IEEE Computer Society, 2012.
 
+\bibitem[CDM{\etalchar{+}}10]{chafi2010language}
+Hassan Chafi, Zach DeVito, Adriaan Moors, Tiark Rompf, Arvind~K Sujeeth, Pat
+  Hanrahan, Martin Odersky, and Kunle Olukotun.
+\newblock Language virtualization for heterogeneous parallel computing.
+\newblock In {\em ACM Sigplan Notices}, volume~45, pages 835--847. ACM, 2010.
+
 \bibitem[CE00a]{czarnecki2000generative}
 Krzysztof Czarnecki and Ulrich~W Eisenecker.
 \newblock Generative programming.
@@ -100,6 +106,12 @@ Junjie Chen, Wenxiang Hu, Dan Hao, Yingfei Xiong, Hongyu Zhang, Lu~Zhang, and
 \newblock An empirical comparison of compiler testing techniques.
 \newblock In {\em Proceedings of the 38th International Conference on Software
   Engineering}, 2016.
+
+\bibitem[CSB{\etalchar{+}}11]{chafi2011domain}
+Hassan Chafi, Arvind~K Sujeeth, Kevin~J Brown, HyoukJoong Lee, Anand~R Atreya,
+  and Kunle Olukotun.
+\newblock A domain-specific approach to heterogeneous parallelism.
+\newblock {\em ACM SIGPLAN Notices}, 46(8):35--46, 2011.
 
 \bibitem[CST02]{cooper2002adaptive}
 Keith~D Cooper, Devika Subramanian, and Linda Torczon.

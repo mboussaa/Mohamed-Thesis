@@ -3,72 +3,73 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: alpha.bst
 Database file #1: uw-ethesis.bib
-Repeated entry---line 64 of file uw-ethesis.bib
+Repeated entry---line 86 of file uw-ethesis.bib
  : @book{herrington2003code
  :                         ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 218 of file uw-ethesis.bib
+Repeated entry---line 240 of file uw-ethesis.bib
  : @inproceedings{france2007model
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 227 of file uw-ethesis.bib
+Repeated entry---line 249 of file uw-ethesis.bib
  : @article{mckeeman1998differential
  :                                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 237 of file uw-ethesis.bib
+Repeated entry---line 259 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 329 of file uw-ethesis.bib
+Repeated entry---line 351 of file uw-ethesis.bib
  : @inproceedings{guana2015developers
  :                                   ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 337 of file uw-ethesis.bib
+Repeated entry---line 359 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 346 of file uw-ethesis.bib
+Repeated entry---line 368 of file uw-ethesis.bib
  : @inproceedings{guana2014chaintracker
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 355 of file uw-ethesis.bib
+Repeated entry---line 377 of file uw-ethesis.bib
  : @article{delgado2004taxonomy
  :                             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 375 of file uw-ethesis.bib
+Repeated entry---line 397 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 573 of file uw-ethesis.bib
+Repeated entry---line 595 of file uw-ethesis.bib
  : @inproceedings{nethercote2007valgrind
  :                                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 632 of file uw-ethesis.bib
+Repeated entry---line 654 of file uw-ethesis.bib
  : @inproceedings{yang2011finding
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 663 of file uw-ethesis.bib
+Repeated entry---line 685 of file uw-ethesis.bib
  : @article{stuermer2007systematic
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 705 of file uw-ethesis.bib
+Repeated entry---line 727 of file uw-ethesis.bib
  : @article{brambilla2012model
  :                            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 715 of file uw-ethesis.bib
+Repeated entry---line 737 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 816 of file uw-ethesis.bib
+Repeated entry---line 838 of file uw-ethesis.bib
  : @inproceedings{demertzi2011analyzing
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 855 of file uw-ethesis.bib
+Repeated entry---line 877 of file uw-ethesis.bib
  : @inproceedings{li2015rest
  :                          ,
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in mboussaa
 Warning--can't use both volume and number fields in cao2012yin
+Warning--can't use both volume and number fields in chafi2010language
 Warning--can't use both volume and number fields in czarnecki2003classification
 Warning--can't use both volume and number fields in chen2010evaluating
 Warning--there's a number but no volume in fertalj2008source
@@ -83,45 +84,45 @@ Warning--empty journal in stepasyuk2015evaluating
 Warning--can't use both volume and number fields in soltesz2007container
 Warning--can't use both volume and number fields in sturmer2005overview
 Warning--can't use both volume and number fields in yang2011finding
-You've used 79 entries,
+You've used 81 entries,
             2543 wiz_defined-function locations,
-            983 strings with 19910 characters,
-and the built_in function-call counts, 38770 in all, are:
-= -- 3959
-> -- 1963
-< -- 66
-+ -- 710
-- -- 698
-* -- 2779
-:= -- 6087
-add.period$ -- 272
-call.type$ -- 79
-change.case$ -- 565
-chr.to.int$ -- 78
-cite$ -- 96
-duplicate$ -- 1586
-empty$ -- 2752
-format.name$ -- 773
-if$ -- 8210
+            992 strings with 20332 characters,
+and the built_in function-call counts, 40054 in all, are:
+= -- 4083
+> -- 2053
+< -- 68
++ -- 745
+- -- 732
+* -- 2894
+:= -- 6297
+add.period$ -- 279
+call.type$ -- 81
+change.case$ -- 587
+chr.to.int$ -- 80
+cite$ -- 99
+duplicate$ -- 1626
+empty$ -- 2824
+format.name$ -- 807
+if$ -- 8467
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 82
-newline$ -- 397
-num.names$ -- 234
-pop$ -- 618
+missing$ -- 84
+newline$ -- 407
+num.names$ -- 240
+pop$ -- 637
 preamble$ -- 1
-purify$ -- 648
+purify$ -- 672
 quote$ -- 0
-skip$ -- 1341
+skip$ -- 1375
 stack$ -- 0
-substring$ -- 2076
-swap$ -- 471
-text.length$ -- 66
+substring$ -- 2142
+swap$ -- 485
+text.length$ -- 68
 text.prefix$ -- 11
 top$ -- 0
-type$ -- 612
-warning$ -- 16
-while$ -- 382
-width$ -- 82
-write$ -- 1058
+type$ -- 628
+warning$ -- 17
+while$ -- 393
+width$ -- 84
+write$ -- 1086
 (There were 16 error messages)
