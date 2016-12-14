@@ -141,7 +141,7 @@ In contrast, devices may impose the support of specific programming languages su
 
 \section{From classical software development to generative programming}
 \label{sec:FROM} 
-In comparison to the classical approach where software development was carried out manually, today’s modern development requires more automatic and flexible approaches to handle software diversity and hardware heterogeneity.
+In comparison to the classical approach where software development was carried out manually, today’s modern development requires more automatic and flexible approaches to address software diversity and hardware heterogeneity as described in the previous sections.
 Hence, more generic tools, methods and techniques are applied in order to keep the software development process as easy as possible for testing and maintenance and to handle the different requirements in a satisfyingly and efficient manner.
 %GP
 As a consequence, generative programming (GP) techniques are increasingly applied to automatically generate and reuse software artifacts.
@@ -165,7 +165,11 @@ In principle a software development process can be seen as a mapping between a p
 %mapping
 \textbf{the configuration knowledge} constitutes the mapping between both spaces. It takes a specification as input and returns the corresponding implementation as output. It defines the construction rules (i.e., the translation rules to apply in order to translate the input model/DSL into specific implementation components) and optimizations (i.e., optimization can be applied during code generation to enhance some of the non-functional properties such as execution speed). It defines also the dependencies and settings among the domain specific concepts and features.
 
-
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/GDM.pdf}
+	\caption{Generative programming concept}
+\end{figure}
 %GP advantages
 These schema integrates several powerful concepts from Model Driven Engineering (MDE), such as domain-specific languages, feature modeling, generators, components, and software architecture. 
 
@@ -176,11 +180,7 @@ Some commonly benefits of such software developing architecture are:
 \item It increases the decomposition and modularization of the system
 \item It handles the heterogeneity of target software platforms by automatically generating code
 \end{itemize}
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/GDM.pdf}
-	\caption{Overview of the Docker-based testing architecture}
-\end{figure}
+
 
 \textbf{Among the main contributions of this thesis is to verify the correct mapping between the problem space and solution space. In other words, we would evaluate the impact of applied configurations during code transformation (by wether code generators or compilers) on the resource usage requirements.
 }
@@ -189,25 +189,26 @@ In the following section, we present a general overview of the complete software
 
 
 \section{An overview of the software development tool chain}
+The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and actors involved to transform the high-level system specifications into executable programs and that from design time to runtime.
 \subsection{Automatic code generation}
+Figure 2.2 reviews the different steps of this software development chain. We distinguish four main tasks: 
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
-	\caption{Overview of the Docker-based testing architecture}
+	\caption{Overview of the software development chain}
 \end{figure}
-The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and actors involved to transform high-level specification into executable programs and that from design time to runtime. 
-Figure 2.2 reviews the different steps of this chain. We distinguish four main tasks: 
-\begin{itemize}
-\item \textit{Software design:} 
+ 
 
+\begin{enumerate}
+\item \textbf{\textit{Software design:}} 
 As part of the generative programming process, the first step consists on representing the system behavior. 
 Software design/behavior is the input program for the code generators. On the input side we can either use code as the input or an abstract form that represents the design. It depends on the type of the code generator and on the input source program it requires. These programs can range from a formal specification of the system behavior to abstract models that represents the business logic.
-For example, software designers define, at design time, software’s behavior using for example Domain-Specific Models (DSMs), DSLs, Models, etc.
+For example, software designers can define, at design time, software’s behavior using for example Domain-Specific Models (DSMs), DSLs, Models, etc.
 A DSM, as an example, is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). %Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain. Furthermore, software design can be provided as GUIs, GPLs, Models, etc.
 
-\item \textit{Code generation:} 
+\item \textbf{\textit{Code generation:}} 
 Code generation is the technique of building code using programs. The common feature of the generator is to produce code that the software developer would otherwise write by hand.
-There is no one style of code generation. Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. Generators can work on the command line or using a GUI. 
+There is no one style of code generation. Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. %Generators can work on the command line or using a GUI. 
 Code generation can build code for one or more target language, once or multiple times. There are different varieties of code generation aspects and it highly depends on the type of the input programs described in the previous step. 
 %Code generation techniques depends generally on these inputs.  
 For example, code generator developers use model-driven techniques in order to generate automatically code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. Thus, the code generation process start by taking the previously defined specification to translate a model to an implementation in a target language. We will see in the next section the different types of code generators.
@@ -215,20 +216,27 @@ For example, code generator developers use model-driven techniques in order to g
 
 %In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
 
-\item \textit{Software development:}
-Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system behavior in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. Generated code can even be edited in some cases by the end software developers. This task really depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. On the other hand, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
-\item \textit{Compilation:}
+\item \textbf{\textit{Software development:}}
+Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system specification described in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. Generated code can even be edited in some cases by the end software developers. This task really depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. On the other hand, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
+\item \textbf{\textit{Compilation:}}
 Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
-\end{itemize} 
+\end{enumerate} 
 \subsection{Actors/Roles}
+Software development involves different stakeholders.
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.5]{Background/fig/usecase}
+	\caption{Use case diagram of the different actors/roles involved in implementing and testing generators}
+\end{figure}
 %\begin{figure}[h]
 %\center
 %	\includegraphics[scale=0.65]{Background/fig/background_overview.pdf}
 %	\caption{Overview of the Docker-based testing architecture}
 %\end{figure}
 \section{Testing code generators}
+In this thesis, we focus on testing the automatic code generation (highlighted with red box in figure 2.2).
 \subsection{Code generation workflow}
-In this thesis, we focus on testing the automatic code generation (highlighted with red box in figure 2.2). As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would to test. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
+As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would to test. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=1]{Background/fig/workflow}
