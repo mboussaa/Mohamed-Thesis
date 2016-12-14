@@ -221,8 +221,10 @@ Software development may be divided into two main parts. On the one hand, softwa
 \item \textbf{\textit{Compilation:}}
 Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
 \end{enumerate} 
-\subsection{Actors/Roles}
-Software development involves different stakeholders.
+\subsection{Stakeholders and roles for software testing}
+Software development involves different stakeholders that play different roles in validating and testing the software development chain described previously.
+Figure 2.6 depicts a use case 
+
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.5]{Background/fig/usecase}
@@ -236,6 +238,8 @@ Software development involves different stakeholders.
 \section{Testing code generators}
 In this thesis, we focus on testing the automatic code generation (highlighted with red box in figure 2.2).
 \subsection{Code generation workflow}
+The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable.
+
 As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would to test. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
 \begin{figure}[h]
 	\center
@@ -243,7 +247,7 @@ As stated before, the code generation workflow is divided into two levels. It st
 	\caption{Code generation workflow}
 \end{figure}
 
-The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable.
+
 \subsection{Types of code generators}
 There are many ways to categorize generators. We can differentiate them by their complexity, by usage, or by their input/output. According to\cite{herrington2003code} there are two main categories of automatic code generation: passive or active. Passive code generators build the code only once, then it’s up to the user to update and maintain the code.  Active code generators, run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator. With the active generator you first run the generator, then compile and test the output. At this point if you find a problem in the generated code, you alter the templates or input of the generator and re-generate. Active code generators are widely used in the literature. We focus on this thesis on testing active code generators.
 There are six categories of active code generators: 
@@ -333,6 +337,7 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 %Point avec benoit
 %qd le hardware impose le langage?
 %Relation 1 et 2
+%les répitions, uses cases, etc
 
 %metamorphic testing
 %reorganisation
