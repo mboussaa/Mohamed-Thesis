@@ -222,23 +222,25 @@ Software development may be divided into two main parts. On the one hand, softwa
 
 \item \textbf{\textit{Compilation:}}
 Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. 
+As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
+
+\end{enumerate} 
+
+
+\subsection{Stakeholders and their roles for testing generators}
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.54]{Background/fig/usecase}
 	\caption{Use case diagram of the different actors/roles involved in implementing and testing generators}
 \end{figure}
-As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and 
-
-deploy the generated executables within different machines which is a tedious and complicated task.
-
-\end{enumerate} 
-
-
-\subsection{Stakeholders and roles for software testing}
 Software development involves different stakeholders that play different roles in validating and testing the software development chain described previously.
 Figure 2.6 depicts a use case diagram describing these different concerns, actors and roles for testing generators.
-Basically, we distinguish two stakeholders for code generators and compilers: creators/maintainers and developers. Creators/maintainers are the software developers that provide
-their expertise and the methodology associated to the generators resulting in 
+Basically, we distinguish two stakeholders for code generators and compilers testing: experts and developers. As shown in the bottom of Figure 2.6, the experts are the creators/maintainers of generators that provide their expertise and the methodology associated to the generators resulting in efficient code generation. They contribute to the software development community by providing new optimizations and compiler versions updates on the compiler side. For code generators, they may use their knowledge to build new platform-specific code generators or enhance existing code generators. 
+
+Developers however, represent the group of users that have no knowledge/expertise about the way code is generated. Thus, they are unable to edit or maintain the internal behavior of generators (e.g., the case of commercial and off-the-shell code generators). In this case, generators are used as a black box during software development by engineers to ease code production. Developers may configure the set of optimizations for the compiler or maintain the generated code in case of automatic source code generation.
+
+The uses cases highlighted in red in Figure 2.6 constitute the main tasks that we are addressing in this thesis. Our main concern in our proposal is to evaluate the generated code. On the one hand, we would help code generator users to automatically generate code for different target software platforms in order to detect code generator inconsistencies. This task may involve both experts and users.
+On the other hand, we would help compiler users to auto-tune compilers through the use of optimizations provided by compilers experts. Similarly, this concerns both actors.
 
 
 %\begin{figure}[h]
@@ -342,6 +344,7 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 %PHP 7 Code Generator
 %Memory and performance overhead  (Peak memory overhead using /usr/bin/time)
 %NIM compiler experiment 
+%ThingML Experiment
 %10.0.0.7 Buggy
 %ATER hours
 %talking about SE 
@@ -353,6 +356,8 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 %Functional Testing of CG  in background
 %NON-functional workshop or journal
 %organisation
+%SOTA oranisation
+%2 pages for the reader
 
 %metamorphic testing
 %reorganisation
