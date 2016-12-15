@@ -252,35 +252,38 @@ On the other hand, we would help compiler users to auto-tune compilers through t
 In this thesis, we focus on testing the automatic code generation process (highlighted with red box in figure 2.2). To do so, we introduce in this section some basis about code generators. We give an overview of the different types of code generators and we discuss their complexity which constitute a major obstacle for testing.
 \subsection{Code generation workflow}
 The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable.
-
-As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. In the following sections, we give an overview of the types and properties of compilers and generators we would test. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=1]{Background/fig/workflow}
 	\caption{Code generation workflow}
 \end{figure}
 
+As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
+
+
 
 \subsection{Types of code generators}
-There are many ways to categorize generators. We can differentiate them by their complexity, by usage, or by their input/output. According to\cite{herrington2003code} there are two main categories of automatic code generation: passive or active. Passive code generators build the code only once, then it’s up to the user to update and maintain the code.  Active code generators, run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator. With the active generator you first run the generator, then compile and test the output. At this point if you find a problem in the generated code, you alter the templates or input of the generator and re-generate. Active code generators are widely used in the literature. We focus on this thesis on testing active code generators.
-There are six categories of active code generators: 
+There are many ways to categorize generators. We can differentiate them by their complexity, by usage, or by their input/output. According to\cite{herrington2003code}, there are two main categories of automatic code generation: passive or active. Passive code generators build the code only once, then it’s up to the user to update and maintain the code.  Active code generators, run on code multiple times during the lifecycle. With active code generators, there is code can be edited by the users, and code that should only be modified by the code generator. Active code generators are widely used in the literature\cite{pais2005tool,amanquah2009rapid}. We focus on this thesis on testing this class code generators.
+According to the state-of-the-art\cite{herrington2003code,hunt2000pragmatic,fertalj2008source,bajovs2013code}, there are six categories of active code generators: 
 
 \begin{itemize}
 \item Code munger: A code munger reads code as input and then builds new code as output. This new code can either be partial or complete depending on the design of the generator.
 A code munger is the most common form of code generators and are used widely. This kind of generators are often used for automatically generating documentations.
-A source-to-source compiler, transcompiler or transpiler \footnote{\url{"https://en.wikipedia.org/wiki/Source-to-source_compiler"}} can also be defined as code mungers. A transcompiler takes a code written in some programming language and translates it to a code written in some other language.
+A source-to-source compiler, transcompiler or transpiler \footnote{\url{"https://en.wikipedia.org/wiki/Source-to-source_compiler"}} can also be defined as code mungers. A transcompiler takes a code written in some programming language and translates it to a code written in some other language. \textbf{Our contribution related to code generators testing will focus on this kind of generators to validate our approach for automatically detecting inconsistencies.}
 
 Examples:  C2J, JavaDoc, Jazillian, Closure Compiler, Coccinelle, CoffeeScript, Dart, Haxe, TypeScript and Emscripten
 
 
 
-\item Inline code expander: This model reads code as input and the builds new code that uses the input code as a base but has sections of the code expanded based on designs in the original code. Embedded SQL languages, like Pro*C, are examples on inline code expanders. The SQL is written in the C code and the generator builds production C code by expanding the SQL into C code which implements the commands and queries.
-Embedded SQL is a method of combining the computing power of a high-level language like Java or C/C++ and the database manipulation capabilities of SQL. 
-It allows you to execute any SQL statement from an application program. 
-In the example code, SQL is embedded into C source code files using special markup. These hybrid C files are given their own extension, such as '.sqlc‘:
- 
+\item Inline code expander: This model reads code as input and the builds new code that uses the input code as a base but has sections of the code expanded based on designs in the original code. 
+It starts with designing a new language. Usually this new language is an existing language with some syntax extensions. The inline code expander is then used to turn this language into production code in a high-level language.
 
-\item Mixed code generator: This model use code as input and then builds new code using the input code as a base, but returning the output code back into the input file. Wizards are often implemented as mixed code generators. Special comments are embedded in the code which define regions where the generator adds new code. 
+Example: Embedded SQL languages such as SQLJ (for Java) and Pro*C (for C). The SQL can be embedded in the Cor Java code. The generator builds production C code by expanding the SQL into C code which implements the queries for example.
+
+
+\item Mixed code generator: This model has The same processing flow as the Inline Code Expander, except that the input file is a real source file that can be compiled and run.
+
+
 
 \item Partial class generator: A partial class generator takes an abstract definition as input and then builds output code which is meant to be extended by the user by sub-classing the output code and extending methods to complete the design. 
 
@@ -342,7 +345,7 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 %\subsection{Resource usage monitoring}
 \end{itemize}
 %PHP 7 Code Generator
-%Memory and performance overhead  (Peak memory overhead using /usr/bin/time)
+%Memory and performance overhead  (Peak memory overhead using /usr/bin/time Time is efficient for memory usage?? )
 %NIM compiler experiment 
 %ThingML Experiment
 %10.0.0.7 Buggy
@@ -358,6 +361,7 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 %organisation
 %SOTA oranisation
 %2 pages for the reader
+%Code munger for contribution
 
 %metamorphic testing
 %reorganisation
