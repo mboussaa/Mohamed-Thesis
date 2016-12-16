@@ -263,11 +263,14 @@ As stated before, the code generation workflow is divided into two levels. It st
 
 
 \subsection{Types of code generators}
-There are many ways to categorize generators. We can differentiate them by their complexity, by usage, or by their input/output. According to\cite{herrington2003code}, there are two main categories of automatic code generation: passive or active. Passive code generators build the code only once, then it’s up to the user to update and maintain the code.  Active code generators, run on code multiple times during the lifecycle. With active code generators, there is code can be edited by the users, and code that should only be modified by the code generator. Active code generators are widely used in the literature\cite{pais2005tool,amanquah2009rapid}. We focus on this thesis on testing this class code generators.
+There are many ways to categorize generators. We can differentiate them by their complexity, by usage, or by their input/output. According to\cite{herrington2003code}, there are two main categories of automatic code generation: passive or active. Passive code generators build the code only once, then it’s up to the user to update and maintain the code. 
+The most common use of passive code generators are wizards. 
+
+Active code generators, run on code multiple times during the lifecycle. With active code generators, there is code can be edited by the users, and code that should only be modified by the code generator. Active code generators are widely used in the literature\cite{pais2005tool,amanquah2009rapid}. We focus on this thesis on testing this class code generators.
 According to the state-of-the-art\cite{herrington2003code,hunt2000pragmatic,fertalj2008source,bajovs2013code}, there are six categories of active code generators: 
 
 \begin{itemize}
-\item Code munger: A code munger reads code as input and then builds new code as output. This new code can either be partial or complete depending on the design of the generator.
+\item \textbf{Code munger:} A code munger reads code as input and then builds new code as output. This new code can either be partial or complete depending on the design of the generator.
 A code munger is the most common form of code generators and are used widely. This kind of generators are often used for automatically generating documentations.
 A source-to-source compiler, transcompiler or transpiler \footnote{\url{"https://en.wikipedia.org/wiki/Source-to-source_compiler"}} can also be defined as code mungers. A transcompiler takes a code written in some programming language and translates it to a code written in some other language. \textbf{Our contribution related to code generators testing will focus on this kind of generators to validate our approach for automatically detecting inconsistencies.}
 
@@ -275,21 +278,24 @@ Examples:  C2J, JavaDoc, Jazillian, Closure Compiler, Coccinelle, CoffeeScript, 
 
 
 
-\item Inline code expander: This model reads code as input and the builds new code that uses the input code as a base but has sections of the code expanded based on designs in the original code. 
+\item \textbf{Inline code expander:} This model reads code as input and the builds new code that uses the input code as a base but has sections of the code expanded based on designs in the original code. 
 It starts with designing a new language. Usually this new language is an existing language with some syntax extensions. The inline code expander is then used to turn this language into production code in a high-level language.
 
 Example: Embedded SQL languages such as SQLJ (for Java) and Pro*C (for C). The SQL can be embedded in the Cor Java code. The generator builds production C code by expanding the SQL into C code which implements the queries for example.
 
+\item \textbf{Mixed code generator:} This model has the same processing flow as the Inline Code Expander, except that the input file is a real source file that can be compiled and run. The generated output file keep the original markup
+that will denote where the generated code was placed. 
 
-\item Mixed code generator: This model has The same processing flow as the Inline Code Expander, except that the input file is a real source file that can be compiled and run.
+Example: Codify is a commercial mixed-code generator which can generate multiple code fragments in a single file from special commands. 
 
+\item \textbf{Partial class generator:} A partial class generator takes an abstract definition as input instead of code (e.g., UML class diagram) and then builds the output code. User then, can extend it by creating derived classes and extending methods to complete the design. Turning models into code is done through a series of transformations. For example, platform-independent model (PIM) is transformed into a platform specific model (PSM). Then code generation is performed from PSM by using some sort of template-based code transformations.
+%As an example, in model-driven engineering, a platform-dependent model (PIM) is transformed into a platform specific model (PSM). PIM to PSM translations are done either by hand or by applying automatic model transformation tools. Then code generation is performed from PSM by using some sort of template-based code generator.
 
+Example: ArgoUML and Codegen translate UML class diagrams to general-purpose languages such as C\#, Java and C++. They do not generate complete implementations, but it tries to convert the input UML class diagrams into skeleton code that the user can easily edit it. 
 
-\item Partial class generator: A partial class generator takes an abstract definition as input and then builds output code which is meant to be extended by the user by sub-classing the output code and extending methods to complete the design. 
+\item \textbf{Tier generator:} In this model the generator builds a complete set of output code from an abstract definition. This code is meant to be used as-is without extension. This is the most common form of open source and productized generator.
 
-\item Tier generator: In this model the generator builds a complete set of output code from an abstract definition. This code is meant to be used as-is without extension. This is the most common form of open source and productized generator.
-
-\item Full-domain language: Domain languages are basically new languages that are used for a specific type of problem.  Domain languages are the extreme end of automatic code generation because you basically have to write a compiler for your problem. 
+\item \textbf{Full-domain language:} Domain languages are basically new languages that are used for a specific type of problem.  Domain languages are the extreme end of automatic code generation because you basically have to write a compiler for your problem. 
 
 \end{itemize}
 %Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
@@ -315,9 +321,9 @@ Efficient implementations are then computed at generation time by applying domai
 \end{itemize}
 
 \section{Compilers auto-tuning}
-The compilation is a process that translates a program in one language (the source language) into an equivalent program in another language (target language). 
+%The compilation is a process that translates a program in one language (the source language) into an equivalent program in another language (target language). 
 %Same as code generators, 
-Commonly, the source language is a high-level programming language (i.e. a problem-oriented language), and the target language is a machine language or assembly language.
+%Commonly, the source language is a high-level programming language (i.e. a problem-oriented language), and the target language is a machine language or assembly language.
 The key feature of compilers is to bridge source programs written in high-level languages with the underlying hardware architecture.
 %\subsection{Types of code generators}
 \begin{figure}[h]
@@ -344,26 +350,6 @@ Thus, the determination of optimal settings of compiler optimizations has been i
 	\item Resource usage monitoring of generated code: Due to the software and hardware heterogeneity, monitoring the resource usage of each execution platform is still challenging and time-consuming. 
 %\subsection{Resource usage monitoring}
 \end{itemize}
-%PHP 7 Code Generator
-%Memory and performance overhead  (Peak memory overhead using /usr/bin/time Time is efficient for memory usage?? )
-%NIM compiler experiment 
-%ThingML Experiment
-%10.0.0.7 Buggy
-%ATER hours
-%talking about SE 
-%Point avec benoit
-%qd le hardware impose le langage?
-%Relation 1 et 2
-%les répitions, uses cases, etc
-%talk about non-functional properties in background
-%Functional Testing of CG  in background
-%NON-functional workshop or journal
-%organisation
-%SOTA oranisation
-%2 pages for the reader
-%Code munger for contribution
 
-%metamorphic testing
-%reorganisation
-%comment olivier
-%Terms used across the chapters: Compiler and Generator
+
+%

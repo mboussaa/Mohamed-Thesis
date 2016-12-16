@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Code generation workflow}{23}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Types of code generators}{24}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Complexity}{25}{subsection.2.4.3}
-\contentsline {section}{\numberline {2.5}Compilers auto-tuning}{26}{section.2.5}
+\contentsline {section}{\numberline {2.5}Compilers auto-tuning}{27}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Complexity}{27}{subsection.2.5.1}
 \contentsline {section}{\numberline {2.6}Testing challenges}{28}{section.2.6}
 \contentsline {chapter}{\numberline {3}State of the art}{29}{chapter.3}
