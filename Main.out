@@ -18,11 +18,11 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{Automatic code generation}{section.2.3}% 18
 \BOOKMARK [2][-]{subsection.2.3.2}{Stakeholders and their roles for testing generators}{section.2.3}% 19
 \BOOKMARK [1][-]{section.2.4}{Testing code generators}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.4.1}{Code generation workflow}{section.2.4}% 21
+\BOOKMARK [2][-]{subsection.2.4.1}{Testing workflow}{section.2.4}% 21
 \BOOKMARK [2][-]{subsection.2.4.2}{Types of code generators}{section.2.4}% 22
-\BOOKMARK [2][-]{subsection.2.4.3}{Complexity}{section.2.4}% 23
+\BOOKMARK [2][-]{subsection.2.4.3}{Why testing code generators is complex?}{section.2.4}% 23
 \BOOKMARK [1][-]{section.2.5}{Compilers auto-tuning}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.5.1}{Complexity}{section.2.5}% 25
+\BOOKMARK [2][-]{subsection.2.5.1}{Why complier auto-tuning is complex?}{section.2.5}% 25
 \BOOKMARK [1][-]{section.2.6}{Testing challenges}{chapter.2}% 26
 \BOOKMARK [0][-]{chapter.3}{State of the art}{part.1}% 27
 \BOOKMARK [1][-]{section.3.1}{Compilers}{chapter.3}% 28

@@ -123,6 +123,13 @@ source code. They compared this language performance to MATLAB code and they sho
 
 In contrast, devices may impose the support of specific programming languages such as in mobile development where the Java application run on Android smartphones and Objective-C for iOS products (relation 2 in Figure 2.3). This means that developers will usually need to create multiple clients in this heterogeneous environment. We can see also that C/C++ are the most used languages for targeting embedded systems.
 
+%Well, it's like this. Every language is created with a single target platform in mind ( except haXe of course, it can target multiple platforms). For example, Java is compiled into Java bytecode which is executed in the Java Platform ( Java Runtime Library). C/C++ is used to built native applications executed by the OS. So, the target platform of C/C++ is a specific OS. C# is built for the Microsoft .NET framework. Javascript is built for the web platform.
+%But, the problem with this is that each platform has its own language tied to it, so it is very difficult to write for different platforms as you need to program in different languages. Also, it becomes difficult to combine platforms together.
+
+%This is where haXe steps in to show us the way. To quote from the haXe website :
+%IF YOU COULD ONLY LEARN ONE PROGRAMMING LANGUAGE, HAXE WOULD BE IT.
+%IT'S UNIVERSAL. IT'S POWERFUL. IT'S EASY-TO-USE.
+
  
 
 %which is big problem for both communities
@@ -250,7 +257,7 @@ On the other hand, we would help compiler users to auto-tune compilers through t
 %\end{figure}
 \section{Testing code generators}
 In this thesis, we focus on testing the automatic code generation process (highlighted with red box in figure 2.2). To do so, we introduce in this section some basis about code generators. We give an overview of the different types of code generators and we discuss their complexity which constitute a major obstacle for testing.
-\subsection{Code generation workflow}
+\subsection{Testing workflow}
 The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable.
 \begin{figure}[h]
 	\center
@@ -283,35 +290,43 @@ It starts with designing a new language. Usually this new language is an existin
 
 Example: Embedded SQL languages such as SQLJ (for Java) and Pro*C (for C). The SQL can be embedded in the Cor Java code. The generator builds production C code by expanding the SQL into C code which implements the queries for example.
 
-\item \textbf{Mixed code generator:} This model has the same processing flow as the Inline Code Expander, except that the input file is a real source file that can be compiled and run. The generated output file keep the original markup
-that will denote where the generated code was placed. 
+\item \textbf{Mixed code generator:} This model has the same processing flow as the Inline Code Expander, except that the input file is a real source file that can be compiled and run. The generated output file keep the original markup that will denote where the generated code was placed. It enables code generation for multiple small code fragments within a single file or distributed throughout multiple files. Generally, transformation rules are defined using regular expressions.
 
-Example: Codify is a commercial mixed-code generator which can generate multiple code fragments in a single file from special commands. 
+
+Example: Codify is a commercial mixed-code generator which can generate multiple code fragments in a single file from special commands. Another example is the replacement of comments in the input file by the corresponding code.
 
 \item \textbf{Partial class generator:} A partial class generator takes an abstract definition as input instead of code (e.g., UML class diagram) and then builds the output code. User then, can extend it by creating derived classes and extending methods to complete the design. Turning models into code is done through a series of transformations. For example, platform-independent model (PIM) is transformed into a platform specific model (PSM). Then code generation is performed from PSM by using some sort of template-based code transformations.
 %As an example, in model-driven engineering, a platform-dependent model (PIM) is transformed into a platform specific model (PSM). PIM to PSM translations are done either by hand or by applying automatic model transformation tools. Then code generation is performed from PSM by using some sort of template-based code generator.
 
 Example: ArgoUML and Codegen translate UML class diagrams to general-purpose languages such as C\#, Java and C++. They do not generate complete implementations, but it tries to convert the input UML class diagrams into skeleton code that the user can easily edit it. 
 
-\item \textbf{Tier generator:} In this model the generator builds a complete set of output code from an abstract definition. This code is meant to be used as-is without extension. This is the most common form of open source and productized generator.
+\item \textbf{Tier generator:} In this model the generator builds a complete set of output code from an abstract definition. It has the same concept as Partial class generator. The big difference between tier and partial class generation is that in the tier model the generator builds all the code for a tier. This code is meant to be used without extension. The partial-class generator model however, lets the engineer create the rest of the derived classes that will complete the functionality for the tier.
 
-\item \textbf{Full-domain language:} Domain languages are basically new languages that are used for a specific type of problem.  Domain languages are the extreme end of automatic code generation because you basically have to write a compiler for your problem. 
+Examples: Database Access layer, Web client layer, Data export, import, or conversion layers
+
+\item \textbf{Full-domain language:} Domain languages are basically new languages that have types, syntax and operations and they are used for a specific type of problem. 
+Domain languages are the extreme end of automatic code generation because developers have to write a compiler for each problem domain and language. 
+
+Example: Matlab is a domain specific math language that makes it easy to represent mathematical operations for example rather than object-oriented languages. Mathematica, ant and SQL languages are other examples.
 
 \end{itemize}
 %Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
 %We distinguish two major types of code generators: rule-based model-to-model transformation languages (such as ATL) and template-based model-to-text transformation languages (such as Acceleo) to translate high-level system specifications into executable code and scripts.
-\subsection{Complexity}
-The complexity of code generators remains on the transformation rules and code generation process. In fact, code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
+\subsection{Why testing code generators is complex?}
+%Code generation deals with the partial or complete generation of programs, based on a formal model• A model could be written in a specific language (model language), existing source code or also available meta information (Database Metadata, XML-Schema, ...)• Regular Expressions are a powerful language to extract information from code or a formal model• Lightweight software generators consist often only about a dozens of lines• Code generation yields to higher abstraction, higher productivity, improved quality and a higher consistence of your application
+
+The complexity of code generators remains on the transformation rules and code generation process. 
+In fact, code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
 Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. We believe that flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle.[ref W]
 
 Moreover, the generated code has to meet certain performance requirements (e.g. execution speed, response time, memory consumption, utilization of resources, etc.). The challenge is that the structure of the specification is usually very different from the structure of the implementation: there is no simple one-to-one correspondence between the concepts in the specification and the concepts in the implementation. 
 Efficient implementations are then computed at generation time by applying domain-specific optimizations and replacing, merging, adding, and removing components.
 
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/software-diversity.pdf}
-	\caption{Overview of the Docker-based testing architecture}
-\end{figure}
+%\begin{figure}[h]
+%	\center
+%	\includegraphics[scale=0.65]{Background/fig/software-diversity.pdf}
+%	\caption{Overview of the Docker-based testing architecture}
+%\end{figure}
 
 
 \textbf{Challenge}: Fully automatic program synthesis offers many gains over traditional software development methods. e.g., speed of development, increased adaptability and reliability. But code generators are complex pieces of software themselves that may contain bugs.
@@ -333,7 +348,7 @@ The key feature of compilers is to bridge source programs written in high-level 
 \end{figure}
 
 
-\subsection{Complexity}
+\subsection{Why complier auto-tuning is complex?}
 Modern compilers implement a number of optimizations. Each optimization tries to improve the performance of certain target applications. Improvement of source code programs in terms of performance can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
 Testing non-functional properties is more challenging 
 Thus, the determination of optimal settings of compiler optimizations has been identified as a major problem because compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the underlying system architecture, the target application, and the available optimizations of the compiler.
