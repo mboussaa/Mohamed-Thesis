@@ -1,6 +1,6 @@
  
-In this chapter, we discuss different domains and concepts applied in our proposal, including testing compilers and code generators, optimizations and non-functional requirements.
-The objective of this chapter is to give a brief introduction to these concerns, used throughout the thesis. This introduction aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
+In this chapter, we discuss different domains and concepts applied in this thesis, including testing compilers and code generators, optimizations and non-functional requirements.
+The objective of this chapter is to give a brief introduction to these concerns, used throughout this document. It aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
 
 The chapter is structured as follows: In section 2.1 and 2.2 we present the generative programming approach and the different steps of code generation involved in the software development. Section 2.3 gives an overview of the types of code generators used in the literature. In Section 2.4, we describe compilers and their complexity.
 
@@ -11,7 +11,7 @@ The history of software development shows a continuous increase of complexity in
 Generally, heterogeneity may occur in terms of different system complexities, diverse programming languages and platforms, types of systems, development processes and distribution among development sites\cite{ghazi2015heterogeneous}.
 %System heterogeneity we are discussing in this thesis is the software and hardware diversity.
 System heterogeneity is often led by software and hardware diversity.
-Diversity emerges as a critical concern that spans all activities in software engineering, from design to runtime\cite{acher2014software}. It appears in different domains such as adaptive systems, distributed and heterogeneous systems, Internet of Things, Internet of Services, etc.
+Diversity emerges as a critical concern that spans all activities in software engineering, from design to operation\cite{acher2014software}. It appears in different domains such as adaptive systems, distributed and heterogeneous systems, Internet of Things, Internet of Services, etc.
 
 However, software and hardware diversity leads to a greater risk for system failures due to the continuous change in configurations and system specifications.
 As a matter of a fact, effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important.
@@ -40,15 +40,17 @@ JHipster\footnote{https://jhipster.github.io/} is also a concrete example that s
 The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
 For example, Figure 2.1 shows a feature model of some configuration examples that the user would select. When building the applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
 Using this feature model \textbf{more than 10k diverse architecture types} of project can be selected which means that 10k program variants may be generated depending on the different criteria.
+
+Whatever configuration selected by the user, the application behavior will not change and the generated application will share a similar architecture and fundamental code-base.
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/jhipster}
 	\caption{Example of JHipster feature model}
 \end{figure}
 
-\textbf{Whatever configuration selected by the user, the application behavior will not change and the resulting application will share a similar architecture and fundamental code-base.}
 
-Accordingly, we want to give the following definition of software diversity: 
+
+Accordingly, we propose the following definition of software diversity: 
 \textit{\textbf{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc. }}
 		
 We define as well the term \textbf{"software family"} to categorize these diverse programs that share the same behavior/functionality
@@ -58,7 +60,7 @@ We define as well the term \textbf{"software family"} to categorize these divers
 
 \subsection{Hardware heterogeneity}
 On the hardware side, modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of devices that provide a wide diversity of capabilities and services to the end users.
-These heterogeneous services may run in different environments ranging from cloud servers to resource-constrained devices.
+These heterogeneous services run in different environments ranging from cloud servers to resource-constrained devices.
 Hardware heterogeneity comes from the continuous innovation of hardware technologies to support new system configurations and architectural design (e.g., addition of new features, a change in the processor architecture, new hardware is made available, switch to low bandwidth wireless communication, etc). 
 For example, since the early 1970s, the increase in capacity of microprocessors has followed Moore's law for Intel processors. Indeed, we observe that the number of components (transistors) that can be fitted onto a chip doubles every year, increasing the performance and energy efficiency.
 For instance, Intel Core 2 Duo processor was introduced in 2006 with 291 millions of transistors and 2.93 GHz clock speed. One year later, Intel has introduced the Core 2 Quad processors which came up with 2.66 GHz clock speed and the double number of transistors introduced in 2006 with 582 millions of transistors.
@@ -75,7 +77,7 @@ To cope with the heterogeneous hardware platforms, software developers use diffe
 \end{figure}
 
 As shown in Figure 2.2, a compiler is typically divided into two parts, a front end and a back end. The compiler front-end verifies syntax and semantics and analyzes the source code to build an internal representation of the program, called the intermediate representation or IR. For example, the GNU Compiler Collection (GCC) and LLVM support many front ends with languages such as C, C++, Objective-C, Objective-C++, Fortran, Java, Ada, and Go among others. 
-A compiler’s back end is typically responsible for code optimizations and code generation for a particular microprocessor. Today, GCC is able to generate code for approximately \textbf{more than 40 different processor architectures}.
+A compiler back end is typically responsible for code optimizations and code generation for a particular microprocessor. Today, GCC is able to generate code for approximately \textbf{more than 40 different processor architectures}.
 For example, one important option for compiler flags is -march. It tells the compiler what code it should produce for the system's processor architecture (or arch); it tells GCC that it should produce code for a certain kind of CPU. Using \textit{-march=native} apply all optimization flags applicable for the native system's CPU, with all its capabilities, features, instruction sets, and so on. There exits many other optimization options for the target CPU like \textit{--with-arch=i7}, \textit{--with-cpu=corei7}, etc.
 Generally, each time a new family of processors is released, compiler developers release new compiler version with more sophisticated optimization options for the target platform. For example, old compilers produce only 32-bit programs. These programs still run on new 64-bit computers, but they may not exploit all processor capabilities (e.g. they will not use the new instructions that are offered by x64 CPU architecture). For instance, the current x86-64 assembly language can still perform arithmetic operations on 32-bit registers using instructions like addl, subl, andl, orl, etc, with the l standing for "long", which is 4 bytes/32 bits. 64-bit arthimetic is done with addq, subq, andq, orq, etc, with q standing for "quadword", which is 8 bytes/64 bits.
 
@@ -97,10 +99,10 @@ In short, software developers need to deal with these compiler configurations to
 
 
 
-The hardware and software communities are thus both facing significant change and major challenges. Hardware and software are pulling us in opposite directions. Figure 2.3 shows an overview of the challenges that both communities are facing.  
+The hardware and software communities are both facing significant change and major challenges. Hardware and software are pulling us in opposite directions. Figure 2.3 shows an overview of the challenges that both communities are facing.  
 
 On the one hand, software is facing challenges of a similar magnitude, with major changes in the way software is deployed, is sold, and interacts with hardware. 
-Software diversity as discussed in section 2.1.1 is driven by software innovation, driving the software development toward highly configurable and complex systems. This complexity is carried by the huge number of software technologies, customer configurations, execution environments, programming languages, etc. This explosion of configurations that software is facing makes the activity of testing and validation very difficult and time consuming. 
+Software diversity, as discussed in section 2.1.1, is driven by software innovation, driving the software development toward highly configurable and complex systems. This complexity is carried by the huge number of software technologies, customer configurations, execution environments, programming languages, etc. This explosion of configurations that software is facing makes the activity of testing and validation very difficult and time consuming. 
 As a consequence, softwares become higher and higher level, managing complexity and gluing lot of pieces together to give programmers the right abstraction for how things really work and how the data is really represented. 
 For example, model-driven software engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
 
@@ -111,10 +113,10 @@ For example, model-driven software engineering and generative programming techni
 \end{figure}
 
 On the other hand, hardware is exposing us to more low level details and heterogeneity due to the continuous hardware innovation. 
-Hardware innovation offer us energy efficiency, performance improvement but expose a lot of complexity for software engineers and developers (e.g., compilers users/creators).
-For example, in \cite{he2010computer} authors argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday’s life, we still do not know how to best organize and use them. 
-Meantime, hardware specialization for every single application is not a sustainable way of building chips.
-So, what would software community do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
+Hardware innovation offer us energy efficiency, performance improvement but exposes a lot of complexity for software engineers and developers (e.g., compilers users/creators).
+For example, in \cite{he2010computer} authors argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday life, we still do not know how to best organize and use them. 
+Meanwhile, hardware specialization for every single application is not a sustainable way of building chips.
+So, what the software community can do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
 
 Matching software to hardware is ensured by providing the adequate software languages and compilers that have to produce efficient code to the target hardware (relation 1 in Figure 2.3). As consequence, people who are writing compilers have to continuously enhance the way the executables are produced by releasing new compiler versions to support new hardware changes (i.e., new optimization flags, instruction sets).
 For example, Hou et al.\cite{hou2010spap} have presented SPAP, a container-based programming language for heterogeneous many-core systems. This language allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. SPAP comes with a set of compilers and runtime environments to such hardware processors. Chafi et al.\cite{chafi2010language,chafi2011domain} proposed leveraging domain specific languages (DSLs) to map high-level application code to
@@ -315,12 +317,15 @@ Example: Matlab is a domain specific math language that makes it easy to represe
 \subsection{Why testing code generators is complex?}
 %Code generation deals with the partial or complete generation of programs, based on a formal model• A model could be written in a specific language (model language), existing source code or also available meta information (Database Metadata, XML-Schema, ...)• Regular Expressions are a powerful language to extract information from code or a formal model• Lightweight software generators consist often only about a dozens of lines• Code generation yields to higher abstraction, higher productivity, improved quality and a higher consistence of your application
 
-The complexity of code generators remains on the transformation rules and code generation process. 
+
+%A model could be written in a specific language (model language), existing source code or also available meta information (Database Metadata, XML-Schema, ...)• Regular Expressions are a powerful language to extract information from code or a formal model• Lightweight software generators consist often only about a dozens of lines• Code generation yields to higher abstraction, higher productivity, improved quality and a higher consistence of your application
+
+The complexity of code generators remains on the different code generation models described above.
 In fact, code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
-Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. We believe that flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle.[ref W]
+Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. We believe that flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle\cite{guana2015developers}.
 
 Moreover, the generated code has to meet certain performance requirements (e.g. execution speed, response time, memory consumption, utilization of resources, etc.). The challenge is that the structure of the specification is usually very different from the structure of the implementation: there is no simple one-to-one correspondence between the concepts in the specification and the concepts in the implementation. 
-Efficient implementations are then computed at generation time by applying domain-specific optimizations and replacing, merging, adding, and removing components.
+%Efficient implementations are then computed at generation time by applying domain-specific optimizations and replacing, merging, adding, and removing components.
 
 %\begin{figure}[h]
 %	\center
@@ -331,7 +336,7 @@ Efficient implementations are then computed at generation time by applying domai
 
 \textbf{Challenge}: Fully automatic program synthesis offers many gains over traditional software development methods. e.g., speed of development, increased adaptability and reliability. But code generators are complex pieces of software themselves that may contain bugs.
 \begin{itemize}
-\item Can you trust the code-generator?
+\item Can we trust the code-generator?
 \item How can the correctness of the generated code be verified?
 \end{itemize}
 
@@ -341,20 +346,20 @@ Efficient implementations are then computed at generation time by applying domai
 %Commonly, the source language is a high-level programming language (i.e. a problem-oriented language), and the target language is a machine language or assembly language.
 The key feature of compilers is to bridge source programs written in high-level languages with the underlying hardware architecture.
 %\subsection{Types of code generators}
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/hardware-diversity.pdf}
-	\caption{Overview of the Docker-based testing architecture}
-\end{figure}
 
 
-\subsection{Why complier auto-tuning is complex?}
+
+%\subsection{Why complier auto-tuning is complex?}
 Modern compilers implement a number of optimizations. Each optimization tries to improve the performance of certain target applications. Improvement of source code programs in terms of performance can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
 Testing non-functional properties is more challenging 
 Thus, the determination of optimal settings of compiler optimizations has been identified as a major problem because compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the underlying system architecture, the target application, and the available optimizations of the compiler.
 
 
-
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/hardware-diversity.pdf}
+	\caption{Compiler optimizations}
+\end{figure}
 
 %\section{Compilers and Code generators non-functional testing}
 \section{Testing challenges}
