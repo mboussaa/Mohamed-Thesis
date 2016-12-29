@@ -300,6 +300,12 @@ Sven J{\"o}rges and Bernhard Steffen.
 \newblock In {\em International Symposium On Leveraging Applications of Formal
   Methods, Verification and Validation}, pages 425--444. Springer, 2014.
 
+\bibitem[KKO02]{knijnenburg2002iterative}
+Peter~MW Knijnenburg, Toru Kisuki, and Michael~FP O’Boyle.
+\newblock Iterative compilation.
+\newblock In {\em Embedded processor design challenges}, pages 171--187.
+  Springer, 2002.
+
 \bibitem[Kr{\v{c}}12]{krvcah2012solving}
 Peter Kr{\v{c}}ah.
 \newblock Solving deceptive tasks in robot body-brain co-evolution by searching
