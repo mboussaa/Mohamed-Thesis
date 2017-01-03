@@ -2,7 +2,7 @@ In this chapter, we study existing techniques related to code generators testing
 Section 3.1 provides a survey of the most used compiler auto-tuning techniques to construct the best set of optimization options. In Section 3.2, we review existing techniques for code generators testing. Section 3.3 discusses the limitations of the state of the art.
 \section{Compilers auto-tuning techniques}
 
-\section{Iterative compilation}
+\subsection{Iterative compilation}
 Iterative compilation consists on applying software engineering techniques to produce better and more optimized programs by compiling multiple versions of each of them using different optimizations settings. After running these versions on specific hardware machines, the key objective of iterative compilation is to find the best optimizing sequence that lead to the fastest and better code machine code. 
 Our work is related to iterative compilation research field.
 The basic idea of iterative compilation is to explore the compiler optimization space by measuring the impact of optimizations on software performance.
@@ -11,31 +11,46 @@ The vast majority of the work on iterative compilation focuses on increasing the
 It has been proven that optimizations are highly dependent on target platform and input program. 
 Compared to our proposal, none of the previous work has studied the impact of compiler optimizations on resource usage. In this work, we rather focus on compiler optimizations related to resource consumption, while bearing in mind the performance improvement.
 
-\subsection{Implementation of Iterative Compilation System}
+\subsection{Implementation of iterative compilation system}
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.65]{SOTA/fig/iterative_compilation.pdf}
+	\includegraphics[scale=0.65]{SOTA/fig/iterative_compilation}
 	\caption{Overview of the iterative compilation process}
 	\label{fig:iterative_compilation}
 \end{figure}
-The implementation of iterative compilation consists mainly on applying a series of steps to enhance the quality of generated code. Figure~\ref{fig:iterative_compilation} shows a general overview of the principal steps needed to ensure the implementation of the iterative compilation system.
-%\begin{itemize}
-%	\item List of transformations
-%	\item Search driver
-%	\item C Compiler
-%	\item Transformed program
-%	\item Target hardware platform
-%	\item Quality evaluation
-%	
-%\end{itemize}
-%The first is to define the list of transformations that are provided by the target compiler. This list define the different optimizations that the compiler can apply to enhance the software quality. 
+The implementation of iterative compilation consists mainly on applying a series of steps to enhance the quality of generated code. Figure~\ref{fig:iterative_compilation} shows a general overview of the principal steps needed to ensure the implementation of the iterative compilation process.
+\begin{itemize}
+	\item[--] List of transformations:
+	The iterative process starts by defining the optimizations space. It represents the list of optimizations that the compiler have to apply during the search to enhance the software quality.
+	\item[--] Search driver:
+	It applies a search algorithm or method to efficiently explore the large optimization search space. In fact, it reads the previously defined list of transformations that it needs to examine and decides which transformations have to be applied next using a search algorithm
+	to steer through the optimization space.
+	\item[--] C Compiler:
+	Once the optimization sequence is defined, the target C compiler for example is called to compile the input program and also perform initial machine independent optimizations. 
+	\item[--] Transformed program:
+	This results in initial machine independent optimized program. These optimizations are performed during code generation and have consequence for all target systems. It includes optimizations that are applied during mapping the parse tree to intermediate code and optimization applied to the intermediate code itself.
+	\item[--] Target hardware platform:
+	To optimize even more, the compiler applies from the provided optimization sequence the machine dependent optimizations. They are specific to the object code being generated. This includes optimizations applied during the mapping of intermediate code to assembler and optimizations applied directly on the generated
+	object code.
+	\item[--] Quality evaluation:
+	It consists on evaluation the quality of the optimized code. Many non-functional properties could be evaluated like code size, execution time, resource usage, power consumption, etc...
+	
+\end{itemize}
+
+\subsection{Search techniques}
+
+A lot of work is dedicated to the automatic search for optimal compiler settings. In this section, we discuss the available tools for automatic tuning, and give an overview of known approaches to the problem.
+
+
 %\subsubsection{Search-based techniques}
 %\paragraph{Genetic algorithm}
 %\paragraph{Multi-objective algorithm}
-%\section{Functional requirements}
-Compilers verification and validation rely on the use of test suites to check the functional correctness of transformed code. There are sever
 
-\section{Testing compilers}
+
+%\section{Functional requirements}
+%Compilers verification and validation rely on the use of test suites to check the functional correctness of transformed code. There are sever
+
+%\section{Testing compilers}
 
 Novelty Search has never been applied in the field of iterative compilation. Our work presents the first attempt to introduce diversity in the compiler optimization problem. 
 The idea of NS has been introduced by Lehman et al.~\cite{lehman2008exploiting}. It has been often evaluated in deceptive tasks and especially applied to evolutionary robotics~\cite{risi2010evolving,krvcah2012solving} (in the context of neuroevolution). 

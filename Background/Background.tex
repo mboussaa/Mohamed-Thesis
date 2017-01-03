@@ -116,7 +116,7 @@ On the other hand, hardware is exposing us to more low level details and heterog
 Hardware innovation offer us energy efficiency, performance improvement but exposes a lot of complexity for software engineers and developers (e.g., compilers users/creators).
 For example, in \cite{he2010computer} authors argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday life, we still do not know how to best organize and use them. 
 Meanwhile, hardware specialization for every single application is not a sustainable way of building chips.
-So, what the software community can do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
+%So, what the software community can do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
 
 Matching software to hardware is ensured by providing the adequate software languages and compilers that have to produce efficient code to the target hardware (relation 1 in Figure 2.3). As consequence, people who are writing compilers have to continuously enhance the way the executables are produced by releasing new compiler versions to support new hardware changes (i.e., new optimization flags, instruction sets).
 For example, Hou et al.\cite{hou2010spap} have presented SPAP, a container-based programming language for heterogeneous many-core systems. This language allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. SPAP comes with a set of compilers and runtime environments to such hardware processors. Chafi et al.\cite{chafi2010language,chafi2011domain} proposed leveraging domain specific languages (DSLs) to map high-level application code to
@@ -126,7 +126,8 @@ source code. They compared this language performance to MATLAB code and they sho
 To avoid hardware heterogeneity, software developers use managed languages such as JAVA, Scala, C\#, etc to favor software portability. Instead of compiling to native machine instruction set, these languages are compiled into an intermediate language or IL, which is similar to a binary assembly language. These instructions are executed by a JVM, or by .NET's CLR virtual machine, which effectively translates them to native binary instructions specific to the CPU architecture and/or OS of the machine.
 By using managed code and compiling in this managed execution environment, memory management such as a garbage collector, type safety checking, and destruction of unneeded objects are handled internally within this sandbox runtime environment. Thus, developers focus on the business logic of applications to provide more secure and stable software without taking too much care of the hardware heterogeneity.
 
-In contrast, devices may impose the support of specific programming languages such as in mobile development where the Java application run on Android smartphones and Objective-C for iOS products (relation 2 in Figure 2.3). This means that developers will usually need to create multiple clients in this heterogeneous environment. We can see also that C/C++ are the most used languages for targeting embedded systems.
+In contrast, devices may impose the support of specific programming languages (relation 2 in Figure 2.3). In mobile development for example, Java is needed to implement Android applications and Objective-C is needed to develop iOS products. This means that developers need to create multiple clients in this heterogeneous environment. 
+%We can see also that C/C++ are the most used languages for targeting embedded systems.
 
 %Well, it's like this. Every language is created with a single target platform in mind ( except haXe of course, it can target multiple platforms). For example, Java is compiled into Java bytecode which is executed in the Java Platform ( Java Runtime Library). C/C++ is used to built  applications executed by the OS. So, the target platform of C/C++ is a specific OS. C# is built for the Microsoft .NET framework. Javascript is built for the web platform.
 %But, the problem with this is that each platform has its own language tied to it, so it is very difficult to write for different platforms as you need to program in different languages. Also, it becomes difficult to combine platforms together.
@@ -172,10 +173,10 @@ In principle a software development process can be seen as a mapping between a p
 \textbf{The problem space} is a set of domain-specific abstractions that can be used by application engineers to express their needs and specify the desired system behavior. This space is generally defined  as DSLs or high-level models. 
 
 %solution space
-\textbf{The solution space}, on the other hand, consists of a set of implementation components, which can be composed to create system implementations (for example, the generation of platform-specific software components written using general-purpose languages such as Java, c++, etc).
+\textbf{The solution space} consists of a set of implementation components, which can be composed to create system implementations (for example, the generation of platform-specific software components written using general-purpose languages such as Java, c++, etc).
 
 %mapping
-\textbf{the configuration knowledge} constitutes the mapping between both spaces. It takes a specification as input and returns the corresponding implementation as output. It defines the construction rules (i.e., the translation rules to apply in order to translate the input model/DSL into specific implementation components) and optimizations (i.e., optimization can be applied during code generation to enhance some of the non-functional properties such as execution speed). It defines also the dependencies and settings among the domain specific concepts and features.
+\textbf{The configuration knowledge} constitutes the mapping between both spaces. It takes a specification as input and returns the corresponding implementation as output. It defines the construction rules (i.e., the translation rules to apply in order to translate the input model/program into specific implementation components) and optimizations (i.e., optimization can be applied during code generation to enhance some of the non-functional properties such as execution speed). It defines also the dependencies and settings among the domain specific concepts and features.
 
 \begin{figure}[h]
 	\center
@@ -183,9 +184,9 @@ In principle a software development process can be seen as a mapping between a p
 	\caption{Generative programming concept}
 \end{figure}
 %GP advantages
-These schema integrates several powerful concepts from Model Driven Engineering (MDE), such as domain-specific languages, feature modeling, generators, components, and software architecture. 
+These schema integrates several powerful concepts from Model Driven Engineering (MDE), such as domain-specific languages, feature modeling, and code generators.
 
-Some commonly benefits of such software developing architecture are:
+Some commonly benefits of such software engineering process are:
 \begin{itemize}
 \item It reduces the amount of re-engineering/maintenance caused by specification requirements
 \item It facilitates the reuse of components/parts of the system
@@ -194,14 +195,14 @@ Some commonly benefits of such software developing architecture are:
 \end{itemize}
 
 
-\textbf{Among the main contributions of this thesis is to verify the correct mapping between the problem space and solution space. In other words, we would evaluate the impact of applied configurations during code transformation (by wether code generators or compilers) on the resource usage requirements.
+\textbf{Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by wether code generators or compilers) on the resource usage requirements. 
 }
 
 In the following section, we present a general overview of the complete software development tool chain and the main actors that are involved from design time to runtime.
 
 
 \section{An overview of the software development tool chain}
-The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and actors involved to transform the high-level system specifications into executable programs and that from design time to runtime.
+The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and stakeholders involved to transform high-level system specifications into executable programs and that from design time to runtime.
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
@@ -215,13 +216,15 @@ Figure 2.2 reviews the different steps of this software development chain. We di
 \begin{enumerate}
 \item \textbf{\textit{Software design:}} 
 As part of the generative programming process, the first step consists on representing the system behavior. 
-Software design/behavior is the input program for the code generators. On the input side we can either use code as the input or an abstract form that represents the design. It depends on the type of the code generator and on the input source program it requires. These programs can range from a formal specification of the system behavior to abstract models that represents the business logic.
-For example, software designers can define, at design time, software’s behavior using for example Domain-Specific Models (DSMs), DSLs, Models, etc.
+%Software design/behavior is the input program for the code generators. 
+On the input side we can either use code as the input or an abstract form that represents the design. It depends on the type of the code generator and on the input source program it requires. These programs can range from a formal specification of the system behavior to abstract models that represents the business logic.
+For example, software designers can define, at design time, software’s behavior using for example Domain-Specific Models (DSMs).
 A DSM, as an example, is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). %Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain. Furthermore, software design can be provided as GUIs, GPLs, Models, etc.
 
 \item \textbf{\textit{Code generation:}} 
 Code generation is the technique of building code using programs. The common feature of the generator is to produce code that the software developer would otherwise write by hand.
-There is no one style of code generation. Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. %Generators can work on the command line or using a GUI. 
+%There is no one style of code generation. 
+Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. %Generators can work on the command line or using a GUI. 
 Code generation can build code for one or more target language, once or multiple times. There are different varieties of code generation aspects and it highly depends on the type of the input programs described in the previous step. 
 %Code generation techniques depends generally on these inputs.  
 For example, code generator developers use model-driven techniques in order to generate automatically code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. Thus, the code generation process start by taking the previously defined specification to translate a model to an implementation in a target language. We will see in the next section the different types of code generators.
@@ -230,11 +233,11 @@ For example, code generator developers use model-driven techniques in order to g
 %In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
 
 \item \textbf{\textit{Software development:}}
-Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system specification described in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. Generated code can even be edited in some cases by the end software developers. This task really depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. On the other hand, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
+Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system specification described in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. In some cases, generated code can even be edited by the end software developers. This task depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. However, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
 
 \item \textbf{\textit{Compilation:}}
-Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. 
-As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code need to run on different machines/devices, the software developer need to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
+Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable one. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. 
+As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code needs to run on different machines/devices, the software developer needs to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
 
 \end{enumerate} 
 
@@ -247,11 +250,11 @@ As an example, cross compilers may be used to create executable code for a platf
 \end{figure}
 Software development involves several stakeholders that play different roles in validating and testing the software development chain described previously.
 Figure 2.6 depicts a use case diagram that describes these different concerns, actors and roles for testing generators.
-Basically, we distinguish two stakeholders for code generators and compilers testing: experts and developers. As shown in the bottom of Figure 2.6, experts are the creators/maintainers of generators that use their expertise and knowledge associated to the software and hardware technologies resulting in efficient code generation. They contribute to the software development community by creating and providing new optimizations and compiler versions updates. For code generators, they may use their knowledge to build new platform-specific code generators or enhance existing code generators. 
+Basically, we distinguish two stakeholders for code generators and compilers testing: experts and developers. As shown in the bottom of Figure 2.6, experts are the creators/maintainers of generators that use their expertise and knowledge associated to the software and hardware technologies resulting in efficient code generation. They contribute to the software development community by creating and providing new optimizations and compiler versions updates. For code generators, they may use their knowledge to build new platform-specific code generators or enhance existing ones. 
 
-Developers however, represent the group of users that have no knowledge/expertise about the way code is generated. Thus, they are unable to edit or maintain the internal behavior of generators (e.g., the case of commercial and off-the-shell code generators). In this case, generators are used as a black box by engineers during software development to ease code production. Therefore, developers may configure compilers by providing the set of configuration options to efficiently produce code for the target hardware platform (e.g., optimizations options) or maintain/edit the generated code in case of automatic source code generation.
+However, Developers represent the group of users that have no knowledge/expertise about the way code is generated. Thus, they are unable to edit or maintain the internal behavior of generators (e.g., the case of commercial and off-the-shell code generators). In this case, generators are used as a black box by engineers during software development to ease code production. Therefore, developers may configure compilers by providing the set of configuration options to efficiently produce code for the target hardware platform (e.g., optimizations options) or maintain/edit the generated code in case of automatic source code generation.
 
-The uses cases highlighted in red in Figure 2.6 constitute the main tasks that we are addressing in this thesis. Our main concern in this proposal, is to evaluate the generated code. To do so, we would help code generator users to automatically generate code for different target software platforms and detect code generator inconsistencies by evaluating the resource usage properties. This task may involve both, code generator experts and users.
+The uses cases highlighted in red in Figure 2.6 constitute the main tasks that we are addressing in this thesis. Our main concern is to evaluate the generated code. To do so, we would help code generator users to automatically generate code for different target software platforms and detect code generator inconsistencies by evaluating the resource usage properties. This task may involve both, code generator experts and users.
 On the other hand, we would help compiler users to auto-tune compilers through the use of optimizations provided by compiler experts. Similarly, this concerns both actors and it consists on testing the impact of these configurations on the performance and resource usage properties.
 
 
@@ -261,7 +264,7 @@ On the other hand, we would help compiler users to auto-tune compilers through t
 %	\caption{Overview of the Docker-based testing architecture}
 %\end{figure}
 \section{Testing code generators}
-In this thesis, we focus on testing the automatic code generation process (highlighted with red box in figure 2.2). To do so, we introduce in this section some basis about code generators. We give an overview of the different types of code generators and we discuss their complexity which constitute a major obstacle for testing.
+In this thesis, we focus on testing the automatic code generation process (highlighted in red in the left side of figure 2.6). To do so, we introduce in this section some basis about code generators. We give an overview of the different types of code generators and we discuss their complexity which constitute a major obstacle for testing.
 \subsection{Testing workflow}
 The main goal of generators is to produce software systems from higher-level specifications. Generators bridge the wide gap between the high-level system description and the executable.
 \begin{figure}[h]
@@ -270,7 +273,7 @@ The main goal of generators is to produce software systems from higher-level spe
 	\caption{Code generation workflow}
 \end{figure}
 
-As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design to source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. Figure 2.3 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compile it using specific compilers, and test it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
+As stated before, the code generation workflow is divided into two levels. It starts by transforming the system design into source code through the use of generators. Afterwards, source code is transformed into executables using compilers. Thus, software developers use to generate code, edit it (if needed), compile it and then test it. If changes are applied to compilers or generators, the cycle is repeated. Figure 2.7 presents an overview of this testing cycle. The right-hand side of the figure shows the classic workflow for developing and debugging code which is \textit{“edit, compile, and test.”}. The user writes or edits an existing code, compiles it using specific compilers, and tests it. Code generation adds a few new workflow elements in the left-hand side of the figure where generator creators edit the templates and definition files (or the generator itself) and then run the generator to create new output files. The output files are then compiled and the application is tested. 
 
 
 
@@ -278,7 +281,7 @@ As stated before, the code generation workflow is divided into two levels. It st
 There are many ways to categorize generators. We can differentiate them by their complexity, by usage, or by their input/output. According to\cite{herrington2003code}, there are two main categories of automatic code generation: passive or active. Passive code generators build the code only once, then it’s up to the user to update and maintain the code. 
 The most common use of passive code generators are wizards. 
 
-Active code generators, run on code multiple times during the lifecycle. With active code generators, there is code can be edited by the users, and code that should only be modified by the code generator. Active code generators are widely used in the literature\cite{pais2005tool,amanquah2009rapid}. We focus on this thesis on testing this class code generators.
+Active code generators, run on code multiple times during the lifecycle. With active code generators, there is code can be edited by the users, and code that should only be modified by the code generator. Active code generators are widely referenced in the literature\cite{pais2005tool,amanquah2009rapid}. We focus on this thesis on testing this class code generators.
 According to the state-of-the-art\cite{herrington2003code,hunt2000pragmatic,fertalj2008source,bajovs2013code}, there are six categories of active code generators: 
 
 \begin{itemize}
