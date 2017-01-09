@@ -44,6 +44,12 @@ Wolfgang Banzhaf, Frank~D Francone, and Peter Nordin.
 \newblock In {\em Parallel Problem Solving from Nature—PPSN IV}, pages
   300--309. Springer, 1996.
 
+\bibitem[BKK{\etalchar{+}}98]{bodin1998iterative}
+Fran{\c{c}}ois Bodin, Toru Kisuki, Peter Knijnenburg, Mike O'Boyle, and Erven
+  Rohou.
+\newblock Iterative compilation in a non-linear optimisation space.
+\newblock In {\em Workshop on Profile and Feedback-Directed Compilation}, 1998.
+
 \bibitem[BM08]{bragancca2008transformation}
 Alexandre Bragan{\c{c}}a and Ricardo~J Machado.
 \newblock Transformation patterns for multi-staged model driven software
@@ -67,6 +73,12 @@ Andrejs Bajovs, Oksana Nikiforova, and Janis Sejans.
 Prathibha~A Ballal, H~Sarojadevi, and PS~Harsha.
 \newblock Compiler optimization: A genetic algorithm approach.
 \newblock {\em International Journal of Computer Applications}, 112(10), 2015.
+
+\bibitem[BY07]{bashkansky2007black}
+Guy Bashkansky and Yaakov Yaari.
+\newblock Black box approach for selecting optimization options using
+  budget-limited genetic algorithms.
+\newblock In {\em Workshop Proceedings}, page~27, 2007.
 
 \bibitem[CBGM12]{cao2012yin}
 Ting Cao, Stephen~M Blackburn, Tiejun Gao, and Kathryn~S McKinley.
@@ -119,6 +131,18 @@ Junjie Chen, Wenxiang Hu, Dan Hao, Yingfei Xiong, Hongyu Zhang, Lu~Zhang, and
 \newblock In {\em Proceedings of the 38th International Conference on Software
   Engineering}, 2016.
 
+\bibitem[CO05]{cavazos2005automatic}
+John Cavazos and Michael~FP O'Boyle.
+\newblock Automatic tuning of inlining heuristics.
+\newblock In {\em Supercomputing, 2005. Proceedings of the ACM/IEEE SC 2005
+  Conference}, pages 14--14. IEEE, 2005.
+
+\bibitem[Con09]{conrad2009testing}
+Mirko Conrad.
+\newblock Testing-based translation validation of generated code in the context
+  of iec 61508.
+\newblock {\em Formal Methods in System Design}, 35(3):389--401, 2009.
+
 \bibitem[CSB{\etalchar{+}}11]{chafi2011domain}
 Hassan Chafi, Arvind~K Sujeeth, Kevin~J Brown, HyoukJoong Lee, Anand~R Atreya,
   and Kunle Olukotun.
@@ -160,6 +184,14 @@ Nelly Delgado, Ann~Q Gates, and Steve Roach.
 \newblock {\em IEEE Transactions on software Engineering}, 30(12):859--872,
   2004.
 
+\bibitem[DJB{\etalchar{+}}09]{dubach2009portable}
+Christophe Dubach, Timothy~M Jones, Edwin~V Bonilla, Grigori Fursin, and
+  Michael~FP O'Boyle.
+\newblock Portable compiler optimisation across embedded programs and
+  microarchitectures using machine learning.
+\newblock In {\em Proceedings of the 42nd Annual IEEE/ACM International
+  Symposium on Microarchitecture}, pages 78--88. ACM, 2009.
+
 \bibitem[DPAM02]{deb2002fast}
 Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and TAMT Meyarivan.
 \newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
@@ -177,6 +209,14 @@ Kresimir Fertalj and Mario Brcic.
 \newblock {\em International journal of computers and communications},
   (1):10--19, 2008.
 
+\bibitem[FKM{\etalchar{+}}11]{fursin2011milepost}
+Grigori Fursin, Yuriy Kashnikov, Abdul~Wahid Memon, Zbigniew Chamski, Olivier
+  Temam, Mircea Namolaru, Elad Yom-Tov, Bilha Mendelson, Ayal Zaks, Eric
+  Courtois, et~al.
+\newblock Milepost gcc: Machine learning enabled self-tuning compiler.
+\newblock {\em International journal of parallel programming}, 39(3):296--327,
+  2011.
+
 \bibitem[FMSB11]{fleurey2011mde}
 Franck Fleurey, Brice Morin, Arnor Solberg, and Olivier Barais.
 \newblock Mde to manage communications with and between resource-constrained
@@ -191,6 +231,12 @@ Grigori Fursin, Cupertino Miranda, Olivier Temam, Mircea Namolaru, Elad
 \newblock Milepost gcc: machine learning based research compiler.
 \newblock In {\em GCC Summit}, 2008.
 
+\bibitem[FOK02]{fursin2002evaluating}
+GG~Fursin, Michael~FP O’Boyle, and Peter~MW Knijnenburg.
+\newblock Evaluating iterative compilation.
+\newblock In {\em International Workshop on Languages and Compilers for
+  Parallel Computing}, pages 362--376. Springer, 2002.
+
 \bibitem[FR07]{france2007model}
 Robert France and Bernhard Rumpe.
 \newblock Model-driven development of complex software: A research roadmap.
@@ -204,6 +250,13 @@ Juan~Jos{\'e} Fumero, Toomas Remmelg, Michel Steuwer, and Christophe Dubach.
 \newblock In {\em Proceedings of the Principles and Practices of Programming on
   The Java Platform}, pages 16--26. ACM, 2015.
 
+\bibitem[FS08]{fey2008code}
+Ines Fey and Ingo St{\"u}rmer.
+\newblock Code generation for safety-critical systems--open questions and
+  possible solutions.
+\newblock {\em SAE international journal of passenger cars-electronic and
+  electrical systems}, 1(2008-01-0385):150--155, 2008.
+
 \bibitem[Fur09]{fursin2009collective}
 Grigori Fursin.
 \newblock Collective tuning initiative: automating and accelerating development
@@ -215,6 +268,13 @@ Ahmad~Nauman Ghazi, Kai Petersen, and J{\"u}rgen B{\"o}rstler.
 \newblock Heterogeneous systems testing techniques: An exploratory survey.
 \newblock In {\em International Conference on Software Quality}, pages 67--85.
   Springer, 2015.
+
+\bibitem[GR96]{gathercole1996adverse}
+Chris Gathercole and Peter Ross.
+\newblock An adverse interaction between crossover and restricted tree depth in
+  genetic programming.
+\newblock In {\em Proceedings of the 1st annual conference on genetic
+  programming}, pages 291--296. MIT Press, 1996.
 
 \bibitem[GS14]{guana2014chaintracker}
 Victor Guana and Eleni Stroulia.
@@ -293,6 +353,12 @@ Fr{\'e}d{\'e}ric Jouault and Ivan Kurtev.
 \newblock Transforming models with atl.
 \newblock In {\em International Conference on Model Driven Engineering
   Languages and Systems}, pages 128--138. Springer, 2005.
+
+\bibitem[JK13]{jantz2013performance}
+Michael~R Jantz and Prasad~A Kulkarni.
+\newblock Performance potential of optimization phase selection during dynamic
+  jit compilation.
+\newblock {\em ACM SIGPLAN Notices}, 48(7):131--142, 2013.
 
 \bibitem[JS14]{jorges2014back}
 Sven J{\"o}rges and Bernhard Steffen.
@@ -400,6 +466,12 @@ Ian Molyneaux.
   and Quality Assurance}.
 \newblock " O'Reilly Media, Inc.", 2009.
 
+\bibitem[NAIT12]{nagai2012random}
+Eriko Nagai, Hironobu Awazu, Nagisa Ishiura, and Naoya Takeda.
+\newblock Random testing of c compilers targeting arithmetic optimization.
+\newblock In {\em Workshop on Synthesis And System Integration of Mixed
+  Information Technologies (SASIMI 2012)}, pages 48--53, 2012.
+
 \bibitem[NF13]{nagiub2013automatic}
 Mena Nagiub and Wael Farag.
 \newblock Automatic selection of compiler options using genetic techniques for
@@ -419,6 +491,11 @@ Nicholas Nethercote and Julian Seward.
 \newblock Valgrind: a framework for heavyweight dynamic binary instrumentation.
 \newblock In {\em ACM Sigplan notices}, volume~42, pages 89--100. ACM, 2007.
 
+\bibitem[PB11]{pekhimenko2011efficient}
+Gennady Pekhimenko and Angela~Demke Brown.
+\newblock Efficient program compilation through machine learning techniques.
+\newblock In {\em Software Automatic Tuning}, pages 335--351. Springer, 2011.
+
 \bibitem[PBG05]{pais2005tool}
 Rui Pais, SP~Barros, and Lu{\'\i}s Gomes.
 \newblock A tool for tailored code generation from petri net models.
@@ -432,11 +509,32 @@ Zhelong Pan and Rudolf Eigenmann.
 \newblock In {\em International Symposium on Code Generation and Optimization
   (CGO'06)}, pages 12--pp. IEEE, 2006.
 
+\bibitem[PGL14]{papaux2014processor}
+Geoffrey Papaux, Daniel Gachet, and Wolfram Luithardt.
+\newblock Processor virtualization on embedded linux systems.
+\newblock In {\em Education and Research Conference (EDERC), 2014 6th European
+  Embedded Design in}, pages 65--69. IEEE, 2014.
+
 \bibitem[PHB15]{pallister2015identifying}
 James Pallister, Simon~J Hollis, and Jeremy Bennett.
 \newblock Identifying compiler options to minimize energy consumption for
   embedded platforms.
 \newblock {\em The Computer Journal}, 58(1):95--109, 2015.
+
+\bibitem[PKC11]{park2011evaluation}
+Eunjung Park, Sameer Kulkarni, and John Cavazos.
+\newblock An evaluation of different modeling techniques for iterative
+  compilation.
+\newblock In {\em Proceedings of the 14th international conference on
+  Compilers, architectures and synthesis for embedded systems}, pages 65--74.
+  ACM, 2011.
+
+\bibitem[PMV{\etalchar{+}}13]{plotnikov2013automatic}
+Dmitry Plotnikov, Dmitry Melnik, Mamikon Vardanyan, Ruben Buchatskiy, Roman
+  Zhuykov, and Je-Hyung Lee.
+\newblock Automatic tuning of compiler optimizations and analysis of their
+  impact.
+\newblock {\em Procedia Computer Science}, 18:1312--1321, 2013.
 
 \bibitem[PV15]{pazirandeh2015evaluation}
 Alireza Pazirandeh and Evelina Vorobyeva.
@@ -467,6 +565,12 @@ Abdel~Salam Sayyad and Hany Ammar.
   Engineering (RAISE), 2013 2nd International Workshop on}, pages 21--27. IEEE,
   2013.
 
+\bibitem[SC03]{sturmer2003test}
+Igno Sturmer and Mirko Conrad.
+\newblock Test suite design for code generation tools.
+\newblock In {\em Automated Software Engineering, 2003. Proceedings. 18th IEEE
+  International Conference on}, pages 286--290. IEEE, 2003.
+
 \bibitem[SCDP07]{stuermer2007systematic}
 Ingo Stuermer, Mirko Conrad, Heiko Doerr, and Peter Pepper.
 \newblock Systematic testing of model-based code generators.
@@ -479,6 +583,13 @@ Cristian~Constantin Spoiala, Alin Calinciuc, Corneliu~Octavian Turcu, and
   machine.
 \newblock In {\em 2016 International Conference on Development and Application
   Systems (DAS)}, pages 295--298. IEEE, 2016.
+
+\bibitem[SDH{\etalchar{+}}14]{schulte2014post}
+Eric Schulte, Jonathan Dorn, Stephen Harding, Stephanie Forrest, and Westley
+  Weimer.
+\newblock Post-compiler software optimization for reducing energy.
+\newblock In {\em ACM SIGARCH Computer Architecture News}, volume~42, pages
+  639--652. ACM, 2014.
 
 \bibitem[{\v{S}}LG15]{vstrekelj2015performance}
 Domagoj {\v{S}}trekelj, Hrvoje Leventi{\'c}, and Irena Gali{\'c}.
@@ -521,6 +632,20 @@ Yu~Sun, Jules White, Sean Eade, and Douglas~C Schmidt.
   allocation and optimization.
 \newblock {\em Journal of Systems and Software}, 116:146--161, 2016.
 
+\bibitem[SZP12]{sandran2012genetic}
+Thayalan Sandran, Mohamed Nordin~B Zakaria, and Anindya~Jyoti Pal.
+\newblock A genetic algorithm approach towards compiler flag selection based on
+  compilation and execution duration.
+\newblock In {\em Computer \& Information Science (ICCIS), 2012 International
+  Conference on}, volume~1, pages 270--274. IEEE, 2012.
+
+\bibitem[TCR12]{tartara2012parallel}
+Michele Tartara and Stefano Crespi~Reghizzi.
+\newblock Parallel iterative compilation: using mapreduce to speedup machine
+  learning in compilers.
+\newblock In {\em Proceedings of third international workshop on MapReduce and
+  its Applications Date}, pages 33--40. ACM, 2012.
+
 \bibitem[VJ01]{valluri2001compiling}
 Madhavi Valluri and Lizy~K John.
 \newblock Is compiling for performance—compiling for power?
@@ -531,5 +656,18 @@ Madhavi Valluri and Lizy~K John.
 Xuejun Yang, Yang Chen, Eric Eide, and John Regehr.
 \newblock Finding and understanding bugs in c compilers.
 \newblock In {\em ACM SIGPLAN Notices}, volume~46, pages 283--294. ACM, 2011.
+
+\bibitem[ZSH09]{zhong2009tuning}
+Shengtong Zhong, Yang Shen, and Fei Hao.
+\newblock Tuning compiler optimization options via simulated annealing.
+\newblock In {\em Future Information Technology and Management Engineering,
+  2009. FITME'09. Second International Conference On}, pages 305--308. IEEE,
+  2009.
+
+\bibitem[ZSP{\etalchar{+}}06]{zelenov2006automatic}
+Sergey~V Zelenov, Denis~V Silakov, Alexander~K Petrenko, Mirko Conrad, and Ines
+  Fey.
+\newblock Automatic test generation for model-based code generators.
+\newblock In {\em ISoLA}, pages 75--81, 2006.
 
 \end{thebibliography}

@@ -1,8 +1,12 @@
  
-In this chapter, we discuss different domains and concepts applied in this thesis, including testing compilers and code generators, optimizations and non-functional requirements.
-The objective of this chapter is to give a brief introduction to these concerns, used throughout this document. It aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
+In this chapter, the context of this thesis and the general problems it faces are introduced. The objective of this chapter is to give a brief introduction to  different domains and concepts in which our work takes place and used throughout this document.
+This includes generative programming techniques, an overview of the software development tool chain and the main concepts for testing code generators and compilers auto-tuning.
 
-The chapter is structured as follows: In section 2.1 and 2.2 we present the generative programming approach and the different steps of code generation involved in the software development. Section 2.3 gives an overview of the types of code generators used in the literature. In Section 2.4, we describe compilers and their complexity.
+ %It aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
+
+The chapter is structured as follows: In section 2.1, we present the problem of software diversity and hardware heterogeneity induced by the continuous software and hardware innovation. Section 2.2 aims at providing a better understanding of the 
+generative programming concept that is increasingly applied to ease code generation and implementation. In section 2.3, we present the different steps of automatic code generation involved during software development as well the different stakeholders and their roles in testing generators. We highlight then, the main tasks that we are addressing in this thesis to help generators experts/users to efficiently evaluate the generated code and tune compiler configurations.
+Section 2.4 gives an overview of the different types of code generators used in the literature and we show how testing code generators is complex. Similarly, in Section 2.5, we describe compiler optimizations and we show how complex is compiler tuning by presenting the different challenges that this task is posing.
 
 
 \section{Diversity in software engineering}
