@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  9 JAN 2017 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  16 JAN 2017 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,11 +1010,7 @@ Chapter 2.
 (./Background/Background.tex [11
 
 
-]
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
- [12]
+] [12]
 <Background/fig/jhipster.png, id=490, 646.415pt x 215.80624pt>
 File: Background/fig/jhipster.png Graphic file (type png)
 
@@ -1941,7 +1937,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (104 pages, 3856145 bytes).
+Output written on Main.pdf (104 pages, 3856144 bytes).
 PDF statistics:
  2277 PDF objects out of 2487 (max. 8388607)
  1796 compressed objects within 18 object streams
