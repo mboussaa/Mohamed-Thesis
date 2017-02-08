@@ -44,6 +44,12 @@ Wolfgang Banzhaf, Frank~D Francone, and Peter Nordin.
 \newblock In {\em Parallel Problem Solving from Nature—PPSN IV}, pages
   300--309. Springer, 1996.
 
+\bibitem[BHM{\etalchar{+}}15]{barr2015oracle}
+Earl~T Barr, Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
+\newblock The oracle problem in software testing: A survey.
+\newblock {\em IEEE transactions on software engineering}, 41(5):507--525,
+  2015.
+
 \bibitem[BKK{\etalchar{+}}98]{bodin1998iterative}
 Fran{\c{c}}ois Bodin, Toru Kisuki, Peter Knijnenburg, Mike O'Boyle, and Erven
   Rohou.
@@ -131,11 +137,19 @@ Junjie Chen, Wenxiang Hu, Dan Hao, Yingfei Xiong, Hongyu Zhang, Lu~Zhang, and
 \newblock In {\em Proceedings of the 38th International Conference on Software
   Engineering}, 2016.
 
+\bibitem[CHTZ04]{chen2004case}
+Tsong~Yueh Chen, DH~Huang, TH~Tse, and Zhi~Quan Zhou.
+\newblock Case studies on the selection of useful relations in metamorphic
+  testing.
+\newblock In {\em Proceedings of the 4th Ibero-American Symposium on Software
+  Engineering and Knowledge Engineering (JIISIC 2004)}, pages 569--583.
+  Polytechnic University of Madrid, 2004.
+
 \bibitem[CO05]{cavazos2005automatic}
 John Cavazos and Michael~FP O'Boyle.
 \newblock Automatic tuning of inlining heuristics.
 \newblock In {\em Supercomputing, 2005. Proceedings of the ACM/IEEE SC 2005
-  Conference}, pages 14--14. IEEE, 2005.
+  Conference}, pages 14--14, 2005.
 
 \bibitem[Con09]{conrad2009testing}
 Mirko Conrad.
@@ -148,6 +162,11 @@ Hassan Chafi, Arvind~K Sujeeth, Kevin~J Brown, HyoukJoong Lee, Anand~R Atreya,
   and Kunle Olukotun.
 \newblock A domain-specific approach to heterogeneous parallelism.
 \newblock {\em ACM SIGPLAN Notices}, 46(8):35--46, 2011.
+
+\bibitem[CSS99]{cooper1999optimizing}
+Keith~D Cooper, Philip~J Schielke, and Devika Subramanian.
+\newblock Optimizing for reduced code space using genetic algorithms.
+\newblock In {\em ACM SIGPLAN Notices}, volume~34, pages 1--9. ACM, 1999.
 
 \bibitem[CST02]{cooper2002adaptive}
 Keith~D Cooper, Devika Subramanian, and Linda Torczon.
@@ -269,7 +288,7 @@ Ahmad~Nauman Ghazi, Kai Petersen, and J{\"u}rgen B{\"o}rstler.
 \newblock In {\em International Conference on Software Quality}, pages 67--85.
   Springer, 2015.
 
-\bibitem[GR96]{gathercole1996adverse}
+\bibitem[GR96]{gather1996adverse}
 Chris Gathercole and Peter Ross.
 \newblock An adverse interaction between crossover and restricted tree depth in
   genetic programming.
@@ -444,6 +463,13 @@ Dirk Merkel.
   deployment.
 \newblock {\em Linux Journal}, 2014(239):2, 2014.
 
+\bibitem[MHC14]{marinescu2014covrig}
+Paul Marinescu, Petr Hosek, and Cristian Cadar.
+\newblock Covrig: a framework for the analysis of code, test, and coverage
+  evolution in real software.
+\newblock In {\em Proceedings of the 2014 International Symposium on Software
+  Testing and Analysis}, pages 93--104. ACM, 2014.
+
 \bibitem[MJL{\etalchar{+}}06]{musset2006acceleo}
 Jonathan Musset, {\'E}tienne Juliot, St{\'e}phane Lacrampe, William Piers,
   C{\'e}dric Brun, Laurent Goubet, Yvan Lussaud, and Freddy Allilaire.
@@ -465,6 +491,14 @@ Ian Molyneaux.
 \newblock {\em The Art of Application Performance Testing: Help for Programmers
   and Quality Assurance}.
 \newblock " O'Reilly Media, Inc.", 2009.
+
+\bibitem[Nai16]{naik2016migrating}
+Nitin Naik.
+\newblock Migrating from virtualization to dockerization in the cloud:
+  Simulation and evaluation of distributed systems.
+\newblock In {\em Maintenance and Evolution of Service-Oriented and Cloud-Based
+  Environments (MESOCA), 2016 IEEE 10th International Symposium on the}, pages
+  1--8. IEEE, 2016.
 
 \bibitem[NAIT12]{nagai2012random}
 Eriko Nagai, Hironobu Awazu, Nagisa Ishiura, and Naoya Takeda.
@@ -598,6 +632,12 @@ Domagoj {\v{S}}trekelj, Hrvoje Leventi{\'c}, and Irena Gali{\'c}.
 \newblock {\em International Journal of Electrical and Computer Engineering
   Systems}, 6(1):9--13, 2015.
 
+\bibitem[SOMA03]{stephenson2003genetic}
+Mark Stephenson, Una-May O’Reilly, Martin~C Martin, and Saman Amarasinghe.
+\newblock Genetic programming applied to compiler heuristic optimization.
+\newblock In {\em European Conference on Genetic Programming}, pages 238--253.
+  Springer, 2003.
+
 \bibitem[SP15]{stepasyuk2015evaluating}
 Stepan Stepasyuk and Yavor Paunov.
 \newblock Evaluating the haxe programming language-performance comparison
@@ -645,6 +685,13 @@ Michele Tartara and Stefano Crespi~Reghizzi.
   learning in compilers.
 \newblock In {\em Proceedings of third international workshop on MapReduce and
   its Applications Date}, pages 33--40. ACM, 2012.
+
+\bibitem[TVVA03]{triantafyllis2003compiler}
+Spyridon Triantafyllis, Manish Vachharajani, Neil Vachharajani, and David~I
+  August.
+\newblock Compiler optimization-space exploration.
+\newblock In {\em Code Generation and Optimization, 2003. CGO 2003.
+  International Symposium on}, pages 204--215. IEEE, 2003.
 
 \bibitem[VJ01]{valluri2001compiling}
 Madhavi Valluri and Lizy~K John.
