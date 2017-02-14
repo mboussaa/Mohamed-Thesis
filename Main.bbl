@@ -228,6 +228,19 @@ Kresimir Fertalj and Mario Brcic.
 \newblock {\em International journal of computers and communications},
   (1):10--19, 2008.
 
+\bibitem[FFRR15]{felter2015updated}
+Wes Felter, Alexandre Ferreira, Ram Rajamony, and Juan Rubio.
+\newblock An updated performance comparison of virtual machines and linux
+  containers.
+\newblock In {\em Performance Analysis of Systems and Software (ISPASS), 2015
+  IEEE International Symposium on}, pages 171--172. IEEE, 2015.
+
+\bibitem[FIP15]{ferme2015framework}
+Vincenzo Ferme, Ana Ivanchikj, and Cesare Pautasso.
+\newblock A framework for benchmarking bpmn 2.0 workflow management systems.
+\newblock In {\em International Conference on Business Process Management},
+  pages 251--259. Springer, 2015.
+
 \bibitem[FKM{\etalchar{+}}11]{fursin2011milepost}
 Grigori Fursin, Yuriy Kashnikov, Abdul~Wahid Memon, Zbigniew Chamski, Olivier
   Temam, Mircea Namolaru, Elad Yom-Tov, Bilha Mendelson, Ayal Zaks, Eric
@@ -331,6 +344,12 @@ Kenneth Hoste, Andy Georges, and Lieven Eeckhout.
 \newblock Automated just-in-time compiler tuning.
 \newblock In {\em Proceedings of the 8th annual IEEE/ACM international
   symposium on Code generation and optimization}, pages 62--72. ACM, 2010.
+
+\bibitem[HIH16]{hamdy2016web}
+Abeer Hamdy, Osman Ibrahim, and Ahmed Hazem.
+\newblock A web based framework for pre-release testing of mobile applications.
+\newblock In {\em MATEC Web of Conferences}, volume~76, page 04041. EDP
+  Sciences, 2016.
 
 \bibitem[HSD11]{hartmann2011cross}
 Gustavo Hartmann, Geoff Stead, and Asi DeGani.

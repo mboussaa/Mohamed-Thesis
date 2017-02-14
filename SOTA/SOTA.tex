@@ -87,7 +87,7 @@ They evolved 30 optimizations within the WCC compiler and performed experiments 
 They found that NSGA-II is the most promising EMO for the given problem. In fact, the discovered optimization sequences significantly outperform standard optimization levels:
 the highest standard optimization level O3 can be outperformed for the WCET and ACET on average by up to 31.33\% and 27.43\%, respectively. The same approach performs as well for the WCET-Code size optimization with a 30.6\% WCET reduction over O3. However, the code size increases by 133.4\%. This is because the WCET and the code size are typical conflicting goals. If a high improvement of one objective function is desired, a significant degradation of the other objective must be accepted.
 
-\subsubsection{Predicting optimizations: a machine learning technique}
+\subsubsection{Predicting optimizations: a machine learning optimization}
 Machine learning has been also proposed by several works to tune optimizations across programs. Compared to evolutionary algorithms, using machine learning in compiler optimization has the potential of reusing knowledge across the different iterative compilation runs, gaining the benefits of iterative compilation to learn the best optimizations across multiple programs and architectures.
 In the Milepost project\cite{fursin2011milepost} for example, authors start from the observation that similar programs may exhibit similar behavior and require similar optimizations so it is possible to correlate program features and optimizations together to predict good transformations for unseen programs based on previous optimization experience. Thereby, they provide a modular, extensible, self-tuning optimization infrastructure that can automatically learn how to best optimize programs for configurable heterogeneous processors based on the correlation between program features, run-time behavior and optimizations. 
 
@@ -141,20 +141,7 @@ In \cite{jorges2014back}, authors presented a testing approach of the Genesys co
 
 Compared to our proposal, none of the previous work has provided an automatic approach for testing and monitoring the generated code in terms of non-functional properties. 
 
-
-\section{Container-based testing techniques}
-
-Docker container-based virtualization has recently emerged as an alternate lightweight virtualization technology for the software development process\cite{naik2016migrating}. Docker offers the ability to deploy applications and their dependencies into lightweight containers that are very cheap to create and isolated form each other. Each container can run in different environments and host machines. The Docker solution aims to address the challenges of resource, speed and performance of virtualization in the software development process. 
-
-In contrast, virtual machines (VMs) take up a lot of system resources. Each VM constitutes of a virtual copy of all the hardware of the host machine which adds a lot of resource usage. 
-
-
-Containers can help software developers to easily create a portable, consistent operating environment for development, deployment and testing. In the following, we will focus and discuss several works that chose containers as a testing infrastructure to solve specific problems.
-
-
-Many works have used a container-based Marinescu et al.\cite{marinescu2014covrig} have used Docker as technological basis in their repository analysis framework Covrig to conduct a large-scale and yet safe inspection of the revision history from six selected Git code repositories. For their analysis, they fetched several revisions and started one lightweight container per instance to ensure an isolated execution for compiling and running the test code while collect data about lines-of-code and code coverage. As their motivation is similar, their focus was on providing a clean and thus, comparable execution environment to the different compilation and test runs; we are interested in investigating how test suites in general can be accelerated.
-
-\section{Metamorphic testing techniques}
+\subsection{Metamorphic testing techniques}
 Program testing involves in selecting suitable inputs as test cases, executing the program and verifying results against expected results. The mechanism against which the software tester verify whether the outputs of the program for the executed test cases are correct or not is called test oracle. 
 
 However, in many situations, test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is known as the “oracle problem”.
@@ -162,6 +149,75 @@ However, in many situations, test oracles are not always available and may be ha
 A metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
 MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
 For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
+
+
+\section{Container-based testing techniques}
+
+Using virtual machines (VMs) as a mechanism for deploying and testing applications in the cloud is very useful to run application workload in heterogeneous and distributed environments.
+In industry, a number of commercial usage scenarios benefit from virtualization techniques to provide services. For example, Amazon EC2 makes VMs available to the customers who can run inside their own computer applications or services. Thus, a user can create, launch and terminate new VMs as needed.  
+
+However, VMs are known to be very expensive in terms of system resources and performance. In fact, each new VM instance constitutes of a virtual copy of all the hardware of the host machine which adds a lot of resource usage and overhead\cite{merkel2014docker}. 
+
+Container-based virtualization presents an interesting alternative virtualization technology to virtual machines in the cloud. Containers is an operating-system-level virtualization which imposes little to no overhead. Programs in virtual instances use the operating system's system call interface and do not need to be emulated or run in an intermediate virtual machine, as is the case VMs such as VMware, QEMU or Xen.
+Docker offers the ability to deploy applications and their dependencies into lightweight containers that are very cheap to create and isolated form each other. Processes executing in a Docker container are isolated from processes running on the host OS or in other Docker containers. The Docker solution aims to address the challenges of resource, speed and performance of virtualization in the software development process. 
+
+Authors of \cite{spoiala2016performance,soltesz2007container,merkel2014docker,felter2015updated} used to compare the performance of traditional virtual machine solution that isolate VMs at the hardware abstraction layer to container-based operating system technology that isolate VMs at the system call layer. They showed that containers result in better performance than VMs since thay induce less overhead. 
+
+\subsection{Deployment and testing using Docker}  
+In software development, the container technology becomes more and more used in order to create a portable, consistent operating environment for development, deployment and testing.
+
+In the following, we will focus and discuss state of the art approaches that chose the container technology as an efficient infrastructure to solve some testing research problems. 
+
+
+Marinescu et al.\cite{marinescu2014covrig} have used Docker as technological basis in their repository analysis framework Covrig to conduct a large-scale and yet safe inspection of the revision history from six selected Git code repositories. 
+For their analysis, they used to run each version of a system in isolation and collect static and dynamic software metrics, using a lightweight container environment that can be deployed on a cluster of local or cloud machines. Each container is used to configure, compile and test one program revision, as well as collect the metrics of interest, such as code size and coverage.
+The motivation of using such infrastructure is to provide a clean and configurable execution environment to run experiments. According to the authors, the use of Docker as a solution to automatically deploy and execute the different program reversions and test suites has clearly facilitated the testing process.
+
+
+Another Docker-based approach is presented in the BenchFlow2 project which focuses on benchmarking BPMN 2.0 engines\cite{ferme2015framework}. This project is dedicated to the performance testing of workflow engines. In this work, Ferme et al present a framework for automatic and reliable calculation of performance metrics for BPMN 2.0 WfMSs. 
+
+According to the authors benchmarking WfMSs raises many challenges: 1) the system deployment complexity due to the distributed nature of these models execution; 2) the high number of configuration options require to integrate the configuration and the deployment of the SUT, i.e., the WfMS, as part of the performance test definition; 3) the complexity of the execution behaviours that can be expressed by modern modeling and execution languages such as BPMN2.
+
+Therefore, to address these problems, BenchFlow exploits \textbf{Docker} as a containerization technology, to enable the automatic deployment and configuration of the WfMS and to ensure that the experimental results can be reproduced.
+Thus, the WfMSs are automatically deployed and undeployed using Docker. Each component involved in the benchmark are packaged as Docker images
+to be deployed and executed on different servers connected by a dedicated local
+network. For each Docker instance, a new instance of the BP models set is executed by the WfE during the experiment.
+
+Thanks to Docker, BenchFlow automatically collects all the data needed to compute performance metrics, and to check the correct execution of the tests (metrics related the RAM/CPU usage and execution time).
+Their experimental results show that a simple BP model running on two popular
+open-source WfMSs have uncovered important performance scalability issues. 
+
+Hamdy et al.\cite{hamdy2016web} propose Pons, a web based tool for the distribution of pre-release mobile
+applications for the purpose of manual testing. Pons facilities building, running, and manually testing of Android applications directly in the browser. 
+Based on Docker technology, this tool gets the developers and end users engaged in testing the applications in one
+place, alleviates the tester's burden of installing and maintaining testing environments, and provides a platform for developers to rapidly iterate on the software and integrate changes over time. Thus, it speeds up the testing process and reduces its cost.
+
+Pons utilizes Docker by predefining Docker images that
+contain the necessary services and tools to build android
+applications, starting from the operating system up to the
+software development kit (SDK). A container is then built using one of these images to store the source code of
+a mobile application at specific moment of history in a
+sandbox environment. Pons creates then, an android emulator inside the docker container to run the tests. The results are streamed at runtime in the web browser.
+
+\subsection{Runtime monitoring using Docker} 
+
+Like virtual machines before them, containers require a monitoring approach. 
+
+To have a true perspective on the performance for containerized environments, container users have to monitor both the host and the containers. There are multiple options for monitoring. 
+Among the popular ways to do that is to monitor each container via the Docker API, or by installing an agent inside each container for detailed visibility inside each container. 
+
+The Docker client for example already provides a command line tool to inspect containers’ resource consumption. The command \textit{docker stats} for example,can be used to get stats about the running containers at runtime. This will present the CPU utilization for each container, the memory used and total memory available to the container.
+
+Linux Containers rely on cgroups (control groups) which is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
+Cgourps do not only track groups of processes, but also expose metrics about CPU, memory, and block I/O usage. 
+
+As a consequence, many commercial solutions are proposed to  offer facilities to container users to efficiently monitor their workload inside containers. Most of these solutions rely on automatic cgroups metrics extraction and provide a visual representation of the data shown by the docker stats command. For example, the Datadog\footnote{www.datadoghq.com} and cAdvisor\footnote{https://github.com/google/cadvisor} agent uses the native cgroup accounting metrics to gather CPU, memory, network and I/O metrics of the containers. CAdvisor allows to monitor containers that run in the same host machine. However, Scout\footnote{https://scoutapp.com} is a hosted monitoring service which can aggregate metrics from many hosts and containers and present the data over longer time-scales. It can also create alerts based on those metrics. 
+
+Most of these tools provide web-based dashboards to visualize resource consumption at runtime as well as alerting mechanism to that can be triggered if metrics go above or below a configured threshold. Other examples of monitoring docker tools: Sensu Monitoring Framework, Prometheus, Sysdig Cloud, etc.
+
+
+
+
 \section{Summary}
  
 
