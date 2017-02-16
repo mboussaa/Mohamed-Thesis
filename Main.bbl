@@ -516,6 +516,11 @@ Jonathan Musset, {\'E}tienne Juliot, St{\'e}phane Lacrampe, William Piers,
 \newblock {\em See also http://acceleo. org/doc/obeo/en/acceleo-2.6-user-guide.
   pdf}, 2, 2006.
 
+\bibitem[MK01]{manolache2001software}
+LI~Manolache and Derrick~G. Kourie.
+\newblock Software testing using model programs.
+\newblock {\em Software: Practice and Experience}, 31(13):1211--1236, 2001.
+
 \bibitem[MND{\etalchar{+}}14]{martins2014exploration}
 Luiz~GA Martins, Ricardo Nobre, Alexandre~CB Delbem, Eduardo Marques, and
   Jo{\~a}o~MP Cardoso.
