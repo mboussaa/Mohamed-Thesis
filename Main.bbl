@@ -8,6 +8,19 @@ Mathieu Acher, Olivier Barais, Benoit Baudry, Arnaud Blouin, Johann Bourcier,
   to harness the chosen.
 \newblock In {\em GDR GPL}, 2014.
 
+\bibitem[ABDDP13]{aceto2013cloud}
+Giuseppe Aceto, Alessio Botta, Walter De~Donato, and Antonio Pescap{\`e}.
+\newblock Cloud monitoring: A survey.
+\newblock {\em Computer Networks}, 57(9):2093--2115, 2013.
+
+\bibitem[ABHPW10]{ali2010systematic}
+Shaukat Ali, Lionel~C Briand, Hadi Hemmati, and Rajwinder~Kaur
+  Panesar-Walawege.
+\newblock A systematic review of the application and empirical investigation of
+  search-based test case generation.
+\newblock {\em IEEE Transactions on Software Engineering}, 36(6):742--762,
+  2010.
+
 \bibitem[ACG{\etalchar{+}}04]{almagor2004finding}
 Lelac Almagor, Keith~D Cooper, Alexander Grosul, Timothy~J Harvey, Steven~W
   Reeves, Devika Subramanian, Linda Torczon, and Todd Waterman.
@@ -417,6 +430,13 @@ Peter Kr{\v{c}}ah.
 \newblock In {\em Advances in Robotics and Virtual Reality}, pages 167--186.
   Springer, 2012.
 
+\bibitem[KT15]{kookarinrat2015analysis}
+Pakorn Kookarinrat and Yaowadee Temtanapat.
+\newblock Analysis of range-based key properties for sharded cluster of
+  mongodb.
+\newblock In {\em Information Science and Security (ICISS), 2015 2nd
+  International Conference on}, pages 1--4. IEEE, 2015.
+
 \bibitem[KVI02]{kandemir2002compiler}
 Mahmut Kandemir, N~Vijaykrishnan, and Mary~Jane Irwin.
 \newblock Compiler optimizations for low power systems.
@@ -511,6 +531,12 @@ Ian Molyneaux.
   and Quality Assurance}.
 \newblock " O'Reilly Media, Inc.", 2009.
 
+\bibitem[MRA{\etalchar{+}}16]{medel2016modelling}
+V{\'\i}ctor Medel, Omer Rana, Unai Arronategui, et~al.
+\newblock Modelling performance \& resource management in kubernetes.
+\newblock In {\em Proceedings of the 9th International Conference on Utility
+  and Cloud Computing}, pages 257--262. ACM, 2016.
+
 \bibitem[Nai16]{naik2016migrating}
 Nitin Naik.
 \newblock Migrating from virtualization to dockerization in the cloud:
@@ -573,6 +599,12 @@ James Pallister, Simon~J Hollis, and Jeremy Bennett.
 \newblock Identifying compiler options to minimize energy consumption for
   embedded platforms.
 \newblock {\em The Computer Journal}, 58(1):95--109, 2015.
+
+\bibitem[PHP16]{peinl2016docker}
+Ren{\'e} Peinl, Florian Holzschuher, and Florian Pfitzer.
+\newblock Docker cluster management for the cloud-survey results and own
+  solution.
+\newblock {\em Journal of Grid Computing}, 14(2):265--282, 2016.
 
 \bibitem[PKC11]{park2011evaluation}
 Eunjung Park, Sameer Kulkarni, and John Cavazos.

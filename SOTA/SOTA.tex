@@ -142,23 +142,29 @@ In \cite{jorges2014back}, authors presented a testing approach of the Genesys co
 Compared to our proposal, none of the previous work has provided an automatic approach for testing and monitoring the generated code in terms of non-functional properties. 
 
 \subsection{Metamorphic testing techniques}
-Program testing involves in selecting suitable inputs as test cases, executing the program and verifying results against expected results. The mechanism against which the software tester verify whether the outputs of the program for the executed test cases are correct or not is called test oracle. 
+Most of the work on software testing seeks to automate as much as possible the testing process to make it faster, cheaper, and more reliable. 
 
-However, in many situations, test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is known as the “oracle problem”.
+To this end, automatic program testing involves in selecting suitable inputs as test cases, executing the program and verifying results against expected results. 
+The mechanism against which the software tester verify whether the outputs of the program for the executed test cases are correct or not is called test oracle. 
+
+For instance, the problem of automatically generating test inputs/data has been the subject of research interest for a long time. It consists on automatically generating test data and test cases that reveal faults/crashes or that maximize the code coverage of the system under test finding inputs that cause execution. Many techniques especially search-based testing techniques have been proposed to solve and automate this process\cite{ali2010systematic}.
+
+However, compared to many aspects of test automation, the problem of automating the test oracle is still challenging and less well solved. This is because the test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is commonly known as the “oracle problem”.
 
 A metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
 MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
 For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
 
 
+
 \section{Container-based testing techniques}
 
 Using virtual machines (VMs) as a mechanism for deploying and testing applications in the cloud is very useful to run application workload in heterogeneous and distributed environments.
-In industry, a number of commercial usage scenarios benefit from virtualization techniques to provide services. For example, Amazon EC2 makes VMs available to the customers who can run inside their own computer applications or services. Thus, a user can create, launch and terminate new VMs as needed.  
+In industry, a number of commercial usage scenarios benefit from virtualization techniques to provide services to the end users. For example, Amazon EC2 makes VMs available to the customers who can use them to run their own computer applications or services. Thus, a user can create, launch and terminate new VMs as needed.  
 
 However, VMs are known to be very expensive in terms of system resources and performance. In fact, each new VM instance constitutes of a virtual copy of all the hardware of the host machine which adds a lot of resource usage and overhead\cite{merkel2014docker}. 
 
-Container-based virtualization presents an interesting alternative virtualization technology to virtual machines in the cloud. Containers is an operating-system-level virtualization which imposes little to no overhead. Programs in virtual instances use the operating system's system call interface and do not need to be emulated or run in an intermediate virtual machine, as is the case VMs such as VMware, QEMU or Xen.
+Container-based virtualization presents an interesting alternative virtualization technology to virtual machines in the cloud. Containers is an operating-system-level virtualization which imposes little to near zero overhead. Programs in virtual instances use the operating system's system call interface and do not need to be emulated or run in an intermediate virtual machine, as is the case VMs such as VMware, QEMU or Xen.
 Docker offers the ability to deploy applications and their dependencies into lightweight containers that are very cheap to create and isolated form each other. Processes executing in a Docker container are isolated from processes running on the host OS or in other Docker containers. The Docker solution aims to address the challenges of resource, speed and performance of virtualization in the software development process. 
 
 Authors of \cite{spoiala2016performance,soltesz2007container,merkel2014docker,felter2015updated} used to compare the performance of traditional virtual machine solution that isolate VMs at the hardware abstraction layer to container-based operating system technology that isolate VMs at the system call layer. They showed that containers result in better performance than VMs since thay induce less overhead. 
@@ -201,7 +207,10 @@ sandbox environment. Pons creates then, an android emulator inside the docker co
 
 \subsection{Runtime monitoring using Docker} 
 
-Like virtual machines before them, containers require a monitoring approach. 
+ 
+
+Runtime monitoring is an essential part of cloud computing\cite{aceto2013cloud}. Like virtual machines before them, containers require a monitoring mechanism. It should provide both historical and timely information about the resource usage from hardware to virtual machine and container level.
+
 
 To have a true perspective on the performance for containerized environments, container users have to monitor both the host and the containers. There are multiple options for monitoring. 
 Among the popular ways to do that is to monitor each container via the Docker API, or by installing an agent inside each container for detailed visibility inside each container. 
@@ -211,13 +220,26 @@ The Docker client for example already provides a command line tool to inspect co
 Linux Containers rely on cgroups (control groups) which is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
 Cgourps do not only track groups of processes, but also expose metrics about CPU, memory, and block I/O usage. 
 
-As a consequence, many commercial solutions are proposed to  offer facilities to container users to efficiently monitor their workload inside containers. Most of these solutions rely on automatic cgroups metrics extraction and provide a visual representation of the data shown by the docker stats command. For example, the Datadog\footnote{www.datadoghq.com} and cAdvisor\footnote{https://github.com/google/cadvisor} agent uses the native cgroup accounting metrics to gather CPU, memory, network and I/O metrics of the containers. CAdvisor allows to monitor containers that run in the same host machine. However, Scout\footnote{https://scoutapp.com} is a hosted monitoring service which can aggregate metrics from many hosts and containers and present the data over longer time-scales. It can also create alerts based on those metrics. 
+In industry, many commercial solutions are proposed to offer facilities to container users to efficiently monitor their workload inside containers. Most of these solutions rely on automatic cgroups metrics extraction and provide a visual representation of the data shown by the docker stats command. For example, the Datadog\footnote{www.datadoghq.com} and cAdvisor\footnote{https://github.com/google/cadvisor} agent uses the native cgroup accounting metrics to gather CPU, memory, network and I/O metrics of the containers. CAdvisor allows to monitor containers that run in the same host machine. However, Scout\footnote{https://scoutapp.com} is a hosted monitoring service which can aggregate metrics from many hosts and containers and present the data over longer time-scales. It can also create alerts based on those metrics. 
 
 Most of these tools provide web-based dashboards to visualize resource consumption at runtime as well as alerting mechanism to that can be triggered if metrics go above or below a configured threshold. Other examples of monitoring docker tools: Sensu Monitoring Framework, Prometheus, Sysdig Cloud, etc.
+Tools like cAdvisor and Prometheus allow to monitor containers running on one single host machine. 
+
+However, there are many applications to manage the execution of containers across multiple hosts. For example, Kubernetes\footnote{https://kubernetes.io} is an open source orchestration system for Docker containers. It allows to quickly and efficiently respond to customer demand by deploying applications using multiple hosts and containers on the cloud, scale applications on the fly and optimize the resource usage across multiple hosts. This clustering framework is shipped with a monitoring tool called Hipster\footnote{https://github.com/kubernetes/heapster} that provides a base monitoring platform on Kubernetes. Heapster collects and interprets various signals like resource usage, lifecycle events, etc, and exports cluster metrics via REST endpoints. It supports a pluggable storage backend such as InfluxDB with Grafana and Google Cloud Monitoring.
 
 
+In the research filed, \cite{kookarinrat2015analysis} Kookarinrat et al. have investigated the problem of auto-sharding in No-sql databases using a container-based infrastructure for runtime monitoring. 
+The auto-sharding technique is used to divide data in the database and distribute it over multiple machines in order to scale it horizontally. The motivation behind this work is that selecting a right key is challenging. It could lead to either an improve of the performance and capability of a database or to performance issues (i.e., by selecting a wrong key) which could lead to a system halt. 
+For instance, a good shard key should have high degree randomness for write scaling and should contain high locality for range-query reading.
+Therefore, they analyzed and evaluated such suggested properties by studying how the variation of a shard key’s choices could impact the DB performance.
 
+They simulated an environment using Docker containers and measured the read/write performance of variety of keys. Inside each container, they executed write/read queries into the MongoDB database and used docker stats to retrieve automatically information about the memory and CPU usage of inside each container.
 
+They found that a shard key with randomness and good locality could give a decent performance on write and
+read. However, in case that a shard key has nearly sorted values, combining a small range of random values to it might give acceptable performance for both read and write. 
+ 
+
+Container monitoring tools discussed above have been used in several other works like in\cite{peinl2016docker,medel2016modelling}.
 \section{Summary}
  
 
