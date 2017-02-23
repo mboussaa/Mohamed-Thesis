@@ -33,6 +33,12 @@ N~Amanquah and OT~Eporwei.
 \newblock In {\em 2009 2nd International Conference on Adaptive Science \&
   Technology (ICAST)}, pages 410--417. IEEE, 2009.
 
+\bibitem[BBGM11]{bekrar2011finding}
+Sofia Bekrar, Chaouki Bekrar, Roland Groz, and Laurent Mounier.
+\newblock Finding software vulnerabilities by smart fuzzing.
+\newblock In {\em Software Testing, Verification and Validation (ICST), 2011
+  IEEE Fourth International Conference on}, pages 427--430. IEEE, 2011.
+
 \bibitem[BBSB15]{boussaa2015novelty}
 Mohamed Boussaa, Olivier Barais, Gerson Suny{\'e}, and Benoit Baudry.
 \newblock A novelty search approach for automatic test data generation.
@@ -57,12 +63,6 @@ Wolfgang Banzhaf, Frank~D Francone, and Peter Nordin.
 \newblock In {\em Parallel Problem Solving from Nature—PPSN IV}, pages
   300--309. Springer, 1996.
 
-\bibitem[BHM{\etalchar{+}}15]{barr2015oracle}
-Earl~T Barr, Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
-\newblock The oracle problem in software testing: A survey.
-\newblock {\em IEEE transactions on software engineering}, 41(5):507--525,
-  2015.
-
 \bibitem[BKK{\etalchar{+}}98]{bodin1998iterative}
 Fran{\c{c}}ois Bodin, Toru Kisuki, Peter Knijnenburg, Mike O'Boyle, and Erven
   Rohou.
@@ -76,7 +76,13 @@ Alexandre Bragan{\c{c}}a and Ricardo~J Machado.
 \newblock In {\em Software Product Line Conference, 2008. SPLC'08. 12th
   International}, pages 329--338. IEEE, 2008.
 
-\bibitem[BM15]{baudry2015multiple}
+\bibitem[BM{\etalchar{+}}15a]{barr2015oracle}
+Earl~T Barr, Mark ~, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
+\newblock The oracle problem in software testing: A survey.
+\newblock {\em IEEE transactions on software engineering}, 41(5):507--525,
+  2015.
+
+\bibitem[BM15b]{baudry2015multiple}
 Benoit Baudry and Martin Monperrus.
 \newblock The multiple facets of software diversity: Recent developments in
   year 2000 and beyond.
@@ -230,10 +236,22 @@ Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and TAMT Meyarivan.
 \newblock {\em Evolutionary Computation, IEEE Transactions on}, 6(2):182--197,
   2002.
 
+\bibitem[DW81]{davis1981pseudo}
+Martin~D Davis and Elaine~J Weyuker.
+\newblock Pseudo-oracles for non-testable programs.
+\newblock In {\em Proceedings of the ACM'81 Conference}, pages 254--257. ACM,
+  1981.
+
 \bibitem[EAC15]{escobar2015evaluation}
 Rodrigo~D Escobar, Alekya~R Angula, and Mark Corsi.
 \newblock Evaluation of gcc optimization parameters.
 \newblock {\em Revista Ingenierias USBmed}, 3(2):31--39, 2015.
+
+\bibitem[ECGN00]{ernst2000quickly}
+Michael~D Ernst, Adam Czeisler, William~G Griswold, and David Notkin.
+\newblock Quickly detecting relevant program invariants.
+\newblock In {\em Proceedings of the 22nd international conference on Software
+  engineering}, pages 449--458. ACM, 2000.
 
 \bibitem[FB08]{fertalj2008source}
 Kresimir Fertalj and Mario Brcic.
@@ -363,6 +381,12 @@ Abeer Hamdy, Osman Ibrahim, and Ahmed Hazem.
 \newblock A web based framework for pre-release testing of mobile applications.
 \newblock In {\em MATEC Web of Conferences}, volume~76, page 04041. EDP
   Sciences, 2016.
+
+\bibitem[HMSY13]{harman2013comprehensive}
+Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
+\newblock A comprehensive survey of trends in oracles for software testing.
+\newblock {\em University of Sheffield, Department of Computer Science, Tech.
+  Rep. CS-13-01}, 2013.
 
 \bibitem[HSD11]{hartmann2011cross}
 Gustavo Hartmann, Geoff Stead, and Asi DeGani.
@@ -502,6 +526,11 @@ Dirk Merkel.
   deployment.
 \newblock {\em Linux Journal}, 2014(239):2, 2014.
 
+\bibitem[MFS90]{miller1990empirical}
+Barton~P Miller, Louis Fredriksen, and Bryan So.
+\newblock An empirical study of the reliability of unix utilities.
+\newblock {\em Communications of the ACM}, 33(12):32--44, 1990.
+
 \bibitem[MHC14]{marinescu2014covrig}
 Paul Marinescu, Petr Hosek, and Cristian Cadar.
 \newblock Covrig: a framework for the analysis of code, test, and coverage
@@ -535,6 +564,13 @@ Ian Molyneaux.
 \newblock {\em The Art of Application Performance Testing: Help for Programmers
   and Quality Assurance}.
 \newblock " O'Reilly Media, Inc.", 2009.
+
+\bibitem[MPP07]{mariani2007compatibility}
+Leonardo Mariani, Sofia Papagiannakis, and Mauro Pezze.
+\newblock Compatibility and regression testing of cots-component-based
+  software.
+\newblock In {\em Software Engineering, 2007. ICSE 2007. 29th International
+  Conference on}, pages 85--95. IEEE, 2007.
 
 \bibitem[MRA{\etalchar{+}}16]{medel2016modelling}
 V{\'\i}ctor Medel, Omer Rana, Unai Arronategui, et~al.
@@ -631,6 +667,12 @@ Alireza Pazirandeh and Evelina Vorobyeva.
 \newblock Evaluation of cross-platform tools for mobile development.
 \newblock 2015.
 
+\bibitem[RAO92]{richardson1992specification}
+Debra~J Richardson, Stephanie~Leif Aha, and T~Owen O'malley.
+\newblock Specification-based test oracles for reactive systems.
+\newblock In {\em Proceedings of the 14th international conference on Software
+  engineering}, pages 105--118. ACM, 1992.
+
 \bibitem[RFBJ13]{richard2013efficient}
 Julien Richard-Foy, Olivier Barais, and Jean-Marc J{\'e}z{\'e}quel.
 \newblock Efficient high-level abstractions for web programming.
@@ -654,6 +696,12 @@ Abdel~Salam Sayyad and Hany Ammar.
 \newblock In {\em Realizing Artificial Intelligence Synergies in Software
   Engineering (RAISE), 2013 2nd International Workshop on}, pages 21--27. IEEE,
   2013.
+
+\bibitem[SC96]{stocks1996framework}
+Phil Stocks and David Carrington.
+\newblock A framework for specification-based testing.
+\newblock {\em IEEE Transactions on software Engineering}, 22(11):777--793,
+  1996.
 
 \bibitem[SC03]{sturmer2003test}
 Igno Sturmer and Mirko Conrad.

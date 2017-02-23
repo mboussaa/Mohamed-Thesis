@@ -177,27 +177,70 @@ When testing code generators, the verification of the high level system specific
 
 
 
-The research community has proposed several approaches to alleviate the oracle problem. 
-Stocks and Carrington discuss an approach for deriving test cases and oracles from specification.
-Test oracles can be associated with individual test templates (test case specifications). A hierarchical arrangement of test templates allows the oracle to
-be either general (near the top of the hierarchy) or specialized to particular test cases.
-The approach is illustrated with test oracle templates for the Z specification in Example
-23
+The research community has proposed several approaches\cite{harman2013comprehensive,barr2015oracle} to alleviate the oracle problem. 
+In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test oracles in three categories \textit{specified oracles}, \textit{implicit oracles} and \textit{derived oracles}. We are going to discuss them:
+\begin{itemize}
+\item Specified oracles:
+Specified oracles can be generated from several kind of specifications, such as algebraic specifications or formal models of the system behavior. 	
+Stocks et al.\cite{stocks1996framework,richardson1992specification} discuss an approach for deriving test cases and oracles from specification. The idea is that the formal specification of a software can be used as a guide for designing functional tests. Then, test oracles can be associated with individual test templates (test case specifications). Thus, they construct abstract models of expected outputs, called oracle templates. 
+The approach is illustrated with test oracle templates for the Z specification.
+Specified oracles are effective in identifying errors, but the task of defining and maintaining specifications is very expensive and time consuming. These kind of oracles are also less adopted in industry.
+
+\item Implicit oracles:
+
+Implicit oracle refers to the detection of ‘obvious’ faults such as a program crash, abnormal termination, execution failure.
+Thus, oracle definition does not require any domain knowledge or formal specification to implement, and as a consequence it does not need any prerequisites about the behavior or semantics of the program under test.
+
+Implicit oracles\cite{harman2013comprehensive,barr2015oracle} are easy to obtain at practically no cost. At the same time, implicit oracles are mostly incomplete, since they are not able to identify internal problems and complex failures, but they in a black box manner by detecting general errors like system crashes or un-handled exceptions.
+
+As an example, fuzz testing\cite{miller1990empirical} is one of the methods where implicit oracles are used to find anomalies, such a crashes. The idea of fuzzing is to generate random inputs and
+pass them to the system under test to find anomalies.
+Bugs detection is based on the efficiency of generated inputs/data. If an anomaly is detected,
+the tester reports it by identifying the input triggering it. 
+Fuzzing is commonly used to detect security vulnerabilities, such as buffer overflows, memory   leaks, exceptions, etc\cite{bekrar2011finding}.
 
 
-Richardson et al. [5] propose an approach to deriving and using specification-based oracles in the
-testing process. Peters and Parnas [6,7] developed a test-oracle generator that produces a software
-oracle from relational program documentation. Unfortunately, formal methods have not been widely
-adopted in industry yet. A major obstacle seems to be the lack of compelling evidence of their
-effectiveness for industrial-size applications [9]. Specification-based oracles might be the answer for
-the future, but in the meantime the industry needs better approaches to the oracle problem than manual
-outcome prediction. Both Weyuker [10] and Beizer [4] suggest several practical alternatives. One
-of them is to build a pseudo-oracle in the form of a detailed prototype or a dual program that is
-capable of providing the expected outputs. The approach examined here is similar and is based on
+\item Derived oracles:
+Derived oracles are derived from various artifacts (e.g. documentation, system executions) or properties (e.g. metamorphic relations) other than specifications.
+
+For example, in regression testing, oracles can be derived from the executions of previous versions of the software under test. In this
+case, the derived oracles will verify if the new software version behaves as the original one\cite{mariani2007compatibility}. 
+ 
+Oracles can also be automatically derived from program invariants\cite{ernst2000quickly}. Invariants can help programmers by characterizing aspects of program execution and identifying program properties that must be preserved when modifying code. They report properties that were true over the observed executions of all programs such as \textit{"y = 2*x+3"}, \textit{"array a is sorted"}, etc. The Daikon invariant detector\footnote{https://plse.cs.washington.edu/daikon/} is an open source tool that apply machine learning technique to infer these invariant properties.
+
+Additionally, oracles can be derived from properties of the system under test. For instance, metamorphic testing\cite{chen2004case} generates test oracles by exploiting metamorphic relations of the system under
+test. In particular, metamorphic testing exploit the relation between the inputs and outputs of special test cases to derive metamorphic relations defined as test oracles for new test cases. 
+
+Another type of derived oracles are pseudo oracles (also known as differential testing, dual coding and N-version programming). A pseudo-oracle is program that is capable of providing the expected outputs and check the correctness of the system by comparing the outputs of multiple independent implementations. For example, in compiler testing, different version of the same program are generated by applying some optimizations. The oracle is this case can be defined as the comparison between the different program outputs which should be the same\cite{yang2011finding}.
+
+The concept of a pseudo-oracle, introduced by Davis and Weyuker\cite{davis1981pseudo}, as a means of addressing so-called non-testable programs “Programs which were written in order to determine the answer in the first place. There would be no need to write such programs, if the correct answer were known.”
+
+The approach examined here is similar and is based on
 N-version diversity, a principle that is applied especially in the well-known software fault-tolerant
-technique known as N-version programming. To highlight its similarity with N-version programming,
-the approach advocated below is called ‘testing using M model programs’ or, in short, ‘M-mp testing’.
+technique known as N-version programming.
 
+. Pseudo-oracles are yet another kind of
+derived oracles that check the consistency of the results of
+the different versions of the systems, when the same functionality
+is executed. An inconsistency can reveal a fault
+in one or more versions of the system. Based on a similar
+idea, techniques like N-version programming [REF] and recovery
+blocks [REF] rely on redundancy intentionally added to
+software systems to guarantee some level of reliability.
+Our approach is rooted in the pseudo-oracles idea but,
+instead of using different and independent implementations
+of a system, we use the intrinsic redundancy already present
+in software systems. In this way, our technique does not
+incur major additional costs, and it is applicable even when
+only one version of the system is available. This kind of
+redundancy has been used to automatically recover from
+runtime failures in JavaScript and Java systems [REF, REF], and
+this work aims to investigate how to use this redundancy to
+effectively generate test oracles.
+
+\end{itemize}
+
+ 
 
 \subsection{Metamorphic testing techniques}
 
