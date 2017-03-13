@@ -141,7 +141,7 @@ The experimental results show that it is possible to improve the performance of 
 
 
 
-
+\subsubsection{Summary: auto-tuning compiler techniques}
  
 
 \iffalse
@@ -165,11 +165,8 @@ For multi-objective optimizations, we are not the first to address this problem.
 
 
 \section{Testing code generators}
-Previous work on non-functional testing of code generators focuses on comparing, as oracle, the non-functional properties of hand-written code to automatically generated code~\cite{stepasyuk2015evaluating,richard2013efficient}. As an example, Strekelj et al.~\cite{vstrekelj2015performance} implemented a simple 2D game in both the Haxe programming language and the native environment and evaluated the difference in performance between the two versions of code. They showed that the generated code through Haxe has better performance than hand-written code. 
+\subsection{Testing functional properties}
 
-Cross-platform mobile development has been also part of the non-functional testing goals since many code generators are increasingly used in industry for automatic cross-platform development. In \cite{pazirandeh2015evaluation,hartmann2011cross}, authors compare the performance of a set of cross-platform code generators and presented the most efficient tools.
-
-The container-based infrastructure has been also applied to the software testing, especially in the cloud~\cite{li2015rest}. Sun et al.~\cite{sun2016roar} present a tool to test, optimize, and automate cloud resource allocation decisions to meet QoS goals for web applications. Their infrastructure relies on Docker to gather informations about the resource usage of deployed web servers. 
 
 Most of the previous work on code generators testing focuses on checking the correct functional behavior of generated code. Stuermer et al.~\cite{stuermer2007systematic} present a systematic test approach for model-based code generators. They investigate the impact of optimization rules for model-based code generation by comparing the output of the code execution with the output of the model execution. 
 If these outputs are equivalent, it is assumed that the code generator works as expected. 
@@ -182,8 +179,11 @@ In \cite{jorges2014back}, authors presented a testing approach of the Genesys co
 
 
 
+\subsection{Testing non-functional properties}
+Previous work on non-functional testing of code generators focuses on comparing, as oracle, the non-functional properties of hand-written code to automatically generated code~\cite{stepasyuk2015evaluating,richard2013efficient}. As an example, Strekelj et al.~\cite{vstrekelj2015performance} implemented a simple 2D game in both the Haxe programming language and the native environment and evaluated the difference in performance between the two versions of code. They showed that the generated code through Haxe has better performance than hand-written code. 
 
-\subsection{The oracle problem}
+Cross-platform mobile development has been also part of the non-functional testing goals since many code generators are increasingly used in industry for automatic cross-platform development. In \cite{pazirandeh2015evaluation,hartmann2011cross}, authors compare the performance of a set of cross-platform code generators and presented the most efficient tools.
+\subsubsection{The oracle problem}
 Most of the work on software testing seeks to automate as much as possible the testing process to make it faster, cheaper, and more reliable. 
 
 To this end, automatic program testing involves in selecting suitable inputs as test cases, executing the program and verifying results against expected results. 
@@ -246,8 +246,27 @@ case, the derived oracles will verify if the new software version behaves as the
  
 Oracles can also be automatically derived from program invariants\cite{ernst2000quickly}. Invariants can help programmers by characterizing aspects of program execution and identifying program properties that must be preserved when modifying code. They report properties that were true over the observed executions of all programs such as \textit{"y = 2*x+3"}, \textit{"array a is sorted"}, etc. The Daikon invariant detector\footnote{https://plse.cs.washington.edu/daikon/} is an open source tool that apply machine learning technique to infer these invariant properties.
 
-Additionally, oracles can be derived from properties of the system under test. For instance, metamorphic testing\cite{chen2004case} generates test oracles by exploiting metamorphic relations of the system under
-test. In particular, metamorphic testing exploit the relation between the inputs and outputs of special test cases to derive metamorphic relations defined as test oracles for new test cases. 
+Additionally, oracles can be derived from properties of the system under test. For instance, metamorphic testing\cite{chen2004case} generates test oracles by exploiting metamorphic relations of the system under test. In particular, metamorphic testing exploit the relation between the inputs and outputs of special test cases to derive metamorphic relations defined as test oracles for new test cases. 
+
+A metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
+MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
+For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
+
+A recent alternative strategy is equivalence modulo inputs
+(EMI) testing. Given a well-defined, deterministic program
+P, EMI testing involves first performing code coverage
+analysis of P with respect to an input I to identify I-dead
+statements: statements not covered by I. From P, a series of
+program variants, P1, P2, . . . , Pn can be created, with each
+Pi obtained by mutating or deleting a subset of the I-dead
+statements of P. Each Pi should behave identically to P
+when executed on input I; deviations in behaviour are indicative
+of compiler bugs. Thus, EMI testing is an example
+of metamorphic testing —the programs are in a metamorphic
+relationship with one another and with P, with respect
+to I.
+
+
 
 Another type of derived oracles are pseudo-oracles (also known as differential testing, dual coding and N-version programming). 
 The concept of a pseudo-oracle is introduced by Davis and Weyuker\cite{davis1981pseudo} to address so-called non-testable programs "Programs which were written in order to determine the answer in the first place. There would be no need to write such programs, if the correct answer were known."
@@ -258,27 +277,8 @@ For example, in compiler testing, different versions of the same program are gen
 
 \end{itemize}
 
- 
 
-\subsection{Metamorphic testing techniques}
-
-A metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
-MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
-For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
-
-A recent alternative strategy is equivalence modulo inputs
-(EMI) testing [4]. Given a well-defined, deterministic program
-P, EMI testing involves first performing code coverage
-analysis of P with respect to an input I to identify I-dead
-statements: statements not covered by I. From P, a series of
-program variants, P1, P2, . . . , Pn can be created, with each
-Pi obtained by mutating or deleting a subset of the I-dead
-statements of P. Each Pi should behave identically to P
-when executed on input I; deviations in behaviour are indicative
-of compiler bugs. Thus, EMI testing is an example
-of metamorphic testing [1]—the programs are in a metamorphic
-relationship with one another and with P, with respect
-to I.
+\subsubsection{Summary: oracle definition approaches}
 
 \section{Container-based testing techniques}
 

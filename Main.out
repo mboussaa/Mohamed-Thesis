@@ -31,8 +31,8 @@
 \BOOKMARK [2][-]{subsection.3.1.2}{Implementation of iterative compilation system}{section.3.1}% 31
 \BOOKMARK [2][-]{subsection.3.1.3}{Iterative compilation search techniques}{section.3.1}% 32
 \BOOKMARK [1][-]{section.3.2}{Testing code generators}{chapter.3}% 33
-\BOOKMARK [2][-]{subsection.3.2.1}{The oracle problem}{section.3.2}% 34
-\BOOKMARK [2][-]{subsection.3.2.2}{Metamorphic testing techniques}{section.3.2}% 35
+\BOOKMARK [2][-]{subsection.3.2.1}{Testing functional properties}{section.3.2}% 34
+\BOOKMARK [2][-]{subsection.3.2.2}{Testing non-functional properties}{section.3.2}% 35
 \BOOKMARK [1][-]{section.3.3}{Container-based testing techniques}{chapter.3}% 36
 \BOOKMARK [2][-]{subsection.3.3.1}{Deployment and testing using Docker}{section.3.3}% 37
 \BOOKMARK [2][-]{subsection.3.3.2}{Runtime monitoring using Docker}{section.3.3}% 38
@@ -77,4 +77,4 @@
 \BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 77
 \BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 78
 \BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 79
-\BOOKMARK [0][-]{section*.36}{References}{part.3}% 80
+\BOOKMARK [0][-]{section*.39}{References}{part.3}% 80
