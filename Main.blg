@@ -3,7 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: alpha.bst
 Database file #1: uw-ethesis.bib
-I was expecting an "="---line 174 of file uw-ethesis.bib
+Repeated entry---line 194 of file uw-ethesis.bib
+ : @inproceedings{cooper1999optimizing
+ :                                    ,
+I'm skipping whatever remains of this entry
+I was expecting an "="---line 220 of file uw-ethesis.bib
  :  
  :  organization={IEEE}
 (Error may have been on previous line)
@@ -15,6 +19,7 @@ Warning--can't use both volume and number fields in czarnecki2003classification
 Warning--can't use both volume and number fields in chen2010evaluating
 Warning--can't use both volume and number fields in cooper1999optimizing
 Warning--there's a number but no volume in fertalj2008source
+Warning--can't use both volume and number fields in kulkarni2003finding
 Warning--can't use both volume and number fields in le2014compiler
 Warning--empty journal in luotowards
 Warning--empty year in luotowards
@@ -26,46 +31,47 @@ Warning--can't use both volume and number fields in schulte2014post
 Warning--empty journal in stepasyuk2015evaluating
 Warning--can't use both volume and number fields in soltesz2007container
 Warning--can't use both volume and number fields in sturmer2005overview
+Warning--can't use both volume and number fields in whitfield1990approach
 Warning--can't use both volume and number fields in yang2011finding
-You've used 131 entries,
+You've used 135 entries,
             2543 wiz_defined-function locations,
-            1249 strings with 30629 characters,
-and the built_in function-call counts, 66559 in all, are:
-= -- 6858
-> -- 3356
-< -- 109
-+ -- 1228
-- -- 1201
-* -- 4772
-:= -- 10379
-add.period$ -- 459
-call.type$ -- 131
-change.case$ -- 948
-chr.to.int$ -- 129
-cite$ -- 151
-duplicate$ -- 2704
-empty$ -- 4720
-format.name$ -- 1320
-if$ -- 14164
+            1266 strings with 31317 characters,
+and the built_in function-call counts, 68924 in all, are:
+= -- 7098
+> -- 3492
+< -- 114
++ -- 1280
+- -- 1252
+* -- 4957
+:= -- 10747
+add.period$ -- 474
+call.type$ -- 135
+change.case$ -- 983
+chr.to.int$ -- 133
+cite$ -- 157
+duplicate$ -- 2794
+empty$ -- 4873
+format.name$ -- 1374
+if$ -- 14664
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 135
-newline$ -- 657
-num.names$ -- 390
-pop$ -- 1030
+missing$ -- 139
+newline$ -- 677
+num.names$ -- 402
+pop$ -- 1064
 preamble$ -- 1
-purify$ -- 1084
+purify$ -- 1123
 quote$ -- 0
-skip$ -- 2306
+skip$ -- 2386
 stack$ -- 0
-substring$ -- 3741
-swap$ -- 846
-text.length$ -- 109
+substring$ -- 3861
+swap$ -- 882
+text.length$ -- 114
 text.prefix$ -- 13
 top$ -- 0
-type$ -- 1024
-warning$ -- 19
-while$ -- 665
-width$ -- 139
-write$ -- 1768
-(There was 1 error message)
+type$ -- 1056
+warning$ -- 21
+while$ -- 687
+width$ -- 143
+write$ -- 1825
+(There were 2 error messages)

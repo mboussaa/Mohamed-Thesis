@@ -466,6 +466,25 @@ Mahmut Kandemir, N~Vijaykrishnan, and Mary~Jane Irwin.
 \newblock Compiler optimizations for low power systems.
 \newblock In {\em Power aware computing}, pages 191--210. Springer, 2002.
 
+\bibitem[KWTD06]{kulkarni2006exhaustive}
+Prasad~A Kulkarni, David~B Whalley, Gary~S Tyson, and Jack~W Davidson.
+\newblock Exhaustive optimization phase order space exploration.
+\newblock In {\em Proceedings of the International Symposium on Code Generation
+  and Optimization}, pages 306--318. IEEE Computer Society, 2006.
+
+\bibitem[KWTD09]{kulkarni2009practical}
+Prasad~A Kulkarni, David~B Whalley, Gary~S Tyson, and Jack~W Davidson.
+\newblock Practical exhaustive optimization phase order exploration and
+  evaluation.
+\newblock {\em ACM Transactions on Architecture and Code Optimization (TACO)},
+  6(1):1, 2009.
+
+\bibitem[KZM{\etalchar{+}}03]{kulkarni2003finding}
+Prasad Kulkarni, Wankang Zhao, Hwashin Moon, Kyunghwan Cho, David Whalley, Jack
+  Davidson, Mark Bailey, Yunheung Paek, and Kyle Gallivan.
+\newblock Finding effective optimization phase sequences.
+\newblock In {\em ACM SIGPLAN Notices}, volume~38, pages 12--23. ACM, 2003.
+
 \bibitem[LAS14]{le2014compiler}
 Vu~Le, Mehrdad Afshari, and Zhendong Su.
 \newblock Compiler validation via equivalence modulo inputs.
@@ -802,6 +821,11 @@ Madhavi Valluri and Lizy~K John.
 \newblock Is compiling for performance—compiling for power?
 \newblock In {\em Interaction between Compilers and Computer Architectures},
   pages 101--115. Springer, 2001.
+
+\bibitem[WS90]{whitfield1990approach}
+Deborah Whitfield and Mary~Lou Soffa.
+\newblock An approach to ordering optimizing transformations.
+\newblock In {\em ACM SIGPLAN Notices}, volume~25, pages 137--146. ACM, 1990.
 
 \bibitem[YCER11]{yang2011finding}
 Xuejun Yang, Yang Chen, Eric Eide, and John Regehr.

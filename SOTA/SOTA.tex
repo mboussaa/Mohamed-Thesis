@@ -1,9 +1,15 @@
-In this chapter, we study existing techniques related to code generators testing as well as compilers auto-tuning techniques.
-Section 3.1 provides a survey of the most used compiler auto-tuning techniques to construct the best set of optimization options. In Section 3.2, we review existing techniques for code generators testing. Section 3.3 discusses the limitations of the state of the art.
+
+In this chapter, we present a brief introduction to the iterative compilation research filed and we present the different problems that have been investigated in this field. We discuss as well, the different techniques that have been applied to automate the process of auto-tuning compilers. To sum up, we provide a recap table showing the most important works in iterative compilation.
+
+Afterwards, we move to discuss existing techniques related to code generators testing. We start first by studying the state-of-the-art approaches related to the functional testing of code generators. In a second stage, since there is no many works that investigated the automatic non-functional testing of code generators, we rather focus on studying the oracle problem and the different methods applied to the oracle definition. This will be useful later to understand our contribution about the non-functional testing of code generators. We end this section by providing a summary table of these approaches.
+
+Finally, we discuss in the last section the container technology as means of automatic software deployment, monitoring and testing. We compare then, the container's virtualization solution to the classical approaches based on virtual machines. We provide as well, examples of existing works in research and industry that opted for this technology in software testing and monitoring.
+
+This chapter is structured as follows: Section 3.1 provides a survey of the most used compiler auto-tuning techniques to construct the best set of optimization options. In Section 3.2, we review existing techniques for code generators testing and the principal categories of oracles. Then, in section 3.3, we discuss the use of virtualization technology for deployment and testing. In particular, we presents some of the approaches that used a container-based solution for automatic testing and monitoring. Finally, section 3.3 discusses the limitations of the state of the art.
 \section{Compilers auto-tuning techniques}
 
 \subsection{Iterative compilation}
-Iterative compilation or also known by optimization phase selection consists on applying software engineering techniques to produce better and more optimized programs by compiling multiple versions of each of them using different optimizations settings. After running these versions on specific hardware machines, the key objective of iterative compilation is to find the best optimizing sequence that lead to the fastest and better code machine code. 
+Iterative compilation, \textit{also known by optimization phase selection}, consists on applying software engineering techniques to produce better and more optimized programs by compiling multiple versions of each of them using different optimizations settings. After running these versions on specific hardware machines, the key objective of iterative compilation is to find the best optimizing sequence that lead to the fastest and better code machine code. 
 Our work is related to iterative compilation research field.
 The basic idea of iterative compilation is to explore the compiler optimization space by measuring the impact of optimizations on software performance.
 Several research efforts have investigated this optimization problem using search-based techniques (SBSE) to guide the search towards relevant optimizations regrading performance, energy consumption, code size, compilation time, etc. Experimental results have been usually compared to standard compiler optimization levels.  
@@ -20,24 +26,35 @@ Compared to our proposal, none of the previous work has studied the impact of co
 \end{figure}
 The implementation of iterative compilation consists mainly on applying a series of steps to enhance the quality of generated code. Figure~\ref{fig:iterative_compilation} shows a general overview of the principal steps needed to ensure the implementation of the iterative compilation process.
 \begin{itemize}
-	\item[--] List of transformations:
-	The iterative process starts by defining the optimizations space. It represents the list of optimizations that the compiler have to apply during the search to enhance the software quality.
-	\item[--] Search driver:
+	\item[--] \textbf{List of transformations:}
+	
+	The iterative process starts by defining the optimizations space. It represents the list of optimizations that the compiler have to evolve during the search to enhance the software quality.
+	
+	\item[--] \textbf{Search driver:}
+	
 	It applies a search algorithm or method to efficiently explore the large optimization search space. In fact, it reads the previously defined list of transformations that it needs to examine and decides which transformations have to be applied next using a search algorithm
 	to steer through the optimization space.
-	\item[--] C Compiler:
+	
+	\item[--] \textbf{C Compiler:}
+	
 	Once the optimization sequence is defined, the target C compiler for example is called to compile the input program and also perform initial machine independent optimizations. 
-	\item[--] Transformed program:
+	
+	\item[--] \textbf{Transformed program:}
+	
 	This results in initial machine independent optimized program. These optimizations are performed during code generation and have consequence for all target systems. It includes optimizations that are applied during mapping the parse tree to intermediate code and optimization applied to the intermediate code itself.
-	\item[--] Target hardware platform:
+	
+	\item[--] \textbf{Target hardware platform:}
+	
 	To optimize even more, the compiler applies from the provided optimization sequence the machine dependent optimizations. They are specific to the object code being generated. This includes optimizations applied during the mapping of intermediate code to assembler and optimizations applied directly on the generated
 	object code.
-	\item[--] Quality evaluation:
-	It consists on evaluation the quality of the optimized code. Many non-functional properties could be evaluated like code size, execution time, resource usage, power consumption, etc...
+	
+	\item[--] \textbf{Quality evaluation:}
+	
+	It consists on evaluating the quality of the optimized code. Many non-functional properties could be evaluated like code size, execution time, resource usage, power consumption, etc...
 	
 \end{itemize}
 
-This model represents the classical and typical iterative compilation process. Of course, there exist many ways and adaptations to implement this process. The implementation of the iterative process depends on the algorithm used, the problem addressed, the technologies used, etc. The goal of the next section is to present the different state-of-the-art approaches related to iterative compilation.
+This model represents the classical and typical iterative compilation process. Of course, there exist many ways and adaptations to implement this process. The implementation of the iterative process depends on the algorithm used, the problem addressed, the technologies used, etc. The goal of the next sub-sections is to present the different state-of-the-art approaches related to iterative compilation.
 
 \subsection{Iterative compilation search techniques}
 In section 2.5.2 of chapter 2, we presented several issues with optimizing compilers that make the activity of compiler tuning very complex such as the huge number of optimizations, conflicting objectives, optimization overhead, etc.
@@ -48,20 +65,41 @@ Speeding up the performance of compiled code is the key optimization objective f
 GA-based approaches compute an initial population using a set of optimizations, generally defined under the standard compiler levels Ox. Then, at each iteration, the individuals (i.e., option sets) that comprise the generation are evaluated by measuring for example the execution time resulted by a specific set of options. The results are sorted and pass through a breeding and mutation stage to form the next generation. This
 process continues until a termination condition is reached. The algorithm return the best optimization set that led to the highest performance.
 
-The ESTO framework described in \cite{bashkansky2007black} studies the application of GA for the problem of selecting an optimal option set for a specific application and workload. It searches the option set space using various types of genetic algorithms, ultimately determining the option set that maximizes the performance of the given application and workload. ESTO regards the compiler as a black box, specified by its external-visible optimization options. The algorithm used in ESTO is the GA. It supports also a GA variant named budget-limited genetic algorithm which reduces the population size exponentially and then reduce the time needed to evaluate the different evaluations. They ran experiments on the SPEC2000 benchmark suite and tested 60 optimization options within three compilers: GCC, XLC and FDPR-Pro. Results of ESTO are compared to GCC -O1 and -O3, to XLC -O3 and to FDPR-Pro -O3. The results show that ESTO is capable to construct optimization levels that yield to better performance than standard options.
+As an example, the ESTO framework described in \cite{bashkansky2007black} studies the application of GA for the problem of selecting an optimal option set for a specific application and workload. It searches the option set space using various types of genetic algorithms, ultimately determining the option set that maximizes the performance of the given application and workload. ESTO regards the compiler as a black box, specified by its external-visible optimization options. The algorithm used in ESTO is the GA. It supports also a GA variant named budget-limited genetic algorithm which reduces the population size exponentially and then reduce the time needed to evaluate the different evaluations. They ran experiments on the SPEC2000 benchmark suite and tested 60 optimization options within three compilers: GCC, XLC and FDPR-Pro. Results of ESTO are compared to GCC -O1 and -O3, to XLC -O3 and to FDPR-Pro -O3. The results show that ESTO is capable to construct optimization levels that yield to better performance than standard options.
 
 
 
-\subsubsection{JIT compiler optimization}
-\subsubsection{Escaping local optimum}
-\subsubsection{Dealing with numerical parameter values}
-This problem is related to numerical parameters optimization where the parameter optimization value should be determined automatically
+%\subsubsection{JIT compiler optimization}
+%\subsubsection{Escaping local optimum}
+%//To refactor
+%Earlier work in iterative compilation concentrated on finding good parameter settings for a few optimizations, such as loop unrolling and loop tiling\cite{bodin1998iterative}. In cases where exhaustive exploration was expensive, researchers
+%used heuristic algorithms, such as grid-based searches, hill climbers, and genetic algorithms, to scan only a portion of the search space. A common deduction is that typical program search spaces, on a variety of different architectures, generally contain enough local minima that biased sampling techniques should find good solutions.
+%\subsubsection{Dealing with numerical parameter values}
+%The phase ordering problem is a common problem in iterative compilation. It is related to numerical parameters optimization where the parameter optimization value should be determined automatically.
+
+\subsubsection{Phase ordering problem}
+Phase ordering is also an important problem in iterative compilation which explores the effect of different orderings of optimization phases on program performance. In fact, using some compilers such as LLVM, it is important to define the right order of applying optimizations. Thus, researchers in this field try to apply search techniques in order to find the right optimization sequence. However, reordering optimization phases is extremely hard to support in most production systems, including GCC due to their use of multiple intermediate formats and complex inherent dependencies between optimizations. So generally, compilers manage internally the order of applying optimizations and do not give the hand to the user to choose this order to avoid conflicts and compilation issues.
+
+When the order is managed by the users, exhaustively evaluating  all orderings of optimization phases is infeasible in the face of a huge number optimization phases. This problem is made more complex by the fact that these phases interact with other optimizations in a complex way.
+For example, even if we keep the same set of optimizations for an input program, varying the order of applying these optimization phases can produce different code, with potentially significant performance variation amongst them. 
+
+In this trend, Whitfield developed a framework based on axiomatic specifications of optimizations and includes both pre-conditions and post conditions that must exist before and after applying optimizations\cite{whitfield1990approach}. For a selected set of optimizations, the framework is used to determine those interactions among the optimizations that can create conditions and those that can destroy conditions for applying other optimizations. Then, from these interactions, an application order is derived to obtain the potential benefits of the optimizations that can be applied to a program. 
+This framework was employed to list the potential enabling and disabling interactions between optimizations, which were then used to derive an application
+order for the optimizations
+
+Kulkarni et al.\cite{kulkarni2009practical,kulkarni2006exhaustive} proposed an exhaustive search strategy to find optimal compilation sequences for each of the functions in a program. So, they exhaustively enumerated all distinct function instances for a set of programs that would be produced from different phase-orderings of 15 optimizations. This exhaustive enumeration was made possible by detecting which phases were active and whether or not the generated code was unique, making the actual optimization phase order space much smaller than the attempted space. This exhaustive enumeration allowed them to construct probabilities of enabling/disabling interactions between different optimization passes in general and not specific to any program. They use this idea to prevent the combinatorial explosion of the total number of sequences to be tested. 
+This exhaustive enumeration allowed them to construct probabilities of enabling/disabling interactions between different optimization passes in general and not specific to any program. 
+They were able to find all possible function instances that can be produced by different phase orderings for 109 out of the 111 total functions they evaluated. It is now possible to find the optimal phase ordering for some characteristics
+
+
+Several researchers have looked at searching for the best sequence of optimizations for a particular program, for example the work by Cooper et al.\cite{cooper1999optimizing} adapt the genetic algorithm to solve the optimization phase ordering problem. The focus on this paper on optimizing for embedded systems and then reducing the code size. They choose 10 program transformations to evolve. The solutions generated by this algorithm are compared to solutions found using a fixed optimization sequence and solutions found by testing random optimization sequences. Their technique was successful at reducing code size by 40\% than the standard sequence used in our compiler.
+
 \subsubsection{Evaluating iterative optimization across multiple data sets}
 Most iterative optimization studies find the best compiler optimizations through repeated runs on input program and the same data set. The problem is that if we select the best optimization sequence for an input data set through the iterative process, we do not know if it will still be the best for the same program but with other data sets. Thereby, researchers in this field try to investigate this problem by evaluating the effectiveness of iterative optimization across a large number of data sets. In particular, since there is no existing benchmark suite with a large number of data sets  Chen et al.\cite{chen2010evaluating} attempt to collect 1000 data sets called KDataSets for 32 programs, mostly derived from the MiBench benchmark. Then, they exercise iterative optimization on these collceted data sets in order to fin the best optimization combination across all data sets. 
 They used random search to generate random optimization sequences for the ICC compiler (53 flags) and the GCC compiler (132 optimizations).
 They demonstrate that for all 32 programs (from MiBench), they were able to find at least one combination of compiler optimizations that achieves 86\% or more of the best possible speedup across all data sets using Intel’s ICC (83\% for GNU’s GCC). This optimal combination is program-specific and yields speedups up to 1.71 on ICC and 2.23 on GCC over the highest optimization level (-fast and -O3, respectively). This means that a program can be optimized on a collection of data sets and it can retain near optimal performance for most other data sets. So the problem of finding the best optimization for a particular program may be significantly less complex. However, they tested their approach on only one single benchmark and one target architecture.
-\subsubsection{Phase ordering problem}
-Phase ordering is also an important problem in iterative compilation which explores the effect of different orderings of optimization phases on program performance. In fact, using some compilers such as LLVM, it is important to define the right order of applying optimizations. Thus, researchers in this field try to apply search techniques in order to find the right optimization sequence. However, reordering optimization phases is extremely hard to support in most production systems, including GCC due to their use of multiple intermediate formats and complex inherent dependencies between optimizations. So generally, compilers manage internally the order of applying optimizations and do not give the hand to the user to choose this order to avoid conflicts and compilation issues.
+
+
 
 
 \subsubsection{Conflicting objectives: a multi-objective optimization}
@@ -137,9 +175,9 @@ Most of the previous work on code generators testing focuses on checking the cor
 If these outputs are equivalent, it is assumed that the code generator works as expected. 
 They evaluate the effectiveness of this approach by means of testing optimizations performed by the TargetLink code generator. 
 They have used Simulink as a simulation environment of models. 
-In \cite{jorges2014back}, authors presented a testing approach of the Genesys code generator framework which tests the translation performed by a code generator from a semantic perspective rather than just checking for syntactic correctness of the generation result.
+In \cite{jorges2014back}, authors presented a testing approach of the Genesys code generator framework which tests the translation performed by a code generator from a semantic perspective rather than just checking for syntactic correctness of the generation result
 
-Compared to our proposal, none of the previous work has provided an automatic approach for testing and monitoring the generated code in terms of non-functional properties. 
+%Compared to our proposal, none of the previous work has provided an automatic approach for testing and monitoring the generated code in terms of non-functional properties. 
 
 
 
@@ -211,32 +249,12 @@ Oracles can also be automatically derived from program invariants\cite{ernst2000
 Additionally, oracles can be derived from properties of the system under test. For instance, metamorphic testing\cite{chen2004case} generates test oracles by exploiting metamorphic relations of the system under
 test. In particular, metamorphic testing exploit the relation between the inputs and outputs of special test cases to derive metamorphic relations defined as test oracles for new test cases. 
 
-Another type of derived oracles are pseudo oracles (also known as differential testing, dual coding and N-version programming). A pseudo-oracle is program that is capable of providing the expected outputs and check the correctness of the system by comparing the outputs of multiple independent implementations. For example, in compiler testing, different version of the same program are generated by applying some optimizations. The oracle is this case can be defined as the comparison between the different program outputs which should be the same\cite{yang2011finding}.
+Another type of derived oracles are pseudo-oracles (also known as differential testing, dual coding and N-version programming). 
+The concept of a pseudo-oracle is introduced by Davis and Weyuker\cite{davis1981pseudo} to address so-called non-testable programs "Programs which were written in order to determine the answer in the first place. There would be no need to write such programs, if the correct answer were known."
+A pseudo-oracle is program that is capable of providing the expected outputs and check the correctness of the system by comparing the outputs of multiple independent implementations. 
+It checks the consistency of the results of the different software versions of the systems, when the same functionality is executed. An inconsistency can be detected when one or more versions of the system trigger failures. 
+For example, in compiler testing, different versions of the same program are generated by applying some optimizations. The functionality of the program under test remains the same for all versions. The oracle is this case can be defined as the comparison between the functional outputs between the different versions which should be the same\cite{yang2011finding}.
 
-The concept of a pseudo-oracle, introduced by Davis and Weyuker\cite{davis1981pseudo}, as a means of addressing so-called non-testable programs “Programs which were written in order to determine the answer in the first place. There would be no need to write such programs, if the correct answer were known.”
-
-The approach examined here is similar and is based on
-N-version diversity, a principle that is applied especially in the well-known software fault-tolerant
-technique known as N-version programming.
-
-. Pseudo-oracles are yet another kind of
-derived oracles that check the consistency of the results of
-the different versions of the systems, when the same functionality
-is executed. An inconsistency can reveal a fault
-in one or more versions of the system. Based on a similar
-idea, techniques like N-version programming [REF] and recovery
-blocks [REF] rely on redundancy intentionally added to
-software systems to guarantee some level of reliability.
-Our approach is rooted in the pseudo-oracles idea but,
-instead of using different and independent implementations
-of a system, we use the intrinsic redundancy already present
-in software systems. In this way, our technique does not
-incur major additional costs, and it is applicable even when
-only one version of the system is available. This kind of
-redundancy has been used to automatically recover from
-runtime failures in JavaScript and Java systems [REF, REF], and
-this work aims to investigate how to use this redundancy to
-effectively generate test oracles.
 
 \end{itemize}
 
@@ -248,7 +266,19 @@ A metamorphic testing (MT) method has been proposed to alleviate the oracle prob
 MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
 For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
 
-
+A recent alternative strategy is equivalence modulo inputs
+(EMI) testing [4]. Given a well-defined, deterministic program
+P, EMI testing involves first performing code coverage
+analysis of P with respect to an input I to identify I-dead
+statements: statements not covered by I. From P, a series of
+program variants, P1, P2, . . . , Pn can be created, with each
+Pi obtained by mutating or deleting a subset of the I-dead
+statements of P. Each Pi should behave identically to P
+when executed on input I; deviations in behaviour are indicative
+of compiler bugs. Thus, EMI testing is an example
+of metamorphic testing [1]—the programs are in a metamorphic
+relationship with one another and with P, with respect
+to I.
 
 \section{Container-based testing techniques}
 
