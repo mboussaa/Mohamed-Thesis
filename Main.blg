@@ -3,11 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: alpha.bst
 Database file #1: uw-ethesis.bib
-Repeated entry---line 194 of file uw-ethesis.bib
+Repeated entry---line 204 of file uw-ethesis.bib
  : @inproceedings{cooper1999optimizing
  :                                    ,
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 220 of file uw-ethesis.bib
+I was expecting an "="---line 230 of file uw-ethesis.bib
  :  
  :  organization={IEEE}
 (Error may have been on previous line)
@@ -33,45 +33,45 @@ Warning--can't use both volume and number fields in soltesz2007container
 Warning--can't use both volume and number fields in sturmer2005overview
 Warning--can't use both volume and number fields in whitfield1990approach
 Warning--can't use both volume and number fields in yang2011finding
-You've used 135 entries,
+You've used 136 entries,
             2543 wiz_defined-function locations,
-            1266 strings with 31317 characters,
-and the built_in function-call counts, 68924 in all, are:
-= -- 7098
-> -- 3492
+            1270 strings with 31579 characters,
+and the built_in function-call counts, 69500 in all, are:
+= -- 7152
+> -- 3537
 < -- 114
-+ -- 1280
-- -- 1252
-* -- 4957
-:= -- 10747
-add.period$ -- 474
-call.type$ -- 135
-change.case$ -- 983
-chr.to.int$ -- 133
-cite$ -- 157
-duplicate$ -- 2794
-empty$ -- 4873
-format.name$ -- 1374
-if$ -- 14664
++ -- 1297
+- -- 1269
+* -- 5013
+:= -- 10848
+add.period$ -- 477
+call.type$ -- 136
+change.case$ -- 994
+chr.to.int$ -- 134
+cite$ -- 158
+duplicate$ -- 2808
+empty$ -- 4903
+format.name$ -- 1391
+if$ -- 14772
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 139
-newline$ -- 677
-num.names$ -- 402
-pop$ -- 1064
+missing$ -- 140
+newline$ -- 682
+num.names$ -- 405
+pop$ -- 1072
 preamble$ -- 1
-purify$ -- 1123
+purify$ -- 1135
 quote$ -- 0
-skip$ -- 2386
+skip$ -- 2397
 stack$ -- 0
-substring$ -- 3861
-swap$ -- 882
+substring$ -- 3893
+swap$ -- 883
 text.length$ -- 114
 text.prefix$ -- 13
 top$ -- 0
-type$ -- 1056
+type$ -- 1064
 warning$ -- 21
-while$ -- 687
-width$ -- 143
-write$ -- 1825
+while$ -- 692
+width$ -- 144
+write$ -- 1838
 (There were 2 error messages)

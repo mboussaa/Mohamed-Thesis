@@ -136,6 +136,13 @@ Yang Chen, Shuangde Fang, Yuanjie Huang, Lieven Eeckhout, Grigori Fursin,
 \newblock {\em ACM Transactions on Architecture and Code Optimization (TACO)},
   9(3):21, 2012.
 
+\bibitem[CGH{\etalchar{+}}06]{cooper2006exploring}
+Keith~D Cooper, Alexander Grosul, Timothy~J Harvey, Steve Reeves, Devika
+  Subramanian, Linda Torczon, and Todd Waterman.
+\newblock Exploring the structure of the space of compilation sequences using
+  randomized search algorithms.
+\newblock {\em The Journal of Supercomputing}, 36(2):135--151, 2006.
+
 \bibitem[CH03]{czarnecki2003classification}
 Krzysztof Czarnecki and Simon Helsen.
 \newblock Classification of model transformation approaches.

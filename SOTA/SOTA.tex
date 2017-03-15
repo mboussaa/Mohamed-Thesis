@@ -61,7 +61,9 @@ In section 2.5.2 of chapter 2, we presented several issues with optimizing compi
 In this section, we discuss the available tools and approaches dedicated to the automatic search for optimal compiler settings, and give an overview of known approaches that addressed the several compiler optimization challenges. In each subsection, we identify and discuss a particular problem and we present the best known approaches proposed to solve it.
 
 \subsubsection{Speeding up the performance: a mono objective optimization}
-Speeding up the performance of compiled code is the key optimization objective for most of the iterative compilation approaches. The problem has been often adapted as a mono-objective optimization problem where the speedup has been the main concern. Genetic algorithms (GA)\cite{stephenson2003genetic,bashkansky2007black} present an attractive solution to this problem of selecting an optimal set of options. 
+What all of this prior work on iterative compilation has in common is that it focuses on a single objective function to be optimized. For example, researchers typically focus on speeding up the performance of compiled code which the key optimization objective for most of the iterative compilation approaches. 
+
+The problem has been often adapted as a mono-objective optimization problem where the speedup has been the main concern. Genetic algorithms (GA)\cite{stephenson2003genetic,bashkansky2007black} present an attractive solution to this problem of selecting an optimal set of options. 
 GA-based approaches compute an initial population using a set of optimizations, generally defined under the standard compiler levels Ox. Then, at each iteration, the individuals (i.e., option sets) that comprise the generation are evaluated by measuring for example the execution time resulted by a specific set of options. The results are sorted and pass through a breeding and mutation stage to form the next generation. This
 process continues until a termination condition is reached. The algorithm return the best optimization set that led to the highest performance.
 
@@ -70,12 +72,27 @@ As an example, the ESTO framework described in \cite{bashkansky2007black} studie
 
 
 %\subsubsection{JIT compiler optimization}
-%\subsubsection{Escaping local optimum}
-%//To refactor
-%Earlier work in iterative compilation concentrated on finding good parameter settings for a few optimizations, such as loop unrolling and loop tiling\cite{bodin1998iterative}. In cases where exhaustive exploration was expensive, researchers
-%used heuristic algorithms, such as grid-based searches, hill climbers, and genetic algorithms, to scan only a portion of the search space. A common deduction is that typical program search spaces, on a variety of different architectures, generally contain enough local minima that biased sampling techniques should find good solutions.
+
 %\subsubsection{Dealing with numerical parameter values}
 %The phase ordering problem is a common problem in iterative compilation. It is related to numerical parameters optimization where the parameter optimization value should be determined automatically.
+
+\subsubsection{Escaping local optimum}
+
+
+A common problem in iterative compilation is the local optimum. In fact, the search space of optimizations for a specific program could be very huge and it generally contains many local minima in where the search algorithm could be trapped\cite{bodin1998iterative}. Therefore, researchers in this filed try to build robust techniques and algorithms to avoid such problem.
+In \cite{bodin1998iterative}, Bodin et al. tried to analyze this search space and they found that the optimization space is highly non-linear containing many local minima and some discontinuities. Therefore, techniques based on gradient approaches such as GAs are not applicable.
+This paper has focused on parameterized transformations. The small area of the transformation space considered in this paper is composed by three parameterized optimizations: loop unrolling (with unroll factors from 1 to 20), loop tiling (with tile sizes from 1 to 100) and padding (from 1 to 100). They focused on compilation time and execution time of the optimized program and used a simulator to target embedded processors. The compiler used is a compiler framework developed to optimise multimedia codes for embedded systems.
+They analyzed these optimizations on four CPU architectures (UltraSparc, R10000, Pentium Pro, and TriMedia-1000) and the matrix multiplication is selected as the program to optimize.
+The proposed search algorithm visits a number of points at spaced intervals, applying the appropriate transformation, executing
+the transformed program and evaluating its worth by measuring the execution time. Those points lying between
+the current global minimum and the average are added to an ordered queue. Iteratively, such points are removed from the queue and points within the neighboring region are investigated, again at spaced intervals. This process is continued until a specific number of points have been evaluated and the fastest transformed program is reported.
+They showed that in the case of large transformation spaces, they can achieve within 0.3\% of the best possible time by visiting less then 0.25\% of the space using a simple algorithm and find the minimum after visiting up to less than 1 \% of the space.
+
+Cooper et al.\cite{cooper2006exploring} describe their experience exploring the search space of compilation sequences. They give results for exhaustively enumerating several search spaces of sequences of length 10 chosen from 5 transformations. They show that the search spaces have many local minimum, and that random-restart hill climbing is an effective strategy to overcome shallow local minima.
+
+%paper: Exhaustive Optimization Phase Order Space Exploration
+%Earlier work in iterative compilation concentrated on finding good parameter settings for a few optimizations, such as loop unrolling and loop tiling\cite{bodin1998iterative}. In cases where exhaustive exploration was expensive, researchers
+%used heuristic algorithms, such as grid-based searches, hill climbers, and genetic algorithms, to scan only a portion of the search space. A common deduction is that typical program search spaces, on a variety of different architectures, generally contain enough local minima that biased sampling techniques should find good solutions.
 
 \subsubsection{Phase ordering problem}
 Phase ordering is also an important problem in iterative compilation which explores the effect of different orderings of optimization phases on program performance. In fact, using some compilers such as LLVM, it is important to define the right order of applying optimizations. Thus, researchers in this field try to apply search techniques in order to find the right optimization sequence. However, reordering optimization phases is extremely hard to support in most production systems, including GCC due to their use of multiple intermediate formats and complex inherent dependencies between optimizations. So generally, compilers manage internally the order of applying optimizations and do not give the hand to the user to choose this order to avoid conflicts and compilation issues.
@@ -93,6 +110,8 @@ They were able to find all possible function instances that can be produced by d
 
 
 Several researchers have looked at searching for the best sequence of optimizations for a particular program, for example the work by Cooper et al.\cite{cooper1999optimizing} adapt the genetic algorithm to solve the optimization phase ordering problem. The focus on this paper on optimizing for embedded systems and then reducing the code size. They choose 10 program transformations to evolve. The solutions generated by this algorithm are compared to solutions found using a fixed optimization sequence and solutions found by testing random optimization sequences. Their technique was successful at reducing code size by 40\% than the standard sequence used in our compiler.
+
+In another work\cite{cooper2006exploring} the same authors explored phase orders at program-level with randomized search algorithms based on genetic algorithms, hill climbers and randomized sampling. They target a simulated abstract RISC-based processor with a research compiler, and report properties of several of the generated sub-spaces of phase ordering and the consequences of those properties for the search algorithms.
 
 \subsubsection{Evaluating iterative optimization across multiple data sets}
 Most iterative optimization studies find the best compiler optimizations through repeated runs on input program and the same data set. The problem is that if we select the best optimization sequence for an input data set through the iterative process, we do not know if it will still be the best for the same program but with other data sets. Thereby, researchers in this field try to investigate this problem by evaluating the effectiveness of iterative optimization across a large number of data sets. In particular, since there is no existing benchmark suite with a large number of data sets  Chen et al.\cite{chen2010evaluating} attempt to collect 1000 data sets called KDataSets for 32 programs, mostly derived from the MiBench benchmark. Then, they exercise iterative optimization on these collceted data sets in order to fin the best optimization combination across all data sets. 
@@ -127,6 +146,9 @@ the highest standard optimization level O3 can be outperformed for the WCET and 
 
 \subsubsection{Predicting optimizations: a machine learning optimization}
 Machine learning has been also proposed by several works to tune optimizations across programs. Compared to evolutionary algorithms, using machine learning in compiler optimization has the potential of reusing knowledge across the different iterative compilation runs, gaining the benefits of iterative compilation to learn the best optimizations across multiple programs and architectures.
+
+Generally, machine learning techniques create mainly in an off line phase a prediction model, which will be used to determine the compiler optimization set that should be used on a test (unseen) program by the online phase. The main advantage of this technique is that it reduces the number of required program evaluations.
+
 In the Milepost project\cite{fursin2011milepost} for example, authors start from the observation that similar programs may exhibit similar behavior and require similar optimizations so it is possible to correlate program features and optimizations together to predict good transformations for unseen programs based on previous optimization experience. Thereby, they provide a modular, extensible, self-tuning optimization infrastructure that can automatically learn how to best optimize programs for configurable heterogeneous processors based on the correlation between program features, run-time behavior and optimizations. 
 
 The proposed infrastructure is based on a machine learning compiler that present an Interactive Compilation Interface (ICI) and plugins to extract program features (such as the number of instructions in a method, number of branches, etc) and select optimization passes. 
@@ -345,7 +367,7 @@ read. However, in case that a shard key has nearly sorted values, combining a sm
  
 
 Container monitoring tools discussed above have been used in several other works like in\cite{peinl2016docker,medel2016modelling}.
-\section{Summary}
+\section{Summary \& limitations of the state-of-th-art}
  
 
 

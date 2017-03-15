@@ -36,7 +36,7 @@
 \BOOKMARK [1][-]{section.3.3}{Container-based testing techniques}{chapter.3}% 36
 \BOOKMARK [2][-]{subsection.3.3.1}{Deployment and testing using Docker}{section.3.3}% 37
 \BOOKMARK [2][-]{subsection.3.3.2}{Runtime monitoring using Docker}{section.3.3}% 38
-\BOOKMARK [1][-]{section.3.4}{Summary}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.4}{Summary \046 limitations of the state-of-th-art}{chapter.3}% 39
 \BOOKMARK [-1][-]{part.2}{II Contributions}{}% 40
 \BOOKMARK [0][-]{chapter.4}{Automatic compiler auto-tuning}{part.2}% 41
 \BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 42
@@ -77,4 +77,4 @@
 \BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 77
 \BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 78
 \BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 79
-\BOOKMARK [0][-]{section*.39}{References}{part.3}% 80
+\BOOKMARK [0][-]{section*.40}{References}{part.3}% 80
