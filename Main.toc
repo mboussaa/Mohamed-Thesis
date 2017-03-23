@@ -31,19 +31,19 @@
 \contentsline {subsection}{\numberline {3.1.2}Implementation of iterative compilation system}{32}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Iterative compilation search techniques}{34}{subsection.3.1.3}
 \contentsline {subsubsection}{Auto-tuning: a mono objective optimization}{34}{section*.2}
-\contentsline {subsubsection}{Escaping local optimum}{35}{section*.3}
-\contentsline {subsubsection}{Phase ordering problem}{36}{section*.4}
+\contentsline {subsubsection}{Escaping local optimum}{36}{section*.3}
+\contentsline {subsubsection}{Phase ordering problem}{37}{section*.4}
 \contentsline {subsubsection}{Evaluating iterative optimization across multiple data sets}{38}{section*.5}
-\contentsline {subsubsection}{Conflicting objectives: a multi-objective optimization}{38}{section*.6}
-\contentsline {subsubsection}{Predicting optimizations: a machine learning optimization}{40}{section*.7}
+\contentsline {subsubsection}{Conflicting objectives: a multi-objective optimization}{39}{section*.6}
+\contentsline {subsubsection}{Predicting optimizations: a machine learning optimization}{41}{section*.7}
 \contentsline {subsubsection}{Summary: auto-tuning compiler techniques}{42}{section*.8}
 \contentsline {section}{\numberline {3.2}Testing code generators}{42}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Testing functional properties}{42}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Testing non-functional properties}{42}{subsection.3.2.2}
 \contentsline {subsubsection}{The oracle problem}{43}{section*.9}
-\contentsline {subsubsection}{Summary: oracle definition approaches}{46}{section*.10}
-\contentsline {section}{\numberline {3.3}Container-based testing techniques}{46}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{47}{subsection.3.3.1}
+\contentsline {subsubsection}{Summary: oracle definition approaches}{47}{section*.10}
+\contentsline {section}{\numberline {3.3}Container-based testing techniques}{47}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{48}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Runtime monitoring using Docker}{49}{subsection.3.3.2}
 \contentsline {section}{\numberline {3.4}Summary \& limitations of the state-of-th-art}{51}{section.3.4}
 \contentsline {part}{II\hspace {1em}Contributions}{52}{part.2}

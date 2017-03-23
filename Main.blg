@@ -3,14 +3,18 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
 The style file: alpha.bst
 Database file #1: uw-ethesis.bib
-Repeated entry---line 204 of file uw-ethesis.bib
+Repeated entry---line 183 of file uw-ethesis.bib
  : @inproceedings{cooper1999optimizing
  :                                    ,
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 230 of file uw-ethesis.bib
+I was expecting an "="---line 247 of file uw-ethesis.bib
  :  
  :  organization={IEEE}
 (Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 336 of file uw-ethesis.bib
+ : @inproceedings{pan2006fast
+ :                           ,
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in mboussaa
 Warning--can't use both volume and number fields in cao2012yin
@@ -33,45 +37,45 @@ Warning--can't use both volume and number fields in soltesz2007container
 Warning--can't use both volume and number fields in sturmer2005overview
 Warning--can't use both volume and number fields in whitfield1990approach
 Warning--can't use both volume and number fields in yang2011finding
-You've used 136 entries,
+You've used 137 entries,
             2543 wiz_defined-function locations,
-            1270 strings with 31579 characters,
-and the built_in function-call counts, 69500 in all, are:
-= -- 7152
-> -- 3537
-< -- 114
-+ -- 1297
-- -- 1269
-* -- 5013
-:= -- 10848
-add.period$ -- 477
-call.type$ -- 136
-change.case$ -- 994
-chr.to.int$ -- 134
-cite$ -- 158
-duplicate$ -- 2808
-empty$ -- 4903
-format.name$ -- 1391
-if$ -- 14772
+            1275 strings with 31852 characters,
+and the built_in function-call counts, 70086 in all, are:
+= -- 7216
+> -- 3562
+< -- 115
++ -- 1306
+- -- 1278
+* -- 5051
+:= -- 10933
+add.period$ -- 481
+call.type$ -- 137
+change.case$ -- 1001
+chr.to.int$ -- 135
+cite$ -- 159
+duplicate$ -- 2834
+empty$ -- 4947
+format.name$ -- 1401
+if$ -- 14904
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 140
-newline$ -- 682
-num.names$ -- 405
-pop$ -- 1072
+missing$ -- 141
+newline$ -- 687
+num.names$ -- 408
+pop$ -- 1081
 preamble$ -- 1
-purify$ -- 1135
+purify$ -- 1143
 quote$ -- 0
-skip$ -- 2397
+skip$ -- 2420
 stack$ -- 0
-substring$ -- 3893
-swap$ -- 883
-text.length$ -- 114
+substring$ -- 3932
+swap$ -- 894
+text.length$ -- 115
 text.prefix$ -- 13
 top$ -- 0
-type$ -- 1064
+type$ -- 1072
 warning$ -- 21
-while$ -- 692
-width$ -- 144
-write$ -- 1838
-(There were 2 error messages)
+while$ -- 698
+width$ -- 145
+write$ -- 1852
+(There were 3 error messages)

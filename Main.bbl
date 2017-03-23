@@ -389,6 +389,13 @@ Abeer Hamdy, Osman Ibrahim, and Ahmed Hazem.
 \newblock In {\em MATEC Web of Conferences}, volume~76, page 04041. EDP
   Sciences, 2016.
 
+\bibitem[HKW05]{haneda2005automatic}
+Masayo Haneda, Peter~MW Knijnenburg, and Harry~AG Wijshoff.
+\newblock Automatic selection of compiler options using non-parametric
+  inferential statistics.
+\newblock In {\em Parallel Architectures and Compilation Techniques, 2005. PACT
+  2005. 14th International Conference on}, pages 123--132. IEEE, 2005.
+
 \bibitem[HMSY13]{harman2013comprehensive}
 Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
 \newblock A comprehensive survey of trends in oracles for software testing.

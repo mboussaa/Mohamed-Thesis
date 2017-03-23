@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  15 MAR 2017 18:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  23 MAR 2017 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1109,16 +1109,13 @@ File: SOTA/fig/iterative_compilation.pdf Graphic file (type pdf)
 
 <use SOTA/fig/iterative_compilation.pdf>
 Package pdftex.def Info: SOTA/fig/iterative_compilation.pdf used on input line 
-23.
+25.
 (pdftex.def)             Requested size: 110.2606pt x 195.72891pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [32] [33 <./SOTA/fig/iterative_compilation.pdf>] [34] [35] [36] [37]
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
@@ -1134,9 +1131,6 @@ Missing character: There is no ô in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
  [41] [42]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -1144,14 +1138,14 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [43]
+ [43] [44]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ò in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [44] [45]
+ [45]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no î in font cmr12!
@@ -1168,7 +1162,7 @@ Missing character: There is no ô in font cmr12!
 
 ]
 (./chapitre0/chapitre0.tex
-<Chapitre0/fig/overview.pdf, id=1112, 1851.91875pt x 1149.29375pt>
+<Chapitre0/fig/overview.pdf, id=1117, 1851.91875pt x 1149.29375pt>
 File: Chapitre0/fig/overview.pdf Graphic file (type pdf)
 
 <use Chapitre0/fig/overview.pdf>
@@ -1183,14 +1177,14 @@ Chapter 4.
 
 
 ] [56] [57]
-<chapitre3/fig/autotuning.pdf, id=1188, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=1193, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
 Package pdftex.def Info: chapitre3/fig/autotuning.pdf used on input line 128.
 (pdftex.def)             Requested size: 414.6463pt x 132.04805pt.
 
-<chapitre3/fig/optimizations.png, id=1189, 592.2125pt x 868.24374pt>
+<chapitre3/fig/optimizations.png, id=1194, 592.2125pt x 868.24374pt>
 File: chapitre3/fig/optimizations.png Graphic file (type png)
 
 <use chapitre3/fig/optimizations.png>
@@ -1207,14 +1201,14 @@ Overfull \hbox (17.62482pt too wide) detected at line 329
 [][] 
  []
 
-<chapitre3/fig/individual.png, id=1282, 991.705pt x 153.57375pt>
+<chapitre3/fig/individual.png, id=1287, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
 Package pdftex.def Info: chapitre3/fig/individual.png used on input line 340.
 (pdftex.def)             Requested size: 460.72124pt x 71.34543pt.
  [62] [63 <./chapitre3/fig/individual.png>]
-[64] [65] [66] <chapitre3/fig/infraup.pdf, id=1358, 469.755pt x 312.16624pt>
+[64] [65] [66] <chapitre3/fig/infraup.pdf, id=1363, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
@@ -1224,7 +1218,7 @@ Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 481.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[67] <chapitre3/fig/sensitivity.pdf, id=1365, 494.84875pt x 121.45375pt>
+[67] <chapitre3/fig/sensitivity.pdf, id=1370, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1240,7 +1234,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 551--556
  []
 
 [69 <./chapitre3/fig/sensitivity.pdf>]
-<chapitre3/fig/box.pdf, id=1497, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=1502, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1251,7 +1245,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 575--579
 
  []
 
-[71] <chapitre3/fig/rq3.pdf, id=1524, 721.69624pt x 490.83376pt>
+[71] <chapitre3/fig/rq3.pdf, id=1529, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1266,7 +1260,7 @@ Overfull \hbox (16.59723pt too wide) in paragraph at lines 614--621
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[72] <chapitre3/fig/pareto.pdf, id=1531, 756.8275pt x 488.82625pt>
+[72] <chapitre3/fig/pareto.pdf, id=1536, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
@@ -1302,7 +1296,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 S FAMILIES \OT1/cmr/m/n/12 82
  []
 
-[82] <chapitre4/fig/background.pdf, id=1677, 930.47626pt x 303.1325pt>
+[82] <chapitre4/fig/background.pdf, id=1682, 930.47626pt x 303.1325pt>
 File: chapitre4/fig/background.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background.pdf>
@@ -1342,7 +1336,7 @@ Underfull \hbox (badness 1215) in paragraph at lines 186--186
 []|\OT1/cmr/m/n/12 Generation of ran-dom
  []
 
-<chapitre4/fig/settingup.pdf, id=1795, 482.80376pt x 337.26pt>
+<chapitre4/fig/settingup.pdf, id=1800, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
@@ -1829,7 +1823,7 @@ S FAMILIES \OT1/cmr/m/n/12 95
 [95]
 Chapter 6.
 (./chapitre5/chapitre5.tex
-<chapitre5/fig/background2.pdf, id=2021, 1017.8025pt x 377.41pt>
+<chapitre5/fig/background2.pdf, id=2027, 1017.8025pt x 377.41pt>
 File: chapitre5/fig/background2.pdf Graphic file (type pdf)
 
 <use chapitre5/fig/background2.pdf>
@@ -1884,7 +1878,7 @@ Overfull \hbox (145.68822pt too wide) has occurred while \output is active
  SYSTEM CONTAINERS \OT1/cmr/m/n/12 100
  []
 
-[100] <chapitre3/fig/tool_support.png, id=2207, 750.805pt x 439.6425pt>
+[100] <chapitre3/fig/tool_support.png, id=2212, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
@@ -1933,23 +1927,23 @@ Missing character: There is no î in font cmti12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [110] [111]
+ [110] [111] [112]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [112] [113] [114]
-Underfull \hbox (badness 1043) in paragraph at lines 608--614
+ [113] [114]
+Underfull \hbox (badness 1043) in paragraph at lines 615--621
 []\OT1/cmr/m/n/12 Nitin Naik.  Mi-grat-ing from vir-tu-al-iza-tion to dock-er-i
 za-tion in the
  []
 
 [115]
-Underfull \hbox (badness 4660) in paragraph at lines 685--690
+Underfull \hbox (badness 4660) in paragraph at lines 692--697
 []\OT1/cmr/m/n/12 Dmitry Plot-nikov, Dmitry Mel-nik, Mamikon Var-danyan, Ruben
  []
 
 [116]
-Underfull \hbox (badness 1406) in paragraph at lines 697--701
+Underfull \hbox (badness 1406) in paragraph at lines 704--708
 []\OT1/cmr/m/n/12 Debra J Richard-son, Stephanie Leif Aha, and T Owen O'malley.
 
  []
@@ -1981,10 +1975,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 20384 strings out of 493027
- 371819 string characters out of 6134069
- 828867 words of memory out of 5000000
- 23165 multiletter control sequences out of 15000+600000
+ 20386 strings out of 493027
+ 371864 string characters out of 6134069
+ 828912 words of memory out of 5000000
+ 23166 multiletter control sequences out of 15000+600000
  17639 words of font info for 67 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  42i,15n,46p,10384b,15010s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2006,10 +2000,10 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (123 pages, 3910836 bytes).
+Output written on Main.pdf (123 pages, 3912298 bytes).
 PDF statistics:
- 2494 PDF objects out of 2984 (max. 8388607)
- 1992 compressed objects within 20 object streams
- 470 named destinations out of 1000 (max. 500000)
+ 2499 PDF objects out of 2984 (max. 8388607)
+ 1997 compressed objects within 20 object streams
+ 471 named destinations out of 1000 (max. 500000)
  746 words of extra memory for PDF output out of 10000 (max. 10000000)
 
