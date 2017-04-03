@@ -119,29 +119,5 @@ Once we gather and store resource usage data, the next step is visualizing them.
 As a visualization component, we use Grafana\footnote{\url{https://github.com/grafana/grafana}}, a time-series visualization tool available for Docker. 
 
 
-\subsubsection{Tool Support}		
-NOTICE is also a GUI framework. It provides different features for non-functional testing of compilers.
+ 	
 
-For instance, compiler users can:
-\begin{itemize} 
-	
-	
-	\item define input program under test: generate Csmith program or use Cbench benchmark programs
-	\item define datasets: select dataset for selected program
-	\item select target system architecture: choose processor architecture such as x64, x86, ARM. This is part of our future work since we are running experiments only on a x64 architecture. We are preparing a QEMU docker image to handle platforms heterogeneity.
-	\item define compiler versions: GCC compiler version from 3.x to 5.x
-	\item configure monitoring components: versions, labels, ports, logins, passwords
-	\item choose ip address of cloud host machine where experiments will be running
-	\item define resource constraints to running container: in case we would run optimizations under resource constraints.
-	\item choose search method: mono or multi-objective search
-	\item choose meta-heuristic algorithm: GA, RS, NS, NSGA-II
-	\item choose the number of iterations: number of evaluations
-	\item choose optimization goal: the goal can be execution time, memory, cpu, code size or compilation time optimizations. For multi objective search, users can choose trade-offs between these objectives.
-\end{itemize} 
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{chapitre3/fig/tool_support}
-	\caption{Snapshot of NOTICE GUI interface}
-	\label{fig:tool_support}
-\end{figure}
-The execution result of this tool will be the best optimization sequences corresponding to user requirements.

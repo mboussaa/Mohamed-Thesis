@@ -583,6 +583,14 @@ LI~Manolache and Derrick~G. Kourie.
 \newblock Software testing using model programs.
 \newblock {\em Software: Practice and Experience}, 31(13):1211--1236, 2001.
 
+\bibitem[MNC{\etalchar{+}}16]{martins2016clustering}
+Luiz~GA Martins, Ricardo Nobre, Jo{\~a}o~MP Cardoso, Alexandre~CB Delbem, and
+  Eduardo Marques.
+\newblock Clustering-based selection for the exploration of compiler
+  optimization sequences.
+\newblock {\em ACM Transactions on Architecture and Code Optimization (TACO)},
+  13(1):8, 2016.
+
 \bibitem[MND{\etalchar{+}}14]{martins2014exploration}
 Luiz~GA Martins, Ricardo Nobre, Alexandre~CB Delbem, Eduardo Marques, and
   Jo{\~a}o~MP Cardoso.

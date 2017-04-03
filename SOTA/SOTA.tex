@@ -7,7 +7,16 @@ Afterwards, we move to discuss existing techniques related to code generator tes
 
 Finally, we discuss in the last section the container technology as means of automatic software deployment, monitoring, and testing. We compare then, the container's virtualization solution to the classical approaches based on virtual machines. We provide as well, examples of existing solutions in research and industry that opted for this technology to automate software testing and monitoring.
 
-This chapter is structured as follows: Section 3.1 provides a survey of the most used compiler auto-tuning techniques to construct the best set of optimization options. In Section 3.2, we review existing techniques for code generators testing and the principal categories of oracles. Then, in Section 3.3, we discuss the use of virtualization technology for deployment and testing. In particular, we presents some of the approaches that used a container-based solution for automatic testing and monitoring. Finally, Section 3.3 discusses the limitations of the state of the art.
+This chapter is structured as follows: 
+
+Section 3.1 provides a survey of the most used compiler auto-tuning techniques to construct the best set of optimization options. 
+
+In Section 3.2, we review existing techniques for code generators testing and the principal categories of oracles. 
+
+Then, in Section 3.3, we discuss the use of virtualization technology for deployment and testing. In particular, we presents some of the approaches that used a container-based solution for automatic testing and monitoring. 
+
+Finally, Section 3.4 discusses the limitations of the state of the art.
+
 \section{Compilers auto-tuning techniques}
 
 \subsection{Iterative compilation}
@@ -101,6 +110,14 @@ They showed that in the case of large transformation spaces, they can achieve wi
 
 Cooper et al.\cite{cooper2006exploring} describe their experience exploring the search space of compilation sequences. They give results for exhaustively enumerating several search spaces of sequences of length 10 chosen from 5 transformations. They show that the search spaces have many local minimum, and that random-restart hill climbing is an effective strategy to overcome shallow local minima.
 
+
+Another way to efficiently explore the large search space in compiler optimization is the Design Space Exploration (DSE) technique based on software code clustering to search for optimization sequences aiming at performance improvements of code fragments (e.g., functions), considering the target processor and the set of optimizations supported by the compiler\cite{martins2014exploration,martins2016clustering}. They proposed a good sequence of optimizations in application-dependent mode. The DSE is based on a clustering approach for grouping functions with similarities
+and exploration of a reduced search space resulting from the combination of optimizations previously suggested for the functions in each group.
+The identification of similarities between functions uses a data mining method that is applied to a symbolic code representation.
+They compare their approach to the GA and their experimental results reveal that the DSE-based approach achieves a significant reduction in the total exploration time of the search space (20× over a Genetic Algorithm approach) and a performance speedups (41\% over the baseline). 
+
+
+
 %paper: Exhaustive Optimization Phase Order Space Exploration
 %Earlier work in iterative compilation concentrated on finding good parameter settings for a few optimizations, such as loop unrolling and loop tiling\cite{bodin1998iterative}. In cases where exhaustive exploration was expensive, researchers
 %used heuristic algorithms, such as grid-based searches, hill climbers, and genetic algorithms, to scan only a portion of the search space. A common deduction is that typical program search spaces, on a variety of different architectures, generally contain enough local minima that biased sampling techniques should find good solutions.
@@ -146,9 +163,7 @@ However, They do not provide a guarantee that the new explored optimization leve
 Martinez et al.\cite{martinez2014multi} propose an adaptive worst-case execution time WCET-aware compiler framework for automatic search of compiler optimization sequences which yield highly optimized code. 
 Compared to the previously described approaches, authors in this paper focus on generating efficient code for embedded systems. Embedded systems are characterized by both efficiency requirements and critical timing constraints. Properties as average-case performance, power consumption and resource utilization are the main concerns describing the efficiency of a system. 
 Thus, they explore the performance of compiler optimizations with conflicting goals. 
-Besides the objective functions average-case execution time and code size, they consider the WCET, which is a crucial parameter for real-time systems, especially for
-safety-critical application domains such as automotive and
-avionics to avoid system failure. 
+Besides the objective functions average-case execution time and code size, they consider the WCET, which is a crucial parameter for real-time systems, especially for safety-critical application domains to avoid system failure. 
 Then, they try to find suitable trade-offs between these objectives in order to identify Pareto optimal solutions using stochastic evolutionary multi-objective algorithms. The objective functions try to minimize the WCET-ACET and WCET-Code size properties. They apply three evolutionary multi-objective algorithms (EMO) namely IBEA, NSGA-II and SPEA2 and compare their results to standard levels (O1, O2 and O3). 
 They evolve 30 optimizations within the WCC compiler and performed experiments on top of one single machine shipped with Intel Quad-Core CPU processor. They pick up as well 35  programs from various benchmarks such as DSPstone, MediaBench, MiBench, etc.
 They find that NSGA-II is the most promising EMO for the given problem. In fact, the discovered optimization sequences significantly outperform standard optimization levels:
@@ -175,7 +190,7 @@ The proposed infrastructure is based on a machine learning compiler that present
 
 The Milepost framework proceeds in two distinct phases: training and deployment. During the training phase, information about the structure of programs (input training programs) is gathered, showing how they behave under different optimization settings. Such information allows machine learning tools to correlate aspects of program structure, or features, with optimizations, building a strategy that predicts good combinations of optimizations. 
 After running an iterative process that evaluates different combinations of optimizations on top of the training programs/features, pedictive models are created to correlate a given set of program features with profitable program transformations. 
-Then, in the deployment phase, the framework analyzes new unseen programs by determining the program features and passes them to the new created models to predict the most profitable optimizations to improve execution time or other metrics depending on the user’s optimization requirements.
+Then, in the deployment phase, the framework analyzes new unseen programs by determining the program features an,d passes them to the new created models to predict the most profitable optimizations to improve execution time or other metrics depending on the user’s optimization requirements.
 
 GCC was selected as the compiler infrastructure for Milepost as it is currently the most stable and robust open-source compiler. They evolved 100 optimization flags under O1, O2 and O3 levels and compared their results to the O3 level and to the random search.
 
