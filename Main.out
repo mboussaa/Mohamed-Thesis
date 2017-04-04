@@ -60,22 +60,25 @@
 \BOOKMARK [2][-]{subsection.5.2.1}{Code Generator Families}{section.5.2}% 60
 \BOOKMARK [2][-]{subsection.5.2.2}{Functional Correctness of a Code Generator Family}{section.5.2}% 61
 \BOOKMARK [2][-]{subsection.5.2.3}{Performance Evaluation of a Code Generator Family}{section.5.2}% 62
-\BOOKMARK [1][-]{section.5.3}{Approach Overview}{chapter.5}% 63
-\BOOKMARK [2][-]{subsection.5.3.1}{Non-Functional Testing of a Code Generator Family: a Common Process}{section.5.3}% 64
-\BOOKMARK [2][-]{subsection.5.3.2}{An Infrastructure for Non-functional Testing Using System Containers}{section.5.3}% 65
-\BOOKMARK [1][-]{section.5.4}{Evaluation}{chapter.5}% 66
-\BOOKMARK [2][-]{subsection.5.4.1}{Experimental Setup}{section.5.4}% 67
-\BOOKMARK [2][-]{subsection.5.4.2}{Experimental Results}{section.5.4}% 68
-\BOOKMARK [2][-]{subsection.5.4.3}{Threats to Validity}{section.5.4}% 69
-\BOOKMARK [0][-]{chapter.6}{An infrastructure for resource monitoring based on system containers}{part.2}% 70
-\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 71
-\BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 72
-\BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 73
-\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Component}{section.6.3}% 74
-\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Component}{section.6.3}% 75
-\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Component}{section.6.3}% 76
-\BOOKMARK [-1][-]{part.3}{III Conclusion and perspectives}{}% 77
-\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 78
-\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 79
-\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 80
-\BOOKMARK [0][-]{section*.41}{References}{part.3}% 81
+\BOOKMARK [2][-]{subsection.5.2.4}{Performance Issues of a Code Generator Family}{section.5.2}% 63
+\BOOKMARK [1][-]{section.5.3}{Approach Overview}{chapter.5}% 64
+\BOOKMARK [2][-]{subsection.5.3.1}{Non-Functional Testing of a Code Generator Family: a Common Process}{section.5.3}% 65
+\BOOKMARK [2][-]{subsection.5.3.2}{An Infrastructure for Non-functional Testing Using System Containers}{section.5.3}% 66
+\BOOKMARK [2][-]{subsection.5.3.3}{Technical Implementation}{section.5.3}% 67
+\BOOKMARK [1][-]{section.5.4}{Evaluation}{chapter.5}% 68
+\BOOKMARK [2][-]{subsection.5.4.1}{Experimental Setup}{section.5.4}% 69
+\BOOKMARK [2][-]{subsection.5.4.2}{Experimental Results}{section.5.4}% 70
+\BOOKMARK [2][-]{subsection.5.4.3}{Threats to Validity}{section.5.4}% 71
+\BOOKMARK [1][-]{section.5.5}{Conclusion}{chapter.5}% 72
+\BOOKMARK [0][-]{chapter.6}{An infrastructure for resource monitoring based on system containers}{part.2}% 73
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 74
+\BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 75
+\BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 76
+\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Component}{section.6.3}% 77
+\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Component}{section.6.3}% 78
+\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Component}{section.6.3}% 79
+\BOOKMARK [-1][-]{part.3}{III Conclusion and perspectives}{}% 80
+\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 81
+\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 82
+\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 83
+\BOOKMARK [0][-]{section*.46}{References}{part.3}% 84

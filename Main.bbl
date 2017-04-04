@@ -724,6 +724,13 @@ Sebastian Risi, Charles~E Hughes, and Kenneth~O Stanley.
 \newblock Evolving plastic neural networks with novelty search.
 \newblock {\em Adaptive Behavior}, 18(6):470--491, 2010.
 
+\bibitem[RPFD14]{ray2014large}
+Baishakhi Ray, Daryl Posnett, Vladimir Filkov, and Premkumar Devanbu.
+\newblock A large scale study of programming languages and code quality in
+  github.
+\newblock In {\em Proceedings of the 22nd ACM SIGSOFT International Symposium
+  on Foundations of Software Engineering}, pages 155--165. ACM, 2014.
+
 \bibitem[RSF{\etalchar{+}}15]{rastogi2015safe}
 Aseem Rastogi, Nikhil Swamy, C{\'e}dric Fournet, Gavin Bierman, and Panagiotis
   Vekris.
