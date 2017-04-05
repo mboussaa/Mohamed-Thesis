@@ -204,12 +204,41 @@ The experimental results show that it is possible to improve the performance of 
 
 \section{Testing code generators}
 \subsection{Testing functional properties}
+ 
+Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back}.
+
+In case of model-based software development, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model.
+
+As an example, Conrad et al.\cite{conrad2010code} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
+
+CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). This procedure is also known as equivalence, comparative, or back-to-back testing approach\cite{vouk1990back,mckeeman1998differential}.
+
+In fact, each individual model-to-code translation is followed by a verification phase to assess that the input Simulink model used for code generation and the output (i.e., the object code derived from the model via code generation and compilation) produce the same numerical results when stimulated with identical inputs. 
+
+In their equivalence testing approach, they use to run the model used for code generation using simulation and the generated code with the same input stimuli (test vectors) followed by a numerical comparison of the outputs (result vectors).
+
+Then, they check whether or not the semantics of the model have been preserved during code generation, compilation and linking, by comparing the result vectors, which are the outputs resulting from stimulation with identical test vectors of the model and the generated code.
+ 
+More precisely, the simulation results should be similar to the execution results. However, when defining the result vector comparison, they tolerate limited differences between both results. They argue that some factors between simulation and execution may cause a small difference between both executions such as limited precision of floating point numbers, target optimized code constructs, quantization effects when using fixed point math and compiler dependent behavior. 
+Thus, they define an application-dependent threshold. So, two result vectors are considered sufficiently similar when their difference is less than or equal to the threshold value.
+
+They illustrate the CGV-based translation validation in the context of embedded automative software by using Simulink and Real-Time Workshop Embedded Coder for verification.
 
 
-Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code. Stuermer et al.~\cite{stuermer2007systematic} present a systematic test approach for model-based code generators. They investigate the impact of optimization rules for model-based code generation by comparing the output of the code execution with the output of the model execution. 
+
+
+
+
+
+
+Stuermer et al.~\cite{stuermer2007systematic} present a systematic test approach for model-based code generators. They investigate the impact of optimization rules for model-based code generation by comparing the output of the code execution with the output of the model execution. 
 If these outputs are equivalent, it is assumed that the code generator works as expected. 
 They evaluate the effectiveness of this approach by means of testing optimizations performed by the TargetLink code generator. 
 They have used Simulink as a simulation environment of models. 
+
+
+
+
 In \cite{jorges2014back}, authors presented a testing approach of the Genesys code generator framework which tests the translation performed by a code generator from a semantic perspective rather than just checking for syntactic correctness of the generation result. Basically,
 Genesys realizes back-to-back testing by executing both the source model as well as the generated code on top of different target platforms. Both executions produce traces and execution footprints which are then compared.
 

@@ -70,6 +70,7 @@ In this chapter, we are presenting the following contributions:
 
 \subsection{Code Generator Families}
 This paper is based on the intuition that a code generator is often a member of a family of code generators.
+
 \begin{mydef}[\textbf{Code generator family}]
 	We define a code generator family as a set of code generators that takes as input the same language/model and generate code for different target platforms.
 \end{mydef}
@@ -108,7 +109,6 @@ Proving that the generated code is functionally correct is not enough to claim t
 
 \subsection{Performance Issues of a Code Generator Family}
 
-%However, we believe that we can detect inefficient code generator, based on existing benchmarks among technical environments comparing the behavior of generated code of a large set  of programs~\cite{hundt2011loop}. 
 The potential issues that can reveal an inefficient code generator can be resumed as following:
 \begin{itemize}
 	\setlength\itemsep{0em}
@@ -117,7 +117,6 @@ The potential issues that can reveal an inefficient code generator can be resume
 	\item  the lack of use of\textbf{ a specific language feature in a target language}  that can speed or reduce the memory consumption of the resulting program. 
 \end{itemize}
 
-%Following definition 1, we can automatically compare the  performance between different versions of generated code (coming from the same source program). Based on this comparison, we can automatically detect singular resource consumptions that could reveal a code generator bug. As a result,
 
 The main difficulties with testing the non-functional properties of code generators is that we cannot just observe the execution of produced code, but we have to observe and compare the execution of generated programs with equivalent implementations (i.e., in other languages). Even if there is no explicit oracle to detect inconsistencies, we could benefit from the family of code generators to compare the behavior of several generated programs and detect singular resource consumption profiles that could reveal a code generator bug~\cite{hundt2011loop}. 
 Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues, as described above. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.

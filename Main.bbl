@@ -171,6 +171,13 @@ Tsong~Yueh Chen, DH~Huang, TH~Tse, and Zhi~Quan Zhou.
   Engineering and Knowledge Engineering (JIISIC 2004)}, pages 569--583.
   Polytechnic University of Madrid, 2004.
 
+\bibitem[CMKSP10]{conrad2010code}
+T~Erkkinen Conrad, T~Maier-Komor, G~Sandmann, and M~Pomeroy.
+\newblock Code generation verification--assessing numerical equivalence between
+  simulink models and generated code.
+\newblock In {\em 4th Conference Simulation and Testing in Algorithm and
+  Software Development for Automobile Electronics}, 2010.
+
 \bibitem[CO05]{cavazos2005automatic}
 John Cavazos and Michael~FP O'Boyle.
 \newblock Automatic tuning of inlining heuristics.
@@ -850,6 +857,11 @@ Madhavi Valluri and Lizy~K John.
 \newblock Is compiling for performance—compiling for power?
 \newblock In {\em Interaction between Compilers and Computer Architectures},
   pages 101--115. Springer, 2001.
+
+\bibitem[Vou90]{vouk1990back}
+Mladen~A Vouk.
+\newblock Back-to-back testing.
+\newblock {\em Information and software technology}, 32(1):34--45, 1990.
 
 \bibitem[WS90]{whitfield1990approach}
 Deborah Whitfield and Mary~Lou Soffa.
