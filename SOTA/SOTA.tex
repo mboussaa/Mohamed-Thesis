@@ -203,13 +203,14 @@ The experimental results show that it is possible to improve the performance of 
 
 
 \section{Testing code generators}
+When an automatic code generator is used, verification and validation approaches are needed to detect errors and gain confidence in the correct functioning of the produced code. 
 \subsection{Testing functional properties}
  
 Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back}.
 
 In case of model-based software development, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model.
 
-As an example, Conrad et al.\cite{conrad2010code} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
+As an example, Conrad et al.\cite{conrad2010code,conrad2009testing} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
 
 CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). This procedure is also known as equivalence, comparative, or back-to-back testing approach\cite{vouk1990back,mckeeman1998differential}.
 
