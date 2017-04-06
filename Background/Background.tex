@@ -4,9 +4,17 @@ This includes generative programming techniques, an overview of the software dev
 
  %It aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
 
-The chapter is structured as follows: In section 2.1, we present the problem of software diversity and hardware heterogeneity induced by the continuous software and hardware innovation. Section 2.2 aims at providing a better understanding of the 
-generative programming concept that is increasingly applied to ease code generation and implementation. In section 2.3, we present the different steps of automatic code generation involved during software development as well the different stakeholders and their roles in testing generators. We highlight then, the main tasks that we are addressing in this thesis to help generators experts/users to efficiently evaluate the generated code and tune compiler configurations.
-Section 2.4 gives an overview of the different types of code generators used in the literature and we show how testing code generators is complex. Similarly, in Section 2.5, we describe compiler optimizations and we show how complex is compiler tuning by presenting the different challenges that this task is posing.
+The chapter is structured as follows: 
+
+In section 2.1, we present the problem of software diversity and hardware heterogeneity induced by the continuous software and hardware innovation. 
+
+Section 2.2 aims at providing a better understanding of the generative programming concept that is increasingly applied to ease software development. 
+
+In section 2.3, we present the different steps of automatic code generation involved during software development as well the different stakeholders and their roles in testing generators. We highlight then, the main tasks that we are addressing in this thesis to help generators experts/users to efficiently evaluate the generated code and tune compiler configurations.
+
+Section 2.4 gives an overview of the different types of code generators used in the literature and we show how testing code generators is complex. 
+
+Similarly, in Section 2.5, we describe compiler optimizations and we show how complex is compiler tuning by presenting the different challenges that this task is posing.
 
 
 \section{Diversity in software engineering}
@@ -32,7 +40,8 @@ In this background introduction, we discuss two different dimensions of diversit
 %Today, softwares and services are running everywhere. These services are running on top of heterogeneous software and hardware platforms.
 \subsection{Software diversity}
 In today's software systems, different system variants are typically developed simultaneously to address a wide range of application contexts and customer requirements\cite{schaefer2012software}. 
-This variation is referred to \textit{software diversity}. 
+This variation induces \textit{software diversity}. 
+
 Baudry et al.\cite{baudry2015multiple} and Schaefer et al.\cite{schaefer2012software} have presented an exhaustive overview of the multiple facets of software diversity in software engineering. 
 Software diversity can emerge in different types and dimensions such as diversity of operating systems, languages, data structures, components, execution environments, etc. 
 Like all modern software systems, softwares have to be adapted to address changing requirements over time supporting system evolution, technology and market needs like considering new software platforms, new languages, new customer choices, etc.
@@ -57,7 +66,7 @@ Whatever configuration selected by the user, the application behavior will not c
 Accordingly, we propose the following definition of software diversity: 
 \textit{\textbf{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc. }}
 		
-We define as well the term \textbf{"software family"} to categorize these diverse programs that share the same behavior/functionality
+We define as well the term \textbf{"software family"} to categorize these diverse programs that share commonalities. 
 
 %The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
 

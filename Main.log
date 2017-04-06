@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  5 APR 2017 18:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  6 APR 2017 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -964,40 +964,41 @@ l.54
 .4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.70 
+l.67 
       [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 81.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 79.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
 
-Overfull \hbox (4.20886pt too wide) in paragraph at lines 87--90
+[5]
+Overfull \hbox (4.20886pt too wide) in paragraph at lines 85--88
 []\OT1/cmr/bx/n/12 Monitoring code gen-er-a-tors/-com-pil-ers be-hav-ior: \OT1/
 cmr/m/n/12 For test-ing the non-functional
  []
 
-[5]
-Overfull \hbox (14.49605pt too wide) in paragraph at lines 90--91
+
+Overfull \hbox (14.49605pt too wide) in paragraph at lines 88--89
 \OT1/cmr/m/n/12 increasing com-put-ing re-sources while plac-ing strict re-quir
 e-ments on many non-functional
  []
 
 [6]
-Overfull \hbox (10.82721pt too wide) in paragraph at lines 113--117
+Overfull \hbox (10.82721pt too wide) in paragraph at lines 111--115
 []\OT1/cmr/bx/n/12 Contribution: au-to-matic com-piler auto-tuning ac-cord-ing 
 to the non-functional
  []
 
 [7] [8]
-Overfull \hbox (8.8027pt too wide) in paragraph at lines 159--163
+Overfull \hbox (8.8027pt too wide) in paragraph at lines 157--161
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
 
 
-Overfull \hbox (4.3027pt too wide) in paragraph at lines 164--168
+Overfull \hbox (4.3027pt too wide) in paragraph at lines 162--166
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search
  []
@@ -1015,14 +1016,14 @@ Chapter 2.
 File: Background/fig/jhipster.png Graphic file (type png)
 
 <use Background/fig/jhipster.png>
-Package pdftex.def Info: Background/fig/jhipster.png used on input line 51.
+Package pdftex.def Info: Background/fig/jhipster.png used on input line 60.
 (pdftex.def)             Requested size: 420.16476pt x 140.27238pt.
  [13 <./Background/fig/jhipster.png>]
-<Background/fig/compilers.png, id=551, 532.99126pt x 177.66376pt>
+<Background/fig/compilers.png, id=550, 532.99126pt x 177.66376pt>
 File: Background/fig/compilers.png Graphic file (type png)
 
 <use Background/fig/compilers.png>
-Package pdftex.def Info: Background/fig/compilers.png used on input line 79.
+Package pdftex.def Info: Background/fig/compilers.png used on input line 88.
 (pdftex.def)             Requested size: 346.44022pt x 115.48006pt.
 
 
@@ -1033,7 +1034,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Background/fig/marriage.pdf Graphic file (type pdf)
 
 <use Background/fig/marriage.pdf>
-Package pdftex.def Info: Background/fig/marriage.pdf used on input line 115.
+Package pdftex.def Info: Background/fig/marriage.pdf used on input line 124.
 (pdftex.def)             Requested size: 380.36655pt x 145.49182pt.
  [16 <./Background/fig/marriage.pdf>]
 Missing character: There is no â in font cmr12!
@@ -1044,10 +1045,10 @@ Missing character: There is no ™ in font cmr12!
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
-Package pdftex.def Info: Background/fig/GDM.pdf used on input line 187.
+Package pdftex.def Info: Background/fig/GDM.pdf used on input line 196.
 (pdftex.def)             Requested size: 208.12508pt x 97.86446pt.
  [18]
-Overfull \hbox (11.11642pt too wide) in paragraph at lines 208--208
+Overfull \hbox (11.11642pt too wide) in paragraph at lines 217--217
 []\OT1/cmr/bx/n/17.28 An overview of the soft-ware de-vel-op-ment tool chain 
  []
 
@@ -1056,7 +1057,7 @@ File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
 Package pdftex.def Info: Background/fig/background_overview2.pdf used on input 
-line 212.
+line 221.
 (pdftex.def)             Requested size: 459.963pt x 240.74657pt.
 
 
@@ -1071,7 +1072,7 @@ id=782, 783.92876pt x 596.2275pt>
 File: Background/fig/usecase.png Graphic file (type png)
 
 <use Background/fig/usecase.png>
-Package pdftex.def Info: Background/fig/usecase.png used on input line 252.
+Package pdftex.def Info: Background/fig/usecase.png used on input line 261.
 (pdftex.def)             Requested size: 423.31523pt x 321.95805pt.
 
 
@@ -1082,7 +1083,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Background/fig/workflow.png Graphic file (type png)
 
 <use Background/fig/workflow.png>
-Package pdftex.def Info: Background/fig/workflow.png used on input line 276.
+Package pdftex.def Info: Background/fig/workflow.png used on input line 285.
 (pdftex.def)             Requested size: 277.03432pt x 199.74576pt.
 
 
@@ -2059,7 +2060,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (139 pages, 4500345 bytes).
+Output written on Main.pdf (139 pages, 4500556 bytes).
 PDF statistics:
  2794 PDF objects out of 2984 (max. 8388607)
  2218 compressed objects within 23 object streams
