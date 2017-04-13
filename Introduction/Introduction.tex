@@ -84,33 +84,26 @@ In this thesis, we use the term \textbf{"compilers"} to refer to the traditional
 In existing solutions that aim to test code generators and auto-tune compilers, we find three important challenges. Addressing these challenges, which are described below, is the objective of the present work.
 \begin{itemize}
 \item
-\textbf{Oracle problem:} One of the most common challenges in software testing is the oracle problem. A test oracle is the mechanism by which a tester can determine whether a program has failed or not.
+\textbf{Code generators testing: the oracle problem:} One of the most common challenges in software testing is the oracle problem. A test oracle is the mechanism by which a tester can determine whether a program has failed or not.
 When talking about the non-functional testing of generators, this problem becomes more challenging because it is quite hard to determine the expected output of a generator under test (e.g., memory consumption of the generated program). Determining whether these non-functional outputs correspond to a generator anomaly or not is also not obvious. That is why testing the generated code becomes very complex when the software user has no precise definition of the oracle he would define. 
 To alleviate the test oracle problem, techniques such as metamorphic testing\footnote{\url{https://en.wikipedia.org/wiki/Metamorphic_testing}} are widely used to test programs without defining an explicit oracle. Instead, it employs high-level metamorphic relations to verify the outputs automatically.
 So, which kind of test oracles can we define? How can we automatically detect inconsistencies? All these questions pose important challenges in testing generators.
 
 \item
-\textbf{Compiler optimizations exporation} The current innovations in science and industry demand ever-increasing computing resources while placing strict requirements on many non-functional properties such as system performance, power consumption, size, reliability, etc. In order to deliver satisfactory levels of performance on different processor architectures, compiler creators often provide a broad collection of optimizations that can be applied by compiler users in order to improve the quality of generated code. However, to explore the large optimization space, users have to evaluate the effect of optimizations according to a specific performance objective/trade-off. Thus, constructing a good set of optimization levels for a specific system architecture/target application becomes challenging and time-consuming problem. Due to the complex interactions and the unknown effect of optimizations, users find difficulties to choose the adequate compiler configuration that satisfy a specific non-functional requirement.
+\textbf{Auto-tuning compilers: exploring the large optimizations search space:} The current innovations in science and industry demand ever-increasing computing resources while placing strict requirements on many non-functional properties such as system performance, power consumption, size, reliability, etc. In order to deliver satisfactory levels of performance on different processor architectures, compiler creators often provide a broad collection of optimizations that can be applied by compiler users in order to improve the quality of generated code. However, to explore the large optimization space, users have to evaluate the effect of optimizations according to a specific performance objective/trade-off. Thus, constructing a good set of optimization levels for a specific system architecture/target application becomes challenging and time-consuming problem. Due to the complex interactions and the unknown effect of optimizations, users find difficulties to choose the adequate compiler configuration that satisfies a specific non-functional requirement.
 
 \item
-\textbf{Monitoring code generators/compilers behavior:} For testing the non-functional properties of code generators and compilers, developers generally use to compile, deploy and execute generated software artifacts on different execution platforms. Then, they have to collect and compare information about the performance and efficiency of the generated code. Afterwards, they report issues related to the code generation process such as incorrect typing, memory management leaks, etc.
-Currently, there is a lack of automatic solutions to check the performance issues such as the inefficiency (high memory/CPU consumption) of the generated code. In fact, developers often use manually several platform-specific profilers, debuggers, and monitoring tools\cite{guana2014chaintracker,delgado2004taxonomy} in order to find some inconsistencies or bugs during code execution. Ensuring the quality of generated code in this case can refer to several non-functional properties such as code size, resource or energy consumption, execution time, among others\cite{pan2006fast}. Due to the heterogeneity of execution platforms and hardwares, collecting information about the non-functional properties of generated code becomes very hard and time-consuming task since developers have to analyze and verify the generated code for different target platforms using platform-specific tools. 
-
-
-
-
-
+\textbf{Runtime monitoring of generated code: handle the heterogeneity of execution platforms and hardwares:} To evaluate the properties related to the resource usage of the generated code (by compilers or code generators), developers generally use to compile, deploy and execute the generated software artifacts on different execution platforms. Then, they have to collect and compare the information about the performance and efficiency of the generated code. Afterwards, they report issues related to the code generation process such as incorrect typing, memory management leaks, etc.
+Currently, there is a lack of automatic solutions to check the performance issues such as the inefficiency (high memory/CPU consumption) of the generated code. In fact, developers often use manually several platform-specific profilers, debuggers, and monitoring tools\cite{guana2014chaintracker,delgado2004taxonomy} in order to find some inconsistencies or bugs during code execution. Ensuring the quality of the generated code in this case can refer to several non-functional properties such as code size, resource or energy consumption, execution time, among others\cite{pan2006fast}. Due to the heterogeneity of execution platforms and hardwares, collecting information about the resource usage of generated code becomes very hard and time-consuming task since developers have to analyze and verify the generated code for different target platforms using platform-specific tools. 
 
 %while satisfying all the non-functional requirements for a broad range of programs and architectures
- 
-
 
 \end{itemize}
-The challenges this research tackle can be summarized in the following research questions. These questions arise from the analysis of the drawbacks presented in the previous paragraphs.
+The challenges this research tackle can be summarized in the following research questions. These questions arise from the analysis of the challenges presented in the previous paragraphs.
 
-\textit{RQ1.} How can we help compiler users to automatically choose the adequate compiler configuration that satisfy specific non-functional requirements?
+\textit{RQ1.} How can we help code generator suppliers/users to automatically detect non-functional inconsistencies in code generators?
 
-\textit{RQ2.} How can we help code generator creators to automatically detect inconsistencies and non-functional errors within code generators?
+\textit{RQ2.} How can we help compiler users to automatically choose the adequate compiler configuration that satisfies a specific non-functional requirement?
 
 \textit{RQ3.} How can we provide efficient support for resource consumption monitoring and management?
 
@@ -118,18 +111,18 @@ The challenges this research tackle can be summarized in the following research 
 \section{Contributions}
 This thesis establishes three core contributions. They are briefly described in the rest of this section.
 
-\textbf{Contribution: automatic compiler auto-tuning according to the non-functional requirements.}
-As we stated earlier, the huge number of compiler options requires the application of a search method to explore the large design space. Thus, we apply, in this contribution, a search-based meta-heuristic called Novelty search for compiler optimizations exploration. This approach helps compiler users to effectively auto-tune compilers according to performance and resource usage properties and that for a specific hardware architecture. 
-We evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler.
-Our experimental results show that our approach is able to auto-tune compilers according to user requirements and construct optimizations that yield to better performance results than standard optimization levels. We also demonstrate that our approach can be used to automatically construct optimization levels that represent optimal trade-offs between multiple non-functional properties such as execution time and resource usage requirements.
-
-\textbf{Contribution: automatic detection of inconsistencies within code generators families.}
+\textbf{Contribution I: Automatic detection of inconsistencies within code generators families.}
 In this contribution, we propose an approach for testing code generators families. This approach tries to automatically find real issues in existing code generators. 
 It is based on the intuition that a code generator is often a member of a family of code generators. The availability of multiple generators with comparable functionality enables us to apply the idea of differential testing\cite{mckeeman1998differential} to detect code generator issues.
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in this family of code generators.
 In particular, we show that we could find two kinds of errors during code transformation: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
 
-\textbf{Contribution: a microservice-based infrastructure for runtime deployment and monitoring of generated code.}
+\textbf{Contribution II: Automatic compiler auto-tuning according to the non-functional requirements.}
+As we stated earlier, the huge number of compiler options requires the application of a search method to explore the large design space. Thus, we apply, in this contribution, a search-based meta-heuristic called Novelty search for compiler optimizations exploration. This approach helps compiler users to effectively auto-tune compilers according to performance and resource usage properties and that for a specific hardware architecture. 
+We evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler.
+Our experimental results show that our approach is able to auto-tune compilers according to user requirements and construct optimizations that yield to better performance results than standard optimization levels. We also demonstrate that our approach can be used to automatically construct optimization levels that represent optimal trade-offs between multiple non-functional properties such as execution time and resource usage requirements.
+
+\textbf{Contribution III: A microservice-based infrastructure for runtime deployment and monitoring of generated code.}
 Finally, we propose a micro-service infrastructure to ensure the deployment and monitoring of different variants of generated code. 
 It also automates the process of code compilation, deployment and execution in order to provide to software developers more facilities to test the generated code. 
 This isolated and sand-boxing environment is based on system containers, as execution platforms, to provide a fine-grained understanding and analysis of resource usage in terms of CPU and memory. This approach constitutes the playground for testing and evaluating the generated code from either compilers or code generators. This contribution answers mainly \textit{RQ3} but the same infrastructure is used to validate the carried experiments in \textit{RQ1} and \textit{RQ2}.

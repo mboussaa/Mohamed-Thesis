@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  13 APR 2017 11:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  13 APR 2017 11:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,26 +979,14 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
 
-[5]
-Overfull \hbox (4.20886pt too wide) in paragraph at lines 96--98
-[]\OT1/cmr/bx/n/12 Monitoring code gen-er-a-tors/-com-pil-ers be-hav-ior: \OT1/
-cmr/m/n/12 For test-ing the non-functional
- []
-
-[6]
-Overfull \hbox (10.82721pt too wide) in paragraph at lines 121--125
-[]\OT1/cmr/bx/n/12 Contribution: au-to-matic com-piler auto-tuning ac-cord-ing 
-to the non-functional
- []
-
-[7] [8] [9]
-Overfull \hbox (8.8027pt too wide) in paragraph at lines 167--171
+[5] [6] [7] [8] [9]
+Overfull \hbox (8.8027pt too wide) in paragraph at lines 160--164
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
 
 
-Overfull \hbox (4.3027pt too wide) in paragraph at lines 172--176
+Overfull \hbox (4.3027pt too wide) in paragraph at lines 165--169
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search
  []
@@ -2060,7 +2048,7 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Main.pdf (140 pages, 4502727 bytes).
+Output written on Main.pdf (140 pages, 4502850 bytes).
 PDF statistics:
  2798 PDF objects out of 2984 (max. 8388607)
  2221 compressed objects within 23 object streams
