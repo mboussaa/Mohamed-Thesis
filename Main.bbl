@@ -873,6 +873,12 @@ Xuejun Yang, Yang Chen, Eric Eide, and John Regehr.
 \newblock Finding and understanding bugs in c compilers.
 \newblock In {\em ACM SIGPLAN Notices}, volume~46, pages 283--294. ACM, 2011.
 
+\bibitem[ZHT{\etalchar{+}}04]{zhou2004metamorphic}
+Zhi~Quan Zhou, DH~Huang, TH~Tse, Zongyuan Yang, Haitao Huang, and TY~Chen.
+\newblock Metamorphic testing and its applications.
+\newblock In {\em Proceedings of the 8th International Symposium on Future
+  Software Technology (ISFST 2004)}, pages 346--351, 2004.
+
 \bibitem[ZSH09]{zhong2009tuning}
 Shengtong Zhong, Yang Shen, and Fei Hao.
 \newblock Tuning compiler optimization options via simulated annealing.
