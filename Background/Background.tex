@@ -6,15 +6,15 @@ This includes generative programming techniques, an overview of the software dev
 
 The chapter is structured as follows: 
 
-In section 2.1, we present the problem of software diversity and hardware heterogeneity induced by the continuous software and hardware innovation. 
+In section 2.1, we present the problem of software diversity and hardware heterogeneity carried out by the continuous innovation in science and technology.
 
 Section 2.2 aims at providing a better understanding of the generative programming concept that is increasingly applied to ease software development. 
 
-In section 2.3, we present the different steps of automatic code generation involved during software development as well the different stakeholders and their roles in testing generators. We highlight then, the main tasks that we are addressing in this thesis to help generators experts/users to efficiently evaluate the generated code and tune compiler configurations.
+In section 2.3, we present the different steps of automatic code generation involved during software development as well the different stakeholders and their roles in testing generators. We highlight then, the main activities that the software developer goes through from the software design until the release of the final software product.
 
-Section 2.4 gives an overview of the different types of code generators used in the literature and we show how testing code generators is complex. 
+Section 2.4 gives an overview of the different types of code generators used in the literature and we show the complexity of testing code generators.. 
 
-Similarly, in Section 2.5, we describe compiler optimizations and we show how complex is compiler tuning by presenting the different challenges that this task is posing.
+Similarly, in Section 2.5, we describe some compiler optimizations and we illustrate the compiler auto-tuning complexity by presenting the different challenges that this task is posing.
 
 
 \section{Diversity in software engineering}
@@ -23,7 +23,7 @@ The history of software development shows a continuous increase of complexity in
 Generally, heterogeneity may occur in terms of different system complexities, diverse programming languages and platforms, types of systems, development processes and distribution among development sites\cite{ghazi2015heterogeneous}.
 %System heterogeneity we are discussing in this thesis is the software and hardware diversity.
 System heterogeneity is often led by software and hardware diversity.
-Diversity emerges as a critical concern that spans all activities in software engineering, from design to operation\cite{acher2014software}. It appears in different domains such as adaptive systems, distributed and heterogeneous systems, Internet of Things, Internet of Services, etc.
+Diversity emerges as a critical concern that spans all activities in software engineering, from design to operation\cite{acher2014software}. It appears in different areas such as adaptive systems, distributed and heterogeneous systems, Internet of Things, Internet of Services, etc.
 
 However, software and hardware diversity leads to a greater risk for system failures due to the continuous change in configurations and system specifications.
 As a matter of a fact, effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important.
@@ -40,26 +40,36 @@ In this background introduction, we discuss two different dimensions of diversit
 %Today, softwares and services are running everywhere. These services are running on top of heterogeneous software and hardware platforms.
 \subsection{Software diversity}
 In today's software systems, different software variants are typically developed simultaneously to address a wide range of application contexts and customer requirements\cite{schaefer2012software}. 
-This variation induces high \textit{software diversity}. 
+Therefore, software is built using different approaches and languages. 
+
+In order to understand the skills and capabilities required to develop softwares on top of different classes of devices, we queried a popular open-source repository \textit{GitHub} to evaluate the heterogeneity of existing programming languages. 
+
+The following sets of keywords were used: \textit{1) Cloud:} server with virtually unlimited resources, \textit{2) Microcontroller:} resource constrained node (few KB RAM, few MHz),  \textit{3) Mobile:} an intermediate node, typically a smartphone,  \textit{4) Internet of Things:} Internet-enabled devices,  \textit{5) Cyber Physical System}, and  \textit{6) Embedded systems}, as a large and important part of the service implementations will run as close as possible to physical world, embedded into sensors, devices and gateways.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=1.]{Background/fig/github}
+	\caption{Popularity of 10 programming languages for the different areas related to software development}
+\end{figure}
+
+Figure 2.1 presents the results of those queries. The queried keywords are presented on the x-axis together with the number of matches for that keyword. For each keyword, the y-axis represents the popularity (in per cent of the total number of matches) of each of the 10 most popular programming languages that we encountered.
+
+
+This simple study indicates that no programming language is popular across the different areas. A general trend indicates that Java and JavaScript (and to some extent, Python and Ruby) are popular in cloud and mobile, whereas C (and to some extent, C++) is a clear choice for developers targeting embedded and microcontroller-based systems. Other languages do not score more 10\% for any of the keywords. 
+For all keywords except Cloud , the combined popularity of Java, JavaScript and C/C++ (i.e, the sum
+of the percentages) is above 70\%. For Cloud, we observe a large use of Python, Ruby also being very popular, so the combined popularity of Java, JavaScript and C/C++ is only 50\%. It is also worth noticing that the most popular language for a given keyword scores very poorly (less than 5\%) for at least another keyword. While it might appear that a combination of C/C++, JavaScript and Java should be able to cover all the areas, in practice it does not exclude the need for other programming languages. For example, the Fibaro Home Center 2 (a gateway for home automation based on the Z-Wave protocol) uses Lua as scripting language to define automation rules. Another example is the BlueGiga BlueTooth Smart Module, which can be scripted using BGScript, a proprietary scripting language. This shows that each part of an infrastructure might require the use of a niche language, middleware or library to be exploited to its full potential.
+
+
+This variation of programming languages for the different kinds devices induces a high \textit{software diversity}. 
 
 Baudry et al.\cite{baudry2015multiple} and Schaefer et al.\cite{schaefer2012software} have presented an exhaustive overview of the multiple facets of software diversity in software engineering. 
-Software diversity can emerge in different types and dimensions such as diversity of operating systems, languages, data structures, components, execution environments, etc. 
+Software diversity can emerge in different types and dimensions such as diversity of operating systems, programming languages, data structures, components, execution environments, etc. 
 Like all modern software systems, softwares have to be adapted to address changing requirements over time supporting system evolution, technology and market needs like considering new software platforms, new languages, new customer choices, etc.
 %We discuss in this section some of them which are the most relevant for this thesis.
 
-As an example, \cite{schaefer2012software} survey software diversity by means of software product lines (SPL). This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
 
-JHipster\footnote{https://jhipster.github.io/} is also another concrete example that shows how software diversity is managed in industry production. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
-The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
-For example, Figure 2.1 shows a feature model of some configuration examples that the user would select. When building the applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
-Using this feature model \textbf{more than 10k diverse architecture types} of project can be selected which means that 10k program variants may be generated depending on the different criteria.
 
-Whatever configuration selected by the user, the application behavior will not change and the generated application will share a similar architecture and fundamental code-base.
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/jhipster}
-	\caption{Example of JHipster feature model}
-\end{figure}
+
 
 
 
@@ -75,8 +85,8 @@ We define as well the term \textbf{"software family"} to categorize these divers
 On the hardware side, modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of devices that provide a wide diversity of capabilities and services to the end users.
 These heterogeneous services run in different environments ranging from cloud servers to resource-constrained devices.
 Hardware heterogeneity comes from the continuous innovation of hardware technologies to support new system configurations and architectural design (e.g., addition of new features, a change in the processor architecture, new hardware is made available, switch to low bandwidth wireless communication, etc). 
-For example, since the early 1970s, the increase in capacity of microprocessors has followed Moore's law for Intel processors. Indeed, we observe that the number of components (transistors) that can be fitted onto a chip doubles every year, increasing the performance and energy efficiency.
-For instance, Intel Core 2 Duo processor was introduced in 2006 with 291 millions of transistors and 2.93 GHz clock speed. One year later, Intel has introduced the Core 2 Quad processors which came up with 2.66 GHz clock speed and the double number of transistors introduced in 2006 with 582 millions of transistors.
+For example, until February 2006\footnote{\url{https://arstechnica.com/information-technology/2016/02/moores-law-really-is-dead-this-time/}}, the increase in capacity of microprocessors has followed the famous Moore's law\footnote{\url{https://en.wikipedia.org/wiki/Moore\%27s_law}} for Intel processors. Indeed, the number of components (transistors) that can be fitted onto a chip doubles every two years, increasing the performance and energy efficiency.
+For instance, Intel Core 2 Duo processor was introduced in 2006 with 291 millions of transistors and 2.93 GHz clock speed. Two years later, Intel has introduced the Core 2 Quad processors which came up with 2.66 GHz clock speed and the double number of transistors introduced in 2006 with 582 millions of transistors.
 
 So, given the complexity of new emerging processors architecture (x86, x64, etc) and CPU manufacturers such as ARM, AMD and Intel, some of the questions that developers have to answer when facing hardware heterogeneity: 
 Is it easy to deliver satisfactory levels of performance on modern processors? How is it possible to produce machine code that can exploit efficiently the new hardware changes? 
@@ -94,6 +104,16 @@ A compiler back end is typically responsible for code optimizations and code gen
 For example, one important option for compiler flags is \textit{-march}. It tells the compiler what code it should produce for the system's processor architecture (or arch); it tells GCC that it should produce code for a certain kind of CPU. Using \textit{-march=native} enables all the optimization flags that are applicable for the native system's CPU, with all its capabilities, features, instruction sets, and so on. There exits many other optimization options for the target CPU like \textit{--with-arch=i7}, \textit{--with-cpu=corei7}, etc.
 Generally, each time a new family of processors is released, compiler developers release new compiler version with more sophisticated optimization options for the target platform. For example, old compilers produce only 32-bit programs. These programs still run on new 64-bit computers, but they may not exploit all processor capabilities (e.g. they will not use the new instructions that are offered by x64 CPU architecture). For instance, the current x86-64 assembly language can still perform arithmetic operations on 32-bit registers using instructions like addl, subl, andl, orl, etc, with the l standing for "long", which is 4 bytes/32 bits. 64-bit arthimetic is done with addq, subq, andq, orq, etc, with q standing for "quadword", which is 8 bytes/64 bits.
 
+
+Today's CPUs are highly parallel processors with different levels of parallelism.
+We find parallelism everywhere from the parallel execution units in a CPU core, up to the SIMD
+(Single Instruction, Multiple Data) instruction set and the parallel execution of multiple
+threads. 
+
+Modern computers can do many things at once. One of the commonly applied code optimizations by modern compilers in parallel computing is vectorization. It constitutes the process of converting an algorithm from a scalar implementation, which processes a single pair of operands at a time, to a vector implementation, which processes one operation on multiple pairs of operands at once (series of adjacent values).
+
+Programmers can exploit vectorization to speedup certain parts of their code. One major research topic in computer science is the search for methods of automatic vectorization: seeking methods that would allow a compiler to convert scalar algorithms into vectorized algorithms without human intervention.
+
 In short, software developers need to deal with these compiler configurations to truly take advantage of the new chip with more advanced optimizations for the new hardware chip.
 
 
@@ -109,15 +129,11 @@ In short, software developers need to deal with these compiler configurations to
 %Diversity increases system complexity and leads to a greater risk for system failures. Efficient validation and verification methods are, thus, essential to guarantee qualities of diverse systems, such as security, consistency, correctness or performance
 
 \subsection{Matching software diversity to heterogeneous hardware: the marriage}
-
-
-
 The hardware and software communities are both facing significant change and major challenges. Hardware and software are pulling us in opposite directions. Figure 2.3 shows an overview of the challenges that both communities are facing.  
 
 On the one hand, software is facing challenges of a similar magnitude, with major changes in the way software is deployed, is sold, and interacts with hardware. 
 Software diversity, as discussed in section 2.1.1, is driven by software innovation, driving the software development toward highly configurable and complex systems. This complexity is carried by the huge number of software technologies, customer configurations, execution environments, programming languages, etc. This explosion of configurations that software is facing makes the activity of testing and validation very difficult and time consuming. 
 As a consequence, softwares become higher and higher level, managing complexity and gluing lot of pieces together to give programmers the right abstraction for how things really work and how the data is really represented. 
-For example, model-driven software engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
 
 \begin{figure}[h]
 	\center
@@ -132,14 +148,17 @@ Meanwhile, hardware specialization for every single application is not a sustain
 %So, what the software community can do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
 
 Matching software to hardware is ensured by providing the adequate software languages and compilers that have to produce efficient code to the target hardware (relation 1 in Figure 2.3). As consequence, people who are writing compilers have to continuously enhance the way the executables are produced by releasing new compiler versions to support new hardware changes (i.e., new optimization flags, instruction sets).
-For example, Hou et al.\cite{hou2010spap} have presented SPAP, a container-based programming language for heterogeneous many-core systems. This language allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. SPAP comes with a set of compilers and runtime environments to such hardware processors. Chafi et al.\cite{chafi2010language,chafi2011domain} proposed leveraging domain specific languages (DSLs) to map high-level application code to
-heterogeneous devices. They showed that the presented DSL can achieve high performance on heterogeneous parallel hardware with no modification required to the
-source code. They compared this language performance to MATLAB code and they showed that it outperformed it in nearly all cases.
 
-To avoid hardware heterogeneity, software developers use managed languages such as JAVA, Scala, C\#, etc to favor software portability. Instead of compiling to native machine instruction set, these languages are compiled into an intermediate language or IL, which is similar to a binary assembly language. These instructions are executed by a JVM, or by .NET's CLR virtual machine, which effectively translates them to native binary instructions specific to the CPU architecture and/or OS of the machine.
+For example, Hou et al.\cite{hou2010spap} have presented SPAP, a container-based programming language for heterogeneous many-core systems. This language allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. SPAP comes with a set of compilers and runtime environments to such hardware processors. Chafi et al.\cite{chafi2010language,chafi2011domain} proposed leveraging domain specific languages (DSLs) to map high-level application code to
+heterogeneous devices. Results show that the presented DSL can achieve high performance on heterogeneous parallel hardware with no modification required to the source code. They compared this language performance to MATLAB code and they showed that it outperformed it in nearly all cases.
+
+To avoid hardware heterogeneity, software developers use for example managed languages such as JAVA, Scala, C\#, etc to favor software portability. Instead of compiling to native machine instruction set, these languages are compiled into an intermediate language or IL, which is similar to a binary assembly language. These instructions are executed by a JVM, or by .NET's CLR virtual machine, which effectively translates them to native binary instructions specific to the CPU architecture and/or OS of the machine.
+
 By using managed code and compiling in this managed execution environment, memory management such as a garbage collector, type safety checking, and destruction of unneeded objects are handled internally within this sandbox runtime environment. Thus, developers focus on the business logic of applications to provide more secure and stable software without taking too much care of the hardware heterogeneity.
 
-In contrast, devices may impose the support of specific programming languages (relation 2 in Figure 2.3). In mobile development for example, Java is needed to implement Android applications and Objective-C is needed to develop iOS products. This means that developers need to create multiple clients in this heterogeneous environment. 
+However, using managed languages has drawbacks. It includes slower startup speed (the managed code must be JIT compiled by the VM), the managed code can be slower than native code, and generally increased use of system resources on any machine that is executing the code.
+
+In contrast, devices in turn, may impose the support of specific programming languages (relation 2 in Figure 2.3). In mobile development for example, Java is needed to implement Android applications and Objective-C is needed to develop iOS products. This means that developers need to create multiple clients in this heterogeneous environment. 
 %We can see also that C/C++ are the most used languages for targeting embedded systems.
 
 %Well, it's like this. Every language is created with a single target platform in mind ( except haXe of course, it can target multiple platforms). For example, Java is compiled into Java bytecode which is executed in the Java Platform ( Java Runtime Library). C/C++ is used to built  applications executed by the OS. So, the target platform of C/C++ is a specific OS. C# is built for the Microsoft .NET framework. Javascript is built for the web platform.
@@ -206,6 +225,24 @@ Some commonly benefits of such software engineering process are:
 \item It increases the decomposition and modularization of the system
 \item It handles the heterogeneity of target software platforms by automatically generating code
 \end{itemize}
+
+
+For example, model-driven software engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
+
+As an example, Schaefer et al.\cite{schaefer2012software} surveys software diversity by means of software product lines (SPL). This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
+
+JHipster\footnote{https://jhipster.github.io/} is also another concrete example of generative programming application in industry. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
+The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
+For example, Figure 2.5 shows a feature model of some configuration examples that the user would select. When building the applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
+Using this feature model, \textbf{more than 10k diverse architecture types} of project can be selected which means that 10k program variants may be generated depending on the different criteria.
+
+Whatever configuration selected by the user, the application behavior will not change and the generated application will share a similar architecture and fundamental code-base.
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/jhipster}
+	\caption{Example of JHipster feature model}
+\end{figure}
+
 
 
 \textbf{Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by wether code generators or compilers) on the resource usage requirements. 
