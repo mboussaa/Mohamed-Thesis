@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Testing workflow}{27}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Types of code generators}{28}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Why testing code generators is complex?}{30}{subsection.2.4.3}
-\contentsline {section}{\numberline {2.5}Compilers auto-tuning}{30}{section.2.5}
+\contentsline {section}{\numberline {2.5}Compilers auto-tuning}{31}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Code optimizations}{31}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Why compilers auto-tuning is complex?}{32}{subsection.2.5.2}
 \contentsline {section}{\numberline {2.6}Summary: Testing challenges}{33}{section.2.6}
@@ -34,85 +34,85 @@
 \contentsline {section}{\numberline {3.2}Compilers auto-tuning techniques}{42}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Iterative compilation}{42}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Implementation of iterative compilation system}{43}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Iterative compilation search techniques}{44}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}Iterative compilation search techniques}{45}{subsection.3.2.3}
 \contentsline {subsubsection}{Auto-tuning: a mono objective optimization}{45}{section*.4}
 \contentsline {subsubsection}{Escaping local optimum}{46}{section*.5}
-\contentsline {subsubsection}{Phase ordering problem}{47}{section*.6}
+\contentsline {subsubsection}{Phase ordering problem}{48}{section*.6}
 \contentsline {subsubsection}{Evaluating iterative optimization across multiple data sets}{49}{section*.7}
-\contentsline {subsubsection}{Conflicting objectives: a multi-objective optimization}{49}{section*.8}
-\contentsline {subsubsection}{Predicting optimizations: a machine learning optimization}{51}{section*.9}
+\contentsline {subsubsection}{Conflicting objectives: a multi-objective optimization}{50}{section*.8}
+\contentsline {subsubsection}{Predicting optimizations: a machine learning optimization}{52}{section*.9}
 \contentsline {subsubsection}{Summary: auto-tuning compiler techniques}{53}{section*.10}
 \contentsline {section}{\numberline {3.3}Container-based testing techniques}{53}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{54}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Runtime monitoring using Docker}{55}{subsection.3.3.2}
 \contentsline {section}{\numberline {3.4}Summary \& limitations of the state-of-th-art}{57}{section.3.4}
 \contentsline {part}{II\hspace {1em}Contributions}{58}{part.2}
-\contentsline {chapter}{\numberline {4}NOTICE: An approach for auto-tuning compilers}{61}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introduction}{63}{section.4.1}
-\contentsline {section}{\numberline {4.2}Motivation}{65}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Compiler Optimizations}{65}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Example: GCC Compiler}{67}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Evolutionary Exploration of Compiler Optimizations }{68}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Novelty Search Adaptation}{68}{subsection.4.3.1}
-\contentsline {subsubsection}{Optimization Sequence Representation}{70}{section*.12}
-\contentsline {subsubsection}{Novelty Metric}{71}{section*.13}
-\contentsline {subsection}{\numberline {4.3.2}Novelty Search For Multi-objective Optimization}{72}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Evaluation}{72}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Research Questions}{72}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Experimental Setup}{73}{subsection.4.4.2}
-\contentsline {subsubsection}{Programs Used in the Empirical Study}{73}{section*.14}
-\contentsline {subsubsection}{Parameters Tuning}{74}{section*.15}
-\contentsline {subsubsection}{Evaluation Metrics Used}{75}{section*.16}
-\contentsline {subsubsection}{Setting up Infrastructure}{76}{section*.17}
-\contentsline {subsection}{\numberline {4.4.3}Experimental Methodology and Results}{76}{subsection.4.4.3}
-\contentsline {subsubsection}{RQ1. Mono-objective SBSE Validation}{77}{section*.18}
-\contentsline {paragraph}{Method}{77}{section*.19}
-\contentsline {paragraph}{Results}{78}{table.4.4}
-\contentsline {subsubsection}{RQ2. Sensitivity}{79}{section*.21}
-\contentsline {paragraph}{Method}{79}{section*.22}
-\contentsline {paragraph}{Results}{79}{section*.23}
-\contentsline {subsubsection}{RQ3. Impact of optimizations on resource usage}{80}{section*.24}
-\contentsline {paragraph}{Method 1}{81}{section*.25}
-\contentsline {paragraph}{Results 1}{81}{section*.26}
-\contentsline {paragraph}{Method 2}{82}{section*.27}
-\contentsline {paragraph}{Results 2}{83}{figure.4.7}
-\contentsline {subsubsection}{RQ4. Trade-offs between non-functional properties}{85}{section*.29}
-\contentsline {paragraph}{Method}{85}{section*.30}
-\contentsline {paragraph}{Results}{85}{section*.31}
-\contentsline {subsection}{\numberline {4.4.4}Discussions}{87}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Threats to Validity}{88}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Tool Support Overview}{88}{subsection.4.4.6}
-\contentsline {section}{\numberline {4.5}Conclusion}{90}{section.4.5}
-\contentsline {chapter}{\numberline {5}Automatic non-functional testing of code generators families}{92}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introduction}{93}{section.5.1}
-\contentsline {section}{\numberline {5.2}Motivation}{95}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Code Generator Families}{95}{subsection.5.2.1}
-\contentsline {paragraph}{a. Haxe.}{95}{section*.32}
-\contentsline {paragraph}{b. ThingML.}{95}{section*.33}
-\contentsline {paragraph}{c. TypeScript.}{96}{section*.34}
-\contentsline {subsection}{\numberline {5.2.2}Functional Correctness of a Code Generator Family}{96}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Performance Evaluation of a Code Generator Family}{96}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Performance Issues of a Code Generator Family}{97}{subsection.5.2.4}
-\contentsline {section}{\numberline {5.3}Approach Overview}{98}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Non-Functional Testing of a Code Generator Family: a Common Process}{98}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}An Infrastructure for Non-functional Testing Using System Containers}{99}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Technical Implementation}{100}{subsection.5.3.3}
-\contentsline {subsubsection}{System Containers as Execution Platforms}{101}{section*.35}
-\contentsline {subsubsection}{Runtime Testing Components}{102}{section*.36}
-\contentsline {paragraph}{Monitoring Component}{102}{section*.37}
-\contentsline {paragraph}{Back-end Database Component}{103}{section*.38}
-\contentsline {paragraph}{Front-end Visualization Component}{104}{section*.39}
-\contentsline {section}{\numberline {5.4}Evaluation}{105}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Experimental Setup}{105}{subsection.5.4.1}
-\contentsline {subsubsection}{Code Generators Under Test: Haxe Compilers}{105}{section*.40}
-\contentsline {subsubsection}{Cross-platform Benchmark}{105}{section*.41}
-\contentsline {subsubsection}{Evaluation Metrics Used}{107}{section*.42}
-\contentsline {subsubsection}{Setting up Infrastructure}{107}{section*.43}
-\contentsline {subsection}{\numberline {5.4.2}Experimental Results}{109}{subsection.5.4.2}
-\contentsline {subsubsection}{Evaluation Using the Standard Deviation}{109}{section*.44}
-\contentsline {subsubsection}{Analysis}{110}{section*.45}
-\contentsline {subsection}{\numberline {5.4.3}Threats to Validity}{111}{subsection.5.4.3}
-\contentsline {section}{\numberline {5.5}Conclusion}{112}{section.5.5}
+\contentsline {chapter}{\numberline {4}Automatic non-functional testing of code generators families}{61}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{62}{section.4.1}
+\contentsline {section}{\numberline {4.2}Motivation}{64}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Code Generator Families}{64}{subsection.4.2.1}
+\contentsline {paragraph}{a. Haxe.}{64}{section*.12}
+\contentsline {paragraph}{b. ThingML.}{64}{section*.13}
+\contentsline {paragraph}{c. TypeScript.}{65}{section*.14}
+\contentsline {subsection}{\numberline {4.2.2}Functional Correctness of a Code Generator Family}{65}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Performance Evaluation of a Code Generator Family}{65}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Performance Issues of a Code Generator Family}{66}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}Approach Overview}{67}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Non-Functional Testing of a Code Generator Family: a Common Process}{67}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}An Infrastructure for Non-functional Testing Using System Containers}{68}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Technical Implementation}{69}{subsection.4.3.3}
+\contentsline {subsubsection}{System Containers as Execution Platforms}{70}{section*.15}
+\contentsline {subsubsection}{Runtime Testing Components}{71}{section*.16}
+\contentsline {paragraph}{Monitoring Component}{71}{section*.17}
+\contentsline {paragraph}{Back-end Database Component}{72}{section*.18}
+\contentsline {paragraph}{Front-end Visualization Component}{73}{section*.19}
+\contentsline {section}{\numberline {4.4}Evaluation}{74}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Experimental Setup}{74}{subsection.4.4.1}
+\contentsline {subsubsection}{Code Generators Under Test: Haxe Compilers}{74}{section*.20}
+\contentsline {subsubsection}{Cross-platform Benchmark}{74}{section*.21}
+\contentsline {subsubsection}{Evaluation Metrics Used}{76}{section*.22}
+\contentsline {subsubsection}{Setting up Infrastructure}{76}{section*.23}
+\contentsline {subsection}{\numberline {4.4.2}Experimental Results}{78}{subsection.4.4.2}
+\contentsline {subsubsection}{Evaluation Using the Standard Deviation}{78}{section*.24}
+\contentsline {subsubsection}{Analysis}{79}{section*.25}
+\contentsline {subsection}{\numberline {4.4.3}Threats to Validity}{80}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Conclusion}{81}{section.4.5}
+\contentsline {chapter}{\numberline {5}NOTICE: An approach for auto-tuning compilers}{85}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{87}{section.5.1}
+\contentsline {section}{\numberline {5.2}Motivation}{89}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Compiler Optimizations}{89}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Example: GCC Compiler}{91}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Evolutionary Exploration of Compiler Optimizations }{92}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Novelty Search Adaptation}{92}{subsection.5.3.1}
+\contentsline {subsubsection}{Optimization Sequence Representation}{94}{section*.26}
+\contentsline {subsubsection}{Novelty Metric}{95}{section*.27}
+\contentsline {subsection}{\numberline {5.3.2}Novelty Search For Multi-objective Optimization}{96}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Evaluation}{96}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Research Questions}{96}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Experimental Setup}{97}{subsection.5.4.2}
+\contentsline {subsubsection}{Programs Used in the Empirical Study}{97}{section*.28}
+\contentsline {subsubsection}{Parameters Tuning}{98}{section*.29}
+\contentsline {subsubsection}{Evaluation Metrics Used}{99}{section*.30}
+\contentsline {subsubsection}{Setting up Infrastructure}{100}{section*.31}
+\contentsline {subsection}{\numberline {5.4.3}Experimental Methodology and Results}{100}{subsection.5.4.3}
+\contentsline {subsubsection}{RQ1. Mono-objective SBSE Validation}{101}{section*.32}
+\contentsline {paragraph}{Method}{101}{section*.33}
+\contentsline {paragraph}{Results}{102}{table.5.4}
+\contentsline {subsubsection}{RQ2. Sensitivity}{103}{section*.35}
+\contentsline {paragraph}{Method}{103}{section*.36}
+\contentsline {paragraph}{Results}{103}{section*.37}
+\contentsline {subsubsection}{RQ3. Impact of optimizations on resource usage}{104}{section*.38}
+\contentsline {paragraph}{Method 1}{105}{section*.39}
+\contentsline {paragraph}{Results 1}{105}{section*.40}
+\contentsline {paragraph}{Method 2}{106}{section*.41}
+\contentsline {paragraph}{Results 2}{107}{figure.5.7}
+\contentsline {subsubsection}{RQ4. Trade-offs between non-functional properties}{109}{section*.43}
+\contentsline {paragraph}{Method}{109}{section*.44}
+\contentsline {paragraph}{Results}{109}{section*.45}
+\contentsline {subsection}{\numberline {5.4.4}Discussions}{111}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}Threats to Validity}{112}{subsection.5.4.5}
+\contentsline {subsection}{\numberline {5.4.6}Tool Support Overview}{112}{subsection.5.4.6}
+\contentsline {section}{\numberline {5.5}Conclusion}{114}{section.5.5}
 \contentsline {chapter}{\numberline {6}An infrastructure for resource monitoring based on system containers}{116}{chapter.6}
 \contentsline {section}{\numberline {6.1}Introduction}{116}{section.6.1}
 \contentsline {section}{\numberline {6.2}System Containers as Execution Platforms}{116}{section.6.2}
