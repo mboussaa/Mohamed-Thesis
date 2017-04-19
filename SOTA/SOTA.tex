@@ -3,7 +3,7 @@ In this chapter, we present the state-of-the-art of this thesis. We discuss prev
 
 We first present a brief introduction to the iterative compilation research filed and we identify severals problems that have been investigated in this field. We discuss as well, the different techniques that have been applied to automate the process of auto-tuning compilers. To sum up, we provide a summary table showing the most important research in iterative compilation.
 
-Afterwards, we move to discuss existing techniques related to code generator testing. We start by studying the state-of-the-art approaches related to the functional testing of code generators. In a second stage, since there are few research efforts that investigate the automatic non-functional testing of code generators, we rather focus on studying the oracle problem and the different methods applied to the oracle definition. This will be useful later, to understand our contribution about the non-functional testing of code generators. We end this section by providing a summary table of these approaches.
+Afterwards, we move to discuss existing techniques related to code generator testing. We start by studying the state-of-the-art approaches related to the functional testing of code generators. In a second stage, since there are few research efforts that investigate the automatic non-functional testing of code generators, we rather focus on studying the oracle problem and the different methods applied to the oracle definition. We end this section by providing a summary table of these approaches.
 
 Finally, we discuss in the last section the container technology as means of automatic software deployment, monitoring, and testing. We compare then, the container's virtualization solution to the classical approaches based on virtual machines. We provide as well, examples of existing solutions in research and industry that opted for this technology to automate software testing and monitoring.
 
@@ -16,17 +16,169 @@ In Section 3.2, we review existing techniques for code generators testing and th
 Then, in Section 3.3, we discuss the use of virtualization technology for deployment and testing. In particular, we presents some of the approaches that used a container-based solution for automatic testing and monitoring. 
 
 Finally, Section 3.4 discusses the limitations of the state of the art.
+\section{Testing code generators}
+When an automatic code generator is used, verification and validation approaches are needed to detect errors and gain confidence into the correct functioning of the produced code. We study the problem of testing code generators in two aspects: the first by presenting previous research efforts on functional testing (i.e., verifying the correctness of produced code and its conformance to the model or language being deigned) and in a second step, we study the non-functional validation of code generators. 
+
+\subsection{Testing functional properties}
+
+Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back}.
+
+In the case of automatic code generation against an executable model, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model.
+
+In this context, Conrad et al.\cite{conrad2010code,conrad2009testing} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
+
+CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). This procedure is also known as equivalence, comparative, or back-to-back testing approach\cite{vouk1990back,mckeeman1998differential}.
+
+In fact, each individual model-to-code translation is followed by a verification phase to assess that the input Simulink model used for code generation and the output (i.e., the object code derived from the model via code generation and compilation) produce the same numerical results when stimulated with identical inputs. 
+
+In their equivalence testing approach, they use to run the model used for code generation using simulation and the generated code with the same input stimuli (test vectors) followed by a numerical comparison of the outputs (result vectors).
+
+Then, they check whether or not the semantics of the model have been preserved during code generation, compilation and linking, by comparing the result vectors, which are the outputs resulting from stimulation with identical test vectors of the model and the generated code.
+
+More precisely, the simulation results should be similar to the execution results. However, when defining the result vector comparison, they tolerate limited differences between both results. They argue that some factors between simulation and execution may cause a small difference between both executions such as limited precision of floating point numbers, target optimized code constructs, quantization effects when using fixed point math and compiler dependent behavior. 
+Thus, they define an application-dependent threshold. So, two result vectors are considered sufficiently similar when their difference is less than or equal to the threshold value.
+
+They illustrate the CGV-based translation validation in the context of embedded automative software by using Simulink and Real-Time Workshop Embedded Coder for verification. They assess their approach by verifying the numerical equivalence between Simulink models and C generated code. They calculate the absolute difference between simulation results and execution results. Then, compare this difference to the defined tolerance threshold. They show that for some input test suites there exist mismatched signals (with high variation value) which represent an inconsistency between designed models and executed signal.
+
+
+
+
+
+
+
+
+Stuermer et al.~\cite{stuermer2007systematic} present a systematic test approach for model-based code generators. They investigate the impact of optimization rules for model-based code generation by comparing the output of the code execution with the output of the model execution. 
+If these outputs are equivalent, it is assumed that the code generator works as expected. 
+They evaluate the effectiveness of this approach by means of testing optimizations performed by the TargetLink code generator. 
+They have used Simulink as a simulation environment of models. 
+
+
+
+
+In \cite{jorges2014back}, authors presented a testing approach of the Genesys code generator framework which tests the translation performed by a code generator from a semantic perspective rather than just checking for syntactic correctness of the generation result. Basically,
+Genesys realizes back-to-back testing by executing both the source model as well as the generated code on top of different target platforms. Both executions produce traces and execution footprints which are then compared.
+
+
+
+\subsection{Testing non-functional properties}
+Previous work on non-functional testing of code generators focuses on comparing, as oracle, the non-functional properties of hand-written code to automatically generated code~\cite{stepasyuk2015evaluating,richard2013efficient}. As an example, Strekelj et al.~\cite{vstrekelj2015performance} implemented a simple 2D game in both the Haxe programming language and the native environment and evaluated the difference in performance between the two versions of code. They showed that the generated code through Haxe has better performance than the hand-written one. 
+
+Cross-platform mobile development has been also part of the non-functional testing goals since many code generators are increasingly used in industry for automatic cross-platform development. In \cite{pazirandeh2015evaluation,hartmann2011cross}, authors compared the performance of a set of cross-platform code generators and presented the most efficient tools.
+\subsubsection{The oracle problem}
+
+Most of the work on software testing seeks to automate as much as possible the testing process to make it faster, cheaper, and more reliable. 
+
+To this end, automatic program testing involves in selecting suitable inputs as test cases, executing the program and verifying results against expected results. 
+The mechanism against which the software tester verify whether the outputs of the program for the executed test cases are correct or not is called \textit{test oracle}. 
+
+For instance, the problem of automatically generating test inputs/data has been the subject of research interest for a long time. It consists in automatically generating test data/cases in order to detect faults/crashes or to maximize the code coverage of the program under test. 
+
+
+Research in software testing has focused on automating many aspects of the testing process such as test data generation, test cases generation and execution, test suites reduction, test cases prioritization, etc. Many techniques, especially search-based testing techniques, have been proposed to solve and automate these processes\cite{ali2010systematic}.
+
+However, compared to many aspects of test automation, the problem of automating the test oracle is still challenging and less well solved. Only few techniques are available to generate test oracles. In most of the cases, designing and implementing test oracles are still manual and expensive activities. That is because the test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is commonly known as the \textit{"oracle problem"}. 
+
+As pointed out in\cite{manolache2001software}, the oracle problem has been “one of the most difficult tasks in software testing” but it is often ignored by researchers in software testing.
+
+For example, let \textit{sine} be a function implementing a specification \textit{S}. Let \textit{D} represent the input domain which represents the input values for which we would calculate the \textit{sine}. Usually, the testing process should verify if the \textit{sine(x) = S(x)} $\forall$ \textit{x} $\in$ \textit{D}. The procedure through which the testing program can check whether \textit{sine(x) = S(x)} is called an oracle.
+
+Automatically generating  \textit{D} (test data) and executing test cases in this example is simple. It consists in generating random numerical values for example. However, it is impossible to do an exhaustive testing to automatically check the expected output.
+
+For instance, only the special input values  \textit{0}, $\pi/4$,  $\pi/2$, etc., could be the standard test cases since the output of  \textit{sine(x)} for these test data values is known and can be automatically checked against the specification. Nevertheless, special values cannot give us enough confidence in the correctness of the program on more complex or random inputs. 
+
+Other examples include, testing programs calculating numerical functions or solving complex equations; testing programs that calculate combinatorial problems, testing graphical user interfaces, etc.
+
+Automatically testing generators also implies the oracle problem. When testing compilers, for example, it is quite difficult to automatically verify the equivalence between the source code and object code. This task becomes even more complicated when some optimizations are applied to the machine code. 
+
+When testing code generators, the verification of the high level system specification with the generated code is also challenging. Supposing that the \textit{sine} function is defined using a high level language. The generated \textit{sine} function should be evaluated with the same effort as the manual written code in order to verify whether the code generator has introduced bugs or not. 
+
+%SINE + MEtamorphic testing
+%When testing a program p supposedly implementing the sine function, for example, let 1.28 be a test case. Although we do not know the exact value of sin1.28, a failure can still be identified if the output p(1.28) > 1 because |sinx| ≤ 1 ∀x ∈ R. By employing more mathematical properties of the sine curve, the range of plausible values of p(1.28) can be further narrowed down greatly.
+
+
+
+The research community has proposed several approaches\cite{harman2013comprehensive,barr2015oracle} to alleviate the oracle problem. 
+In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test oracles in three categories \textit{specified oracles}, \textit{implicit oracles}, and \textit{derived oracles}. We give an overview of these three categories:
+\begin{itemize}
+	\item Specified oracles:
+	
+	Specified oracles can be generated from several kinds of specifications, such as algebraic specifications or formal models of the system behavior. 	
+	Stocks et al.\cite{stocks1996framework,richardson1992specification} discuss an approach for deriving test cases and oracles from specification. The idea is that the formal specification of a software can be used as a guide for designing functional tests. Then, test oracles can be associated with individual test templates (test case specifications). Thus, they construct abstract models of expected outputs, called oracle templates. 
+	The approach is illustrated with test oracle templates for the Z specification.
+	Specified oracles are effective in identifying errors, but the task of defining and maintaining specifications is very expensive and time consuming. These kinds of oracles are also less adopted in industry.
+	
+	\item Implicit oracles:
+	
+	Implicit oracle refers to the detection of ‘obvious’ faults such as a program crash, abnormal termination, or execution failure.
+	Thus, oracle definition does not require any domain knowledge or formal specification to implement, and as a consequence, it does not need any prerequisites about the behavior or semantics of the program under test.
+	
+	Implicit oracles\cite{harman2013comprehensive,barr2015oracle} are easy to obtain at practically no cost. At the same time, implicit oracles are mostly incomplete, since they are not able to identify internal problems and complex failures, but they help to detect, in a black-box way, general errors like system crashes or un-handled exceptions.
+	
+	As an example, fuzz testing\cite{miller1990empirical} is one of the methods where implicit oracles are used to find anomalies, such a crashes. The idea of fuzzing is to generate random inputs and
+	pass them to the system under test to find anomalies.
+	Bugs detection is based on the efficiency of generated inputs/data. If an anomaly is detected,
+	the tester reports it by identifying the input triggering it. 
+	Fuzzing is commonly used to detect security vulnerabilities, such as buffer overflows, memory   leaks, exceptions, etc.\cite{bekrar2011finding}.
+	
+	
+	\item Derived oracles:
+	
+	Derived oracles are derived from various artifacts (e.g. documentation, system executions) or properties (e.g. metamorphic relations) other than specifications.
+	
+	For example, in regression testing, oracles can be derived from the executions of previous versions of the software under test. In this
+	case, the derived oracles will verify if the new software version behaves as the original one\cite{mariani2007compatibility}. 
+	
+	Oracles can also be automatically derived from program invariants\cite{ernst2000quickly}. Invariants can help programmers by characterizing aspects of program execution and identifying program properties that must be preserved when modifying code. They report properties that were true over the observed executions of all programs such as \textit{"y = 2*x+3"}, \textit{"array a is sorted"}, etc. The Daikon invariant detector\footnote{https://plse.cs.washington.edu/daikon/} is an open source tool that apply machine learning technique to infer these invariant properties.
+	
+	Additionally, oracles can be derived from properties of the system under test. For instance, metamorphic testing\cite{chen2004case} generates test oracles by exploiting metamorphic relations of the system under test. In particular, metamorphic testing exploit the relation between the inputs and outputs of special test cases to derive metamorphic relations defined as test oracles for new test cases. 
+	
+	A metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
+	MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
+	For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
+	
+	%REFPHRASEEEEEEEEEEEE
+	A recent alternative strategy is equivalence modulo inputs (EMI) testing. Given a well-defined, deterministic program P, EMI testing involves first performing code coverage analysis of P with respect to an input I to identify I-dead statements: statements not covered by I. From P, a series of program variants, P1, P2, ..., Pn can be created, with each Pi obtained by mutating or deleting a subset of the I-dead
+	statements of P. Each Pi should behave identically to P
+	when executed on input I; deviations in behaviour are indicative
+	of compiler bugs. Thus, EMI testing is an example
+	of metamorphic testing —the programs are in a metamorphic
+	relationship with one another and with P, with respect
+	to I.
+	
+	
+	
+	Another type of derived oracles are pseudo-oracles (also known as differential testing, dual coding and N-version programming). 
+	The concept of a pseudo-oracle is introduced by Davis and Weyuker\cite{davis1981pseudo} to address so-called non-testable programs "Programs which were written in order to determine the answer in the first place. There would be no need to write such programs, if the correct answer were known."
+	A pseudo-oracle is program that is capable of providing the expected outputs and check the correctness of the system by comparing the outputs of multiple independent implementations. 
+	It checks the consistency of the results of the different software versions of the systems, when the same functionality is executed. An inconsistency can be detected when one or more versions of the system trigger failures. 
+	For example, in compiler testing, different versions of the same program are generated by applying some optimizations. The functionality of the program under test remains the same for all versions. The oracle is this case can be defined as the comparison between the functional outputs between the different versions which should be the same\cite{yang2011finding}.
+	
+	
+\end{itemize}
+
+
+\subsubsection{Summary: oracle definition approaches}
+
 
 \section{Compilers auto-tuning techniques}
 
 \subsection{Iterative compilation}
-Iterative compilation, \textit{also known by optimization phase selection, adaptive compilation, or feedback directed optimization}, consists in applying software engineering techniques to produce better and more optimized programs by compiling multiple versions of each of them using different optimizations settings. After running these versions on specific hardware machines, the key objective of iterative compilation is to find the best optimizing sequence that leads to the fastest and better code machine code. 
-Our work is related to iterative compilation research field.
-The basic idea of iterative compilation is to explore the compiler optimization space by measuring the impact of optimizations on software performance.
-Several research efforts have investigated this optimization problem using Search-Based Software Engineering (SBSE) techniques to guide the search towards relevant optimizations regrading performance, energy consumption, code size, compilation time, etc. Experimental results have been usually compared to standard compiler optimization levels.  
+Iterative compilation, \textit{also known as optimization phase selection, adaptive compilation, or feedback directed optimization}\cite{triantafyllis2003compiler}, consists in applying software engineering techniques to produce better and more optimized programs by compiling multiple versions of each of them using different optimizations settings. After running these versions on specific hardware machines, the key objective of iterative compilation is to find the best optimization sequence that leads to the fastest and highest-quality machine code. 
+%Our work is related to iterative compilation research field.
 
-It has been proven that optimizations are highly dependent on the target platform and on the input program. 
-Compared to our proposal, none of the previous work has studied the impact of compiler optimizations on resource usage. In this work, we rather focus on compiler optimizations related to resource consumption, while bearing in mind the performance improvement.
+The basic idea of iterative compilation is to explore the compiler optimization space by measuring the impact of optimizations on software performance.
+Several research efforts have investigated this optimization problem, such as Search-Based Software Engineering (SBSE) techniques, to guide the search towards relevant optimizations regrading performance, energy consumption, code size, compilation time, etc. Experimental results have been usually compared to standard compiler optimization levels.  
+
+It has been proven that optimizations are highly dependent on the target platform and on the input program which makes the task of searching for the best optimization sequence very complex\cite{triantafyllis2003compiler}.
+
+In the following sections, we describe the classical iterative compilation process and we discuss the relevant techniques and approaches that have been presented to tackle some of the challenges related to compiler optimization namely:
+\begin{itemize}
+	\item \textbf{The problem of optimization-space exploration:} We present several approaches that have addressed the combinatorial explosion problem of possible compiler optimizations.`
+	
+	\item \textbf{The problem of hardware heterogeneity:} Since the optimizations are highly dependent on the input program and on the target platform, we describe for each discussed approach the execution environment used to run the iterative process as well as the evaluation settings.  
+\end{itemize}
+
+%Compared to our proposal, none of the previous work has studied the impact of compiler optimizations on resource usage. In this work, we rather focus on compiler optimizations related to resource consumption, while bearing in mind the performance improvement.
 
 \subsection{Implementation of iterative compilation system}
 \begin{figure}[h]
@@ -202,148 +354,6 @@ The experimental results show that it is possible to improve the performance of 
  
 
 
-\section{Testing code generators}
-When an automatic code generator is used, verification and validation approaches are needed to detect errors and gain confidence into the correct functioning of the produced code. We study the problem of testing code generators in two aspects: the first by presenting previous research efforts on functional testing (i.e., verifying the correctness of produced code and its conformance to the model or language being deigned) and in a second step, we study the non-functional validation of code generators. 
-
-\subsection{Testing functional properties}
- 
-Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back}.
-
-In the case of automatic code generation against an executable model, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model.
-
-In this context, Conrad et al.\cite{conrad2010code,conrad2009testing} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
-
-CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). This procedure is also known as equivalence, comparative, or back-to-back testing approach\cite{vouk1990back,mckeeman1998differential}.
-
-In fact, each individual model-to-code translation is followed by a verification phase to assess that the input Simulink model used for code generation and the output (i.e., the object code derived from the model via code generation and compilation) produce the same numerical results when stimulated with identical inputs. 
-
-In their equivalence testing approach, they use to run the model used for code generation using simulation and the generated code with the same input stimuli (test vectors) followed by a numerical comparison of the outputs (result vectors).
-
-Then, they check whether or not the semantics of the model have been preserved during code generation, compilation and linking, by comparing the result vectors, which are the outputs resulting from stimulation with identical test vectors of the model and the generated code.
- 
-More precisely, the simulation results should be similar to the execution results. However, when defining the result vector comparison, they tolerate limited differences between both results. They argue that some factors between simulation and execution may cause a small difference between both executions such as limited precision of floating point numbers, target optimized code constructs, quantization effects when using fixed point math and compiler dependent behavior. 
-Thus, they define an application-dependent threshold. So, two result vectors are considered sufficiently similar when their difference is less than or equal to the threshold value.
-
-They illustrate the CGV-based translation validation in the context of embedded automative software by using Simulink and Real-Time Workshop Embedded Coder for verification. They assess their approach by verifying the numerical equivalence between Simulink models and C generated code. They calculate the absolute difference between simulation results and execution results. Then, compare this difference to the defined tolerance threshold. They show that for some input test suites there exist mismatched signals (with high variation value) which represent an inconsistency between designed models and executed signal.
-
-
-
-
-
-
-
-
-Stuermer et al.~\cite{stuermer2007systematic} present a systematic test approach for model-based code generators. They investigate the impact of optimization rules for model-based code generation by comparing the output of the code execution with the output of the model execution. 
-If these outputs are equivalent, it is assumed that the code generator works as expected. 
-They evaluate the effectiveness of this approach by means of testing optimizations performed by the TargetLink code generator. 
-They have used Simulink as a simulation environment of models. 
-
-
-
-
-In \cite{jorges2014back}, authors presented a testing approach of the Genesys code generator framework which tests the translation performed by a code generator from a semantic perspective rather than just checking for syntactic correctness of the generation result. Basically,
-Genesys realizes back-to-back testing by executing both the source model as well as the generated code on top of different target platforms. Both executions produce traces and execution footprints which are then compared.
-
-
-
-\subsection{Testing non-functional properties}
-Previous work on non-functional testing of code generators focuses on comparing, as oracle, the non-functional properties of hand-written code to automatically generated code~\cite{stepasyuk2015evaluating,richard2013efficient}. As an example, Strekelj et al.~\cite{vstrekelj2015performance} implemented a simple 2D game in both the Haxe programming language and the native environment and evaluated the difference in performance between the two versions of code. They showed that the generated code through Haxe has better performance than the hand-written one. 
-
-Cross-platform mobile development has been also part of the non-functional testing goals since many code generators are increasingly used in industry for automatic cross-platform development. In \cite{pazirandeh2015evaluation,hartmann2011cross}, authors compared the performance of a set of cross-platform code generators and presented the most efficient tools.
-\subsubsection{The oracle problem}
-
-Most of the work on software testing seeks to automate as much as possible the testing process to make it faster, cheaper, and more reliable. 
-
-To this end, automatic program testing involves in selecting suitable inputs as test cases, executing the program and verifying results against expected results. 
-The mechanism against which the software tester verify whether the outputs of the program for the executed test cases are correct or not is called \textit{test oracle}. 
-
-For instance, the problem of automatically generating test inputs/data has been the subject of research interest for a long time. It consists in automatically generating test data/cases in order to detect faults/crashes or to maximize the code coverage of the program under test. 
-
-
-Research in software testing has focused on automating many aspects of the testing process such as test data generation, test cases generation and execution, test suites reduction, test cases prioritization, etc. Many techniques, especially search-based testing techniques, have been proposed to solve and automate these processes\cite{ali2010systematic}.
-
-However, compared to many aspects of test automation, the problem of automating the test oracle is still challenging and less well solved. Only few techniques are available to generate test oracles. In most of the cases, designing and implementing test oracles are still manual and expensive activities. That is because the test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is commonly known as the \textit{"oracle problem"}. 
-
-As pointed out in\cite{manolache2001software}, the oracle problem has been “one of the most difficult tasks in software testing” but it is often ignored by researchers in software testing.
-
-For example, let \textit{sine} be a function implementing a specification \textit{S}. Let \textit{D} represent the input domain which represents the input values for which we would calculate the \textit{sine}. Usually, the testing process should verify if the \textit{sine(x) = S(x)} $\forall$ \textit{x} $\in$ \textit{D}. The procedure through which the testing program can check whether \textit{sine(x) = S(x)} is called an oracle.
-
-Automatically generating  \textit{D} (test data) and executing test cases in this example is simple. It consists in generating random numerical values for example. However, it is impossible to do an exhaustive testing to automatically check the expected output.
-
-For instance, only the special input values  \textit{0}, $\pi/4$,  $\pi/2$, etc., could be the standard test cases since the output of  \textit{sine(x)} for these test data values is known and can be automatically checked against the specification. Nevertheless, special values cannot give us enough confidence in the correctness of the program on more complex or random inputs. 
-
-Other examples include, testing programs calculating numerical functions or solving complex equations; testing programs that calculate combinatorial problems, testing graphical user interfaces, etc.
-
-Automatically testing generators also implies the oracle problem. When testing compilers, for example, it is quite difficult to automatically verify the equivalence between the source code and object code. This task becomes even more complicated when some optimizations are applied to the machine code. 
-
-When testing code generators, the verification of the high level system specification with the generated code is also challenging. Supposing that the \textit{sine} function is defined using a high level language. The generated \textit{sine} function should be evaluated with the same effort as the manual written code in order to verify whether the code generator has introduced bugs or not. 
-
-%SINE + MEtamorphic testing
-%When testing a program p supposedly implementing the sine function, for example, let 1.28 be a test case. Although we do not know the exact value of sin1.28, a failure can still be identified if the output p(1.28) > 1 because |sinx| ≤ 1 ∀x ∈ R. By employing more mathematical properties of the sine curve, the range of plausible values of p(1.28) can be further narrowed down greatly.
-
-
-
-The research community has proposed several approaches\cite{harman2013comprehensive,barr2015oracle} to alleviate the oracle problem. 
-In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test oracles in three categories \textit{specified oracles}, \textit{implicit oracles}, and \textit{derived oracles}. We are going to discuss them:
-\begin{itemize}
-\item Specified oracles:
-
-Specified oracles can be generated from several kinds of specifications, such as algebraic specifications or formal models of the system behavior. 	
-Stocks et al.\cite{stocks1996framework,richardson1992specification} discuss an approach for deriving test cases and oracles from specification. The idea is that the formal specification of a software can be used as a guide for designing functional tests. Then, test oracles can be associated with individual test templates (test case specifications). Thus, they construct abstract models of expected outputs, called oracle templates. 
-The approach is illustrated with test oracle templates for the Z specification.
-Specified oracles are effective in identifying errors, but the task of defining and maintaining specifications is very expensive and time consuming. These kinds of oracles are also less adopted in industry.
-
-\item Implicit oracles:
-
-Implicit oracle refers to the detection of ‘obvious’ faults such as a program crash, abnormal termination, or execution failure.
-Thus, oracle definition does not require any domain knowledge or formal specification to implement, and as a consequence, it does not need any prerequisites about the behavior or semantics of the program under test.
-
-Implicit oracles\cite{harman2013comprehensive,barr2015oracle} are easy to obtain at practically no cost. At the same time, implicit oracles are mostly incomplete, since they are not able to identify internal problems and complex failures, but they help to detect, in a black-box way, general errors like system crashes or un-handled exceptions.
-
-As an example, fuzz testing\cite{miller1990empirical} is one of the methods where implicit oracles are used to find anomalies, such a crashes. The idea of fuzzing is to generate random inputs and
-pass them to the system under test to find anomalies.
-Bugs detection is based on the efficiency of generated inputs/data. If an anomaly is detected,
-the tester reports it by identifying the input triggering it. 
-Fuzzing is commonly used to detect security vulnerabilities, such as buffer overflows, memory   leaks, exceptions, etc.\cite{bekrar2011finding}.
-
-
-\item Derived oracles:
-
-Derived oracles are derived from various artifacts (e.g. documentation, system executions) or properties (e.g. metamorphic relations) other than specifications.
-
-For example, in regression testing, oracles can be derived from the executions of previous versions of the software under test. In this
-case, the derived oracles will verify if the new software version behaves as the original one\cite{mariani2007compatibility}. 
- 
-Oracles can also be automatically derived from program invariants\cite{ernst2000quickly}. Invariants can help programmers by characterizing aspects of program execution and identifying program properties that must be preserved when modifying code. They report properties that were true over the observed executions of all programs such as \textit{"y = 2*x+3"}, \textit{"array a is sorted"}, etc. The Daikon invariant detector\footnote{https://plse.cs.washington.edu/daikon/} is an open source tool that apply machine learning technique to infer these invariant properties.
-
-Additionally, oracles can be derived from properties of the system under test. For instance, metamorphic testing\cite{chen2004case} generates test oracles by exploiting metamorphic relations of the system under test. In particular, metamorphic testing exploit the relation between the inputs and outputs of special test cases to derive metamorphic relations defined as test oracles for new test cases. 
-
-A metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
-MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
-For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
-
-%REFPHRASEEEEEEEEEEEE
-A recent alternative strategy is equivalence modulo inputs (EMI) testing. Given a well-defined, deterministic program P, EMI testing involves first performing code coverage analysis of P with respect to an input I to identify I-dead statements: statements not covered by I. From P, a series of program variants, P1, P2, ..., Pn can be created, with each Pi obtained by mutating or deleting a subset of the I-dead
-statements of P. Each Pi should behave identically to P
-when executed on input I; deviations in behaviour are indicative
-of compiler bugs. Thus, EMI testing is an example
-of metamorphic testing —the programs are in a metamorphic
-relationship with one another and with P, with respect
-to I.
-
-
-
-Another type of derived oracles are pseudo-oracles (also known as differential testing, dual coding and N-version programming). 
-The concept of a pseudo-oracle is introduced by Davis and Weyuker\cite{davis1981pseudo} to address so-called non-testable programs "Programs which were written in order to determine the answer in the first place. There would be no need to write such programs, if the correct answer were known."
-A pseudo-oracle is program that is capable of providing the expected outputs and check the correctness of the system by comparing the outputs of multiple independent implementations. 
-It checks the consistency of the results of the different software versions of the systems, when the same functionality is executed. An inconsistency can be detected when one or more versions of the system trigger failures. 
-For example, in compiler testing, different versions of the same program are generated by applying some optimizations. The functionality of the program under test remains the same for all versions. The oracle is this case can be defined as the comparison between the functional outputs between the different versions which should be the same\cite{yang2011finding}.
-
-
-\end{itemize}
-
-
-\subsubsection{Summary: oracle definition approaches}
 
 \section{Container-based testing techniques}
 

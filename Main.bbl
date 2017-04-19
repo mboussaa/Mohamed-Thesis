@@ -8,6 +8,12 @@ Mathieu Acher, Olivier Barais, Benoit Baudry, Arnaud Blouin, Johann Bourcier,
   to harness the chosen.
 \newblock In {\em GDR GPL}, 2014.
 
+\bibitem[ABB{\etalchar{+}}15]{allier2015multitier}
+Simon Allier, Olivier Barais, Benoit Baudry, Johann Bourcier, Erwan Daubert,
+  Franck Fleurey, Martin Monperrus, Hui Song, and Maxime Tricoire.
+\newblock Multitier diversification in web-based software applications.
+\newblock {\em IEEE Software}, 32(1):83--90, 2015.
+
 \bibitem[ABDDP13]{aceto2013cloud}
 Giuseppe Aceto, Alessio Botta, Walter De~Donato, and Antonio Pescap{\`e}.
 \newblock Cloud monitoring: A survey.
@@ -211,6 +217,13 @@ Krzysztof Czarnecki.
 \newblock Overview of generative software development.
 \newblock In {\em Unconventional Programming Paradigms}, pages 326--341.
   Springer, 2005.
+
+\bibitem[DA13]{doukas2013compose}
+Charalampos Doukas and Fabio Antonelli.
+\newblock Compose: Building smart \& context-aware mobile applications
+  utilizing iot technologies.
+\newblock In {\em Global Information Infrastructure Symposium, 2013}, pages
+  1--6. IEEE, 2013.
 
 \bibitem[DAH11]{demertzi2011analyzing}
 Melina Demertzi, Murali Annavaram, and Mary Hall.

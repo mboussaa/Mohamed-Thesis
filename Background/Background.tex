@@ -23,7 +23,7 @@ The history of software development shows a continuous increase of complexity in
 Generally, heterogeneity may occur in terms of different system complexities, diverse programming languages and platforms, types of systems, development processes and distribution among development sites\cite{ghazi2015heterogeneous}.
 %System heterogeneity we are discussing in this thesis is the software and hardware diversity.
 System heterogeneity is often led by software and hardware diversity.
-Diversity emerges as a critical concern that spans all activities in software engineering, from design to operation\cite{acher2014software}. It appears in different areas such as adaptive systems, distributed and heterogeneous systems, Internet of Things, Internet of Services, etc.
+Diversity emerges as a critical concern that spans all activities in software engineering, from design to operation\cite{acher2014software}. It appears in different areas such as mobile and web development\cite{doukas2013compose}, security\cite{allier2015multitier}, etc.
 
 However, software and hardware diversity leads to a greater risk for system failures due to the continuous change in configurations and system specifications.
 As a matter of a fact, effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important.
@@ -76,7 +76,7 @@ Like all modern software systems, softwares have to be adapted to address changi
 Accordingly, we propose the following definition of software diversity: 
 \textit{\textbf{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc. }}
 		
-We define as well the term \textbf{"software family"} to categorize these diverse programs that share commonalities. 
+%We define as well the term \textbf{"software family"} to categorize these diverse programs that share commonalities. 
 
 %The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
 
@@ -150,7 +150,8 @@ Meanwhile, hardware specialization for every single application is not a sustain
 Matching software to hardware is ensured by providing the adequate software languages and compilers that have to produce efficient code to the target hardware (relation 1 in Figure 2.3). As consequence, people who are writing compilers have to continuously enhance the way the executables are produced by releasing new compiler versions to support new hardware changes (i.e., new optimization flags, instruction sets).
 
 For example, Hou et al.\cite{hou2010spap} have presented SPAP, a container-based programming language for heterogeneous many-core systems. This language allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. SPAP comes with a set of compilers and runtime environments to such hardware processors. Chafi et al.\cite{chafi2010language,chafi2011domain} proposed leveraging domain specific languages (DSLs) to map high-level application code to
-heterogeneous devices. Results show that the presented DSL can achieve high performance on heterogeneous parallel hardware with no modification required to the source code. They compared this language performance to MATLAB code and they showed that it outperformed it in nearly all cases.
+heterogeneous devices.
+%Results show that the presented DSL can achieve high performance on heterogeneous parallel hardware with no modification required to the source code. They compared this language performance to MATLAB code and they showed that it outperformed it in nearly all cases.
 
 To avoid hardware heterogeneity, software developers use for example managed languages such as JAVA, Scala, C\#, etc to favor software portability. Instead of compiling to native machine instruction set, these languages are compiled into an intermediate language or IL, which is similar to a binary assembly language. These instructions are executed by a JVM, or by .NET's CLR virtual machine, which effectively translates them to native binary instructions specific to the CPU architecture and/or OS of the machine.
 
@@ -158,7 +159,10 @@ By using managed code and compiling in this managed execution environment, memor
 
 However, using managed languages has drawbacks. It includes slower startup speed (the managed code must be JIT compiled by the VM), the managed code can be slower than native code, and generally increased use of system resources on any machine that is executing the code.
 
-In contrast, devices in turn, may impose the support of specific programming languages (relation 2 in Figure 2.3). In mobile development for example, Java is needed to implement Android applications and Objective-C is needed to develop iOS products. This means that developers need to create multiple clients in this heterogeneous environment. 
+In contrast, devices in turn, may impose the support of specific programming languages (relation 2 in Figure 2.3). 
+For example, C language is the most widely used programming language in the context of embedded systems\footnote{\url{http://www.eetimes.com/author.asp?doc_id=1323907}} where the system is really resource-constrained. C utilizes the hardware to its maximum by multi-processing and multi-threading APIs provided by POSIX. It also controls the memory management and uses less memory (which allows more freedom on memory management compared to the use of garbage collector, for example).
+
+In mobile development for example, Java is needed to implement Android applications and Objective-C is needed to develop iOS products. This means that developers need to create multiple clients in this heterogeneous environment. 
 %We can see also that C/C++ are the most used languages for targeting embedded systems.
 
 %Well, it's like this. Every language is created with a single target platform in mind ( except haXe of course, it can target multiple platforms). For example, Java is compiled into Java bytecode which is executed in the Java Platform ( Java Runtime Library). C/C++ is used to built  applications executed by the OS. So, the target platform of C/C++ is a specific OS. C# is built for the Microsoft .NET framework. Javascript is built for the web platform.
@@ -198,8 +202,9 @@ As a consequence, generative programming (GP) techniques are increasingly applie
 This paradigm offers the promise of moving from "one-of-a-kind" software systems to the semi-automated manufacture of wide diversity of software.
 
 %figure
-Generative software engineering consists on using higher-level programming techniques such as meta-programming, modeling, DSL, etc. in order to automatically generate efficient code for the target software platform. 
-In principle a software development process can be seen as a mapping between a problem space and a solution space~\cite{czarnecki2005overview} (see Figure 2.1). 
+Generative software engineering consists on using higher-level programming techniques such as meta-programming, modeling, DSL, etc. in order to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity and automatically generate efficient code for the target software platform. 
+
+In principle, a software development process can be seen as a mapping between a problem space and a solution space~\cite{czarnecki2005overview} (see Figure 2.4). 
 
 %problem space
 \textbf{The problem space} is a set of domain-specific abstractions that can be used by application engineers to express their needs and specify the desired system behavior. This space is generally defined  as DSLs or high-level models. 
@@ -227,9 +232,9 @@ Some commonly benefits of such software engineering process are:
 \end{itemize}
 
 
-For example, model-driven software engineering and generative programming techniques such as SPL, DSLs, models, etc, are widely used to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity.
-
-As an example, Schaefer et al.\cite{schaefer2012software} surveys software diversity by means of software product lines (SPL). This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
+An example of generative programming application is the use of Software Product Lines (SPL).
+SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
+Schaefer et al.\cite{schaefer2012software} surveys software diversity by means of SPLs. This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. 
 
 JHipster\footnote{https://jhipster.github.io/} is also another concrete example of generative programming application in industry. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
 The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
@@ -245,7 +250,7 @@ Whatever configuration selected by the user, the application behavior will not c
 
 
 
-\textbf{Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by wether code generators or compilers) on the resource usage requirements. 
+\textbf{Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by whether code generators or compilers) on the resource usage requirements. 
 }
 
 In the following section, we present a general overview of the complete software development tool chain and the main actors that are involved from design time to runtime.
@@ -277,7 +282,7 @@ Code generation is the technique of building code using programs. The common fea
 Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. %Generators can work on the command line or using a GUI. 
 Code generation can build code for one or more target language, once or multiple times. There are different varieties of code generation aspects and it highly depends on the type of the input programs described in the previous step. 
 %Code generation techniques depends generally on these inputs.  
-For example, code generator developers use model-driven techniques in order to generate automatically code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. Thus, the code generation process start by taking the previously defined specification to translate a model to an implementation in a target language. We will see in the next section the different types of code generators.
+For example, code generator developers use model-driven engineering techniques in order to automatically generate code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. Thus, the code generation process start by taking the previously defined specification to translate a model to an implementation in a target language. We will see in the next section the different types of code generators.
 
 
 %In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
@@ -295,17 +300,21 @@ As an example, cross compilers may be used to create executable code for a platf
 \subsection{Stakeholders and their roles for testing generators}
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.54]{Background/fig/usecase}
+	\includegraphics[scale=0.45]{Background/fig/usecase}
 	\caption{Use case diagram of the different actors/roles involved in implementing and testing generators}
 \end{figure}
-Software development involves several stakeholders that play different roles in validating and testing the software development chain described previously.
-Figure 2.6 depicts a use case diagram that describes these different concerns, actors and roles for testing generators.
-Basically, we distinguish two stakeholders for code generators and compilers testing: experts and developers. As shown in the bottom of Figure 2.6, experts are the creators/maintainers of generators that use their expertise and knowledge associated to the software and hardware technologies resulting in efficient code generation. They contribute to the software development community by creating and providing new optimizations and compiler versions updates. For code generators, they may use their knowledge to build new platform-specific code generators or enhance existing ones. 
+Software development involves several stakeholders that play different roles for validating and testing the software development chain described previously.
+Figure 2.7 depicts a use case diagram that describes these different concerns, actors and roles for testing generators.
 
-However, Developers represent the group of users that have no knowledge/expertise about the way code is generated. Thus, they are unable to edit or maintain the internal behavior of generators (e.g., the case of commercial and off-the-shell code generators). In this case, generators are used as a black box by engineers during software development to ease code production. Therefore, developers may configure compilers by providing the set of configuration options to efficiently produce code for the target hardware platform (e.g., optimizations options) or maintain/edit the generated code in case of automatic source code generation.
+Basically, we distinguish two stakeholders for code generators and compilers testing: generator user and creator/maintainer. As shown in the bottom of Figure 2.7, creators/maintainers of generators are responsible of the correct functioning of generators. They use their expertise and knowledge associated to the software and hardware technologies, resulting in efficient code generation. They contribute to the software development community by creating and providing new optimizations and compiler versions updates. For code generators, they may use their knowledge to build new platform-specific code generators or enhance existing ones. 
 
-The uses cases highlighted in red in Figure 2.6 constitute the main tasks that we are addressing in this thesis. Our main concern is to evaluate the generated code. To do so, we would help code generator users to automatically generate code for different target software platforms and detect code generator inconsistencies by evaluating the resource usage properties. This task may involve both, code generator experts and users.
-On the other hand, we would help compiler users to auto-tune compilers through the use of optimizations provided by compiler experts. Similarly, this concerns both actors and it consists on testing the impact of these configurations on the performance and resource usage properties.
+However, users represent the group of software developers that have no knowledge/expertise about the way code is generated. Thus, they are unable to edit or maintain the internal behavior of generators (e.g., the case of commercial and off-the-shell code generators). In this case, generators are used as a black box by engineers during software development to ease code production. Therefore, developers may configure compilers by providing the set of configuration options to efficiently produce code for the target hardware platform (e.g., optimizations options) or maintain/edit the generated code in case of automatic source code generation.
+
+The uses cases highlighted in red in Figure 2.7 constitute the main tasks that we are addressing in this thesis. Our main concern is to evaluate the generated code.
+
+On the one hand, we would help code generator users to automatically generate code for different target software platforms and detect code generator inconsistencies by evaluating the resource usage and performance properties. This task may involve both, code generator users and creators/maintainers.
+
+On the other hand, we would help compiler users to auto-tune compilers through the use of optimizations provided by compiler experts. Similarly, this concerns both actors and it consists in evaluating the impact of these configurations on the performance and resource usage properties and finding the best set of optimizations for a specific program and compiler.
 
 
 %\begin{figure}[h]
