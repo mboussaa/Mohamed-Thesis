@@ -1,0 +1,31 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Popularity of 10 programming languages for the different areas related to software development}}{17}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Compiler architecture}}{19}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Matching software to hardware}}{21}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Generative programming concept}}{24}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Example of JHipster feature model}}{25}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Overview of the software development chain}}{26}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Use case diagram of the different actors/roles involved in implementing and testing generators}}{29}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Code generation workflow}}{30}{figure.2.8}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Overview of the iterative compilation process}}{47}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Summary of contributions}}{65}{figure.3.2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}}{73}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{75}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Infrastructure settings for running experiments}}{83}{figure.4.3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{95}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{101}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces NOTICE experimental infrastructure}}{107}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{108}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{110}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{112}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}}{113}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}}{114}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{116}{figure.5.9}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Snapshot of NOTICE GUI interface}}{119}{figure.5.10}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{124}{figure.6.1}
+\addvspace {10\p@ }

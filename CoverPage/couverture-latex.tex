@@ -1,0 +1,134 @@
+\documentclass[11pt, english, openright]{book}
+\usepackage{etex}
+%% En 12pt c'est possible aussi
+%% packages utilises
+%%---------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{listings}
+%\usepackage{math}
+\usepackage{amssymb}
+\usepackage{these}
+\usepackage{setspace}
+\usepackage{emptypage}
+ \usepackage{array}
+\usepackage[inline]{enumitem}
+\usepackage{stmaryrd} %% llbracket & rrbracket
+\usepackage{tabularx}
+\usepackage{floatflt,amssymb}
+\usepackage{graphicx}
+\usepackage{moreverb} %% pour le verbatim en boite
+%\usepackage{slashbox} %% pour couper les colonnes des tableaux en diagonale
+%\usepackage{showkeys} %% pour voir les labels
+\usepackage{multirow} %% pour regrouper un texte sur plusieurs lignes dans une table
+\usepackage{url} %% pour citer les url par \url
+\usepackage[all]{xy} %% pour la barre au dessus des symboles
+\usepackage{shorttoc} %% pour plusieurs tables des mati√®res par la commande \shorttableofcontents{Titre}{profondeur}.
+\usepackage{textcomp} %% pour le symbol pour mille par \textperthousand.
+\usepackage{tikz}
+%\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue]{hyperref} %% pour la transformation en PDF, √ßa permet d'obtenir des liens sur les sections ...
+\usepackage[colorlinks=true, citecolor=blue, linkcolor=black, urlcolor=black]{hyperref}
+%\usepackage{textcomp}
+\usepackage[right]{eurosym}
+\usepackage{xspace}
+\usepackage{enumitem}
+%\usepackage{eurosans} %%pour le symbole \euro
+%\usepackage{epic,eepic}
+%\usepackage{times}%times,palatino}
+%\usepackage{palatino}
+%\usepackage{helvetica} : tjrs le pb
+%\usepackage{utopia}:pb de cesure
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{pifont}
+\usepackage{subfig}
+%\usepackage{subfigure}
+%% macro/racourcis por les symboles et commandes usuelles
+
+
+%% choix des profondeurs de section pour la table des mati√®res
+%% 2= subsection, 3=subsubsection
+\setcounter{secnumdepth}{3}  %% Avec un numero.
+\setcounter{tocdepth}{2}     %% Visibles dans la table des matieres
+
+\makeindex %% cr√©e l'index
+\def\underscore{\char`\_}
+\newcommand\ok[0]{\small \ding{51}}
+\newcommand{\ie}{\emph{i.e.}\xspace}
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\cf}{\emph{cf.}}
+\newcommand{\etal}{\emph{et al.}\xspace}
+
+
+\newcommand{\sconfig}[1]{\llbracket #1 \rrbracket}
+\newcommand\productName[1]{\small #1}
+\newcommand\ftProduct[1]{\small #1}
+\newcommand\yes[0]{\small \ding{51}}
+\newcommand\no[0]{\small \ding{53}}
+\newcommand{\feature}[1]{{\sf{{\small{\textsf{#1}}}}}}
+\newcommand{\myexample}[1]{	\emph{\small Example: #1}}
+\renewcommand{\myexample}[1]{\emph{Example.} #1}
+
+\newcommand{\opencompare}{{\small{\textsf{OpenCompare}}}\xspace}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.4pt] (char) {#1};}}
+            
+\usepackage{todonotes}
+\newcommand\mytodo[1]{\todo[inline]{#1}}
+
+\newcommand{\hiddensubsection}[1]{
+    \stepcounter{subsection}
+    \subsection*{\arabic{chapter}.\arabic{section}.\arabic{subsection}\hspace{1em}{#1}}
+}
+            
+%% c'est parti mon kiki !!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\addtocounter{page}{-1}%√ßa c'est pour revenir √  0
+%\fontfamilly{phv}
+
+%%  1ere de Couverture:
+
+\hyphenation{Modeling} 
+\hyphenation{Variability} 
+
+
+\titre{
+\begin{flushleft}
+Automatic Non-functional Testing and Optimization of Automatically Generatated Code
+\end{flushleft}}
+
+
+%\soutenue
+%%   Laisser cette ligne en commentaire sauf pour la version finale.
+%%   (la premiere page contiendra "a soutenir le ..."
+%%   au lieu de "soutenue le ...")
+
+
+%% Les diff√©rents champs de la couverture...
+\datesout{30 JUIN 2017}
+\Auteur{Mohamed}{BOUSSAA}
+
+% \Labo{IRISA -- UMR6074}
+\Labo{INRIA}
+\LaboEtendu{INRIA Rennes Bretagne Atlantique \\} % sauf INSA
+\ComposanteUniversitaire{ISTIC} % sauf INSA
+
+%% La composition du jury : pr√©nom, nom, titre
+%\President[Mme]{Pascale}{S\'ebillot}{Professeur, INSA de Rennes}         %% le pr√©sident du jury
+\President[Mme]{Xxxxxx}{Xxxxxx}{Professeur, Universit\'e de Xxxxxx}
+\Rapporteur{Xxxxxx}{Xxxxxx}{Professeur, Universit\'e de Xxxxxx}
+\Rapporteur{Xxxxxx}{Xxxxxx}{Senior Research Scientist, Universit\'e de Xxxxxx}
+\Examinateur{Xxxxxx}{Xxxxxx}{Professeur, Universit\'e de Xxxxxx}  
+\Advisor{Benoit}{Baudry}{Charg\'e de recherche,  INRIA Rennes}
+%\Advisor{Mathieu}{Acher}{Ma√Ætre de conf√©rence, Universit\'e de Rennes~1}
+\Advisor{Olivier}{Barais}{Professeur, Universit\'e de Rennes 1}
+
+\makethese{rennes1}
+
+
+
+\end{document}

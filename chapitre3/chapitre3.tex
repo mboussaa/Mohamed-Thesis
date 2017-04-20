@@ -79,6 +79,7 @@ In this chapter, we make the following contributions:
 
 \section{Motivation}
 \subsection{Compiler Optimizations}
+
 In the past, researchers have shown that the choice of optimization sequences may influence software performance~\cite{almagor2004finding,chen2012deconstructing}. 
 As a consequence, software-performance optimization becomes a key objective for both, software industries and developers, which are often willing to pay additional costs to meet specific performance goals, especially for resource-constrained systems.
 
@@ -86,7 +87,14 @@ Universal and predefined sequences, \eg, O1 to O3 in GCC, may not always produce
 Indeed, each one of these optimizations interacts with the code and in turn, with all other optimizations in complicated ways. Similarly, code transformations can either create or eliminate opportunities for other transformations and it is quite difficult for users to predict the effectiveness of optimizations on their source code program.
 As a result, most software engineering programmers that are not familiar with compiler optimizations find difficulties to select effective optimization sequences~\cite{almagor2004finding}.
 
-To explore the large optimization space, users have to evaluate the effect of optimizations according to a specific performance objective (see Figure 4.1). Performance can depend on different properties such as execution time, compilation time, resource consumption, code size, etc.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.9\linewidth]{chapitre3/fig/autotuning.pdf}
+	\caption{Process of compiler optimization exploration}
+	\label{fig:autotuning.pdf}
+\end{figure}
+
+To explore the large optimization space, users have to evaluate the effect of optimizations according to a specific performance objective (see Figure \ref{fig:autotuning.pdf}). Performance can depend on different properties such as execution time, compilation time, resource consumption, code size, etc.
 Thus, finding the optimal optimization combination for an input source code is a challenging and time-consuming problem. 
 Many approaches~\cite{hoste2008cole,martins2014exploration} have attempted to solve this optimization selection problem using techniques such as Genetic Algorithms (GAs), machine learning techniques, etc.
 
@@ -98,12 +106,7 @@ Thus, it becomes necessary to test the non-functional properties of optimized co
 
 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.9\linewidth]{chapitre3/fig/autotuning.pdf}
-	\caption{Process of compiler optimization exploration}
-	
-\end{figure}
+
 
 \subsection{Example: GCC Compiler}
 \begin{table}
@@ -201,6 +204,8 @@ Thus, it becomes necessary to test the non-functional properties of optimized co
 			
 		\end{tabular}
 	}
+	\label{tab:Compiler optimization options}
+	
 \end{table}
 
 The GNU Compiler Collection, GCC, is a very popular collection of programming compilers, available for different platforms.
@@ -208,7 +213,7 @@ GCC exposes its various optimizations via a number of flags that can be turned o
 
 For instance, version 4.8.4 provides a wide range of command-line options that can be enabled or disabled, including more than 150 options for optimization. The diversity of available optimization options makes the design space for optimization level very huge, increasing the need for heuristics to explore the search space of feasible optimization sequences.
 
-As it is shown in Table 4.1, we count 76 optimization flags that are enabled by the four default optimization levels (O1, O2, O3, Ofast). 
+As it is shown in Table \ref{tab:Compiler optimization options}, we count 76 optimization flags that are enabled by the four default optimization levels (O1, O2, O3, Ofast). 
 
 Each standard level is composed by a number of optimizations. These levels are defined by compiler designers based on their experiences and preliminary experiments. The goal of defining these standard levels is to build general and program independent sequences that represent trade-offs among several non-functional properties.
 
@@ -249,7 +254,7 @@ However, all these efforts use a fitness-based selection to guide the search. Co
 
 Therefore, during the evolutionary process, we select optimization sequences that remain in sparse regions of the search space in order to guide the search towards novelty. 
 In the meantime, we choose to gather the non-functional metrics relative to the resource consumption (memory and CPU usage) of optimized code. 
-We describe in more details the way we are collecting these non-functional metrics in section 4.4.
+We describe in more details the way we are collecting these non-functional metrics in Section 4.4.
 
 \begin{algorithm}
 	\algsetup{linenosize=\tiny}
@@ -308,12 +313,13 @@ For our case study, a candidate solution represents all compiler switches that a
 The variables that represent compiler options are represented as genes in a chromosome. 
 Thus, a solution represents the CFLAGS value used by GCC to compile programs.
 A solution has always the same size, which corresponds to the total number of involved flags. 
-However, during the evolutionary process, these flags are turned on or off depending on the mutation and crossover operators (see example in Figure 4.2). As well, we keep the same order of invoking compiler flags since that does not affect the optimization process and it is handled internally by GCC.
+However, during the evolutionary process, these flags are turned on or off depending on the mutation and crossover operators (see example in Figure \ref{fig:individual.pdf}). As well, we keep the same order of invoking compiler flags since that does not affect the optimization process and it is handled internally by GCC.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\hsize]{chapitre3/fig/individual.png}
-	\caption{Solution representation}	
+	\caption{Solution representation}
+	\label{fig:individual.pdf}
 \end{figure}
 
 \subsubsection{Novelty Metric}
@@ -341,7 +347,7 @@ where $\mu _{i}$ is the $i^{th}$ nearest neighbor of the solution S within the p
 \subsection{Novelty Search For Multi-objective Optimization}
 A multi-objective approach provides a trade-off between two objectives where the developers can select their desired solution from the Pareto-optimal front. The idea of this approach is to use multi-objective algorithms to find trade-offs between non-functional properties of generated code such as \textit{$<$ExecutionTime--MemoryUsage$>$}. The correlations we are trying to investigate are more related to the trade-offs between resource consumption and execution time.
 
-For instance, NS can be easily adapted to multi-objective problems. In this adaptation, the SBSE formulation remains the same as described in Algorithm 1. However, in order to evaluate the new discovered solutions, we have to consider two main objectives and add the non-dominated solutions to the Pareto non-dominated set. We apply the Pareto dominance relation to find solutions that are not Pareto dominated by any other solution discovered so far, like in NSGA-II~\cite{lokuciejewski2010multi, deb2002fast}. Then, this Pareto non-dominated set is returned as a result.
+For instance, NS can be easily adapted to multi-objective problems. In this adaptation, the SBSE formulation remains the same as described in Algorithm \ref{algo:search}. However, in order to evaluate the new discovered solutions, we have to consider two main objectives and add the non-dominated solutions to the Pareto non-dominated set. We apply the Pareto dominance relation to find solutions that are not Pareto dominated by any other solution discovered so far, like in NSGA-II~\cite{lokuciejewski2010multi, deb2002fast}. Then, this Pareto non-dominated set is returned as a result.
 There is typically more than one optimal solution at the end of NS. The maximum size of the final Pareto set cannot exceed the size of the initial population.
 
 
@@ -385,7 +391,7 @@ The selected Csmith programs are described in more details at~\cite{mboussaa}.
 %Moreover, we run experiments on commonly used benchmarks in iterative compilation named Collective Benchmark (Cbench)~\cite{fursin2009collective}. It is a collection of open-source sequential programs in C, targeting specific areas of the embedded market. It comes with multiple datasets assembled by the community to enable realistic benchmarking and research on program and architecture optimization. Cbench contains more than 20 C programs. 
 
 
-Moreover, we run experiments on commonly used benchmarks named Collective Benchmark (cBench)~\cite{fursin2009collective}. It is a collection of open-source sequential programs in C targeting specific areas of the embedded market. It comes with multiple datasets assembled by the community to enable realistic benchmarking and research on program and architecture optimization. cBench contains more than 20 C programs. The following table describes programs that we have selected from this benchmark to evaluate our approach.
+Moreover, we run experiments on commonly used benchmarks named Collective Benchmark (cBench)~\cite{fursin2009collective}. It is a collection of open-source sequential programs in C targeting specific areas of the embedded market. It comes with multiple datasets assembled by the community to enable realistic benchmarking and research on program and architecture optimization. cBench contains more than 20 C programs. Table \ref{tab:Description of selected benchmark programs} describes the programs we have selected from this benchmark to evaluate our approach.
 
 These real world benchmark programs are used to study the influence of compiler optimizations on the resource usage in RQ3 experiments.
  
@@ -410,19 +416,18 @@ These real world benchmark programs are used to study the influence of compiler 
 			\hline
 			consumer\_tiffdither& 15399 & Convert a greyscale image to bilevel using dithering
 			\\
-			\hline
-			
+			\hline	
 		\end{tabular}
-		
 	\end{center}
 	\caption {Description of selected benchmark programs}
+	\label{tab:Description of selected benchmark programs}
 \end{table}
 
 
 \subsubsection{Parameters Tuning}
 An important aspect for meta-heuristic search algorithms lies in the parameters tuning and selection, which are necessary to ensure not only fair comparison, but also for potential replication.
 NOTICE implements three mono-objective search algorithms (Random Search (RS), NS, and GA~\cite{cooper2002adaptive}) and two multi-objective optimizations (NS and NSGA-II~\cite{deb2002fast}). Each initial population/solution of different algorithms is completely random. The stopping criterion is when the maximum number of fitness evaluations is reached.
-The resulting parameter values are listed in Table 4.3. The same parameter settings are applied to all algorithms under comparison.
+The resulting parameter values are listed in Table \ref{tab:Algorithm parameters}. The same parameter settings are applied to all algorithms under comparison.
 
 NS, which is our main concern in this work, is implemented as described in Section 3. During the evolutionary process, each solution is evaluated using the novelty metric. Novelty is calculated for each solution by taking the mean of its 15 nearest optimization sequences in terms of similarity (considering all sequences in the current population and in the archive). Initially, the archive is empty. Novelty distance is normalized in the range [0-100].
 Then, to create next populations, an elite of the 10 most novel organisms is copied unchanged, after which the rest of the new population is created by tournament selection according to novelty (tournament size = 2). Standard genetic programming crossover and mutation operators are applied to these novel sequences in order to produce offspring individuals and fulfill the next population (crossover = 0.5, mutation = 0.1).
@@ -444,6 +449,7 @@ Algorithm parameters were tuned individually in preliminary experiments. For eac
 		Individual length & 76 & Elitism & 10  \\ 
 		Scaling archive prob. & 0.05 & Solutions added to archive & 3  \\ 	\hline
 	\end{tabular}
+	\label{tab:Algorithm parameters}
 \end{table}
 
 \subsubsection{Evaluation Metrics Used}
@@ -501,11 +507,11 @@ In this experiment, we choose to optimize for execution time (S), memory usage (
 	\centering
 	\includegraphics[width=1.\linewidth]{chapitre3/fig/sensitivity.pdf}
 	\caption{Evaluation strategy to answer RQ1 and RQ2}
-	
+	\label{fig:sensitivity.pdf}
 \end{figure}
 
 
-As it is shown on the left side of Figure 4.4, given a list of optimizations and a non-functional objective, we use NOTICE to search for the best optimization sequence across a set of input programs that we call \textit{"the training set"}. This \textit{"training set"} is composed of random Csmith programs (10 programs). We apply then generated sequences to these programs. Therefore, the code quality metric, in this setting, is equal to the average performance improvement (S, MR, or CR) and that, for all programs under test. 
+As it is shown on the left side of Figure \ref{fig:sensitivity.pdf}, given a list of optimizations and a non-functional objective, we use NOTICE to search for the best optimization sequence across a set of input programs that we call \textit{"the training set"}. This \textit{"training set"} is composed of random Csmith programs (10 programs). We apply then generated sequences to these programs. Therefore, the code quality metric, in this setting, is equal to the average performance improvement (S, MR, or CR) and that, for all programs under test. 
 
 
 To summarize, in this experiment we aim to: (1) compare the performance of our proposed diversity-based exploration of optimization sequences (NS) to GA and RS; and (2) demonstrate that NOTICE is able to find the optimal solution relative to the input training set.
@@ -525,9 +531,10 @@ To summarize, in this experiment we aim to: (1) compare the performance of our p
 		MR(\%) & 4.8  & -8.4  &  4.2 & 6.1  &  10.70 & 15.2  &  15.6  \\ \hline
 		CR(\%) & -1.3  & -5  & 3.4  & -5  &  18.2 & 22.2  &  23.5  \\ \hline
 	\end{tabular}
+	\label{tab:Results of mono-objective optimizations}
 \end{table}
 
-Table 4.4 reports the comparison results of three non-functional properties CR, MR, and S. At the first glance, we can clearly see that all search-based algorithms outperform standard GCC levels with minimum improvement of 10\% for memory usage and 18\% for CPU time (when applying RS).
+Table \ref{tab:Results of mono-objective optimizations} reports the comparison results of three non-functional properties CR, MR, and S. At the first glance, we can clearly see that all search-based algorithms outperform standard GCC levels with minimum improvement of 10\% for memory usage and 18\% for CPU time (when applying RS).
  
 Our proposed NS approach has the best improvement results for three metrics with 1.365 of speedup, 15.6\% of memory reduction and 23.5\% of CPU time reduction across all programs under test. NS is clearly better than GA in terms of speedup. However, for MR and CR, NS is slightly better than GA with 0.4\% improvement for MR and 1.3\% for CR. RS has almost the lowest optimization performance but is still better than standard GCC levels.
 
@@ -543,9 +550,9 @@ This can be explained by the fact that standard GCC levels apply some aggressive
 
 \subsubsection{RQ2. Sensitivity}
 \paragraph{Method}
-Another interesting experiment is to test the sensitivity of input programs to compiler optimizations and evaluate the general applicability of best optimal optimization sets, previously discovered in RQ1. These sequences correspond to the best generated sequences using NS for the three non-functional properties S, MR and CR (i.e., sequences obtained in column 8 of Table 4.4). 
+Another interesting experiment is to test the sensitivity of input programs to compiler optimizations and evaluate the general applicability of best optimal optimization sets, previously discovered in RQ1. These sequences correspond to the best generated sequences using NS for the three non-functional properties S, MR and CR (i.e., sequences obtained in column 8 of Table \ref{tab:Results of mono-objective optimizations}). 
 
-Thus, we apply best discovered optimizations in RQ1 to new unseen Csmith (100 new random programs) and we compare then, the performance improvement across these programs (see right side of Figure 4.4). We also apply standard optimizations, O2 and O3, to new Csmith programs in order to compare the performance results.
+Thus, we apply best discovered optimizations in RQ1 to new unseen Csmith (100 new random programs) and we compare then, the performance improvement across these programs (see right side of Figure \ref{fig:sensitivity.pdf}). We also apply standard optimizations, O2 and O3, to new Csmith programs in order to compare the performance results.
 The idea of this experiment is to test whether new generated Csmith programs are sensitive to previously discovered optimizations or not. 
 
 If so, this will be useful for compiler users and researchers to use NOTICE in order to build general optimization sequences from their representative \textit{training set} programs.
@@ -554,10 +561,11 @@ If so, this will be useful for compiler users and researchers to use NOTICE in o
 	\centering
 	\includegraphics[width=1.\linewidth]{chapitre3/fig/box.pdf}
 	\caption{Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}
+	\label{fig:box.pdf}
 \end{figure}
 
 \paragraph{Results}
-Figure 4.5 shows the distribution of memory, CPU and speedup improvement across 100 new Csmith programs. For each non-functional property, we apply O2, O3 and best NS sequences. Speedup results show that the three optimization strategies lead to almost the same distribution with a median value of 1.12 for speedup. 
+Figure \ref{fig:box.pdf} shows the distribution of memory, CPU and speedup improvement across 100 new Csmith programs. For each non-functional property, we apply O2, O3 and best NS sequences. Speedup results show that the three optimization strategies lead to almost the same distribution with a median value of 1.12 for speedup. 
 
 This can be explained by the fact that NS might need more time to find the sequence that best optimizes the execution speed. Meanwhile, O2 and O3 have also the same impact on CR and MR which is almost the same for both levels (CR median value is 8\% and around 5\% for MR).
 
@@ -582,11 +590,11 @@ In the following, we describe two methods to run experiments. The first is based
 
 In this experiment, we use NOTICE to provide an understanding of optimizations impact, in terms of resource consumption, when trying to optimize for execution time. 
 
-Thus, we choose one instance of obtained results in RQ1 related to the best speedup improvement (i.e., results obtained in line 1 of Table 4.4) and we study the impact of speedup improvement on memory and CPU consumption. We also compare the resource usage data to standard GCC levels as they were presented in Table 4.4. Improvements are always calculated over the non-optimized version (O0). The following measurements are based on the training set of 10 Csmith programs.
+Thus, we choose one instance of obtained results in RQ1 related to the best speedup improvement (i.e., results obtained in line 1 of Table \ref{tab:Results of mono-objective optimizations}) and we study the impact of speedup improvement on memory and CPU consumption. We also compare the resource usage data to standard GCC levels as they were presented in Table \ref{tab:Results of mono-objective optimizations}. Improvements are always calculated over the non-optimized version (O0). The following measurements are based on the training set of 10 Csmith programs.
 
 \paragraph{Results 1}
 
-Figure 4.6 shows the impact of speedup optimization on resource consumption. For instance, O2 and O3 that led to the best speedup improvement among standard optimization levels in RQ1, present opposite impact on resource usage. Applying O2 induces -8.4\% of MR and -5\% of CR. However, applying O3 improves MR and CR respectively by 3.4\% and 4.2\%. Hence, we note that when applying standard levels, there is no clear correlation between speedup and resource usage since compiler optimizations are generally used to optimize the execution speed and never evaluated to reduce system resources.
+Figure \ref{fig:rq3.pdf} shows the impact of speedup optimization on resource consumption. For instance, O2 and O3 that led to the best speedup improvement among standard optimization levels in RQ1, present opposite impact on resource usage. Applying O2 induces -8.4\% of MR and -5\% of CR. However, applying O3 improves MR and CR respectively by 3.4\% and 4.2\%. Hence, we note that when applying standard levels, there is no clear correlation between speedup and resource usage since compiler optimizations are generally used to optimize the execution speed and never evaluated to reduce system resources.
 
 On the other hand, the outcome of applying different mono-objective algorithms for speedup optimization also proves that resource consumption is always in conflict with execution speed. The highest MR and CR is reached using NS with respectively 1.2\% and 5.4\%. This improvement is considerably low compared to scores reached when we have applied resource usage metrics as key objectives in RQ1 (i.e., 15.6\% for MR and 23.5\% for CR). Furthermore, we note that generated sequences using RS and GA have a high impact on system resources since all resource usage values are worse than the baseline.
 
@@ -597,6 +605,7 @@ These results agree to the idea that compiler optimizations do not put too much 
 		\centering
 		\includegraphics[width=0.9\linewidth]{chapitre3/fig/rq3.pdf}
 		\caption{Impact of speedup improvement on memory and CPU consumption for each optimization strategy}
+		\label{fig:rq3.pdf}
 \end{figure}
 
 
@@ -604,9 +613,9 @@ These results agree to the idea that compiler optimizations do not put too much 
 
 Now, we study the impact of applying standard levels (01, O2, O3, Ofast) on the memory usage across 5 different Cbench programs. We compare the results with solutions generated using NOTICE which have the best memory consumption reduction (i.e., generated by NS). 
 
-Figure 4.7 shows this comparison across different benchmark programs. It presents the percentage of saved memory of standard and novelty optimizations over O0 level (no optimization applied).
+Figure \ref{fig:infra_novelty_stat3.pdf} shows this comparison across different benchmark programs. It presents the percentage of saved memory of standard and novelty optimizations over O0 level (no optimization applied).
 
-To study the correlation between execution time and memory consumption of running programs, we present in Figure 4.8 an evaluation of the speedup according standard levels. Again, we compare these results to the sequence that had the best memory reduction in Figure 4.7 (i.e., NS solution). 
+To study the correlation between execution time and memory consumption of running programs, we present in Figure \ref{fig:infra_novelty_stat2.pdf} an evaluation of the speedup according standard levels. Again, we compare these results to the sequence that had the best memory reduction in Figure \ref{fig:infra_novelty_stat3.pdf} (i.e., NS solution). 
 
 \paragraph{Results 2}
 
@@ -614,6 +623,7 @@ To study the correlation between execution time and memory consumption of runnin
 	\centering
 	\includegraphics[width=1.\linewidth]{chapitre4/fig/infra_novelty_stat3.png}
 	\caption{Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}
+	\label{fig:infra_novelty_stat3.pdf}
 \end{figure}
 
 
@@ -631,9 +641,10 @@ This agrees to the idea that standard optimizations does not produce always the 
 	\centering
 	\includegraphics[width=1.\linewidth]{chapitre4/fig/infra_novelty_stat2.png}
 	\caption{Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}
+	\label{fig:infra_novelty_stat2.pdf}
 \end{figure}
 
-In Figure 4.8, we can see that optimizations yield to high level of speedup for all benchmark programs (between 1.5 and 4.3).
+In Figure \ref{fig:infra_novelty_stat2.pdf}, we can see that optimizations yield to high level of speedup for all benchmark programs (between 1.5 and 4.3).
 
 We can also observe that the different optimization levels do not differ too much in term of execution time. 
 
@@ -672,7 +683,7 @@ We report the comparison results of our NS adaptation for optimizations generati
 
 \paragraph{Results}
 
-Figure 4.9 shows the Pareto optimal solutions that achieved the best performance assessment for the trade-off \textit{$<$ExecutionTime--MemoryUsage$>$}. 
+Figure \ref{fig:pareto.pdf} shows the Pareto optimal solutions that achieved the best performance assessment for the trade-off \textit{$<$ExecutionTime--MemoryUsage$>$}. 
 The horizontal axis indicates the memory usage in raw data (in Bytes) as it is collected using NOTICE. In similar fashion, the vertical axis shows the execution time in seconds. Furthermore, the figure shows the impact of applying standard GCC options and best NS sequences on memory and execution time. 
 
 Based on these results, we can see that NSGA-II performs better than NS-II. In fact, NSGA-II yields to the best set of solutions that presents the optimal trade-off between the two objectives. Then, it is up to the compiler user to use one solution from this Pareto front that satisfies his non-functional requirements (six solutions for NSGA-II and five for NS-II). 
@@ -687,6 +698,7 @@ This agrees to the claim that standard compiler levels do not present a suitable
 		\centering
 		\includegraphics[width=0.9\linewidth]{chapitre3/fig/pareto.pdf}
 		\caption{Comparison results of obtained Pareto fronts using NSGA-II and NS-II}
+		\label{fig:pareto.pdf}
 \end{figure}
 	
 	
@@ -734,7 +746,7 @@ NOTICE provides also a GUI interface. The goal of this tool support is to help u
 	\label{fig:tool_support}
 \end{figure}
 
-For instance, NOTICE provides different features to help compiler users to:
+As shown in Figure \ref{fig:tool_support}, NOTICE provides different features to help compiler users to:
 \begin{itemize} 
 	
 	
@@ -766,7 +778,7 @@ For instance, NOTICE provides different features to help compiler users to:
 \end{itemize} 
 
 
-The execution results of this tool (i.e., in the console output) will display at the end, the comparison results of standard optimization levels to the new discovered solutions.
+The console output (i.e., the execution result of this tool) displays at the end, the comparison results of standard optimization levels to the new discovered solutions.
 
 \section{Conclusion}
 %We present an automated approach for automatic extraction of non-functional properties of generated code.

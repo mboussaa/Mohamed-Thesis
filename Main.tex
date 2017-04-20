@@ -63,7 +63,9 @@
 
 % Specify the document class, default style attributes, and page dimensions
 % For hyperlinked PDF, suitable for viewing on a computer, use this:
-\documentclass[letterpaper,12pt,titlepage,oneside,final]{book}
+\documentclass[letterpaper,12pt,titlepage, english, openright]{book}
+\setcounter{secnumdepth}{3}  %% Avec un numero.
+\setcounter{tocdepth}{2}   
  \hyphenation{op-tical net-works semi-conduc-tor}
  \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
  \usepackage[pdftex]{graphicx} 
@@ -231,7 +233,7 @@
 \newcommand{\cL}{{\cal L}}
 
 
-
+\usepackage{standalone}
 
 \usepackage[table]{xcolor}
 \usepackage{hhline}
@@ -290,8 +292,50 @@
 \newcommand*{\tabref}[1]{\tablename~\ref{#1}}
 \newcommand*{\figref}[1]{\figurename~\ref{#1}}
 
+
+
+
+%% choix des profondeurs de section pour la table des matiÃ¨res
+%% 2= subsection, 3=subsubsection
+\setcounter{secnumdepth}{3}  %% Avec un numero.
+\setcounter{tocdepth}{2}     %% Visibles dans la table des matieres
+\makeindex %% crÃ©e l'index
+\usepackage{pdfpages}
+
+
+
 \begin{document}
 
+\addtocounter{page}{-1}%√ßa c'est pour revenir √  0
+%\fontfamilly{phv}
+
+%%  1ere de Couverture:
+%\include{couverture-latex}
+\includepdf{CoverPage/couverture-latex.pdf}
+
+%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+~\cleardoublepage
+
+
+%\remerciements
+\frontmatter
+\input{./Acknowledgements/Acknowledgements}
+
+%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+%~\newpage
+
+
+
+%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}               
+%~\newpage\relax
+%~\newpage\thispagestyle{empty}
+%\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+%\cleardoublepage
+%\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+%\cleardoublepage
+
+%\fontfamilly{phv}
 % For a large document, it is a good idea to divide your thesis
 % into several files, each one containing one chapter.
 % To illustrate this idea, the "front pages" (i.e., title page,
@@ -303,31 +347,42 @@
 % FRONT MATERIAL
 %----------------------------------------------------------------------
 %\input{uw-ethesis-frontpgs} 
-\addcontentsline{toc}{chapter}{Contents}
-\markboth{Contents}{Contents}
-\tableofcontents%%{Table des matières}
-%----------------------------------------------------------------------
-% MAIN BODY
-%----------------------------------------------------------------------
-% Because this is a short document, and to reduce the number of files
-% needed for this template, the chapters are not separate
-% documents as suggested above, but you get the idea. If they were
-% separate documents, they would each start with the \chapter command, i.e, 
-% do not contain \documentclass or \begin{document} and \end{document} commands.
+ 
+
+ 
+ 
+
+ 
+ 
+\tableofcontents%%{Table des mati√®res}
+
+ 
+%%----------------------------%%
+%%                            %%
+%%  CHAPITRES PRINCIPAUX      %%
+%%                            %%
+%%----------------------------%%
+
 %======================================================================
+
+
+
+%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}               
+%~\newpage\relax
+
 \mainmatter
-%======================================================================
+
+\input{Introduction/IntroductionFr.tex}
 \chapter{Introduction}
 \input{Introduction/Introduction.tex}
-
 \part{Background and State of the Art}
 \chapter{Background}
 \input{Background/Background.tex}
 \chapter{State of the art}
 \input{SOTA/SOTA.tex}
-
 \part{Contributions}
 \chapter*{To the reader: summary of contributions}
+\addcontentsline{toc}{chapter}{To the reader: summary of contributions}
 \input{chapitre0/chapitre0.tex}
 \chapter{Automatic non-functional testing of code generators families}
 \input{chapitre4/chapitre4.tex}
@@ -377,5 +432,19 @@
 % The following statement causes the specified references to be added to the bibliography% even if they were not 
 % cited in the text. The asterisk is a wildcard that causes all entries in the bibliographic database to be included (optional).
 \nocite{*}
+
+\newpage
+\cleardoublepage
+\phantomsection \label{listoffigs}
+\addcontentsline{toc}{chapter}{List of Figures}
+\markboth{List of Figures}{List of Figures}
+\listoffigures
+
+\newpage
+\phantomsection \label{listoftabs}
+\addcontentsline{toc}{chapter}{List of Tables}
+\markboth{List of Tables}{List of Tables}
+\listoftables
+
 
 \end{document}

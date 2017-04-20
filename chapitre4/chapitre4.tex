@@ -136,7 +136,7 @@ Next section discusses the common process used by developers to automatically te
 
 \subsection{Non-Functional Testing of a Code Generator Family: a Common Process}
 
-Figure 1 summarizes the classical steps that ensure the code generation and non-functional testing of produced code from design time to runtime. 
+Figure \ref{fig:background.pdf} summarizes the classical steps that ensure the code generation and non-functional testing of produced code from design time to runtime. 
 We distinguish 4 major steps: the software design using high-level system specifications, code generation by means of code generators, code execution, and non-functional testing of generated code. 
 
 
@@ -145,11 +145,11 @@ We distinguish 4 major steps: the software design using high-level system specif
 	
 	\includegraphics[width=0.95\linewidth]{chapitre4/fig/background.pdf}
 	\caption{An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}
-	%		\label{AAA}
+	\label{fig:background.pdf}
 \end{figure*}
 
 
-In the first step, software developers have to define, at design time, the software's behavior using a high-level abstract language (DSLs, models, program, etc). Afterwards, developers can use platform-specific code generators to ease the software development and automatically generate code for different languages and platforms. We depict, as an example in Figure~1, three code generators from the same family capable to generate code to three software programming languages (JAVA, C\# and C++). The first step is to generate code from the previously designed model.
+In the first step, software developers have to define, at design time, the software's behavior using a high-level abstract language (DSLs, models, program, etc). Afterwards, developers can use platform-specific code generators to ease the software development and automatically generate code for different languages and platforms. We depict, as an example in Figure\ref{fig:background.pdf}, three code generators from the same family capable to generate code to three software programming languages (JAVA, C\# and C++). The first step is to generate code from the previously designed model.
 % Transformations from model to code within each code generator might be different and may integrate different transformation rules. As an example, we distinguish model-to-model transformations languages such as ATL~\cite{jouault2005transforming} and template-based model-to-text transformation languages such as Acceleo~\cite{musset2006acceleo} to translate high-level system specifications into executable code and scripts~\cite{bragancca2008transformation,czarnecki2003classification}. The main task of code generators is to transform models to general-purpose and platform-dependent languages.
 Afterwards, generated software artifacts (e.g., JAVA, C\#, C++, etc.) are compiled, deployed and executed across different target platforms (e.g., Android, ARM/Linux, JVM, x86/Linux, etc.). 
 %Thus, several code compilers are needed to transform source code to machine code (binaries) in order to get executed. 
@@ -181,14 +181,14 @@ The rest of this section details the technical choices we have made to synthesiz
 
 \subsection{Technical Implementation}
 
-The overall overview of our proposed approach is shown in Figure~2. In the following subsections, we describe the deployment and testing architecture using system containers.
+The overall overview of our proposed approach is shown in Figure \ref{fig:background2.pdf}. In the following subsections, we describe the deployment and testing architecture using system containers.
 
 
 \begin{figure*}[!h]
 	\center
 	\includegraphics[width=0.95\linewidth]{chapitre4/fig/background2.pdf}
 	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
-	%		\label{AAA}
+	\label{fig:background2.pdf}
 \end{figure*}
 
 
@@ -207,7 +207,7 @@ We aim to use Docker Linux containers to monitor the execution of different gene
 Docker\footnote{\url{https://www.docker.com}} is an engine that automates the deployment of any application as a lightweight, portable, and self-sufficient container that runs virtually on a host machine. 
 %To achieve that, Docker uses the Linux container technology. 
 Using Docker, we can define preconfigured applications and servers to host as virtual images. We can also define the way the service should be deployed in the host machine using configuration files called Docker files. 
-In fact, instead of configuring all code generators under test (GUTs) within the same host machine (as shown in Figure~1), our tool wrap each GUT within a container. To do so, we create a new configuration image for each GUT (i.e., the Docker image) where we install all the libraries, compilers, and dependencies needed to ensure the code generation and compilation. Thereby, the GUT produces code within multiple instances of the preconfigured Docker images (see code generation step in Figure~2).
+In fact, instead of configuring all code generators under test (GUTs) within the same host machine (as shown in Figure~\label{fig:background1.pdf}), our tool wrap each GUT within a container. To do so, we create a new configuration image for each GUT (i.e., the Docker image) where we install all the libraries, compilers, and dependencies needed to ensure the code generation and compilation. Thereby, the GUT produces code within multiple instances of the preconfigured Docker images (see code generation step in Figure~2).
 %As properties, we can define the OS where the service has to run, dependencies, etc. 
 %A simple way to build images automatically is to use Dockerfiles which represents configuration files.
 %Docker can build images automatically by reading the instructions from a Dockerfile. 
@@ -216,7 +216,7 @@ We use the public Docker registry\footnote{\url{https://hub.docker.com/}} for  s
 We can then instantiate different containers from these Docker images. 
 %Basically, each container deploys an optimized version of the input source code program.
 
-Next, each generated code is executed individually inside an isolated Linux container (see code execution step in Figure~2). By doing so, we ensure that each executed program runs in isolation without being affected by the host machine or any other processes. Moreover, since a container is cheap to create, we are able to create new container instances as long as we have new programs to execute.  
+Next, each generated code is executed individually inside an isolated Linux container (see code execution step in Figure \ref{fig:background2.pdf}). By doing so, we ensure that each executed program runs in isolation without being affected by the host machine or any other processes. Moreover, since a container is cheap to create, we are able to create new container instances as long as we have new programs to execute.  
 Since each program execution requires a new container to be created, it is crucial to remove and kill containers that have finished their job to eliminate the load on the system. We run the experiment on top of a private data-center that provide a bare-metal installation of  docker and docker swarm. On a single machine,  containers/softwares are running sequentially and we pin $p$ cores and $n$ \SI{}{\giga\byte}
 of memory for each container\footnote{$p$ and $n$ can be configured}. Once the execution is done, resources reserved for the container are automatically released to enable spawning next containers. Therefore, the host machine will not suffer too much from performance trade-offs.
 In short, the main advantages of this approach are:
@@ -261,7 +261,7 @@ linewidth=\columnwidth
 select max (memory_usage) from stats 
 where container_name='generated_code_v1'
 \end{lstlisting}
-To give an idea about the data gathered by the monitoring component and stored in the time-series database, we describe in Table 1 these collected metrics:
+To give an idea about the data gathered by the monitoring component and stored in the time-series database, we describe in Table \ref{tab:Resource usage metrics recorded in InfluxDB} these collected metrics:
 \begin{table}[h]
 	\begin{center}
 		\resizebox{0.8\columnwidth}{!}{%
@@ -287,6 +287,7 @@ To give an idea about the data gathered by the monitoring component and stored i
 		
 	\end{center}
 	\caption {Resource usage metrics recorded in InfluxDB}
+	\label{tab:Resource usage metrics recorded in InfluxDB}
 	%\vspace*{-0.9cm}
 \end{table}
 
@@ -332,7 +333,7 @@ In fact, each Haxe library comes with an API and a set of test suites. These tes
 Moreover, we add manually new test cases to some libraries in order to extend the number of test suites. The number of test suites depends on the number of existing functions within the Haxe library.
 We use then these test suites to transform functional tests into stress tests. This can be useful to study the impact of this load on the non-functional properties of generated code such as the performance and resource usage. For example, if one test suite consumes a lot of resources for a specific target, then this could be explained by the fact that the GUT has produced code that is very greedy in terms of resources.
 Thus, we run each test suite 1K times to get comparable values in terms of resource usage.
-Table 2 describes the Haxe libraries that we have selected in this benchmark to evaluate our
+Table \ref{tab:Description of selected benchmark libraries} describes the Haxe libraries that we have selected in this benchmark to evaluate our
 approach.
 
 \begin{table}[h]
@@ -353,7 +354,7 @@ approach.
 		\end{tabular}
 	}
 	\caption{Description of selected benchmark libraries}
-	\label{my-label}
+	\label{tab:Description of selected benchmark libraries}
 \end{table}
 
 \subsubsection{Evaluation Metrics Used}
@@ -372,9 +373,10 @@ We recall that our tool is able to evaluate other non-functional properties of g
 	\centering
 	\includegraphics[width=1\linewidth]{chapitre4/fig/settingup.pdf}
 	\caption{Infrastructure settings for running experiments}
+	\label{fig:settingup.pdf}
 \end{figure}
 To assess our approach, we configure our previously proposed container-based infrastructure in order to run experiments on the Haxe case study.
-Figure 3 shows a big picture of the testing and monitoring infrastructure considered in these experiments.
+Figure \ref{fig:settingup.pdf} shows a big picture of the testing and monitoring infrastructure considered in these experiments.
 
 
 \begin{table}[h]
@@ -420,10 +422,7 @@ Figure 3 shows a big picture of the testing and monitoring infrastructure consid
 	}
 	
 	\caption{The comparison results of running each test suite across five target languages: the metric used is the standard deviation between execution times  }
-	
-	
-	
-	\label{my-label}
+	\label{tab:The comparison results1}
 \end{table}
 
 % Please add the following required packages to your document preamble:
@@ -475,10 +474,7 @@ Figure 3 shows a big picture of the testing and monitoring infrastructure consid
 	}
 	
 	\caption{The comparison results of running each test suite across five target languages: the metric used is the standard deviation between memory consumptions}
-	
-	
-	
-	\label{my-label}
+    \label{tab:The comparison results2}
 \end{table}
 
 
@@ -502,7 +498,7 @@ Figure 3 shows a big picture of the testing and monitoring infrastructure consid
 		\end{tabular}%
 	}
 	\caption{Raw data values of test suites that led to the highest variation in terms of execution time}
-	\label{my-label}
+	\label{tab:raw results1}
 \end{table*}
 
 
@@ -523,7 +519,7 @@ Figure 3 shows a big picture of the testing and monitoring infrastructure consid
 		\end{tabular}%
 	}
 	\caption{Raw data values of test suites that led to the highest variation in terms of memory usage}
-	\label{my-label}
+	\label{tab:raw results2}
 \end{table*}
 
 
@@ -558,9 +554,9 @@ Therefore, we use, as a quality metric, the standard deviation to quantify the a
 A low standard deviation of a test suite execution, indicates that the data points (execution time or memory usage data) tend to be close to the mean which we consider as an acceptable behavior.  
 On the other hand, a high standard deviation indicates that one or more data points are spread out over a wider range of values which can be more likely interpreted as a code generator inconsistency. 
 
-In Table 3, we report the comparison results of running the benchmark in terms of execution speed. At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. These variations can be explained by the fact that the execution speed of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
+In Table \ref{tab:The comparison results1}, we report the comparison results of running the benchmark in terms of execution speed. At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. These variations can be explained by the fact that the execution speed of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
 
-Similarly, Table 4 resumes the comparison results of test suites execution regarding memory usage. The variation in this experiment are more important than previous results. This can be argued by the fact that the memory utilization and allocation patterns are different for each language. Nevertheless, we can recognize some points where the variation is extremely high. Thus, we choose a threshold value equal to 400 and we highlighted, in gray, the points that exceed this value. Thus, we detect 6 test suites where the variation is extremely high. 
+Similarly, Table \ref{tab:The comparison results2} resumes the comparison results of test suites execution regarding memory usage. The variation in this experiment are more important than previous results. This can be argued by the fact that the memory utilization and allocation patterns are different for each language. Nevertheless, we can recognize some points where the variation is extremely high. Thus, we choose a threshold value equal to 400 and we highlighted, in gray, the points that exceed this value. Thus, we detect 6 test suites where the variation is extremely high. 
 One of the reasons that caused this variation may occur when the test suite executes some parts of the code (in a specific language) that are so greedy in terms of resources. This may not be the case when the variation is lower than 10 for example.
 We assume then, that faulty code generators, in identified points, represent a threat for software quality since the generated code has shown symptoms of poor-quality design.
 
@@ -572,13 +568,13 @@ We assume then, that faulty code generators, in identified points, represent a t
 
 \subsubsection{Analysis}
 Now that we have observed the non-functional behavior of test suites execution in different languages, we can analyze the extreme points we have detected in previous tables to observe in greater depth the source of such deviation.
-For that reason, we present in Table 5 and 6 the raw data values of these extreme test suites in terms of execution time and memory usage. 
+For that reason, we present in Table \ref{tab:raw results1} and \ref{tab:raw results2} the raw data values of these extreme test suites in terms of execution time and memory usage. 
 
-Table 5 shows the execution time of each test suite in a specific target language. We also provide factors of execution times among test suites running in different languages by taking as a baseline the JS version. 
+Table \ref{tab:raw results1} shows the execution time of each test suite in a specific target language. We also provide factors of execution times among test suites running in different languages by taking as a baseline the JS version. 
 We can clearly see that the PHP code has a singular behavior regarding the performance with a factor ranging from x40.9 for test suite 3 in benchmark Format (Format\_TS3) to x481.7 for Math\_TS1. We remark also that running Core\_TS4 takes 61777 seconds (almost 17 hours) compared to a 416 seconds (around 6 minutes) in JAVA which is a very large gap. The highest factor detected for other languages ranges from x0.3 to x5.4 which is not negligible but it represents a small deviation compared to PHP version. While it is true that we are comparing different versions of generated code, it was expected to get some variations while running test cases in terms of execution time. However, in the case of PHP code generator, it is far to be a simple variation but it is more likely to be a code generator inconsistency that led to such performance regression.
 
 
-Meanwhile, we gathered information about the points that led to the highest standard deviation in terms of memory usage. Table~6 shows these results. %We take as well the JS version as a baseline since it requires less memory. 
+Meanwhile, we gathered information about the points that led to the highest standard deviation in terms of memory usage. Table \ref{tab:raw results2} shows these results. %We take as well the JS version as a baseline since it requires less memory. 
 Again, we can identify a singular behavior of the PHP code regarding the memory usage for the five last test suites with a factor ranging from x4.1 to x11.5 compared to the JS version.  For other test suites versions, the factor varies from x0.8 to x3.7. However, for Color\_TS6, C\# version consumes higher memory than other languages and even higher than PHP (x2.5 more than JS). %Besides the performance issues of PHP code generator presented in table~5, the results of memory usage confirm our claim since the PHP code has the highest memory utilization.
 These results prove that the PHP code generator is not always effective and it constitutes a performance threat for the generated code.
 %Our testing infrastructure allows to automatically detect inconsistencies among a set of code generators. 

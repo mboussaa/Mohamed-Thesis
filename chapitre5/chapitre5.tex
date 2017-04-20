@@ -1,13 +1,13 @@
 \section{Introduction}
 
-The general overview of the technical implementation is shown in Figure~2. In the following subsections, we describe the deployment and testing architecture of generated code using system containers.
+The general overview of the technical implementation is shown in Figure \ref{fig:docker_background2.pdf}. In the following subsections, we describe the deployment and testing architecture of generated code using system containers.
 
 
 \begin{figure*}[!h]
 	\center
-	\includegraphics[width=0.95\linewidth]{chapitre5/fig/background2.pdf}
+	\includegraphics[width=0.95\linewidth]{chapitre5/fig/docker_background2.pdf}
 	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
-	%		\label{AAA}
+	\label{fig:docker_background2.pdf}
 \end{figure*}
 
 
@@ -78,7 +78,7 @@ linewidth=\columnwidth
 select max (memory_usage) from stats 
 where container_name='generated_code_v1'
 \end{lstlisting}
-To give an idea about the data gathered by the monitoring component and stored in the time-series database, we describe in Table 1 these collected metrics:
+To give an idea about the data gathered by the monitoring component and stored in the time-series database, we describe in Table \ref{tab:metrics} these collected metrics:
 \begin{table}[h]
 	\begin{center}
 			\resizebox{0.8\columnwidth}{!}{%
@@ -104,7 +104,7 @@ To give an idea about the data gathered by the monitoring component and stored i
 		
 	\end{center}
 	\caption {Resource usage metrics recorded in InfluxDB}
-	%\vspace*{-0.9cm}
+	\label{tab:metrics}
 \end{table}
 
 Apart from that, our framework provides also information about the size of generated binaries and the compilation time needed to produce code.
