@@ -10,7 +10,6 @@
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Code generation workflow}}{30}{figure.2.8}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Overview of the iterative compilation process}}{47}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Summary of contributions}}{65}{figure.3.2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}}{73}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{75}{figure.4.2}

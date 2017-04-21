@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  20 APR 2017 16:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  21 APR 2017 11:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1306,21 +1306,13 @@ Missing character: There is no ™ in font cmr12!
 
 
 ] [63] [64] (./chapitre0/chapitre0.tex
-<Chapitre0/fig/overview.pdf, id=1328, 2220.295pt x 1097.09875pt>
-File: Chapitre0/fig/overview.pdf Graphic file (type pdf)
 
-<use Chapitre0/fig/overview.pdf>
-Package pdftex.def Info: Chapitre0/fig/overview.pdf used on input line 7.
-(pdftex.def)             Requested size: 510.65712pt x 252.32741pt.
-
-Overfull \hbox (49.93588pt too wide) in paragraph at lines 7--8
- [] 
- []
+LaTeX Warning: Reference `fig:overview' on page 65 undefined on input line 3.
 
 [65
 
 
- <./Chapitre0/fig/overview.pdf>]) [66]
+]) [66]
 Chapter 4.
 (./chapitre4/chapitre4.tex [67
 
@@ -1349,7 +1341,7 @@ Overfull \hbox (1.7323pt too wide) in paragraph at lines 139--141
 ure the code gen-er-a-tion and non-functional
  []
 
-<chapitre4/fig/background.pdf, id=1445, 940.51375pt x 303.1325pt>
+<chapitre4/fig/background.pdf, id=1406, 940.51375pt x 303.1325pt>
 File: chapitre4/fig/background.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background.pdf>
@@ -1361,7 +1353,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[74] <chapitre4/fig/background2.pdf, id=1550, 1017.8025pt x 377.41pt>
+[74] <chapitre4/fig/background2.pdf, id=1511, 1017.8025pt x 377.41pt>
 File: chapitre4/fig/background2.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background2.pdf>
@@ -1416,7 +1408,7 @@ Underfull \hbox (badness 1215) in paragraph at lines 355--355
 []|\OT1/cmr/m/n/12 Generation of ran-dom
  []
 
-[81] <chapitre4/fig/settingup.pdf, id=1763, 482.80376pt x 337.26pt>
+[81] <chapitre4/fig/settingup.pdf, id=1723, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
@@ -1875,7 +1867,7 @@ Chapter 5.
 
 
 ] [92] [93] [94]
-<chapitre3/fig/autotuning.pdf, id=2038, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=1998, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
@@ -1893,7 +1885,7 @@ Overfull \hbox (17.62482pt too wide) detected at line 299
 [][] 
  []
 
-[99] <chapitre3/fig/individual.png, id=2168, 991.705pt x 153.57375pt>
+[99] <chapitre3/fig/individual.png, id=2128, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
@@ -1912,7 +1904,7 @@ Underfull \hbox (badness 1810) in paragraph at lines 406--408
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [103] [104] [105]
-<chapitre3/fig/infraup.pdf, id=2228, 469.755pt x 312.16624pt>
+<chapitre3/fig/infraup.pdf, id=2189, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
@@ -1922,7 +1914,7 @@ Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 488.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[106] <chapitre3/fig/sensitivity.pdf, id=2237, 494.84875pt x 121.45375pt>
+[106] <chapitre3/fig/sensitivity.pdf, id=2198, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1933,7 +1925,7 @@ Package pdftex.def Info: chapitre3/fig/sensitivity.pdf used on input line 508.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [107 <./chapitre3/fig/infraup.pdf>] [108 <./chapitre3/fig/sensitivity.pdf>]
-<chapitre3/fig/box.pdf, id=2370, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=2331, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1944,7 +1936,7 @@ Package pdftex.def Info: chapitre3/fig/box.pdf used on input line 562.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [109] [110 <./chapitre3/fig/box.pdf>]
-<chapitre3/fig/rq3.pdf, id=2398, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=2359, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1955,7 +1947,7 @@ Package pdftex.def Info: chapitre3/fig/rq3.pdf used on input line 606.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [111]
-<chapitre4/fig/infra_novelty_stat3.png, id=2410, 599.3592pt x 371.4678pt>
+<chapitre4/fig/infra_novelty_stat3.png, id=2371, 599.3592pt x 371.4678pt>
 File: chapitre4/fig/infra_novelty_stat3.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat3.png>
@@ -1963,7 +1955,7 @@ Package pdftex.def Info: chapitre4/fig/infra_novelty_stat3.png used on input li
 ne 624.
 (pdftex.def)             Requested size: 460.72124pt x 285.54929pt.
  [112 <./chapitre3/fig/rq3.pdf>]
-<chapitre4/fig/infra_novelty_stat2.png, id=2464, 547.3248pt x 343.0416pt>
+<chapitre4/fig/infra_novelty_stat2.png, id=2424, 547.3248pt x 343.0416pt>
 File: chapitre4/fig/infra_novelty_stat2.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat2.png>
@@ -1978,14 +1970,14 @@ Overfull \hbox (5.90762pt too wide) in paragraph at lines 669--670
  []
 
 [114 <./chapitre4/fig/infra_novelty_stat2.png>] [115]
-<chapitre3/fig/pareto.pdf, id=2486, 756.8275pt x 488.82625pt>
+<chapitre3/fig/pareto.pdf, id=2447, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
 Package pdftex.def Info: chapitre3/fig/pareto.pdf used on input line 699.
 (pdftex.def)             Requested size: 414.6463pt x 267.81847pt.
  [116 <./chapitre3/fig/pareto.pdf>] [117]
-<chapitre3/fig/tool_support.png, id=2509, 750.805pt x 439.6425pt>
+<chapitre3/fig/tool_support.png, id=2470, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
@@ -2012,7 +2004,7 @@ Tun-ing the evo-lu-tion-ary pa-ram-e-ters (showed
 ]
 Chapter 6.
 (./chapitre5/chapitre5.tex
-<chapitre5/fig/docker_background2.pdf, id=2534, 1017.8025pt x 377.41pt>
+<chapitre5/fig/docker_background2.pdf, id=2495, 1017.8025pt x 377.41pt>
 File: chapitre5/fig/docker_background2.pdf Graphic file (type pdf)
 
 <use chapitre5/fig/docker_background2.pdf>
@@ -2134,19 +2126,23 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 450.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 450.
 Package rerunfilecheck Info: File `Main.out' has not changed.
 (rerunfilecheck)             Checksum: A6A38F86189A7E637D35262A3FA8CDB0;6878.
+
+
+LaTeX Warning: There were undefined references.
+
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22330 strings out of 493027
- 405321 string characters out of 6134069
- 870302 words of memory out of 5000000
- 24929 multiletter control sequences out of 15000+600000
+ 22323 strings out of 493027
+ 405162 string characters out of 6134069
+ 870229 words of memory out of 5000000
+ 24925 multiletter control sequences out of 15000+600000
  17639 words of font info for 67 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 51i,18n,77p,10384b,15478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 51i,18n,77p,10384b,15479s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
@@ -2169,10 +2165,10 @@ al/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local
 /texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Main.pdf (160 pages, 4689294 bytes).
+Output written on Main.pdf (160 pages, 4665162 bytes).
 PDF statistics:
- 3099 PDF objects out of 3580 (max. 8388607)
- 2492 compressed objects within 25 object streams
- 555 named destinations out of 1000 (max. 500000)
- 869 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3059 PDF objects out of 3580 (max. 8388607)
+ 2462 compressed objects within 25 object streams
+ 554 named destinations out of 1000 (max. 500000)
+ 864 words of extra memory for PDF output out of 10000 (max. 10000000)
 
