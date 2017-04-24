@@ -17,13 +17,16 @@ Then, in Section 3.3, we discuss the use of virtualization technology for deploy
 
 Finally, Section 3.4 discusses the limitations of the state of the art.
 \section{Testing code generators}
-When an automatic code generator is used, verification and validation approaches are needed to detect errors and gain confidence into the correct functioning of the produced code. We study the problem of testing code generators in two aspects: the first by presenting previous research efforts on functional testing (i.e., verifying the correctness of produced code and its conformance to the model or language being deigned) and in a second step, we study the non-functional validation of code generators. 
+When an automatic code generator is used, verification and validation approaches are needed to detect errors caused by the automatic code generation. Therefore, code generator users gain confidence into the correct functioning of the produced code and continue to use it. We study the problem of testing code generators in two aspects: the first by presenting the previous research efforts on functional testing (i.e., verifying the correctness of produced code and its conformance to the model or language being deigned) and in a second step, we study the non-functional validation of code generators. 
 
 \subsection{Testing functional properties}
 
 Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back}.
 
 In the case of automatic code generation against an executable model, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model.
+
+
+
 
 In this context, Conrad et al.\cite{conrad2010code,conrad2009testing} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
 

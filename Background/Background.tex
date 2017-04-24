@@ -389,16 +389,51 @@ Example: Matlab is a domain specific math language that makes it easy to represe
 %Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
 %We distinguish two major types of code generators: rule-based model-to-model transformation languages (such as ATL) and template-based model-to-text transformation languages (such as Acceleo) to translate high-level system specifications into executable code and scripts.
 \subsection{Why testing code generators is complex?}
-%Code generation deals with the partial or complete generation of programs, based on a formal model• A model could be written in a specific language (model language), existing source code or also available meta information (Database Metadata, XML-Schema, ...)• Regular Expressions are a powerful language to extract information from code or a formal model• Lightweight software generators consist often only about a dozens of lines• Code generation yields to higher abstraction, higher productivity, improved quality and a higher consistence of your application
+\label{sec:Why testing code generators is complex?}
+Verifying and validating the automatic code generators raise different challenges.
+In the following, we discuss major problems of code generators testing:
+\begin{itemize}
+	\item \textbf{The oracle problem}: 
+	
+	To test the automatic code generation, test oracles are required to assess whether a test has passed or not. A test
+	oracle checks whether the result of executing a test is as expected.
+	In case of functional testing of code generators, the test oracle can be easily defined. For example, it can be defined as the comparison result between the simulated or executed model and its corresponding implementation. 
+	However, in case of non-functional testing of code generators, the testing oracle is complex to define. In fact, the generated code has to meet certain performance requirements (e.g. execution speed, response time, memory consumption, utilization of resources, etc.). Proving that the generated code respects one of these non-functional requirements is not obvious. For example, one kind of solutions that can be applied is to perform a non-regression testing approach to compare the non-functional properties of two implementation versions of generated code.
+	
+	\item \textbf{Infeasibility of unit testing}:
+	 
+	It is infeasible to test a whole code generator exhaustively with traditional software test approaches due to the complexity of the tool. When it comes to the unit testing of code generators, each translation function would have to be detached from the software system and surrounded by a test harness. This means decoupling each translation rule and testing it separately. This is, however, infeasible because it is difficult to address this specific functionality separately when testing a system as a whole. 
+	Consider, for example, functional testing of the translation function for the sum operator (+). According to\cite{burnard2004verifying}, there are more than 2.000 ways of implementing the function a = b + c since the operation depends on data types and whether data limiting is enabled or not.
+		
+	\item \textbf{Complexity of code generators}: 
+	
+	Code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
+	Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. So, flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle\cite{guana2015developers}. 
+	Table \ref{tab:targetlink} shows, as an example, some metrics of the TargetLink code generator version 2.0. TargetLink\footnote{\url{https://www.dspace.com/en/inc/home/products/sw/pcgs/targetli.cfm}} is a software system that generates production code (C code) straight from the MATLAB/Simulink/Stateflow graphical development environment. 
+	\begin{table}
+		\centering
+		\caption{Metrics of the TargetLink code generator}
+		\begin{tabular}{| l | c | }\hline
+			\textbf{Metrics} & \textbf{TargetLink code generator 2.0}  \\	\hhline{|=|=|}	
+			No. of classes  & 3000\\ 
+			No. of files & 6000 \\  
+			No. of functions & 51.000 \\  
+			Lines (total) & 1.800.000 \\  
+			Lines of code & 990.000 \\ 
+			Lines of comments  & 560.000 \\ 	\hline
+		\end{tabular}
+		\label{tab:targetlink}
+	\end{table}
+	This table shows how huge is the code generator base code. With more than 1.800.000 lines of code, it is very hard to test th whole system. 
+	
+	\item \textbf{Non-executable source model}: 
+	
+	Code generators do not always support executable source models. Sometimes, code generators such as partial class generator, generate only structural code through a series of transformations from a non-executable model (e.g., UML diagrams). It is up to the users next, to extend the generated code by extending the derived classes. In case of non-executable models, verifying that the code produced has a correct behavior as it is described in the model becomes  difficult since it is not executable.   
 
+	
+	%The challenge is that the structure of the specification is usually very different from the structure of the implementation: there is no simple one-to-one correspondence between the concepts in the specification and the concepts in the implementation. 
+\end{itemize}
 
-%A model could be written in a specific language (model language), existing source code or also available meta information (Database Metadata, XML-Schema, ...)• Regular Expressions are a powerful language to extract information from code or a formal model• Lightweight software generators consist often only about a dozens of lines• Code generation yields to higher abstraction, higher productivity, improved quality and a higher consistence of your application
-
-The complexity of code generators remains on the different code generation models described above.
-In fact, code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
-Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. We believe that flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle\cite{guana2015developers}.
-
-Moreover, the generated code has to meet certain performance requirements (e.g. execution speed, response time, memory consumption, utilization of resources, etc.). The challenge is that the structure of the specification is usually very different from the structure of the implementation: there is no simple one-to-one correspondence between the concepts in the specification and the concepts in the implementation. 
 %Efficient implementations are then computed at generation time by applying domain-specific optimizations and replacing, merging, adding, and removing components.
 
 %\begin{figure}[h]
@@ -490,25 +525,30 @@ We resume, in the following, several issues with optimizing compiler technology 
 %\end{figure}
 
 
-\section{Summary: Testing challenges}
-
+\section{Summary: Testing and optimization challenges}
+We resume in this section the main testing and optimization challenges we have identified through this chapter.
 \begin{itemize}
-	\item \textbf{Auto-tuning compilers}: 
-	Compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the available optimizations of the compiler.  
-	So, how can we help the compiler user to automatically auto-tune compilers and choose which optimizations he should apply to satisfy a specific non-functional property? 
+	\item \textbf{Heterogeneous execution environments}: 
+	The diversity of existing software environments and platforms as well as the hardware heterogeneity make the testing activity of generators very difficult. Deploying and executing the automatically generated software artifacts on top of bench of platforms is time consuming. Thus, an effective mean is needed to facilitate software testing and optimization.
+	\textbf{How can we leverage software engineering technologies to face the continuous hardware and software innovation when testing generators?} 
 	
-		
-	\item \textbf{Detecting code generator inconsistencies}: 
-    Automatic code generation offers many gains over traditional software development methods. e.g., speed of development, increased adaptability and reliability. But code generators are complex pieces of software that may themselves contain bugs. Thus, testing code generators becomes very needed.
-	So, how can we automatically detect issues within code generators? 
-	Moreover, proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test?
-	What about testing the non-functional properties of automatically generated code?
-	%can we trust the code-generator?
-%	How can the correctness of the generated code be verified?
+
+    \item \textbf{The oracle problem when testing code generators}: 	
+	Automatic code generation offers many gains over traditional software development methods. e.g., speed of development, increased adaptability and reliability. But code generators are complex pieces of software that may themselves contain bugs. Thus, testing code generators becomes very needed. The test oracle problem as discussed in section \ref{sec:Why testing code generators is complex?} is one of the main challenges related to the non-functional testing of code generators. This problem occurs also in functional testing, when dealing with non-executable models.
+	\textbf{
+	%So, how can we automatically detect issues within code generators? 
+	So, proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test? How about the non-functional requirements such as resource consumption?
+	How can we efficiently detect these non-functional code generator issues?}
 	
+	\item \textbf{Large optimization search space when auto-tuning compilers}: 
+	Compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the available optimizations of the compiler and their interactions. Moreover, it is difficult to find the optimization sequence that represents a trade-off between two conflicting objectives.  
+	\textbf{So, how can we help the compiler user to automatically tune compilers and choose the optimization that satisfy a one or two specific non-functional requirement? }
 	
+	\item \textbf{Resource usage of generated code:} 
+	Analyzing the resource usage of optimized or generated code requires a dynamic and adaptive solution that extract efficiently those properties. Due to the software diversity and hardware heterogeneity, monitoring the resource usage of each execution platform becomes challenging and time-consuming. 	
+	\textbf{So, how can we ease this process and provide an efficient solution that will help compiler users/experts to evaluate the optimizations and code generator users/experts to test the generated code in terms of resource usage?}
 	
-	\item \textbf{Resource usage monitoring of generated code:} Analyzing the resource usage of optimized or generated code requires a dynamic and adaptive solution that extract efficiently those properties. Due to the software diversity and hardware heterogeneity, monitoring the resource usage of each execution platform becomes challenging and time-consuming. So, how can we ease this process and provide an efficient solution that will help compiler users/experts to evaluate the optimizations and code generator users/experts to test the generated code in terms of non-functional properties?
+
 	
 
 %\subsection{Resource usage monitoring}

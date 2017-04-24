@@ -100,6 +100,12 @@ Andrejs Bajovs, Oksana Nikiforova, and Janis Sejans.
   implications.
 \newblock {\em Applied Computer Systems}, 14(1):9--18, 2013.
 
+\bibitem[BR04]{burnard2004verifying}
+Andrew Burnard and Land Rover.
+\newblock Verifying and validating automatically generated code.
+\newblock In {\em Proc. of International Automotive Conference (IAC)}.
+  Citeseer, 2004.
+
 \bibitem[BSH15]{ballal2015compiler}
 Prathibha~A Ballal, H~Sarojadevi, and PS~Harsha.
 \newblock Compiler optimization: A genetic algorithm approach.

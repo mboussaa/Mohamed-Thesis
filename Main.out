@@ -28,7 +28,7 @@
 \BOOKMARK [1][-]{section.2.5}{Compilers auto-tuning}{chapter.2}% 28
 \BOOKMARK [2][-]{subsection.2.5.1}{Code optimizations}{section.2.5}% 29
 \BOOKMARK [2][-]{subsection.2.5.2}{Why compilers auto-tuning is complex?}{section.2.5}% 30
-\BOOKMARK [1][-]{section.2.6}{Summary: Testing challenges}{chapter.2}% 31
+\BOOKMARK [1][-]{section.2.6}{Summary: Testing and optimization challenges}{chapter.2}% 31
 \BOOKMARK [0][-]{chapter.3}{State of the art}{part.1}% 32
 \BOOKMARK [1][-]{section.3.1}{Testing code generators}{chapter.3}% 33
 \BOOKMARK [2][-]{subsection.3.1.1}{Testing functional properties}{section.3.1}% 34
