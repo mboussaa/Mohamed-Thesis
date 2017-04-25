@@ -1,36 +1,67 @@
 
-In this chapter, we present the state-of-the-art of this thesis. We discuss previous efforts in three research areas: (1) Compiler auto-tuning in iterative compilation, (2) code generator testing, and (3) container-based testing.
+In this chapter, we present the state of the art of this thesis. We discuss previous efforts in three research areas: (1) code generator testing, (2) compiler auto-tuning, and (3) lightweight virtualization for software testing and monitoring.
 
-We first present a brief introduction to the iterative compilation research filed and we identify severals problems that have been investigated in this field. We discuss as well, the different techniques that have been applied to automate the process of auto-tuning compilers. To sum up, we provide a summary table showing the most important research in iterative compilation.
+We first discuss existing techniques related to code generator testing. We start by studying the state of the art approaches related to the functional testing of code generators. In a second stage, since there are few research efforts that investigate the automatic non-functional testing of code generators, we rather focus on studying the oracle problem and the different methods applied to the oracle definition. We end this section by providing a summary table of these approaches.
 
-Afterwards, we move to discuss existing techniques related to code generator testing. We start by studying the state-of-the-art approaches related to the functional testing of code generators. In a second stage, since there are few research efforts that investigate the automatic non-functional testing of code generators, we rather focus on studying the oracle problem and the different methods applied to the oracle definition. We end this section by providing a summary table of these approaches.
+Afterwards, we move to present a brief introduction to the iterative compilation research filed and we identify several problems that have been investigated in this field. We discuss as well, several techniques that are applied to automate the process of tuning compilers. To sum up, we provide a summary table showing the most important research in iterative compilation.
 
-Finally, we discuss in the last section the container technology as means of automatic software deployment, monitoring, and testing. We compare then, the container's virtualization solution to the classical approaches based on virtual machines. We provide as well, examples of existing solutions in research and industry that opted for this technology to automate software testing and monitoring.
+Finally, we discuss in the last section the system-level virtualization technology as means of automatic software deployment, monitoring, and testing. We compare then, the container's virtualization solution to the classical approaches based on virtual machines. We provide as well, examples of existing solutions in research and industry that opted for this technology to automate software testing and monitoring.
 
 This chapter is structured as follows: 
 
-Section 3.1 provides a survey of the most used compiler auto-tuning techniques to construct the best set of optimization options. 
+Section \ref{sec:Testing code generators} reviews existing techniques for code generators testing and the principal categories of oracles. 
 
-In Section 3.2, we review existing techniques for code generators testing and the principal categories of oracles. 
+In Section \ref{sec:Compilers auto-tuning techniques}, we provide a survey of the most used compiler auto-tuning techniques to construct the best set of optimization options. 
 
-Then, in Section 3.3, we discuss the use of virtualization technology for deployment and testing. In particular, we presents some of the approaches that used a container-based solution for automatic testing and monitoring. 
+Then, in Section \ref{sec:Lightweight system virtualization for software testing}, we discuss the use of the virtualization technology as a runtime execution environment. In particular, we present several research efforts that used this solution in order to facilitate software testing and monitoring. 
 
-Finally, Section 3.4 discusses the limitations of the state of the art.
+Finally, Section \ref{sec:suumary SOTA} discusses the limitations of the state of the art.
+
 \section{Testing code generators}
-When an automatic code generator is used, verification and validation approaches are needed to detect errors caused by the automatic code generation. Therefore, code generator users gain confidence into the correct functioning of the produced code and continue to use it. We study the problem of testing code generators in two aspects: the first by presenting the previous research efforts on functional testing (i.e., verifying the correctness of produced code and its conformance to the model or language being deigned) and in a second step, we study the non-functional validation of code generators. 
+\label{sec:Testing code generators}
+Testing the manually written code has always been a crucial task to ensure that the code is correct. It aims to prove that the code is functionally correct using techniques such as unit testing, integration testing, acceptance testing etc. These techniques help to find errors that engineers make when developing code.
+When an automatic code generator is used, adequate testing approaches are needed to detect errors caused by the automatic code generation. Verifying that the code generator is correct, will increase the confidence in the tool and users will continue to use it for production code generation. We study the problem of testing code generators in two aspects: the first by presenting the previous research efforts focusing on the functional properties (i.e., verifying the correctness of produced code and its conformance to the model or language being deigned) and in a second step, we study the non-functional validation of code generators. 
 
 \subsection{Testing functional properties}
 
-Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back}.
+Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back,burnard2004verifying}. 
 
-In the case of automatic code generation against an executable model, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model.
+In the case of automatic code generation against \textbf{executable models}, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model. Thus, the model is tested against its requirements and the code can be verified against the executable model by means of dynamic testing. For this purpose, both the model and the generated code are executed to be later exploited. This approach is presented and discussed in several research efforts\cite{sturmer2005overview,stuermer2007systematic,conrad2010code,jorges2014back,burnard2004verifying}. Authors of these papers argue that this approach is not only applicable for model-based code generators but also for all kinds of code generators, unless the input model/source code is executable.
 
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.6]{SOTA/fig/testing_process}
+	\caption{Process for testing automatically generated code}
+	\label{fig:Process for testing automatically generated code}
+\end{figure}
 
+As it is shown in Figure \ref{fig:Process for testing automatically generated code}, both the generated executable and the simulated model are executed with the same input. 
+The determination of the input test stimuli can use a structural testing criteria on model level (model coverage) and code level (code coverage) to generate high-quality test vectors.
+Afterwards, the two outputs are compared with respect
+to certain acceptance criteria. The comparison procedure is also known as equivalence, comparative, or back-to-back testing approach\cite{vouk1990back,mckeeman1998differential}.
 
+The great advantage of this approach is that the test oracle is simple to define. It represents the comparison between two or more output results. According to \cite{shokry2009model,stuermer2007systematic}, there are four stages of comparison that can be performed. They are described as follows (see Figure \ref{fig:Process for testing automatically generated code}):
+ 
+\begin{itemize}
+	\item Model-in-the-Loop (MiL): 
+	The simulation of the model on the host machine is termed MiL. 
+    The MiL's test purpose is to generate a reference test results (expected values). Moreover, MiL simulation captures the specified behaviour of the model that is to be implemented in general-purpose language later on. It also checks the validity of the model with respect to the functional requirements. The only problem that could occur during a MiL execution is that the model would fail to execute.
+
+	\item Software-in-the-Loop (SiL): 
+	The execution of the generated object code on the host machine with the same stimuli used for the MiL is termed as SiL. The execution results should be comparable to the results obtained during MiL. 
+	The aim of SiL is to detect translation errors such as arithmetical problems, and to measure code coverage.
+	Once the system detects a defect, the testing environment should provide the tester with a suitable navigation tool to jump to the erroneous data variable in order to fix it.
+	
+	\item Processor-in-the-Loop (PiL): 
+	PiL tests the object code on the target processor. It generates the cross compiled source code and executes it on the target processor machine. Of course, compiler optimizations can be applied to enhance the code quality. Then, the test scenarios is executed on the target processor (e.g., target embedded systems as in \cite{shokry2009model}). The aim of PiL is to verify the code behavior on the target processor and to measure code efficiency (e.g., profiling, memory usage, etc.).
+	
+	\item Hardware-in-the-Loop (HiL): 
+	Finally, during HiL, the software embedded into the target chip is executed. For that purpose, the target hardware is connected to a real-time simulation system simulating the plant. The model originally developed no longer simulates the physical environment signals, a dedicated hardware is specially designed for this purpose. The aim of HiL is to check the correct software behavior on real hardware.
+\end{itemize}
 
 In this context, Conrad et al.\cite{conrad2010code,conrad2009testing} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
 
-CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). This procedure is also known as equivalence, comparative, or back-to-back testing approach\cite{vouk1990back,mckeeman1998differential}.
+CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). 
 
 In fact, each individual model-to-code translation is followed by a verification phase to assess that the input Simulink model used for code generation and the output (i.e., the object code derived from the model via code generation and compilation) produce the same numerical results when stimulated with identical inputs. 
 
@@ -164,6 +195,7 @@ In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test or
 
 
 \section{Compilers auto-tuning techniques}
+\label{sec:Compilers auto-tuning techniques}
 
 \subsection{Iterative compilation}
 Iterative compilation, \textit{also known as optimization phase selection, adaptive compilation, or feedback directed optimization}\cite{triantafyllis2003compiler}, consists in applying software engineering techniques to produce better and more optimized programs by compiling multiple versions of each of them using different optimizations settings. After running these versions on specific hardware machines, the key objective of iterative compilation is to find the best optimization sequence that leads to the fastest and highest-quality machine code. 
@@ -358,7 +390,8 @@ The experimental results show that it is possible to improve the performance of 
 
 
 
-\section{Container-based testing techniques}
+\section{Lightweight system virtualization for software testing}
+\label{sec:Lightweight system virtualization for software testing}
 
 Using virtual machines (VMs) as a mechanism for deploying and testing applications in the cloud is very useful to run applications workload in heterogeneous and distributed environments.
 In industry, a number of commercial usage scenarios benefit from virtualization techniques to provide services to the end users. For example, Amazon EC2 makes VMs available to the customers who can use them to run their own computer applications or services on the cloud. Thus, a user can create, launch and terminate new VMs as needed.  
@@ -444,7 +477,8 @@ read. However, in case that a shard key has nearly sorted values, combining a sm
  
 
 Container monitoring tools discussed above have been used in several other works like in\cite{peinl2016docker,medel2016modelling}.
-\section{Summary \& limitations of the state-of-th-art}
+\section{Summary \& limitations of the state of the art}
+\label{sec:suumary SOTA}
  
 
 

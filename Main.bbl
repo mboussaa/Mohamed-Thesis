@@ -803,6 +803,11 @@ Eric Schulte, Jonathan Dorn, Stephen Harding, Stephanie Forrest, and Westley
 \newblock In {\em ACM SIGARCH Computer Architecture News}, volume~42, pages
   639--652. ACM, 2014.
 
+\bibitem[SH09]{shokry2009model}
+Hesham Shokry and Mike Hinchey.
+\newblock Model-based verification of embedded software.
+\newblock {\em IEEE Computer}, 42(4):53--59, 2009.
+
 \bibitem[{\v{S}}LG15]{vstrekelj2015performance}
 Domagoj {\v{S}}trekelj, Hrvoje Leventi{\'c}, and Irena Gali{\'c}.
 \newblock Performance overhead of haxe programming language for cross-platform

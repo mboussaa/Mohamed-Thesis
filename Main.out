@@ -37,10 +37,10 @@
 \BOOKMARK [2][-]{subsection.3.2.1}{Iterative compilation}{section.3.2}% 37
 \BOOKMARK [2][-]{subsection.3.2.2}{Implementation of iterative compilation system}{section.3.2}% 38
 \BOOKMARK [2][-]{subsection.3.2.3}{Iterative compilation search techniques}{section.3.2}% 39
-\BOOKMARK [1][-]{section.3.3}{Container-based testing techniques}{chapter.3}% 40
+\BOOKMARK [1][-]{section.3.3}{Lightweight system virtualization for software testing}{chapter.3}% 40
 \BOOKMARK [2][-]{subsection.3.3.1}{Deployment and testing using Docker}{section.3.3}% 41
 \BOOKMARK [2][-]{subsection.3.3.2}{Runtime monitoring using Docker}{section.3.3}% 42
-\BOOKMARK [1][-]{section.3.4}{Summary \046 limitations of the state-of-th-art}{chapter.3}% 43
+\BOOKMARK [1][-]{section.3.4}{Summary \046 limitations of the state of the art}{chapter.3}% 43
 \BOOKMARK [-1][-]{part.2}{II Contributions}{}% 44
 \BOOKMARK [0][-]{chapter*.8}{To the reader: summary of contributions}{part.2}% 45
 \BOOKMARK [0][-]{chapter.4}{Automatic non-functional testing of code generators families}{part.2}% 46
@@ -75,7 +75,7 @@
 \BOOKMARK [2][-]{subsection.5.4.5}{Threats to Validity}{section.5.4}% 75
 \BOOKMARK [2][-]{subsection.5.4.6}{Tool Support Overview}{section.5.4}% 76
 \BOOKMARK [1][-]{section.5.5}{Conclusion}{chapter.5}% 77
-\BOOKMARK [0][-]{chapter.6}{An infrastructure for resource monitoring based on system containers}{part.2}% 78
+\BOOKMARK [0][-]{chapter.6}{A lightweight execution environment for automatic software testing and optimization}{part.2}% 78
 \BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 79
 \BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 80
 \BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 81
