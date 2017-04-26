@@ -62,6 +62,13 @@ Marco Brambilla, Jordi Cabot, and Manuel Wimmer.
 \newblock Model-driven software engineering in practice.
 \newblock {\em Synthesis Lectures on Software Engineering}, 1(1):1--182, 2012.
 
+\bibitem[BDF08]{basir2008constructing}
+Nurlida Basir, Ewen Denney, and Bernd Fischer.
+\newblock Constructing a safety case for automatically generated code from
+  formal program verification information.
+\newblock In {\em International Conference on Computer Safety, Reliability, and
+  Security}, pages 249--262. Springer, 2008.
+
 \bibitem[BFN96]{banzhaf1996effect}
 Wolfgang Banzhaf, Frank~D Francone, and Peter Nordin.
 \newblock The effect of extensive use of the mutation operator on
@@ -248,6 +255,12 @@ Kalyanmoy Deb.
 \newblock {\em Multi-objective optimization using evolutionary algorithms},
   volume~16.
 \newblock John Wiley \& Sons, 2001.
+
+\bibitem[DF05]{denney2005certifiable}
+Ewen Denney and Bernd Fischer.
+\newblock Certifiable program generation.
+\newblock In {\em International Conference on Generative Programming and
+  Component Engineering}, pages 17--28. Springer, 2005.
 
 \bibitem[DGR04]{delgado2004taxonomy}
 Nelly Delgado, Ann~Q Gates, and Steve Roach.

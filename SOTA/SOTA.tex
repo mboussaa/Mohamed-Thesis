@@ -24,9 +24,9 @@ When an automatic code generator is used, adequate testing approaches are needed
 
 \subsection{Testing functional properties}
 
-Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back,burnard2004verifying}. 
+Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back,burnard2004verifying,sturmer2003test}. 
 
-In the case of automatic code generation against \textbf{executable models}, various approaches have been proposed to verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model. Thus, the model is tested against its requirements and the code can be verified against the executable model by means of dynamic testing. For this purpose, both the model and the generated code are executed to be later exploited. This approach is presented and discussed in several research efforts\cite{sturmer2005overview,stuermer2007systematic,conrad2010code,jorges2014back,burnard2004verifying}. Authors of these papers argue that this approach is not only applicable for model-based code generators but also for all kinds of code generators, unless the input model/source code is executable.
+In the case of automatic code generation against \textbf{executable models}, various approaches have been proposed to automatically verify the model-to-code translation. Verification's purpose is to check that the generated code correctly implements the designed model. Thus, the model is tested against its requirements and the code can be verified against the executable model by means of dynamic testing. For this purpose, both the model and the generated code are executed to be later exploited. This approach is presented and discussed in several research efforts\cite{sturmer2005overview,stuermer2007systematic,conrad2010code,jorges2014back,burnard2004verifying}. Authors of these papers argue that this approach is not only applicable for model-based code generators but also for all kinds of code generators, unless the input model/source code is executable.
 
 \begin{figure}[h]
 	\center
@@ -39,7 +39,7 @@ As it is shown in Figure \ref{fig:Process for testing automatically generated co
 The determination of the input test stimuli can use a structural testing criteria on model level (model coverage) and code level (code coverage) to generate high-quality test vectors.
 Afterwards, the two outputs are compared with respect
 to certain acceptance criteria. The comparison procedure is also known as equivalence, comparative, or back-to-back testing approach\cite{vouk1990back,mckeeman1998differential}.
-
+ 
 The great advantage of this approach is that the test oracle is simple to define. It represents the comparison between two or more output results. According to \cite{shokry2009model,stuermer2007systematic}, there are four stages of comparison that can be performed. They are described as follows (see Figure \ref{fig:Process for testing automatically generated code}):
  
 \begin{itemize}
@@ -59,7 +59,7 @@ The great advantage of this approach is that the test oracle is simple to define
 	Finally, during HiL, the software embedded into the target chip is executed. For that purpose, the target hardware is connected to a real-time simulation system simulating the plant. The model originally developed no longer simulates the physical environment signals, a dedicated hardware is specially designed for this purpose. The aim of HiL is to check the correct software behavior on real hardware.
 \end{itemize}
 
-In this context, Conrad et al.\cite{conrad2010code,conrad2009testing} present an approach called Code Generation Verification (CGV). It represents an automated testing-based approach to assess the equivalence between Simulink models and the generated code. 
+In this context, Conrad et al.\cite{conrad2010code} applied the approach described above by presenting an automated testing-based approach to assess the equivalence between Simulink models and the generated code. This approach is called Code Generation Verification (CGV).
 
 CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). 
 
@@ -74,24 +74,68 @@ Thus, they define an application-dependent threshold. So, two result vectors are
 
 They illustrate the CGV-based translation validation in the context of embedded automative software by using Simulink and Real-Time Workshop Embedded Coder for verification. They assess their approach by verifying the numerical equivalence between Simulink models and C generated code. They calculate the absolute difference between simulation results and execution results. Then, compare this difference to the defined tolerance threshold. They show that for some input test suites there exist mismatched signals (with high variation value) which represent an inconsistency between designed models and executed signal.
 
-
-
-
-
-
-
+The automatic code generation tool could be also certified to a recognized standard. Compliance of the model with a particular safety standard such as IEC 61508-3 in \cite{conrad2009testing}, help to demonstrate that the model is well-formed according to the certification and that it meets all requirements for later code generation. The process of code generator evaluation (described above) is used to show that the generated code is equivalent to the model (that respect the IEC 61508-3 safety standard)
 
 Stuermer et al.~\cite{stuermer2007systematic} present a systematic test approach for model-based code generators. They investigate the impact of optimization rules for model-based code generation by comparing the output of the code execution with the output of the model execution. 
 If these outputs are equivalent, it is assumed that the code generator works as expected. 
-They evaluate the effectiveness of this approach by means of testing optimizations performed by the TargetLink code generator. 
+They evaluate the effectiveness of this approach by means of testing optimizations performed by the TargetLink code generator. Test vectors are generated using a structural coverage of the model and generated code.
 They have used Simulink as a simulation environment of models. 
-
-
-
 
 In \cite{jorges2014back}, authors presented a testing approach of the Genesys code generator framework which tests the translation performed by a code generator from a semantic perspective rather than just checking for syntactic correctness of the generation result. Basically,
 Genesys realizes back-to-back testing by executing both the source model as well as the generated code on top of different target platforms. Both executions produce traces and execution footprints which are then compared.
 
+Another alternative for validating a code generator would be to use formal proofs\cite{basir2008constructing}. This involves mathematically proving that the code generation transformation process is correct and that each code generation rule preserves the model's semantic. 
+Denney et al.\cite{denney2005certifiable} considers the problem of verification of generated code by focusing on each individual generated program, instead of verifying the program generator itself.
+The generator is extended such that it produces all logical annotations that are
+required for formal safety proofs. These proofs certify that the program does not violate certain conditions during its execution. This approach is integrated into the AUTOBAYES and
+AUTOFILTER program generators. They used it to prove that code generated by the two systems satisfies both language-specific properties such as array-bounds safety or proper variable initialization-before-use and domain-specific properties such as vector normalization, matrix symmetry, or correct sensor input usage.
+
+\subsubsection{Summary of functional testing approaches}
+Inspired by the work of Sturmer et al.\cite{sturmer2005overview}, we provide a summary of the existing techniques that are applied to test the automatic code generation, some of them are described above: 
+	\begin{table}[H]
+		\centering
+		\caption{Summary of some testing techniques of automatically generated code}
+		\begin{tabular}{| p{0.12\textwidth} | p{0.25\textwidth} |p{0.6\textwidth} |}\hline
+			Level & Testing technique & Objectives \\	\hhline{|=|=|=|}	
+			Model 
+			& Functional MiL simulation/testing & 
+			--Verify that the model reflects its functional requirements specification \\ 
+			&& --Check validity of the model within the development environment
+			without resource limitations of target environment \\
+			\cline{2-3}
+			& Structural MiL testing (model coverage) & --Explore possible pathways within the model by determining test cases on the basis of the model structure \\
+			\cline{2-3}
+			& Adoption of modeling guidelines & --Rely on experiences and expert knowledge\\
+			&& --Reveal design errors at an early development stage \\
+			\hline
+			Code \newline generator  
+			& Tool certification & --Independent approval which guarantees that techniques, applied for developing and verifying the tool, are in compliance with the requirements of a certification standard \\
+			\cline{2-3}
+			& Testing (Autocode Validation suite) & --Ensure that the code generator has been tested rigorously \\
+			&& --Validate that specific translation functions (e.g. optimisations) behave
+			as expected \\
+			\cline{2-3}
+			& Formal proof & --Show by means of mathematical proofs that each code generation (rule) preserves the model’s semantics \\
+			\cline{2-3}
+			& Adoption of Standards and Guidelines & --Ensure that the code generator has been developed following a systematic
+			development process / quality management system \\ \hline
+			Generated code 
+			& Functional SiL Testing & --Detect translation errors \\
+			\cline{2-3}
+			& Functional PiL Testing & --Check validity of the code behavior taking into account the target CPU architecture \\
+			\cline{2-3}
+			& Functional HiL Testing & --Check behavior of the code when it is deployed in the target harware device \\
+			\cline{2-3}
+			& Structural MiL/HiL/PiL Testing & --Determine test cases on the basis of the code structure and explore possible execution pathways \\
+			\cline{2-3}
+			& Static analysis & --Check that code conforms to coding guidelines/standards\\
+			&& --Detect optimization opportunities such as dead code detection, etc \\
+			\hline
+		\end{tabular}
+		\label{tab:targetlink}
+	\end{table}
+ 
+%\cite{sturmer2003test} // talk about ASE paper
 
 
 \subsection{Testing non-functional properties}
@@ -218,7 +262,7 @@ In the following sections, we describe the classical iterative compilation proce
 \subsection{Implementation of iterative compilation system}
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.9]{SOTA/fig/iterative_compilation}
+	\includegraphics[scale=0.8]{SOTA/fig/iterative_compilation}
 	\caption{Overview of the iterative compilation process}
 	\label{fig:iterative_compilation}
 \end{figure}
