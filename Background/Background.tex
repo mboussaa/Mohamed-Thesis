@@ -428,7 +428,9 @@ In the following, we discuss major problems of code generators testing:
 	
 	\item \textbf{Non-executable source model}: 
 	
-	Code generators do not always support executable source models. Sometimes, code generators such as partial class generator, generate only structural code through a series of transformations from a non-executable model (e.g., UML diagrams). It is up to the users next, to extend the generated code by extending the derived classes. In case of non-executable models, verifying that the code produced has a correct behavior as it is described in the model becomes  difficult since it is not executable.   
+	Code generators do not always support executable source models. Sometimes, code generators such as partial class generator, generate only structural code through a series of transformations from a non-executable model (e.g., UML diagrams). It is up to the users next, to extend the generated code by extending the derived classes. 
+	As an example, model-based code generators integrate rule-based model-to-model transformation languages to transform one model to another (such as ATL).
+	In case of non-executable models, verifying that the code produced has a correct behavior as it is described in the model becomes  difficult since it is not executable.   
 
 	
 	%The challenge is that the structure of the specification is usually very different from the structure of the implementation: there is no simple one-to-one correspondence between the concepts in the specification and the concepts in the implementation. 

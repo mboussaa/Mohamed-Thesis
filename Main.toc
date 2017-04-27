@@ -31,9 +31,9 @@
 \contentsline {section}{\numberline {2.6}Summary: Testing and optimization challenges}{38}{section.2.6}
 \contentsline {chapter}{\numberline {3}State of the art}{41}{chapter.3}
 \contentsline {section}{\numberline {3.1}Testing code generators}{42}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Testing functional properties}{42}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.1}Functional testing of code generators}{42}{subsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.1.1}Summary of functional testing approaches}{46}{subsubsection.3.1.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Testing non-functional properties}{48}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Non-functional testing of code generators}{48}{subsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.2.1}The oracle problem}{48}{subsubsection.3.1.2.1}
 \contentsline {subsubsection}{\numberline {3.1.2.2}Summary: oracle definition approaches}{52}{subsubsection.3.1.2.2}
 \contentsline {section}{\numberline {3.2}Compilers auto-tuning techniques}{52}{section.3.2}

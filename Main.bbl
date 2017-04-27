@@ -39,6 +39,11 @@ N~Amanquah and OT~Eporwei.
 \newblock In {\em 2009 2nd International Conference on Adaptive Science \&
   Technology (ICAST)}, pages 410--417. IEEE, 2009.
 
+\bibitem[Ajw07]{ajwad2007evaluation}
+Nora Ajwad.
+\newblock Evaluation of automatic code generation tools.
+\newblock {\em MSc Theses}, 2007.
+
 \bibitem[BBGM11]{bekrar2011finding}
 Sofia Bekrar, Chaouki Bekrar, Roland Groz, and Laurent Mounier.
 \newblock Finding software vulnerabilities by smart fuzzing.

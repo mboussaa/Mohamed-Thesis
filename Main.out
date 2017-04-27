@@ -31,8 +31,8 @@
 \BOOKMARK [1][-]{section.2.6}{Summary: Testing and optimization challenges}{chapter.2}% 31
 \BOOKMARK [0][-]{chapter.3}{State of the art}{part.1}% 32
 \BOOKMARK [1][-]{section.3.1}{Testing code generators}{chapter.3}% 33
-\BOOKMARK [2][-]{subsection.3.1.1}{Testing functional properties}{section.3.1}% 34
-\BOOKMARK [2][-]{subsection.3.1.2}{Testing non-functional properties}{section.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.1.1}{Functional testing of code generators}{section.3.1}% 34
+\BOOKMARK [2][-]{subsection.3.1.2}{Non-functional testing of code generators}{section.3.1}% 35
 \BOOKMARK [1][-]{section.3.2}{Compilers auto-tuning techniques}{chapter.3}% 36
 \BOOKMARK [2][-]{subsection.3.2.1}{Iterative compilation}{section.3.2}% 37
 \BOOKMARK [2][-]{subsection.3.2.2}{Implementation of iterative compilation system}{section.3.2}% 38
