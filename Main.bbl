@@ -719,6 +719,13 @@ Rui Pais, SP~Barros, and Lu{\'\i}s Gomes.
 \newblock In {\em 2005 IEEE Conference on Emerging Technologies and Factory
   Automation}, volume~1, pages 8--pp. IEEE, 2005.
 
+\bibitem[PCC{\etalchar{+}}16]{patrick2016testing}
+Matthew Patrick, Andrew~P Craig, Nik~J Cunniffe, Matthew Parry, and
+  Christopher~A Gilligan.
+\newblock Testing stochastic software using pseudo-oracles.
+\newblock In {\em Proceedings of the 25th International Symposium on Software
+  Testing and Analysis}, pages 235--246. ACM, 2016.
+
 \bibitem[PE06]{pan2006fast}
 Zhelong Pan and Rudolf Eigenmann.
 \newblock Fast and effective orchestration of compiler optimizations for
