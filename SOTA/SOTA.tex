@@ -23,6 +23,7 @@ Testing the manually written code has always been a crucial task to ensure that 
 When an automatic code generator is used, adequate testing approaches are needed to detect errors caused by the automatic code generation. Verifying that the code generator is correct, will increase the confidence in the tool and users will continue to use it for production code generation. We study the problem of testing code generators in two aspects: the first by presenting the previous research efforts focusing on the functional properties (i.e., verifying the correctness of produced code and its conformance to the model or language being deigned) and in a second step, we study the non-functional validation of code generators. 
 
 \subsection{Functional testing of code generators}
+\label{sec: Functional testing of code generators}
 
 Most of the previous work on code generators testing focuses on checking the correct functional behavior of the generated code\cite{stuermer2007systematic,zelenov2006automatic,conrad2009testing,conrad2010code,jorges2014back,burnard2004verifying,sturmer2003test}. 
 
@@ -139,6 +140,7 @@ Inspired by the work of Sturmer et al.\cite{sturmer2005overview}, we provide a s
 
 
 \subsection{Non-functional testing of code generators}
+\label{sec:Non-functional testing of code generators}
 Previous work on non-functional testing of code generators focuses on comparing, as oracle, the non-functional properties of hand-written code to automatically generated code~\cite{stepasyuk2015evaluating,richard2013efficient}. As an example, Strekelj et al.~\cite{vstrekelj2015performance} implemented a simple 2D game in both the Haxe programming language (a high-level language) and the native environment and evaluated the difference in performance between the two versions of code. They showed that the generated code through Haxe has better performance than the hand-written one. 
 
 In \cite{ajwad2007evaluation}, authors compare some non-functional properties of two code generators, the TargetLink code generator and the Real-Time Workshop Embedded Coder. They also compare theses properties to manually written code. The code run on a C166 microprocessor as a target which is en embedded system.
@@ -152,30 +154,25 @@ Cross-platform mobile development has been also part of the non-functional testi
 \subsubsection{The oracle problem}
 
 Most of the work on software testing seeks to automate as much as possible the testing process to make it faster, cheaper, and more reliable. 
-
-To this end, automatic program testing involves in selecting suitable inputs as test cases, executing the program and verifying results against expected results. 
-The mechanism against which the software tester verify whether the outputs of the program for the executed test cases are correct or not is called \textit{test oracle}. 
-
+Automating this process involves many aspects such as test data generation, test cases generation and execution, test suites reduction, test cases prioritization, etc. Many techniques, especially search-based testing techniques, have been proposed to solve and automate these processes\cite{ali2010systematic}.
 For instance, the problem of automatically generating test inputs/data has been the subject of research interest for a long time. It consists in automatically generating test data/cases in order to detect faults/crashes or to maximize the code coverage of the program under test. 
 
+One of the most important aspects we are interesting in, is the \textit{test oracle}. It is the mechanism against which the software tester verifies whether the outputs of the program for the executed test cases are correct or not.
 
-Research in software testing has focused on automating many aspects of the testing process such as test data generation, test cases generation and execution, test suites reduction, test cases prioritization, etc. Many techniques, especially search-based testing techniques, have been proposed to solve and automate these processes\cite{ali2010systematic}.
-
-However, compared to many aspects of test automation, the problem of automating the test oracle is still challenging and less well solved. Only few techniques are available to generate test oracles. In most of the cases, designing and implementing test oracles are still manual and expensive activities. That is because the test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is commonly known as the \textit{"oracle problem"}. 
-
+Compared to many aspects of test automation, the problem of automating the test oracle is still challenging and less well solved. Only few techniques are available to generate test oracles. In most of the cases, designing and implementing test oracles are still manual and expensive activities. That is because the test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is commonly known as the \textit{"oracle problem"}. 
 As pointed out in\cite{manolache2001software}, the oracle problem has been “one of the most difficult tasks in software testing” but it is often ignored by researchers in software testing.
 
 For example, let \textit{sine} be a function implementing a specification \textit{S}. Let \textit{D} represent the input domain which represents the input values for which we would calculate the \textit{sine}. Usually, the testing process should verify if the \textit{sine(x) = S(x)} $\forall$ \textit{x} $\in$ \textit{D}. The procedure through which the testing program can check whether \textit{sine(x) = S(x)} is called an oracle.
-
 Automatically generating  \textit{D} (test data) and executing test cases in this example is simple. It consists in generating random numerical values for example. However, it is impossible to do an exhaustive testing to automatically check the expected output.
-
 For instance, only the special input values  \textit{0}, $\pi/4$,  $\pi/2$, etc., could be the standard test cases since the output of  \textit{sine(x)} for these test data values is known and can be automatically checked against the specification. Nevertheless, special values cannot give us enough confidence in the correctness of the program on more complex or random inputs. 
+Other examples include, testing programs calculating numerical functions or solving complex equations, testing programs that calculate combinatorial problems, testing graphical user interfaces, etc.
 
-Other examples include, testing programs calculating numerical functions or solving complex equations; testing programs that calculate combinatorial problems, testing graphical user interfaces, etc.
+In this context, the automatic testing of code generators particularly implies the oracle problem. When testing compilers, for example, it is quite difficult to automatically verify the equivalence between the source code and object code. This task becomes even more complicated when some optimizations are applied to the machine code. 
+When testing code generators, the verification of the high-level system specification with the generated code is also challenging. Supposing that the \textit{sine} function is defined using a high level language. The generated \textit{sine} function should be evaluated with the same effort as the manual written code in order to verify whether the code generator has introduced bugs or not. 
 
-Automatically testing generators also implies the oracle problem. When testing compilers, for example, it is quite difficult to automatically verify the equivalence between the source code and object code. This task becomes even more complicated when some optimizations are applied to the machine code. 
+As we discussed in Section \ref{sec: Functional testing of code generators} about the functional testing of code generators, the test oracle is often defined as a back-to-back comparison between the output of the system specification and the generated code.
+When it comes to test the non-functional properties such as the resource usage or execution speed, this problem becomes more critical. There is no clear definition about how the oracle should be automatically defined except the few research efforts, discussed in Section \ref{sec:Non-functional testing of code generators}. 
 
-When testing code generators, the verification of the high level system specification with the generated code is also challenging. Supposing that the \textit{sine} function is defined using a high level language. The generated \textit{sine} function should be evaluated with the same effort as the manual written code in order to verify whether the code generator has introduced bugs or not. 
 
 %SINE + MEtamorphic testing
 %When testing a program p supposedly implementing the sine function, for example, let 1.28 be a test case. Although we do not know the exact value of sin1.28, a failure can still be identified if the output p(1.28) > 1 because |sinx| ≤ 1 ∀x ∈ R. By employing more mathematical properties of the sine curve, the range of plausible values of p(1.28) can be further narrowed down greatly.
@@ -187,10 +184,11 @@ In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test or
 \begin{itemize}
 	\item Specified oracles:
 	
-	Specified oracles can be generated from several kinds of specifications, such as algebraic specifications or formal models of the system behavior. 	
-	Stocks et al.\cite{stocks1996framework,richardson1992specification} discuss an approach for deriving test cases and oracles from specification. The idea is that the formal specification of a software can be used as a guide for designing functional tests. Then, test oracles can be associated with individual test templates (test case specifications). Thus, they construct abstract models of expected outputs, called oracle templates. 
+	Specified oracles can be generated from several kinds of specifications, such as algebraic specifications or formal models of the system behavior. 
+	For example, Stocks et al.\cite{stocks1996framework,richardson1992specification} discuss an approach for deriving test cases and oracles from specification. The idea is that the formal specification of a software can be used as a guide for designing functional tests. Then, test oracles can be associated with individual test templates (test case specifications). Thus, they construct abstract models of expected outputs, called oracle templates. 
 	The approach is illustrated with test oracle templates for the Z specification.
-	Specified oracles are effective in identifying errors, but the task of defining and maintaining specifications is very expensive and time consuming. These kinds of oracles are also less adopted in industry.
+	
+	Specified oracles are effective in identifying errors. However, the task of defining and maintaining specifications is very expensive and time consuming. The applicability of specified oracles is therefore limited and they are also less adopted in industry.
 	
 	\item Implicit oracles:
 	
@@ -199,36 +197,42 @@ In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test or
 	
 	Implicit oracles\cite{harman2013comprehensive,barr2015oracle} are easy to obtain at practically no cost. At the same time, implicit oracles are mostly incomplete, since they are not able to identify internal problems and complex failures, but they help to detect, in a black-box way, general errors like system crashes or un-handled exceptions.
 	
-	As an example, fuzz testing\cite{miller1990empirical} is one of the methods where implicit oracles are used to find anomalies, such a crashes. The idea of fuzzing is to generate random inputs and
-	pass them to the system under test to find anomalies.
-	Bugs detection is based on the efficiency of generated inputs/data. If an anomaly is detected,
-	the tester reports it by identifying the input triggering it. 
-	Fuzzing is commonly used to detect security vulnerabilities, such as buffer overflows, memory   leaks, exceptions, etc.\cite{bekrar2011finding}.
+	As an example, fuzz testing\cite{miller1990empirical} is one of the methods where implicit oracles are used to find anomalies, such a crashes. The idea of fuzzing is to generate random inputs and pass them to the system under test to find anomalies.
+	Bugs detection is based on the efficiency of generated inputs/data. If an anomaly is detected, the tester reports it by identifying the input triggering it. 
+	Fuzzing is commonly used to detect security vulnerabilities, such as buffer overflows, memory leaks, exceptions, etc.\cite{bekrar2011finding}.
+	
+	Kropp et al.\cite{kropp1998automated} presents an approach to test the robustness of the system under test using implicit oracles.
+	This approach relies on the creation and execution of invalid input robustness tests. Specifically, these tests are designed to detect crashes and hangs caused by invalid inputs to function calls. The results show that between 42\% and 63\% of components on the POSIX systems measured had robustness problems. 
+	
+	Other work has focused on developing patterns to detect anomalies. For instance, Ricca and Tonella\cite{ricca2006detecting} considered a subset of possible anomalies that can be found in Web applications such as navigation problems, hyperlink inconsistencies, etc. Their empirical assessment
+	showed that 60\% of the Web applications considered in their study exhibited anomalies and execution failures.
 	
 	
 	\item Derived oracles:
 	
-	Derived oracles are derived from various artifacts (e.g. documentation, system executions) or properties (e.g. metamorphic relations) other than specifications.
+	Derived oracles are derived from various artifacts (e.g. documentation, system executions) or properties other than specifications.
 	
-	For example, in regression testing, oracles can be derived from the executions of previous versions of the software under test. In this
-	case, the derived oracles will verify if the new software version behaves as the original one\cite{mariani2007compatibility}. 
+	For example, in regression testing, oracles can be derived from the executions of previous versions of the software under test. In this case, the derived oracles will verify if the new software version behaves as the original one\cite{mariani2007compatibility}. 
 	
 	Oracles can also be automatically derived from program invariants\cite{ernst2000quickly}. Invariants can help programmers by characterizing aspects of program execution and identifying program properties that must be preserved when modifying code. They report properties that were true over the observed executions of all programs such as \textit{"y = 2*x+3"}, \textit{"array a is sorted"}, etc. The Daikon invariant detector\footnote{https://plse.cs.washington.edu/daikon/} is an open source tool that apply machine learning technique to infer these invariant properties.
 	
-	Additionally, oracles can be derived from properties of the system under test. For instance, metamorphic testing\cite{chen2004case} generates test oracles by exploiting metamorphic relations of the system under test. In particular, metamorphic testing exploit the relation between the inputs and outputs of special test cases to derive metamorphic relations defined as test oracles for new test cases. 
-	
-	A metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
+	Additionally, oracles can be derived from properties of the system under test. For instance, a metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
+	MT exploits the relation between the inputs and outputs of special test cases of the system under test to derive metamorphic relations defined as test oracles for new test cases. 
 	MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
 	For a given problem, usually more than one MR can be identified. It is therefore interesting to select effective MRs that are good at detecting program bugs.
+
+	MT is applied for testing compilers, le et al.\cite{le2014compiler} present an approach called equivalence modulo inputs (EMI) testing. The idea of this approach is to pass different program versions (with same behavior) to the compiler in order to inspect the output similarity after code compilation and execution. So, given a deterministic program P and a set of input values I, the authors proposed to create equivalent versions of the program by profiling its execution and pruning un-executed code (by identifying the statements not covered by I and mutating or deleting a subset of the dead statements of P)
+	Once a program and its equivalent variant are constructed, both are used as input of the compiler under test, checking for inconsistencies in their results. 
+	Deviations in behavior are indicative of compiler inconsistencies.
+	This method has detected 147 confirmed bugs in two open source C compilers, GCC and LLVM.
+	EMI testing is an example of metamorphic testing. The program variants are in a metamorphic relationship with one another and with P, with respect to I.
+	Another application of the equivalence based method is presented by Tao et al.\cite{tao2010automatic} to test the semantic-soundness property of compilers. They used three different techniques in generating equivalent source programs and tested the mutants with the programs. Empirical results show that their approach is able two real issues in real errors in GCC and UCC compilers.
+	A metamorphic approach has also been used to test GLSL compilers via opaque value injection\cite{donaldson2016metamorphic}.
 	
-	%REFPHRASEEEEEEEEEEEE
-	A recent alternative strategy is equivalence modulo inputs (EMI) testing. Given a well-defined, deterministic program P, EMI testing involves first performing code coverage analysis of P with respect to an input I to identify I-dead statements: statements not covered by I. From P, a series of program variants, P1, P2, ..., Pn can be created, with each Pi obtained by mutating or deleting a subset of the I-dead
-	statements of P. Each Pi should behave identically to P
-	when executed on input I; deviations in behaviour are indicative
-	of compiler bugs. Thus, EMI testing is an example
-	of metamorphic testing —the programs are in a metamorphic
-	relationship with one another and with P, with respect
-	to I.
+	 
+ 
+	
+ 
 	
 	
 	

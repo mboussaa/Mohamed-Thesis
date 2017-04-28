@@ -35,22 +35,22 @@
 \contentsline {subsubsection}{\numberline {3.1.1.1}Summary of functional testing approaches}{46}{subsubsection.3.1.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Non-functional testing of code generators}{48}{subsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.2.1}The oracle problem}{48}{subsubsection.3.1.2.1}
-\contentsline {subsubsection}{\numberline {3.1.2.2}Summary: oracle definition approaches}{52}{subsubsection.3.1.2.2}
-\contentsline {section}{\numberline {3.2}Compilers auto-tuning techniques}{52}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Iterative compilation}{52}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Implementation of iterative compilation system}{53}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Summary: oracle definition approaches}{53}{subsubsection.3.1.2.2}
+\contentsline {section}{\numberline {3.2}Compilers auto-tuning techniques}{53}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Iterative compilation}{53}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Implementation of iterative compilation system}{54}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Iterative compilation search techniques}{55}{subsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.3.1}Auto-tuning: a mono objective optimization}{55}{subsubsection.3.2.3.1}
-\contentsline {subsubsection}{\numberline {3.2.3.2}Escaping local optimum}{56}{subsubsection.3.2.3.2}
+\contentsline {subsubsection}{\numberline {3.2.3.1}Auto-tuning: a mono objective optimization}{56}{subsubsection.3.2.3.1}
+\contentsline {subsubsection}{\numberline {3.2.3.2}Escaping local optimum}{57}{subsubsection.3.2.3.2}
 \contentsline {subsubsection}{\numberline {3.2.3.3}Phase ordering problem}{58}{subsubsection.3.2.3.3}
-\contentsline {subsubsection}{\numberline {3.2.3.4}Evaluating iterative optimization across multiple data sets}{59}{subsubsection.3.2.3.4}
+\contentsline {subsubsection}{\numberline {3.2.3.4}Evaluating iterative optimization across multiple data sets}{60}{subsubsection.3.2.3.4}
 \contentsline {subsubsection}{\numberline {3.2.3.5}Conflicting objectives: a multi-objective optimization}{60}{subsubsection.3.2.3.5}
 \contentsline {subsubsection}{\numberline {3.2.3.6}Predicting optimizations: a machine learning optimization}{62}{subsubsection.3.2.3.6}
-\contentsline {subsubsection}{\numberline {3.2.3.7}Summary: auto-tuning compiler techniques}{63}{subsubsection.3.2.3.7}
-\contentsline {section}{\numberline {3.3}Lightweight system virtualization for software testing}{63}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{64}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Runtime monitoring using Docker}{65}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Summary \& limitations of the state of the art}{67}{section.3.4}
+\contentsline {subsubsection}{\numberline {3.2.3.7}Summary: auto-tuning compiler techniques}{64}{subsubsection.3.2.3.7}
+\contentsline {section}{\numberline {3.3}Lightweight system virtualization for software testing}{64}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{65}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Runtime monitoring using Docker}{66}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Summary \& limitations of the state of the art}{68}{section.3.4}
 \contentsline {part}{II\hspace {1em}Contributions}{69}{part.2}
 \contentsline {chapter}{To the reader: summary of contributions}{71}{chapter*.8}
 \contentsline {chapter}{\numberline {4}Automatic non-functional testing of code generators families}{75}{chapter.4}

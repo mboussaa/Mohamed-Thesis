@@ -281,6 +281,12 @@ Christophe Dubach, Timothy~M Jones, Edwin~V Bonilla, Grigori Fursin, and
 \newblock In {\em Proceedings of the 42nd Annual IEEE/ACM International
   Symposium on Microarchitecture}, pages 78--88. ACM, 2009.
 
+\bibitem[DL16]{donaldson2016metamorphic}
+Alastair~F Donaldson and Andrei Lascu.
+\newblock Metamorphic testing for (graphics) compilers.
+\newblock In {\em Proceedings of the 1st International Workshop on Metamorphic
+  Testing}, pages 44--47. ACM, 2016.
+
 \bibitem[DPAM02]{deb2002fast}
 Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and TAMT Meyarivan.
 \newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
@@ -504,6 +510,12 @@ Peter~MW Knijnenburg, Toru Kisuki, and Michael~FP O’Boyle.
 \newblock Iterative compilation.
 \newblock In {\em Embedded processor design challenges}, pages 171--187.
   Springer, 2002.
+
+\bibitem[KKS98]{kropp1998automated}
+Nathan~P Kropp, Philip~J Koopman, and Daniel~P Siewiorek.
+\newblock Automated robustness testing of off-the-shelf software components.
+\newblock In {\em Fault-Tolerant Computing, 1998. Digest of Papers.
+  Twenty-Eighth Annual International Symposium on}, pages 230--239. IEEE, 1998.
 
 \bibitem[Kr{\v{c}}12]{krvcah2012solving}
 Peter Kr{\v{c}}ah.
@@ -781,6 +793,11 @@ Aseem Rastogi, Nikhil Swamy, C{\'e}dric Fournet, Gavin Bierman, and Panagiotis
 \newblock Safe \& efficient gradual typing for typescript.
 \newblock In {\em ACM SIGPLAN Notices}, volume~50, pages 167--180. ACM, 2015.
 
+\bibitem[RT06]{ricca2006detecting}
+Filippo Ricca and Paolo Tonella.
+\newblock Detecting anomaly and failure in web applications.
+\newblock {\em IEEE MultiMedia}, 13(2):44--51, 2006.
+
 \bibitem[SA13]{sayyad2013pareto}
 Abdel~Salam Sayyad and Hany Ammar.
 \newblock Pareto-optimal search-based software engineering (posbse): A
@@ -893,6 +910,13 @@ Spyridon Triantafyllis, Manish Vachharajani, Neil Vachharajani, and David~I
 \newblock Compiler optimization-space exploration.
 \newblock In {\em Code Generation and Optimization, 2003. CGO 2003.
   International Symposium on}, pages 204--215. IEEE, 2003.
+
+\bibitem[TWZS10]{tao2010automatic}
+Qiuming Tao, Wei Wu, Chen Zhao, and Wuwei Shen.
+\newblock An automatic testing approach for compiler based on metamorphic
+  testing technique.
+\newblock In {\em Software Engineering Conference (APSEC), 2010 17th Asia
+  Pacific}, pages 270--279. IEEE, 2010.
 
 \bibitem[VJ01]{valluri2001compiling}
 Madhavi Valluri and Lizy~K John.
