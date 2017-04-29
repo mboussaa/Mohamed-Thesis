@@ -104,6 +104,7 @@ Inspired by the work of Sturmer et al.\cite{sturmer2005overview}, we provide a s
 	\begin{table}[H]
 		\centering
 		\caption{Summary of some testing techniques of automatically generated code}
+		\noindent\resizebox{\linewidth}{!}{%
 		\begin{tabular}{| p{0.12\textwidth} | p{0.25\textwidth} |p{0.6\textwidth} |}\hline
 			Level & Testing technique & Objectives \\	\hhline{|=|=|=|}	
 			Model 
@@ -140,7 +141,7 @@ Inspired by the work of Sturmer et al.\cite{sturmer2005overview}, we provide a s
 			& Static analysis & --Check that code conforms to coding guidelines/standards\\
 			&& --Detect optimization opportunities such as dead code detection, etc \\
 			\hline
-		\end{tabular}
+		\end{tabular}}
 		\label{tab:targetlink}
 	\end{table}
  
@@ -256,6 +257,7 @@ We provide in Table \ref{tab:Summary of test oracle approaches} a summary of sev
 	\begin{table}[H]
 		\centering
 		\caption{Summary of test oracle approaches}
+		\noindent\resizebox{\linewidth}{!}{%
 		\begin{tabular}{| p{0.2\textwidth} | p{0.3\textwidth} |p{0.45\textwidth} |}\hline
 			Oracle & Method & Objectives \\	\hhline{|=|=|=|}	
 			Specified oracles 
@@ -271,7 +273,7 @@ We provide in Table \ref{tab:Summary of test oracle approaches} a summary of sev
 			& --Metamorphic testing\newline --N-version programming\newline --Regression testing\newline --Back-to-back testing\newline --Invariant detection & --Oracles are derived from various artefacts (e.g. documentation, system executions) or properties (e.g. metamorphic relations) of the system under test, or other versions of it.\newline -- Check the consistency of the results of the different versions of the systems, when the same functionality is executed. \\
 			
 			\hline
-		\end{tabular}
+		\end{tabular}}
 		\label{tab:Summary of test oracle approaches}
 	\end{table}
 
@@ -467,12 +469,42 @@ The experimental results show that it is possible to improve the performance of 
 
 
 \subsubsection{Summary: auto-tuning compiler techniques}
- 
+We provide in Table \ref{tab:Summary of iterative compilation} a summary of several iterative compilation approaches, most of them are described above. We classify these approaches based on the problem they are tackling. Sometimes, the research papers address more than one issue in iterative compilation. This is not an exhaustive study of all iterative approaches but, it gives an overview of the main papers involved in different areas during the past 20 years.
+
+\begin{table}[H]
+	\centering
+	\caption{Summary of iterative compilation approaches}
+	\noindent\resizebox{\linewidth}{!}{%
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+		   & \shortstack{Local\\ optimum} & \shortstack{Phase\\ ordering} & \shortstack{Multiple\\ data sets} & \shortstack{Conflicting\\ objectives} & \shortstack{Learning\\ Methods} & \shortstack{Multiple\\ CPUs} & \shortstack{Multiple-\\ compilers}\\ \hhline{|=|=|=|=|=|=|=|=|}	
+\shortstack{Whitfield et al.'90\\\cite{whitfield1990approach}} & - & + & - & - & - & - & -\\\hline		 
+\shortstack{Bodin et al.'98\\\cite{bodin1998iterative}} & + & - & - & - & - & + & - \\\hline
+\shortstack{Kulkarni et al.'06\\\cite{kulkarni2006exhaustive}} & - & + & - & - & - & - & - \\\hline
+\shortstack{Cooper et al.'06\\\cite{cooper2006exploring}} & + & + & - & - & - & + & - \\\hline
+\shortstack{Bashkansky et al.'07\\\cite{bashkansky2007black}} & - & - & - & - & - & + & + \\\hline 
+\shortstack{Hoste et al.'08\\\cite{hoste2008cole}} & - & - & - & + & - & - & - \\\hline
+\shortstack{Lokuciejewski et al.'10\\\cite{lokuciejewski2010multi}} & - & - & - & + & - & - & - \\\hline
+\shortstack{Chen et al.'10\\\cite{chen2010evaluating}} & - & - & + & - & - & + & + \\\hline 
+\shortstack{Fursin et al.'11\\\cite{fursin2011milepost}} & - & - & - & + & + & + & - \\\hline
+\shortstack{Pekhimenko et al.'11\\\cite{pekhimenko2011efficient}} & - & - & - & + & + & - & - \\\hline
+\shortstack{Plotnikov et al.'13\\\cite{plotnikov2013automatic}} & - & - & - & + & - & - & - \\\hline
+
+
+	\end{tabular}}
+	\label{tab:Summary of iterative compilation}
+\end{table}
 
 
 
 \section{Lightweight system virtualization for software testing}
 \label{sec:Lightweight system virtualization for software testing}
+
+The key objective of this section is to present the existing research efforts that have been presented to address:
+\begin{itemize}
+	\item \textbf{The problem of hardware heterogeneity and software diversity:} We show the benefit of using a container-based infrastructure to tackle this problem 
+	
+	\item \textbf{The problem of resource usage monitoring:} We discuss existing solutions applied for automatic resource usage extraction in a containerized world 
+\end{itemize}
 
 Using virtual machines (VMs) as a mechanism for deploying and testing applications in the cloud is very useful to run applications workload in heterogeneous and distributed environments.
 In industry, a number of commercial usage scenarios benefit from virtualization techniques to provide services to the end users. For example, Amazon EC2 makes VMs available to the customers who can use them to run their own computer applications or services on the cloud. Thus, a user can create, launch and terminate new VMs as needed.  
@@ -486,6 +518,8 @@ Authors of \cite{spoiala2016performance,soltesz2007container,merkel2014docker,fe
 
 
 The container-based infrastructure has been also applied to the software testing, especially in the cloud~\cite{li2015rest}. Sun et al.~\cite{sun2016roar} present a tool to test, optimize, and automate cloud resource allocation decisions to meet QoS goals for web applications. Their infrastructure relies on Docker to gather information about the resource usage of deployed web servers. 
+
+
 
 \subsection{Deployment and testing using Docker}  
 In software development, the container technology becomes more and more used in order to create a portable, consistent operating environment for development, deployment, and testing.
@@ -560,7 +594,7 @@ read. However, in case that a shard key has nearly sorted values, combining a sm
 Container monitoring tools discussed above have been used in several other works like in\cite{peinl2016docker,medel2016modelling}.
 \section{Summary \& limitations of the state of the art}
 \label{sec:suumary SOTA}
- 
+
 
 
 

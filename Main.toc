@@ -43,14 +43,14 @@
 \contentsline {subsubsection}{\numberline {3.2.3.1}Auto-tuning: a mono objective optimization}{56}{subsubsection.3.2.3.1}
 \contentsline {subsubsection}{\numberline {3.2.3.2}Escaping local optimum}{58}{subsubsection.3.2.3.2}
 \contentsline {subsubsection}{\numberline {3.2.3.3}Phase ordering problem}{59}{subsubsection.3.2.3.3}
-\contentsline {subsubsection}{\numberline {3.2.3.4}Evaluating iterative optimization across multiple data sets}{61}{subsubsection.3.2.3.4}
+\contentsline {subsubsection}{\numberline {3.2.3.4}Evaluating iterative optimization across multiple data sets}{60}{subsubsection.3.2.3.4}
 \contentsline {subsubsection}{\numberline {3.2.3.5}Conflicting objectives: a multi-objective optimization}{61}{subsubsection.3.2.3.5}
 \contentsline {subsubsection}{\numberline {3.2.3.6}Predicting optimizations: a machine learning optimization}{63}{subsubsection.3.2.3.6}
 \contentsline {subsubsection}{\numberline {3.2.3.7}Summary: auto-tuning compiler techniques}{64}{subsubsection.3.2.3.7}
-\contentsline {section}{\numberline {3.3}Lightweight system virtualization for software testing}{64}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{65}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Runtime monitoring using Docker}{67}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Summary \& limitations of the state of the art}{69}{section.3.4}
+\contentsline {section}{\numberline {3.3}Lightweight system virtualization for software testing}{65}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{66}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Runtime monitoring using Docker}{68}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Summary \& limitations of the state of the art}{70}{section.3.4}
 \contentsline {part}{II\hspace {1em}Contributions}{71}{part.2}
 \contentsline {chapter}{To the reader: summary of contributions}{73}{chapter*.8}
 \contentsline {chapter}{\numberline {4}Automatic non-functional testing of code generators families}{77}{chapter.4}
