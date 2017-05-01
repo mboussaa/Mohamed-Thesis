@@ -290,11 +290,13 @@ Several research efforts have investigated this optimization problem, such as Se
 
 It has been proven that optimizations are highly dependent on the target platform and on the input program which makes the task of searching for the best optimization sequence very complex\cite{triantafyllis2003compiler}.
 
-In the following sections, we describe the classical iterative compilation process and we discuss the relevant techniques and approaches that have been presented to tackle some of the challenges related to compiler optimization namely:
+In the following sections, we describe the classical iterative compilation process and we discuss the relevant techniques and approaches that have been presented to tackle some of the challenges we have identified in the previous chapter, related to compiler optimization namely:
 \begin{itemize}
 	\item \textbf{The problem of optimization-space exploration:} We present several approaches that have addressed the combinatorial explosion problem of possible compiler optimizations.`
 	
-	\item \textbf{The problem of hardware heterogeneity:} Since the optimizations are highly dependent on the input program and on the target platform, we describe for each discussed approach the execution environment used to run the iterative process as well as the evaluation settings.  
+	\item \textbf{The problem of multi-objective optimization:} We present several techniques that aimed to find trade-offs between multiple non-functional properties.
+		
+	%\item \textbf{The problem of hardware heterogeneity:} Since the optimizations are highly dependent on the input program and on the target platform, we describe for each discussed approach the execution environment used to run the iterative process as well as the evaluation settings.  
 \end{itemize}
 
 %Compared to our proposal, none of the previous work has studied the impact of compiler optimizations on resource usage. In this work, we rather focus on compiler optimizations related to resource consumption, while bearing in mind the performance improvement.
@@ -502,10 +504,11 @@ We provide in Table \ref{tab:Summary of iterative compilation} a summary of seve
 
 The key objective of this section is to present the existing research efforts that have been presented to address:
 \begin{itemize}
-	\item \textbf{The problem of hardware heterogeneity and software diversity:} We show the benefit of using a container-based infrastructure to tackle this problem 
+	\item \textbf{The problem of hardware heterogeneity and software diversity:} For instance, we show the benefit of using a container-based infrastructure to tackle this problem. Thus, we present several research efforts that opted for this technology to facilitate software testing. 
 	
-	\item \textbf{The problem of resource usage monitoring:} We discuss existing solutions applied for automatic resource usage extraction in a containerized world 
+	\item \textbf{The problem of resource usage monitoring:} We discuss existing solutions applied for automatic resource usage extraction in a microservices infrastructure. 
 \end{itemize}
+
 
 Using virtual machines (VMs) as a mechanism for deploying and testing applications in the cloud is very useful to run applications workload in heterogeneous and distributed environments.
 In industry, a number of commercial usage scenarios benefit from virtualization techniques to provide services to the end users. For example, Amazon EC2 makes VMs available to the customers who can use them to run their own computer applications or services on the cloud. Thus, a user can create, launch and terminate new VMs as needed.  
@@ -522,7 +525,7 @@ The container-based infrastructure has been also applied to the software testing
 
 
 
-\subsection{Deployment and testing using Docker}  
+\subsection{Application in software testing}  
 In software development, the container technology becomes more and more used in order to create a portable, consistent operating environment for development, deployment, and testing.
 
 In the following, we will focus and discuss state of the art approaches that chose the container technology as an efficient infrastructure to solve some testing research problems. 
@@ -558,10 +561,7 @@ software development kit (SDK). A container is then built using one of these ima
 a mobile application at specific moment of history in a
 sandbox environment. Pons creates then, an android emulator inside the docker container to run the tests. The results are streamed at runtime in the web browser.
 
-\subsection{Runtime monitoring using Docker} 
-
- 
-
+\subsection{Application in runtime monitoring} 
 Runtime monitoring is an essential part of cloud computing\cite{aceto2013cloud}. Like virtual machines before them, containers require a monitoring mechanism. It should provide both historical and timely information about the resource usage from hardware to virtual machine and container level.
 
 

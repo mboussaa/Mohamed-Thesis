@@ -48,8 +48,8 @@
 \contentsline {subsubsection}{\numberline {3.2.3.6}Predicting optimizations: a machine learning optimization}{63}{subsubsection.3.2.3.6}
 \contentsline {subsubsection}{\numberline {3.2.3.7}Summary: auto-tuning compiler techniques}{64}{subsubsection.3.2.3.7}
 \contentsline {section}{\numberline {3.3}Lightweight system virtualization for software testing}{65}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Deployment and testing using Docker}{66}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Runtime monitoring using Docker}{68}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.1}Application in software testing}{66}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Application in runtime monitoring}{68}{subsection.3.3.2}
 \contentsline {section}{\numberline {3.4}Summary \& limitations of the state of the art}{70}{section.3.4}
 \contentsline {part}{II\hspace {1em}Contributions}{73}{part.2}
 \contentsline {chapter}{To the reader: summary of contributions}{75}{chapter*.8}

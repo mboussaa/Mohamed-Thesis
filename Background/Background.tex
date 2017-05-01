@@ -383,7 +383,7 @@ Examples: Database Access layer, Web client layer, Data export, import, or conve
 \item \textbf{Full-domain language:} Domain languages are basically new languages that have types, syntax and operations and they are used for a specific type of problem. 
 Domain languages are the extreme end of automatic code generation because developers have to write a compiler for each problem domain and language. 
 
-Example: Matlab is a domain specific math language that makes it easy to represent mathematical operations for example rather than object-oriented languages. Mathematica, ant and SQL languages are other examples.
+Example: Matlab is a domain specific math language that makes it easy to represent mathematical operations for example rather than object-oriented languages. DSLs are other examples such as ThingML\footnote{\url{http://thingml.org/}}.
 
 \end{itemize}
 %Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
@@ -534,7 +534,6 @@ We resume in this section the main testing and optimization challenges we have i
 	The diversity of existing software environments and platforms as well as the hardware heterogeneity make the testing activity of generators very difficult. Deploying and executing the automatically generated software artifacts on top of bench of platforms is time consuming. Thus, an effective mean is needed to facilitate software testing and optimization.
 	\textbf{How can we leverage software engineering technologies to face the continuous hardware and software innovation when testing generators?} 
 	
-
     \item \textbf{The oracle problem when testing code generators}: 	
 	Automatic code generation offers many gains over traditional software development methods. e.g., speed of development, increased adaptability and reliability. But code generators are complex pieces of software that may themselves contain bugs. Thus, testing code generators becomes very needed. The test oracle problem as discussed in section \ref{sec:Why testing code generators is complex?} is one of the main challenges related to the non-functional testing of code generators. This problem occurs also in functional testing, when dealing with non-executable models.
 	\textbf{
