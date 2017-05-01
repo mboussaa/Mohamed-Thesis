@@ -161,6 +161,7 @@ Cross-platform mobile development has been also part of the non-functional testi
 
 
 \subsubsection{The oracle problem}
+\label{sec:The oracle problem}
 
 Most of the work on software testing seeks to automate as much as possible the testing process to make it faster, cheaper, and more reliable. 
 Automating this process involves many aspects such as test data generation, test cases generation and execution, test suites reduction, test cases prioritization, etc. Many techniques, especially search-based testing techniques, have been proposed to solve and automate these processes\cite{ali2010systematic}.
@@ -595,9 +596,38 @@ Container monitoring tools discussed above have been used in several other works
 \section{Summary \& limitations of the state of the art}
 \label{sec:suumary SOTA}
 
+The analysis of the state-of-the-art reveals several limitations. We describe below some of the limitations we have identified in both areas of iterative compilation and code generators testing:
+%In reviewing the state of the art of resource management for software abstractions, we realized that severe shortcomings in existing approaches prevent their usage in production environments. With regard to the matter of dealing with abstraction-specific features, the following issues exist:
+\begin{itemize}
+	
+\item \textbf{Limits of existing works when testing code generators (the oracle problem):} Most of the works related to the automatic testing of code generators define an equivalence functional oracle to compare the result of MiL, SiL and PiL. In case of non-executable models, this comparison becomes impossible. Particularly, the oracle problem for testing the non-functional properties of the generated code  has been avoided and not addressed by existing research efforts. The only comparison that has been made consists in comparing the hand-written code to the automatically generated code. The key objective of this comparison is to show that the generated code has better or equivalent performance properties compared to human code.\newline
+\textbf{$\Rightarrow$ 
+	We believe that more advanced testing techniques as described in the Section \ref{sec:The oracle problem} can be applied to detect code generators defects.}
+	
+\item \textbf{Limits of existing techniques when exploring the large optimization search space (a multimodal problem):}
+As showed earlier, different techniques are applied during the iterative compilation process to explore the large optimization search space. It has been showed that the optimization search space is a multimodal problem, containing many local optima.
+For effective search, some authors use to involve only few optimizations (2 to 10) or to prune some paths in order to reduce this large search space.
+Genetic Algorithms are largely applied in most of the works to search for new optimization sequences. However, this technique may fall in the local optima problem. 
+\newline
+\textbf{$\Rightarrow$ The optimization search space is multimodal and very large. An alternative solution to the classical approaches is needed to tackle these problems.}
+%\item \textbf{Benchmark evaluation:}
+	
+\item \textbf{Lack of solutions that deal with conflicting objectives when auto-tuning compilers (a multi-objective optimization problem):} 
+When trying to optimize software performance, many non-functional properties and design constraints
+must be involved and satisfied simultaneously to better optimize code. However, improving program
+execution time can result in a high resource usage which may decrease system performance especially for resource-constrained devices. Therefore, it is important to construct optimization levels that represent multiple trade-offs between resource usage and performance, enabling the user to choose among different optimal solutions which best suit the system requirements. Actually, there are only few works that address the compiler optimization as a multi-objective optimization problem. 
+\newline
+\textbf{$\Rightarrow$ To deal with conflicting objectives, it is important to find consensus between several non-functional properties when optimizing code to handle both, the resource usage and performance requirements}
 
 
+\item \textbf{Limits of existing approaches to handle the software platform and hardware requirements (the problem of software diversity and hardware heterogeneity)} The iterative compilation process as well as testing code generators require the execution of the generated code on different hardware and software platforms to evaluate some non-functional properties such as the execution time. Most of the existing research techniques apply a naive approach by running the generated code on different machines or using simulators for some configurations. Configuring the target execution environment to run the generated cod and test it is time-consuming. Particularly, for the compiler or code generator users who have no knowledge/expertise about the configurations needed to test the code, it becomes very difficult to test the code in front of the increasing diversity of hardware and software settings.\newline
+\textbf{$\Rightarrow$ A highly configurable execution environment is needed to handle the software and hardware requirements.} 
 
+\item \textbf{Lack of solutions that evaluate the resource usage properties when testing the generated code (a monitoring problem)} There is almost no research effort to deal with the non-functional properties of the automatically generated code such as the resource usage or performance. Most of the related works focus on the functional correctness of the generated code without putting too much emphasizes on the quality of the generated code. In our opinion, testing properties such as resource usage is very important to ensure an efficient production code generation. In iterative compilation, most of the existing works tend to reduce the execution time, code size, compilation time, etc. There is almost no work that evaluates the memory and CPU usage of the optimized code.
+\newline
+\textbf{$\Rightarrow$ An effective solution is needed to evaluate the resource usage properties of the automatically generated code}
+  
+\end{itemize}
 \iffalse
 Our work is related to iterative compilation research field.
 The basic idea of iterative compilation is to explore the compiler optimization space by measuring the impact of optimizations on software performance.

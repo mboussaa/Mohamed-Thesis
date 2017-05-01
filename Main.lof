@@ -11,22 +11,22 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Process for testing automatically generated code}}{43}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Overview of the iterative compilation process}}{55}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Summary of contributions}}{74}{figure.3.3}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Summary of contributions}}{76}{figure.3.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}}{83}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{85}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Infrastructure settings for running experiments}}{93}{figure.4.3}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}}{85}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{87}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Infrastructure settings for running experiments}}{95}{figure.4.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{105}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{111}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces NOTICE experimental infrastructure}}{117}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{118}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{120}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{122}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}}{123}{figure.5.7}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}}{124}{figure.5.8}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{126}{figure.5.9}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Snapshot of NOTICE GUI interface}}{129}{figure.5.10}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{107}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{113}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces NOTICE experimental infrastructure}}{119}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{120}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{122}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{124}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}}{125}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}}{126}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{128}{figure.5.9}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Snapshot of NOTICE GUI interface}}{131}{figure.5.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{134}{figure.6.1}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{136}{figure.6.1}
 \addvspace {10\p@ }
