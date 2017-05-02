@@ -55,20 +55,19 @@
 \contentsline {chapter}{To the reader: summary of contributions}{75}{chapter*.8}
 \contentsline {chapter}{\numberline {4}Automatic non-functional testing of code generators families}{79}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction}{80}{section.4.1}
-\contentsline {section}{\numberline {4.2}Motivation}{82}{section.4.2}
+\contentsline {section}{\numberline {4.2}Context and Motivations}{82}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Code Generator Families}{82}{subsection.4.2.1}
 \contentsline {paragraph}{a. Haxe.}{82}{section*.9}
-\contentsline {paragraph}{b. ThingML.}{82}{section*.10}
+\contentsline {paragraph}{b. ThingML.}{83}{section*.10}
 \contentsline {paragraph}{c. TypeScript.}{83}{section*.11}
-\contentsline {subsection}{\numberline {4.2.2}Functional Correctness of a Code Generator Family}{83}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Performance Evaluation of a Code Generator Family}{83}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Performance Issues of a Code Generator Family}{84}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.2}Issues When Testing a Code Generator Family}{84}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}Approach Overview}{85}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Non-Functional Testing of a Code Generator Family: a Common Process}{85}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}An Infrastructure for Non-functional Testing Using System Containers}{86}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Technical Implementation}{87}{subsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.3.1}System Containers as Execution Platforms}{88}{subsubsection.4.3.3.1}
-\contentsline {subsubsection}{\numberline {4.3.3.2}Runtime Testing Components}{89}{subsubsection.4.3.3.2}
+\contentsline {subsection}{\numberline {4.3.2}A metamorphic testing approach}{86}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}An Infrastructure for Non-functional Testing Using System Containers}{86}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Technical Implementation}{87}{subsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.4.1}System Containers as Execution Platforms}{87}{subsubsection.4.3.4.1}
+\contentsline {subsubsection}{\numberline {4.3.4.2}Runtime Testing Components}{89}{subsubsection.4.3.4.2}
 \contentsline {paragraph}{Monitoring Component}{89}{section*.12}
 \contentsline {paragraph}{Back-end Database Component}{90}{section*.13}
 \contentsline {paragraph}{Front-end Visualization Component}{91}{section*.14}

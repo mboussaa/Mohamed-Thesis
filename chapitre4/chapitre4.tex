@@ -5,25 +5,26 @@ Producing correct and efficient code generator is complex and error-prone. Altho
 
 This chapter describes a black-box testing approach that automatically detect anomalies in code generators in terms of non-functional properties (i.e., resource usage and performance).
  
-In fact, we adapt the idea of metamorphic testing to the problem of code generators testing.  Hence, our approach relies on the definition of high level test oracles (i.e., metamorphic relations) to check the potential inefficient code generator among a family of code generators. 
+In fact, we adapt the idea of metamorphic testing to the problem of code generators testing.  Hence, our approach relies on the definition of high-level test oracles (i.e., metamorphic relations) to check the potential inefficient code generator among a family of code generators. 
 
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. 
-Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in Haxe code generators.
+%Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in Haxe code generators.
 
 This chapter is organized as follows: 
 
-Section 5.1 introduces the context of this work, i.e., the non-functional testing of code generators.
+Section \ref{sec:cg_introduction} introduces the context of this work, i.e., the non-functional testing of code generators.
 
-Section 5.2 presents the motivation and background of this work. In particular, we discuss in this section three motivation examples and the problems we are addressing.
+Section \ref{sec:cg_Motivation} presents the motivation and background of this work. In particular, we discuss in this section three motivation examples and the problems we are addressing.
 
-Section 5.3 describes the general approach overview and the testing strategy.
+Section \ref{sec:cd_approach} describes the general approach overview and the testing strategy.
 
-In Section 5.4, the evaluation and results of our experiments are discussed. Hence, we provide more details about the experimental settings, the code generators under test, the benchmark used, the evaluation metrics, etc. We discuss then the evaluation results.
+In Section \ref{sec:cg_evaluation}, the evaluation and results of our experiments are discussed. Hence, we provide more details about the experimental settings, the code generators under test, the benchmark used, the evaluation metrics, etc. We discuss then the evaluation results.
 
 Finally, we conclude in Section 5.5. 
 
 
 \section{Introduction}
+\label{sec:cg_introduction}
 
 Generative programming techniques become a common practice for software development to tame the runtime platform heterogeneity that exists in several domains such as mobile or Internet of Things development. 
 
@@ -42,13 +43,13 @@ To check the correctness of the code generation process, developers often define
 
 After code generation, test suites are executed within each target platform, which may lead to either a correct behavior (\ie, expected output) or incorrect one (\ie, failures, errors).
 
-However, it is possible to generate code where all tests pass but, having a very poor quality design. In this case, the quality of generated code can negatively influence on the non-functional requirements and cause performance issues\cite{hundt2011loop,ray2014large}.
+However, the functional correctness of generated code is not enough to claim the effectiveness of code generators. Properties such as memory usage and performance are very important to evaluate. In some cases, the quality of the generated code can negatively influence on the non-functional requirements and cause performance issues\cite{hundt2011loop,ray2014large}.
 
 Testing the non-functional properties of code generators is a challenging and time-consuming task because developers need to deploy and run code every time a change is made in order to analyze and verify its non-functional behavior.
 
 This task becomes more tedious when targeting different platforms and software languages. Thus, different platform-specific tools will be needed to track bugs and identify the cause of execution failures~\cite{guana2014chaintracker,delgado2004taxonomy}. 
 
-Currently, there is a lack of automatic solutions that check the non-functional issues such as the properties related to the resource consumption of generated code (Memory or CPU consumption).
+As stated in the state of the art, there is a lack of automatic solutions that check the non-functional issues such as the properties related to the resource consumption of generated code (Memory or CPU consumption).
 
 %we propose a testing approach based on a runtime monitoring infrastructure to automatically check the potential inefficient code generators. This infrastructure, based on system containers as execution platforms, allows code-generator developers to evaluate the generated code performance. %In fact, we provide a fine-grained understanding of resource consumption and analysis of components behavior. 
 
@@ -66,18 +67,32 @@ In this chapter, we are presenting the following contributions:
 	
 \end{itemize}
 
-\section{Motivation}
+\section{Context and Motivations}
+\label{sec:cg_Motivation}
+
+A reliable and acceptable way to increase the confidence in the correctness of a code generator family is to validate and check the functionality of generated code, which is a common practice for compiler validation and testing~\cite{jorges2014back,stuermer2007systematic,sturmer2005overview}.
+%Therefore, developers try to check the syntactic and semantic correctness of the generated code by means of different techniques such as static analysis, test suites, etc., and ensure that the code is behaving correctly.  
+
+In terms of non-functional testing, code generators have to respect different requirements to preserve software reliability and quality~\cite{demertzi2011analyzing}. 
+In this case, ensuring the code quality of generated code can require examining several non-functional properties such as code size, resource or energy consumption, execution time, etc~\cite{pan2006fast}.
+A non-efficient code generator might generate defective software artifacts (code smells) that violates common software engineering practices. 
+Thus, poor-quality code can affect system reliability and performance (e.g., high resource usage, high execution time, etc.).
+Proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test. 
+
+
 
 \subsection{Code Generator Families}
-This paper is based on the intuition that a code generator is often a member of a family of code generators.
+When confronted with the requirement to generate code for a wide range of languages, middleware, libraries, hardware architectures, and operating systems, different customizable code generators can be used to easily and efficiently  generate code for different platforms.
+
+This work is based on the intuition that a code generator is often a member of a family of code generators\cite{chae2008building}.
 
 \begin{mydef}[\textbf{Code generator family}]
 	We define a code generator family as a set of code generators that takes as input the same language/model and generate code for different target platforms.
 \end{mydef}
 %Thus, we can automatically compare the performance between different versions
 %of generated code (coming from the same source program). Based on this comparison, we can automatically detect singular resource consumptions that could reveal a code generator bug.
-The availability of multiple generators with comparable functionality enables to apply the idea of differential testing~\cite{mckeeman1998differential} to detect code generator issues.
-As motivating examples for this research, we can cite three approaches that intensively develop and use code generator families: 
+
+As motivating examples for this research work, we can cite three approaches that intensively develop and use code generator families: 
 \paragraph{a. Haxe.} 	Haxe\footnote{\url{http://haxe.org/}}~\cite{dasnois2011haxe} is an open source toolkit for cross-platform development which compiles to a number of different programming platforms, including JavaScript, Flash, PHP, C++, C\#, and Java. Haxe involves many features: the Haxe language, multi-platform compilers, and different native libraries. The Haxe language is a high-level programming language which is strictly typed. This language supports both, functional and object-oriented programming paradigms. It has a common type hierarchy, making certain API available on every target platform. Moreover, Haxe comes with a set of code generators that translate manually-written code (in Haxe language) to different target languages and platforms.  
 %Haxe code can be compiled for applications running on desktop, mobile, and web platforms. Compilers ensure the correctness of user code in terms of syntax and type safety. Haxe comes also with a set of standard libraries that can be used on all supported targets and platform-specific libraries for each of them. One of the main uses of Haxe is to develop cross-platform games or cross-platform libraries that can run on mobile, on the Web or on a Desktop.  
 This project is popular (more than \num{1440} stars on GitHub).
@@ -88,38 +103,29 @@ This project is still confidential, but it is a good candidate to represent the 
 \paragraph{c. TypeScript.} TypeScript\footnote{\url{https://www.typescriptlang.org/}}is a typed superset of JavaScript that compiles to plain JavaScript~\cite{rastogi2015safe}. In fact, it does not compile to only one version of JavaScript. It can transform TypeScript to EcmaScript 3, 5 or 6. It can generate JavaScript that uses different system modules ('none', 'commonjs', 'amd', 'system', 'umd', 'es6', or 'es2015')\footnote{Each of this variation point can target different code generators (function \textit{emitES6Module} vs \textit{emitUMDModule} in emitter.ts for example).}. 
 This project is popular (more than \num{12619} stars on GitHub).
 
-
-\subsection{Functional Correctness of a Code Generator Family}
-
-A reliable and acceptable way to increase the confidence in the correctness of a code generator family is to validate and check the functionality of generated code, which is a common practice for compiler validation and testing~\cite{jorges2014back,stuermer2007systematic,sturmer2005overview}.
-Therefore, developers try to check the syntactic and semantic correctness of the generated code by means of different techniques such as static analysis, test suites, etc., and ensure that the code is behaving correctly.  
 Functionally testing a code generator family in this case would be simple. Since the generated programs have the same input program, the oracle can be defined as the comparison between the functional outputs of these programs which should be the same.
-%In model-based testing for example~\cite{jorges2014back,stuermer2007systematic}, testing code generators focuses on testing the generated code against its design. Thus, the model and the generated code are executed in parallel, by means of simulations, with the same set of test suites. Afterwards, the two outputs are compared with respect to certain acceptance criteria. Test cases, in this case, can be designed to maximize the code or model coverage~\cite{sturmer2005overview}. 
+In fact, based on the three sample projects presented above, we remark that all GitHub code repositories of the corresponding projects use unit tests to check the correctness of code generators.  
 
-Based on the three sample projects presented above, we remark that all GitHub code repositories of the corresponding projects use unit tests to check the correctness of code generators.  
+In terms of non-functional tests, we observe that ThingML and TypeScript do not provide any specific tests to check the consistency of code generators regarding the memory or CPU usage properties. Haxe provides two test cases\footnote{https://github.com/HaxeFoundation/haxe/tree/development/tests/benchs} to benchmark the resulting generated code. One serves to benchmark an example in which object allocations are deliberately (over) used to measure how memory access/GC mixes with numeric processing in different target languages. The second test evaluates the network speed across different target platforms.
 
-\subsection{Performance Evaluation of a Code Generator Family}
 
-Another important aspect of code generators testing is to test the non-functional properties of produced code. 
-Code generators have to respect different requirements to preserve software reliability and quality~\cite{demertzi2011analyzing}. 
-In this case, ensuring the code quality of generated code can require examining several non-functional properties such as code size, resource or energy consumption, execution time, etc~\cite{pan2006fast}.
-A non-efficient code generator might generate defective software artifacts (code smells) that violates common software engineering practices. 
-Thus, poor-quality code can affect system reliability and performance (e.g., high resource usage, high execution time, etc.).
-Proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test. In looking at the three motivating examples, we can observe that ThingML and TypeScript do not provide any specific tests to check the consistency of code generators regarding the memory or CPU usage properties. Haxe provides two test cases\footnote{https://github.com/HaxeFoundation/haxe/tree/development/tests/benchs} to benchmark the resulting generated code. One serves to benchmark an example in which object allocations are deliberately (over) used to measure how memory access/GC mixes with numeric processing in different target languages. The second test evaluates the network speed across different target platforms.
+\subsection{Issues When Testing a Code Generator Family}
 
-\subsection{Performance Issues of a Code Generator Family}
+The main difficulties with testing the resource usage properties of code generators is that we cannot just observe the execution of produced code, but we have to observe and compare the execution of generated programs with equivalent or reference implementations (i.e., in other languages). Even if there is no explicit oracle to detect inconsistencies for a single code generator, we could benefit from the family of code generators to compare the behavior of several generated programs and detect singular resource consumption profiles that could reveal a code generator inconsistency~\cite{hundt2011loop}. 
 
-The potential issues that can reveal an inefficient code generator can be resumed as following:
+As a consequence, we define a code generator inconsistency as:
+\begin{mydef}[\textbf{code generator inconsistency}]
+	
+	A code generator that produces code which has a singular behavior in terms of performance or resource usage compared to all equivalent implementations in the same family.
+\end{mydef}
+
+The potential issues that can result in code generator inconsistencies can be resumed as following:
 \begin{itemize}
 	\setlength\itemsep{0em}
-	\item  the lack of use of a \textbf{specific function that exists in the standard library} of the target language  that can speed or reduce the memory consumption of the resulting program.
+	\item  the lack of use of a \textbf{specific function that exists in the standard library} of the target API language  that can speed or reduce the memory consumption of the resulting program.
 	\item the lack of use of \textbf{a specific type that exists in the standard library} of the target language  that can speed or reduce the memory consumption of the resulting program.
-	\item  the lack of use of\textbf{ a specific language feature in a target language}  that can speed or reduce the memory consumption of the resulting program. 
+	\item  the lack of use of\textbf{ a specific language feature in a target language} that can speed or reduce the memory consumption of the resulting program. 
 \end{itemize}
-
-
-The main difficulties with testing the non-functional properties of code generators is that we cannot just observe the execution of produced code, but we have to observe and compare the execution of generated programs with equivalent implementations (i.e., in other languages). Even if there is no explicit oracle to detect inconsistencies, we could benefit from the family of code generators to compare the behavior of several generated programs and detect singular resource consumption profiles that could reveal a code generator bug~\cite{hundt2011loop}. 
-Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues, as described above. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
 
 Next section discusses the common process used by developers to automatically test the performance of generated code. We also illustrate how we can benefit from the code generators families to identify suspect singular behaviors.
 
@@ -132,7 +138,7 @@ Next section discusses the common process used by developers to automatically te
 %\vspace*{-0.3 cm}
 
 \section{Approach Overview}
-
+\label{sec:cd_approach}
 
 \subsection{Non-Functional Testing of a Code Generator Family: a Common Process}
 
@@ -156,6 +162,12 @@ Afterwards, generated software artifacts (e.g., JAVA, C\#, C++, etc.) are compil
 Finally, to perform the non-functional testing of generated code, developers have to collect, visualize and compare information about the performance and efficiency of running code across the different platforms. 
 Therefore, they generally use several platform-specific profilers, trackers, instrumenting and monitoring tools in order to find some inconsistencies or bugs during code execution~\cite{guana2014chaintracker,delgado2004taxonomy}. Finding inconsistencies within code generators involves analyzing and inspecting the code and that, for each execution platform. For example, one way to handle that, is to analyze the memory footprint of software execution and find memory leaks~\cite{nethercote2007valgrind}. Developers can then inspect the generated code and find some fragments of the code-base that have triggered this issue. %Such non-functional error could occur when the code generator produces code that presents for example: incorrect typing, faulty memory management, code-smells, etc. 
 Therefore, software testers generally use to report statistics about the performance of generated code in order to fix, refactor, and optimize the code generation process. Compared to this classical testing approach, our proposed work seeks to automate the last three steps: generate code, execute it on top of different platforms, and find code generator issues. 
+
+
+\subsection{A metamorphic testing approach}
+The availability of multiple generators with comparable functionality enables to apply the idea of differential testing~\cite{mckeeman1998differential} to detect code generator issues.
+
+Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues, as described above. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
 
 \subsection{An Infrastructure for Non-functional Testing Using System Containers}
 To assess the performance/non-functional properties of generated code many system configurations (i.e., execution environments) must be considered. Running different applications (i.e., generated code) with different configurations on one single machine is complex. 
@@ -312,6 +324,7 @@ As a visualization component, we use Grafana\footnote{\url{https://github.com/gr
 
 
 \section{Evaluation}
+\label{sec:cg_evaluation}
 So far, we have presented an automated component-based framework for extracting the performance properties of generated code. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
 The experimental material is available for replication purposes\footnote{\url{https://testingcodegenerators.wordpress.com/}}.
 \subsection{Experimental Setup}
@@ -610,7 +623,7 @@ We resume, in the following paragraphs, external and internal threats that can b
 
 \section{Conclusion}
 
-In this paper we have described a new approach for testing and monitoring the code generators families using a container-based infrastructure. 
+In this work we have described a new approach for testing and monitoring the code generators families using a container-based infrastructure. 
 We used a set of micro-services in order to provide a fine-grained understanding of resource consumption. 
 To validate our approach, we evaluate a popular family of code generators: HAXE. 
 The evaluation results show that we can find real issues in existing code generators. 
