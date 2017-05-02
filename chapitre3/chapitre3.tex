@@ -25,19 +25,20 @@ Among the different challenges we have identified in the state of the art, we ar
 
 This chapter is organized as follows: 
 
-Section 4.1 introduces the context of this work, i.e., auto-tuning compilers, and gives a preview of our main contributions in this field.
+Section \ref{sec:comp-intro} introduces the context of this work, i.e., auto-tuning compilers, and gives a preview of our main contributions in this field.
 
-Section 4.2 describes the motivation and the challenges behind this work. We present in this section the GCC compiler as a motivation example to better explain the problem. The GCC compiler will also be used by NOTICE to evaluate and validate our approach. 
+Section \ref{sec:comp-motiv} describes the motivation and the challenges behind this work. We present in this section the GCC compiler as a motivation example to better explain the problem. The GCC compiler will also be used by NOTICE to evaluate and validate our approach. 
 
-In Section 4.3, the proposed search-based technique, i.e., Novelty Search (NS), is presented. We describe our NS adaptation to the compiler auto-tuning problem. Thus, we present in details our algorithm, the evaluation metrics and the iterative evolutionary process. 
+In Section \ref{sec:comp-NS}, the proposed search-based technique, i.e., Novelty Search (NS), is presented. We describe our NS adaptation to the compiler auto-tuning problem. Thus, we present in details our algorithm, the evaluation metrics and the iterative evolutionary process. 
 
-In Section 4.4, we conduct an empirical study to evaluate our approach. Thus, we evaluate the implementation of our approach by explaining the design of our experiments, the research questions we set out to answer and the methods we used to answer these questions.
+In Section \ref{sec:comp-eval}, we conduct an empirical study to evaluate our approach. Thus, we evaluate the implementation of our approach by explaining the design of our experiments, the research questions we set out to answer and the methods we used to answer these questions.
 
 Finally, discussions and concluding remarks are provided in Sections 4.5\@.
 	
 
 
 \section{Introduction}
+\label{sec:comp-intro}
 Compiler users tend to improve software programs in a safe and profitable way. Modern compilers provide a broad collection of optimizations that can be applied during the code generation process. 
 For functional testing of compilers, software testers generally use to run a set of test suites on different optimized software versions and compare the functional outcome that can be either pass (correct behavior) or fail (incorrect behavior, crashes, or bugs)~\cite{chen2016empirical,hoste2008cole,le2014compiler}.
 
@@ -78,7 +79,8 @@ In this chapter, we make the following contributions:
 %Like traditional compilers, code generators typically perform multiple passes over various intermediate forms during code transformation. Many rules may also be applied and that differs from one generator to another. These passes are complex and highly dependent on target platform architecture. 
 
 \section{Motivation}
-\subsection{Compiler Optimizations}
+\label{sec:comp-motiv}
+\subsection{Compiler optimizations}
 
 In the past, researchers have shown that the choice of optimization sequences may influence software performance~\cite{almagor2004finding,chen2012deconstructing}. 
 As a consequence, software-performance optimization becomes a key objective for both, software industries and developers, which are often willing to pay additional costs to meet specific performance goals, especially for resource-constrained systems.
@@ -108,7 +110,7 @@ Thus, it becomes necessary to test the non-functional properties of optimized co
 
 
 
-\subsection{Example: GCC Compiler}
+\subsection{Example: GCC compiler}
 \begin{table}
 	\label{table:options}
 	\centering
@@ -230,11 +232,12 @@ We use this technique to play with compiler switches.
 
 
 
-\section{Evolutionary Exploration of Compiler Optimizations }
+\section{Evolutionary exploration of compiler optimizations}
+\label{sec:comp-NS}
 Many techniques (meta-heuristics, random search, etc.) can be used to explore the large set of optimization combinations of modern compilers. 
 In our approach, we particularly study the use of the Novelty Search technique to identify the set of compiler optimization options that optimize the non-functional properties of code.
 
-\subsection{Novelty Search Adaptation}
+\subsection{Novelty search adaptation}
 
 In this work, we aim at providing a new alternative for choosing effective compiler optimization options compared to the state of the art approaches. 
 In fact, since the search space of possible combinations is too large, we aim at using a new search-based technique called Novelty Search~\cite{lehman2008exploiting} to tackle this issue. 
@@ -308,7 +311,7 @@ Before starting the evolutionary process, we generate an initial population with
 Finally, genetic operators (mutation and crossover) are applied afterwards to fulfill the next population. This process is iterated until reaching the maximum number of evaluations.
 
 
-\subsubsection{Optimization Sequence Representation}
+\subsubsection{Optimization sequence representation}
 For our case study, a candidate solution represents all compiler switches that are used in the four standard optimization levels (O1, O2, O3 and Ofast). Thereby, we represent this solution as a vector where each dimension is a compiler flag. 
 The variables that represent compiler options are represented as genes in a chromosome. 
 Thus, a solution represents the CFLAGS value used by GCC to compile programs.
@@ -322,7 +325,7 @@ However, during the evolutionary process, these flags are turned on or off depen
 	\label{fig:individual.pdf}
 \end{figure}
 
-\subsubsection{Novelty Metric}
+\subsubsection{Novelty metric}
 The Novelty metric expresses the sparseness of an input optimization sequence. It measures its distance to all other sequences in the current population and to all sequences that were discovered in the past (\ie, sequences in the archive). 
 We can quantify the sparseness of a solution as the average distance to the k-nearest neighbors. 
 
@@ -344,7 +347,7 @@ NM(S) = \frac{1}{k} \sum_{i=1}^{k} distance(S,\mu _{i})
 
 where $\mu _{i}$ is the $i^{th}$ nearest neighbor of the solution S within the population and the archive of novel individuals. 
 
-\subsection{Novelty Search For Multi-objective Optimization}
+\subsection{Novelty search for multi-objective optimization}
 A multi-objective approach provides a trade-off between two objectives where the developers can select their desired solution from the Pareto-optimal front. The idea of this approach is to use multi-objective algorithms to find trade-offs between non-functional properties of generated code such as \textit{$<$ExecutionTime--MemoryUsage$>$}. The correlations we are trying to investigate are more related to the trade-offs between resource consumption and execution time.
 
 For instance, NS can be easily adapted to multi-objective problems. In this adaptation, the SBSE formulation remains the same as described in Algorithm \ref{algo:search}. However, in order to evaluate the new discovered solutions, we have to consider two main objectives and add the non-dominated solutions to the Pareto non-dominated set. We apply the Pareto dominance relation to find solutions that are not Pareto dominated by any other solution discovered so far, like in NSGA-II~\cite{lokuciejewski2010multi, deb2002fast}. Then, this Pareto non-dominated set is returned as a result.
@@ -352,9 +355,10 @@ There is typically more than one optimal solution at the end of NS. The maximum 
 
 
 \section{Evaluation}
+\label{sec:comp-eval}
 So far, we have presented a sound procedure for auto-tuning compilers through the use of NS. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study; the research questions we set out to answer and different methods we used to answer these questions. The experimental material is available for replication purposes\footnote{https://noticegcc.wordpress.com/}.
 
-\subsection{Research Questions}
+\subsection{Research questions}
 Our experiments aim at answering the following research questions:
 
 \textbf{RQ1: Mono-objective SBSE Validation.} 
@@ -375,8 +379,8 @@ Our experiments aim at answering the following research questions:
 To answer these questions, we conduct several experiments using NOTICE to validate our global approach for non-functional testing of compilers using system containers.
 
 
-\subsection{Experimental Setup}
-\subsubsection{Programs Used in the Empirical Study}
+\subsection{Experimental setup}
+\subsubsection{Programs used in the empirical study}
 To explore the impact of compiler optimizations a set of input programs are needed. 
 To this end, we use a random C program generator called Csmith~\cite{yang2011finding}.
 Csmith is a tool that can generate random C programs that statically and dynamically conform to the C99 standard. It has been widely used to perform functional testing of compilers~\cite{chen2016empirical,le2014compiler,nagai2013scaling} but not the case for checking non-functional requirements. Csmith can generate C programs that use a much wider range of C features including complex control flow and data structures such as pointers, arrays, and structs. 
@@ -424,7 +428,7 @@ These real world benchmark programs are used to study the influence of compiler 
 \end{table}
 
 
-\subsubsection{Parameters Tuning}
+\subsubsection{Parameters tuning}
 An important aspect for meta-heuristic search algorithms lies in the parameters tuning and selection, which are necessary to ensure not only fair comparison, but also for potential replication.
 NOTICE implements three mono-objective search algorithms (Random Search (RS), NS, and GA~\cite{cooper2002adaptive}) and two multi-objective optimizations (NS and NSGA-II~\cite{deb2002fast}). Each initial population/solution of different algorithms is completely random. The stopping criterion is when the maximum number of fitness evaluations is reached.
 The resulting parameter values are listed in Table \ref{tab:Algorithm parameters}. The same parameter settings are applied to all algorithms under comparison.
@@ -452,7 +456,7 @@ Algorithm parameters were tuned individually in preliminary experiments. For eac
 	\label{tab:Algorithm parameters}
 \end{table}
 
-\subsubsection{Evaluation Metrics Used}
+\subsubsection{Evaluation metrics used}
 
 For mono-objective algorithms, we use to evaluate solutions using the following metrics:
 
@@ -468,7 +472,7 @@ For mono-objective algorithms, we use to evaluate solutions using the following 
 
 %-\textit{Hypervolume (HV)}: corresponds to the proportion of objective space that is dominated by the Pareto front approximation returned by the algorithm and delimited by a reference point. The HV reference point is the point obtained by taking the maximum value observed. Thus, the HV metric can be computed as the area between the Pareto frontier and the HV reference point. Larger values for this metric mean better performance. The most interesting features of this indicator are its Pareto dominance compliance and its ability to capture both convergence and diversity~\cite{deb2001multi}. 
 
-\subsubsection{Setting up Infrastructure}
+\subsubsection{Setting up infrastructure}
 To answer the previous research questions, we configure NOTICE to run different experiments. Figure 4.3 shows a big picture of the testing and monitoring infrastructure considered in these experiments. 
 
 First, a meta-heuristic (mono or multi-objective) is applied to generate specific optimization sequences for the GCC compiler (step 1).
@@ -481,7 +485,7 @@ Next, NOTICE accesses remotely to stored data in InfluxDB using HTTP request cal
 
 The choice of performance metrics depends on experiment objectives (Memory improvement, speedup, etc.).
 
-More details about the container-based infrastructure and the technical choices are provided in chapter 5.
+More details about the container-based infrastructure and the technical choices are provided in Chapter \ref{chap:docker}.
 
 \begin{figure}[h]
 	\centering
@@ -492,10 +496,10 @@ More details about the container-based infrastructure and the technical choices 
 To obtain comparable and reproducible results, we use the same hardware across all experiments: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory.
 
 
-\subsection{Experimental Methodology and Results}
+\subsection{Experimental methodology and results}
 In the following paragraphs, we report the methodology and results of our experiments.
 
-\subsubsection{RQ1. Mono-objective SBSE Validation}
+\subsubsection{RQ1. Mono-objective SBSE validation}
 \paragraph{Method}
 
 To answer the first research question RQ1, we conduct a mono-objective search for compiler optimization exploration in order to evaluate the non-functional properties of optimized code. Thus, we generate optimization sequences using three search-based techniques (RS, GA, and NS) and compare their performance results to standard GCC optimization levels (O1, O2, O3, and Ofast). 
@@ -723,7 +727,7 @@ We would notice that for RQ1, experiments take about 21 days to run all algorith
 
 Multi-objective search as conducted in RQ4, takes about 48 hours, which we believe is acceptable for practical use. Nevertheless, speeding up the search speed may be an interesting feature for future research.
 		
-\subsection{Threats to Validity}
+\subsection{Threats to validity}
 Any automated approach has limitations. We resume, in the following paragraphs, external and internal threats that can be raised:
 		
 \textit{External validity} refers to the generalizability of our findings. In this study, we perform experiments on random programs using Csmith and we use iterative compilation techniques to produce best optimization sequences. We believe that the use of Csmith programs as input programs is very relevant because compilers have been widely tested across Csmith programs~\cite{chen2016empirical,yang2011finding}. Csmith programs have been used only for functional testing, but not for non-functional testing. However, we cannot assert that the best discovered set of optimizations can be generalized to industrial applications since optimizations are highly dependent on input programs and on the target architecture. In fact, experiments conducted on RQ1 and RQ2 should be replicated to other case studies to confirm our findings; and build general optimization sequences from other representative training set programs chosen by compiler users.
@@ -731,7 +735,7 @@ Any automated approach has limitations. We resume, in the following paragraphs, 
 \textit{Internal validity} is concerned with the causal relationship between the treatment and the outcome. Meta-heuristic algorithms are stochastic optimizers, they can provide different results for the same problem instance from one run to another. Are we providing a statistically sound method or it is just a random result? Due to time constraints, we run all experiments only once. Following the state-of-the-art approaches in iterative compilation, previous research efforts~\cite{hoste2008cole,martinez2014multi} did not provide statistical tests to prove the effectiveness of their approaches. This is because experiments are time-consuming. However, we can deal with these internal threats to validity by performing at least five independent simulation runs for each problem instance. 
 		
 		
-\subsection{Tool Support Overview}
+\subsection{Tool support overview}
 %TO ADD MAYBE
 %Optimization options are difficult and even impossible to be chosen by programmers or compiler users.
 %Therefore, a tool to help users to choose the best set of options becomes necessary to achieve a compiler optimization with effectiveness.

@@ -3,6 +3,17 @@
 The general overview of the technical implementation is shown in Figure \ref{fig:docker_background2.pdf}. In the following subsections, we describe the deployment and testing architecture of generated code using system containers.
 
 
+
+
+
+It is an operating system-level virtualization method for running multiple isolated Linux systems (containers) on a control host using a single Linux kernel. 
+The Linux kernel provides the cgroups functionality that allows limitation and prioritization of resources (CPU, memory, block I/O, network, etc.) for each container without the need of starting any virtual machines~\cite{luotowards}.
+These containers share the same OS and hardware as the hosting machine and it is very useful to use them in order to create new configurable and isolated instances to run. 
+With container-based virtualization, we reduce the overhead associated with having each guest running a new installed operating system like using virtual machines. This approach can also improve the performance because there is just one operating system taking care of hardware calls.
+
+%Thus, instead of configuring all code generators under test (GUTs) within the same host machine, we wrap each GUT within a system container. Afterwards, a new instance of the container is created to enable the execution of generated code in an isolated and configured environment. Meanwhile, we start our runtime testing components. A monitoring component collects usage statistics of all running containers and save them at runtime in a time series database component. Thus, we can compare later information about the resource usage of generated programs and detect inconsistencies within code generators.
+
+
 \begin{figure*}[!h]
 	\center
 	\includegraphics[width=0.95\linewidth]{chapitre5/fig/docker_background2.pdf}
@@ -118,6 +129,10 @@ Once we gather and store resource usage data, the next step is visualizing them.
 %An overview of the monitoring dashboard is shown in Figure 3.
 As a visualization component, we use Grafana\footnote{\url{https://github.com/grafana/grafana}}, a time-series visualization tool available for Docker. 
 
+
+\begin{remark}
+	We would notice that this testing infrastructure can be generalized and adapted to other case studies other than code generators. Using system containers, any software application/generated code can be easily deployed within containers (i.e., by configuring the container image). It will be later executed and monitored using our runtime monitoring engine. 
+\end{remark}
 
  	
 

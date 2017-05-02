@@ -20,7 +20,7 @@ Section \ref{sec:cd_approach} describes the general approach overview and the te
 
 In Section \ref{sec:cg_evaluation}, the evaluation and results of our experiments are discussed. Hence, we provide more details about the experimental settings, the code generators under test, the benchmark used, the evaluation metrics, etc. We discuss then the evaluation results.
 
-Finally, we conclude in Section 5.5. 
+Finally, we conclude in Section \ref{sec:cg-conclusion}. 
 
 
 \section{Introduction}
@@ -67,21 +67,10 @@ In this chapter, we are presenting the following contributions:
 	
 \end{itemize}
 
-\section{Context and Motivations}
+\section{Context and motivations}
 \label{sec:cg_Motivation}
 
-A reliable and acceptable way to increase the confidence in the correctness of a code generator family is to validate and check the functionality of generated code, which is a common practice for compiler validation and testing~\cite{jorges2014back,stuermer2007systematic,sturmer2005overview}.
-%Therefore, developers try to check the syntactic and semantic correctness of the generated code by means of different techniques such as static analysis, test suites, etc., and ensure that the code is behaving correctly.  
-
-In terms of non-functional testing, code generators have to respect different requirements to preserve software reliability and quality~\cite{demertzi2011analyzing}. 
-In this case, ensuring the code quality of generated code can require examining several non-functional properties such as code size, resource or energy consumption, execution time, etc~\cite{pan2006fast}.
-A non-efficient code generator might generate defective software artifacts (code smells) that violates common software engineering practices. 
-Thus, poor-quality code can affect system reliability and performance (e.g., high resource usage, high execution time, etc.).
-Proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test. 
-
-
-
-\subsection{Code Generator Families}
+\subsection{Code generator families}
 When confronted with the requirement to generate code for a wide range of languages, middleware, libraries, hardware architectures, and operating systems, different customizable code generators can be used to easily and efficiently  generate code for different platforms.
 
 This work is based on the intuition that a code generator is often a member of a family of code generators\cite{chae2008building}.
@@ -109,11 +98,12 @@ In fact, based on the three sample projects presented above, we remark that all 
 In terms of non-functional tests, we observe that ThingML and TypeScript do not provide any specific tests to check the consistency of code generators regarding the memory or CPU usage properties. Haxe provides two test cases\footnote{https://github.com/HaxeFoundation/haxe/tree/development/tests/benchs} to benchmark the resulting generated code. One serves to benchmark an example in which object allocations are deliberately (over) used to measure how memory access/GC mixes with numeric processing in different target languages. The second test evaluates the network speed across different target platforms.
 
 
-\subsection{Issues When Testing a Code Generator Family}
+\subsection{Issues when testing a code generator family}
 
-The main difficulties with testing the resource usage properties of code generators is that we cannot just observe the execution of produced code, but we have to observe and compare the execution of generated programs with equivalent or reference implementations (i.e., in other languages). Even if there is no explicit oracle to detect inconsistencies for a single code generator, we could benefit from the family of code generators to compare the behavior of several generated programs and detect singular resource consumption profiles that could reveal a code generator inconsistency~\cite{hundt2011loop}. 
+The main difficulties with testing the resource usage properties of code generators is that we cannot just observe the execution of produced code, but we have to observe and compare the execution of generated programs with equivalent (or reference) implementations (i.e., in other languages). Even if there is no explicit oracle to detect inconsistencies for a single code generator, we could benefit from the family of code generators to compare the behavior of several generated programs and detect singular resource consumption profiles that could reveal a code generator inconsistency~\cite{hundt2011loop}. 
 
 As a consequence, we define a code generator inconsistency as:
+
 \begin{mydef}[\textbf{code generator inconsistency}]
 	
 	A code generator that produces code which has a singular behavior in terms of performance or resource usage compared to all equivalent implementations in the same family.
@@ -132,36 +122,77 @@ Next section discusses the common process used by developers to automatically te
 
 %In short, then, we believe that testing the non-functional properties of code generators remains challenging and time-consuming task because developers have to analyze and verify code for each target platform using platform-dependent tools which makes the task of maintaining code generators very tedious. The heterogeneity of platforms and the diversity of target software languages increase the need of supporting tools that can evaluate the consistency and coherence of generated code regarding the non-functional properties. This paper describes a new approach, based on micro-services as execution platforms, to automate and ease the non-functional testing of code generators. This runtime monitoring infrastructure provides a fine-grained understanding of resource consumption and analysis of generated code's behavior.
 
+\section{The traditional process for non-functional testing of a code generator family}
+A reliable and acceptable way to increase the confidence in the correctness of a code generator family is to validate and check the functionality of generated code, which is a common practice for compiler validation and testing~\cite{jorges2014back,stuermer2007systematic,sturmer2005overview}.
+%Therefore, developers try to check the syntactic and semantic correctness of the generated code by means of different techniques such as static analysis, test suites, etc., and ensure that the code is behaving correctly.  
+However, proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test. 
+
+In fact, code generators have to respect different requirements to preserve software reliability and quality~\cite{demertzi2011analyzing}. 
+In this case, ensuring the code quality of generated code requires examining several non-functional properties such as code size, resource or energy consuption, execution time, etc~\cite{pan2006fast}.
+A \textit{non-mature} code generator might generate defective software artifacts (code smells) that violates common software engineering practices, resulting in a poor-quality code that can affect system reliability and performance (e.g., high resource usage, high execution time, etc.).
 
 
-
-%\vspace*{-0.3 cm}
-
-\section{Approach Overview}
-\label{sec:cd_approach}
-
-\subsection{Non-Functional Testing of a Code Generator Family: a Common Process}
-
-Figure \ref{fig:background.pdf} summarizes the classical steps that ensure the code generation and non-functional testing of produced code from design time to runtime. 
-We distinguish 4 major steps: the software design using high-level system specifications, code generation by means of code generators, code execution, and non-functional testing of generated code. 
+Figure \ref{fig:bbackground.pdf} summarizes the classical steps required to ensure the code generation and non-functional testing of produced code from design time to runtime. 
+We distinguish four major steps: the software design using high-level system specifications, code generation by means of code generators, code execution, and non-functional testing of generated code. 
 
 
 \begin{figure*}[t]
 	\center
 	
-	\includegraphics[width=0.95\linewidth]{chapitre4/fig/background.pdf}
+	\includegraphics[width=1.\linewidth]{chapitre4/fig/background.pdf}
 	\caption{An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}
-	\label{fig:background.pdf}
+	\label{fig:bbackground.pdf}
 \end{figure*}
 
 
-In the first step, software developers have to define, at design time, the software's behavior using a high-level abstract language (DSLs, models, program, etc). Afterwards, developers can use platform-specific code generators to ease the software development and automatically generate code for different languages and platforms. We depict, as an example in Figure\ref{fig:background.pdf}, three code generators from the same family capable to generate code to three software programming languages (JAVA, C\# and C++). The first step is to generate code from the previously designed model.
+In the first step, software developers have to define, at design time, the software's behavior using a high-level abstract language (DSLs, models, program, etc). Afterwards, developers can use platform-specific code generators to ease the software development and automatically generate code for different languages and platforms. We depict, as an example in Figure \ref{fig:bbackground.pdf}, three code generators from the same family capable to generate code to three software programming languages (JAVA, C\# and C++). The first step is to generate code from the previously designed model.
 % Transformations from model to code within each code generator might be different and may integrate different transformation rules. As an example, we distinguish model-to-model transformations languages such as ATL~\cite{jouault2005transforming} and template-based model-to-text transformation languages such as Acceleo~\cite{musset2006acceleo} to translate high-level system specifications into executable code and scripts~\cite{bragancca2008transformation,czarnecki2003classification}. The main task of code generators is to transform models to general-purpose and platform-dependent languages.
 Afterwards, generated software artifacts (e.g., JAVA, C\#, C++, etc.) are compiled, deployed and executed across different target platforms (e.g., Android, ARM/Linux, JVM, x86/Linux, etc.). 
 %Thus, several code compilers are needed to transform source code to machine code (binaries) in order to get executed. 
 Finally, to perform the non-functional testing of generated code, developers have to collect, visualize and compare information about the performance and efficiency of running code across the different platforms. 
 Therefore, they generally use several platform-specific profilers, trackers, instrumenting and monitoring tools in order to find some inconsistencies or bugs during code execution~\cite{guana2014chaintracker,delgado2004taxonomy}. Finding inconsistencies within code generators involves analyzing and inspecting the code and that, for each execution platform. For example, one way to handle that, is to analyze the memory footprint of software execution and find memory leaks~\cite{nethercote2007valgrind}. Developers can then inspect the generated code and find some fragments of the code-base that have triggered this issue. %Such non-functional error could occur when the code generator produces code that presents for example: incorrect typing, faulty memory management, code-smells, etc. 
-Therefore, software testers generally use to report statistics about the performance of generated code in order to fix, refactor, and optimize the code generation process. Compared to this classical testing approach, our proposed work seeks to automate the last three steps: generate code, execute it on top of different platforms, and find code generator issues. 
+Therefore, software testers generally use to report statistics about the performance of generated code in order to fix, refactor, and optimize the code generation process. Compared to this classical testing approach, our proposed work seeks to automate the last three steps: generate code, execute it on top of different platforms, and find code generator inconsistencies. 
+
+
+\section{Approach overview}
+\label{sec:cd_approach}
+Now, we describe our approach overview. Our contributions in this work are divided in two parts:
+\begin{itemize}
+	\item First, we describe our testing infrastructure for the automatic code generation deployment and monitoring. This work is presented in more details in Chapter \ref{chap:docker}. This contribution addresses the problem of software diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}.
+	
+	\item Second, we present a methodology for automatically detecting inconsistencies in a code generator family. This approach addresses the oracle problem when testing the resource usage and performance properties.
+\end{itemize}
+
+
+\subsection{An infrastructure for non-functional testing using system containers}
+In this contribution, we focus on evaluating the non-functional properties related to the resource usage and performance of generated code. To do so, many system configurations (i.e., execution environments, libraries, compilers, etc.) must be taken into account to efficiently generate and test code. 
+
+However, tunning different applications (i.e., generated code) with different configurations on one single machine is complex. A single system has limited resources and this can lead to performance regressions. Moreover, each execution environment comes with a collection of appropriate tools such as compilers, code generators, debuggers, profilers, etc. Therefore, we need to deploy the test harness, i.e., the produced binaries, on an elastic infrastructure that provide facilities to the code generator developers to ensure the deployment and monitoring of generated code in different environment settings. 
+Consequently, the testing infrastructure should provide support to automatically:
+\begin{enumerate}
+	\item Deploy the generated code, its dependencies and its execution environments
+	\item Execute the produced binaries in an isolated environment 
+	\item Monitor the execution 
+	\item Gather performance metrics (CPU, Memory, etc.)
+\end{enumerate}
+
+To ensure these four main steps, we rely on system containers~\cite{soltesz2007container} as a dynamic and customizable execution environment for running and evaluating the generated programs in terms of resource usage.
+
+Figure \ref{fig:cg-infra} shows the new container-based infrastructure used for testing code generators. Compared to the classical method presented in Figure \ref{fig:bbackground.pdf}, we added the following features: 
+\begin{itemize}
+	\item[--] At the code generation level: Code generators are configured inside different containers in order to generate code for the target platform.
+	\item[--] At the code execution: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform a new instance is created.
+	\item[--] At the non-functional level: We add a runtime monitoring engine (based on containers) in order to extract the resource usage properties.
+\end{itemize}
+
+Chapter \ref{chap:docker} provides more details about the technical choices we have made to synthesize this testing infrastructure.
+
+\begin{figure*}[!h]
+	\center
+	\includegraphics[width=1.\linewidth]{chapitre5/fig/docker_background2.pdf}
+	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
+	\label{fig:cg-infra}
+\end{figure*}
 
 
 \subsection{A metamorphic testing approach}
@@ -169,157 +200,9 @@ The availability of multiple generators with comparable functionality enables to
 
 Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues, as described above. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
 
-\subsection{An Infrastructure for Non-functional Testing Using System Containers}
-To assess the performance/non-functional properties of generated code many system configurations (i.e., execution environments) must be considered. Running different applications (i.e., generated code) with different configurations on one single machine is complex. 
-A single system has limited resources and this can lead to performance regressions. Moreover, each execution environment comes with a collection of appropriate tools such as compilers, code generators, debuggers, profilers, etc. Therefore, we need to deploy the test harness, i.e., the produced binaries, on an elastic infrastructure that provide facilities to the code generator developers to ensure the deployment and monitoring of generated code in different environment settings. 
-Consequently, our infrastructure provides support to automatically:
-\begin{enumerate}
-	\item Deploy the generated code, its dependencies and its  execution environments
-	\item Execute the produced binaries in an isolated environment 
-	\item Monitor the execution 
-	\item Gather performance metrics (CPU, Memory, etc.)
-\end{enumerate}
-
-To ensure these four main steps, we rely on system containers~\cite{soltesz2007container}. 
-It is an operating system-level virtualization method for running multiple isolated Linux systems (containers) on a control host using a single Linux kernel. 
-The Linux kernel provides the cgroups functionality that allows limitation and prioritization of resources (CPU, memory, block I/O, network, etc.) for each container without the need of starting any virtual machines~\cite{luotowards}.
-These containers share the same OS and hardware as the hosting machine and it is very useful to use them in order to create new configurable and isolated instances to run. 
-With container-based virtualization, we reduce the overhead associated with having each guest running a new installed operating system like using virtual machines. This approach can also improve the performance because there is just one operating system taking care of hardware calls.
-
-%Thus, instead of configuring all code generators under test (GUTs) within the same host machine, we wrap each GUT within a system container. Afterwards, a new instance of the container is created to enable the execution of generated code in an isolated and configured environment. Meanwhile, we start our runtime testing components. A monitoring component collects usage statistics of all running containers and save them at runtime in a time series database component. Thus, we can compare later information about the resource usage of generated programs and detect inconsistencies within code generators.
-
-
-The rest of this section details the technical choices we have made to synthesize this testing infrastructure.
-
-\subsection{Technical Implementation}
-
-The overall overview of our proposed approach is shown in Figure \ref{fig:background2.pdf}. In the following subsections, we describe the deployment and testing architecture using system containers.
-
-
-\begin{figure*}[!h]
-	\center
-	\includegraphics[width=0.95\linewidth]{chapitre4/fig/background2.pdf}
-	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
-	\label{fig:background2.pdf}
-\end{figure*}
-
-
-\subsubsection{System Containers as Execution Platforms}
-
-
-%For this purpose, we propose a testing infrastructure based on System Container techniques such as Docker\footnote{\url{https://www.docker.com}} environment. 
-%This framework automates the deployment and execution of applications inside software containers by allowing multiple program configurations to run autonomously on different servers (i. e., a cloud servers).
-%It also provides a distributed environment where system storage and resources can be finely managed and limited according to the needs. 
-
-%Thus, we integrate a collection of components to define the adequate infrastructure for testing and monitoring of code generators. 
-
-
-Before starting to monitor and test applications, we need to deploy the generated code on different components to ease containers provisioning and profiling. 
-We aim to use Docker Linux containers to monitor the execution of different generated artifacts in terms of resource usage~\cite{merkel2014docker}. 
-Docker\footnote{\url{https://www.docker.com}} is an engine that automates the deployment of any application as a lightweight, portable, and self-sufficient container that runs virtually on a host machine. 
-%To achieve that, Docker uses the Linux container technology. 
-Using Docker, we can define preconfigured applications and servers to host as virtual images. We can also define the way the service should be deployed in the host machine using configuration files called Docker files. 
-In fact, instead of configuring all code generators under test (GUTs) within the same host machine (as shown in Figure~\label{fig:background1.pdf}), our tool wrap each GUT within a container. To do so, we create a new configuration image for each GUT (i.e., the Docker image) where we install all the libraries, compilers, and dependencies needed to ensure the code generation and compilation. Thereby, the GUT produces code within multiple instances of the preconfigured Docker images (see code generation step in Figure~2).
-%As properties, we can define the OS where the service has to run, dependencies, etc. 
-%A simple way to build images automatically is to use Dockerfiles which represents configuration files.
-%Docker can build images automatically by reading the instructions from a Dockerfile. 
-We use the public Docker registry\footnote{\url{https://hub.docker.com/}} for  saving, and managing all our Docker images. 
-%It represents a cloud-based registry service for building and shipping application or service containers.
-We can then instantiate different containers from these Docker images. 
-%Basically, each container deploys an optimized version of the input source code program.
-
-Next, each generated code is executed individually inside an isolated Linux container (see code execution step in Figure \ref{fig:background2.pdf}). By doing so, we ensure that each executed program runs in isolation without being affected by the host machine or any other processes. Moreover, since a container is cheap to create, we are able to create new container instances as long as we have new programs to execute.  
-Since each program execution requires a new container to be created, it is crucial to remove and kill containers that have finished their job to eliminate the load on the system. We run the experiment on top of a private data-center that provide a bare-metal installation of  docker and docker swarm. On a single machine,  containers/softwares are running sequentially and we pin $p$ cores and $n$ \SI{}{\giga\byte}
-of memory for each container\footnote{$p$ and $n$ can be configured}. Once the execution is done, resources reserved for the container are automatically released to enable spawning next containers. Therefore, the host machine will not suffer too much from performance trade-offs.
-In short, the main advantages of this approach are:
-\begin{itemize}
-	\item The use of containers induces less performance overhead compared to using a full stack virtualization solution~\cite{spoiala2016performance}. Indeed, instrumentation and monitoring tools for memory profiling can induce too much overhead.
-	\item Thanks to the use of Dockerfiles, the proposed framework can be  configured by software testers in order to define the GUT (\eg, code generator version, dependencies, etc.), the host IP and OS, the DSL design, the optimization options, etc. Thus, we can use the same configured Docker image to execute different instances of generated code. For hardware architecture, containers share the same platform architecture as the host machine (e.g., x86, x64, ARM, etc.). 
-	\item Docker uses Linux control groups (Cgroups) to group processes running in the container. This allows us to manage the resources of a group of processes, which is very valuable. 
-	This approach increases the flexibility when we want to manage resources since we can manage every group individually. For example, if we would evaluate the non-functional requirements of generated code within a resource-constrained environment, we can  request and limit resources within the execution container according to the needs.
-	\item Although containers run in isolation, they can share data with the host machine and other running containers. Thus, non-functional data relative to resource consumption can be gathered and managed by other containers (\ie, for storage purpose, visualization)
-\end{itemize}
 
 
 
-
-\subsubsection{Runtime Testing Components}
-In order to test our running applications within Docker containers, we aim to use a set of Docker components to ease the extraction of resource usage information (see runtime monitoring engine in Figure~2).
-\paragraph{Monitoring Component}
-This container provides an understanding of the resource usage and performance characteristics of our running containers. Generally, Docker containers rely on Cgroups file systems to expose a lot of metrics about accumulated CPU cycles, memory, block I/O usage, etc. Therefore, our monitoring component automates the extraction of runtime performance metrics stored in Cgroups files. For example, we access live resource consumption of each container available at the Cgroups file system via stats found in \textit{"/sys/fs/cgroup/cpu/docker/(longid)/"} (for CPU consumption) and \textit{"/sys/fs/cgroup/memory/docker/(longid)/"} (for stats related to memory consumption). This component will automate the process of service discovery and metrics aggregation for each new container. Thus, instead of gathering manually metrics located in Cgroups file systems, it extracts automatically the runtime resource usage statistics relative to the running component (i.e., the generated code that is running within a container). We note that resource usage information is collected in raw data. This process may induce a little overhead because it does  very fine-grained accounting of resource usage on running container. Fortunately, this may not affect the gathered performance values since we run only one version of generated code within each container.
-To ease the monitoring process, we integrate cAdvisor, a Container Advisor\footnote{\url{https://github.com/google/cadvisor}}. cAdvisor monitors service containers at runtime. 
-
-However, cAdvisor monitors and aggregates live data over only 60 seconds interval.
-%After 60 seconds, new runtime data is updated and automatically displayed within cAdvisor web interface. 
-Therefore, we need to record all data over time, from the beginning  of the container's creation, into a time-series database so that, we can run queries and define non-functional metrics from historical data. 
-To make gathered data truly valuable for resource usage monitoring, we link our monitoring component to a back-end database component. 
-
-
-
-\paragraph{Back-end Database Component}
-This component represents a time-series database back-end. It is plugged with the previously described monitoring component to save the non-functional data for long-term retention, analytics and visualization. 
-During code execution, resource usage stats are continuously sent to this component. When a container is killed, we are able to access its relative resource usage metrics through the database. We choose a time-series database because we are collecting time-series data that correspond to the resource utilization profiles of programs execution.
-
-We use InfluxDB\footnote{\url{https://github.com/influxdata/influxdb}}, an open source distributed time-series database as a back-end to record data. InfluxDB allows the user to execute SQL-like queries on the database. For example, the following query reports the maximum memory usage of container $"generated\_code\_v1"$ since its creation:
-
-\begin{lstlisting}[
-language=SQL,
-showspaces=false,
-basicstyle=\small,
-numberstyle=\small,
-commentstyle=\color{gray},
-linewidth=\columnwidth
-]
-select max (memory_usage) from stats 
-where container_name='generated_code_v1'
-\end{lstlisting}
-To give an idea about the data gathered by the monitoring component and stored in the time-series database, we describe in Table \ref{tab:Resource usage metrics recorded in InfluxDB} these collected metrics:
-\begin{table}[h]
-	\begin{center}
-		\resizebox{0.8\columnwidth}{!}{%
-			\begin{tabular}{|p{1.4cm}|p{6.6cm}|}
-				\hline
-				\textbf{Metric} & \textbf{Description} \\
-				\hline
-				Name & Container Name \\\hline
-				
-				T & Elapsed time since container's creation \\\hline
-				
-				Network  &  Stats for network bytes and packets in an out of the container \\\hline
-				
-				Disk IO &  Disk I/O stats \\\hline
-				
-				Memory  &  Memory usage \\\hline
-				
-				CPU &  CPU usage \\
-				\hline
-				
-			\end{tabular}%
-		}
-		
-	\end{center}
-	\caption {Resource usage metrics recorded in InfluxDB}
-	\label{tab:Resource usage metrics recorded in InfluxDB}
-	%\vspace*{-0.9cm}
-\end{table}
-
-Apart from that, our framework provides also information about the size of generated binaries and the compilation time needed to produce code.
-For instance, resource usage statistics are collected and stored using these two components. It is relevant to show resource usage profiles of running programs overtime. To do so, we present a front-end visualization component for performance profiling. 
-
-\paragraph{Front-end Visualization Component}
-%Once we gather and store resource usage data, the next step is visualizing them. That is the role of the visualization component. It will be the endpoint component that we use to visualize the recorded data. 
-Once we gather and store resource usage data, the next step is visualizing them. That is the role of the visualization component. It will be the endpoint component that we use to visualize the recorded data. Therefore, we provide a dashboard to run queries and view different profiles of resource consumption of running components through web UI. Thereby, we can compare visually the profiles of resource consumption among containers. Moreover, we use this component to export the data currently being viewed into static CSV document. So, we can perform statistical analysis on this data to detect inconsistencies or performance anomalies (see bugs finding step in Figure~2).
-%Moreover, we use this component to export the data currently being viewed into static CSV document. 
-%Thereby, we can perform statistical analysis and process data to analyze performance behavior. 
-%An overview of the monitoring dashboard is shown in Figure 3.
-As a visualization component, we use Grafana\footnote{\url{https://github.com/grafana/grafana}}, a time-series visualization tool available for Docker. 
-
-
-
-
-%\begin{remark}
-%	We would notice that this testing infrastructure can be generalized and adapted to other case studies other than code generators. Using system containers, any software application/generated code can be easily deployed within containers (i.e., by configuring the container image). It will be later executed and monitored using our runtime monitoring engine. 
-%\end{remark}
 
 
 
@@ -327,8 +210,8 @@ As a visualization component, we use Grafana\footnote{\url{https://github.com/gr
 \label{sec:cg_evaluation}
 So far, we have presented an automated component-based framework for extracting the performance properties of generated code. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
 The experimental material is available for replication purposes\footnote{\url{https://testingcodegenerators.wordpress.com/}}.
-\subsection{Experimental Setup}
-\subsubsection{Code Generators Under Test: Haxe Compilers}
+\subsection{Experimental setup}
+\subsubsection{Code generators under test: Haxe compilers}
 In order to test the applicability of our approach, we conduct experiments on a popular high-level programming language called Haxe and its code generators. 
 %Haxe is an open source toolkit for cross-platform development which compiles to a number of different programming platforms, including JavaScript, Flash, PHP, C++, C\# and Java. Haxe involves many features: the Haxe language, multi-platform compilers, and different native libraries. 
 %The Haxe language is a high-level programming language which is strictly typed. This language supports both functional programming and object-oriented programming paradigms. It has a common type hierarchy, making certain API available on every targeted platform.
@@ -339,7 +222,7 @@ Haxe comes with a set of compilers that translate manually-written code (in Haxe
 The process of code transformation and generation can be described as following: Haxe compilers analyze the source code written in Haxe language. Then, the code is checked and parsed into a typed structure, resulting in a typed abstract syntax tree (AST). This AST is optimized and transformed afterwards to produce source code for the target platform/language.
 Haxe offers the option of choosing which platform to target for each program using command-line options. Moreover, some optimizations and debugging information can be enabled through command-line interface, but in our experiments, we did not turn on any further options. 
 
-\subsubsection{Cross-platform Benchmark}
+\subsubsection{Cross-platform benchmark}
 One way to prove the effectiveness of our approach is to create benchmarks. Thus, we use the Haxe language and its code generators to build a cross-platform benchmark. The proposed benchmark is composed of a collection of cross-platform libraries that can be compiled to different targets. In these experiments, we consider five Haxe GUTs: Java, JS, C++, CS, and PHP code generators. To select cross-platform libraries, we explore github and we use the Haxe library repository\footnote{\url{http://thx-lib.org/}}. So, we select seven libraries that provide a set of test suites with high code coverage scores. 
 
 In fact, each Haxe library comes with an API and a set of test suites. These tests, written in Haxe, represent a set of unit tests that covers the different functions of the API. The main task of these tests is to check the correct functional behavior of generated programs. To prepare our benchmark, we remove all the tests that fail to compile to our five targets (i.e., errors, crashes and failures) and we keep only test suites that are functionally correct in order to focus only on the non-functional properties.
@@ -370,7 +253,7 @@ approach.
 	\label{tab:Description of selected benchmark libraries}
 \end{table}
 
-\subsubsection{Evaluation Metrics Used}
+\subsubsection{Evaluation metrics used}
 We use to evaluate the efficiency of generated code using the following non-functional metrics:
 
 -\textit{Memory usage}:
@@ -381,7 +264,7 @@ Program execution time is measured in seconds.
 
 We recall that our tool is able to evaluate other non-functional properties of generated code such as code generation time, compilation time, code size, CPU usage. We choose to focus, in this experiment, on the performance (i.e., execution time) and resource usage (i.e., memory usage).
 
-\subsubsection{Setting up Infrastructure}
+\subsubsection{Setting up infrastructure}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{chapitre4/fig/settingup.pdf}
@@ -554,8 +437,8 @@ Grafana can  request data from the database. We recall that InfluxDB also provid
 
 To obtain comparable and reproducible results, we use the same hardware across all experiments: a farm of AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (\SI{2.0}{\GHz}), running Linux with a 64 bit kernel and \SI{16}{\giga\byte} of system memory. We reserve one core and \SI{4}{\giga\byte} of memory for each running container. 
 
-\subsection{Experimental Results}
-\subsubsection{Evaluation Using the Standard Deviation}
+\subsection{Experimental results}
+\subsubsection{Evaluation using the standard deviation}
 We now conduct experiments based on the new created benchmark. 
 %We run each test suite 1K times and we report the execution time and memory usage across the different target languages: Java, JS, C++, CS, and PHP. 
 The goal of running these experiments is to observe and compare the behavior of generated code in order to detect code generator inconsistencies.
@@ -597,7 +480,7 @@ Thus, to understand this particular singular performance of the PHP code when ap
 
 In short, the lack of use of specific types, in native PHP standard library, by the PHP code generator such as \textit{SplFixedArray} shows a real impact on the non-functional behavior of generated code. In contrast, selecting carefully the adequate types and functions to generate code can lead to performance improvement. We can observe the same kind of error in the C++ program  during one test suite execution (Color\_TS6) which consumes too much memory. The types used in the code generator are not the best ones. 
 
-\subsection{Threats to Validity}
+\subsection{Threats to validity}
 We resume, in the following paragraphs, external and internal threats that can be raised:
 
 \textit{External validity} refers to the generalizability of our findings. In this study, we perform experiments on Haxe and on a set of test suite selected from Github and from the Haxe community. For instance, we have no guarantee that these libraries cover all the Haxe language features neither than all the Haxe standard libraries. Consequently, we cannot guarantee that our approach is able to find all the code generators issues unless we develop a more comprehensive test suite. Moreover, the threshold defined to detect the singular performance behavior has a huge impact on the precision and recall of the proposed approach. Experiments should be replicated to other case studies to confirm our findings and try to understand the best heuristic to detect the code generator issues regarding performance (i.e., automatically calculate the threshold values)
@@ -622,7 +505,7 @@ We resume, in the following paragraphs, external and internal threats that can b
 
 
 \section{Conclusion}
-
+\label{sec:cg-conclusion}
 In this work we have described a new approach for testing and monitoring the code generators families using a container-based infrastructure. 
 We used a set of micro-services in order to provide a fine-grained understanding of resource consumption. 
 To validate our approach, we evaluate a popular family of code generators: HAXE. 

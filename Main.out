@@ -45,46 +45,45 @@
 \BOOKMARK [0][-]{chapter*.8}{To the reader: summary of contributions}{part.2}% 45
 \BOOKMARK [0][-]{chapter.4}{Automatic non-functional testing of code generators families}{part.2}% 46
 \BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 47
-\BOOKMARK [1][-]{section.4.2}{Context and Motivations}{chapter.4}% 48
-\BOOKMARK [2][-]{subsection.4.2.1}{Code Generator Families}{section.4.2}% 49
-\BOOKMARK [2][-]{subsection.4.2.2}{Issues When Testing a Code Generator Family}{section.4.2}% 50
-\BOOKMARK [1][-]{section.4.3}{Approach Overview}{chapter.4}% 51
-\BOOKMARK [2][-]{subsection.4.3.1}{Non-Functional Testing of a Code Generator Family: a Common Process}{section.4.3}% 52
-\BOOKMARK [2][-]{subsection.4.3.2}{A metamorphic testing approach}{section.4.3}% 53
-\BOOKMARK [2][-]{subsection.4.3.3}{An Infrastructure for Non-functional Testing Using System Containers}{section.4.3}% 54
-\BOOKMARK [2][-]{subsection.4.3.4}{Technical Implementation}{section.4.3}% 55
-\BOOKMARK [1][-]{section.4.4}{Evaluation}{chapter.4}% 56
-\BOOKMARK [2][-]{subsection.4.4.1}{Experimental Setup}{section.4.4}% 57
-\BOOKMARK [2][-]{subsection.4.4.2}{Experimental Results}{section.4.4}% 58
-\BOOKMARK [2][-]{subsection.4.4.3}{Threats to Validity}{section.4.4}% 59
-\BOOKMARK [1][-]{section.4.5}{Conclusion}{chapter.4}% 60
-\BOOKMARK [0][-]{chapter.5}{NOTICE: An approach for auto-tuning compilers}{part.2}% 61
-\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 62
-\BOOKMARK [1][-]{section.5.2}{Motivation}{chapter.5}% 63
-\BOOKMARK [2][-]{subsection.5.2.1}{Compiler Optimizations}{section.5.2}% 64
-\BOOKMARK [2][-]{subsection.5.2.2}{Example: GCC Compiler}{section.5.2}% 65
-\BOOKMARK [1][-]{section.5.3}{Evolutionary Exploration of Compiler Optimizations }{chapter.5}% 66
-\BOOKMARK [2][-]{subsection.5.3.1}{Novelty Search Adaptation}{section.5.3}% 67
-\BOOKMARK [2][-]{subsection.5.3.2}{Novelty Search For Multi-objective Optimization}{section.5.3}% 68
-\BOOKMARK [1][-]{section.5.4}{Evaluation}{chapter.5}% 69
-\BOOKMARK [2][-]{subsection.5.4.1}{Research Questions}{section.5.4}% 70
-\BOOKMARK [2][-]{subsection.5.4.2}{Experimental Setup}{section.5.4}% 71
-\BOOKMARK [2][-]{subsection.5.4.3}{Experimental Methodology and Results}{section.5.4}% 72
-\BOOKMARK [2][-]{subsection.5.4.4}{Discussions}{section.5.4}% 73
-\BOOKMARK [2][-]{subsection.5.4.5}{Threats to Validity}{section.5.4}% 74
-\BOOKMARK [2][-]{subsection.5.4.6}{Tool Support Overview}{section.5.4}% 75
-\BOOKMARK [1][-]{section.5.5}{Conclusion}{chapter.5}% 76
-\BOOKMARK [0][-]{chapter.6}{A lightweight execution environment for automatic software testing and optimization}{part.2}% 77
-\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 78
-\BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 79
-\BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 80
-\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Component}{section.6.3}% 81
-\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Component}{section.6.3}% 82
-\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Component}{section.6.3}% 83
-\BOOKMARK [-1][-]{part.3}{III Conclusion and perspectives}{}% 84
-\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 85
-\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 86
-\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 87
-\BOOKMARK [0][-]{section*.25}{References}{part.3}% 88
-\BOOKMARK [0][-]{section*.27}{List of Figures}{part.3}% 89
-\BOOKMARK [0][-]{section*.29}{List of Tables}{part.3}% 90
+\BOOKMARK [1][-]{section.4.2}{Context and motivations}{chapter.4}% 48
+\BOOKMARK [2][-]{subsection.4.2.1}{Code generator families}{section.4.2}% 49
+\BOOKMARK [2][-]{subsection.4.2.2}{Issues when testing a code generator family}{section.4.2}% 50
+\BOOKMARK [1][-]{section.4.3}{The traditional process for non-functional testing of a code generator family}{chapter.4}% 51
+\BOOKMARK [1][-]{section.4.4}{Approach overview}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.4.1}{An infrastructure for non-functional testing using system containers}{section.4.4}% 53
+\BOOKMARK [2][-]{subsection.4.4.2}{A metamorphic testing approach}{section.4.4}% 54
+\BOOKMARK [1][-]{section.4.5}{Evaluation}{chapter.4}% 55
+\BOOKMARK [2][-]{subsection.4.5.1}{Experimental setup}{section.4.5}% 56
+\BOOKMARK [2][-]{subsection.4.5.2}{Experimental results}{section.4.5}% 57
+\BOOKMARK [2][-]{subsection.4.5.3}{Threats to validity}{section.4.5}% 58
+\BOOKMARK [1][-]{section.4.6}{Conclusion}{chapter.4}% 59
+\BOOKMARK [0][-]{chapter.5}{NOTICE: An approach for auto-tuning compilers}{part.2}% 60
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.2}{Motivation}{chapter.5}% 62
+\BOOKMARK [2][-]{subsection.5.2.1}{Compiler optimizations}{section.5.2}% 63
+\BOOKMARK [2][-]{subsection.5.2.2}{Example: GCC compiler}{section.5.2}% 64
+\BOOKMARK [1][-]{section.5.3}{Evolutionary exploration of compiler optimizations}{chapter.5}% 65
+\BOOKMARK [2][-]{subsection.5.3.1}{Novelty search adaptation}{section.5.3}% 66
+\BOOKMARK [2][-]{subsection.5.3.2}{Novelty search for multi-objective optimization}{section.5.3}% 67
+\BOOKMARK [1][-]{section.5.4}{Evaluation}{chapter.5}% 68
+\BOOKMARK [2][-]{subsection.5.4.1}{Research questions}{section.5.4}% 69
+\BOOKMARK [2][-]{subsection.5.4.2}{Experimental setup}{section.5.4}% 70
+\BOOKMARK [2][-]{subsection.5.4.3}{Experimental methodology and results}{section.5.4}% 71
+\BOOKMARK [2][-]{subsection.5.4.4}{Discussions}{section.5.4}% 72
+\BOOKMARK [2][-]{subsection.5.4.5}{Threats to validity}{section.5.4}% 73
+\BOOKMARK [2][-]{subsection.5.4.6}{Tool support overview}{section.5.4}% 74
+\BOOKMARK [1][-]{section.5.5}{Conclusion}{chapter.5}% 75
+\BOOKMARK [0][-]{chapter.6}{A lightweight execution environment for automatic software testing and optimization}{part.2}% 76
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 77
+\BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 78
+\BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 79
+\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Component}{section.6.3}% 80
+\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Component}{section.6.3}% 81
+\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Component}{section.6.3}% 82
+\BOOKMARK [-1][-]{part.3}{III Conclusion and perspectives}{}% 83
+\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 84
+\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 85
+\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 86
+\BOOKMARK [0][-]{section*.22}{References}{part.3}% 87
+\BOOKMARK [0][-]{section*.24}{List of Figures}{part.3}% 88
+\BOOKMARK [0][-]{section*.26}{List of Tables}{part.3}% 89

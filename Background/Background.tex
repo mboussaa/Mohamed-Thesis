@@ -393,19 +393,19 @@ Example: Matlab is a domain specific math language that makes it easy to represe
 Verifying and validating the automatic code generators raise different challenges.
 In the following, we discuss major problems of code generators testing:
 \begin{itemize}
-	\item \textbf{The oracle problem}: 
+	\item[--] \textbf{The oracle problem}: 
 	
 	To test the automatic code generation, test oracles are required to assess whether a test has passed or not. A test
 	oracle checks whether the result of executing a test is as expected.
 	In case of functional testing of code generators, the test oracle can be easily defined. For example, it can be defined as the comparison result between the simulated or executed model and its corresponding implementation. 
 	However, in case of non-functional testing of code generators, the testing oracle is complex to define. In fact, the generated code has to meet certain performance requirements (e.g. execution speed, response time, memory consumption, utilization of resources, etc.). Proving that the generated code respects one of these non-functional requirements is not obvious. For example, one kind of solutions that can be applied is to perform a non-regression testing approach to compare the non-functional properties of two implementation versions of generated code.
 	
-	\item \textbf{Infeasibility of unit testing}:
+	\item[--] \textbf{Infeasibility of unit testing}:
 	 
 	It is infeasible to test a whole code generator exhaustively with traditional software test approaches due to the complexity of the tool. When it comes to the unit testing of code generators, each translation function would have to be detached from the software system and surrounded by a test harness. This means decoupling each translation rule and testing it separately. This is, however, infeasible because it is difficult to address this specific functionality separately when testing a system as a whole. 
 	Consider, for example, functional testing of the translation function for the sum operator (+). According to\cite{burnard2004verifying}, there are more than 2.000 ways of implementing the function a = b + c since the operation depends on data types and whether data limiting is enabled or not.
 		
-	\item \textbf{Complexity of code generators}: 
+	\item[--] \textbf{Complexity of code generators}: 
 	
 	Code generators can be difficult to understand since they are typically composed of numerous elements, whose complex interdependencies pose important challenges for developers performing design, implementation, and maintenance tasks. 
 	Given the complexity and heterogeneity of the technologies involved in a code generator, developers who are trying to inspect and understand the code-generation process have to deal with numerous different artifacts. As an example, in a code-generator maintenance scenario, a developer might need to find all chained model-to-model and model-to-text transformation bindings, that originate a buggy line of code to fix it. This task is error prone when done manually. So, flexible traceability tools are needed to collect and visualize information about the architecture and operational mechanics of code generators, to reduce the challenges that developers face during their life-cycle\cite{guana2015developers}. 
@@ -426,7 +426,7 @@ In the following, we discuss major problems of code generators testing:
 	\end{table}
 	This table shows how huge is the code generator base code. With more than 1.800.000 lines of code, it is very hard to test th whole system. 
 	
-	\item \textbf{Non-executable source model}: 
+	\item[--] \textbf{Non-executable source model}: 
 	
 	Code generators do not always support executable source models. Sometimes, code generators such as partial class generator, generate only structural code through a series of transformations from a non-executable model (e.g., UML diagrams). It is up to the users next, to extend the generated code by extending the derived classes. 
 	As an example, model-based code generators integrate rule-based model-to-model transformation languages to transform one model to another (such as ATL).
@@ -491,7 +491,7 @@ Optimization can be categorized broadly into two types: machine independent and 
  
 
 \subsection{Why compilers auto-tuning is complex?}
-
+\label{sec:Why compilers auto-tuning is complex?}
 %\subsection{Why complier auto-tuning is complex?}
 Today, modern compilers implement a broad number of optimizations. Each optimization tries to improve the performance of the input application.
 
