@@ -51,7 +51,7 @@
 \BOOKMARK [1][-]{section.4.3}{The traditional process for non-functional testing of a code generator family}{chapter.4}% 51
 \BOOKMARK [1][-]{section.4.4}{Approach overview}{chapter.4}% 52
 \BOOKMARK [2][-]{subsection.4.4.1}{An infrastructure for non-functional testing using system containers}{section.4.4}% 53
-\BOOKMARK [2][-]{subsection.4.4.2}{A metamorphic testing approach}{section.4.4}% 54
+\BOOKMARK [2][-]{subsection.4.4.2}{A metamorphic testing method for automatic detection of code generators inconsistencies}{section.4.4}% 54
 \BOOKMARK [1][-]{section.4.5}{Evaluation}{chapter.4}% 55
 \BOOKMARK [2][-]{subsection.4.5.1}{Experimental setup}{section.4.5}% 56
 \BOOKMARK [2][-]{subsection.4.5.2}{Experimental results}{section.4.5}% 57

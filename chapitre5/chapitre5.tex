@@ -5,6 +5,23 @@ The general overview of the technical implementation is shown in Figure \ref{fig
 
 
 
+First, we create a new Docker image in where we install the Haxe code generators and compilers (through the configuration file "Dockerfile"). Then a new instance of that image is created. It takes as an input the Haxe library we would to test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. These files are saved in a shared repository.
+In Docker environment, this repository is called "data volume". A data volume is a specially-designated directory within containers that shares data with the host machine. 
+%So, when we execute the generated test suites, we provide a shared volume with the host machine. 
+Thus, generated binaries, in the shared volume, are automatically executed within the execution container (Step 2). This execution container is as well an instance of a new Docker image in where we install all the required execution environments such as php interpreter, NodeJS, etc. 
+In the meantime, while running test suites inside the container, we collect runtime resource usage data using cAdvisor (step 3). The cAdvisor Docker image does not need any configuration on the host machine. We have just to run it on our host machine. It will have then access to the resource usage and performance characteristics of all running containers. 
+%This image uses the Cgroups mechanism described previously to collect, aggregate, process, and export ephemeral real-time information about running containers. 
+%Then, it reports all statistics via web UI to view live resource consumption of each container. 
+cAdvisor has been widely used in different projects such as Heapster\footnote{\url{https://github.com/kubernetes/heapster}} and Google Cloud Platform\footnote{\url{https://cloud.google.com/}}. 
+%In this experiment, we choose to gather information about the memory usage of running container.
+Afterwards, we configure our InfluxDB back-end container in order to record the collected data into a new time-series database (step 4). %Thus, we define its corresponding ip port into the monitoring component so that, container statistics are sent over TCP port (e.g., \textit{8083}) exposed by the database component. 
+Next, we run Grafana and we link it to InfluxDB. % by setting up the data source port 8086 so that, 
+Grafana can  request data from the database. We recall that InfluxDB also provides a web UI to query the database and show graphs (step 5). But, Grafana lets us display live results over time in much pretty looking graphs. Same as InfluxDB, we use SQL queries to extract non-functional metrics from the database for visualization and analysis (step 6). In our experiment, we are gathering the maximum memory usage values without presenting the graphs of resource usage profiles.
+
+
+
+
+
 
 It is an operating system-level virtualization method for running multiple isolated Linux systems (containers) on a control host using a single Linux kernel. 
 The Linux kernel provides the cgroups functionality that allows limitation and prioritization of resources (CPU, memory, block I/O, network, etc.) for each container without the need of starting any virtual machines~\cite{luotowards}.

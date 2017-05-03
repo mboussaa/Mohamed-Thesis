@@ -64,18 +64,21 @@
 \contentsline {section}{\numberline {4.3}The traditional process for non-functional testing of a code generator family}{84}{section.4.3}
 \contentsline {section}{\numberline {4.4}Approach overview}{86}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}An infrastructure for non-functional testing using system containers}{86}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}A metamorphic testing approach}{87}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}Evaluation}{88}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Experimental setup}{89}{subsection.4.5.1}
-\contentsline {subsubsection}{\numberline {4.5.1.1}Code generators under test: Haxe compilers}{89}{subsubsection.4.5.1.1}
-\contentsline {subsubsection}{\numberline {4.5.1.2}Cross-platform benchmark}{89}{subsubsection.4.5.1.2}
-\contentsline {subsubsection}{\numberline {4.5.1.3}Evaluation metrics used}{90}{subsubsection.4.5.1.3}
-\contentsline {subsubsection}{\numberline {4.5.1.4}Setting up infrastructure}{91}{subsubsection.4.5.1.4}
-\contentsline {subsection}{\numberline {4.5.2}Experimental results}{92}{subsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.2.1}Evaluation using the standard deviation}{92}{subsubsection.4.5.2.1}
-\contentsline {subsubsection}{\numberline {4.5.2.2}Analysis}{94}{subsubsection.4.5.2.2}
-\contentsline {subsection}{\numberline {4.5.3}Threats to validity}{95}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Conclusion}{96}{section.4.6}
+\contentsline {subsection}{\numberline {4.4.2}A metamorphic testing method for automatic detection of code generators inconsistencies}{88}{subsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}Basic concept of metamorphic testing}{88}{subsubsection.4.4.2.1}
+\contentsline {subsubsection}{\numberline {4.4.2.2}Application of MT to the non-functional testing of code generator families}{89}{subsubsection.4.4.2.2}
+\contentsline {subsubsection}{\numberline {4.4.2.3}Metamorphic relation}{89}{subsubsection.4.4.2.3}
+\contentsline {section}{\numberline {4.5}Evaluation}{90}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Experimental setup}{90}{subsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.1.1}Code generators under test: Haxe compilers}{90}{subsubsection.4.5.1.1}
+\contentsline {subsubsection}{\numberline {4.5.1.2}Cross-platform benchmark}{91}{subsubsection.4.5.1.2}
+\contentsline {subsubsection}{\numberline {4.5.1.3}Evaluation metrics used}{92}{subsubsection.4.5.1.3}
+\contentsline {subsubsection}{\numberline {4.5.1.4}Setting up infrastructure}{92}{subsubsection.4.5.1.4}
+\contentsline {subsection}{\numberline {4.5.2}Experimental results}{94}{subsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.2.1}Evaluation using the standard deviation}{94}{subsubsection.4.5.2.1}
+\contentsline {subsubsection}{\numberline {4.5.2.2}Analysis}{95}{subsubsection.4.5.2.2}
+\contentsline {subsection}{\numberline {4.5.3}Threats to validity}{96}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Conclusion}{97}{section.4.6}
 \contentsline {chapter}{\numberline {5}NOTICE: An approach for auto-tuning compilers}{101}{chapter.5}
 \contentsline {section}{\numberline {5.1}Introduction}{103}{section.5.1}
 \contentsline {section}{\numberline {5.2}Motivation}{105}{section.5.2}
@@ -114,15 +117,15 @@
 \contentsline {section}{\numberline {5.5}Conclusion}{130}{section.5.5}
 \contentsline {chapter}{\numberline {6}A lightweight execution environment for automatic software testing and optimization}{133}{chapter.6}
 \contentsline {section}{\numberline {6.1}Introduction}{133}{section.6.1}
-\contentsline {section}{\numberline {6.2}System Containers as Execution Platforms}{134}{section.6.2}
+\contentsline {section}{\numberline {6.2}System Containers as Execution Platforms}{135}{section.6.2}
 \contentsline {section}{\numberline {6.3}Runtime Testing Components}{136}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Monitoring Component}{136}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Back-end Database Component}{136}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.2}Back-end Database Component}{137}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Front-end Visualization Component}{138}{subsection.6.3.3}
-\contentsline {part}{III\hspace {1em}Conclusion and perspectives}{139}{part.3}
-\contentsline {chapter}{\numberline {7}Conclusion and perspectives}{141}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary of contributions}{141}{section.7.1}
-\contentsline {section}{\numberline {7.2}Perspectives}{141}{section.7.2}
-\contentsline {chapter}{\textbf {References}}{143}{section*.22}
-\contentsline {chapter}{List of Figures}{161}{section*.24}
-\contentsline {chapter}{List of Tables}{163}{section*.26}
+\contentsline {part}{III\hspace {1em}Conclusion and perspectives}{141}{part.3}
+\contentsline {chapter}{\numberline {7}Conclusion and perspectives}{143}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary of contributions}{143}{section.7.1}
+\contentsline {section}{\numberline {7.2}Perspectives}{143}{section.7.2}
+\contentsline {chapter}{\textbf {References}}{145}{section*.22}
+\contentsline {chapter}{List of Figures}{163}{section*.24}
+\contentsline {chapter}{List of Tables}{165}{section*.26}

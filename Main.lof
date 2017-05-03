@@ -14,8 +14,8 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Summary of contributions}}{76}{figure.3.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}}{85}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{88}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Infrastructure settings for running experiments}}{91}{figure.4.3}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{87}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Infrastructure settings for running experiments}}{93}{figure.4.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{105}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{111}{figure.5.2}

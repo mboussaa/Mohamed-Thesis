@@ -178,6 +178,13 @@ Consequently, the testing infrastructure should provide support to automatically
 
 To ensure these four main steps, we rely on system containers~\cite{soltesz2007container} as a dynamic and customizable execution environment for running and evaluating the generated programs in terms of resource usage.
 
+\begin{figure*}[h]
+	\center
+	\includegraphics[width=1.\linewidth]{chapitre5/fig/docker_background2.pdf}
+	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
+	\label{fig:cg-infra}
+\end{figure*}
+
 Figure \ref{fig:cg-infra} shows the new container-based infrastructure used for testing code generators. Compared to the classical method presented in Figure \ref{fig:bbackground.pdf}, we added the following features: 
 \begin{itemize}
 	\item[--] At the code generation level: Code generators are configured inside different containers in order to generate code for the target platform.
@@ -187,15 +194,45 @@ Figure \ref{fig:cg-infra} shows the new container-based infrastructure used for 
 
 Chapter \ref{chap:docker} provides more details about the technical choices we have made to synthesize this testing infrastructure.
 
-\begin{figure*}[!h]
-	\center
-	\includegraphics[width=1.\linewidth]{chapitre5/fig/docker_background2.pdf}
-	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
-	\label{fig:cg-infra}
-\end{figure*}
 
 
-\subsection{A metamorphic testing approach}
+
+\subsection{A metamorphic testing method for automatic detection of code generators inconsistencies}
+Automatically detecting non-functional issues in code generators raises the oracle problem since there is no a clear definition of how the oracle might be defined and how we can determine the expected outcomes of selected test cases.
+
+We discussed in section \ref{sec:cg-Summary: oracle definition approaches} of Chapter \ref{chap:SOTA} several approaches from the software testing community to alleviate the oracle problem. Among the attractive approaches that can be applied to test code generators, we distinguish the metamorphic testing approach (derived oracles). This approach is already applied for generators, especially for testing compilers\cite{donaldson2016metamorphic,tao2010automatic,le2014compiler}. In the following, we describe the basic concept of metamorphic testing and our adaptation of this testing approach to test the code generator families in terms of resource usage and performance.
+
+\subsubsection{Basic concept of metamorphic testing}
+The metamorphic testing method (MT), proposed by Chen et al. \cite{chen1998metamorphic}, is a technique conceived to alleviate the oracle problem. It is based on the idea that often it is simpler to understand the relation between test cases' outputs rather than reasoning about the relation between test inputs and outputs. 
+
+MT recommends that, given one or more test cases (called "source test cases", "original test cases", or "successful test cases") and their expected outcomes (obtained through multiple executions of the target program under test), one or more follow-up test cases can be constructed to verify the necessary properties (called "metamorphic relations" or "MRs") of the system or function to be implemented. In this case, the generation of the follow-up test cases and verification of the test results require the respect of the MR.
+
+The classical example of MT is that of a program that computes the \textit{sin} function. A useful metamorphic relation for sin functions is \textit{sin(x) = sin(π −x)}. Thus, even though the expected value for the source test case \textit{sin(50)} in not known, a follow-up test case can be constructed to verify the MR defined earlier. In this case, the follow-up test case is $\textit{sin($\pi$ - 50)}$ which must produce an output value that is equal to the one produced by the original test case \textit{sin(50)}. If this property is violated, then a failure is immediately detected.
+MT generates follow-up test cases as long as the metamorphic relations are respected.
+This is an example of a metamorphic relation: an input transformation that can be used to generate new test cases from existing test data, and an output relation (MR), that compares the outputs produced by a pair of test cases.
+
+Because MT checks the relations among several executions rather than the correctness of individual outputs, MT can be used to fully automate the testing process without any manual intervention. However, constructing metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
+
+We describe in the next section our adaptation of MT to the problem of non-functional testing of code generators families.
+
+\subsubsection{Application of MT to the non-functional testing of code generator families}
+In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications include...
+
+\subsubsection{Metamorphic relation}
+//TODO
+
+The concept of metamorphic testing generalizes
+these ideas from identity relations to any type of relation,
+such as equalities, inequalities, periodicity properties, convergence
+constraints, subsumption relationships and many
+others. I
+
+
+metamorphic relations
+are not limited to identity relations. It includes inequalities,
+subsumption relations, and convergence properties to name a
+few.
+
 The availability of multiple generators with comparable functionality enables to apply the idea of differential testing~\cite{mckeeman1998differential} to detect code generator issues.
 
 Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues, as described above. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
@@ -208,47 +245,47 @@ Our approach is a black-box testing technique and it does not provide detailed i
 
 \section{Evaluation}
 \label{sec:cg_evaluation}
-So far, we have presented an automated component-based framework for extracting the performance properties of generated code. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
+So far, we have presented an automated approach for detecting inconsistencies within code generator families. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
 The experimental material is available for replication purposes\footnote{\url{https://testingcodegenerators.wordpress.com/}}.
 \subsection{Experimental setup}
 \subsubsection{Code generators under test: Haxe compilers}
-In order to test the applicability of our approach, we conduct experiments on a popular high-level programming language called Haxe and its code generators. 
-%Haxe is an open source toolkit for cross-platform development which compiles to a number of different programming platforms, including JavaScript, Flash, PHP, C++, C\# and Java. Haxe involves many features: the Haxe language, multi-platform compilers, and different native libraries. 
-%The Haxe language is a high-level programming language which is strictly typed. This language supports both functional programming and object-oriented programming paradigms. It has a common type hierarchy, making certain API available on every targeted platform.
+In order to test the applicability of our approach, we conduct experiments on a popular high-level programming language called Haxe and its code generators. Haxe is an open source toolkit for cross-platform development which compiles to a number of different programming platforms, including JavaScript, Flash, PHP, C++, C\# and Java. Haxe involves many features: the Haxe language, multi-platform compilers, and different native libraries. 
+The Haxe language is a high-level programming language which is strictly typed. This language supports both functional programming and object-oriented programming paradigms. It has a common type hierarchy, making certain API available on every targeted platform.
 Haxe comes with a set of compilers that translate manually-written code (in Haxe language) to different target languages and platforms. 
-%Haxe code can be compiled for applications running on desktop, mobile and web platforms. Compilers ensure the correctness of user code in terms of syntax and type safety.
-%Haxe comes also with a set of standard libraries that can be used on all supported targets and platform-specific libraries for each of them.
+Haxe code can be compiled for applications running on desktop, mobile and web platforms. It comes also with a set of standard libraries that can be used on all supported targets and platform-specific libraries for each of them.
 
 The process of code transformation and generation can be described as following: Haxe compilers analyze the source code written in Haxe language. Then, the code is checked and parsed into a typed structure, resulting in a typed abstract syntax tree (AST). This AST is optimized and transformed afterwards to produce source code for the target platform/language.
 Haxe offers the option of choosing which platform to target for each program using command-line options. Moreover, some optimizations and debugging information can be enabled through command-line interface, but in our experiments, we did not turn on any further options. 
 
+The Haxe code generators constitute the code generator family we would evaluate in this work.
+
 \subsubsection{Cross-platform benchmark}
-One way to prove the effectiveness of our approach is to create benchmarks. Thus, we use the Haxe language and its code generators to build a cross-platform benchmark. The proposed benchmark is composed of a collection of cross-platform libraries that can be compiled to different targets. In these experiments, we consider five Haxe GUTs: Java, JS, C++, CS, and PHP code generators. To select cross-platform libraries, we explore github and we use the Haxe library repository\footnote{\url{http://thx-lib.org/}}. So, we select seven libraries that provide a set of test suites with high code coverage scores. 
+One way to prove the effectiveness of our approach is to create benchmarks. Thus, we use the Haxe language and its code generators to build a cross-platform benchmark. The proposed benchmark is composed of a collection of cross-platform libraries that can be compiled to different targets. In these experiments, we consider a code generator family composed of five target Haxe compilers: Java, JS, C++, CS, and PHP code generators. To select cross-platform libraries, we explore github and we use the Haxe library repository\footnote{\url{http://thx-lib.org/}}. So, we select seven libraries that provide a set of test suites with high code coverage scores. 
 
 In fact, each Haxe library comes with an API and a set of test suites. These tests, written in Haxe, represent a set of unit tests that covers the different functions of the API. The main task of these tests is to check the correct functional behavior of generated programs. To prepare our benchmark, we remove all the tests that fail to compile to our five targets (i.e., errors, crashes and failures) and we keep only test suites that are functionally correct in order to focus only on the non-functional properties.
 Moreover, we add manually new test cases to some libraries in order to extend the number of test suites. The number of test suites depends on the number of existing functions within the Haxe library.
-We use then these test suites to transform functional tests into stress tests. This can be useful to study the impact of this load on the non-functional properties of generated code such as the performance and resource usage. For example, if one test suite consumes a lot of resources for a specific target, then this could be explained by the fact that the GUT has produced code that is very greedy in terms of resources.
+
+We use then these test suites to transform functional tests into stress tests. This can be useful to study the impact of this load on the resource usage properties of the five target versions. For example, if one test suite consumes a lot of resources for a specific target, then this could be explained by the fact that the code generator under test has produced code that is very greedy in terms of resources.
 Thus, we run each test suite 1K times to get comparable values in terms of resource usage.
 Table \ref{tab:Description of selected benchmark libraries} describes the Haxe libraries that we have selected in this benchmark to evaluate our
-approach.
+approach and the number of test suites used per benchmark.
 
 \begin{table}[h]
 	\centering
-	\resizebox{0.8\columnwidth}{!}{%
-		\begin{tabular}{|c|c|p{4.3cm}|}
-			
+	
+		\begin{tabular}{|c|c|p{8.5cm}|}				
 			\hline
 			\textbf{Library} & \textbf{\#TestSuites} & \textbf{Description} \\
-			\hline
+			\hhline{|=|=|=|}
 			Color  &  19 &  Color conversion from/to any color space   \\ \hline
 			Core & 51  & Provides extensions to many types  \\ \hline
 			Hxmath & 6  & A 2D/3D math library  \\ \hline
 			Format  &  4 & Format library such as dates, number formats   \\ \hline
-			Promise & 3  & Library for lightweight promises and futures  \\ \hline
-			Culture & 4  & Localization library for Haxe \\ \hline
-			Math & 3  & Generation of random values \\ \hline
+			Promise & 5  & Library for lightweight promises and futures  \\ \hline
+			Culture & 5  & Localization library for Haxe \\ \hline
+			Math & 5  & Generation of random values \\ \hline
 		\end{tabular}
-	}
+	
 	\caption{Description of selected benchmark libraries}
 	\label{tab:Description of selected benchmark libraries}
 \end{table}
@@ -257,23 +294,55 @@ approach.
 We use to evaluate the efficiency of generated code using the following non-functional metrics:
 
 -\textit{Memory usage}:
-It corresponds to the maximum memory consumption of the running container under test. Memory usage is measured in \SI{}{\mega\byte}
+It corresponds to the maximum memory consumption of the running test suite. Memory usage is measured in \SI{}{\mega\byte}
 
 -\textit{Execution time}:
 Program execution time is measured in seconds.
 
-We recall that our tool is able to evaluate other non-functional properties of generated code such as code generation time, compilation time, code size, CPU usage. We choose to focus, in this experiment, on the performance (i.e., execution time) and resource usage (i.e., memory usage).
+We recall that our testing infrastructure is able to evaluate other non-functional properties of generated code such as code generation time, compilation time, code size, CPU usage. We choose to focus, in this experiment, on the performance (i.e., execution time) and resource usage (i.e., memory usage).
 
 \subsubsection{Setting up infrastructure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=1\linewidth]{chapitre4/fig/settingup.pdf}
-	\caption{Infrastructure settings for running experiments}
-	\label{fig:settingup.pdf}
-\end{figure}
+
 To assess our approach, we configure our previously proposed container-based infrastructure in order to run experiments on the Haxe case study.
 Figure \ref{fig:settingup.pdf} shows a big picture of the testing and monitoring infrastructure considered in these experiments.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{chapitre4/fig/settingup.pdf}
+	\caption{Infrastructure settings for running experiments}
+	\label{fig:settingup.pdf}
+\end{figure}
+
+First, a first component is created in where we install the Haxe code generators and compilers. It takes as an input the Haxe library we would test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. These files are saved in a shared repository call \textit{Data Volume}.
+
+Afterwards, generated files are compiled (if needed) and automatically executed within the execution container (Step 2). This execution container is a pre-configured container instance where we install all the required execution environments such as php interpreter, NodeJS, etc. 
+
+In the meantime, while running test suites inside the container, we collect runtime resource usage data using the components showed in step 3, 4, and 5 (presented in details in Chapter \ref{chap:docker}).
+
+Finally, in step 6 we provide a mechanism to extract these resource usage metrics via http requests. In our experiment, we are gathering the maximum memory usage values without presenting the graphs of resource usage profiles.
+
+To obtain comparable and reproducible results, we use the same hardware across all experiments: a farm of AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (\SI{2.0}{\GHz}), running Linux with a 64 bit kernel and \SI{16}{\giga\byte} of system memory. We reserve one core and \SI{4}{\giga\byte} of memory for each running container. 
+
+\subsection{Experimental results}
+\subsubsection{Evaluation using the standard deviation}
+We now conduct experiments based on the new created benchmark. 
+%We run each test suite 1K times and we report the execution time and memory usage across the different target languages: Java, JS, C++, CS, and PHP. 
+The goal of running these experiments is to observe and compare the behavior of generated code in order to detect code generator inconsistencies.
+%We recall, as mentioned in the motivation, that we are not using any oracle function to detect inconsistencies. However, we rely on the comparison results across different targets to detect code generator inconsistencies.
+Since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in heterogeneous languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.). 
+%It is completely normal to get such small deviations, because we are comparing the execution time of test suites that are written in heterogeneous languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.)
+%So, it is expected to get a small deviation between the execution times after running the test suite in different languages
+Therefore, we use, as a quality metric, the standard deviation to quantify the amount of variation among execution traces (i.e., memory usage or execution time) and that, for the five target languages. We recall that the formula of standard deviation is the square root of the variance. Thus, we are calculating this variance as the squared differences from the mean. Our data values in our experiment represent the obtained values in five languages. So, for each test suite we are taking the mean of these five values in order to calculate the variance.
+A low standard deviation of a test suite execution, indicates that the data points (execution time or memory usage data) tend to be close to the mean which we consider as an acceptable behavior.  
+On the other hand, a high standard deviation indicates that one or more data points are spread out over a wider range of values which can be more likely interpreted as a code generator inconsistency. 
+
+In Table \ref{tab:The comparison results1}, we report the comparison results of running the benchmark in terms of execution speed. At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. These variations can be explained by the fact that the execution speed of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
+
+Similarly, Table \ref{tab:The comparison results2} resumes the comparison results of test suites execution regarding memory usage. The variation in this experiment are more important than previous results. This can be argued by the fact that the memory utilization and allocation patterns are different for each language. Nevertheless, we can recognize some points where the variation is extremely high. Thus, we choose a threshold value equal to 400 and we highlighted, in gray, the points that exceed this value. Thus, we detect 6 test suites where the variation is extremely high. 
+One of the reasons that caused this variation may occur when the test suite executes some parts of the code (in a specific language) that are so greedy in terms of resources. This may not be the case when the variation is lower than 10 for example.
+We assume then, that faulty code generators, in identified points, represent a threat for software quality since the generated code has shown symptoms of poor-quality design.
+
+%The inconsistencies we are trying to find here are more related to the incorrect memory utilization patterns produced by the faulty code generator. Such inconsistencies may come from an inadequate type usage, high resource instantiation, etc.
 
 \begin{table}[h]
 	\centering
@@ -370,7 +439,7 @@ Figure \ref{fig:settingup.pdf} shows a big picture of the testing and monitoring
 	}
 	
 	\caption{The comparison results of running each test suite across five target languages: the metric used is the standard deviation between memory consumptions}
-    \label{tab:The comparison results2}
+	\label{tab:The comparison results2}
 \end{table}
 
 
@@ -417,48 +486,6 @@ Figure \ref{fig:settingup.pdf} shows a big picture of the testing and monitoring
 	\caption{Raw data values of test suites that led to the highest variation in terms of memory usage}
 	\label{tab:raw results2}
 \end{table*}
-
-
-
-First, we create a new Docker image in where we install the Haxe code generators and compilers (through the configuration file "Dockerfile"). Then a new instance of that image is created. It takes as an input the Haxe library we would to test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. These files are saved in a shared repository.
-In Docker environment, this repository is called "data volume". A data volume is a specially-designated directory within containers that shares data with the host machine. 
-%So, when we execute the generated test suites, we provide a shared volume with the host machine. 
-Thus, generated binaries, in the shared volume, are automatically executed within the execution container (Step 2). This execution container is as well an instance of a new Docker image in where we install all the required execution environments such as php interpreter, NodeJS, etc. 
-
-In the meantime, while running test suites inside the container, we collect runtime resource usage data using cAdvisor (step 3). The cAdvisor Docker image does not need any configuration on the host machine. We have just to run it on our host machine. It will have then access to the resource usage and performance characteristics of all running containers. 
-%This image uses the Cgroups mechanism described previously to collect, aggregate, process, and export ephemeral real-time information about running containers. 
-%Then, it reports all statistics via web UI to view live resource consumption of each container. 
-cAdvisor has been widely used in different projects such as Heapster\footnote{\url{https://github.com/kubernetes/heapster}} and Google Cloud Platform\footnote{\url{https://cloud.google.com/}}. 
-%In this experiment, we choose to gather information about the memory usage of running container.
-Afterwards, we configure our InfluxDB back-end container in order to record the collected data into a new time-series database (step 4). %Thus, we define its corresponding ip port into the monitoring component so that, container statistics are sent over TCP port (e.g., \textit{8083}) exposed by the database component. 
-
-Next, we run Grafana and we link it to InfluxDB. % by setting up the data source port 8086 so that, 
-Grafana can  request data from the database. We recall that InfluxDB also provides a web UI to query the database and show graphs (step 5). But, Grafana lets us display live results over time in much pretty looking graphs. Same as InfluxDB, we use SQL queries to extract non-functional metrics from the database for visualization and analysis (step 6). In our experiment, we are gathering the maximum memory usage values without presenting the graphs of resource usage profiles.
-
-To obtain comparable and reproducible results, we use the same hardware across all experiments: a farm of AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (\SI{2.0}{\GHz}), running Linux with a 64 bit kernel and \SI{16}{\giga\byte} of system memory. We reserve one core and \SI{4}{\giga\byte} of memory for each running container. 
-
-\subsection{Experimental results}
-\subsubsection{Evaluation using the standard deviation}
-We now conduct experiments based on the new created benchmark. 
-%We run each test suite 1K times and we report the execution time and memory usage across the different target languages: Java, JS, C++, CS, and PHP. 
-The goal of running these experiments is to observe and compare the behavior of generated code in order to detect code generator inconsistencies.
-%We recall, as mentioned in the motivation, that we are not using any oracle function to detect inconsistencies. However, we rely on the comparison results across different targets to detect code generator inconsistencies.
-Since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in heterogeneous languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.). 
-%It is completely normal to get such small deviations, because we are comparing the execution time of test suites that are written in heterogeneous languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.)
-%So, it is expected to get a small deviation between the execution times after running the test suite in different languages
-Therefore, we use, as a quality metric, the standard deviation to quantify the amount of variation among execution traces (i.e., memory usage or execution time) and that, for the five target languages. We recall that the formula of standard deviation is the square root of the variance. Thus, we are calculating this variance as the squared differences from the mean. Our data values in our experiment represent the obtained values in five languages. So, for each test suite we are taking the mean of these five values in order to calculate the variance.
-A low standard deviation of a test suite execution, indicates that the data points (execution time or memory usage data) tend to be close to the mean which we consider as an acceptable behavior.  
-On the other hand, a high standard deviation indicates that one or more data points are spread out over a wider range of values which can be more likely interpreted as a code generator inconsistency. 
-
-In Table \ref{tab:The comparison results1}, we report the comparison results of running the benchmark in terms of execution speed. At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. These variations can be explained by the fact that the execution speed of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
-
-Similarly, Table \ref{tab:The comparison results2} resumes the comparison results of test suites execution regarding memory usage. The variation in this experiment are more important than previous results. This can be argued by the fact that the memory utilization and allocation patterns are different for each language. Nevertheless, we can recognize some points where the variation is extremely high. Thus, we choose a threshold value equal to 400 and we highlighted, in gray, the points that exceed this value. Thus, we detect 6 test suites where the variation is extremely high. 
-One of the reasons that caused this variation may occur when the test suite executes some parts of the code (in a specific language) that are so greedy in terms of resources. This may not be the case when the variation is lower than 10 for example.
-We assume then, that faulty code generators, in identified points, represent a threat for software quality since the generated code has shown symptoms of poor-quality design.
-
-%The inconsistencies we are trying to find here are more related to the incorrect memory utilization patterns produced by the faulty code generator. Such inconsistencies may come from an inadequate type usage, high resource instantiation, etc.
-
-
 
 
 
