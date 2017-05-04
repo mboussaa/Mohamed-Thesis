@@ -203,37 +203,94 @@ Automatically detecting non-functional issues in code generators raises the orac
 We discussed in section \ref{sec:cg-Summary: oracle definition approaches} of Chapter \ref{chap:SOTA} several approaches from the software testing community to alleviate the oracle problem. Among the attractive approaches that can be applied to test code generators, we distinguish the metamorphic testing approach (derived oracles). This approach is already applied for generators, especially for testing compilers\cite{donaldson2016metamorphic,tao2010automatic,le2014compiler}. In the following, we describe the basic concept of metamorphic testing and our adaptation of this testing approach to test the code generator families in terms of resource usage and performance.
 
 \subsubsection{Basic concept of metamorphic testing}
-The metamorphic testing method (MT), proposed by Chen et al. \cite{chen1998metamorphic}, is a technique conceived to alleviate the oracle problem. It is based on the idea that often it is simpler to understand the relation between test cases' outputs rather than reasoning about the relation between test inputs and outputs. 
+In this section, we shall introduce the basic concept of metamorphic testing (MT). 
+MT, proposed by Chen et al. \cite{chen1998metamorphic}, is a technique conceived to alleviate the oracle problem. It is based on the idea that often it is simpler to understand the relation between test cases' outputs rather than reasoning about the relation between test inputs and outputs. 
 
 MT recommends that, given one or more test cases (called "source test cases", "original test cases", or "successful test cases") and their expected outcomes (obtained through multiple executions of the target program under test), one or more follow-up test cases can be constructed to verify the necessary properties (called "metamorphic relations" or "MRs") of the system or function to be implemented. In this case, the generation of the follow-up test cases and verification of the test results require the respect of the MR.
 
-The classical example of MT is that of a program that computes the \textit{sin} function. A useful metamorphic relation for sin functions is \textit{sin(x) = sin(π −x)}. Thus, even though the expected value for the source test case \textit{sin(50)} in not known, a follow-up test case can be constructed to verify the MR defined earlier. In this case, the follow-up test case is $\textit{sin($\pi$ - 50)}$ which must produce an output value that is equal to the one produced by the original test case \textit{sin(50)}. If this property is violated, then a failure is immediately detected.
+The classical example of MT is that of a program that computes the \textit{sin} function. A useful metamorphic relation for \textit{sin} functions is $\textit{sin(x) = sin($\pi$ - x)}$. Thus, even though the expected value for the source test case \textit{sin(50)} for example in not known, a follow-up test case can be constructed to verify the MR defined earlier. In this case, the follow-up test case is $\textit{sin($\pi$ - 50)}$ which must produce an output value that is equal to the one produced by the original test case \textit{sin(50)}. If this property is violated, then a failure is immediately detected.
 MT generates follow-up test cases as long as the metamorphic relations are respected.
 This is an example of a metamorphic relation: an input transformation that can be used to generate new test cases from existing test data, and an output relation (MR), that compares the outputs produced by a pair of test cases.
 
-Because MT checks the relations among several executions rather than the correctness of individual outputs, MT can be used to fully automate the testing process without any manual intervention. However, constructing metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
+They can be any relations involving the inputs and outputs of two or more executions of the target program such as equalities, inequalities, periodicity properties, convergence constraints, subsumption relationships and many others. 
+
+Because MT checks the relations among several executions rather than the correctness of individual outputs, MT can be used to fully automate the testing process without any manual intervention. 
+However, constructing metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
+The effectiveness of metamorphic testing is highly dependent on the specific metamorphic relations that are used, and designing effective metamorphic relations is thus a critical step when applying metamorphic testing.
 
 We describe in the next section our adaptation of MT to the problem of non-functional testing of code generators families.
 
 \subsubsection{Application of MT to the non-functional testing of code generator families}
-In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications include...
+In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications are presented in \cite{zhou2004metamorphic}. They includes the testing of simulation programs; the testing of numerical programs such as those for solving partial differential equations; the testing of graphics-rendering programs; and testing compilers.
 
-\subsubsection{Metamorphic relation}
-//TODO
+To apply MT, there are four basic steps to follow:
 
-The concept of metamorphic testing generalizes
-these ideas from identity relations to any type of relation,
-such as equalities, inequalities, periodicity properties, convergence
-constraints, subsumption relationships and many
-others. I
+\begin{enumerate}
+ \item Find the properties of the system under test: the system should be investigated manually in order to find intended MRs defining the relation between inputs and outputs. This is based on the source test cases.
+ \item Generate/select test inputs that satisfy the MR: this means that new the follow-up test cases must be generated or selected in order to verify their outputs using the MR.
+ \item Execute the system with the inputs and get outputs: original and follow-up test cases are executed in order to gather their outputs.
+ \item Check whether these outputs satisfy the MR, and if not, report failures.
+\end{enumerate}
+
+We develop now these four points in details in order show our MT adaptation to the code generators testing problem. 
+\subsubsection[(Step 1)]{Metamorphic relation }
+
+The first step consists in identifying necessary properties of the program under test and represent them as metamorphic relations among multiple test case inputs and their expected outputs.
+
+In the context of code generators testing, we apply the concept of metamorphic testing described above to detect inconsistencies that violate MRs.
+To do so, we have to define suitable MRs to automate this process.
+
+As already stated, a metamorphic relation is a relation between different executions.
+If we use the MR definition as presented in \cite{tao2010automatic,chan2006integration}:
+
+\begin{mydef}[\textbf{Metamorphic relation}]
+
+Let $(x_{1}, x_{2},..., x_{k})$ be a series of inputs to a function $f$, where $k$ $\geqslant$ 1, and $(f(x_{1}, x_{2},..., x_{k})$ be the corresponding series of results. Suppose $(f(x_{i1}), f(x_{i2}),..., f(x_{im}))$ is a subseries, possibly an empty subseries, of $(f(x_{1})$, $f(x_{2})$,..., $f(x_{k}))$. Let $(x_{k+1}, x_{k+2},..., x_{n})$ be another series of inputs to $f$, where $n \geqslant k+1$, and $(f(x_{k+1})$, $f(x_{k+2})$,..., $f(x_{xn}))$ be the corresponding series of results. Suppose, further, that there exists relations $r(x_{1}$, $x_{2}$,..., $x_{k}$, $f(x_{i1})$, $f(x_{i2})$,...., $f(x_{im})$, $x_{k+1}$, $x_{k+2}$,..., $x_{n}))$ and $r'$$(x_{1}$, $x_{2}$,..., $x_{n}$, $f(x_{1}$, $f(x_{2}$,..., $f(x_{n}))$ such that $r'$ must be true whenever $r$ is satisfied. We say that 
 
 
-metamorphic relations
-are not limited to identity relations. It includes inequalities,
-subsumption relations, and convergence properties to name a
-few.
+\textbf{MR} = {$(x_{1}, x_{2},...,x_{n}, f(x_{1}), f(x_{2}),..., f(x_{n}) \mid$
 
-The availability of multiple generators with comparable functionality enables to apply the idea of differential testing~\cite{mckeeman1998differential} to detect code generator issues.
+$r(x_{1}, x_{2},..., x_{k}, f(x_{i1}), f(x_{i2}),...., f(x_{im}), x_{k+1}, x_{k+2},..., x_{n}))$
+
+$\Rightarrow r'(x_{1}, x_{2},..., x_{n}, f(x_{1}), f(x_{2}),..., f(x_{n}))$} 
+
+is a metamorphic relation. When there is no ambiguity, we simply write the metamorphic relation as 	
+
+\textbf{MR}: if $r(x_{1}, x_{2},..., x_{k}, f(x_{i1}), f(x_{i2}),...., f(x_{im}), x_{k+1}, x_{k+2},..., x_{n}))$
+
+then $r'(x_{1}, x_{2},..., x_{n}, f(x_{1}), f(x_{2}),..., f(x_{n})).$
+
+Furthermore, $x_{1}, x_{2},..., x_{k}$ are known as source test cases and $x_{k+1}, x_{k+2},..., x_{xn}$ are known as follow-up test cases
+%Let (x1, x2,..., xk) be a series of inputs to a function f , where k > 1, and f(x1), f(x2),..., f(xk) be the corresponding series of results. Suppose f(xi1 ), f(xi2 ),..., f(xim ) is a subseries, possibly an empty subseries, of f(x1), f(x2),..., f(xk). Let xk+1, xk+2,..., xn be another series of inputs to f , where n ≥ k + 1, and f(xk+1), f(xk+2),..., f(xn) be the corresponding series of results. Suppose, further, that there exists relations r(x1, x2, ..., xk, f(xi1 ), f(xi2 ), ..., f(xim ), xk+1, xk+2, ..., xn) and r (x1, x2,..., xn, f(x1), f(x2),..., f(xn)) such that r must be true whenever r is satisfied. We say that MR = { (x1, x2,..., xn, f(x1), f(x2),..., f(xn)) | r(x1, x2,..., xk, f(xi1 ), f(xi2 ),..., f(xim ), xk+1, xk+2,..., xn) → r (x1, x2,..., xn, f(x1), f(x2),..., f(xn)) } is a metamorphic relation. When there is no ambiguity, we simply write the metamorphic relation as MR: If r(x1, x2,..., xk, f(xi1 ), f(xi2 ),..., f(xim ), xk+1, xk+2,..., xn) then r (x1, x2,..., xn, f(x1), f(x2),..., f(xn)). Furthermore, x1, x2, ..., xk are know
+
+\end{mydef}
+
+A code generator family can be looked as a function: $C : I \rightarrow P$, where I is the domain of valid high-level source programs and $P$ is the domain of the target programs that are generated by the different code generators of the same family. The property of a code generator family implies that the generated programs $P$ share the same behavior as it is specified in $I$ using the high-level system specification. 
+
+
+The availability of multiple generators with comparable functionality allow us to adapt MT in order to detect non-functional inconsistencies. In fact, if we can find out proper R relation of the non-functional behavior, we can get the metamorphic relation and conduct MT for testing code generator families.
+Let $f(P(x))$ be a function that calculates a non-functional metric of a generated program $P$ (such as execution time or memory usage of $P$) for an input test suite denoted by $x$. Since we have different program versions generated in the same family, we denote by $(P1(x)$, $P2(x)$,..., $P_{n}(x))$ the set of generated programs. The corresponding outputs would be $(f(P1)$, $f(P2)$,..., $f(P_{n}))$. Thus, our MR looks like this:
+
+\begin{equation}
+	 R(P1(x), P2(x),..., Pn(x))  \Rightarrow R(f(P1(x)), f(P2(x)),..., f(Pn(x)))
+\end{equation}
+
+On the one hand, we use the following equation $P1(x) \equiv P2(x)$ to denote \textit{the functional equivalence relation} between two generated programs P1 and P2 from the same family. This means that the generated programs P1 and P2 have the same behavioral design, and for any test suite $x$, they have the same functional output. 
+If this relation is not satisfied that means, that there is at least one faulty code generator that produced incorrect code. In this this work, we focus on the non-functional testing, so we ensure that this relation is ensured by excluding all the programs that do not exhibit the same behavior. 
+
+
+On the other hand, since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite across the different versions. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in different languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.). 
+This observation is also based on initial experiments, where we evaluate the resource usage/execution time of several test suites across a set of equivalent versions generated using a code generator family (presented in details in the evaluation section \ref{sec:cg_evaluation}). As a consequence, we use the notation $\Delta\{f(P1(x)), f(P2(x))\}$ to designate the variation of memory usage or execution time of test suite execution $x$ across two version of generated code written in different languages $P1$ and $P2$. We suppose that this variation should note exceed a certain threshold value $T$, otherwise, we raise a code generator inconsistency.
+Based on this intuition, the MR can be represented as:
+
+\begin{equation}
+P1(x) \equiv P2(x) \equiv ... \equiv Pn \Rightarrow \Delta\{f(P1(x)), f(P2(x)),..., f(Pn(x))\}< T\quad (n\geqslant 2)
+\end{equation}
+%\paragraph{Generate test cases (Step 2)}
+%\paragraph{Execute test cases (Step 3)}
+%\paragraph{Detect inconsistencies (Step 4)}
+
+
 
 Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues, as described above. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
 
@@ -329,9 +386,9 @@ We now conduct experiments based on the new created benchmark.
 %We run each test suite 1K times and we report the execution time and memory usage across the different target languages: Java, JS, C++, CS, and PHP. 
 The goal of running these experiments is to observe and compare the behavior of generated code in order to detect code generator inconsistencies.
 %We recall, as mentioned in the motivation, that we are not using any oracle function to detect inconsistencies. However, we rely on the comparison results across different targets to detect code generator inconsistencies.
-Since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in heterogeneous languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.). 
-%It is completely normal to get such small deviations, because we are comparing the execution time of test suites that are written in heterogeneous languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.)
-%So, it is expected to get a small deviation between the execution times after running the test suite in different languages
+
+ 
+ 
 Therefore, we use, as a quality metric, the standard deviation to quantify the amount of variation among execution traces (i.e., memory usage or execution time) and that, for the five target languages. We recall that the formula of standard deviation is the square root of the variance. Thus, we are calculating this variance as the squared differences from the mean. Our data values in our experiment represent the obtained values in five languages. So, for each test suite we are taking the mean of these five values in order to calculate the variance.
 A low standard deviation of a test suite execution, indicates that the data points (execution time or memory usage data) tend to be close to the mean which we consider as an acceptable behavior.  
 On the other hand, a high standard deviation indicates that one or more data points are spread out over a wider range of values which can be more likely interpreted as a code generator inconsistency. 

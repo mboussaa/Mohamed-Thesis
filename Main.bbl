@@ -142,6 +142,13 @@ Ting Cao, Stephen~M Blackburn, Tiejun Gao, and Kathryn~S McKinley.
 \newblock In {\em ACM SIGARCH Computer Architecture News}, volume~40, pages
   225--236. IEEE Computer Society, 2012.
 
+\bibitem[CCL{\etalchar{+}}06]{chan2006integration}
+WK~Chan, Tsong~Yueh Chen, Heng Lu, TH~Tse, and Stephen~S Yau.
+\newblock Integration testing of context-sensitive middleware-based
+  applications: a metamorphic approach.
+\newblock {\em International Journal of Software Engineering and Knowledge
+  Engineering}, 16(05):677--703, 2006.
+
 \bibitem[CCY98]{chen1998metamorphic}
 Tsong~Y Chen, Shing~C Cheung, and Shiu~Ming Yiu.
 \newblock Metamorphic testing: a new approach for generating next test cases.
