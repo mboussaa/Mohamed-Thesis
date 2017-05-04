@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  4 MAY 2017 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  4 MAY 2017 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1451,240 +1451,254 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[90] [91]
+[90] [91] <chapitre4/fig/MT.pdf, id=1966, 670.505pt x 177.66376pt>
+File: chapitre4/fig/MT.pdf Graphic file (type pdf)
+
+<use chapitre4/fig/MT.pdf>
+Package pdftex.def Info: chapitre4/fig/MT.pdf used on input line 303.
+(pdftex.def)             Requested size: 460.72124pt x 122.07574pt.
+
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 92 \OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTIN
 G OF CODE GENERATORS FAMILIES
  []
 
-[92] [93]
+[92 <./chapitre4/fig/MT.pdf>] [93]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 94 \OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTIN
 G OF CODE GENERATORS FAMILIES
  []
 
-[94] <chapitre4/fig/settingup.pdf, id=1992, 482.80376pt x 337.26pt>
+[94] <chapitre4/fig/settingup.pdf, id=2042, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
-Package pdftex.def Info: chapitre4/fig/settingup.pdf used on input line 368.
+Package pdftex.def Info: chapitre4/fig/settingup.pdf used on input line 376.
 (pdftex.def)             Requested size: 368.57838pt x 257.47815pt.
- [95 <./chapitre4/fig/settingup.pdf>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[95]
 Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 96 \OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTIN
 G OF CODE GENERATORS FAMILIES
  []
 
-[96]
+[96 <./chapitre4/fig/settingup.pdf>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 456.
+               Default added (so using `tbp') on input line 464.
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 521
+Overfull \hbox (5.87494pt too wide) detected at line 529
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 521
+Overfull \hbox (6.20132pt too wide) detected at line 529
  \OT1/cmr/m/n/12 x
  []
 
@@ -1692,197 +1706,197 @@ Overfull \hbox (6.20132pt too wide) detected at line 521
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
 
-Overfull \hbox (5.87494pt too wide) detected at line 542
+Overfull \hbox (5.87494pt too wide) detected at line 550
  
  []
 
 
-Overfull \hbox (6.20132pt too wide) detected at line 542
+Overfull \hbox (6.20132pt too wide) detected at line 550
  \OT1/cmr/m/n/12 x
  []
 
@@ -1895,7 +1909,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[98]) [99]
+[98] [99])
 Overfull \hbox (81.65117pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 100 \OT1/cmr/m/sl/12 CHAPTER 4.  AUTOMATIC NON-FUNCTIONAL TESTI
 NG OF CODE GENERATORS FAMILIES
@@ -1907,19 +1921,19 @@ Overfull \hbox (81.65117pt too wide) has occurred while \output is active
 NG OF CODE GENERATORS FAMILIES
  []
 
-[102]
+[102] [103] [104
+
+
+]
 Chapter 5.
-(./chapitre3/chapitre3.tex [103
-
-
-] [104] [105] [106]
-<chapitre3/fig/autotuning.pdf, id=2259, 359.3425pt x 114.4275pt>
+(./chapitre3/chapitre3.tex [105] [106] [107] [108]
+<chapitre3/fig/autotuning.pdf, id=2317, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
 Package pdftex.def Info: chapitre3/fig/autotuning.pdf used on input line 94.
 (pdftex.def)             Requested size: 414.6463pt x 132.04805pt.
- [107 <./chapitre3/fig/autotuning.pdf>]
+ [109 <./chapitre3/fig/autotuning.pdf>]
 Overfull \vbox (478.50002pt too high) detected at line 208
  []
 
@@ -1932,12 +1946,12 @@ Overfull \hbox (9.23643pt too wide) in paragraph at lines 235--235
 
  []
 
-[108] [109] [110]
+[110] [111] [112]
 Overfull \hbox (17.62482pt too wide) detected at line 302
 [][] 
  []
 
-[111] <chapitre3/fig/individual.png, id=2390, 991.705pt x 153.57375pt>
+[113] <chapitre3/fig/individual.png, id=2449, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
@@ -1947,7 +1961,7 @@ Package pdftex.def Info: chapitre3/fig/individual.png used on input line 323.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[112] [113 <./chapitre3/fig/individual.png>] [114]
+[114] [115 <./chapitre3/fig/individual.png>] [116]
 Underfull \hbox (badness 1810) in paragraph at lines 410--412
 []|\OT1/cmr/m/n/12 Compress any file source
  []
@@ -1955,8 +1969,8 @@ Underfull \hbox (badness 1810) in paragraph at lines 410--412
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[115] [116] [117]
-<chapitre3/fig/infraup.pdf, id=2451, 469.755pt x 312.16624pt>
+[117] [118] [119]
+<chapitre3/fig/infraup.pdf, id=2510, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
@@ -1966,7 +1980,7 @@ Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 492.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[118] <chapitre3/fig/sensitivity.pdf, id=2460, 494.84875pt x 121.45375pt>
+[120] <chapitre3/fig/sensitivity.pdf, id=2518, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1976,8 +1990,8 @@ Package pdftex.def Info: chapitre3/fig/sensitivity.pdf used on input line 512.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[119 <./chapitre3/fig/infraup.pdf>] [120 <./chapitre3/fig/sensitivity.pdf>]
-<chapitre3/fig/box.pdf, id=2592, 1010.77625pt x 310.15875pt>
+[121 <./chapitre3/fig/infraup.pdf>] [122 <./chapitre3/fig/sensitivity.pdf>]
+<chapitre3/fig/box.pdf, id=2651, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1987,8 +2001,8 @@ Package pdftex.def Info: chapitre3/fig/box.pdf used on input line 566.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[121] [122 <./chapitre3/fig/box.pdf>]
-<chapitre3/fig/rq3.pdf, id=2621, 721.69624pt x 490.83376pt>
+[123] [124 <./chapitre3/fig/box.pdf>]
+<chapitre3/fig/rq3.pdf, id=2680, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1998,38 +2012,38 @@ Package pdftex.def Info: chapitre3/fig/rq3.pdf used on input line 610.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[123]
-<chapitre4/fig/infra_novelty_stat3.png, id=2633, 599.3592pt x 371.4678pt>
+[125]
+<chapitre4/fig/infra_novelty_stat3.png, id=2692, 599.3592pt x 371.4678pt>
 File: chapitre4/fig/infra_novelty_stat3.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat3.png>
 Package pdftex.def Info: chapitre4/fig/infra_novelty_stat3.png used on input li
 ne 628.
 (pdftex.def)             Requested size: 460.72124pt x 285.54929pt.
- [124 <./chapitre3/fig/rq3.pdf>]
-<chapitre4/fig/infra_novelty_stat2.png, id=2686, 547.3248pt x 343.0416pt>
+ [126 <./chapitre3/fig/rq3.pdf>]
+<chapitre4/fig/infra_novelty_stat2.png, id=2745, 547.3248pt x 343.0416pt>
 File: chapitre4/fig/infra_novelty_stat2.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat2.png>
 Package pdftex.def Info: chapitre4/fig/infra_novelty_stat2.png used on input li
 ne 646.
 (pdftex.def)             Requested size: 460.72124pt x 288.76538pt.
- [125 <./chapitre4/fig/infra_novelty_stat3.png>]
+ [127 <./chapitre4/fig/infra_novelty_stat3.png>]
 Overfull \hbox (5.90762pt too wide) in paragraph at lines 673--674
 []\OT1/cmr/m/n/12 In this ex-per-i-ment, we choose to fo-cus on the trade-off $
 \OML/cmm/m/it/12 <$\OT1/cmr/m/it/12 ExecutionTime--MemoryUsage$\OML/cmm/m/it/12
  >$\OT1/cmr/m/n/12 .
  []
 
-[126 <./chapitre4/fig/infra_novelty_stat2.png>] [127]
-<chapitre3/fig/pareto.pdf, id=2708, 756.8275pt x 488.82625pt>
+[128 <./chapitre4/fig/infra_novelty_stat2.png>] [129]
+<chapitre3/fig/pareto.pdf, id=2767, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
 Package pdftex.def Info: chapitre3/fig/pareto.pdf used on input line 703.
 (pdftex.def)             Requested size: 414.6463pt x 267.81847pt.
- [128 <./chapitre3/fig/pareto.pdf>] [129]
-<chapitre3/fig/tool_support.png, id=2731, 750.805pt x 439.6425pt>
+ [130 <./chapitre3/fig/pareto.pdf>] [131]
+<chapitre3/fig/tool_support.png, id=2791, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
@@ -2044,18 +2058,18 @@ Overfull \hbox (27.29623pt too wide) in paragraph at lines 748--749
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[130] [131 <./chapitre3/fig/tool_support.png>]
+[132] [133 <./chapitre3/fig/tool_support.png>]
 Overfull \hbox (11.765pt too wide) in paragraph at lines 781--782
 []\OT1/cmr/bx/n/12 Edit evo-lu-tion-ary al-go-rithm set-tings: \OT1/cmr/m/n/12 
 Tun-ing the evo-lu-tion-ary pa-ram-e-ters (showed
  []
 
-[132]) [133] [134
+[134]) [135] [136
 
 
 ]
 Chapter 6.
-(./chapitre5/chapitre5.tex [135]
+(./chapitre5/chapitre5.tex [137]
 File: chapitre5/fig/docker_background2.pdf Graphic file (type pdf)
  <use chapitre5/fig/docker_background2.pdf>
 Package pdftex.def Info: chapitre5/fig/docker_background2.pdf used on input lin
@@ -2063,17 +2077,17 @@ e 36.
 (pdftex.def)             Requested size: 437.68376pt x 162.29465pt.
 
 Overfull \hbox (260.20241pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/12 136 \OT1/cmr/m/sl/12 CHAPTER 6.  A LIGHTWEIGHT EXECUTION ENVIRO
-NMENT FOR AUTOMATIC SOFTWARE TESTING AND OPTIMIZATION
- []
-
-[136] [137]
-Overfull \hbox (260.20241pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 138 \OT1/cmr/m/sl/12 CHAPTER 6.  A LIGHTWEIGHT EXECUTION ENVIRO
 NMENT FOR AUTOMATIC SOFTWARE TESTING AND OPTIMIZATION
  []
 
-[138]
+[138] [139]
+Overfull \hbox (260.20241pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/12 140 \OT1/cmr/m/sl/12 CHAPTER 6.  A LIGHTWEIGHT EXECUTION ENVIRO
+NMENT FOR AUTOMATIC SOFTWARE TESTING AND OPTIMIZATION
+ []
+
+[140]
 Overfull \hbox (28.84546pt too wide) in paragraph at lines 96--97
 \OT1/cmr/m/n/12 am-ple, the fol-low-ing query re-ports the max-i-mum mem-ory us
 -age of con-tainer $"\OML/cmm/m/it/12 generated[]code[]v\OT1/cmr/m/n/12 1"$
@@ -2081,7 +2095,7 @@ Overfull \hbox (28.84546pt too wide) in paragraph at lines 96--97
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [139]
+) [141]
 Overfull \hbox (3.24504pt too wide) in paragraph at lines 131--131
 []|\OT1/cmr/m/n/12 Network| 
  []
@@ -2093,44 +2107,44 @@ Overfull \hbox (2.59227pt too wide) in paragraph at lines 131--131
 
 
 Overfull \hbox (260.20241pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/12 140 \OT1/cmr/m/sl/12 CHAPTER 6.  A LIGHTWEIGHT EXECUTION ENVIRO
+\OT1/cmr/m/n/12 142 \OT1/cmr/m/sl/12 CHAPTER 6.  A LIGHTWEIGHT EXECUTION ENVIRO
 NMENT FOR AUTOMATIC SOFTWARE TESTING AND OPTIMIZATION
  []
 
-[140]) [141] [142
+[142]) [143] [144
 
 
-] [143] [144]
+] [145] [146]
 Chapter 7.
-(./Conclusion/Conclusion.tex) [145
+(./Conclusion/Conclusion.tex) [147
 
 
-] [146
+] [148
 
 
-] (./Main.bbl [147
+] (./Main.bbl [149
 
 
 ]
 Missing character: There is no â in font cmti12!
 Missing character: There is no € in font cmti12!
 Missing character: There is no ” in font cmti12!
- [148] [149]
-[150] [151] [152]
+ [150] [151]
+[152] [153] [154]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [153] [154] [155]
+ [155] [156] [157]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [156] [157] [158]
+ [158] [159] [160]
 Underfull \hbox (badness 1043) in paragraph at lines 699--705
 []\OT1/cmr/m/n/12 Nitin Naik.  Mi-grat-ing from vir-tu-al-iza-tion to dock-er-i
 za-tion in the
  []
 
-[159]
+[161]
 Underfull \hbox (badness 4660) in paragraph at lines 783--788
 []\OT1/cmr/m/n/12 Dmitry Plot-nikov, Dmitry Mel-nik, Mamikon Var-danyan, Ruben
  []
@@ -2141,15 +2155,15 @@ Underfull \hbox (badness 1406) in paragraph at lines 795--799
 
  []
 
-[160] [161]
+[162] [163]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [162]
+ [164]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [163]) [164] (./Main.lof [165
+ [165]) [166] (./Main.lof [167
 
 
 
@@ -2158,12 +2172,12 @@ Missing character: There is no ” in font cmr12!
 \tf@lof=\write6
 \openout6 = `Main.lof'.
 
- [166] (./Main.lot)
+ [168] (./Main.lot)
 \tf@lot=\write7
 \openout7 = `Main.lot'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 451.
- [167
+ [169
 
 
 ]
@@ -2184,10 +2198,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22472 strings out of 493027
- 407791 string characters out of 6134069
- 871911 words of memory out of 5000000
- 25033 multiletter control sequences out of 15000+600000
+ 22482 strings out of 493027
+ 407954 string characters out of 6134069
+ 874084 words of memory out of 5000000
+ 25038 multiletter control sequences out of 15000+600000
  18340 words of font info for 69 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  51i,18n,77p,10384b,15536s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2215,10 +2229,10 @@ ocal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Main.pdf (176 pages, 4579560 bytes).
+Output written on Main.pdf (178 pages, 4611630 bytes).
 PDF statistics:
- 3223 PDF objects out of 3580 (max. 8388607)
- 2603 compressed objects within 27 object streams
- 584 named destinations out of 1000 (max. 500000)
- 853 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3283 PDF objects out of 3580 (max. 8388607)
+ 2642 compressed objects within 27 object streams
+ 588 named destinations out of 1000 (max. 500000)
+ 858 words of extra memory for PDF output out of 10000 (max. 10000000)
 
