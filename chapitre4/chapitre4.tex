@@ -212,7 +212,7 @@ The classical example of MT is that of a program that computes the \textit{sin} 
 MT generates follow-up test cases as long as the metamorphic relations are respected.
 This is an example of a metamorphic relation: an input transformation that can be used to generate new test cases from existing test data, and an output relation (MR), that compares the outputs produced by a pair of test cases.
 
-They can be any relations involving the inputs and outputs of two or more executions of the target program such as equalities, inequalities, periodicity properties, convergence constraints, subsumption relationships and many others. 
+MR can be any properties involving the inputs and outputs of two or more executions of the target program such as equalities, inequalities, periodicity properties, convergence constraints, subsumption relationships and many others. 
 
 Because MT checks the relations among several executions rather than the correctness of individual outputs, MT can be used to fully automate the testing process without any manual intervention. 
 However, constructing metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
@@ -227,7 +227,7 @@ To apply MT, there are four basic steps to follow:
 
 \begin{enumerate}
  \item Find the properties of the system under test: the system should be investigated manually in order to find intended MRs defining the relation between inputs and outputs. This is based on the source test cases.
- \item Generate/select test inputs that satisfy the MR: this means that new the follow-up test cases must be generated or selected in order to verify their outputs using the MR.
+ \item Generate/select test inputs that satisfy the MR: this means that new follow-up test cases must be generated or selected in order to verify their outputs using the MR.
  \item Execute the system with the inputs and get outputs: original and follow-up test cases are executed in order to gather their outputs.
  \item Check whether these outputs satisfy the MR, and if not, report failures.
 \end{enumerate}
@@ -286,24 +286,32 @@ Based on this intuition, the MR can be represented as:
 \begin{equation}
 P_{1}(x) \equiv P_{2}(x) \equiv ... \equiv P_{n}(x) \Rightarrow \Delta\{f(P_{1}(x)), f(P_{2}(x)),..., f(P_{n}(x))\} < T\quad (n\geqslant 2)
 \end{equation}
-%\paragraph{Generate test cases (Step 2)}
-%\paragraph{Execute test cases (Step 3)}
-%\paragraph{Detect inconsistencies (Step 4)}
+
+This MR is equivalent to say that: \textbf{if} a set of functionally equivalent programs are generated using the same code generator family $((P_{1}(x)$, $P_{2}(x)$,...,$P_{n}(x))$, and with the same input parameters $x$ \textbf{then} the comparison of their non-functional outputs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$ should be the same while taking into account a tolerance interval defined by the variation that may not exceed a specific threshold value $T$.
+
+The generated code that violates this metamorphic property represents an inconsistency and its corresponding code generator is considered as defective.
+
+ 
+
 
 
 \subsubsection[(Steps 2, 3, and 4)]{Metamorphic testing}
-So far, we have defined the metamorphic property (MR) necessary for inconsistencies detection. We describe now our automatic metamorphic testing approach based on this relation (steps 2, 3, and 4). 
-Figure 
-
-Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues, as described above. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
-
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.\linewidth]{chapitre4/fig/MT}
 	\caption{The metamorphic testing approach for automatic detection of code generator inconsistencies}
 	\label{fig:cg_MT}
 \end{figure}
+
+So far, we have defined the metamorphic property (MR) necessary for inconsistencies detection. We describe now our automatic metamorphic testing approach based on this relation (steps 2, 3, and 4). 
+Figure \ref{fig:cg_MT} shows the approach overview.
+The code generator family takes the same input program I and generate a set of equivalent test programs $(P_{1}$, $P_{2}$,...,$P_{n})$. Test suites are also automatically generated since we suppose that they are created at design time. In fact, the same test suite (test cases + input data values) is passed to all generated programs. This corresponds to step 2 where new follow-up test cases must be generated or selected in order to verify their outputs using the MR. 
+Then, generated programs and their corresponding test suites are executed (step 3). Afterwards, we measure the memory usage or execution time of these generated programs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$. Finally, the execution results are compared and verified using the MR defined earlier (step 4).
+In this process, inconsistencies will be reported when we detect singular performance behavior of one running test suites for a specific target.
+
+Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
+We move now to present the evaluation of this approach.
+
 
 
 
