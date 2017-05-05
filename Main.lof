@@ -16,7 +16,7 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces An overall overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime: the classical way}}{85}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{87}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces The metamorphic testing approach for automatic detection of code generator inconsistencies}}{92}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Infrastructure settings for running experiments}}{96}{figure.4.4}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Infrastructure settings for running experiments}}{97}{figure.4.4}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{109}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{115}{figure.5.2}

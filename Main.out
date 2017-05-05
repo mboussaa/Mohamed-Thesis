@@ -54,7 +54,7 @@
 \BOOKMARK [2][-]{subsection.4.4.2}{A metamorphic testing method for automatic detection of code generators inconsistencies}{section.4.4}% 54
 \BOOKMARK [1][-]{section.4.5}{Evaluation}{chapter.4}% 55
 \BOOKMARK [2][-]{subsection.4.5.1}{Experimental setup}{section.4.5}% 56
-\BOOKMARK [2][-]{subsection.4.5.2}{Experimental results}{section.4.5}% 57
+\BOOKMARK [2][-]{subsection.4.5.2}{Experimental methodology and results}{section.4.5}% 57
 \BOOKMARK [2][-]{subsection.4.5.3}{Threats to validity}{section.4.5}% 58
 \BOOKMARK [1][-]{section.4.6}{Conclusion}{chapter.4}% 59
 \BOOKMARK [0][-]{chapter.5}{NOTICE: An approach for auto-tuning compilers}{part.2}% 60
@@ -84,6 +84,6 @@
 \BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 84
 \BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 85
 \BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 86
-\BOOKMARK [0][-]{section*.22}{References}{part.3}% 87
-\BOOKMARK [0][-]{section*.24}{List of Figures}{part.3}% 88
-\BOOKMARK [0][-]{section*.26}{List of Tables}{part.3}% 89
+\BOOKMARK [0][-]{section*.24}{References}{part.3}% 87
+\BOOKMARK [0][-]{section*.26}{List of Figures}{part.3}% 88
+\BOOKMARK [0][-]{section*.28}{List of Tables}{part.3}% 89

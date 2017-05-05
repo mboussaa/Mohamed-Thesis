@@ -287,7 +287,7 @@ Based on this intuition, the MR can be represented as:
 P_{1}(x) \equiv P_{2}(x) \equiv ... \equiv P_{n}(x) \Rightarrow \Delta\{f(P_{1}(x)), f(P_{2}(x)),..., f(P_{n}(x))\} < T\quad (n\geqslant 2)
 \end{equation}
 
-This MR is equivalent to say that: \textbf{if} a set of functionally equivalent programs are generated using the same code generator family $((P_{1}(x)$, $P_{2}(x)$,...,$P_{n}(x))$, and with the same input parameters $x$ \textbf{then} the comparison of their non-functional outputs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$ should be the same while taking into account a tolerance interval defined by the variation that may not exceed a specific threshold value $T$.
+This MR is equivalent to say that: \textbf{if} a set of functionally equivalent programs are generated using the same code generator family $((P_{1}(x)$, $P_{2}(x)$,...,$P_{n}(x))$, and with the same input parameters $x$ \textbf{then} the comparison of their non-functional outputs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$ should be the same while taking into account a tolerance interval defined by the variation $\Delta$ that may not exceed a specific threshold value $T$.
 
 The generated code that violates this metamorphic property represents an inconsistency and its corresponding code generator is considered as defective.
 
@@ -309,13 +309,55 @@ The code generator family takes the same input program I and generate a set of e
 Then, generated programs and their corresponding test suites are executed (step 3). Afterwards, we measure the memory usage or execution time of these generated programs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$. Finally, the execution results are compared and verified using the MR defined earlier (step 4).
 In this process, inconsistencies will be reported when we detect singular performance behavior of one running test suites for a specific target.
 
-Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers.
-We move now to present the evaluation of this approach.
+Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
 
 
 
+\subsubsection{Variation threshold}
+Finding the right variation threshold from which a consistency is detected, is very important to prove the effectiveness of our MT approach.
+As depicted in Table \ref{tab:Non-functional output results}, each program comes with a set of test suites $(t_{1}$, $t_{2}$,..., $t_{m})$. Evaluating a test suite requires the calculation of the memory usage or execution time $f(P_{1}(t_{i}))$,  $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i}))$ where $(1 \leq i \leq m)$  across all target software platforms. Thus, obtained results represent a matrix where columns indicate the non-functional value for each target software platform and the lignes indicate the corresponding test suite.
+\begin{table}[h]
+	\centering
+	
+	\begin{tabular}{|c| c |c |c| c|}				
+		\hline
+
+		 &  Target platform $1$ &  Target platform $2$ & ... & Target platform $n$  \\ \hline
+		$t_{1}$  &  $f(P_{1}(t_{1}))$ &  $f(P_{2}(t_{1}))$ & ... & $f(P_{n}(t_{1}))$  \\ \hline
+		$t_{2}$ &  $f(P_{1}(t_{2}))$ &  $f(P_{2}(t_{2}))$ & ... & $f(P_{n}(t_{2}))$  \\ \hline
+		... &  ... &  ... & ... & ...  \\ \hline
+		$t_{m}$ &  $f(P_{1}(t_{m}))$ &  $f(P_{2}(t_{m}))$ & ... & $f(P_{n}(t_{m}))$  \\ \hline
+	\end{tabular}
+	
+	\caption{Non-functional output results}
+	\label{tab:Non-functional output results}
+\end{table}
+
+We conduct a statistical analysis of the non-functional outputs of original test inputs in order to find the right threshold value $T$ and then, detect inconsistencies.
+To quantify this variation we propose two methods: Principal components analysis (PCA) and R charts (R-chart).
+In the following, we describe these two statistical methods:
+\paragraph{PCA}~\\ 
+\paragraph{R-chart}~\\
+%\subparagraph{title} 
 
 
+\begin{table}[h]
+	\centering
+	
+	\begin{tabular}{|l| l |l |}				
+		\hline
+	 
+		\textbf{Type} &  \textbf{Technique} &  \textbf{Method}    \\ \hline
+		Input sensitive  &  R-chart &  Define T as an upper control limit  \\ \hline
+		Input insensitive &  PCA &  The Mahalanobis distance define the T \\ \hline
+	\end{tabular}
+	
+	\caption{Non-functional output results}
+	\label{tab:Non-functional output results}
+\end{table}
+
+
+%We move now to present the evaluation of this approach.
 \section{Evaluation}
 \label{sec:cg_evaluation}
 So far, we have presented an automated approach for detecting inconsistencies within code generator families. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
@@ -396,8 +438,13 @@ Finally, in step 6 we provide a mechanism to extract these resource usage metric
 
 To obtain comparable and reproducible results, we use the same hardware across all experiments: a farm of AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (\SI{2.0}{\GHz}), running Linux with a 64 bit kernel and \SI{16}{\giga\byte} of system memory. We reserve one core and \SI{4}{\giga\byte} of memory for each running container. 
 
-\subsection{Experimental results}
-\subsubsection{Evaluation using the standard deviation}
+\subsection{Experimental methodology and results}
+In the following paragraphs, we report the methodology and results of our experiments. 
+
+
+
+
+\subsubsection{Method}
 We now conduct experiments based on the new created benchmark. 
 %We run each test suite 1K times and we report the execution time and memory usage across the different target languages: Java, JS, C++, CS, and PHP. 
 The goal of running these experiments is to observe and compare the behavior of generated code in order to detect code generator inconsistencies.
