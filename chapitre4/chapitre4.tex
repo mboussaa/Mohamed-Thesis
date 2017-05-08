@@ -314,8 +314,14 @@ Our approach is a black-box testing technique and it does not provide detailed i
 
 
 \subsubsection{Variation threshold}
-Finding the right variation threshold from which a consistency is detected, is very important to prove the effectiveness of our MT approach.
-As depicted in Table \ref{tab:Non-functional output results}, each program comes with a set of test suites $(t_{1}$, $t_{2}$,..., $t_{m})$. Evaluating a test suite requires the calculation of the memory usage or execution time $f(P_{1}(t_{i}))$,  $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i}))$ where $(1 \leq i \leq m)$  across all target software platforms. Thus, obtained results represent a matrix where columns indicate the non-functional value for each target software platform and the lignes indicate the corresponding test suite.
+One of the main question that may be raised when applying our MT approach is how can we find the right variation threshold $T$ from which an inconsistency is detected? Answering this question is very important to prove the effectiveness of our MT approach.
+
+To do so, we conduct a statistical analysis of the non-functional outputs of original test inputs in order to find an accurate threshold value $T$ and then, detect inconsistencies using follow-up test inputs.
+ 
+Before that, the non-functional outputs need to be prepared to make them suitable for the statistical techniques employed by our methodology. Thus, we describe first our process for data preparation:
+
+\paragraph{Data preparation}~\\ 
+As depicted in Table \ref{tab:Non-functional output results}, each program comes with a set of test suites $(t_{1}$, $t_{2}$,..., $t_{m})$. Evaluating a test suite requires the calculation of the memory usage or execution time $f(P_{1}(t_{i}))$,  $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i}))$ where $(1 \leq i \leq m)$  across all target software platforms. Thus, obtained results represent a matrix where columns indicate the non-functional value (raw data) for each target software platform and rows indicate the corresponding test suite.
 \begin{table}[h]
 	\centering
 	
@@ -332,29 +338,104 @@ As depicted in Table \ref{tab:Non-functional output results}, each program comes
 	\caption{Non-functional output results}
 	\label{tab:Non-functional output results}
 \end{table}
+The non-functional data should be converted into a format that is understood by our statistical methods. One way to compare these non-functional outputs is to study the factor differences. In other words, we would evaluate for each target platform the number of times (the factor) that a test suite takes to run compared to a reference test suite. The reference test suite in our case is the minimum obtained non-functional value across the n target platforms. The resulting factor is the ratio between the actual non-functional value and the minimum value obtained among the n versions. The following equation is applied for each cell in order to transform our data:
 
-We conduct a statistical analysis of the non-functional outputs of original test inputs in order to find the right threshold value $T$ and then, detect inconsistencies.
-To quantify this variation we propose two methods: Principal components analysis (PCA) and R charts (R-chart).
-In the following, we describe these two statistical methods:
-\paragraph{PCA}~\\ 
-\paragraph{R-chart}~\\
-%\subparagraph{title} 
+\begin{equation}
+F(f(P_{j}(t_{i})))=\frac{f(P_{j}(t_{i}))}{Min(f(P_{1}(t_{i})),..., f(P_{n}(t_{i})))}  
+\end{equation}
 
+The reference value will get a factor value $F = 1$ corresponding to the minimum value among the n targets. The maximum value is the one leading to the maximum deviation for the reference test suite. For example, let $P_{1}$ be the generated program in Java. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to Java.
 
+Next step is to automatically detect the large deviations, we describe then, our statistical approaches.
+
+\paragraph{Statistical analysis}~\\ 
+In our MT approach, an inconsistency is a performance deviation corresponding to the extreme variation values.
+We propose two methods to automatically detect these inconsistencies: Principal components analysis (PCA) and R charts (R-chart).\\
+Table \ref{tab:Statistical methods} gives an overview of these two statistical methods.
 \begin{table}[h]
 	\centering
 	
 	\begin{tabular}{|l| l |l |}				
 		\hline
-	 
+		
 		\textbf{Type} &  \textbf{Technique} &  \textbf{Method}    \\ \hline
 		Input sensitive  &  R-chart &  Define T as an upper control limit  \\ \hline
 		Input insensitive &  PCA &  The Mahalanobis distance define the T \\ \hline
 	\end{tabular}
 	
 	\caption{Non-functional output results}
-	\label{tab:Non-functional output results}
+	\label{tab:Statistical methods}
 \end{table}
+
+\subparagraph{R-Chart}~\\
+In this approach, the automatic variation detection between the different versions of code is determined by comparing the non-functional measurements based on a statistical quality control technique called \textit{R-Chart} or \textit{range chart}. 
+R-Chart is used to analyze variation within processes. It is designed to detect changes in variation over time and to evaluate the consistency of process variation.
+R-Chart uses control limits to represent the limits of variation that should be expected from a process. LCL denotes the Lower Control Limit and UCL denotes the Upper Control Limits UCL.
+ 
+When a process is within the controlled limits, any variation is normal. It is said that the process is \textbf{in control}. 
+Outside limit variations, however, considered as deviations and the R-chart is considered as \textbf{out of control} which means that the process variation is not stable. Thus, It tells that there is an inconsistency leading to this high variation deviation (see Figure \ref{fig:cg-rechart})
+
+In our case, a process represents the $n$ non-functional outputs obtained after the execution of a test suite $t_{i}$. As we defined the metamorphic relation, this variation within a single process have to be lower than a threshold $T$. In our settings, this variation must be between the LCL and UCL.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{chapitre4/fig/rchat}
+	\caption{The R-Chart process}
+	\label{fig:cg-rechart}
+\end{figure}
+
+Therefore, for each process we calculate the range $R$ corresponding to the difference between the maximum and minimum non-functional outputs for each test suite across all target platforms:
+
+\begin{equation}
+R(t_{i})= Max(f(P_{1}(t_{i})),..., f(P_{n}(t_{i}))) - Min(f(P_{1}(t_{i})),..., f(P_{n}(t_{i})))  
+\end{equation}
+The R displays change in the within process dispersion to quantify the variation of executing the same test suite $t_{i}$ across different versions of the program under test.
+To determine whether the process is in control or not, we need to determine the control limits values. UCL and LCL reflect the actual amount of variation that is observed. Both, are a function of R-bar ($\bar{R}$). $\bar{R}$ is the average of R across all processes (test suites).
+The UCL and LCL are calculated as follows:
+\begin{equation}
+\begin{split} 
+UCL = D_{4}\bar{R}\\
+LCL = D_{3}\bar{R}
+\end{split} 
+\end{equation}
+where $D_{4}$, $D_{3}$, are control chart constants that depend on the number of variables inside each process. For example of a code generator family composed of five code generators, $D_{4}$ is equal to and $D_{3}$ is equal to 0. 
+
+From a MT perspective, the UCL represents the threshold $T$ value from which we detect a high variation deviation, leading to an inconsistency. As we stated earlier, the UCL is a function of $\bar{R}$, and $\bar{R}$ is a function of range differences. So, the UCL value is sensitive to new generated follow-up test suites. In order to evaluate the MR for new generated test suites, the UCL (or $T$) value is updated and the variation is evaluated with the new threshold value. 
+
+We present in the following another statistical approach that is input insensitive and can find a general threshold value to define variation limit.
+
+
+
+
+
+%\subparagraph{title} 
+
+
+\subparagraph{PCA}~\\ 
+
+\begin{figure}
+	\centering  
+	\subfigure[Subfigure a]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/1.png}}
+	\subfigure[Subfigure b]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/2.png}}
+	\subfigure[Subfigure c]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/3.png}}
+	\subfigure[Subfigure d]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/4.png}}
+	\subfigure[Subfigure e]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/5.png}}
+	\subfigure[Subfigure f]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/6.png}}
+	\subfigure[Subfigure g]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/7.png}}
+	\caption{Subfigures}
+\end{figure}
+
+\begin{figure}
+	\centering  
+	\subfigure[Subfigure a]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/11.png}}
+	\subfigure[Subfigure b]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/22.png}}
+	\subfigure[Subfigure c]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/33.png}}
+	\subfigure[Subfigure d]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/44.png}}
+	\subfigure[Subfigure e]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/55.png}}
+	\subfigure[Subfigure f]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/66.png}}
+	\subfigure[Subfigure g]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/77.png}}
+	\caption{Subfigures}
+\end{figure}
 
 
 %We move now to present the evaluation of this approach.
