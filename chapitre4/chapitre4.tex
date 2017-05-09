@@ -360,7 +360,7 @@ Table \ref{tab:Statistical methods} gives an overview of these two statistical m
 		
 		\textbf{Type} &  \textbf{Technique} &  \textbf{Method}    \\ \hline
 		Input sensitive  &  R-chart &  Define T as an upper control limit  \\ \hline
-		Input insensitive &  PCA &  The Mahalanobis distance define the T \\ \hline
+		Input insensitive &  PCA &  The Mahalanobis distance used to define the T \\ \hline
 	\end{tabular}
 	
 	\caption{Non-functional output results}
@@ -411,7 +411,42 @@ We present in the following another statistical approach that is input insensiti
 %\subparagraph{title} 
 
 
-\subparagraph{PCA}~\\ 
+\subparagraph{PCA}~\\
+
+With a large number of program versions, the non-functional data matrix (Table \ref{tab:Non-functional output results}) may be too large to study and interpret properly. There would be too many pairwise correlations between the variables to consider and the variation is impossible to display (graphically) in a 3-dimensional space. 
+With 12 variables, for example, there will be more than 200 three-dimensional scatterplots to be studied.
+To interpret the data in a more meaningful form, it is therefore necessary to reduce the number of variables composing our data dimensions
+ `
+Principal Component Analysis\footnote{\url{https://en.wikipedia.org/wiki/Principal_component_analysis}} (PCA) is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called Principal Components (PC). PCA is a multivariate analysis approach. It can be applied when data are collected on a large number of variables from a single population.
+
+The main objective of PCA is to reduce the dimensionality of the original data and explain the maximum amount of variance with the fewest number of principal components. Principal components analysis is commonly used in the social sciences, market research, and other industries that use large data sets.
+
+PCA use many data transformations and mathematical concepts. We are not interested in studying all the aspects of PCA. We would apply the PCA approach to our case study because our dimension space as it is presented in Table\ref{tab:Non-functional output results}, is composed of a set of processes (test suites) where $n$ variables are composing each observation. The variability within our model is correlated to these $n$ variables representing the test suites running on $n$ target platforms. 
+
+Reducing our data to two PCs will enable us to visualize the variation of all our data points in a 2-dimensional space.  Our intuition behind the PCA approach is to conduct an 
+extreme-value analysis in order to find data points at the boundaries of multivariate data. These extreme points represent, in a statistical dictionary, \textit{outliers}. However, following our MT approach, these points represent the inconsistencies we would detect. 
+
+Outliers have an important influence over the PCs. An outlier is defined as an observation which does not follow the model followed by the majority of the data.
+%One way to detect outlier is by calculating the "Mahalanobis distance". 
+To detect outliers, we use the score distance (SD). The score distance measures the outlyingness of the objects within the PCA space using Mahalanobis distances. 
+It is equal to the squared Mahalanobis distance from the model center to sample i within the score subspace.
+Cut-off values help to distinguish between outliers and regular observations. Any samples whose Mahalanobis distances are larger than the cutoff are identified as the outliers.
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{chapitre4/fig/explor_ind.png}
+	\caption{The R-Chart process}
+	\label{fig:cg-rechart}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{chapitre4/fig/maha}
+	\caption{The R-Chart process}
+	\label{fig:cg-rechart}
+\end{figure}
 
 \begin{figure}
 	\centering  
