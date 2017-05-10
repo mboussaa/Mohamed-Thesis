@@ -330,6 +330,13 @@ Michael~D Ernst, Adam Czeisler, William~G Griswold, and David Notkin.
 \newblock In {\em Proceedings of the 22nd international conference on Software
   engineering}, pages 449--458. ACM, 2000.
 
+\bibitem[ELB{\etalchar{+}}08]{enot2008preprocessing}
+David~P Enot, Wanchang Lin, Manfred Beckmann, David Parker, David~P Overy, and
+  John Draper.
+\newblock Preprocessing, classification modeling and feature selection using
+  flow injection electrospray mass spectrometry metabolite fingerprint data.
+\newblock {\em Nature Protocols}, 3(3):446--470, 2008.
+
 \bibitem[FB08]{fertalj2008source}
 Kresimir Fertalj and Mario Brcic.
 \newblock A source code generator based on uml specification.
@@ -471,6 +478,12 @@ Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
 \newblock A comprehensive survey of trends in oracles for software testing.
 \newblock {\em University of Sheffield, Department of Computer Science, Tech.
   Rep. CS-13-01}, 2013.
+
+\bibitem[HRV09]{hubert2009robust}
+Mia Hubert, Peter Rousseeuw, and Tim Verdonck.
+\newblock Robust pca for skewed data and its outlier map.
+\newblock {\em Computational Statistics \& Data Analysis}, 53(6):2264--2274,
+  2009.
 
 \bibitem[HSD11]{hartmann2011cross}
 Gustavo Hartmann, Geoff Stead, and Asi DeGani.

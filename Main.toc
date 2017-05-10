@@ -84,11 +84,11 @@
 \contentsline {subsubsection}{\numberline {4.5.2.1}Method}{102}{subsubsection.4.5.2.1}
 \contentsline {subsubsection}{\numberline {4.5.2.2}Results}{103}{subsubsection.4.5.2.2}
 \contentsline {paragraph}{R-chart results}{103}{section*.16}
-\contentsline {paragraph}{PCA results}{104}{section*.17}
-\contentsline {paragraph}{Detected inconsistencies }{104}{section*.18}
-\contentsline {subsubsection}{\numberline {4.5.2.3}Analysis}{104}{subsubsection.4.5.2.3}
-\contentsline {subsection}{\numberline {4.5.3}Threats to validity}{109}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Conclusion}{110}{section.4.6}
+\contentsline {paragraph}{PCA results}{106}{section*.17}
+\contentsline {paragraph}{Detected inconsistencies }{109}{section*.18}
+\contentsline {subsubsection}{\numberline {4.5.2.3}Analysis}{109}{subsubsection.4.5.2.3}
+\contentsline {subsection}{\numberline {4.5.3}Threats to validity}{110}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Conclusion}{111}{section.4.6}
 \contentsline {chapter}{\numberline {5}NOTICE: An approach for auto-tuning compilers}{113}{chapter.5}
 \contentsline {section}{\numberline {5.1}Introduction}{115}{section.5.1}
 \contentsline {section}{\numberline {5.2}Motivation}{117}{section.5.2}
