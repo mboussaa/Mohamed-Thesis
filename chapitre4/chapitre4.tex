@@ -165,6 +165,7 @@ Now, we describe our approach overview. Our contributions in this work are divid
 
 
 \subsection{An infrastructure for non-functional testing using system containers}
+\label{sec:cg-An infrastructure for non-functional testing using system containers}
 In this contribution, we focus on evaluating the non-functional properties related to the resource usage and performance of generated code. To do so, many system configurations (i.e., execution environments, libraries, compilers, etc.) must be taken into account to efficiently generate and test code. 
 
 However, tunning different applications (i.e., generated code) with different configurations on one single machine is complex. A single system has limited resources and this can lead to performance regressions. Moreover, each execution environment comes with a collection of appropriate tools such as compilers, code generators, debuggers, profilers, etc. Therefore, we need to deploy the test harness, i.e., the produced binaries, on an elastic infrastructure that provide facilities to the code generator developers to ensure the deployment and monitoring of generated code in different environment settings. 
@@ -296,6 +297,7 @@ The generated code that violates this metamorphic property represents an inconsi
 
 
 \subsubsection[(Steps 2, 3, and 4)]{Metamorphic testing}
+\label{sec:cg-Metamorphic testing}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.\linewidth]{chapitre4/fig/MT}
@@ -314,6 +316,7 @@ In this process, inconsistencies will be reported when we detect singular perfor
 
 
 \subsubsection{Variation threshold}
+\label{sec:cg-Variation threshold}
 One of the main question that may be raised when applying our MT approach is how can we find the right variation threshold $T$ from which an inconsistency is detected? Answering this question is very important to prove the effectiveness of our MT approach.
 
 To do so, we conduct a statistical analysis of the non-functional outputs of original test inputs in order to find an accurate threshold value $T$ and then, detect inconsistencies using follow-up test inputs.
@@ -348,7 +351,8 @@ The reference value will get a factor value $F = 1$ corresponding to the minimum
 
 Next step is to automatically detect the large deviations, we describe then, our statistical approaches.
 
-\paragraph{Statistical analysis}~\\ 
+\paragraph{Statistical analysis}~\\
+ 
 In our MT approach, an inconsistency is a performance deviation corresponding to the extreme variation values.
 We propose two methods to automatically detect these inconsistencies: Principal components analysis (PCA) and R charts (R-chart).\\
 Table \ref{tab:Statistical methods} gives an overview of these two statistical methods.
@@ -440,56 +444,21 @@ Any samples whose SD are larger than the cutoff are identified as the outliers. 
 
 %It is equal to the squared Mahalanobis distance from the model center to sample i within the score subspace.
 %Cut-off values help to distinguish between outliers and regular observations. Any samples whose Mahalanobis distances are larger than the cutoff are identified as the outliers.
+\begin{remark}
+The R-chart method presented earlier, defines a dynamic threshold value (UCL) where follow-up test suites influence on this value. However, using PCA, we are able to analyze the non-functional data of original test suites in order to define a general threshold value (Cutoffs) which is steady. Thus, follow-up test suites that exceed this value, causing a high performance or resource usage deviation, are identified as inconsistencies (outliers).
+\end{remark}
 
 We move now to present the evaluation of our approach.
 
 
-
-\begin{figure}
-	\centering  
-	\subfigure[Test suites relative to the execution times ]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind}}
-	\subfigure[Test suites relative to the memory consumptions]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind2}}
-	
-	\caption{PCAs showing the dispersion of our data over the PC subspace}
-\end{figure}
-\begin{figure}
-	\centering  
-	\subfigure[Performance deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahatime}}
-	\subfigure[Memory usage deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahamem}}
-
-	\caption{Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}
-\end{figure}
-
-
-\begin{figure}
-	\centering  
-	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/1.png}}
-	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/2.png}}
-	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/3.png}}
-	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/4.png}}
-	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/5.png}}
-	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/6.png}}
-	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/7.png}}
-	\caption{Performance variation of test suites across the different Haxe benchmarks}
-\end{figure}
-
-\begin{figure}
-	\centering  
-	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/11.png}}
-	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/22.png}}
-	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/33.png}}
-	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/44.png}}
-	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/55.png}}
-	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/66.png}}
-	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/77.png}}
-	\caption{Memory usage variation of test suites across the different Haxe benchmarks}
-\end{figure}
-
-
-
 \section{Evaluation}
 \label{sec:cg_evaluation}
-So far, we have presented an automated approach for detecting inconsistencies within code generator families. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
+So far, we have presented an automated approach for detecting inconsistencies within code generator families. So, we shape our goal as this research question:
+
+\textbf{RQ1: } 
+\textbf{\textit{How effective is our metamorphic testing approach for automatically detecting inconsistencies in code generator families?}} 
+
+To answer this question, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
 The experimental material is available for replication purposes\footnote{\url{https://testingcodegenerators.wordpress.com/}}.
 \subsection{Experimental setup}
 \subsubsection{Code generators under test: Haxe compilers}
@@ -568,22 +537,64 @@ Finally, in step 6 we provide a mechanism to extract these resource usage metric
 To obtain comparable and reproducible results, we use the same hardware across all experiments: a farm of AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (\SI{2.0}{\GHz}), running Linux with a 64 bit kernel and \SI{16}{\giga\byte} of system memory. We reserve one core and \SI{4}{\giga\byte} of memory for each running container. 
 
 \subsection{Experimental methodology and results}
-In the following paragraphs, we report the methodology and results of our experiments. 
-
-
-
+In the following paragraphs, we report the methodology we used to answer \textbf{RQ1} and results of our experiments. 
 
 \subsubsection{Method}
 We now conduct experiments based on the new created benchmark. 
-%We run each test suite 1K times and we report the execution time and memory usage across the different target languages: Java, JS, C++, CS, and PHP. 
 The goal of running these experiments is to observe and compare the behavior of generated code in order to detect code generator inconsistencies.
 %We recall, as mentioned in the motivation, that we are not using any oracle function to detect inconsistencies. However, we rely on the comparison results across different targets to detect code generator inconsistencies.
 
- 
- 
-Therefore, we use, as a quality metric, the standard deviation to quantify the amount of variation among execution traces (i.e., memory usage or execution time) and that, for the five target languages. We recall that the formula of standard deviation is the square root of the variance. Thus, we are calculating this variance as the squared differences from the mean. Our data values in our experiment represent the obtained values in five languages. So, for each test suite we are taking the mean of these five values in order to calculate the variance.
-A low standard deviation of a test suite execution, indicates that the data points (execution time or memory usage data) tend to be close to the mean which we consider as an acceptable behavior.  
-On the other hand, a high standard deviation indicates that one or more data points are spread out over a wider range of values which can be more likely interpreted as a code generator inconsistency. 
+Therefore, we set up, first, our container-based infrastructure as it is presented in Section \ref{sec:cg-An infrastructure for non-functional testing using system containers} in order to generate, execute, and collect the resource usage metrics of our benchmark programs.
+Afterwards, we prepare and scale our raw data to make it valuable for efficient statistical analysis. Then, we conduct the R-chart and PCA analysis as described in Section \ref{sec:cg-Variation threshold} in order to analyze the performance and resource usage variations. This we lead us to define an appropriate formula of our MR that is used to automatically detect inconsistencies within code generator families (Section \ref{sec:cg-Metamorphic testing}). Finally, we report the inconsistencies we have detected.
+
+
+%as a quality metric, the standard deviation to quantify the amount of variation among execution traces (i.e., memory usage or execution time) and that, for the five target languages. We recall that the formula of standard deviation is the square root of the variance. Thus, we are calculating this variance as the squared differences from the mean. Our data values in our experiment represent the obtained values in five languages. So, for each test suite we are taking the mean of these five values in order to calculate the variance.
+%A low standard deviation of a test suite execution, indicates that the data points (execution time or memory usage data) tend to be close to the mean which we consider as an acceptable behavior.  
+%On the other hand, a high standard deviation indicates that one or more data points are spread out over a wider range of values which can be more likely interpreted as a code generator inconsistency. 
+
+\subsubsection{Results}
+\paragraph{R-chart results}~\\
+\begin{figure}
+	\centering  
+	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/1.png}}
+	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/2.png}}
+	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/3.png}}
+	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/4.png}}
+	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/5.png}}
+	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/6.png}}
+	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/7.png}}
+	\caption{Performance variation of test suites across the different Haxe benchmarks}
+\end{figure}
+
+\begin{figure}
+	\centering  
+	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/11.png}}
+	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/22.png}}
+	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/33.png}}
+	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/44.png}}
+	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/55.png}}
+	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/66.png}}
+	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/77.png}}
+	\caption{Memory usage variation of test suites across the different Haxe benchmarks}
+\end{figure}
+
+\paragraph{PCA results}~\\
+\begin{figure}
+	\centering  
+	\subfigure[Test suites relative to the execution times ]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind}}
+	\subfigure[Test suites relative to the memory consumptions]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind2}}
+	
+	\caption{PCAs showing the dispersion of our data over the PC subspace}
+\end{figure}
+\begin{figure}
+	\centering  
+	\subfigure[Performance deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahatime}}
+	\subfigure[Memory usage deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahamem}}
+	
+	\caption{Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}
+\end{figure}
+
+\paragraph{Inconsistencies detected}~\\
 
 In Table \ref{tab:The comparison results1}, we report the comparison results of running the benchmark in terms of execution speed. At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. These variations can be explained by the fact that the execution speed of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
 
@@ -593,9 +604,12 @@ We assume then, that faulty code generators, in identified points, represent a t
 
 %The inconsistencies we are trying to find here are more related to the incorrect memory utilization patterns produced by the faulty code generator. Such inconsistencies may come from an inadequate type usage, high resource instantiation, etc.
 
+
+
+
+\iffalse
 \begin{table}[h]
-	\centering
-	
+	\centering	
 	\resizebox{\columnwidth}{!}{%
 		\begin{tabular}{|l|l|S[table-format=3.2]|l|S[table-format=3.2]|l|S[table-format=3.2]|}
 			\hline
@@ -737,6 +751,7 @@ We assume then, that faulty code generators, in identified points, represent a t
 \end{table*}
 
 
+\fi
 
 \subsubsection{Analysis}
 Now that we have observed the non-functional behavior of test suites execution in different languages, we can analyze the extreme points we have detected in previous tables to observe in greater depth the source of such deviation.

@@ -17,40 +17,40 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{87}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces The metamorphic testing approach for automatic detection of code generator inconsistencies}}{92}{figure.4.3}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces The R-Chart process}}{95}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces PCAs showing the dispersion of our data over the PC subspace}}{99}{figure.4.5}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Test suites relative to the execution times }}}{99}{figure.4.5}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Test suites relative to the memory consumptions}}}{99}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}}{100}{figure.4.6}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance deviations}}}{100}{figure.4.6}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memory usage deviations}}}{100}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Performance variation of test suites across the different Haxe benchmarks}}{101}{figure.4.7}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {R-chart of the Core benchmark program}}}{101}{figure.4.7}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {R-chart of the Color benchmark program}}}{101}{figure.4.7}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {R-chart of the Hxmath benchmark program}}}{101}{figure.4.7}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {R-chart of the Format benchmark program}}}{101}{figure.4.7}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {R-chart of the Promise benchmark program}}}{101}{figure.4.7}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {R-chart of the Culture benchmark program}}}{101}{figure.4.7}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {R-chart of the Math benchmark program}}}{101}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Memory usage variation of test suites across the different Haxe benchmarks}}{102}{figure.4.8}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {R-chart of the Core benchmark program}}}{102}{figure.4.8}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {R-chart of the Color benchmark program}}}{102}{figure.4.8}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {R-chart of the Hxmath benchmark program}}}{102}{figure.4.8}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {R-chart of the Format benchmark program}}}{102}{figure.4.8}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {R-chart of the Promise benchmark program}}}{102}{figure.4.8}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {R-chart of the Culture benchmark program}}}{102}{figure.4.8}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {R-chart of the Math benchmark program}}}{102}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Infrastructure settings for running experiments}}{105}{figure.4.9}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Infrastructure settings for running experiments}}{101}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Performance variation of test suites across the different Haxe benchmarks}}{104}{figure.4.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {R-chart of the Core benchmark program}}}{104}{figure.4.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {R-chart of the Color benchmark program}}}{104}{figure.4.6}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {R-chart of the Hxmath benchmark program}}}{104}{figure.4.6}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {R-chart of the Format benchmark program}}}{104}{figure.4.6}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {R-chart of the Promise benchmark program}}}{104}{figure.4.6}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {R-chart of the Culture benchmark program}}}{104}{figure.4.6}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {R-chart of the Math benchmark program}}}{104}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Memory usage variation of test suites across the different Haxe benchmarks}}{105}{figure.4.7}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {R-chart of the Core benchmark program}}}{105}{figure.4.7}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {R-chart of the Color benchmark program}}}{105}{figure.4.7}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {R-chart of the Hxmath benchmark program}}}{105}{figure.4.7}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {R-chart of the Format benchmark program}}}{105}{figure.4.7}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {R-chart of the Promise benchmark program}}}{105}{figure.4.7}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {R-chart of the Culture benchmark program}}}{105}{figure.4.7}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {R-chart of the Math benchmark program}}}{105}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces PCAs showing the dispersion of our data over the PC subspace}}{106}{figure.4.8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Test suites relative to the execution times }}}{106}{figure.4.8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Test suites relative to the memory consumptions}}}{106}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}}{107}{figure.4.9}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance deviations}}}{107}{figure.4.9}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memory usage deviations}}}{107}{figure.4.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{117}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{123}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces NOTICE experimental infrastructure}}{129}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{130}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{132}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{134}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}}{135}{figure.5.7}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}}{136}{figure.5.8}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{138}{figure.5.9}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Snapshot of NOTICE GUI interface}}{141}{figure.5.10}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{115}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{121}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces NOTICE experimental infrastructure}}{127}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{128}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{130}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{132}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}}{133}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}}{134}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{136}{figure.5.9}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Snapshot of NOTICE GUI interface}}{139}{figure.5.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{146}{figure.6.1}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}}{144}{figure.6.1}
 \addvspace {10\p@ }
