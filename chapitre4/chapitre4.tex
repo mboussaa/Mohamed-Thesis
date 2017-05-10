@@ -309,7 +309,7 @@ The code generator family takes the same input program I and generate a set of e
 Then, generated programs and their corresponding test suites are executed (step 3). Afterwards, we measure the memory usage or execution time of these generated programs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$. Finally, the execution results are compared and verified using the MR defined earlier (step 4).
 In this process, inconsistencies will be reported when we detect singular performance behavior of one running test suites for a specific target.
 
-Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
+
 
 
 
@@ -413,67 +413,80 @@ We present in the following another statistical approach that is input insensiti
 
 \subparagraph{PCA}~\\
 
-With a large number of program versions, the non-functional data matrix (Table \ref{tab:Non-functional output results}) may be too large to study and interpret properly. There would be too many pairwise correlations between the variables to consider and the variation is impossible to display (graphically) in a 3-dimensional space. 
-With 12 variables, for example, there will be more than 200 three-dimensional scatterplots to be studied.
-To interpret the data in a more meaningful form, it is therefore necessary to reduce the number of variables composing our data dimensions
- `
-Principal Component Analysis\footnote{\url{https://en.wikipedia.org/wiki/Principal_component_analysis}} (PCA) is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called Principal Components (PC). PCA is a multivariate analysis approach. It can be applied when data are collected on a large number of variables from a single population.
+With a large number of program versions, the non-functional data matrix (Table \ref{tab:Non-functional output results}) may be too large to study and interpret the variation properly. There would be too many pairwise correlations between the different versions to consider and the variation is impossible to display (graphically) when test suites are executed in more than three target platforms.
+With 12 variables, for example, there will be more than 200 three-dimensional scatter plots to be designed to study the variation and correlations.
+To interpret the data in a more meaningful form, it is therefore necessary to reduce the number of variables composing our data.
 
-The main objective of PCA is to reduce the dimensionality of the original data and explain the maximum amount of variance with the fewest number of principal components. Principal components analysis is commonly used in the social sciences, market research, and other industries that use large data sets.
+Principal Component Analysis\footnote{\url{https://en.wikipedia.org/wiki/Principal_component_analysis}} (PCA) is a multivariate statistical approach that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called Principal Components (PC). It can be applied when data are collected on a large number of variables from a single population. Thus, we apply the PCA approach to our case study because our dimension space as it is presented in Table\ref{tab:Non-functional output results}, is composed of a set of processes (test suites) where $n$ variables (e.g., target programming languages) are composing each observation. The variability within our model is correlated to these $n$ variables representing the test suites running on $n$ target platforms. 
 
-PCA use many data transformations and mathematical concepts. We are not interested in studying all the aspects of PCA. We would apply the PCA approach to our case study because our dimension space as it is presented in Table\ref{tab:Non-functional output results}, is composed of a set of processes (test suites) where $n$ variables are composing each observation. The variability within our model is correlated to these $n$ variables representing the test suites running on $n$ target platforms. 
+The main objective of PCA is to reduce the dimensionality of the original data and explain the maximum amount of variance with the fewest number of principal components. To do so, PCA is concerned with summarizing the variance-covariance matrix. It involves computing the eigenvectors and eigenvalues of the variance-covariance matrix. The eigenvectors are used to project the data from $p$ dimensions down to a lower dimensional representation. The eigenvalues give the variance of the data in the direction of the eigenvector. The first eigenvector is the vector which defines the direction of maximumn variance in the data.
 
-Reducing our data to two PCs will enable us to visualize the variation of all our data points in a 2-dimensional space.  Our intuition behind the PCA approach is to conduct an 
-extreme-value analysis in order to find data points at the boundaries of multivariate data. These extreme points represent, in a statistical dictionary, \textit{outliers}. However, following our MT approach, these points represent the inconsistencies we would detect. 
+The first principal component is calculated such that it accounts for the greatest possible variance in the data set. The second principal component is calculated in the same way, with the condition that it is uncorrelated with (i.e., perpendicular to) the first principal component and that it accounts for the next highest variance. The eigenvector associated with the largest eigenvalue has the same direction as the first principal component. The eigenvector associated with the second largest eigenvalue determines the direction of the second principal component.
+
+PCA use many data transformations and statistical concepts. We are not interested in studying all the mathematical aspects of PCA. Thus, we use an existing R package\footnote{\url{http://factominer.free.fr/}} to transform and reduce our data into two PCs in order to visualize the variation of all our data points in a 2-dimensional space.
+
+Our intuition behind the PCA approach is to conduct an extreme-value analysis in order to find data points at the boundaries of multivariate data. These extreme points represent, from a statistical perspective, \textit{outliers}. Following our MT approach, these points correspond to the inconsistencies (or deviation) we would detect. 
 
 Outliers have an important influence over the PCs. An outlier is defined as an observation which does not follow the model followed by the majority of the data.
-%One way to detect outlier is by calculating the "Mahalanobis distance". 
-To detect outliers, we use the score distance (SD). The score distance measures the outlyingness of the objects within the PCA space using Mahalanobis distances. 
-It is equal to the squared Mahalanobis distance from the model center to sample i within the score subspace.
-Cut-off values help to distinguish between outliers and regular observations. Any samples whose Mahalanobis distances are larger than the cutoff are identified as the outliers.
+One way to detect outliers is to use a metric called Score Distance (SD). SD measures the outlyingness of the observations within the PCA space. It thus measures how far an observation lies from the rest of the data within the PCA subspace. 
+SD measures the statistical distance from a PC score to the center of the scores. For an observation $x_{i}$ the  score distance is defined as:
+\begin{equation}
+SD_{i}=\sqrt{\sum_{j=1}^{a} \frac{t_{ij}^{2}}{\lambda_{j}}}
+\end{equation}
+where $a$ is the number of PCs forming the PCA space, $t_{ij}$ are the elements of the score matrix obtained after running PCA, and $\lambda_{j}$ is the variance of the $j$th PC which corresponds to the $j$th eigenvalue.
+
+In order to find the outliers, we compute the 97.5\%-Quantile Q of the Chi-square distribution as a cutoff value of the SD ($\sqrt{\chi_{a,0.975}^{2} }$). It corresponds to an ellipse that covers 97.5\% of the data points and this forms a confidence ellipse.
+Any samples whose SD are larger than the cutoff are identified as the outliers. This cut-off represents the variation threshold $T$ we would define using this PCA approach.
+
+%It is equal to the squared Mahalanobis distance from the model center to sample i within the score subspace.
+%Cut-off values help to distinguish between outliers and regular observations. Any samples whose Mahalanobis distances are larger than the cutoff are identified as the outliers.
+
+We move now to present the evaluation of our approach.
 
 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{chapitre4/fig/explor_ind.png}
-	\caption{The R-Chart process}
-	\label{fig:cg-rechart}
+\begin{figure}
+	\centering  
+	\subfigure[Test suites relative to the execution times ]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind}}
+	\subfigure[Test suites relative to the memory consumptions]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind2}}
+	
+	\caption{PCAs showing the dispersion of our data over the PC subspace}
+\end{figure}
+\begin{figure}
+	\centering  
+	\subfigure[Performance deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahatime}}
+	\subfigure[Memory usage deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahamem}}
+
+	\caption{Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{chapitre4/fig/maha}
-	\caption{The R-Chart process}
-	\label{fig:cg-rechart}
+
+\begin{figure}
+	\centering  
+	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/1.png}}
+	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/2.png}}
+	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/3.png}}
+	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/4.png}}
+	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/5.png}}
+	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/6.png}}
+	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/7.png}}
+	\caption{Performance variation of test suites across the different Haxe benchmarks}
 \end{figure}
 
 \begin{figure}
 	\centering  
-	\subfigure[Subfigure a]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/1.png}}
-	\subfigure[Subfigure b]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/2.png}}
-	\subfigure[Subfigure c]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/3.png}}
-	\subfigure[Subfigure d]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/4.png}}
-	\subfigure[Subfigure e]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/5.png}}
-	\subfigure[Subfigure f]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/6.png}}
-	\subfigure[Subfigure g]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/7.png}}
-	\caption{Subfigures}
-\end{figure}
-
-\begin{figure}
-	\centering  
-	\subfigure[Subfigure a]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/11.png}}
-	\subfigure[Subfigure b]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/22.png}}
-	\subfigure[Subfigure c]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/33.png}}
-	\subfigure[Subfigure d]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/44.png}}
-	\subfigure[Subfigure e]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/55.png}}
-	\subfigure[Subfigure f]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/66.png}}
-	\subfigure[Subfigure g]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/77.png}}
-	\caption{Subfigures}
+	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/11.png}}
+	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/22.png}}
+	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/33.png}}
+	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/44.png}}
+	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/55.png}}
+	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/66.png}}
+	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/77.png}}
+	\caption{Memory usage variation of test suites across the different Haxe benchmarks}
 \end{figure}
 
 
-%We move now to present the evaluation of this approach.
+
 \section{Evaluation}
 \label{sec:cg_evaluation}
 So far, we have presented an automated approach for detecting inconsistencies within code generator families. In this section, we evaluate the implementation of our approach by explaining the design of our empirical study and the different methods we used to assess the effectiveness of our approach. 
@@ -769,6 +782,10 @@ We resume, in the following paragraphs, external and internal threats that can b
 
 \section{Conclusion}
 \label{sec:cg-conclusion}
+Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
+
+
+
 In this work we have described a new approach for testing and monitoring the code generators families using a container-based infrastructure. 
 We used a set of micro-services in order to provide a fine-grained understanding of resource consumption. 
 To validate our approach, we evaluate a popular family of code generators: HAXE. 
