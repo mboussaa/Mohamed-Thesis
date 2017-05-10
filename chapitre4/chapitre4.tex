@@ -401,6 +401,7 @@ The UCL and LCL are calculated as follows:
 UCL = D_{4}\bar{R}\\
 LCL = D_{3}\bar{R}
 \end{split} 
+\label{eqUCL}
 \end{equation}
 where $D_{4}$, $D_{3}$, are control chart constants that depend on the number of variables inside each process. For example of a code generator family composed of five code generators, $D_{4}$ is equal to and $D_{3}$ is equal to 0. 
 
@@ -503,6 +504,7 @@ approach and the number of test suites used per benchmark.
 	\label{tab:Description of selected benchmark libraries}
 \end{table}
 
+In total, we have 95 test suites to execute across all benchmark programs.
 \subsubsection{Evaluation metrics used}
 We use to evaluate the efficiency of generated code using the following non-functional metrics:
 
@@ -554,55 +556,136 @@ Afterwards, we prepare and scale our raw data to make it valuable for efficient 
 
 \subsubsection{Results}
 \paragraph{R-chart results}~\\
+The results of R-charts for the seven benchmark programs relative to the performance and resource usage variation are reported in Figures \ref{rt} and \ref{rm}. For Figure \ref{rt}, we report the performance variation for each test suite corresponding to the range difference $R$ between the maximum and minimum execution time among the five targets (JAVA, JS, C++, C\#, and PHP). 
+The execution time is of course scaled by dividing all values by the minimum execution time per test suite. 
+The LCL for our experiments is always equal to 0 because the $D_{3}$ constant value as defined in equation \ref{eqUCL}, is equal to zero according to the R-chart constants table\footnote{\url{http://www.bessegato.com.br/UFJF/resources/table_of_control_chart_constants_old.pdf}}. In fact, the $D_{3}$ constant changes depending on the number of subgroups. In our experiments, our data record is composed of five subgroups corresponding to the five target programming languages.
+The central line (in green) corresponds to $R$-$bar$. This value changes from one benchmark to another depending on the average of $R$ across all test suites in the benchmark. As a consequence, $LCL$, which is a function of $R$-$bar$ changes as well if we add new test suites to the experiments. We recall that we have classified the R-chart approach as input sensitive since the average variation $R$-$bar$ and the threshold value $LCL$ change dynamically by adding new follow-up test suites to the corresponding benchmark. 
+We note as well that these parameter values are appropriate to each benchmark program. We made this separation because we believe that the variation is highly dependent on the domain context and on the program under test. For example, testing the memory usage or performance of a program that performs a high mathematical computation (e.g., image processing, statistical analysis, etc) is not the same as a generated web application, since data types are handled differently. The R-charts used for measuring the memory usage variation follow the same concept as we have just been describing for performance variation.  
+
+Results in Figure \ref{rt}, show that most of the performance variations are in the interval $[0-UCL]$, which corresponds to \textit{in-control} variation zone as it is described in Section \ref{sec:cg-Variation threshold}. However, we remark for several test suites that the performance variation becomes relatively high (higher than the $UCL$ value of the corresponding benchmark program). We detect 11 performance deviations lying in the \textit{out of control} variation zone. For the other test suites, the variation is even less than the total average variations $R$-$bar$. There are only 7 test suites among the remaining 84 ones where the variation lies in the interval $[\bar{R}-UCL]$. This variation is high but we are not detecting it asa performance deviation because according to the R-chart, variation in this zone is still \textit{in-control}. 
+The 11 performance deviation we have detected can be explained by the fact that the execution time of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
+
+Similarly, Figure \ref{rm} resumes the comparison results of test suites execution regarding the memory usage. The variation in this experiment are more important than previous results. This can be argued by the fact that the memory utilization and allocation patterns are different for each language. Nevertheless, we can recognize some points where the variation is extremely high. Thus, we detect 15 among 95 test suites that exceed the corresponding $UCL$ value. 
+When the variation is below UCL, we detect 14 among the 80 remaining test suites where the variation lies in the interval $[\bar{R}-UCL]$, which is relatively high. 
+One of the reasons that caused this variation may occur when the test suite executes some parts of the code (in a specific language) that are so greedy in terms of resources. This may not be the case when the variation is lower than the $\bar{R}$ for example.
+
+
+To resume, we have detected 11 extreme performance variations and 15 extreme memory usage variations. We assume then, that faulty code generators, in identified points, represent a threat for software quality since the generated code has shown symptoms of poor-quality design.
+
 \begin{figure}
 	\centering  
-	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/1.png}}
-	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/2.png}}
-	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/3.png}}
-	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/4.png}}
-	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/5.png}}
-	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/6.png}}
-	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/7.png}}
+	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/1.png}\label{rt1}}
+	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/2.png}\label{rt2}}
+	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/3.png}\label{rt3}}
+	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/4.png}\label{rt4}}
+	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/5.png}\label{rt5}}
+	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/6.png}\label{rt6}}
+	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/7.png}\label{rt7}}
 	\caption{Performance variation of test suites across the different Haxe benchmarks}
+	\label{rt}
 \end{figure}
 
 \begin{figure}
 	\centering  
-	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/11.png}}
-	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/22.png}}
-	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/33.png}}
-	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/44.png}}
-	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/55.png}}
-	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/66.png}}
-	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/77.png}}
+	\subfigure[R-chart of the Core benchmark program]{\includegraphics[width=0.96\linewidth]{chapitre4/fig/11.png}\label{rm1}}
+	\subfigure[R-chart of the Color benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/22.png}\label{rm2}}
+	\subfigure[R-chart of the Hxmath benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/33.png}\label{rm3}}
+	\subfigure[R-chart of the Format benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/44.png}\label{rm4}}
+	\subfigure[R-chart of the Promise benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/55.png}\label{rm5}}
+	\subfigure[R-chart of the Culture benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/66.png}\label{rm6}}
+	\subfigure[R-chart of the Math benchmark program]{\includegraphics[width=0.48\linewidth]{chapitre4/fig/77.png}\label{rm7}}
 	\caption{Memory usage variation of test suites across the different Haxe benchmarks}
+	\label{rm}
 \end{figure}
 
 \paragraph{PCA results}~\\
+We apply the PCA approach as an alternative to the R-chart approach. So,
 \begin{figure}
 	\centering  
-	\subfigure[Test suites relative to the execution times ]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind}}
-	\subfigure[Test suites relative to the memory consumptions]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind2}}
-	
+	\subfigure[Test suites relative to the execution times ]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind}\label{pcat}}
+	\subfigure[Test suites relative to the memory consumptions]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind2}\label{pcam}}
 	\caption{PCAs showing the dispersion of our data over the PC subspace}
+	\label{pca}
 \end{figure}
 \begin{figure}
 	\centering  
-	\subfigure[Performance deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahatime}}
-	\subfigure[Memory usage deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahamem}}
+	\subfigure[Performance deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahatime}\label{sdt}}
+	\subfigure[Memory usage deviations]{\includegraphics[width=0.49\linewidth]{chapitre4/fig/mahamem}\label{sdm}}
 	
 	\caption{Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}
+	\label{sd}
 \end{figure}
 
-\paragraph{Inconsistencies detected}~\\
+\paragraph{Detected inconsistencies }~\\
+ %At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. 
 
-In Table \ref{tab:The comparison results1}, we report the comparison results of running the benchmark in terms of execution speed. At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. These variations can be explained by the fact that the execution speed of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
-
-Similarly, Table \ref{tab:The comparison results2} resumes the comparison results of test suites execution regarding memory usage. The variation in this experiment are more important than previous results. This can be argued by the fact that the memory utilization and allocation patterns are different for each language. Nevertheless, we can recognize some points where the variation is extremely high. Thus, we choose a threshold value equal to 400 and we highlighted, in gray, the points that exceed this value. Thus, we detect 6 test suites where the variation is extremely high. 
-One of the reasons that caused this variation may occur when the test suite executes some parts of the code (in a specific language) that are so greedy in terms of resources. This may not be the case when the variation is lower than 10 for example.
-We assume then, that faulty code generators, in identified points, represent a threat for software quality since the generated code has shown symptoms of poor-quality design.
 
 %The inconsistencies we are trying to find here are more related to the incorrect memory utilization patterns produced by the faulty code generator. Such inconsistencies may come from an inadequate type usage, high resource instantiation, etc.
+
+
+
+
+
+\subsubsection{Analysis}
+Now that we have observed the non-functional behavior of test suites execution in different languages, we can analyze the extreme points we have detected in previous tables to observe in greater depth the source of such deviation.
+For that reason, we present in Table \ref{tab:raw results1} and \ref{tab:raw results2} the raw data values of these extreme test suites in terms of execution time and memory usage. 
+
+Table \ref{tab:raw results1} shows the execution time of each test suite in a specific target language. We also provide factors of execution times among test suites running in different languages by taking as a baseline the JS version. 
+We can clearly see that the PHP code has a singular behavior regarding the performance with a factor ranging from x40.9 for test suite 3 in benchmark Format (Format\_TS3) to x481.7 for Math\_TS1. We remark also that running Core\_TS4 takes 61777 seconds (almost 17 hours) compared to a 416 seconds (around 6 minutes) in JAVA which is a very large gap. The highest factor detected for other languages ranges from x0.3 to x5.4 which is not negligible but it represents a small deviation compared to PHP version. While it is true that we are comparing different versions of generated code, it was expected to get some variations while running test cases in terms of execution time. However, in the case of PHP code generator, it is far to be a simple variation but it is more likely to be a code generator inconsistency that led to such performance regression.
+
+
+Meanwhile, we gathered information about the points that led to the highest standard deviation in terms of memory usage. Table \ref{tab:raw results2} shows these results. %We take as well the JS version as a baseline since it requires less memory. 
+Again, we can identify a singular behavior of the PHP code regarding the memory usage for the five last test suites with a factor ranging from x4.1 to x11.5 compared to the JS version.  For other test suites versions, the factor varies from x0.8 to x3.7. However, for Color\_TS6, C\# version consumes higher memory than other languages and even higher than PHP (x2.5 more than JS). %Besides the performance issues of PHP code generator presented in table~5, the results of memory usage confirm our claim since the PHP code has the highest memory utilization.
+These results prove that the PHP code generator is not always effective and it constitutes a performance threat for the generated code.
+%Our testing infrastructure allows to automatically detect inconsistencies among a set of code generators. 
+This inconsistency need to be fixed later by code generator creators in order to enhance the code quality of generated code (PHP code for example). Since we are proposing a black-box testing approach, our solution is not able to provide more precise and detailed information about the part of code that has caused these performance issue, which is one of the limitations of this testing infrastructure.
+Thus, to understand this particular singular performance of the PHP code when applying the test suite core\_TS4 for example, we looked (manually) into the PHP code corresponding to this test suite. In fact, we observe the intensive use of \textit{"arrays"} in most of the functions under test. Arrays are known to be slow in PHP and PHP library has introduced much more advanced functions such as $array\_fill$ and specialized abstract types such as \textit{"SplFixedArray"}\footnote{\url{http://php.net/manual/fr/class.splfixedarray.php}} to overcome this limitation. So, by changing just these two parts in the generated code, we improve the PHP code speed with a factor x5 which is very valuable. 
+
+
+In short, the lack of use of specific types, in native PHP standard library, by the PHP code generator such as \textit{SplFixedArray} shows a real impact on the non-functional behavior of generated code. In contrast, selecting carefully the adequate types and functions to generate code can lead to performance improvement. We can observe the same kind of error in the C++ program  during one test suite execution (Color\_TS6) which consumes too much memory. The types used in the code generator are not the best ones. 
+
+\subsection{Threats to validity}
+We resume, in the following paragraphs, external and internal threats that can be raised:
+
+\textit{External validity} refers to the generalizability of our findings. In this study, we perform experiments on Haxe and on a set of test suite selected from Github and from the Haxe community. For instance, we have no guarantee that these libraries cover all the Haxe language features neither than all the Haxe standard libraries. Consequently, we cannot guarantee that our approach is able to find all the code generators issues unless we develop a more comprehensive test suite. Moreover, the threshold defined to detect the singular performance behavior has a huge impact on the precision and recall of the proposed approach. Experiments should be replicated to other case studies to confirm our findings and try to understand the best heuristic to detect the code generator issues regarding performance (i.e., automatically calculate the threshold values)
+
+\textit{Internal validity} is concerned with the use of a container-based approach. Even if it exists emulators such as Qemu\footnote{\url{https://goo.gl/SxKG1e}} that allow to reflect the behavior of heterogeneous hardware, the chosen infrastructure has not been evaluated to test generated code that target heterogeneous hardware machines. In addition, even though system containers are known to be lightweight and less resource-intensive compared to full-stack virtualization, we would validate the reliability of our approach by comparing it with a non-virtualized approach in order to see the impact of using containers on the accuracy of the results.
+
+
+
+%hrough these conducted experiments, we reached interesting results, some of which were unexpected.
+
+
+%In most languages, arrays are fixed-sized, but this is not the case in PHP since they are allocated dynamically. The dynamic allocation of arrays  leads to a slower write time because the memory locations needed to hold the new data is not already allocated. Thus, slow writing speed damages the performance of PHP code and impact the memory usage. This observation clearly confirm our early findings. The solution for this problem may be to use another type of object from the Standard PHP Library. As an alternative, \textit{"SplFixedArray"} pre-allocates the necessary memory and allows a faster array implementation, thereby solving the issue of slower write times. [ref to spl benchs]
+
+%\subsection{Discussions}
+%For instance, the poor performance of the Haxe-produced PHP code was certainly a surprise. 
+%The PHP target had a very large execution time and memory usage for almost every test suite execution. 
+%That is to say that PHP code generator is clearly generating non-efficient code regarding the non-functional properties. It is even possible to say that other code generators are not extremely efficient since we found that C++ code consumed, during one test suite execution (Color\_TS6), more memory than PHP. But, we cannot say for sure that C++ code generator is buggy. Thus, we cannot make any assumption. Nevertheless, the only point which, at this stage, can be statistically made is that PHP code generator has a real performance issue that has to be fixed by code generators developers. 
+
+%In attempting to understand the reasons of this PHP performance issues, we tried to take a look at the source code generated in PHP. As an example, we looked at the source code of Core\_TS4. 
+
+
+
+
+\section{Conclusion}
+\label{sec:cg-conclusion}
+Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
+
+
+
+In this work we have described a new approach for testing and monitoring the code generators families using a container-based infrastructure. 
+We used a set of micro-services in order to provide a fine-grained understanding of resource consumption. 
+To validate our approach, we evaluate a popular family of code generators: HAXE. 
+The evaluation results show that we can find real issues in existing code generators. 
+In particular, we show that we could find two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
+
+As a current work, we are discussing with the Haxe community to submit a patch with the first findings. 
+We are also conducting the same evaluation for two other code generators families: ThingML and TypeScript. 
+As a future work, we are going to improve our understanding on the threshold which can provide a best precision for detecting performance issues in code generators. 
+In this paper, we detected inconsistencies related to the execution speed and memory usage. In the future, we seek, using the same testing infrastructure, to detect more code generator inconsistencies related to other non-functional metrics such CPU consumption, etc. 
+
+
 
 
 
@@ -752,72 +835,6 @@ We assume then, that faulty code generators, in identified points, represent a t
 
 
 \fi
-
-\subsubsection{Analysis}
-Now that we have observed the non-functional behavior of test suites execution in different languages, we can analyze the extreme points we have detected in previous tables to observe in greater depth the source of such deviation.
-For that reason, we present in Table \ref{tab:raw results1} and \ref{tab:raw results2} the raw data values of these extreme test suites in terms of execution time and memory usage. 
-
-Table \ref{tab:raw results1} shows the execution time of each test suite in a specific target language. We also provide factors of execution times among test suites running in different languages by taking as a baseline the JS version. 
-We can clearly see that the PHP code has a singular behavior regarding the performance with a factor ranging from x40.9 for test suite 3 in benchmark Format (Format\_TS3) to x481.7 for Math\_TS1. We remark also that running Core\_TS4 takes 61777 seconds (almost 17 hours) compared to a 416 seconds (around 6 minutes) in JAVA which is a very large gap. The highest factor detected for other languages ranges from x0.3 to x5.4 which is not negligible but it represents a small deviation compared to PHP version. While it is true that we are comparing different versions of generated code, it was expected to get some variations while running test cases in terms of execution time. However, in the case of PHP code generator, it is far to be a simple variation but it is more likely to be a code generator inconsistency that led to such performance regression.
-
-
-Meanwhile, we gathered information about the points that led to the highest standard deviation in terms of memory usage. Table \ref{tab:raw results2} shows these results. %We take as well the JS version as a baseline since it requires less memory. 
-Again, we can identify a singular behavior of the PHP code regarding the memory usage for the five last test suites with a factor ranging from x4.1 to x11.5 compared to the JS version.  For other test suites versions, the factor varies from x0.8 to x3.7. However, for Color\_TS6, C\# version consumes higher memory than other languages and even higher than PHP (x2.5 more than JS). %Besides the performance issues of PHP code generator presented in table~5, the results of memory usage confirm our claim since the PHP code has the highest memory utilization.
-These results prove that the PHP code generator is not always effective and it constitutes a performance threat for the generated code.
-%Our testing infrastructure allows to automatically detect inconsistencies among a set of code generators. 
-This inconsistency need to be fixed later by code generator creators in order to enhance the code quality of generated code (PHP code for example). Since we are proposing a black-box testing approach, our solution is not able to provide more precise and detailed information about the part of code that has caused these performance issue, which is one of the limitations of this testing infrastructure.
-Thus, to understand this particular singular performance of the PHP code when applying the test suite core\_TS4 for example, we looked (manually) into the PHP code corresponding to this test suite. In fact, we observe the intensive use of \textit{"arrays"} in most of the functions under test. Arrays are known to be slow in PHP and PHP library has introduced much more advanced functions such as $array\_fill$ and specialized abstract types such as \textit{"SplFixedArray"}\footnote{\url{http://php.net/manual/fr/class.splfixedarray.php}} to overcome this limitation. So, by changing just these two parts in the generated code, we improve the PHP code speed with a factor x5 which is very valuable. 
-
-
-In short, the lack of use of specific types, in native PHP standard library, by the PHP code generator such as \textit{SplFixedArray} shows a real impact on the non-functional behavior of generated code. In contrast, selecting carefully the adequate types and functions to generate code can lead to performance improvement. We can observe the same kind of error in the C++ program  during one test suite execution (Color\_TS6) which consumes too much memory. The types used in the code generator are not the best ones. 
-
-\subsection{Threats to validity}
-We resume, in the following paragraphs, external and internal threats that can be raised:
-
-\textit{External validity} refers to the generalizability of our findings. In this study, we perform experiments on Haxe and on a set of test suite selected from Github and from the Haxe community. For instance, we have no guarantee that these libraries cover all the Haxe language features neither than all the Haxe standard libraries. Consequently, we cannot guarantee that our approach is able to find all the code generators issues unless we develop a more comprehensive test suite. Moreover, the threshold defined to detect the singular performance behavior has a huge impact on the precision and recall of the proposed approach. Experiments should be replicated to other case studies to confirm our findings and try to understand the best heuristic to detect the code generator issues regarding performance (i.e., automatically calculate the threshold values)
-
-\textit{Internal validity} is concerned with the use of a container-based approach. Even if it exists emulators such as Qemu\footnote{\url{https://goo.gl/SxKG1e}} that allow to reflect the behavior of heterogeneous hardware, the chosen infrastructure has not been evaluated to test generated code that target heterogeneous hardware machines. In addition, even though system containers are known to be lightweight and less resource-intensive compared to full-stack virtualization, we would validate the reliability of our approach by comparing it with a non-virtualized approach in order to see the impact of using containers on the accuracy of the results.
-
-
-
-%hrough these conducted experiments, we reached interesting results, some of which were unexpected.
-
-
-%In most languages, arrays are fixed-sized, but this is not the case in PHP since they are allocated dynamically. The dynamic allocation of arrays  leads to a slower write time because the memory locations needed to hold the new data is not already allocated. Thus, slow writing speed damages the performance of PHP code and impact the memory usage. This observation clearly confirm our early findings. The solution for this problem may be to use another type of object from the Standard PHP Library. As an alternative, \textit{"SplFixedArray"} pre-allocates the necessary memory and allows a faster array implementation, thereby solving the issue of slower write times. [ref to spl benchs]
-
-%\subsection{Discussions}
-%For instance, the poor performance of the Haxe-produced PHP code was certainly a surprise. 
-%The PHP target had a very large execution time and memory usage for almost every test suite execution. 
-%That is to say that PHP code generator is clearly generating non-efficient code regarding the non-functional properties. It is even possible to say that other code generators are not extremely efficient since we found that C++ code consumed, during one test suite execution (Color\_TS6), more memory than PHP. But, we cannot say for sure that C++ code generator is buggy. Thus, we cannot make any assumption. Nevertheless, the only point which, at this stage, can be statistically made is that PHP code generator has a real performance issue that has to be fixed by code generators developers. 
-
-%In attempting to understand the reasons of this PHP performance issues, we tried to take a look at the source code generated in PHP. As an example, we looked at the source code of Core\_TS4. 
-
-
-
-
-\section{Conclusion}
-\label{sec:cg-conclusion}
-Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
-
-
-
-In this work we have described a new approach for testing and monitoring the code generators families using a container-based infrastructure. 
-We used a set of micro-services in order to provide a fine-grained understanding of resource consumption. 
-To validate our approach, we evaluate a popular family of code generators: HAXE. 
-The evaluation results show that we can find real issues in existing code generators. 
-In particular, we show that we could find two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
-
-As a current work, we are discussing with the Haxe community to submit a patch with the first findings. 
-We are also conducting the same evaluation for two other code generators families: ThingML and TypeScript. 
-As a future work, we are going to improve our understanding on the threshold which can provide a best precision for detecting performance issues in code generators. 
-In this paper, we detected inconsistencies related to the execution speed and memory usage. In the future, we seek, using the same testing infrastructure, to detect more code generator inconsistencies related to other non-functional metrics such CPU consumption, etc. 
-
-
-
-
-
-
-
 
 
 
