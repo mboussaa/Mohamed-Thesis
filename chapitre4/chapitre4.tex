@@ -584,7 +584,7 @@ Afterwards, we prepare and scale our raw data to make it valuable for efficient 
 The results of R-charts for the seven benchmark programs relative to the performance and resource usage variation are reported in Figures \ref{rt} and \ref{rm}. For Figure \ref{rt}, we report the performance variation for each test suite corresponding to the range difference $R$ between the maximum and minimum execution time among the five targets (JAVA, JS, C++, C\#, and PHP). 
 The execution time is of course scaled by dividing all values by the minimum execution time per test suite. 
 The LCL for our experiments is always equal to 0 because the $D_{3}$ constant value as defined in equation \ref{eqUCL}, is equal to zero according to the R-chart constants table\footnote{\url{http://www.bessegato.com.br/UFJF/resources/table_of_control_chart_constants_old.pdf}}. In fact, the $D_{3}$ constant changes depending on the number of subgroups. In our experiments, our data record is composed of five subgroups corresponding to the five target programming languages.
-The central line (in green) corresponds to $R$-$bar$. This value changes from one benchmark to another depending on the average of $R$ across all test suites in the benchmark. As a consequence, $LCL$, which is a function of $R$-$bar$ changes as well if we add new test suites to the experiments. We recall that we have classified the R-chart approach as input sensitive since the average variation $R$-$bar$ and the threshold value $LCL$ change dynamically by adding new follow-up test suites to the corresponding benchmark. 
+The central line (in green) corresponds to $R$-$bar$. This value changes from one benchmark to another depending on the average of $R$ across all test suites in the benchmark. As a consequence, $UCL$, which is a function of $R$-$bar$, changes as long as we add new test suites to the experiments. $UCL$ is equal to $D_{4}*\bar{R}$ where $D_{4}=2.114$ according to the R-chart constants table. We recall that we have classified the R-chart approach as input sensitive since the average variation $R$-$bar$ and the threshold value $UCL$ change dynamically by adding new follow-up test suites to the corresponding benchmark. 
 We note as well that these parameter values are appropriate to each benchmark program. We made this separation because we believe that the variation is highly dependent on the domain context and on the program under test. For example, testing the memory usage or performance of a program that performs a high mathematical computation (e.g., image processing, statistical analysis, etc) is not the same as a generated web application, since data types are handled differently. The R-charts used for measuring the memory usage variation follow the same concept as we have just been describing for performance variation.  
 
 Results in Figure \ref{rt}, show that most of the performance variations are in the interval $[0-UCL]$, which corresponds to \textit{in-control} variation zone as it is described in Section \ref{sec:cg-Variation threshold}. However, we remark for several test suites that the performance variation becomes relatively high (higher than the $UCL$ value of the corresponding benchmark program). We detect 11 performance deviations lying in the \textit{out of control} variation zone. For the other test suites, the variation is even less than the total average variations $R$-$bar$. There are only 7 test suites among the remaining 84 ones where the variation lies in the interval $[\bar{R}-UCL]$. This variation is high but we are not detecting it asa performance deviation because according to the R-chart, variation in this zone is still \textit{in-control}. 
@@ -623,32 +623,87 @@ We can clearly see that this technique help to identify only the extreme value o
 
 
 \paragraph{Detected inconsistencies }~\\
- %At the first glance, we can clearly see that all standard deviations are mostly close to 0 - 8 interval. However, we remark in the same table, that there are some variation points where the deviation is relatively high. We count 8 test suites where the deviation is higher than 60 (highlighted in gray). We choose this value (i.e., standard deviation = 60) as a threshold to designate the points where the variation is extremely high. Thus, we consider values higher than 60 as a potential possibility where a non-functional bug could occur. 
+\begin{table*}[h]
+	\centering
+	
+	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{Benchamrk}                & \textbf{Test Suite}            & \textbf{JAVA} & \textbf{JS} & \textbf{CPP} & \textbf{CS} & \textbf{PHP}                   & \textbf{UCL(R)}         & \textbf{Defective CG} \\ \hline
+			\textbf{Color}                    & \textbf{TS19}                  & 1.90          & 1           & 2.37         & 3.31        & \cellcolor[HTML]{E3E3E3}61.84  & 13.08                   & PHP                   \\ \hline
+			&                                & 1             & 1.59        & 1.67         & 2.78        & \cellcolor[HTML]{E3E3E3}148.20 &                         & PHP                   \\ \cline{3-7} \cline{9-9} 
+			&                                & 1.14          & 2.71        & 1            & 3.63        & \cellcolor[HTML]{E3E3E3}258.94 &                         & PHP                   \\ \cline{3-7} \cline{9-9} 
+			&                                & 1.28          & 2.94        & 1            & 3.36        & \cellcolor[HTML]{E3E3E3}261.36 &                         & PHP                   \\ \cline{3-7} \cline{9-9} 
+			\multirow{-4}{*}{\textbf{Core}}   & \multirow{-4}{*}{\textbf{TS4}} & 1             & 1.05        & 1.86         & 2.39        & \cellcolor[HTML]{E3E3E3}50.30  & \multirow{-4}{*}{43.62} & PHP                   \\ \hline
+			&                                & 2.38          & 1.43        & 1            & 2.82        & \cellcolor[HTML]{E3E3E3}51.72  &                         & PHP                   \\ \cline{3-7} \cline{9-9} 
+			\multirow{-2}{*}{\textbf{Hxmath}} & \multirow{-2}{*}{\textbf{TS1}} & 2.14          & 1.10        & 1            & 2.25        & \cellcolor[HTML]{E3E3E3}50.56  & \multirow{-2}{*}{42.97} & PHP                   \\ \hline
+			\textbf{Format}                   & \textbf{TS2}                   & 1.16          & 1.27        & 1            & 3.35        & \cellcolor[HTML]{E3E3E3}81.85  & 70.66                   & PHP                   \\ \hline
+			\textbf{Promise}                  & \textbf{TS2}                   & 1.52          & 1.85        & 1            & 1.51        & \cellcolor[HTML]{E3E3E3}27.67  & 21.76                   & PHP                   \\ \hline
+			\textbf{Culture}                  & \textbf{TS5}                   & 1.62          & 1           & 1.27         & 2.02        & \cellcolor[HTML]{E3E3E3}27.29  & 14.47                   & PHP                   \\ \hline
+			\textbf{Math}                     & \textbf{TS1}                   & 4.15          & 1           & 5.41         & 4.70        & \cellcolor[HTML]{E3E3E3}481.68 & 273.24                  & PHP                   \\ \hline
+		\end{tabular}%
+	}
+	\caption{Raw data values of test suites that led to the highest variation in terms of execution time}
+	\label{perf-tab}`
+\end{table*}
+
+\begin{table*}[h]
+	\centering
+	
+	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{Benchmark}               & \textbf{Test suite} & \textbf{JAVA}                  & \textbf{JS} & \textbf{CPP} & \textbf{CS} & \cellcolor[HTML]{FFFFFF}\textbf{PHP} & \textbf{UCL}             & \textbf{Defective CG} \\ \hline
+			& \textbf{TS4}        & 1                              & 2.29        & 1.47         & 3.59        & \cellcolor[HTML]{E8E8E8}82.46        &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS5}        & 1                              & 3.08        & 1.83         & 4.53        & \cellcolor[HTML]{E8E8E8}109.69       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
+			\multirow{-3}{*}{\textbf{Color}} & \textbf{TS14}       & 1                              & 1.32        & 1.00         & 2.03        & \cellcolor[HTML]{E8E8E8}64.45        & \multirow{-3}{*}{43.53}  & PHP                   \\ \hline
+			& \textbf{TS6}        & \cellcolor[HTML]{E8E8E8}250.77 & 71.71       & 1            & 69.90       & \cellcolor[HTML]{E8E8E8}454.15       &                          & PHP \& JAVA           \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS20}       & 2.31                           & 1.34        & 1            & 3.27        & \cellcolor[HTML]{E8E8E8}296.10       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS21}       & 11.90                          & 1           & 14.63        & 36.18       & \cellcolor[HTML]{E8E8E8}620.22       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS22}       & 1                              & 2.70        & 1.74         & 4.69        & \cellcolor[HTML]{E8E8E8}247.32       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS32}       & \cellcolor[HTML]{E8E8E8}270.78 & 2.27        & 1            & 5.61        & 153.37                               &                          & JAVA                  \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS33}       & 1.82                           & 1.12        & 1            & 54.19       & \cellcolor[HTML]{E8E8E8}250.35       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS34}       & 1                              & 1.17        & 1.48         & 3.90        & \cellcolor[HTML]{E8E8E8}236.97       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
+			\multirow{-8}{*}{\textbf{Core}}  & \textbf{TS40}       & 160.84                         & 1.10        & 1            & 49.43       & \cellcolor[HTML]{E8E8E8}259.20       & \multirow{-8}{*}{190.03} & PHP                   \\ \hline
+			\textbf{Hxmath}                  & \textbf{TS2}        & 1                              & 1.16        & 1.91         & 2.82        & \cellcolor[HTML]{E8E8E8}296.16       & 181.11                   & PHP                   \\ \hline
+			\textbf{Promise}                 & \textbf{TS2}        & \cellcolor[HTML]{E8E8E8}214.53 & 92.45       & 1            & 57.68       & \cellcolor[HTML]{E8E8E8}224.41       & 106.82                   & PHP \& JAVA           \\ \hline
+			\textbf{Culture}                 & \textbf{TS4}        & 2.75                           & 1.01        & 2.52         & 1           & \cellcolor[HTML]{E8E8E8}52.47        & 34.63                    & PHP                   \\ \hline
+			\textbf{Math}                    & \textbf{TS3}        & 1.29                           & 1           & 1.72         & 3.60        & \cellcolor[HTML]{E8E8E8}675.00       & 464.80                   & PHP                   \\ \hline
+		\end{tabular}%
+	}
+	\caption{Raw data values of test suites that led to the highest variation in terms of memory usage}
+	\label{mem-tab}`
+\end{table*}
+
+Now that we have observed the performance and memory usage variations of test suites execution, we can analyze the extreme points we have detected using R-chart to observe in greater depth the source of such deviation.
+For that reason, we present in Table \ref{perf-tab} and \ref{mem-tab} the raw data values of these test suites leading to an extreme variation in terms of execution time and memory usage. We report the inconsistencies gathered from the first approach, R-chart.
+
+Table \ref{perf-tab} shows the execution time factor of each test suite execution in a specific target language. This factor is scaled with respect to the the lowest execution time among the five targets. We also report the $UCL$ defined per benchmark. In the last column, we report the code generator that caused such large deviation. To do so, we designate by defective CG the code generator in where the test suite execution time factor exceeds the $UCL$ value.
+
+We can clearly see that the PHP code has a singular behavior regarding the performance with a factor ranging from x27.29 for test suite 5 in benchmark Culture (Format\_TS3) to x481.7 for Math\_TS1. For example, if Math\_TS1 takes $1$ minute to run in JS, the same test suite in PHP will take around $8$ hours to run which is a very large gap. 
+The highest factor detected for other languages is x5.41 which is not negligible but it represents a small deviation compared to PHP deviations. While it is true that we are comparing different versions of generated code, it was expected to get some variations while running test cases in terms of execution time. However, in the case of PHP code generator, it is far to be a simple variation but it is more likely to be a code generator inconsistency that led to such performance regression.
 
 
-%The inconsistencies we are trying to find here are more related to the incorrect memory utilization patterns produced by the faulty code generator. Such inconsistencies may come from an inadequate type usage, high resource instantiation, etc.
+Meanwhile, we gathered information about the points that led to the highest variation in terms of memory usage. Table \ref{mem-tab} shows these results. 
+Again, we can identify a singular behavior of the PHP code regarding the memory usage with a factor ranging from x52.47 to x675. For other test suites versions, the factor varies from x1 to x160.84. We observe as well a singular behavior of the JAVA code for Core\_TS6, Core\_TS32, and Promise\_TS2 yielding to a variation higher than the $UCL$. 
+These results prove that the PHP and JAVA code generators are not always effective and they constitute a threat for the generated software in terms of memory usage.
 
+%Besides the performance issues of PHP code generator presented in table~5, the results of memory usage confirm our claim since the PHP code has the highest memory utilization.
 
+The inconsistencies we found are more related to the incorrect memory utilization patterns produced by the defective code generator, or by generating a non-optimized and efficient code . Such inconsistencies may come from an inadequate type usage, high resource instantiation, etc.
+To give more insights about the source of this issue, we provide in the following further analysis of these inconsistencies.
 
 
 
 \subsubsection{Analysis}
-Now that we have observed the non-functional behavior of test suites execution in different languages, we can analyze the extreme points we have detected in previous tables to observe in greater depth the source of such deviation.
-For that reason, we present in Table \ref{tab:raw results1} and \ref{tab:raw results2} the raw data values of these extreme test suites in terms of execution time and memory usage. 
-
-Table \ref{tab:raw results1} shows the execution time of each test suite in a specific target language. We also provide factors of execution times among test suites running in different languages by taking as a baseline the JS version. 
-We can clearly see that the PHP code has a singular behavior regarding the performance with a factor ranging from x40.9 for test suite 3 in benchmark Format (Format\_TS3) to x481.7 for Math\_TS1. We remark also that running Core\_TS4 takes 61777 seconds (almost 17 hours) compared to a 416 seconds (around 6 minutes) in JAVA which is a very large gap. The highest factor detected for other languages ranges from x0.3 to x5.4 which is not negligible but it represents a small deviation compared to PHP version. While it is true that we are comparing different versions of generated code, it was expected to get some variations while running test cases in terms of execution time. However, in the case of PHP code generator, it is far to be a simple variation but it is more likely to be a code generator inconsistency that led to such performance regression.
 
 
-Meanwhile, we gathered information about the points that led to the highest standard deviation in terms of memory usage. Table \ref{tab:raw results2} shows these results. %We take as well the JS version as a baseline since it requires less memory. 
-Again, we can identify a singular behavior of the PHP code regarding the memory usage for the five last test suites with a factor ranging from x4.1 to x11.5 compared to the JS version.  For other test suites versions, the factor varies from x0.8 to x3.7. However, for Color\_TS6, C\# version consumes higher memory than other languages and even higher than PHP (x2.5 more than JS). %Besides the performance issues of PHP code generator presented in table~5, the results of memory usage confirm our claim since the PHP code has the highest memory utilization.
-These results prove that the PHP code generator is not always effective and it constitutes a performance threat for the generated code.
 %Our testing infrastructure allows to automatically detect inconsistencies among a set of code generators. 
-This inconsistency need to be fixed later by code generator creators in order to enhance the code quality of generated code (PHP code for example). Since we are proposing a black-box testing approach, our solution is not able to provide more precise and detailed information about the part of code that has caused these performance issue, which is one of the limitations of this testing infrastructure.
-Thus, to understand this particular singular performance of the PHP code when applying the test suite core\_TS4 for example, we looked (manually) into the PHP code corresponding to this test suite. In fact, we observe the intensive use of \textit{"arrays"} in most of the functions under test. Arrays are known to be slow in PHP and PHP library has introduced much more advanced functions such as $array\_fill$ and specialized abstract types such as \textit{"SplFixedArray"}\footnote{\url{http://php.net/manual/fr/class.splfixedarray.php}} to overcome this limitation. So, by changing just these two parts in the generated code, we improve the PHP code speed with a factor x5 which is very valuable. 
+These inconsistencies need to be fixed by code generator creators in order to enhance the code quality of generated code (PHP code for example). Since we are proposing a black-box testing approach, our solution is not able to provide more precise and detailed information about the part of code that has caused these performance issue, which is one of the limitations of our testing approach.
 
+Thus, to understand this particular singular performance of the PHP code when applying the test suite Core\_TS4 for example, we looked (manually) into the PHP code corresponding to this test suite. In fact, we observe the intensive use of \textit{"arrays"} in most of the functions under test. Arrays are known to be slow in PHP and PHP library has introduced much more advanced functions such as $array\_fill$ and specialized abstract types such as \textit{"SplFixedArray"}\footnote{\url{http://php.net/manual/fr/class.splfixedarray.php}} to overcome this limitation. So, by changing just these two parts in the generated code, we improve the PHP code speed with a factor x5 which is very valuable. We also reduce the memory usage of this test suite by a factor of x2.
 
-In short, the lack of use of specific types, in native PHP standard library, by the PHP code generator such as \textit{SplFixedArray} shows a real impact on the non-functional behavior of generated code. In contrast, selecting carefully the adequate types and functions to generate code can lead to performance improvement. We can observe the same kind of error in the C++ program  during one test suite execution (Color\_TS6) which consumes too much memory. The types used in the code generator are not the best ones. 
+In short, the lack of use of specific types, in native PHP standard library, by the PHP code generator such as \textit{SplFixedArray} shows a real impact on the non-functional behavior of generated code. In contrast, selecting carefully the adequate types and functions to generate code can lead to performance improvement. The types used in the code generator are not the best ones. 
 
 \subsection{Threats to validity}
 We resume, in the following paragraphs, external and internal threats that can be raised:
