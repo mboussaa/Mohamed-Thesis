@@ -73,9 +73,9 @@
 \BOOKMARK [2][-]{subsection.5.4.5}{Threats to validity}{section.5.4}% 73
 \BOOKMARK [2][-]{subsection.5.4.6}{Tool support overview}{section.5.4}% 74
 \BOOKMARK [1][-]{section.5.5}{Conclusion}{chapter.5}% 75
-\BOOKMARK [0][-]{chapter.6}{A lightweight execution environment for automatic software testing and optimization}{part.2}% 76
+\BOOKMARK [0][-]{chapter.6}{A lightweight execution environment for automatic software testing}{part.2}% 76
 \BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 77
-\BOOKMARK [1][-]{section.6.2}{System Containers as Execution Platforms}{chapter.6}% 78
+\BOOKMARK [1][-]{section.6.2}{System containers as a lightweight execution environment}{chapter.6}% 78
 \BOOKMARK [1][-]{section.6.3}{Runtime Testing Components}{chapter.6}% 79
 \BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Component}{section.6.3}% 80
 \BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Component}{section.6.3}% 81

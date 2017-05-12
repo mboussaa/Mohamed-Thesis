@@ -1,27 +1,39 @@
 \section{Introduction}
 
+Software platforms diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}, constitutes a major obstacle for software testing. In fact, running tests requires many environment configurations and settings in order to test the whole application. For example, testing a web application requires the installation of the maven dependencies, web server, libraries, etc. When software developers upgrades the web server version for example, they need to rebuild the application and run the same integration tests in order to check that no errors  have been incorporated. Thus, testing applications in different execution environments and system settings becomes very time consuming and tedious.
+
+For instance, as we discussed in Chapter \ref{chap:code generators} and \ref{chap:compilers}, to evaluate the automatically generated code (by either code generators or compilers), we use to generate code, compile it, deploy it, and then execute test cases. To do so, different system configurations were required to ensure these steps such as installing the generator version (GCC or Haxe versions), install interpreters, maven dependencies, etc. 
+
+One way to test highly-configurable code generators is to use the virtualization technology. For instance, an alternative method leverages container-based system virtualization (e.g., Docker) to automate the code generation, deployment, and test of applications inside pre-configured software containers, by providing an additional layer of abstraction and automation of operating system-level virtualization on Linux. 
+This technology enables to mimic the real execution environment and reproduce the tests in an isolated and highly configurable system containers.
+
+When it comes to evaluate the resource consumptions of automatically generated code, this technique becomes very valuable because it allows a fine resource management and isolation. Moreover, it facilitates resource usage limitation and extraction of tests running inside containers. 
+
+We present in this Chapter, a detailed technical description of this lightweight runtime environment and its benefit for automating the non-functional test of automatically generated code. 
+
+\iffalse
+
+
+
 The general overview of the technical implementation is shown in Figure \ref{fig:docker_background2.pdf}. In the following subsections, we describe the deployment and testing architecture of generated code using system containers.
 
-
-
+To accelerate the execution of the test suite 140 x number of compilers, the execution of the tests is parallelized so as to use all the available core on your local PC. An alternative setup leverages Docker so as to deploy tests on any number of nodes e.g. in the cloud.
 
 First, we create a new Docker image in where we install the Haxe code generators and compilers (through the configuration file "Dockerfile"). Then a new instance of that image is created. It takes as an input the Haxe library we would to test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. These files are saved in a shared repository.
 In Docker environment, this repository is called "data volume". A data volume is a specially-designated directory within containers that shares data with the host machine. 
 %So, when we execute the generated test suites, we provide a shared volume with the host machine. 
 Thus, generated binaries, in the shared volume, are automatically executed within the execution container (Step 2). This execution container is as well an instance of a new Docker image in where we install all the required execution environments such as php interpreter, NodeJS, etc. 
 In the meantime, while running test suites inside the container, we collect runtime resource usage data using cAdvisor (step 3). The cAdvisor Docker image does not need any configuration on the host machine. We have just to run it on our host machine. It will have then access to the resource usage and performance characteristics of all running containers. 
-%This image uses the Cgroups mechanism described previously to collect, aggregate, process, and export ephemeral real-time information about running containers. 
-%Then, it reports all statistics via web UI to view live resource consumption of each container. 
+This image uses the Cgroups mechanism described previously to collect, aggregate, process, and export ephemeral real-time information about running containers. 
+Then, it reports all statistics via web UI to view live resource consumption of each container. 
 cAdvisor has been widely used in different projects such as Heapster\footnote{\url{https://github.com/kubernetes/heapster}} and Google Cloud Platform\footnote{\url{https://cloud.google.com/}}. 
-%In this experiment, we choose to gather information about the memory usage of running container.
-Afterwards, we configure our InfluxDB back-end container in order to record the collected data into a new time-series database (step 4). %Thus, we define its corresponding ip port into the monitoring component so that, container statistics are sent over TCP port (e.g., \textit{8083}) exposed by the database component. 
-Next, we run Grafana and we link it to InfluxDB. % by setting up the data source port 8086 so that, 
+In this experiment, we choose to gather information about the memory usage of running container.
+Afterwards, we configure our InfluxDB back-end container in order to record the collected data into a new time-series database (step 4). Thus, we define its corresponding ip port into the monitoring component so that, container statistics are sent over TCP port (e.g., \textit{8083}) exposed by the database component. 
+Next, we run Grafana and we link it to InfluxDB by setting up the data source port 8086 so that, 
 Grafana can  request data from the database. We recall that InfluxDB also provides a web UI to query the database and show graphs (step 5). But, Grafana lets us display live results over time in much pretty looking graphs. Same as InfluxDB, we use SQL queries to extract non-functional metrics from the database for visualization and analysis (step 6). In our experiment, we are gathering the maximum memory usage values without presenting the graphs of resource usage profiles.
 
-
-
-
-
+\fi
+\section{System containers as a lightweight execution environment}
 
 It is an operating system-level virtualization method for running multiple isolated Linux systems (containers) on a control host using a single Linux kernel. 
 The Linux kernel provides the cgroups functionality that allows limitation and prioritization of resources (CPU, memory, block I/O, network, etc.) for each container without the need of starting any virtual machines~\cite{luotowards}.
@@ -29,17 +41,6 @@ These containers share the same OS and hardware as the hosting machine and it is
 With container-based virtualization, we reduce the overhead associated with having each guest running a new installed operating system like using virtual machines. This approach can also improve the performance because there is just one operating system taking care of hardware calls.
 
 %Thus, instead of configuring all code generators under test (GUTs) within the same host machine, we wrap each GUT within a system container. Afterwards, a new instance of the container is created to enable the execution of generated code in an isolated and configured environment. Meanwhile, we start our runtime testing components. A monitoring component collects usage statistics of all running containers and save them at runtime in a time series database component. Thus, we can compare later information about the resource usage of generated programs and detect inconsistencies within code generators.
-
-
-\begin{figure*}[!h]
-	\center
-	\includegraphics[width=0.95\linewidth]{chapitre5/fig/docker_background2.pdf}
-	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
-	\label{fig:docker_background2.pdf}
-\end{figure*}
-
-
-\section{System Containers as Execution Platforms}
 
 
 %For this purpose, we propose a testing infrastructure based on System Container techniques such as Docker\footnote{\url{https://www.docker.com}} environment. 
