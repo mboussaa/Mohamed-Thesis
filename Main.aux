@@ -26,6 +26,7 @@
 \citation{betz2011improving}
 \citation{Czarnecki:2000:GPM:345203}
 \citation{france2007model}
+\citation{kapteijns2009comparative}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -37,14 +38,14 @@
 \citation{fursin2008milepost}
 \citation{guana2015developers}
 \citation{stuermer2007systematic,yang2011finding}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Scope of the thesis}{6}{section.1.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Challenges}{7}{section.1.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Scope of the thesis}{7}{section.1.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Challenges}{8}{section.1.4}}
 \citation{guana2014chaintracker,delgado2004taxonomy}
 \citation{pan2006fast}
 \citation{zhou2004metamorphic}
 \@writefile{toc}{\contentsline {section}{\numberline {1.5}Contributions}{9}{section.1.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.6}Overview of this thesis}{10}{section.1.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.7}Publications}{11}{section.1.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.6}Overview of this thesis}{11}{section.1.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.7}Publications}{12}{section.1.7}}
 \@writefile{toc}{\contentsline {part}{I\hspace  {1em}Background and State of the Art}{13}{part.1}}
 \citation{betz2011improving}
 \citation{ghazi2015heterogeneous}
@@ -56,60 +57,69 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \newlabel{chap:background}{{2}{15}{Background}{chapter.2}{}}
-\citation{schaefer2012software}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Diversity in software engineering}{16}{section.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Software diversity}{16}{subsection.2.1.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Popularity of 10 programming languages for the different areas related to software development}}{17}{figure.2.1}}
-\newlabel{fig:github}{{2.1}{17}{Popularity of 10 programming languages for the different areas related to software development}{figure.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Hardware heterogeneity}{16}{subsection.2.1.1}}
+\citation{schaefer2012software}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces ARM Big.Little heterogeneous multi-processing}}{17}{figure.2.1}}
+\newlabel{fig:cortex}{{2.1}{17}{ARM Big.Little heterogeneous multi-processing}{figure.2.1}{}}
 \citation{baudry2015multiple}
 \citation{schaefer2012software}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Hardware heterogeneity}{18}{subsection.2.1.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Compiler architecture}}{19}{figure.2.2}}
-\newlabel{fig:compilers}{{2.2}{19}{Compiler architecture}{figure.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Matching software diversity to heterogeneous hardware: the marriage}{20}{subsection.2.1.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Software diversity}{18}{subsection.2.1.2}}
+\newlabel{sec:Software diversity}{{2.1.2}{18}{Software diversity}{subsection.2.1.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Popularity of 10 programming languages for the different areas related to software development}}{19}{figure.2.2}}
+\newlabel{fig:github}{{2.2}{19}{Popularity of 10 programming languages for the different areas related to software development}{figure.2.2}{}}
 \citation{he2010computer}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Matching software diversity to heterogeneous hardware: the marriage}{20}{subsection.2.1.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.3.1}Challenges}{20}{subsubsection.2.1.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Matching software to hardware}}{20}{figure.2.3}}
+\newlabel{fig:marriage}{{2.3}{20}{Matching software to hardware}{figure.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.3.2}Mapping software to hardware}{21}{subsubsection.2.1.3.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Mapping software to hardware}{21}{section.2.2}}
+\@writefile{toc}{\contentsline {paragraph}{Configuring existing compilers}{21}{section*.8}}
 \citation{hou2010spap}
 \citation{chafi2010language,chafi2011domain}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Matching software to hardware}}{21}{figure.2.3}}
-\newlabel{fig:marriage}{{2.3}{21}{Matching software to hardware}{figure.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Compiler architecture}}{22}{figure.2.4}}
+\newlabel{fig:compilers}{{2.4}{22}{Compiler architecture}{figure.2.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Building new DSLs and compilers}{23}{section*.9}}
+\@writefile{toc}{\contentsline {paragraph}{Masking hardware heterogeneity}{23}{section*.10}}
 \citation{Czarnecki:2000:GPM:345203}
 \citation{czarnecki2005overview}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}From classical software development to generative programming}{23}{section.2.2}}
-\newlabel{sec:FROM}{{2.2}{23}{From classical software development to generative programming}{section.2.2}{}}
-\citation{Czarnecki:2000:GPM:345203}
-\citation{schaefer2012software}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Generative programming concept}}{24}{figure.2.4}}
-\newlabel{fig:GDM}{{2.4}{24}{Generative programming concept}{figure.2.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Example of JHipster feature model}}{25}{figure.2.5}}
-\newlabel{fig:jhipster}{{2.5}{25}{Example of JHipster feature model}{figure.2.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}An overview of the software development tool chain}{26}{section.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}From classical software development to generative programming}{24}{section.2.3}}
+\newlabel{sec:FROM}{{2.3}{24}{From classical software development to generative programming}{section.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Generative programming concept}}{25}{figure.2.5}}
+\newlabel{fig:GDM}{{2.5}{25}{Generative programming concept}{figure.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Overview of the generative programming development process}{25}{subsection.2.3.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Overview of the software development chain}}{26}{figure.2.6}}
 \newlabel{fig:background_overview2}{{2.6}{26}{Overview of the software development chain}{figure.2.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Automatic code generation}{26}{subsection.2.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Stakeholders and their roles for testing generators}{28}{subsection.2.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Use case diagram of the different actors/roles involved in implementing and testing generators}}{29}{figure.2.7}}
-\newlabel{fig:usecase}{{2.7}{29}{Use case diagram of the different actors/roles involved in implementing and testing generators}{figure.2.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Testing code generators}{30}{section.2.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Testing workflow}{30}{subsection.2.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Code generation workflow}}{30}{figure.2.8}}
-\newlabel{fig:workflow}{{2.8}{30}{Code generation workflow}{figure.2.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Automatic code generation in GP: a highly configurable process}{27}{subsection.2.3.2}}
+\citation{Czarnecki:2000:GPM:345203}
+\citation{schaefer2012software}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Example of JHipster feature model}}{29}{figure.2.7}}
+\newlabel{fig:jhipster}{{2.7}{29}{Example of JHipster feature model}{figure.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Stakeholders and their roles for testing highly configurable code generators}{29}{subsection.2.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Use case diagram of the different actors/roles involved in implementing and testing generators}}{30}{figure.2.8}}
+\newlabel{fig:usecase}{{2.8}{30}{Use case diagram of the different actors/roles involved in implementing and testing generators}{figure.2.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Testing code generators}{31}{section.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Testing workflow}{31}{subsection.2.4.1}}
 \citation{herrington2003code}
 \citation{pais2005tool,amanquah2009rapid}
 \citation{herrington2003code,hunt2000pragmatic,fertalj2008source,bajovs2013code}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Types of code generators}{31}{subsection.2.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Code generation workflow}}{32}{figure.2.9}}
+\newlabel{fig:workflow}{{2.9}{32}{Code generation workflow}{figure.2.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Types of code generators}{32}{subsection.2.4.2}}
 \citation{burnard2004verifying}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Why testing code generators is complex?}{33}{subsection.2.4.3}}
-\newlabel{sec:Why testing code generators is complex?}{{2.4.3}{33}{Why testing code generators is complex?}{subsection.2.4.3}{}}
 \citation{guana2015developers}
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Metrics of the TargetLink code generator}}{34}{table.2.1}}
-\newlabel{tab:targetlink}{{2.1}{34}{Metrics of the TargetLink code generator}{table.2.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Compilers auto-tuning}{35}{section.2.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Code optimizations}{35}{subsection.2.5.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Why compilers auto-tuning is complex?}{36}{subsection.2.5.2}}
-\newlabel{sec:Why compilers auto-tuning is complex?}{{2.5.2}{36}{Why compilers auto-tuning is complex?}{subsection.2.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Why testing code generators is complex?}{35}{subsection.2.4.3}}
+\newlabel{sec:Why testing code generators is complex?}{{2.4.3}{35}{Why testing code generators is complex?}{subsection.2.4.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Metrics of the TargetLink code generator}}{36}{table.2.1}}
+\newlabel{tab:targetlink}{{2.1}{36}{Metrics of the TargetLink code generator}{table.2.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Compilers auto-tuning}{37}{section.2.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Code optimizations}{37}{subsection.2.5.1}}
 \citation{knijnenburg2002iterative}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Why compilers auto-tuning is complex?}{38}{subsection.2.5.2}}
+\newlabel{sec:Why compilers auto-tuning is complex?}{{2.5.2}{38}{Why compilers auto-tuning is complex?}{subsection.2.5.2}{}}
 \citation{le2014compiler,yang2011finding}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Summary: Testing and optimization challenges}{38}{section.2.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Summary: Testing and optimization challenges}{39}{section.2.6}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}State of the art}{41}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -233,8 +243,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.4}Summary \& open challenges}{70}{section.3.4}}
 \newlabel{sec:suumary SOTA}{{3.4}{70}{Summary \& open challenges}{section.3.4}{}}
 \@writefile{toc}{\contentsline {part}{II\hspace  {1em}Contributions}{73}{part.2}}
-\newlabel{chap:summary}{{II}{75}{To the reader: summary of contributions}{chapter*.8}{}}
-\@writefile{toc}{\contentsline {chapter}{To the reader: summary of contributions}{75}{chapter*.8}}
+\newlabel{chap:summary}{{II}{75}{To the reader: summary of contributions}{chapter*.11}{}}
+\@writefile{toc}{\contentsline {chapter}{To the reader: summary of contributions}{75}{chapter*.11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Summary of contributions}}{76}{figure.3.3}}
 \newlabel{fig:overview}{{3.3}{76}{Summary of contributions}{figure.3.3}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Automatic non-functional testing of code generators families}{79}{chapter.4}}
@@ -254,11 +264,11 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Context and motivations}{82}{section.4.2}}
 \newlabel{sec:cg_Motivation}{{4.2}{82}{Context and motivations}{section.4.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Code generator families}{82}{subsection.4.2.1}}
-\@writefile{toc}{\contentsline {paragraph}{a. Haxe.}{82}{section*.9}}
-\@writefile{toc}{\contentsline {paragraph}{b. ThingML.}{82}{section*.10}}
+\@writefile{toc}{\contentsline {paragraph}{a. Haxe.}{82}{section*.12}}
+\@writefile{toc}{\contentsline {paragraph}{b. ThingML.}{82}{section*.13}}
 \citation{rastogi2015safe}
 \citation{hundt2011loop}
-\@writefile{toc}{\contentsline {paragraph}{c. TypeScript.}{83}{section*.11}}
+\@writefile{toc}{\contentsline {paragraph}{c. TypeScript.}{83}{section*.14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Issues when testing a code generator family}{83}{subsection.4.2.2}}
 \citation{jorges2014back,stuermer2007systematic,sturmer2005overview}
 \citation{demertzi2011analyzing}
@@ -289,17 +299,17 @@
 \newlabel{fig:cg_MT}{{4.3}{92}{The metamorphic testing approach for automatic detection of code generator inconsistencies}{figure.4.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2.5}Variation threshold}{93}{subsubsection.4.4.2.5}}
 \newlabel{sec:cg-Variation threshold}{{4.4.2.5}{93}{Variation threshold}{subsubsection.4.4.2.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Data preparation}{93}{section*.12}}
+\@writefile{toc}{\contentsline {paragraph}{Data preparation}{93}{section*.15}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Non-functional output results}}{94}{table.4.1}}
 \newlabel{tab:Non-functional output results}{{4.1}{94}{Non-functional output results}{table.4.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Statistical analysis}{94}{section*.13}}
+\@writefile{toc}{\contentsline {paragraph}{Statistical analysis}{94}{section*.16}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Variation analysis approaches}}{94}{table.4.2}}
 \newlabel{tab:Statistical methods}{{4.2}{94}{Variation analysis approaches}{table.4.2}{}}
-\@writefile{toc}{\contentsline {subparagraph}{R-Chart}{94}{section*.14}}
+\@writefile{toc}{\contentsline {subparagraph}{R-Chart}{94}{section*.17}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces The R-Chart process}}{95}{figure.4.4}}
 \newlabel{fig:cg-rechart}{{4.4}{95}{The R-Chart process}{figure.4.4}{}}
 \newlabel{eqUCL}{{4.5}{96}{R-Chart}{equation.4.4.5}{}}
-\@writefile{toc}{\contentsline {subparagraph}{PCA}{96}{section*.15}}
+\@writefile{toc}{\contentsline {subparagraph}{PCA}{96}{section*.18}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.5}Evaluation}{98}{section.4.5}}
 \newlabel{sec:cg_evaluation}{{4.5}{98}{Evaluation}{section.4.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Experimental setup}{99}{subsection.4.5.1}}
@@ -314,7 +324,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Experimental methodology and results}{102}{subsection.4.5.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2.1}Method}{102}{subsubsection.4.5.2.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2.2}Results}{103}{subsubsection.4.5.2.2}}
-\@writefile{toc}{\contentsline {paragraph}{R-chart results}{103}{section*.16}}
+\@writefile{toc}{\contentsline {paragraph}{R-chart results}{103}{section*.19}}
 \newlabel{rt1}{{4.6(a)}{104}{Subfigure 4 4.6(a)}{subfigure.4.6.1}{}}
 \newlabel{sub@rt1}{{(a)}{104}{Subfigure 4 4.6(a)\relax }{subfigure.4.6.1}{}}
 \newlabel{rt2}{{4.6(b)}{104}{Subfigure 4 4.6(b)}{subfigure.4.6.2}{}}
@@ -361,7 +371,7 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {R-chart of the Promise benchmark program}}}{105}{figure.4.7}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {R-chart of the Culture benchmark program}}}{105}{figure.4.7}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {R-chart of the Math benchmark program}}}{105}{figure.4.7}}
-\@writefile{toc}{\contentsline {paragraph}{PCA results}{106}{section*.17}}
+\@writefile{toc}{\contentsline {paragraph}{PCA results}{106}{section*.20}}
 \newlabel{pcat}{{4.8(a)}{107}{Subfigure 4 4.8(a)}{subfigure.4.8.1}{}}
 \newlabel{sub@pcat}{{(a)}{107}{Subfigure 4 4.8(a)\relax }{subfigure.4.8.1}{}}
 \newlabel{pcam}{{4.8(b)}{107}{Subfigure 4 4.8(b)}{subfigure.4.8.2}{}}
@@ -379,7 +389,7 @@
 \newlabel{sd}{{4.9}{108}{Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}{figure.4.9}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance deviations}}}{108}{figure.4.9}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Memory usage deviations}}}{108}{figure.4.9}}
-\@writefile{toc}{\contentsline {paragraph}{Detected inconsistencies }{109}{section*.18}}
+\@writefile{toc}{\contentsline {paragraph}{Detected inconsistencies }{109}{section*.21}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Raw data values of test suites that led to the highest variation in terms of execution time}}{109}{table.4.4}}
 \newlabel{perf-tab}{{4.4}{109}{Raw data values of test suites that led to the highest variation in terms of execution time}{table.4.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Raw data values of test suites that led to the highest variation in terms of memory usage}}{110}{table.4.5}}
@@ -454,7 +464,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.4}Setting up infrastructure}{130}{subsubsection.5.4.2.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Experimental methodology and results}{130}{subsection.5.4.3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.1}RQ1. Mono-objective SBSE validation}{130}{subsubsection.5.4.3.1}}
-\@writefile{toc}{\contentsline {paragraph}{Method}{130}{section*.19}}
+\@writefile{toc}{\contentsline {paragraph}{Method}{130}{section*.22}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces NOTICE experimental infrastructure}}{131}{figure.5.3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{132}{figure.5.4}}
 \newlabel{fig:sensitivity.pdf}{{5.4}{132}{Evaluation strategy to answer RQ1 and RQ2}{figure.5.4}{}}
@@ -463,14 +473,14 @@
 \newlabel{tab:Results of mono-objective optimizations}{{5.4}{132}{Results of mono-objective optimizations}{table.5.4}{}}
 \@writefile{toc}{\contentsline {paragraph}{Results}{132}{table.5.4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.2}RQ2. Sensitivity}{133}{subsubsection.5.4.3.2}}
-\@writefile{toc}{\contentsline {paragraph}{Method}{133}{section*.21}}
-\@writefile{toc}{\contentsline {paragraph}{Results}{133}{section*.22}}
+\@writefile{toc}{\contentsline {paragraph}{Method}{133}{section*.24}}
+\@writefile{toc}{\contentsline {paragraph}{Results}{133}{section*.25}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{134}{figure.5.5}}
 \newlabel{fig:box.pdf}{{5.5}{134}{Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}{figure.5.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.3}RQ3. Impact of optimizations on resource usage}{134}{subsubsection.5.4.3.3}}
-\@writefile{toc}{\contentsline {paragraph}{Method 1}{135}{section*.23}}
-\@writefile{toc}{\contentsline {paragraph}{Results 1}{135}{section*.24}}
-\@writefile{toc}{\contentsline {paragraph}{Method 2}{135}{section*.25}}
+\@writefile{toc}{\contentsline {paragraph}{Method 1}{135}{section*.26}}
+\@writefile{toc}{\contentsline {paragraph}{Results 1}{135}{section*.27}}
+\@writefile{toc}{\contentsline {paragraph}{Method 2}{135}{section*.28}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{136}{figure.5.6}}
 \newlabel{fig:rq3.pdf}{{5.6}{136}{Impact of speedup improvement on memory and CPU consumption for each optimization strategy}{figure.5.6}{}}
 \@writefile{toc}{\contentsline {paragraph}{Results 2}{136}{figure.5.7}}
@@ -480,8 +490,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}}{138}{figure.5.8}}
 \newlabel{fig:infra_novelty_stat2.pdf}{{5.8}{138}{Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}{figure.5.8}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.4}RQ4. Trade-offs between non-functional properties}{138}{subsubsection.5.4.3.4}}
-\@writefile{toc}{\contentsline {paragraph}{Method}{138}{section*.27}}
-\@writefile{toc}{\contentsline {paragraph}{Results}{139}{section*.28}}
+\@writefile{toc}{\contentsline {paragraph}{Method}{138}{section*.30}}
+\@writefile{toc}{\contentsline {paragraph}{Results}{139}{section*.31}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{140}{figure.5.9}}
 \newlabel{fig:pareto.pdf}{{5.9}{140}{Comparison results of obtained Pareto fronts using NSGA-II and NS-II}{figure.5.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Discussions}{141}{subsection.5.4.4}}
@@ -492,11 +502,11 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Snapshot of NOTICE GUI interface}}{143}{figure.5.10}}
 \newlabel{fig:tool_support}{{5.10}{143}{Snapshot of NOTICE GUI interface}{figure.5.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.5}Conclusion}{144}{section.5.5}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}A lightweight execution environment for automatic software testing}{147}{chapter.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}A lightweight execution environment for automatic generators testing }{147}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:docker}{{6}{147}{A lightweight execution environment for automatic software testing}{chapter.6}{}}
+\newlabel{chap:docker}{{6}{147}{A lightweight execution environment for automatic generators testing}{chapter.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6.1}Introduction}{147}{section.6.1}}
 \citation{luotowards}
 \citation{merkel2014docker}
@@ -528,7 +538,7 @@
 \bibcite{amanquah2009rapid}{AE09}
 \bibcite{ajwad2007evaluation}{Ajw07}
 \bibcite{bekrar2011finding}{BBGM11}
-\@writefile{toc}{\contentsline {chapter}{\textbf  {References}}{157}{section*.29}}
+\@writefile{toc}{\contentsline {chapter}{\textbf  {References}}{157}{section*.32}}
 \bibcite{boussaa2015novelty}{BBSB15}
 \bibcite{betz2011improving}{BCG11}
 \bibcite{brambilla2012model}{BCW12}
@@ -607,6 +617,7 @@
 \bibcite{jouault2005transforming}{JK05}
 \bibcite{jantz2013performance}{JK13}
 \bibcite{jorges2014back}{JS14}
+\bibcite{kapteijns2009comparative}{KJB{$^{+}$}09}
 \bibcite{knijnenburg2002iterative}{KKO02}
 \bibcite{kropp1998automated}{KKS98}
 \bibcite{krvcah2012solving}{Kr{\v {c}}12}
@@ -681,7 +692,7 @@
 \bibcite{zhong2009tuning}{ZSH09}
 \bibcite{zelenov2006automatic}{ZSP{$^{+}$}06}
 \citation{*}
-\newlabel{listoffigs}{{7.2}{175}{Perspectives}{section*.31}{}}
-\@writefile{toc}{\contentsline {chapter}{List of Figures}{175}{section*.31}}
-\newlabel{listoftabs}{{7.2}{177}{\listfigurename }{section*.33}{}}
-\@writefile{toc}{\contentsline {chapter}{List of Tables}{177}{section*.33}}
+\newlabel{listoffigs}{{7.2}{175}{Perspectives}{section*.34}{}}
+\@writefile{toc}{\contentsline {chapter}{List of Figures}{175}{section*.34}}
+\newlabel{listoftabs}{{7.2}{177}{\listfigurename }{section*.36}{}}
+\@writefile{toc}{\contentsline {chapter}{List of Tables}{177}{section*.36}}

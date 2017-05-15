@@ -538,6 +538,14 @@ Sven J{\"o}rges and Bernhard Steffen.
 \newblock In {\em International Symposium On Leveraging Applications of Formal
   Methods, Verification and Validation}, pages 425--444. Springer, 2014.
 
+\bibitem[KJB{\etalchar{+}}09]{kapteijns2009comparative}
+Tim Kapteijns, Slinger Jansen, Sjaak Brinkkemper, Henry Hou{\"e}t, and Rick
+  Barendse.
+\newblock A comparative case study of model driven development vs traditional
+  development: The tortoise or the hare.
+\newblock {\em From code centric to model centric software engineering:
+  Practices, Implications and ROI}, 22, 2009.
+
 \bibitem[KKO02]{knijnenburg2002iterative}
 Peter~MW Knijnenburg, Toru Kisuki, and Michael~FP O’Boyle.
 \newblock Iterative compilation.

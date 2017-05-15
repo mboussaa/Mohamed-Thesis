@@ -1,6 +1,6 @@
  
 In this chapter, the context of this thesis and the general problems it faces are introduced. The objective of this chapter is to give a brief introduction to  different domains and concepts in which our work takes place and used throughout this document.
-This includes generative programming techniques, an overview of the software development tool chain and the main concepts for testing code generators and compilers auto-tuning.
+This includes software and hardware diversity, an overview of the generative programming development process, and the main concepts for testing configurable code generators.
 
  %It aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
 
@@ -38,12 +38,54 @@ In this background introduction, we discuss two different dimensions of diversit
 %problem
 %Furthermore, the increasing relevance of software in general and the higher demand in quality and performance contribute to the complexity of software development. 
 %Today, softwares and services are running everywhere. These services are running on top of heterogeneous software and hardware platforms.
+\subsection{Hardware heterogeneity}
+Modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of devices that provide a wide diversity of capabilities and services to the end users.
+These heterogeneous services run in different environments ranging from cloud servers to resource-constrained devices.
+Hardware heterogeneity comes from the continuous innovation of hardware technologies to support new system configurations and architectural design (e.g., addition of new features, a change in the processor architecture, new hardware is made available, etc). 
+For example, until February 2016\footnote{\url{https://arstechnica.com/information-technology/2016/02/moores-law-really-is-dead-this-time/}}, the increase in capacity of microprocessors has followed the famous Moore's law\footnote{\url{https://en.wikipedia.org/wiki/Moore\%27s_law}} for Intel processors. Indeed, the number of components (transistors) that can be fitted onto a chip doubles every two years, increasing the performance and energy efficiency.
+For instance, Intel Core 2 Duo processor was introduced in 2006 with 291 millions of transistors and 2.93 GHz clock speed. Two years later, Intel has introduced the Core 2 Quad processors which came up with 2.66 GHz clock speed and the double number of transistors introduced in 2006 with 582 millions of transistors.
+
+In the last years, modern processors becomes more and more heterogeneous, using more than one kind of processor or cores, called "co-processors". The CPU can even use different instruction set architectures (ISA), where the main processor has one and the rest have another, usually a very different architecture. Operations performed by the co-processor may be floating point arithmetic, graphics, signal processing, string processing, encryption or I/O Interfacing with peripheral devices. 
+As an example, the ARM big.Little processor architecture\footnote{\url{https://en.wikipedia.org/wiki/ARM_big.LITTLE}} released in 2011 (see Figure \ref{fig:cortex}), is a power-optimization technology where high-performance ARM CPU cores are combined with the most efficient ARM CPU cores to deliver peak-performance capacity, higher sustained performance, and increased parallel processing performance, at significantly lower average power. It can save 75\% of CPU energy and can increase performance by 40\% in highly threaded workloads.
+The intention of this architecture is to create a multi-core processor that can adjust better to dynamic computing needs.
+Threads with high priority or computational intensity can in this case be allocated to the "Big" cores while threads with less priority or less computational intensity, such as background tasks, can be performed by the "Little" cores. This model has been implemented in the Samsung Exynos 5 Octa in 2013\footnote{\url{http://www.embedded.com/electronics-news/4419448/Benchmarking-ARM-s-big-little-architecture}}.
+
+
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.7]{Background/fig/cortex.jpg}
+	\caption{ARM Big.Little heterogeneous multi-processing}
+	\label{fig:cortex}
+\end{figure}
+
+
+Given the complexity of new emerging processors architecture (x86, x64, multi-core, etc) and CPU manufacturers such as ARM, AMD and Intel, some of the questions that developers have to answer when facing hardware heterogeneity: 
+Is it easy to deliver satisfactory levels of performance on modern processors? How is it possible to produce machine code that can exploit efficiently the continuous hardware changes? 
+
+
+
+
+
+%Which optimizations are applied by compiler users in order to satisfy  the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
+
+
+%end 
+
+
+%Model-Driven Software Engineering and generative programming techniques to provide a new integrated software engineering approach which enables the advanced exploitation of the full range of diversity and specificity of the future computing continuum
+
+%Diversity increases system complexity and leads to a greater risk for system failures. Efficient validation and verification methods are, thus, essential to guarantee qualities of diverse systems, such as security, consistency, correctness or performance
+
 \subsection{Software diversity}
+\label{sec:Software diversity}
 In today's software systems, different software variants are typically developed simultaneously to address a wide range of application contexts and customer requirements\cite{schaefer2012software}. 
-Therefore, software is built using different approaches and languages. 
+Therefore, software is built using different approaches and languages, depending on the application domain.
 
-In order to understand the skills and capabilities required to develop softwares on top of different classes of devices, we queried a popular open-source repository \textit{GitHub} to evaluate the heterogeneity of existing programming languages. 
+In the literature, Baudry et al.\cite{baudry2015multiple} and Schaefer et al.\cite{schaefer2012software} have presented an exhaustive overview of the multiple facets of software diversity in software engineering. 
+According to their study, software diversity can emerge in different types and dimensions such as diversity of operating systems, programming languages, data structures, components, execution environments, etc. 
+Like all modern software systems, softwares have to be adapted to address changing requirements over time supporting system evolution, technology and market needs like considering new software platforms, new languages, new customer choices, etc.
 
+In order to understand the skills and capabilities required to develop softwares on top of different classes of devices and application domains, we queried a popular open-source repository \textit{GitHub} to evaluate the heterogeneity of existing programming languages.  
 The following sets of keywords were used: \textit{1) Cloud:} server with virtually unlimited resources, \textit{2) Microcontroller:} resource constrained node (few KB RAM, few MHz),  \textit{3) Mobile:} an intermediate node, typically a smartphone,  \textit{4) Internet of Things:} Internet-enabled devices,  \textit{5) Cyber Physical System}, and  \textit{6) Embedded systems}, as a large and important part of the service implementations will run as close as possible to physical world, embedded into sensors, devices and gateways.
 
 \begin{figure}[h]
@@ -61,81 +103,18 @@ For all keywords except Cloud , the combined popularity of Java, JavaScript and 
 of the percentages) is above 70\%. For Cloud, we observe a large use of Python, Ruby also being very popular, so the combined popularity of Java, JavaScript and C/C++ is only 50\%. It is also worth noticing that the most popular language for a given keyword scores very poorly (less than 5\%) for at least another keyword. While it might appear that a combination of C/C++, JavaScript and Java should be able to cover all the areas, in practice it does not exclude the need for other programming languages. For example, the Fibaro Home Center 2 (a gateway for home automation based on the Z-Wave protocol) uses Lua as scripting language to define automation rules. Another example is the BlueGiga BlueTooth Smart Module, which can be scripted using BGScript, a proprietary scripting language. This shows that each part of an infrastructure might require the use of a niche language, middleware or library to be exploited to its full potential.
 
 
-This variation of programming languages for the different kinds devices induces a high \textit{software diversity}. 
-
-Baudry et al.\cite{baudry2015multiple} and Schaefer et al.\cite{schaefer2012software} have presented an exhaustive overview of the multiple facets of software diversity in software engineering. 
-Software diversity can emerge in different types and dimensions such as diversity of operating systems, programming languages, data structures, components, execution environments, etc. 
-Like all modern software systems, softwares have to be adapted to address changing requirements over time supporting system evolution, technology and market needs like considering new software platforms, new languages, new customer choices, etc.
-%We discuss in this section some of them which are the most relevant for this thesis.
-
-
-
-
-
-
-
-Accordingly, we propose the following definition of software diversity: 
-\textit{\textbf{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc. }}
+In summary, the variation of programming languages for the different kinds of devices and application domains induces a high \textit{software diversity}. Accordingly, we propose the following definition of software diversity in the context of this thesis: 
+\textit{Software diversity is the generation or implementation of the same program specification in different ways/manners in order to satisfy one or more diversity dimension such as the diversity of programming languages, execution environments, functionalities, etc. }
 		
 %We define as well the term \textbf{"software family"} to categorize these diverse programs that share commonalities. 
 
 %The key concept of code generators is to produce code in a general-purpose language, such as Java or C++, that can be compiled and executed. Target execution platforms of the generated code are heterogeneous and diverse.
 
 
-\subsection{Hardware heterogeneity}
-On the hardware side, modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of devices that provide a wide diversity of capabilities and services to the end users.
-These heterogeneous services run in different environments ranging from cloud servers to resource-constrained devices.
-Hardware heterogeneity comes from the continuous innovation of hardware technologies to support new system configurations and architectural design (e.g., addition of new features, a change in the processor architecture, new hardware is made available, switch to low bandwidth wireless communication, etc). 
-For example, until February 2006\footnote{\url{https://arstechnica.com/information-technology/2016/02/moores-law-really-is-dead-this-time/}}, the increase in capacity of microprocessors has followed the famous Moore's law\footnote{\url{https://en.wikipedia.org/wiki/Moore\%27s_law}} for Intel processors. Indeed, the number of components (transistors) that can be fitted onto a chip doubles every two years, increasing the performance and energy efficiency.
-For instance, Intel Core 2 Duo processor was introduced in 2006 with 291 millions of transistors and 2.93 GHz clock speed. Two years later, Intel has introduced the Core 2 Quad processors which came up with 2.66 GHz clock speed and the double number of transistors introduced in 2006 with 582 millions of transistors.
-
-So, given the complexity of new emerging processors architecture (x86, x64, etc) and CPU manufacturers such as ARM, AMD and Intel, some of the questions that developers have to answer when facing hardware heterogeneity: 
-Is it easy to deliver satisfactory levels of performance on modern processors? How is it possible to produce machine code that can exploit efficiently the new hardware changes? 
-
-To cope with the heterogeneous hardware platforms, software developers use different compilers (for compiled languages such as C or C++) in order to compile their high-level source code programs and execute them on top of a board range of platforms and processors. 
-
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/compilers}
-	\caption{Compiler architecture}
-	\label{fig:compilers}
-\end{figure}
-
-As shown in Figure \ref{fig:compilers}, a compiler is typically divided into two parts, a front end and a back end. The compiler front-end verifies syntax and semantics and analyzes the source code to build an internal representation of the program, called the intermediate representation or IR. For example, the GNU Compiler Collection (GCC) and LLVM support many front ends with languages such as C, C++, Objective-C, Objective-C++, Fortran, Java, Ada, and Go among others. 
-A compiler back end is typically responsible for code optimizations and code generation for a particular microprocessor. Today, GCC is able to generate code for approximately \textbf{more than 40 different processor architectures}.
-For example, one important option for compiler flags is \textit{-march}. It tells the compiler what code it should produce for the system's processor architecture (or arch); it tells GCC that it should produce code for a certain kind of CPU. Using \textit{-march=native} enables all the optimization flags that are applicable for the native system's CPU, with all its capabilities, features, instruction sets, and so on. There exits many other optimization options for the target CPU like \textit{--with-arch=i7}, \textit{--with-cpu=corei7}, etc.
-Generally, each time a new family of processors is released, compiler developers release new compiler version with more sophisticated optimization options for the target platform. For example, old compilers produce only 32-bit programs. These programs still run on new 64-bit computers, but they may not exploit all processor capabilities (e.g. they will not use the new instructions that are offered by x64 CPU architecture). For instance, the current x86-64 assembly language can still perform arithmetic operations on 32-bit registers using instructions like addl, subl, andl, orl, etc, with the l standing for "long", which is 4 bytes/32 bits. 64-bit arthimetic is done with addq, subq, andq, orq, etc, with q standing for "quadword", which is 8 bytes/64 bits.
-
-
-Today's CPUs are highly parallel processors with different levels of parallelism.
-We find parallelism everywhere from the parallel execution units in a CPU core, up to the SIMD
-(Single Instruction, Multiple Data) instruction set and the parallel execution of multiple
-threads. 
-
-Modern computers can do many things at once. One of the commonly applied code optimizations by modern compilers in parallel computing is vectorization. It constitutes the process of converting an algorithm from a scalar implementation, which processes a single pair of operands at a time, to a vector implementation, which processes one operation on multiple pairs of operands at once (series of adjacent values).
-
-Programmers can exploit vectorization to speedup certain parts of their code. One major research topic in computer science is the search for methods of automatic vectorization: seeking methods that would allow a compiler to convert scalar algorithms into vectorized algorithms without human intervention.
-
-In short, software developers need to deal with these compiler configurations to truly take advantage of the new chip with more advanced optimizations for the new hardware chip.
-
-
-
-%Which optimizations are applied by compiler users in order to satisfy  the non-functional properties of a broad range of programs and hardware architectures such as energy consumption, execution time, etc. 
-
-
-%end 
-
-
-%Model-Driven Software Engineering and generative programming techniques to provide a new integrated software engineering approach which enables the advanced exploitation of the full range of diversity and specificity of the future computing continuum
-
-%Diversity increases system complexity and leads to a greater risk for system failures. Efficient validation and verification methods are, thus, essential to guarantee qualities of diverse systems, such as security, consistency, correctness or performance
 
 \subsection{Matching software diversity to heterogeneous hardware: the marriage}
-The hardware and software communities are both facing significant change and major challenges. Hardware and software are pulling us in opposite directions. Figure \ref{fig:marriage} shows an overview of the challenges that both communities are facing.  
-
-On the one hand, software is facing challenges of a similar magnitude, with major changes in the way software is deployed, is sold, and interacts with hardware. 
-Software diversity, as discussed in section 2.1.1, is driven by software innovation, driving the software development toward highly configurable and complex systems. This complexity is carried by the huge number of software technologies, customer configurations, execution environments, programming languages, etc. This explosion of configurations that software is facing makes the activity of testing and validation very difficult and time consuming. 
-As a consequence, softwares become higher and higher level, managing complexity and gluing lot of pieces together to give programmers the right abstraction for how things really work and how the data is really represented. 
+\subsubsection{Challenges}
+The hardware and software communities are both facing significant change and major challenges. Figure \ref{fig:marriage} shows an overview of the challenges that both communities are facing. In fact, hardware and software are pulling us in opposite directions. 
 
 \begin{figure}[h]
 	\center
@@ -144,29 +123,56 @@ As a consequence, softwares become higher and higher level, managing complexity 
 	\label{fig:marriage}
 \end{figure}
 
+
+On the one hand, software is facing challenges of a similar magnitude, with major changes in the way software is deployed, is sold, and interacts with hardware. 
+Software diversity, as discussed in Section \ref{sec:Software diversity}, is driven by software innovation, driving the software development toward highly configurable and complex systems. This complexity is carried by the huge diversity of software technologies, customer configurations, execution environments, programming languages, etc. This explosion of configurations that software is facing makes the activity of testing and validation very difficult and time consuming. 
+As a consequence, softwares become higher and higher level, managing complexity and gluing lot of pieces together to give programmers the right abstraction for how things really work and how the data is really represented. 
+
+
 On the other hand, hardware is exposing us to more low level details and heterogeneity due to the continuous hardware innovation. 
-Hardware innovation offer us energy efficiency, performance improvement but exposes a lot of complexity for software engineers and developers (e.g., compilers users/creators).
-For example, in \cite{he2010computer} authors argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors has been used in everyday life, we still do not know how to best organize and use them. 
+Hardware innovation offer us energy efficiency, performance improvement but exposes a lot of complexity for software engineers and developers.
+For example, in \cite{he2010computer}, authors argue that system software is not ready for this heterogeneity and cannot fully benefit from new hardware advances such as multi-core and many-core processors. Although multi-core processors have been used in everyday life, we still do not know how to best organize and use them. 
 Meanwhile, hardware specialization for every single application is not a sustainable way of building chips.
 %So, what the software community can do to address/deal with devices heterogeneity? How hardware innovation can be exploited in the software?
 
-Matching software to hardware is ensured by providing the adequate software languages and compilers that have to produce efficient code to the target hardware (relation 1 in Figure \ref{fig:marriage}). As consequence, people who are writing compilers have to continuously enhance the way the executables are produced by releasing new compiler versions to support new hardware changes (i.e., new optimization flags, instruction sets).
+%\paragraph{So how can we match software diversity to heterogeneous hardware?}~\\ 
+\subsubsection{Mapping software to hardware}
+\section{Mapping software to hardware}
+Matching software to hardware is ensured by the efficient translation of the high-level software programs into a machine code that better exploit the hardware changes (relation 1 in Figure \ref{fig:marriage}). This is exactly what a compiler is intended to do.
 
-For example, Hou et al.\cite{hou2010spap} have presented SPAP, a container-based programming language for heterogeneous many-core systems. This language allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. SPAP comes with a set of compilers and runtime environments to such hardware processors. Chafi et al.\cite{chafi2010language,chafi2011domain} proposed leveraging domain specific languages (DSLs) to map high-level application code to
-heterogeneous devices.
+\paragraph{Configuring existing compilers}~\\ 
+Well, gone are the days where we used to write the assembly code by hand and from scratch. Now, it is up to the compilers to handle this heterogeneity and to efficiently generate and optimize the code for a particular microprocessor. 
+Let's take GCC example. GCC is able to generate code automatically for approximately \textbf{more than 40 different processor architectures}. Hence, GCC becomes highly configurable, allowing the compiler user to enable multiple flags to customize the code generation.
+
+For instance, one important option for compiler flags is \textit{-march}. It tells the compiler what code it should produce for the system's processor architecture (or arch); it tells GCC that it should produce code for a certain kind of CPU. Using \textit{-march=native} enables all the optimization flags that are applicable for the native system's CPU, with all its capabilities, features, instruction sets, and so on. There exits many other optimization options for the target CPU like \textit{--with-arch=i7}, \textit{--with-cpu=corei7}, etc.
+Generally, each time a new family of processors is released, compiler developers release new compiler version with more sophisticated optimization options for the target platform. For example, old compilers produce only 32-bit programs. These programs still run on new 64-bit computers, but they may not exploit all processor capabilities (e.g. they will not use the new instructions that are offered by x64 CPU architecture). For instance, the current x86-64 assembly language can still perform arithmetic operations on 32-bit registers using instructions like addl, subl, andl, orl, etc, with the l standing for "long", which is 4 bytes/32 bits. 64-bit arthimetic is done with addq, subq, andq, orq, etc, with q standing for "quadword", which is 8 bytes/64 bits.
+
+Another example is that compilers need to support parallelism. In fact, we can see that modern computers today can do many things at once and modern CPUs becomes highly parallel processors with different levels of parallelism. We find parallelism everywhere from the parallel execution units in a CPU core, up to the SIMD (Single Instruction, Multiple Data) instruction set and the parallel execution of multiple threads.  One of the commonly applied optimizations by modern compilers in parallel computing is vectorization. It constitutes the process of converting an algorithm from a scalar implementation, which processes a single pair of operands at a time, to a vector implementation, which processes one operation on multiple pairs of operands at once (series of adjacent values).
+Programmers can exploit vectorization using compilers to speedup certain parts of their code. One major research topic in computer science is the search for methods of automatic vectorization: seeking methods that would allow a compiler to convert scalar algorithms into vectorized algorithms without human intervention.
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/compilers}
+	\caption{Compiler architecture}
+	\label{fig:compilers}
+\end{figure}
+
+As shown in Figure \ref{fig:compilers}, a compiler is typically divided into two parts, a front end and a back end. The compiler front-end verifies syntax and semantics and analyzes the source code to build an internal representation of the program, called the intermediate representation or IR. For example, the GNU Compiler Collection (GCC) and LLVM support many front ends with programming languages such as C, C++, Objective-C, Objective-C++, Fortran, Java, Ada, and Go among others. The compiler back-end generates the target-dependent assembly code and performs optimizations of the target code utilization of the hardware. Typically, the output of a back end is machine code specialized for a particular processor and operating system (e.g., ARM, Sparc processors, etc).
+As consequence, people who are writing compilers have to continuously enhance the way these executables are produced by releasing new compiler versions to support new hardware changes (i.e., introducing new optimization flags, instruction sets). 
+
+Therefore, to cope with the heterogeneous hardware platforms, software developers use these highly configurable compilers (for compiled languages such as C or C++) in order to efficiently compile their high-level source code programs and execute them on top of a board range of platforms and processors. 
+
+\paragraph{Building new DSLs and compilers}~\\ 
+In another illustrative example, Hou et al.\cite{hou2010spap} have presented a container-based programming language for heterogeneous many-core systems. This DSL allows programmers to write unified programs that are able to run efficiently on heterogeneous processors. To map this DSL to such hardware processors, they provide a set of compilers and runtime environments. Similarly, Chafi et al.\cite{chafi2010language,chafi2011domain} proposed leveraging DSLs to map high-level application code to heterogeneous devices.
 %Results show that the presented DSL can achieve high performance on heterogeneous parallel hardware with no modification required to the source code. They compared this language performance to MATLAB code and they showed that it outperformed it in nearly all cases.
 
-
-To avoid hardware heterogeneity, software developers use for example managed languages such as JAVA, Scala, C\#, etc to favor software portability. Instead of compiling to native machine instruction set, these languages are compiled into an intermediate language or IL, which is similar to a binary assembly language. These instructions are executed by a JVM, or by .NET's CLR virtual machine, which effectively translates them to native binary instructions specific to the CPU architecture and/or OS of the machine.
-
+\paragraph{Masking hardware heterogeneity}~\\ 
+Sometimes, software developers try to avoid the hardware heterogeneity. Thus, they use for example managed languages such as JAVA, Scala, C\#, etc to favor software portability. Instead of compiling to native machine instruction set, these languages are compiled into an intermediate language or IL, which is similar to a binary assembly language. These instructions are executed by a JVM, or by .NET's CLR virtual machine, which effectively translates them to native binary instructions specific to the CPU architecture and/or OS of the machine.
 By using managed code and compiling in this managed execution environment, memory management such as a garbage collector, type safety checking, and destruction of unneeded objects are handled internally within this sandbox runtime environment. Thus, developers focus on the business logic of applications to provide more secure and stable software without taking too much care of the hardware heterogeneity.
+However, using managed languages has drawbacks. It includes slower startup speed (the managed code must be JIT compiled by the VM). It can also be slower than native code and generally greedy in terms of system resources. 
+For example, we can see in Figure \ref{fig:github}, that the C language is the most widely used programming language in the context of embedded systems\footnote{\url{http://www.eetimes.com/author.asp?doc_id=1323907}} where the system is really resource-constrained. Contrarily to managed languages, C utilizes the hardware to its maximum by multi-processing and multi-threading APIs provided by POSIX. It also controls the memory management and uses less memory (which allows more freedom on memory management compared to the use of garbage collector).   
 
-However, using managed languages has drawbacks. It includes slower startup speed (the managed code must be JIT compiled by the VM), the managed code can be slower than native code, and generally increased use of system resources on any machine that is executing the code.
-
-In contrast, devices in turn, may impose the support of specific programming languages (relation 2 in Figure 2.3). 
-For example, C language is the most widely used programming language in the context of embedded systems\footnote{\url{http://www.eetimes.com/author.asp?doc_id=1323907}} where the system is really resource-constrained. C utilizes the hardware to its maximum by multi-processing and multi-threading APIs provided by POSIX. It also controls the memory management and uses less memory (which allows more freedom on memory management compared to the use of garbage collector, for example).
-
-In mobile development for example, Java is needed to implement Android applications and Objective-C is needed to develop iOS products. This means that developers need to create multiple clients in this heterogeneous environment. 
+%In contrast, devices in turn, may impose the support of specific programming languages (relation 2 in Figure \ref{fig:marriage}). 
+%In mobile development for example, Java is needed to implement Android applications and Objective-C is needed to develop iOS products. This means that developers need to create multiple clients in this heterogeneous environment. 
 %We can see also that C/C++ are the most used languages for targeting embedded systems.
 
 %Well, it's like this. Every language is created with a single target platform in mind ( except haXe of course, it can target multiple platforms). For example, Java is compiled into Java bytecode which is executed in the Java Platform ( Java Runtime Library). C/C++ is used to built  applications executed by the OS. So, the target platform of C/C++ is a specific OS. C# is built for the Microsoft .NET framework. Javascript is built for the web platform.
@@ -190,7 +196,7 @@ In mobile development for example, Java is needed to implement Android applicati
 
 %For example, although Android provides Java syntax, it uses its own Google libraries and creates byte code that will not run on the standard JVM (Java Virtual Machine). This means that consumers are carrying devices that support different programming languages and developers will usually need to create multiple clients in this heterogeneous environment.
 
-
+In short, hardware heterogeneity raises many challenges for the software community that need to deal with highly configurable code generators (i.e. Compilers) to truly take advantage of the new chip with more advanced optimizations for the new hardware chip.
 
 \section{From classical software development to generative programming}
 \label{sec:FROM} 
@@ -237,6 +243,62 @@ Some commonly benefits of such software engineering process are:
 \end{itemize}
 
 
+%In the following section, we present a general overview of the complete software development tool chain and the main actors that are involved from design time to runtime.
+
+
+\subsection{Overview of the generative programming development process}
+The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and stakeholders involved to transform high-level system specifications into executable programs and that from design time to runtime.
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
+	\caption{Overview of the software development chain}
+	\label{fig:background_overview2}
+\end{figure}
+%\subsection{Automatic code generation}
+Figure \ref{fig:background_overview2} reviews the different steps of this software development chain. We distinguish four main tasks necessary for ensuring an automatic code generation: 
+
+
+
+\begin{enumerate}
+	\item \textbf{\textit{Software design:}} 
+	As part of the generative programming process, the first step consists on representing the system behavior. 
+	%Software design/behavior is the input program for the code generators. 
+	On the input side we can either use code as the input or an abstract form that represents the design. It depends on the type of the code generator and on the input source program it requires. These programs can range from a formal specification of the system behavior to abstract models that represents the business logic.
+	For example, software designers can define, at design time, software’s behavior using for example Domain-Specific Models (DSMs).
+	A DSM, as an example, is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). %Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain. Furthermore, software design can be provided as GUIs, GPLs, Models, etc.
+	
+	\item \textbf{\textit{Code generation:}} 
+	Code generation is the technique of building code using programs. The common feature of the generator is to produce code that the software developer would otherwise write by hand.
+	%There is no one style of code generation. 
+	Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. %Generators can work on the command line or using a GUI. 
+	Code generation can build code for one or more target language, once or multiple times. There are different varieties of code generation aspects and it highly depends on the type of the input programs described in the previous step. 
+	%Code generation techniques depends generally on these inputs.  
+	For example, code generator developers use model-driven engineering techniques in order to automatically generate code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. Thus, the code generation process start by taking the previously defined specification to translate a model to an implementation in a target language. We will see in the next section the different types of code generators.
+	
+	
+	%In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
+	
+	\item \textbf{\textit{Software development:}}
+	Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system specification described in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. In some cases, generated code can even be edited by the end software developers. This task depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. However, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
+	
+	\item \textbf{\textit{Compilation:}}
+	Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable one. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. 
+	As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code needs to run on different machines/devices, the software developer needs to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
+	
+\end{enumerate} 
+
+
+\subsection{Automatic code generation in GP: a highly configurable process}
+Among the main advantages that GP is offering, is the automatic code generation, highlighted with red box in Figure \ref{fig:background_overview2}. The automatic code generation involves two principal aspects: 
+\begin{enumerate}
+	\item the use of code generators to cope with the software diversity and produce code for a range of software languages and platforms. GP provides an abstraction layer that hide the technical and implantation details. Instead, it relies on code generators to automate the code transformation process and to target different range of software platforms.
+	\item the use of compilers to cope with the hardware heterogeneity, as discussed in Section \ref{Mapping software to hardware}. Compilers are needed to automatically transform the generated or manually written code to machine code that will be running on the target hardware.
+\end{enumerate}
+
+Both, compilers and code generators, are highly configurable. Compilers, in the one hand, becomes very user-friendly, letting the user to easily introduce optimizations and customize the machine code for the target hardware machine. On the other hand, code generators are less configurable than compilers but offer the possibility to customize the generated code for the target software platform (e.g., select the target programming language, platform settings, general-purpose optimizations, etc.)
+
+Meanwhile, compilers are more used than code generators because they are widely used and properly tested compared to code generators. However, code generators are not always well tested and less used because users lack of confidence on their correct functioning. As a consequence, they need to be properly tested.
+
 An example of generative programming application is the use of Software Product Lines (SPL).
 SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
 Schaefer et al.\cite{schaefer2012software} surveys software diversity by means of SPLs. This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. 
@@ -259,52 +321,8 @@ Whatever configuration selected by the user, the application behavior will not c
 \textbf{Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by whether code generators or compilers) on the resource usage requirements. 
 }
 
-In the following section, we present a general overview of the complete software development tool chain and the main actors that are involved from design time to runtime.
 
-
-\section{An overview of the software development tool chain}
-The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and stakeholders involved to transform high-level system specifications into executable programs and that from design time to runtime.
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.65]{Background/fig/background_overview2.pdf}
-	\caption{Overview of the software development chain}
-	\label{fig:background_overview2}
-\end{figure}
-\subsection{Automatic code generation}
-Figure \ref{fig:background_overview2} reviews the different steps of this software development chain. We distinguish four main tasks necessary for ensuring an automatic code generation: 
-
- 
-
-\begin{enumerate}
-\item \textbf{\textit{Software design:}} 
-As part of the generative programming process, the first step consists on representing the system behavior. 
-%Software design/behavior is the input program for the code generators. 
-On the input side we can either use code as the input or an abstract form that represents the design. It depends on the type of the code generator and on the input source program it requires. These programs can range from a formal specification of the system behavior to abstract models that represents the business logic.
-For example, software designers can define, at design time, software’s behavior using for example Domain-Specific Models (DSMs).
-A DSM, as an example, is a system of abstractions that describes selected aspects of a sphere of knowledge and real-world concepts pertinent to the domain that need to be modeled in software. These models are specified using a high-level abstract languages (DSLs). %Domain-specific languages (DSLs) improve programmer productivity by providing high-level abstractions for the development of applications in a particular domain. Furthermore, software design can be provided as GUIs, GPLs, Models, etc.
-
-\item \textbf{\textit{Code generation:}} 
-Code generation is the technique of building code using programs. The common feature of the generator is to produce code that the software developer would otherwise write by hand.
-%There is no one style of code generation. 
-Generators are generally seen as a black box which requires as input a program and generate as output a source code for a specific target software platform/language. %Generators can work on the command line or using a GUI. 
-Code generation can build code for one or more target language, once or multiple times. There are different varieties of code generation aspects and it highly depends on the type of the input programs described in the previous step. 
-%Code generation techniques depends generally on these inputs.  
-For example, code generator developers use model-driven engineering techniques in order to automatically generate code. Thus, instead of focusing their efforts on constructing code, they build models and, in particular, create model transformations that transform these models into new models or code. Thus, the code generation process start by taking the previously defined specification to translate a model to an implementation in a target language. We will see in the next section the different types of code generators.
-
-
-%In general, there are two main categories of Automatic code generation: passive or active.  Passive code generators build the code once, then have nothing more to do with the code.  It is up to the discretion of the user as to how to update and maintain the code.  Active code generators, on the other hand, keep track of the code during its lifecycle.  Active code generators are run on code multiple times during the lifecycle.  With Active Code generators, there is code you can modify, and code that should only be modified by the code generator.  Code generators can be further classified into code mungers, inline code expanders, mixed code generators, partial class generators, tier generators and domain languages\cite{fertalj2008source}. 
-
-\item \textbf{\textit{Software development:}}
-Software development may be divided into two main parts. On the one hand, software developers may follow the two previous steps in order to generate automatically code for a specific target software platform. In this case, they use to edit the system specification described in the first step (at a high level) and use to re-generate code each time needed by calling a specific generator. In some cases, generated code can even be edited by the end software developers. This task depends on the complexity of the generated code and it sometimes need software experts that can easily update and maintain the code. However, they may manually implement source code from scratch without using any abstractions or code generation aspects. In this case, they just need to compile and execute the hand-written code in order to test it.
-
-\item \textbf{\textit{Compilation:}}
-Once code is generated or implemented, a classical compiler is used to translate the generated code into an executable one. This translation depends on the target hardware platforms and it is up to the software developer to select the adequate compiler to use. Compilers are needed to target heterogeneous and diverse kinds of hardware architectures and devices. 
-As an example, cross compilers may be used to create executable code for a platform other than the one on which the compiler is running. In case the generated code needs to run on different machines/devices, the software developer needs to use different compilers for each target software platform and deploy the generated executables within different machines which is a tedious and complicated task.
-
-\end{enumerate} 
-
-
-\subsection{Stakeholders and their roles for testing generators}
+\subsection{Stakeholders and their roles for testing highly configurable code generators}
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.45]{Background/fig/usecase}
@@ -330,6 +348,13 @@ On the other hand, we would help compiler users to auto-tune compilers through t
 %	\includegraphics[scale=0.65]{Background/fig/background_overview.pdf}
 %	\caption{Overview of the Docker-based testing architecture}
 %\end{figure}
+
+
+
+
+
+
+
 \section{Testing code generators}
 In this thesis, we focus on testing the automatic code generation process (highlighted in red in the left side of Figure \ref{fig:usecase}). To do so, we introduce in this section some basis about code generators. We give an overview of the different types of code generators and we discuss their complexity which constitute a major obstacle for testing.
 \subsection{Testing workflow}
