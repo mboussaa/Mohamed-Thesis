@@ -1,6 +1,6 @@
  
 In this chapter, the context of this thesis and the general problems it faces are introduced. The objective of this chapter is to give a brief introduction to  different domains and concepts in which our work takes place and used throughout this document.
-This includes software and hardware diversity, an overview of the generative programming development process, and the main concepts for testing configurable code generators.
+This includes an overview of the generative programming development process, the main concepts for tuning and testing configurable code generators, and the main challenges they raise.
 
  %It aims at providing a better understanding of the background and context in which our work takes place, as well as the terminology and concepts presented in the next chapters.
 
@@ -142,13 +142,9 @@ Matching software to hardware is ensured by the efficient translation of the hig
 
 \paragraph{Configuring existing compilers}~\\ 
 Well, gone are the days where we used to write the assembly code by hand and from scratch. Now, it is up to the compilers to handle this heterogeneity and to efficiently generate and optimize the code for a particular microprocessor. 
-Let's take GCC example. GCC is able to generate code automatically for approximately \textbf{more than 40 different processor architectures}. Hence, GCC becomes highly configurable, allowing the compiler user to enable multiple flags to customize the code generation.
 
-For instance, one important option for compiler flags is \textit{-march}. It tells the compiler what code it should produce for the system's processor architecture (or arch); it tells GCC that it should produce code for a certain kind of CPU. Using \textit{-march=native} enables all the optimization flags that are applicable for the native system's CPU, with all its capabilities, features, instruction sets, and so on. There exits many other optimization options for the target CPU like \textit{--with-arch=i7}, \textit{--with-cpu=corei7}, etc.
-Generally, each time a new family of processors is released, compiler developers release new compiler version with more sophisticated optimization options for the target platform. For example, old compilers produce only 32-bit programs. These programs still run on new 64-bit computers, but they may not exploit all processor capabilities (e.g. they will not use the new instructions that are offered by x64 CPU architecture). For instance, the current x86-64 assembly language can still perform arithmetic operations on 32-bit registers using instructions like addl, subl, andl, orl, etc, with the l standing for "long", which is 4 bytes/32 bits. 64-bit arthimetic is done with addq, subq, andq, orq, etc, with q standing for "quadword", which is 8 bytes/64 bits.
-
-Another example is that compilers need to support parallelism. In fact, we can see that modern computers today can do many things at once and modern CPUs becomes highly parallel processors with different levels of parallelism. We find parallelism everywhere from the parallel execution units in a CPU core, up to the SIMD (Single Instruction, Multiple Data) instruction set and the parallel execution of multiple threads.  One of the commonly applied optimizations by modern compilers in parallel computing is vectorization. It constitutes the process of converting an algorithm from a scalar implementation, which processes a single pair of operands at a time, to a vector implementation, which processes one operation on multiple pairs of operands at once (series of adjacent values).
-Programmers can exploit vectorization using compilers to speedup certain parts of their code. One major research topic in computer science is the search for methods of automatic vectorization: seeking methods that would allow a compiler to convert scalar algorithms into vectorized algorithms without human intervention.
+As shown in Figure \ref{fig:compilers}, a compiler is typically divided into two parts, a front end and a back end. The compiler front-end verifies syntax and semantics and analyzes the source code to build an internal representation of the program, called the intermediate representation or IR. For example, the GNU Compiler Collection (GCC) and LLVM support many front ends with programming languages such as C, C++, Objective-C, Objective-C++, Fortran, Java, Ada, and Go among others. The compiler back-end generates the target-dependent assembly code and performs optimizations of the target code utilization of the hardware. Typically, the output of a back end is machine code specialized for a particular processor and operating system (e.g., ARM, Sparc processors, etc).
+As consequence, people who are writing compilers have to continuously enhance the way these executables are produced by releasing new compiler versions to support new hardware changes (i.e., introducing new optimization flags, instruction sets). 
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/compilers}
@@ -156,8 +152,12 @@ Programmers can exploit vectorization using compilers to speedup certain parts o
 	\label{fig:compilers}
 \end{figure}
 
-As shown in Figure \ref{fig:compilers}, a compiler is typically divided into two parts, a front end and a back end. The compiler front-end verifies syntax and semantics and analyzes the source code to build an internal representation of the program, called the intermediate representation or IR. For example, the GNU Compiler Collection (GCC) and LLVM support many front ends with programming languages such as C, C++, Objective-C, Objective-C++, Fortran, Java, Ada, and Go among others. The compiler back-end generates the target-dependent assembly code and performs optimizations of the target code utilization of the hardware. Typically, the output of a back end is machine code specialized for a particular processor and operating system (e.g., ARM, Sparc processors, etc).
-As consequence, people who are writing compilers have to continuously enhance the way these executables are produced by releasing new compiler versions to support new hardware changes (i.e., introducing new optimization flags, instruction sets). 
+Let's take GCC example. GCC is able to generate code automatically for approximately \textbf{more than 40 different processor architectures}. Hence, GCC becomes highly configurable, allowing the compiler user to enable multiple flags to customize the code generation. For instance, one important option for compiler flags is \textit{-march}. It tells the compiler what code it should produce for the system's processor architecture (or arch); it tells GCC that it should produce code for a certain kind of CPU. Using \textit{-march=native} enables all the optimization flags that are applicable for the native system's CPU, with all its capabilities, features, instruction sets, and so on. There exits many other optimization options for the target CPU like \textit{--with-arch=i7}, \textit{--with-cpu=corei7}, etc.
+Generally, each time a new family of processors is released, compiler developers release new compiler version with more sophisticated optimization options for the target platform. For example, old compilers produce only 32-bit programs. These programs still run on new 64-bit computers, but they may not exploit all processor capabilities (e.g. they will not use the new instructions that are offered by x64 CPU architecture). For instance, the current x86-64 assembly language can still perform arithmetic operations on 32-bit registers using instructions like addl, subl, andl, orl, etc, with the l standing for "long", which is 4 bytes/32 bits. 64-bit arthimetic is done with addq, subq, andq, orq, etc, with q standing for "quadword", which is 8 bytes/64 bits.
+
+Another example is that compilers need to support parallelism. In fact, we can see that modern computers today can do many things at once and modern CPUs becomes highly parallel processors with different levels of parallelism. We find parallelism everywhere from the parallel execution units in a CPU core, up to the SIMD (Single Instruction, Multiple Data) instruction set and the parallel execution of multiple threads.  One of the commonly applied optimizations by modern compilers in parallel computing is vectorization. It constitutes the process of converting an algorithm from a scalar implementation, which processes a single pair of operands at a time, to a vector implementation, which processes one operation on multiple pairs of operands at once (series of adjacent values).
+Programmers can exploit vectorization using compilers to speedup certain parts of their code. One major research topic in computer science is the search for methods of automatic vectorization: seeking methods that would allow a compiler to convert scalar algorithms into vectorized algorithms without human intervention.
+
 
 Therefore, to cope with the heterogeneous hardware platforms, software developers use these highly configurable compilers (for compiled languages such as C or C++) in order to efficiently compile their high-level source code programs and execute them on top of a board range of platforms and processors. 
 
@@ -324,14 +324,13 @@ The generated web application can be quite different from one user to another. I
 For example, Figure \ref{fig:jhipster} shows a feature model of some configuration examples that the user would select. When building the applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
 Using this feature model, \textbf{more than 10k diverse architecture types} of project can be selected which means that 10k program variants may be generated depending on the different criteria.
 Whatever configuration selected by the user, the application behavior will not change and the generated application will share a similar architecture and fundamental code-base.
+Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by whether code generators or compilers) on the resource usage requirements.
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.65]{Background/fig/jhipster}
 	\caption{Example of JHipster feature model}
 	\label{fig:jhipster}
 \end{figure}
-\textbf{Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by whether code generators or compilers) on the resource usage requirements. 
-}
 
 Well, we can see that both generators are highly configurable. However, in practice, code generators are less used in industry compared to compilers. First, because compilers are required for machine code production and optimization. Then, they are rigorously tested (by compiler suppliers) and the users of popular compilers such as GCC or LLVM have enough experience and confidence on the correct translation of the code. 
 Code generators on the other side, are less used because users do not have enough experience with the code generator and need to gain confidence on their correct functioning by rigorously testing them. The user of code generator gain confidence in the tool only if he run his own tests.
@@ -361,18 +360,11 @@ On the one hand, we would help code generator users to automatically generate co
 
 On the other hand, we would help compiler users to auto-tune compilers through the use of optimizations provided by compiler experts. Similarly, this concerns both actors and it consists in evaluating the impact of these configurations on the performance and resource usage properties and finding the best set of optimizations for a specific program and compiler.
 
-
 %\begin{figure}[h]
 %\center
 %	\includegraphics[scale=0.65]{Background/fig/background_overview.pdf}
 %	\caption{Overview of the Docker-based testing architecture}
 %\end{figure}
-
-
-
-
-
-
 
 \section{Testing code generators}
 In this thesis, we focus on testing the automatic code generation process (highlighted in red in the left side of Figure \ref{fig:usecase}). To do so, we introduce in this section some basis about code generators. We give an overview of the different types of code generators and we discuss their complexity which constitute a major obstacle for testing.
