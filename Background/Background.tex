@@ -137,7 +137,7 @@ Meanwhile, hardware specialization for every single application is not a sustain
 
 %\paragraph{So how can we match software diversity to heterogeneous hardware?}~\\ 
 \subsubsection{Mapping software to hardware}
-\section{Mapping software to hardware}
+\label{Mapping software to hardware}
 Matching software to hardware is ensured by the efficient translation of the high-level software programs into a machine code that better exploit the hardware changes (relation 1 in Figure \ref{fig:marriage}). This is exactly what a compiler is intended to do.
 
 \paragraph{Configuring existing compilers}~\\ 
@@ -242,11 +242,14 @@ Some commonly benefits of such software engineering process are:
 \item It handles the heterogeneity of target software platforms by automatically generating code
 \end{itemize}
 
+An example of generative programming application is the use of Software Product Lines (SPL).
+SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
+Schaefer et al.\cite{schaefer2012software} surveys software diversity by means of SPLs. This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. 
 
 %In the following section, we present a general overview of the complete software development tool chain and the main actors that are involved from design time to runtime.
 
 
-\subsection{Overview of the generative programming development process}
+\subsection{Overview of the GP development process}
 The process of generative software development involves many different technologies. In this section, we describe in more details the different activities and stakeholders involved to transform high-level system specifications into executable programs and that from design time to runtime.
 \begin{figure}[h]
 	\center
@@ -289,25 +292,37 @@ Figure \ref{fig:background_overview2} reviews the different steps of this softwa
 
 
 \subsection{Automatic code generation in GP: a highly configurable process}
-Among the main advantages that GP is offering, is the automatic code generation, highlighted with red box in Figure \ref{fig:background_overview2}. The automatic code generation involves two principal aspects: 
+Among the main advantages that GP offers, is the automatic code generation, highlighted with red box in Figure \ref{fig:background_overview2}. Automatic code generation emerges in two principal aspects: 
 \begin{enumerate}
-	\item the use of code generators to cope with the software diversity and produce code for a range of software languages and platforms. GP provides an abstraction layer that hide the technical and implantation details. Instead, it relies on code generators to automate the code transformation process and to target different range of software platforms.
-	\item the use of compilers to cope with the hardware heterogeneity, as discussed in Section \ref{Mapping software to hardware}. Compilers are needed to automatically transform the generated or manually written code to machine code that will be running on the target hardware.
+	\item The use of code generators to cope with the software diversity and produce code for a range of software languages and platforms. GP provides an abstraction layer that hide the technical and implementation details. Instead, it relies on code generators to automate the code transformation process and to target different range of software platforms.
+	\item The use of compilers to cope with the hardware heterogeneity, as discussed in Section \ref{Mapping software to hardware}. Compilers are needed to automatically transform the generated or manually written code to machine code that will be running on the target hardware.
 \end{enumerate}
 
-Both, compilers and code generators, are highly configurable. Compilers, in the one hand, becomes very user-friendly, letting the user to easily introduce optimizations and customize the machine code for the target hardware machine. On the other hand, code generators are less configurable than compilers but offer the possibility to customize the generated code for the target software platform (e.g., select the target programming language, platform settings, general-purpose optimizations, etc.)
+Both, compilers and code generators, are responsible for the automatic code generation in GP. 
+In fact, we realize that this process is highly configurable. 
 
-Meanwhile, compilers are more used than code generators because they are widely used and properly tested compared to code generators. However, code generators are not always well tested and less used because users lack of confidence on their correct functioning. As a consequence, they need to be properly tested.
+Compilers, in the one hand, become very user-friendly, letting the user to easily introduce optimizations and customize the machine code to fit with target hardware settings.
+As an example, Table \ref{iccgccllvm} depicts the number of optimizations available in three popular compilers. The user can configure the compiler by selecting one of the $2^{n}$ possible optimizations sequences, where $n$ is the number of optimizations available in the compiler. We can see that the configuration space is very large. 
 
-An example of generative programming application is the use of Software Product Lines (SPL).
-SPL-based software diversity is often coupled to generative programming techniques\cite{Czarnecki:2000:GPM:345203} that enable the automatic production of source code from variability models. This technique implies the use of automatic code generators to generate code that satisfies user requirements (SPL models).
-Schaefer et al.\cite{schaefer2012software} surveys software diversity by means of SPLs. This technique enables one to manage a set of related features to build diverse products in a specific domain. Thus, this solution is able to control software diversity by handling the diversity of requirements such as user requirements or environmental constraints or changes. 
+\begin{table}[h]
+	\centering
+	\caption{Number of optimizations in LLVM, GCC, and ICC}
+	\label{my-label}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Compiler} & \textbf{\#Optimizations} & \textbf{\#Combinations} \\ \hline
+		\textbf{LLVM}     & 100    & $2^{100}$                                 \\ \hline
+		\textbf{GCC}      & 250    & $2^{250}$                                 \\ \hline
+		\textbf{ICC}      & 75     & $2^{75}$                                 \\ \hline
+	\end{tabular}
+	\label{iccgccllvm}
+\end{table}
 
-JHipster\footnote{https://jhipster.github.io/} is also another concrete example of generative programming application in industry. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
+On the other hand, code generators offer the possibility to customize the generated code for the target software platform. Code generators are less configurable than compilers because they do not interact with the hardware and they provide only general passes necessary for building the software artifact (e.g., select the target programming language, platform settings, libraries, etc.).
+As an example, JHipster\footnote{https://jhipster.github.io/} is a concrete example of generative programming application in industry. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
 The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
 For example, Figure \ref{fig:jhipster} shows a feature model of some configuration examples that the user would select. When building the applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
 Using this feature model, \textbf{more than 10k diverse architecture types} of project can be selected which means that 10k program variants may be generated depending on the different criteria.
-
 Whatever configuration selected by the user, the application behavior will not change and the generated application will share a similar architecture and fundamental code-base.
 \begin{figure}[h]
 	\center
@@ -315,14 +330,18 @@ Whatever configuration selected by the user, the application behavior will not c
 	\caption{Example of JHipster feature model}
 	\label{fig:jhipster}
 \end{figure}
-
-
-
 \textbf{Among the main contributions of this thesis is to evaluate the impact of applied configurations during code transformation/optimization (by whether code generators or compilers) on the resource usage requirements. 
 }
 
+Well, we can see that both generators are highly configurable. However, in practice, code generators are less used in industry compared to compilers. First, because compilers are required for machine code production and optimization. Then, they are rigorously tested (by compiler suppliers) and the users of popular compilers such as GCC or LLVM have enough experience and confidence on the correct translation of the code. 
+Code generators on the other side, are less used because users do not have enough experience with the code generator and need to gain confidence on their correct functioning by rigorously testing them. The user of code generator gain confidence in the tool only if he run his own tests.
 
-\subsection{Stakeholders and their roles for testing highly configurable code generators}
+In summary, compilers are highly configurable and widely used. Thus, they must be efficiently tuned in order to produce high quality machine code. Code generators are essential actors in GP and they need to be rigorously tested in order to make the users trusting them and continue using them for production code generation.
+
+We describe in the next section the main stakeholders involved in the automatic code generation process of GP and their roles for validating this process.
+
+
+\subsection{Stakeholders and their roles for testing and tuning generators}
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.45]{Background/fig/usecase}
@@ -332,7 +351,7 @@ Whatever configuration selected by the user, the application behavior will not c
 Software development involves several stakeholders that play different roles for validating and testing the software development chain described previously.
 Figure \ref{fig:usecase} depicts a use case diagram that describes these different concerns, actors and roles for testing generators.
 
-Basically, we distinguish two stakeholders for code generators and compilers testing: generator user and creator/maintainer. As shown in the bottom of Figure 2.7, creators/maintainers of generators are responsible of the correct functioning of generators. They use their expertise and knowledge associated to the software and hardware technologies, resulting in efficient code generation. They contribute to the software development community by creating and providing new optimizations and compiler versions updates. For code generators, they may use their knowledge to build new platform-specific code generators or enhance existing ones. 
+Basically, we distinguish two stakeholders for code generators and compilers testing: generator user and creator/maintainer. As shown in the bottom of Figure \ref{fig:usecase}, creators/maintainers of generators are responsible of the correct functioning of generators. They use their expertise and knowledge associated to the software and hardware technologies, resulting in efficient code generation. They contribute to the software development community by creating and providing new optimizations and compiler versions updates. For code generators, they may use their knowledge to build new platform-specific code generators or enhance existing ones. 
 
 However, users represent the group of software developers that have no knowledge/expertise about the way code is generated. Thus, they are unable to edit or maintain the internal behavior of generators (e.g., the case of commercial and off-the-shell code generators). In this case, generators are used as a black box by engineers during software development to ease code production. Therefore, developers may configure compilers by providing the set of configuration options to efficiently produce code for the target hardware platform (e.g., optimizations options) or maintain/edit the generated code in case of automatic source code generation.
 
