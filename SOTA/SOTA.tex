@@ -3,7 +3,7 @@ In this chapter, we present the state of the art of this thesis. We discuss prev
 
 We first discuss existing techniques related to code generator testing. We start by studying the state of the art approaches related to the functional testing of code generators. In a second stage, since there are few research efforts that investigate the automatic non-functional testing of code generators, we rather focus on studying the oracle problem and the different methods applied to the oracle definition. We end this section by providing a summary table of these approaches.
 
-Afterwards, we move to present a brief introduction to the iterative compilation research filed and we identify several problems that have been investigated in this field. We discuss as well, several techniques that are applied to automate the process of tuning compilers. To sum up, we provide a summary table showing the most important research in iterative compilation.
+Afterwards, we move to present a brief introduction to the iterative compilation research filed and we identify several problems that have been investigated in this field. We discuss as well, several techniques that are applied to automate the process of tuning compilers. To sum up, we provide a summary table, showing the most important research works in iterative compilation.
 
 Finally, we discuss in the last section the system-level virtualization technology as means of automatic software deployment, monitoring, and testing. We compare then, the container's virtualization solution to the classical approaches based on virtual machines. We provide as well, examples of existing solutions in research and industry that opted for this technology to automate software testing and monitoring.
 
@@ -15,7 +15,7 @@ In Section \ref{sec:Compilers auto-tuning techniques}, we provide a survey of th
 
 Then, in Section \ref{sec:Lightweight system virtualization for software testing}, we discuss the use of the virtualization technology as a runtime execution environment. In particular, we present several research efforts that used this solution in order to facilitate software testing and monitoring. 
 
-Finally, Section \ref{sec:suumary SOTA} discusses the limitations of the state of the art.
+Finally, Section \ref{sec:suumary SOTA} provides a summary of the state of the art and we discuss the challenges we are addressing in this thesis.
 
 \section{Testing code generators}
 \label{sec:Testing code generators}
@@ -27,7 +27,7 @@ The key objective of this section is to present the existing research efforts th
 \begin{itemize}
 	\item \textbf{The problem of automatic code generators testing:}  We provide an overview of the approaches that aimed to automatically test code generators in terms of functional properties.
 	
-	\item \textbf{The problem of non-functional testing of code generators, an oracle problem:} Automating the code generators testing process poses different challenges, especially, for the test oracle definition. We provide thus an overview of the commonly known test oracle definition approaches in software testing. 
+	\item \textbf{The problem of non-functional testing of code generators, an oracle problem:} Automatic code generators testing poses different challenges, especially, for the test oracle definition. We provide thus an overview of the commonly known test oracle definition approaches in software testing. 
 \end{itemize}
 
 \subsection{Functional testing of code generators}
@@ -40,7 +40,7 @@ In the case of automatic code generation against \textbf{executable models}, var
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=0.6]{SOTA/fig/testing_process}
-	\caption{Process for testing automatically generated code}
+	\caption{Automatic functional testing of code generators}
 	\label{fig:Process for testing automatically generated code}
 \end{figure}
 
@@ -69,18 +69,12 @@ The great advantage of this approach is that the test oracle is simple to define
 \end{itemize}
 
 In this context, Conrad et al.\cite{conrad2010code} applied the approach described above by presenting an automated testing-based approach to assess the equivalence between Simulink models and the generated code. This approach is called Code Generation Verification (CGV).
-
 CGV represents an automated testing-based approach to assess the numerical equivalence between the model used (i.e., Simulink models) and the generated code (i.e., the executables derived from the generated C Code). 
-
 In fact, each individual model-to-code translation is followed by a verification phase to assess that the input Simulink model used for code generation and the output (i.e., the object code derived from the model via code generation and compilation) produce the same numerical results when stimulated with identical inputs. 
-
 In their equivalence testing approach, they use to run the model used for code generation using simulation and the generated code with the same input stimuli (test vectors) followed by a numerical comparison of the outputs (result vectors).
-
 Then, they check whether or not the semantics of the model have been preserved during code generation, compilation and linking, by comparing the result vectors, which are the outputs resulting from stimulation with identical test vectors of the model and the generated code.
-
 More precisely, the simulation results should be similar to the execution results. However, when defining the result vector comparison, they tolerate limited differences between both results. They argue that some factors between simulation and execution may cause a small difference between both executions such as limited precision of floating point numbers, target optimized code constructs, quantization effects when using fixed point math and compiler dependent behavior. 
 Thus, they define an application-dependent threshold. So, two result vectors are considered sufficiently similar when their difference is less than or equal to the threshold value.
-
 They illustrate the CGV-based translation validation in the context of embedded automative software by using Simulink and Real-Time Workshop Embedded Coder for verification. They assess their approach by verifying the numerical equivalence between Simulink models and C generated code. They calculate the absolute difference between simulation results and execution results. Then, compare this difference to the defined tolerance threshold. They show that for some input test suites there exist mismatched signals (with high variation value) which represent an inconsistency between designed models and executed signal.
 
 The automatic code generation tool could be also certified to a recognized standard. Compliance of the model with a particular safety standard such as IEC 61508-3 in \cite{conrad2009testing}, help to demonstrate that the model is well-formed according to the certification and that it meets all requirements for later code generation. The process of code generator evaluation (described above) is used to show that the generated code is equivalent to the model (that respect the IEC 61508-3 safety standard)
@@ -103,7 +97,7 @@ AUTOFILTER program generators. They used it to prove that code generated by the 
 Inspired by the work of Sturmer et al.\cite{sturmer2005overview}, we provide a summary of the existing techniques that are applied to test the automatic code generation, some of them are described above: 
 	\begin{table}[H]
 		\centering
-		\caption{Summary of some testing techniques of automatically generated code}
+		\caption{Summary of several approaches applied for testing code generators\cite{sturmer2005overview}}
 		\noindent\resizebox{\linewidth}{!}{%
 		\begin{tabular}{| p{0.12\textwidth} | p{0.25\textwidth} |p{0.6\textwidth} |}\hline
 			Level & Testing technique & Objectives \\	\hhline{|=|=|=|}	
@@ -127,16 +121,16 @@ Inspired by the work of Sturmer et al.\cite{sturmer2005overview}, we provide a s
 			\cline{2-3}
 			& Formal proof & --Show by means of mathematical proofs that each code generation (rule) preserves the model’s semantics \\
 			\cline{2-3}
-			& Adoption of Standards and Guidelines & --Ensure that the code generator has been developed following a systematic
+			& Adoption of standards and guidelines & --Ensure that the code generator has been developed following a systematic
 			development process / quality management system \\ \hline
 			Generated code 
-			& Functional SiL Testing & --Detect translation errors \\
+			& Functional SiL testing & --Detect translation errors \\
 			\cline{2-3}
-			& Functional PiL Testing & --Check validity of the code behavior taking into account the target CPU architecture \\
+			& Functional PiL testing & --Check validity of the code behavior taking into account the target CPU architecture \\
 			\cline{2-3}
-			& Functional HiL Testing & --Check behavior of the code when it is deployed in the target harware device \\
+			& Functional HiL testing & --Check behavior of the code when it is deployed in the target harware device \\
 			\cline{2-3}
-			& Structural MiL/HiL/PiL Testing & --Determine test cases on the basis of the code structure and explore possible execution pathways \\
+			& Structural MiL/HiL/PiL testing & --Determine test cases on the basis of the code structure and explore possible execution pathways \\
 			\cline{2-3}
 			& Static analysis & --Check that code conforms to coding guidelines/standards\\
 			&& --Detect optimization opportunities such as dead code detection, etc \\
@@ -150,9 +144,9 @@ Inspired by the work of Sturmer et al.\cite{sturmer2005overview}, we provide a s
 
 \subsection{Non-functional testing of code generators}
 \label{sec:Non-functional testing of code generators}
-Previous work on non-functional testing of code generators focuses on comparing, as oracle, the non-functional properties of hand-written code to automatically generated code~\cite{stepasyuk2015evaluating,richard2013efficient}. As an example, Strekelj et al.~\cite{vstrekelj2015performance} implemented a simple 2D game in both the Haxe programming language (a high-level language) and the native environment and evaluated the difference in performance between the two versions of code. They showed that the generated code through Haxe has better performance than the hand-written one. 
+Previous work on non-functional testing of code generators focuses on comparing, as oracle, the non-functional properties of hand-written code to automatically generated code~\cite{stepasyuk2015evaluating,richard2013efficient}. As an example, Strekelj et al.~\cite{vstrekelj2015performance} implemented a simple 2D game in both, the Haxe programming language (a high-level language) and the target programming language, and evaluated the difference in performance between the two versions of code. They showed that the generated code through Haxe has better performance than the hand-written one. 
 
-In \cite{ajwad2007evaluation}, authors compare some non-functional properties of two code generators, the TargetLink code generator and the Real-Time Workshop Embedded Coder. They also compare theses properties to manually written code. The code run on a C166 microprocessor as a target which is en embedded system.
+In \cite{ajwad2007evaluation}, authors compare some non-functional properties of two code generators, the TargetLink code generator and the Real-Time Workshop Embedded Coder. They also compare theses properties to manually written code. The code run on a C166 microprocessor as a target which is an embedded system.
 The metrics used for comparison are ROM and RAM memory usage, execution speed, readability, and traceability. Many test cases are executed on the target to see if the controller behaves as expected.
 The comparison results show that TargetLink is more efficient than the other code generator and the manually-written code in terms of ROM and execution time. They also show that the generated code can be easily traced and edited.
 
@@ -172,13 +166,8 @@ One of the most important aspects we are interesting in, is the \textit{test ora
 Compared to many aspects of test automation, the problem of automating the test oracle is still challenging and less well solved. Only few techniques are available to generate test oracles. In most of the cases, designing and implementing test oracles are still manual and expensive activities. That is because the test oracles are not always available and may be hard to define or too difficult to apply\cite{barr2015oracle}. This is commonly known as the \textit{"oracle problem"}. 
 As pointed out in\cite{manolache2001software}, the oracle problem has been “one of the most difficult tasks in software testing” but it is often ignored by researchers in software testing.
 
-For example, let \textit{sine} be a function implementing a specification \textit{S}. Let \textit{D} represent the input domain which represents the input values for which we would calculate the \textit{sine}. Usually, the testing process should verify if the \textit{sine(x) = S(x)} $\forall$ \textit{x} $\in$ \textit{D}. The procedure through which the testing program can check whether \textit{sine(x) = S(x)} is called an oracle.
-Automatically generating  \textit{D} (test data) and executing test cases in this example is simple. It consists in generating random numerical values for example. However, it is impossible to do an exhaustive testing to automatically check the expected output.
-For instance, only the special input values  \textit{0}, $\pi/4$,  $\pi/2$, etc., could be the standard test cases since the output of  \textit{sine(x)} for these test data values is known and can be automatically checked against the specification. Nevertheless, special values cannot give us enough confidence in the correctness of the program on more complex or random inputs. 
-Other examples include, testing programs calculating numerical functions or solving complex equations, testing programs that calculate combinatorial problems, testing graphical user interfaces, etc.
-
 In this context, the automatic testing of code generators particularly implies the oracle problem. When testing compilers, for example, it is quite difficult to automatically verify the equivalence between the source code and object code. This task becomes even more complicated when some optimizations are applied to the machine code. 
-When testing code generators, the verification of the high-level system specification with the generated code is also challenging. Supposing that the \textit{sine} function is defined using a high level language. The generated \textit{sine} function should be evaluated with the same effort as the manual written code in order to verify whether the code generator has introduced bugs or not. 
+When testing code generators, the verification of the high-level system specification with the generated code is also challenging.  
 
 As we discussed in Section \ref{sec: Functional testing of code generators} about the functional testing of code generators, the test oracle is often defined as a back-to-back comparison between the output of the system specification and the generated code.
 When it comes to test the non-functional properties such as the resource usage or execution speed, this problem becomes more critical. There is no clear definition about how the oracle should be automatically defined except the few research efforts, discussed in Section \ref{sec:Non-functional testing of code generators}. 
@@ -214,8 +203,8 @@ In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test or
 	Kropp et al.\cite{kropp1998automated} presents an approach to test the robustness of the system under test using implicit oracles.
 	This approach relies on the creation and execution of invalid input robustness tests. Specifically, these tests are designed to detect crashes and hangs caused by invalid inputs to function calls. The results show that between 42\% and 63\% of components on the POSIX systems measured had robustness problems. 
 	
-	Other work has focused on developing patterns to detect anomalies. For instance, Ricca and Tonella\cite{ricca2006detecting} considered a subset of possible anomalies that can be found in Web applications such as navigation problems, hyperlink inconsistencies, etc. Their empirical assessment
-	showed that 60\% of the Web applications considered in their study exhibited anomalies and execution failures.
+	Other work has focused on developing patterns to detect anomalies. For instance, Ricca and Tonella\cite{ricca2006detecting} considered a subset of possible anomalies that can be found in web applications such as navigation problems, hyperlink inconsistencies, etc. Their empirical assessment
+	showed that 60\% of the web applications considered in their study exhibited anomalies and execution failures.
 	
 	
 	\item Derived oracles:
@@ -224,20 +213,20 @@ In a recent survey, Harman et al.\cite{harman2013comprehensive} classify test or
 	
 	For example, in regression testing, oracles can be derived from the executions of previous versions of the software under test. In this case, the derived oracles will verify if the new software version behaves as the original one\cite{mariani2007compatibility}. For example, EvoSuite and Randoop derive test oracles from previous versions of the system under test.
 	
-	Oracles can also be automatically derived from program invariants\cite{ernst2000quickly}. Invariants can help programmers by characterizing aspects of program execution and identifying program properties that must be preserved when modifying code. They report properties that were true over the observed executions of all programs such as \textit{"y = 2*x+3"}, \textit{"array a is sorted"}, etc. The Daikon invariant detector\footnote{https://plse.cs.washington.edu/daikon/} is an open source tool that apply machine learning technique to infer these invariant properties.
+	Oracles can also be automatically derived from program invariants\cite{ernst2000quickly}. Invariants can help programmers by characterizing aspects of program execution and identifying program properties that must be preserved when modifying code. They report properties that were true over the observed executions of all programs such as \textit{"y = 2*x+3"}, \textit{"array a is sorted"}, etc. The Daikon invariant detector\footnote{https://plse.cs.washington.edu/daikon/} is an open source tool that applies machine learning techniques to infer these invariant properties.
 	
-	Another type of derived oracles are pseudo-oracles (also known as differential testing, dual coding and N-version programming\cite{patrick2016testing}). 
+	Another type of derived oracles are pseudo-oracles (also known as differential testing, dual coding, and N-version programming\cite{patrick2016testing}). 
 	The concept of a pseudo-oracle is introduced by Davis and Weyuker\cite{davis1981pseudo}.
 	A pseudo-oracle is program that is capable of providing the expected outputs and check the correctness of the system by comparing the outputs of multiple independent implementations. 
 	It checks the consistency of the results of the different software versions of the systems, when the same functionality is executed. An inconsistency can be detected when one or more versions of the system trigger failures. 
 	For example, in compiler testing, different versions of the same program are generated by applying some optimizations. The functionality of the program under test remains the same for all versions. The oracle is this case can be defined as the comparison between the functional outputs between the different versions which should be the same\cite{yang2011finding}.
 	
 	Additionally, oracles can be derived from properties of the system under test. For instance, a metamorphic testing (MT) method has been proposed to alleviate the oracle problem\cite{chen2004case}. MT is an automated testing method that employs expected properties of the target functions to test programs without human implication. 
-	MT exploits the relation between the inputs and outputs of special test cases of the system under test to derive metamorphic relations defined as test oracles for new test cases. 
-	MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented.
+	MT exploits the relation between the inputs and outputs of special test cases of the system under test to derive metamorphic relations (MRs) defined as test oracles for new test cases. 
+	MT recommends that, given one or more test cases (called source or original test cases) and their expected outcomes, one or more follow-up test cases can be constructed to verify the necessary properties (i.e., metamorphic relations) of the system or function to be implemented.
 	For a given problem, usually more than one MR can be identified. It is therefore important to select effective MRs that are good at detecting program bugs.
 
-	MT is recently applied for testing compilers. Le et al.\cite{le2014compiler} present an approach called equivalence modulo inputs (EMI) testing. The idea of this approach is to pass different program versions (with same behavior) to the compiler in order to inspect the output similarity after code compilation and execution. So, given a deterministic program P and a set of input values I, the authors proposed to create equivalent versions of the program by profiling its execution and pruning un-executed code (by identifying the statements not covered by I and mutating or deleting a subset of the dead statements of P).
+	MT is recently applied for testing compilers. Le et al.\cite{le2014compiler} present an approach called equivalence modulo inputs (EMI) testing. The idea of this approach is to pass different program versions (with same behavior) to the compiler in order to inspect the output similarity after code compilation and execution. So, given a deterministic program P and a set of input values I, the authors propose to create equivalent versions of the program by profiling its execution and pruning un-executed code (by identifying the statements not covered by I and mutating or deleting a subset of the dead statements of P).
 	Once a program and its equivalent variant are constructed, both are used as input to the compiler under test and then, inconsistencies in their results are checked. Inconsistencies represent, in this case, deviations in the functional behavior.
 	This method has detected 147 confirmed bugs in two open source C compilers, GCC and LLVM.
 	EMI testing is an example of metamorphic testing. The program variants are in a metamorphic relationship with one another and with P, with respect to I.
@@ -263,7 +252,7 @@ We provide in Table \ref{tab:Summary of test oracle approaches} a summary of sev
 		\begin{tabular}{| p{0.2\textwidth} | p{0.3\textwidth} |p{0.45\textwidth} |}\hline
 			Oracle & Method & Objectives \\	\hhline{|=|=|=|}	
 			Specified oracles 
-			& --Assertions and Contracts\newline  --Specification-based languages\newline  --Algebraic specification languages  & 
+			& --Assertions and contracts\newline  --Specification-based languages\newline  --Algebraic specification languages  & 
 			--Use of notions of specifications as a source of oracle information \\ 
 		
 			\hline
@@ -293,7 +282,7 @@ It has been proven that optimizations are highly dependent on the target platfor
 
 In the following sections, we describe the classical iterative compilation process and we discuss the relevant techniques and approaches that have been presented to tackle some of the challenges we have identified in the previous chapter, related to compiler optimization namely:
 \begin{itemize}
-	\item \textbf{The problem of optimization-space exploration:} We present several approaches that have addressed the combinatorial explosion problem of possible compiler optimizations.`
+	\item \textbf{The problem of optimization-space exploration:} We present several approaches that have addressed the combinatorial explosion problem of possible compiler optimizations.
 	
 	\item \textbf{The problem of multi-objective optimization:} We present several techniques that aimed to find trade-offs between multiple non-functional properties.
 		
@@ -317,7 +306,7 @@ The implementation of an iterative compilation system consists mainly on applyin
 	
 	\item[--] \textbf{Search driver:}
 	
-	It applies a search algorithm or method to efficiently explore the large optimization search space. In fact, it reads the previously defined list of transformations that it needs to examine and decides which transformations have to be applied next using a search algorithm
+	It applies a search algorithm or method to efficiently explore the large optimization search space. In fact, it takes as input the previously defined list of transformations that it needs to examine and decides which transformations have to be applied next using a search algorithm
 	to steer through the optimization space.
 	
 	\item[--] \textbf{C Compiler:}
@@ -338,11 +327,11 @@ The implementation of an iterative compilation system consists mainly on applyin
 	
 \end{itemize}
 
-This model represents the classical and typical iterative compilation process. Of course, there exist many ways and adaptations to implement this process. The implementation of the iterative process depends on the algorithm used, the problem addressed, the technologies used, etc. The goal of the next sub-sections is to present the different state-of-the-art approaches related to iterative compilation.
+This model represents the classical and typical iterative compilation process. Of course, there exist many ways and adaptations to implement this process. The implementation of the iterative process depends on the algorithm used, the problem addressed, the technologies used, etc. The goal of the next sub-sections is to present the different state of the art approaches related to iterative compilation.
 
 \subsection{Iterative compilation search techniques}
 In Section \ref{sec:Why compilers auto-tuning is complex?} of Chapter \ref{chap:background}, we presented several issues with optimizing compilers that make the activity of compiler tuning very complex such as the huge number of optimizations, conflicting objectives, optimization overhead, etc.
-In this section, we discuss the available tools and approaches dedicated to the automatic search for optimal compiler settings, and give an overview of known approaches that addressed the several compiler optimization challenges. In each subsection, we identify and discuss a particular problem and we present the best known approaches proposed to solve it.
+In this section, we discuss the available tools and approaches dedicated to the automatic search for optimal compiler settings, and give an overview of known approaches that addressed these several compiler optimization challenges. In each subsection, we identify and discuss a particular problem and we present the best known approaches proposed to solve it.
 
 \subsubsection{Auto-tuning: a mono objective optimization}
 Auto-tuning is an area that study of automatic code generation and optimization for different computer architectures.
@@ -350,19 +339,17 @@ This technique has been used in many optimization scenarios.
 What all of this prior work on iterative compilation has in common is that it focuses on a single objective function to be optimized. For example, researchers typically focus on speeding up the performance of compiled code which constitutes the major optimization objective for most iterative compilation approaches\cite{pan2006fast,haneda2005automatic}. 
 
 So, the problem has been often adapted as a mono-objective search problem where the speedup is the main concern for most of the previous works. 
-Genetic algorithms (GA)\cite{stephenson2003genetic,bashkansky2007black} present an attractive solution to this problem of selecting an optimal set of options. 
-GA-based approaches compute an initial population using a set of optimizations, generally defined under the standard compiler levels Ox. Then, at each iteration, the individuals (i.e., option sets) that comprise the generation are evaluated by measuring the execution time resulted by a specific set of options. The results are sorted and pass through a breeding and mutation stage to form the next generation. This
-process continues until a termination condition is reached. The algorithm returns the best optimization set that led to the highest performance.
+Genetic algorithms (GA)\cite{stephenson2003genetic,bashkansky2007black} present an attractive solution to this problem. 
+GA-based approaches compute an initial population using a set of optimizations, generally defined under the standard compiler levels -Ox. Then, at each iteration, the individuals (i.e., option sets) that comprise the generation are evaluated by measuring the execution time resulted by a specific set of options. The results are sorted and pass through a breeding and mutation stage to form the next generation. This
+process continues until a termination condition is reached. At the end, the algorithm returns the best optimization set that led to the highest performance.
 
-For example, ACOVEA \footnote{https://github.com/Acovea/libacovea} as Analysis of Compiler Options via Evolutionary Algorithm, is an open source tool that utilize genetic algorithms to find the best options for compiling programs with the GNU Compiler Collection (GCC) C and C++ compilers. In this context, best solutions define those options that produce the fastest executable program from a given source code. This tool was even included in Gentoo Linux
+For example, ACOVEA\footnote{https://github.com/Acovea/libacovea} as Analysis of Compiler Options via Evolutionary Algorithm, is an open source tool that applies genetic algorithms to find the best options for compiling programs with the GNU Compiler Collection (GCC) C and C++ compilers. In this context, best solutions define those options that produce the fastest executable program from a given source code. This tool was even included in the Gentoo Linux
 repository to help users to find their best set of optimizations.
 
-As an example, the ESTO framework described in \cite{bashkansky2007black} studies the application of GA for the problem of selecting an optimal option set for a specific application and workload. It searches the option set space using various types of genetic algorithms, ultimately determining the option set that maximizes the performance of the given application and workload. ESTO regards the compiler as a black box, specified by its external-visible optimization options. ESTO supports also a GA variant named budget-limited genetic algorithm which reduces the population size exponentially and then reduce the time needed to evaluate the different evaluations. They ran experiments on the SPEC2000 benchmark suite and tested 60 optimization options within three compilers: GCC, XLC and FDPR-Pro. Results of ESTO are compared to GCC -O1 and -O3, to XLC -O3 and to FDPR-Pro -O3. The results show that ESTO is capable to construct optimization levels that yield to better performance than standard options.
+The ESTO framework described in \cite{bashkansky2007black} studies the application of GA for the problem of selecting an optimal option set for a specific application and workload. ESTO regards the compiler as a black box, specified by its external-visible optimization options. ESTO supports a GA variant named budget-limited genetic algorithm which reduces the population size exponentially and then reduce the time needed to evaluate the different evaluations. They ran experiments on the SPEC2000 benchmark suite and tested 60 optimization options within three compilers: GCC, XLC and FDPR-Pro. Results of ESTO are compared to GCC -O1 and -O3, to XLC -O3, and to FDPR-Pro -O3. The results show that ESTO is capable to construct optimization levels that yield to better performance than standard options.
 
-Most the approaches described above focus on auto-tuning compilers without putting too much emphases on the tuning time. The process of auto-tuning may be too long and can last more than one month\cite{hoste2008cole}.
-
-As a consequence, Pan et al.\cite{pan2006fast} introduce a new algorithm called combined elimination (CE) that was shown to outperform all previous search-based techniques in finding good optimization settings with considerably fewer evaluations. The proposed solution, PEAK, achieves fast tuning speed by measuring a small number of invocations of each code section, instead of the whole-program execution time, as in common solutions. Compared to these solutions PEAK reduces tuning time from 2.19 hours to 5.85 minutes on average, while achieving similar program performance.
-PEAK improves the performance of SPEC CPU2000 FP benchmarks by 12\% on average over GCC O3, the highest optimization level, on a Pentium IV machine.
+Most of the approaches described above focus on auto-tuning compilers without putting too much emphases on the tuning time. The process of auto-tuning may be too long and can last more than one month\cite{hoste2008cole}. As a consequence, Pan et al.\cite{pan2006fast} introduce a new algorithm called combined elimination (CE) that was shown to outperform all previous search-based techniques in finding good optimization settings with considerably fewer evaluations. The proposed solution, PEAK, achieves fast tuning speed by measuring a small number of invocations of each code section, instead of the whole-program execution time, as in common solutions. Compared to these solutions, PEAK reduces the tuning time from 2.19 hours to 5.85 minutes on average, while achieving similar program performance.
+PEAK improves the performance of SPEC CPU2000 FP benchmarks by 12\% on average over GCC -O3, the highest optimization level, on a Pentium IV machine.
 
 
 %\subsubsection{JIT compiler optimization}
@@ -382,13 +369,13 @@ the transformed program and evaluating its worth by measuring the execution time
 the current global minimum and the average are added to an ordered queue. Iteratively, such points are removed from the queue and points within the neighboring region are investigated, again at spaced intervals. This process is continued until a specific number of points have been evaluated and the fastest transformed program is reported.
 They showed that in the case of large transformation spaces, they can achieve within 0.3\% of the best possible time by visiting less then 0.25\% of the space using a simple algorithm and find the minimum after visiting up to less than 1\% of the space.
 
-Cooper et al.\cite{cooper2006exploring} describe their experience exploring the search space of compilation sequences. They give results for exhaustively enumerating several search spaces of sequences of length 10 chosen from 5 transformations. They show that the search spaces have many local minimum, and that random-restart hill climbing is an effective strategy to overcome shallow local minima.
+Cooper et al.\cite{cooper2006exploring} describe their experience exploring the search space of compilation sequences. They report the results of exhaustively enumerating several search spaces of sequences of length 10 chosen from 5 transformations. They show that the search spaces have many local minimum, and that random-restart hill climbing is an effective strategy to overcome shallow local minima.
 
 
 Another way to efficiently explore the large search space in compiler optimization is the Design Space Exploration (DSE) technique based on software code clustering to search for optimization sequences aiming at performance improvements of code fragments (e.g., functions), considering the target processor and the set of optimizations supported by the compiler\cite{martins2014exploration,martins2016clustering}. They proposed a good sequence of optimizations in application-dependent mode. The DSE is based on a clustering approach for grouping functions with similarities
 and exploration of a reduced search space resulting from the combination of optimizations previously suggested for the functions in each group.
 The identification of similarities between functions uses a data mining method that is applied to a symbolic code representation.
-They compare their approach to the GA and their experimental results reveal that the DSE-based approach achieves a significant reduction in the total exploration time of the search space (20× over a Genetic Algorithm approach) and a performance speedups (41\% over the baseline). 
+They compare their approach to the GA and their experimental results reveal that the DSE-based approach achieves a significant reduction in the total exploration time of the search space (20× over a GA approach) and a performance speedup (41\% over the baseline). 
 
 
 
@@ -402,21 +389,20 @@ Phase ordering is also an important problem in iterative compilation which explo
 When the order is managed by the users, exhaustively evaluating  all orderings of optimization phases is infeasible in the face of a huge number optimization phases. This problem becomes more complex by the fact that these phases interact with other optimizations in a complex way.
 For example, even if we keep the same set of optimizations for an input program, varying the order of applying these optimization phases can produce different code, with potentially significant performance variation amongst them. 
 
-In this trend, Whitfield developed a framework based on axiomatic specifications of optimizations and includes both pre and post conditions that must exist before and after applying optimizations\cite{whitfield1990approach}. For a selected set of optimizations, the framework is used to determine those interactions among the optimizations that can create conditions and those that can destroy conditions for applying other optimizations. Then, from these interactions, an application order is derived to obtain the potential benefits of the optimizations that can be applied to a program. 
+In this trend, Whitfield\cite{whitfield1990approach} developed a framework based on axiomatic specifications of optimizations and includes both pre and post conditions that must exist before and after applying optimizations. For a selected set of optimizations, the framework is used to determine those interactions among the optimizations that can create conditions and those that can destroy conditions for applying other optimizations. Then, from these interactions, an application order is derived to obtain the potential benefits of the optimizations that can be applied to a program. 
 This framework was employed to list the potential enabling and disabling interactions between optimizations, which were then used to derive an application
 order for the optimizations
 
 Kulkarni et al.\cite{kulkarni2009practical,kulkarni2006exhaustive} proposed an exhaustive search strategy to find optimal compilation sequences for each function of a program. They exhaustively enumerated all distinct function instances for a set of programs that would be produced from different phase-orderings of 15 optimizations. This exhaustive enumeration was made possible by detecting which phases were active and whether or not the generated code was unique, making the actual optimization phase order space much smaller than the attempted space. This exhaustive enumeration allowed them to construct probabilities of enabling/disabling interactions between different optimization passes in general and not specific to any program. They use this idea to prevent the combinatorial explosion of the total number of sequences to be tested. 
-This exhaustive enumeration allowed them to construct probabilities of enabling/disabling interactions between different optimization passes in general and not specific to any program. 
 They were able to find all possible function instances that can be produced by different phase orderings for 109 out of the 111 total functions they evaluated.
 
 
 Several researchers looked at searching for the best sequence of optimizations for a particular program. For example, the work of Cooper et al.\cite{cooper1999optimizing} adapts the genetic algorithm to solve the optimization phase ordering problem. The focus of this paper is about optimizing for embedded systems and then reducing the code size. They choose 10 program transformations to evolve in Fortran compiler. The solutions generated by this algorithm are compared to solutions found using a fixed optimization sequence and solutions found by testing random optimization sequences. Their technique was successful for reducing the code size by 40\% compared to the standard sequence.
 
-In another work\cite{cooper2006exploring} the same authors explored phase orders at program-level with randomized search algorithms based on genetic algorithms, hill climbers and randomized sampling. They target a simulated abstract RISC-based processor with a research compiler, and report properties of several of the generated sub-spaces of phase ordering and the consequences of those properties for the search algorithms.
+In another work\cite{cooper2006exploring}, the same authors explored phase orders at program-level with randomized search algorithms based on genetic algorithms, hill climbers and randomized sampling. They target a simulated abstract RISC-based processor with a research compiler, and report properties of several generated sub-spaces of phase ordering and the consequences of those properties for the search algorithms.
 
 \subsubsection{Evaluating iterative optimization across multiple data sets}
-Most iterative optimization studies find the best compiler optimizations through repeated runs on input program and the same data set. The problem is that if we select the best optimization sequence for an input data set through the iterative process, we do not know if it will still be the best for the same program but with other data sets. Thereby, researchers in this field try to investigate this problem by evaluating the effectiveness of iterative optimization across a large number of data sets. In particular, since there is no existing benchmark suite with a large number of data sets  Chen et al.\cite{chen2010evaluating} attempt to collect 1000 data sets called KDataSets for 32 programs, mostly derived from the MiBench benchmark. Then, they exercise iterative optimization on these collected data sets in order to fin the best optimization combination across all data sets. 
+Most iterative optimization studies find the best compiler optimizations through repeated runs on the same data set. The problem is that if we select the best optimization sequence for an input data set through the iterative process, we do not know if it will still be the best for the same program but with other data sets. Thereby, researchers in this field try to investigate this problem by evaluating the effectiveness of iterative optimization across a large number of data sets. In particular, since there is no existing benchmark suite with a large number of data sets, Chen et al.\cite{chen2010evaluating} attempt to collect 1000 data sets called KDataSets for 32 programs, mostly derived from the MiBench benchmark. Then, they exercise iterative optimization on these collected data sets in order to fin the best optimization combination across all data sets. 
 They use random search to generate random optimization sequences for the ICC compiler (53 flags) and the GCC compiler (132 optimizations).
 They demonstrate that for all 32 programs (from MiBench), they were able to find at least one combination of compiler optimizations that achieves 86\% or more of the best possible speedup across all data sets using Intel’s ICC (83\% for GNU’s GCC). This optimal combination is program-specific and yields speedups up to 1.71 on ICC and 2.23 on GCC over the highest optimization level (-fast and -O3, respectively). This means that a program can be optimized on a collection of data sets and it can retain near optimal performance for most other data sets. So the problem of finding the best optimization for a particular program may be significantly less complex. However, they tested their approach on only one single benchmark and one target architecture.
 
@@ -424,31 +410,28 @@ They demonstrate that for all 32 programs (from MiBench), they were able to find
 
 
 \subsubsection{Conflicting objectives: a multi-objective optimization}
-The vast majority of the work on iterative compilation focuses on increasing the speedup of new optimized code compared to standard compiler optimization levels. However, they do not put too much emphasis on finding trade-offs between two (or more) non-functional properties ~\cite{almagor2004finding,hoste2008cole,pan2006fast,pallister2015identifying,chen2012deconstructing,martins2014exploration,lin2008automatic,martinez2014multi}.
+The vast majority of the work in iterative compilation focuses on increasing the speedup of new optimized code compared to standard compiler optimization levels. However, they do not put too much emphasis on finding trade-offs between two (or more) non-functional properties ~\cite{almagor2004finding,hoste2008cole,pan2006fast,pallister2015identifying,chen2012deconstructing,martins2014exploration,lin2008automatic,martinez2014multi}.
 
-In COLE\cite{hoste2008cole}, the authors considered that the problem of compiler optimizations can be seen as a multi-objective problem where two non-functional properties can be enhanced simultaneously. Thus, they investigated the standard levels of compiler optimization by searching for Pareto optimal levels that maximize both performance and compile time. 
-They show that by using the multi-objective genetic algorithm (in their experiment they used SPEA2), it is possible to find a set of compiler optimization sequences that are more Pareto-effective in terms of performance and compile time than the standard optimization levels (-O1, -O2, -O3, and -Os). The motivation behind this approach is that these standard levels were set up manually by compiler creators based on fixed benchmarks and data sets. For the authors, these universal levels may not be always effective on unseen programs and there exist higher levels that provide better trade offs in terms of code quality.
-The authors used the SPEC2000 CPU benchmark, which is a popular benchmark suite for evaluating the compiler performance. They evolved 60 optimization flags that are defined in the standard levels O1, O2, O3, O1 and OS. They run iterative compilation on one single machine shipped with Intel CPU Pentium 4 and they compared the proposed algorithm (SPEA2) to random search as well as to standard optimization levels.
-
-The experimental results using GCC (v4.1.2) show that the automatic construction of optimization levels is feasible in practice, and in addition, yields better optimization levels than GCC’s manually derived (-Os, -O1, -O2 and -O3) optimization levels, as well as the optimization levels obtained through random sampling.
-However, They do not provide a guarantee that the new explored optimization levels selected for SPEC still will be optimal for other applications.
+In COLE\cite{hoste2008cole}, the authors considered that the problem of compiler optimizations can be seen as a multi-objective problem where two non-functional properties can be enhanced simultaneously. Thus, they investigated the standard levels of compiler optimization by searching for pareto optimal levels that maximize both performance and compile time. 
+They show that by using the multi-objective genetic algorithm (in their experiment they used SPEA2), it is possible to find a set of compiler optimization sequences that are more pareto-effective in terms of performance and compile time than the standard optimization levels (-O1, -O2, -O3, and -Os). The motivation behind this approach is that these standard levels were set up manually by compiler creators based on fixed benchmarks and data sets. For the authors, these universal levels may not be always effective on unseen programs and there exist higher levels that provide better trade-offs in terms of code quality.
+The authors used the SPEC2000 CPU benchmark, which is a popular benchmark suite for evaluating the compiler performance. They evolved 60 optimization flags that are defined in the standard levels -O1, -O2, -O3, and Os. They run iterative compilation on one single machine shipped with Intel CPU Pentium 4 and they compared the proposed algorithm (SPEA2) to random search as well as to standard optimization levels.
+The experimental results using GCC (v4.1.2) show that the automatic construction of optimization levels is feasible in practice, and in addition, yields better optimization levels than GCC’s manually derived optimization levels, as well as the optimization levels obtained through random sampling.
+However, they do not provide a guarantee that the new explored optimization levels selected for SPEC still will be optimal for other applications.
 
 
 Martinez et al.\cite{martinez2014multi} propose an adaptive worst-case execution time WCET-aware compiler framework for automatic search of compiler optimization sequences which yield highly optimized code. 
 Compared to the previously described approaches, authors in this paper focus on generating efficient code for embedded systems. Embedded systems are characterized by both efficiency requirements and critical timing constraints. Properties as average-case performance, power consumption and resource utilization are the main concerns describing the efficiency of a system. 
 Thus, they explore the performance of compiler optimizations with conflicting goals. 
 Besides the objective functions average-case execution time and code size, they consider the WCET, which is a crucial parameter for real-time systems, especially for safety-critical application domains to avoid system failure. 
-Then, they try to find suitable trade-offs between these objectives in order to identify Pareto optimal solutions using stochastic evolutionary multi-objective algorithms. The objective functions try to minimize the WCET-ACET and WCET-Code size properties. They apply three evolutionary multi-objective algorithms (EMO) namely IBEA, NSGA-II and SPEA2 and compare their results to standard levels (O1, O2 and O3). 
+Then, they try to find suitable trade-offs between these objectives in order to identify pareto optimal solutions using stochastic evolutionary multi-objective algorithms. The objective functions try to minimize the WCET-ACET and WCET-Code size properties. They apply three evolutionary multi-objective algorithms namely IBEA, NSGA-II and SPEA2 and compare their results to standard levels (-O1, -O2 and -O3). 
 They evolve 30 optimizations within the WCC compiler and performed experiments on top of one single machine shipped with Intel Quad-Core CPU processor. They pick up as well 35  programs from various benchmarks such as DSPstone, MediaBench, MiBench, etc.
-They find that NSGA-II is the most promising EMO for the given problem. In fact, the discovered optimization sequences significantly outperform standard optimization levels:
-the highest standard optimization level O3 can be outperformed for the WCET and ACET on average by up to 31.33\% and 27.43\%, respectively. The same approach performs as well for the WCET-Code size optimization with a 30.6\% WCET reduction over O3. However, the code size increases by 133.4\%. This is because the WCET and the code size are typical conflicting goals. If a high improvement of one objective function is desired, a significant degradation of the other objective must be accepted.
+They find that NSGA-II is the most promising algorithm for the given problem. In fact, the discovered optimization sequences significantly outperform standard optimization levels:
+the highest standard optimization level -O3 can be outperformed for the WCET and ACET on average by up to 31.33\% and 27.43\%, respectively. The same approach performs as well for the WCET-Code size optimization with a 30.6\% WCET reduction over O3. However, the code size increases by 133.4\%. This is because the WCET and the code size are typical conflicting goals. If a high improvement of one objective function is desired, a significant degradation of the other objective must be accepted.
 
 In \cite{plotnikov2013automatic}, the TACT framework is presented. 
 Compared to previous approaches, TACT is designed primarily for automatic tuning on embedded systems running Linux. Thus, the target CPU architecture for this tool is the ARM architecture (ARM Cortex-A9) and 200 options are used in the GCC compiler for ARM. 
-
 TACT supports multiple optimization objectives, so it can tune either for a single optimization parameter, or for two objective functions simultaneously, for example, for performance and code size (or compile time). So, it applies the SPEA2 algorithm and GA for mono-objective optimizations.
-
-The results show how the SPEA2 outperforms the standard GCC levels (O2, O3 and Os) across several open-source popular applications such as  C-Ray, Crafty Chess, SciMark, x264 and zlib.
+The results show how the SPEA2 outperforms the standard GCC levels (-O2, -O3 and -Os) across several open-source popular applications such as  C-Ray, Crafty Chess, SciMark, x264 and zlib.
 
 
  
@@ -459,15 +442,12 @@ Machine learning has been also proposed by several research efforts to tune opti
 Generally, machine learning techniques create mainly in an off line phase a prediction model, which will be used to determine the compiler optimization set that should be used on a test (unseen) program by the online phase. The main advantage of this technique is that it reduces the number of required program evaluations.
 
 In the Milepost project\cite{fursin2011milepost} for example, authors start from the observation that similar programs may exhibit similar behavior and require similar optimizations, so it is possible to correlate program features and optimizations together to predict good transformations for unseen programs, based on previous optimization experience. Thereby, they provide a modular, extensible, self-tuning optimization infrastructure that can automatically learn how to best optimize programs for configurable heterogeneous processors based on the correlation between program features, run-time behavior and optimizations. 
-
 The proposed infrastructure is based on a machine learning compiler that presents an Interactive Compilation Interface (ICI) and plugins to extract program features (such as the number of instructions in a method, number of branches, etc) and select optimization passes. 
 
 The Milepost framework proceeds in two distinct phases: training and deployment. During the training phase, information about the structure of programs (input training programs) is gathered, showing how they behave under different optimization settings. Such information allows machine learning tools to correlate aspects of program structure, or features, with optimizations, building a strategy that predicts good combinations of optimizations. 
 After running an iterative process that evaluates different combinations of optimizations on top of the training programs/features, pedictive models are created to correlate a given set of program features with profitable program transformations. 
-Then, in the deployment phase, the framework analyzes new unseen programs by determining the program features an,d passes them to the new created models to predict the most profitable optimizations to improve execution time or other metrics depending on the user’s optimization requirements.
-
-GCC was selected as the compiler infrastructure for Milepost as it is currently the most stable and robust open-source compiler. They evolved 100 optimization flags under O1, O2 and O3 levels and compared their results to the O3 level and to the random search.
-
+Then, in the deployment phase, the framework analyzes new unseen programs by determining the program features and passes them to the new created models to predict the most profitable optimizations to improve execution time or other metrics depending on the user’s optimization requirements.
+GCC was selected as the compiler infrastructure for Milepost as it is currently the most stable and robust open-source compiler. They evolved 100 optimization flags under -O1, -O2 and -O3 levels and compared their results to the -O3 level and to the random search.
 The experimental results show that it is possible to improve the performance of the MiBench benchmark suite automatically using iterative compilation and machine learning on several platforms, including x86: Intel and AMD, and the ARC configurable core family. Using the machine learning-based framework, they were also able to learn a model that automatically improves the execution time of some individual MiBench programs by a factor of more than 2 while improving the overall MiBench suite by 11\% on reconfigurable ARC architecture, without sacrificing code size or compilation time. Furthermore, their approach supports general multi-objective optimization where a user can choose to minimize not only execution time but also code size and compilation time.
 
 
@@ -500,7 +480,7 @@ We provide in Table \ref{tab:Summary of iterative compilation} a summary of seve
 
 
 
-\section{Lightweight system virtualization for software testing}
+\section{Lightweight system virtualization for automatic software testing}
 \label{sec:Lightweight system virtualization for software testing}
 
 The key objective of this section is to present the existing research efforts that have been presented to address:
@@ -513,24 +493,22 @@ The key objective of this section is to present the existing research efforts th
 
 Using virtual machines (VMs) as a mechanism for deploying and testing applications in the cloud is very useful to run applications workload in heterogeneous and distributed environments.
 In industry, a number of commercial usage scenarios benefit from virtualization techniques to provide services to the end users. For example, Amazon EC2 makes VMs available to the customers who can use them to run their own computer applications or services on the cloud. Thus, a user can create, launch and terminate new VMs as needed.  
-
 However, VMs are known to be very expensive in terms of system resources and performance. In fact, each new VM instance constitutes of a virtual copy of all the hardware of the host machine which adds a lot of resource usage and overhead\cite{merkel2014docker}. 
 
 Container-based virtualization presents an interesting alternative virtualization technology to virtual machines in the cloud. Containers are an operating-system-level virtualization which imposes little to near zero overhead. Programs in virtual instances use the operating system's system call interface and do not need to be emulated or run in an intermediate virtual machine, as is the case VMs such as VMware, QEMU or Xen.
-Docker offers the ability to deploy applications and their dependencies into lightweight containers that are very cheap to create and isolated form each other. Processes executing in a Docker container are isolated from processes running on the host OS or in other Docker containers. The Docker solution aims to address the challenges of resource, speed and performance of virtualization in the software development process. 
+For instance, Docker\footnote{\url{https://www.docker.com}} is a popular engine that offers the ability to deploy applications and their dependencies into lightweight containers that are very cheap to create. Processes executing in a Docker container are isolated from processes running on the host OS or in other Docker containers. The Docker solution aims to address the challenges of resource usage and performance overhead of virtualization in the software development process. 
 
 Authors of \cite{spoiala2016performance,soltesz2007container,merkel2014docker,felter2015updated} used to compare the performance of traditional virtual machine solution that isolate VMs at the hardware abstraction layer to container-based operating system technology that isolate VMs at the system call layer. They showed that containers result in better performance than VMs since thay induce less overhead. 
 
 
-The container-based infrastructure has been also applied to the software testing, especially in the cloud~\cite{li2015rest}. Sun et al.~\cite{sun2016roar} present a tool to test, optimize, and automate cloud resource allocation decisions to meet QoS goals for web applications. Their infrastructure relies on Docker to gather information about the resource usage of deployed web servers. 
 
 
 
 \subsection{Application in software testing}  
 In software development, the container technology becomes more and more used in order to create a portable, consistent operating environment for development, deployment, and testing.
+In the following, we discuss the state of the art approaches that choose the container technology as an efficient infrastructure to solve some testing research problems. 
 
-In the following, we will focus and discuss state of the art approaches that chose the container technology as an efficient infrastructure to solve some testing research problems. 
-
+The container-based infrastructure has been applied to the software testing, especially in the cloud~\cite{li2015rest}. Sun et al.~\cite{sun2016roar} present a tool to test, optimize, and automate cloud resource allocation decisions to meet QoS goals for web applications. Their infrastructure relies on Docker to gather information about the resource usage of deployed web servers. 
 
 Marinescu et al.\cite{marinescu2014covrig} have used Docker as technological basis in their repository analysis framework Covrig to conduct a large-scale and yet safe inspection of the revision history from six selected Git code repositories. 
 For their analysis, they run each version of a system in isolation and collect static and dynamic software metrics, using a lightweight container environment that can be deployed on a cluster of local or cloud machines. Each container is used to configure, compile, and test one program revision, as well as collect the metrics of interest, such as code size and coverage.
@@ -538,79 +516,67 @@ The motivation of using such infrastructure is to provide a clean and configurab
 
 
 Another Docker-based approach is presented in the BenchFlow2 project which focuses on benchmarking BPMN 2.0 engines\cite{ferme2015framework}. This project is dedicated to the performance testing of workflow engines. In this work, Ferme et al. present a framework for automatic and reliable calculation of performance metrics for BPMN 2.0 WfMSs. 
-
 According to the authors, benchmarking WfMSs raises many challenges: 1) the system deployment complexity due to the distributed nature of these models execution; 2) the high number of configuration options required to integrate the configuration and the deployment of the system under test, i.e., the WfMS, as part of the performance test definition; 3) the complexity of the execution behaviours that can be expressed by modern modeling and execution languages such as BPMN2.
-
-Therefore, to address these problems, BenchFlow exploits \textbf{Docker} as a containerization technology, to enable the automatic deployment and configuration of the WfMS and to ensure that the experimental results can be reproduced.
+Therefore, to address these problems, BenchFlow exploits Docker as a containerization technology, to enable the automatic deployment and configuration of the WfMS and to ensure that the experimental results can be reproduced.
 Thus, the WfMSs are automatically deployed and undeployed using Docker. Each component involved in the benchmark are packaged as Docker images
 to be deployed and executed on different servers connected by a dedicated local
 network. For each Docker instance, a new instance of the BP models set is executed by the WfE during the experiment.
-
 Thanks to Docker, BenchFlow automatically collects all the data needed to compute performance metrics, and to check the correct execution of the tests (metrics related the RAM/CPU usage and execution time).
 Their experimental results show that a simple BP model running on two popular
 open-source WfMSs have uncovered important performance scalability issues. 
 
 Hamdy et al.\cite{hamdy2016web} propose Pons, a web based tool for the distribution of pre-release mobile
-applications for the purpose of manual testing. Pons facilitates building, running, and manually testing of Android applications directly in the browser. 
+applications for the purpose of manual testing. Pons facilitates building, running, and manually testing of android applications directly in the browser. 
 Based on Docker technology, this tool gets the developers and end users engaged in testing the applications in one
-place, alleviates the tester's burden of installing and maintaining testing environments, and provides a platform for developers to rapidly iterate on the software and integrate changes over time. Thus, it speeds up the testing process and reduces its cost.
-
+place, alleviating the tester's burden of installing and maintaining testing environments, and providing a platform for developers to rapidly iterate on the software and integrate changes over time. Thus, it speeds up the testing process and reduces its cost.
 Pons utilizes Docker by predefining Docker images that
 contain the required services and tools to build android
 applications, starting from the operating system up to the
-software development kit (SDK). A container is then built using one of these images to store the source code of
-a mobile application at specific moment of history in a
+software development kit. A container is then built using one of these images to store the source code of
+a mobile application at a specific moment of history in a
 sandbox environment. Pons creates then, an android emulator inside the docker container to run the tests. The results are streamed at runtime in the web browser.
 
 \subsection{Application in runtime monitoring} 
 Runtime monitoring is an essential part of cloud computing\cite{aceto2013cloud}. Like virtual machines before them, containers require a monitoring mechanism. It should provide both historical and timely information about the resource usage from hardware to virtual machine and container level.
-
-
 To have a true perspective on the performance for containerized environments, container users have to monitor both the host and the containers. There are multiple options for monitoring. 
 Among the popular ways to do that is to monitor each container via the Docker API, or by installing an agent inside each container for detailed visibility inside each container. 
-
-The Docker client, for example, already provides a command line tool to inspect containers’ resource consumption. The command \textit{docker stats}, for example, can be used to get the stats about the running containers at runtime. This will present the CPU utilization for each container, the memory used and total memory available to the container.
-
+The Docker client, for example, already provides a command line tool to inspect containers’ resource consumption. The command \textit{docker stats}, for example, can be used to get the stats about the running containers at runtime. This will present the CPU utilization for each container, the memory used ,and total memory available to the container.
 Linux Containers rely on cgroups (control groups) which is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
 Cgourps do not only track groups of processes, but also expose metrics about CPU, memory, and block I/O usage. 
 
 In industry, many commercial solutions are proposed to offer facilities to container users to efficiently monitor their workload inside containers. Most of these solutions rely on automatic cgroups metrics extraction and provide a visual representation of the data shown by the docker stats command. For example, the Datadog\footnote{www.datadoghq.com} and cAdvisor\footnote{https://github.com/google/cadvisor} agent uses the native cgroup accounting metrics to gather CPU, memory, network and I/O metrics of the containers. CAdvisor allows to monitor containers that run in the same host machine. As an alternative, Scout\footnote{https://scoutapp.com} is used to aggregate metrics from many hosts and containers in a distributed architecture. It also presents the data over longer time-scales and can create alerts based on those metrics. 
-
 Most of these tools provide web-based dashboards to visualize resource consumption at runtime as well as alerting mechanism to that can be triggered if metrics go above or below a configured threshold. Other examples of monitoring docker tools: Sensu Monitoring Framework, Prometheus, Sysdig Cloud, etc.
 Tools like cAdvisor and Prometheus allow to monitor containers running on one single host machine. 
-
 There are many applications to manage the execution of containers across multiple hosts. For example, Kubernetes\footnote{https://kubernetes.io} is an open source orchestration system for Docker containers. It allows to quickly and efficiently respond to customer demand by deploying applications using multiple hosts and containers on the cloud, scale applications on the fly and optimize the resource usage across multiple hosts. This clustering framework is shipped with a monitoring tool called Hipster\footnote{https://github.com/kubernetes/heapster} that provides a base monitoring platform on Kubernetes. Heapster collects and interprets various signals like resource usage, lifecycle events, etc, and exports cluster metrics via REST endpoints. It supports a pluggable storage backend such as InfluxDB with Grafana and Google Cloud Monitoring.
 
 
-The Docker monitoring infrastructure has been also used in the academic filed. For instance, \cite{kookarinrat2015analysis} Kookarinrat et al. have investigated the problem of auto-sharding in No-SQL databases using a container-based infrastructure for runtime monitoring. 
+The runtime monitoring of containers has been also applied to solve research problems. For instance, Kookarinrat et al.\cite{kookarinrat2015analysis} have investigated the problem of auto-sharding in No-SQL databases using a container-based infrastructure for runtime monitoring. 
 The auto-sharding technique is used to divide data in the database and distribute it over multiple machines in order to scale it horizontally. The motivation behind this work is that selecting a right key is challenging. It could lead to either an improvement of the performance and capability of a database or to performance issues (i.e., by selecting a wrong key) which could lead to a system halt. 
 For instance, a good shard key should have high degree randomness for write scaling and should contain high locality for range-query reading.
 Therefore, they analyzed and evaluated such suggested properties by studying how the variation of a shard key’s choices could impact the DB performance.
-
 They simulated an environment using Docker containers and measured the read/write performance of variety of keys. Inside each container, they executed write/read queries into the MongoDB database and used docker stats to retrieve automatically information about the memory and CPU usage of inside each container.
-
 They found that a shard key with randomness and good locality could give a decent performance on write and
 read. However, in case that a shard key has nearly sorted values, combining a small range of random values to it might give acceptable performance for both read and write. 
  
 
-Container monitoring tools discussed above have been used in several other works like in\cite{peinl2016docker,medel2016modelling}.
+The container monitoring support is essential for verifying the resource usage consumptions. It has been applied in several research works related especially to cloud computing and virtualization\cite{peinl2016docker,medel2016modelling}.
 \section{Summary \& open challenges}
 \label{sec:suumary SOTA}
 
-The analysis of the state-of-the-art reveals several limitations. We describe below some of the limitations we have identified in both areas of iterative compilation and code generators testing:
+The analysis of the state of the art reveals several challenges. We describe below some of the challenges we have identified in both areas of iterative compilation and code generators testing:
 %In reviewing the state of the art of resource management for software abstractions, we realized that severe shortcomings in existing approaches prevent their usage in production environments. With regard to the matter of dealing with abstraction-specific features, the following issues exist:
 \begin{itemize}
 	
 \item \textbf{Limits of existing works when testing code generators (the oracle problem):} Most of the works related to the automatic testing of code generators define an equivalence functional oracle to compare the result of MiL, SiL and PiL. In case of non-executable models, this comparison becomes impossible. Particularly, the oracle problem for testing the non-functional properties of the generated code  has been avoided and not addressed by existing research efforts. The only comparison that has been made consists in comparing the hand-written code to the automatically generated code. The key objective of this comparison is to show that the generated code has better or equivalent performance properties compared to human code.\newline
 \textbf{$\Rightarrow$ 
-	We believe that more advanced testing techniques as described in the Section \ref{sec:The oracle problem} can be applied to detect code generators defects.}
+	We believe that more advanced testing techniques as described in the Section \ref{sec:The oracle problem} can be applied to automatically detect code generators issues.}
 	
 \item \textbf{Limits of existing techniques when exploring the large optimization search space (a multimodal problem):}
 As showed earlier, different techniques are applied during the iterative compilation process to explore the large optimization search space. It has been showed that the optimization search space is a multimodal problem, containing many local optima.
-For effective search, some authors use to involve only few optimizations (2 to 10) or to prune some paths in order to reduce this large search space.
+For effective search, some authors use to involve only few optimizations (2 to 10) or to prune some paths in order to reduce this large aearch space.
 Genetic Algorithms are largely applied in most of the works to search for new optimization sequences. However, this technique may fall in the local optima problem. 
 \newline
-\textbf{$\Rightarrow$ The optimization search space is multimodal and very large. An alternative solution to the classical approaches is needed to tackle these problems.}
+\textbf{$\Rightarrow$ The optimization search space is multimodal and very large. An alternative solution to the classical approaches is needed to tackle this problem.}
 %\item \textbf{Benchmark evaluation:}
 	
 \item \textbf{Lack of solutions that deal with conflicting objectives when auto-tuning compilers (a multi-objective optimization problem):} 
@@ -621,12 +587,12 @@ execution time can result in a high resource usage which may decrease system per
 \textbf{$\Rightarrow$ To deal with conflicting objectives, it is important to find consensus between several non-functional properties when optimizing code to handle both, the resource usage and performance requirements}
 
 
-\item \textbf{Limits of existing approaches to handle the software platform and hardware requirements (the problem of software diversity and hardware heterogeneity)} The iterative compilation process as well as testing code generators require the execution of the generated code on different hardware and software platforms to evaluate some non-functional properties such as the execution time. Most of the existing research techniques apply a naive approach by running the generated code on different machines or using simulators for some configurations. Configuring the target execution environment to run the generated cod and test it is time-consuming. Particularly, for the compiler or code generator users who have no knowledge/expertise about the configurations needed to test the code, it becomes very difficult to test the code in front of the increasing diversity of hardware and software settings.\newline
+\item \textbf{Limits of existing approaches to handle the software platform and hardware requirements (the problem of software diversity and hardware heterogeneity):} The iterative compilation process as well as testing code generators require the execution of the generated code on different hardware and software platforms to evaluate some non-functional properties such as the execution time. Most of the existing research techniques apply a naive approach by running the generated code on different machines or using simulators for some configurations. Configuring the target execution environment to run the generated code and test it is time-consuming. Particularly, for the compiler or code generator users who have no knowledge/expertise about the configurations needed to test the code, it becomes very difficult to test the code in front of the increasing diversity of hardware and software settings.\newline
 \textbf{$\Rightarrow$ A highly configurable execution environment is needed to handle the software and hardware requirements.} 
 
-\item \textbf{Lack of solutions that evaluate the resource usage properties when testing the generated code (a monitoring problem)} There is almost no research effort to deal with the non-functional properties of the automatically generated code such as the resource usage or performance. Most of the related works focus on the functional correctness of the generated code without putting too much emphasizes on the quality of the generated code. In our opinion, testing properties such as resource usage is very important to ensure an efficient production code generation. In iterative compilation, most of the existing works tend to reduce the execution time, code size, compilation time, etc. There is almost no work that evaluates the memory and CPU usage of the optimized code.
+\item \textbf{Lack of solutions that evaluate the resource usage properties when evaluating the generated code (a monitoring problem):} There is almost no research effort to deal with the non-functional properties of the automatically generated code such as the resource usage or performance. Most of the related works focus on the functional correctness of the generated code without putting too much emphasizes on the quality of the generated code. In our opinion, evaluating properties such as resource usage is very important to ensure an efficient production code generation. In iterative compilation, most of the existing works tend to reduce the execution time, code size, compilation time, etc. There is almost no work that evaluates the memory and CPU usage of the optimized code.
 \newline
-\textbf{$\Rightarrow$ An effective solution is needed to evaluate the resource usage properties of the automatically generated code}
+\textbf{$\Rightarrow$ An effective monitoring solution is needed to evaluate the resource usage properties of the automatically generated code}
   
 \end{itemize}
 \iffalse

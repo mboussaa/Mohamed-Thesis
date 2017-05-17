@@ -10,7 +10,7 @@
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Use case diagram of the different actors/roles involved in testing and tuning generators}}{31}{figure.2.8}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Code generation workflow}}{33}{figure.2.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Process for testing automatically generated code}}{45}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Automatic functional testing of code generators}}{46}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Overview of the iterative compilation process}}{57}{figure.3.2}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Summary of contributions}}{78}{figure.3.3}
 \addvspace {10\p@ }
@@ -35,12 +35,12 @@
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {R-chart of the Promise benchmark program}}}{107}{figure.4.7}
 \contentsline {subfigure}{\numberline {(f)}{\ignorespaces {R-chart of the Culture benchmark program}}}{107}{figure.4.7}
 \contentsline {subfigure}{\numberline {(g)}{\ignorespaces {R-chart of the Math benchmark program}}}{107}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces PCAs showing the dispersion of our data over the PC subspace}}{109}{figure.4.8}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Test suites relative to the execution times }}}{109}{figure.4.8}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Test suites relative to the memory consumptions}}}{109}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}}{110}{figure.4.9}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance deviations}}}{110}{figure.4.9}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memory usage deviations}}}{110}{figure.4.9}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces PCAs showing the dispersion of our data over the PC subspace}}{110}{figure.4.8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Test suites relative to the execution times }}}{110}{figure.4.8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Test suites relative to the memory consumptions}}}{110}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}}{111}{figure.4.9}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance deviations}}}{111}{figure.4.9}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memory usage deviations}}}{111}{figure.4.9}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{121}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{127}{figure.5.2}

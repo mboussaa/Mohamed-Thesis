@@ -3,15 +3,15 @@
 \contentsline {table}{\numberline {2.1}{\ignorespaces Number of optimizations in LLVM, GCC, and ICC}}{28}{table.2.1}
 \contentsline {table}{\numberline {2.2}{\ignorespaces Metrics of the TargetLink code generator}}{37}{table.2.2}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of some testing techniques of automatically generated code}}{49}{table.3.1}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of several approaches applied for testing code generators\cite {sturmer2005overview}}}{49}{table.3.1}
 \contentsline {table}{\numberline {3.2}{\ignorespaces Summary of test oracle approaches}}{55}{table.3.2}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Summary of iterative compilation approaches}}{67}{table.3.3}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Summary of iterative compilation approaches}}{66}{table.3.3}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Non-functional output results}}{96}{table.4.1}
 \contentsline {table}{\numberline {4.2}{\ignorespaces Variation analysis approaches}}{97}{table.4.2}
 \contentsline {table}{\numberline {4.3}{\ignorespaces Description of selected benchmark libraries}}{103}{table.4.3}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Raw data values of test suites that led to the highest variation in terms of execution time}}{111}{table.4.4}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Raw data values of test suites that led to the highest variation in terms of memory usage}}{112}{table.4.5}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Raw data values of test suites that led to the highest variation in terms of execution time}}{112}{table.4.4}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Raw data values of test suites that led to the highest variation in terms of memory usage}}{113}{table.4.5}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces Compiler optimization options enabled by GCC standard levels}}{123}{table.5.1}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Description of selected benchmark programs}}{130}{table.5.2}
