@@ -1,12 +1,8 @@
 
-The intensive use of generative programming techniques provides an elegant engineering solution to deal with the heterogeneity of platforms and technological stacks. The use of domain-specific languages for example, leads to the creation of numerous code generators that automatically translate high-level system specifications into multi-target executable code. 
+The intensive use of generative programming techniques provides an elegant engineering solution to deal with the heterogeneity of platforms and technological stacks. The use of domain-specific languages for example, leads to the creation of numerous code generators that automatically translate high-level system specifications into multi-target executable code. Producing correct and efficient code generator is complex and error-prone. Consequently, code generators have to be tested with the same effort as for the manually written code.
+We presented in Chapter \ref{chap:SOTA} several approaches that addressed the automatic functional testing of code generators. However, automatically testing the non-functional properties of generated code remains a challenging task that has not been addressed yet.
 
-Producing correct and efficient code generator is complex and error-prone. Although software designers provide generally high-level test suites to verify the functional outcome of generated code, it remains challenging and tedious to verify the behavior of produced code in terms of non-functional properties.
-
-This chapter describes a black-box testing approach that automatically detect anomalies in code generators in terms of non-functional properties (i.e., resource usage and performance).
- 
-In fact, we adapt the idea of metamorphic testing to the problem of code generators testing.  Hence, our approach relies on the definition of high-level test oracles (i.e., metamorphic relations) to check the potential inefficient code generator among a family of code generators. 
-
+This chapter describes a testing approach that automatically detect anomalies in code generators in terms of non-functional properties (i.e., resource usage and performance). In fact, we adapt the idea of metamorphic testing to the problem of code generators testing. Hence, our approach relies on the definition of high-level test oracles (i.e., metamorphic relations) to check the potential inefficient code generator among a family of code generators. Moreover, we apply different statistical methods in order to automate the inconsistencies detection.
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. 
 %Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in Haxe code generators.
 
@@ -14,7 +10,7 @@ This chapter is organized as follows:
 
 Section \ref{sec:cg_introduction} introduces the context of this work, i.e., the non-functional testing of code generators.
 
-Section \ref{sec:cg_Motivation} presents the motivation and background of this work. In particular, we discuss in this section three motivation examples and the problems we are addressing.
+Section \ref{sec:cg_Motivation} presents the motivations behind this work. In particular, we discuss in this section three motivation examples and the problems we are addressing.
 
 Section \ref{sec:cd_approach} describes the general approach overview and the testing strategy.
 
@@ -27,28 +23,19 @@ Finally, we conclude in Section \ref{sec:cg-conclusion}.
 \label{sec:cg_introduction}
 
 Generative programming techniques become a common practice for software development to tame the runtime platform heterogeneity that exists in several domains such as mobile or Internet of Things development. 
-
 The main benefit of using generative programming is to reduce the development and maintenance effort, allowing the development at a higher-level of abstraction through the use of Domain-Specific Languages (DSLs)~\cite{brambilla2012model} for example. 
-
-DSLs, as opposed to general-purpose languages, are high level software languages that focus on specific problem domains. 
+DSLs, as opposed to general-purpose languages, are high-level software languages that focus on specific problem domains. 
 DSLs or models are generally coupled with the use of code generators that will automatically transform the manually designed models to software artifacts, which can be deployed on different target platforms. 
 
 However, code generators are known to be very difficult to implement and maintain since they involve a set of complex and heterogeneous technologies~\cite{france2007model,guana2015developers}.
-
 To preserve software reliability and quality, code generators have to respect different requirements. In fact, \textit{non-mature} code generators can generate defective software artifacts which range from uncompilable or semantically dysfunctional code that causes serious damage to the generated software; to non-functional bugs which lead to poor-quality code that can affect system reliability and performance (\eg, high resource usage, high execution time, etc.). 
-
 As a matter of fact, these defects (or also anomalies) should be detected and corrected as early as possible in order to ensure the correct behavior of delivered software.
-
 To check the correctness of the code generation process, developers often define (at design or runtime level) a set of test cases that will verify the functional behavior of generated code. 
-
 After code generation, test suites are executed within each target platform, which may lead to either a correct behavior (\ie, expected output) or incorrect one (\ie, failures, errors).
-
 However, the functional correctness of generated code is not enough to claim the effectiveness of code generators. Properties such as memory usage and performance are very important to evaluate. In some cases, the quality of the generated code can negatively influence on the non-functional requirements and cause performance issues\cite{hundt2011loop,ray2014large}.
 
 Testing the non-functional properties of code generators is a challenging and time-consuming task because developers need to deploy and run code every time a change is made in order to analyze and verify its non-functional behavior.
-
 This task becomes more tedious when targeting different platforms and software languages. Thus, different platform-specific tools will be needed to track bugs and identify the cause of execution failures~\cite{guana2014chaintracker,delgado2004taxonomy}. 
-
 As stated in the state of the art, there is a lack of automatic solutions that check the non-functional issues such as the properties related to the resource consumption of generated code (Memory or CPU consumption).
 
 %we propose a testing approach based on a runtime monitoring infrastructure to automatically check the potential inefficient code generators. This infrastructure, based on system containers as execution platforms, allows code-generator developers to evaluate the generated code performance. %In fact, we provide a fine-grained understanding of resource consumption and analysis of components behavior. 
@@ -58,7 +45,9 @@ In this chapter, we are presenting the following contributions:
 
 \begin{itemize} 	
 	
-	\item We propose a fully automated black box testing approach for detecting code generator inconsistencies within code generator families. We use metamorphic relations as means of test oracles for our test suites. In this contribution, we focus on detecting anomalies related to performance and resource usage properties.
+	\item We propose a fully automated black-box testing approach for detecting code generator inconsistencies within code generator families. We use metamorphic relations as means of test oracles for our test suites. 
+	Statistical methods are applied to define these metamorphic relations.
+	In this contribution, we focus on detecting anomalies related to performance and resource usage properties. 
 	
 	\item We report the results of an empirical study by evaluating the non-functional properties of the Haxe code generators. 
 	Haxe is a popular high-level programming language\footnote{\num{1442} GitHub stars} that involves a set of cross-platform code generators able to generate code to different target platforms. The obtained results provide evidence to support the claim that our proposed approach is able to detect code generator issues.
@@ -81,7 +70,7 @@ This work is based on the intuition that a code generator is often a member of a
 %Thus, we can automatically compare the performance between different versions
 %of generated code (coming from the same source program). Based on this comparison, we can automatically detect singular resource consumptions that could reveal a code generator bug.
 
-For example, this is widely used in the industry by applying the concept of "write once, run everywhere" where users can benefit from a family of code generators (e.g., cross-platform code generators\cite{fumero2015runtime}) to generate from the manually written (high-level) code different implementations of the same program in different languages. This technique is very useful to address diverse software platforms and programming languages.
+For example, this concept is widely used in the industry by applying the \textit{"write once, run everywhere"} paradigm, where users can benefit from a family of code generators (e.g., cross-platform code generators\cite{fumero2015runtime}) to generate from the manually written (high-level) code different implementations of the same program in different languages. This technique is very useful to address diverse software platforms and programming languages.
 
 As motivating examples for this research work, we can cite three approaches that intensively develop and use code generator families: 
 \paragraph{a. Haxe.} 	Haxe\footnote{\url{http://haxe.org/}}~\cite{dasnois2011haxe} is an open source toolkit for cross-platform development which compiles to a number of different programming platforms, including JavaScript, Flash, PHP, C++, C\#, and Java. Haxe involves many features: the Haxe language, multi-platform compilers, and different native libraries. The Haxe language is a high-level programming language which is strictly typed. This language supports both, functional and object-oriented programming paradigms. It has a common type hierarchy, making certain API available on every target platform. Moreover, Haxe comes with a set of code generators that translate manually-written code (in Haxe language) to different target languages and platforms.  
@@ -131,9 +120,7 @@ However, proving that the generated code is functionally correct is not enough t
 
 In fact, code generators have to respect different requirements to preserve software reliability and quality~\cite{demertzi2011analyzing}. 
 In this case, ensuring the code quality of generated code requires examining several non-functional properties such as code size, resource or energy consuption, execution time, etc~\cite{pan2006fast}.
-A \textit{non-mature} code generator might generate defective software artifacts (code smells) that violates common software engineering practices, resulting in a poor-quality code that can affect system reliability and performance (e.g., high resource usage, high execution time, etc.).
-
-
+%A \textit{non-mature} code generator might generate defective software artifacts (code smells) that violates common software engineering practices, resulting in a poor-quality code that can affect system reliability and performance (e.g., high resource usage, high execution time, etc.).
 Figure \ref{fig:bbackground.pdf} summarizes the classical steps required to ensure the code generation and non-functional testing of produced code from design time to runtime. 
 We distinguish four major steps: the software design using high-level system specifications, code generation by means of code generators, code execution, and non-functional testing of generated code. 
 
@@ -170,10 +157,10 @@ Now, we describe our approach overview. Our contributions in this work are divid
 \label{sec:cg-An infrastructure for non-functional testing using system containers}
 In this contribution, we focus on evaluating the non-functional properties related to the resource usage and performance of generated code. To do so, many system configurations (i.e., execution environments, libraries, compilers, etc.) must be taken into account to efficiently generate and test code. 
 
-However, tunning different applications (i.e., generated code) with different configurations on one single machine is complex. A single system has limited resources and this can lead to performance regressions. Moreover, each execution environment comes with a collection of appropriate tools such as compilers, code generators, debuggers, profilers, etc. Therefore, we need to deploy the test harness, i.e., the produced binaries, on an elastic infrastructure that provide facilities to the code generator developers to ensure the deployment and monitoring of generated code in different environment settings. 
+However, tuning different applications (i.e., generated code) with different configurations on one single machine is complex. A single system has limited resources and this can lead to performance regressions. Moreover, each execution environment comes with a collection of appropriate tools such as compilers, code generators, debuggers, profilers, etc. Therefore, we need to deploy the test harness, i.e., the produced binaries, on an elastic infrastructure that provide facilities to the code generator developers to ensure the deployment and monitoring of generated code in different environment settings. 
 Consequently, the testing infrastructure should provide support to automatically:
 \begin{enumerate}
-	\item Deploy the generated code, its dependencies and its execution environments
+	\item Deploy the generated code, its dependencies, and its execution environments
 	\item Execute the produced binaries in an isolated environment 
 	\item Monitor the execution 
 	\item Gather performance metrics (CPU, Memory, etc.)
@@ -191,8 +178,8 @@ To ensure these four main steps, we rely on system containers~\cite{soltesz2007c
 Figure \ref{fig:cg-infra} shows the new container-based infrastructure used for testing code generators. Compared to the classical method presented in Figure \ref{fig:bbackground.pdf}, we added the following features: 
 \begin{itemize}
 	\item[--] At the code generation level: Code generators are configured inside different containers in order to generate code for the target platform.
-	\item[--] At the code execution: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform a new instance is created.
-	\item[--] At the non-functional level: We add a runtime monitoring engine (based on containers) in order to extract the resource usage properties.
+	\item[--] At the code execution level: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform a new instance is created.
+	\item[--] At the non-functional testing level: We add a runtime monitoring engine (based on containers) in order to extract the resource usage properties.
 \end{itemize}
 
 Chapter \ref{chap:docker} provides more details about the technical choices we have made to synthesize this testing infrastructure.
@@ -209,28 +196,27 @@ We discussed in section \ref{sec:cg-Summary: oracle definition approaches} of Ch
 In this section, we shall introduce the basic concept of metamorphic testing (MT). 
 MT, proposed by Chen et al. \cite{chen1998metamorphic}, is a technique conceived to alleviate the oracle problem. It is based on the idea that often it is simpler to understand the relation between test cases' outputs rather than reasoning about the relation between test inputs and outputs. 
 
-MT recommends that, given one or more test cases (called "source test cases", "original test cases", or "successful test cases") and their expected outcomes (obtained through multiple executions of the target program under test), one or more follow-up test cases can be constructed to verify the necessary properties (called "metamorphic relations" or "MRs") of the system or function to be implemented. In this case, the generation of the follow-up test cases and verification of the test results require the respect of the MR.
+MT recommends that, given one or more test cases (called "source test cases", "original test cases", or "successful test cases") and their expected outcomes (obtained through multiple executions of the target program under test), one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented. In this case, the generation of the follow-up test cases and verification of the test results require the respect of the MR.
 
-For example, let \textit{sine} be a function implementing a specification \textit{S}. Let \textit{D} represent the input domain which represents the input values for which we would calculate the \textit{sine}. Usually, the testing process should verify if the \textit{sine(x) = S(x)} $\forall$ \textit{x} $\in$ \textit{D}. The procedure through which the testing program can check whether \textit{sine(x) = S(x)} is called an oracle.
-Automatically generating  \textit{D} (test data) and executing test cases in this example is simple. It consists in generating random numerical values for example. However, it is impossible to do an exhaustive testing to automatically check the expected output.
-For instance, only the special input values  \textit{0}, $\pi/4$,  $\pi/2$, etc., could be the standard test cases since the output of  \textit{sine(x)} for these test data values is known and can be automatically checked against the specification. Nevertheless, special values cannot give us enough confidence in the correctness of the program on more complex or random inputs. 
-Other examples include, testing programs calculating numerical functions or solving complex equations, testing programs that calculate combinatorial problems, testing graphical user interfaces, etc.
-Supposing that the \textit{sine} function is defined using a high level language. The generated \textit{sine} function should be evaluated with the same effort as the manual written code in order to verify whether the code generator has introduced bugs or not.
+%For example, let \textit{sine} be a function implementing a specification \textit{S}. Let \textit{D} represent the input domain which represents the input values for which we would calculate the \textit{sine}. Usually, the testing process should verify if the \textit{sine(x) = S(x)} $\forall$ \textit{x} $\in$ \textit{D}. The procedure through which the testing program can check whether \textit{sine(x) = S(x)} is called an oracle.
+%Automatically generating  \textit{D} (test data) and executing test cases in this example is simple. It consists in generating random numerical values for example. However, it is impossible to do an exhaustive testing to automatically check the expected output.
+%For instance, only the special input values  \textit{0}, $\pi/4$,  $\pi/2$, etc., could be the standard test cases since the output of  \textit{sine(x)} for these test data values is known and can be automatically checked against the specification. Nevertheless, special values cannot give us enough confidence in the correctness of the program on more complex or random inputs. 
+%Other examples include, testing programs calculating numerical functions or solving complex equations, testing programs that calculate combinatorial problems, testing graphical user interfaces, etc.
+%Supposing that the \textit{sine} function is defined using a high level language. The generated \textit{sine} function should be evaluated with the same effort as the manual written code in order to verify whether the code generator has introduced bugs or not.
 
 The classical example of MT is that of a program that computes the \textit{sin} function. A useful metamorphic relation for \textit{sin} functions is $\textit{sin(x) = sin($\pi$ - x)}$. Thus, even though the expected value for the source test case \textit{sin(50)} for example in not known, a follow-up test case can be constructed to verify the MR defined earlier. In this case, the follow-up test case is $\textit{sin($\pi$ - 50)}$ which must produce an output value that is equal to the one produced by the original test case \textit{sin(50)}. If this property is violated, then a failure is immediately detected.
 MT generates follow-up test cases as long as the metamorphic relations are respected.
-This is an example of a metamorphic relation: an input transformation that can be used to generate new test cases from existing test data, and an output relation (MR), that compares the outputs produced by a pair of test cases.
+This is an example of a metamorphic relation: an input transformation that can be used to generate new test cases from existing test data, and an output relation MR, that compares the outputs produced by a pair of test cases.
+MR can be any properties involving the inputs and outputs of two or more executions of the target program such as equalities, inequalities, convergence constraints, and many others.
 
-MR can be any properties involving the inputs and outputs of two or more executions of the target program such as equalities, inequalities, periodicity properties, convergence constraints, subsumption relationships and many others. 
-
-Because MT checks the relations among several executions rather than the correctness of individual outputs, MT can be used to fully automate the testing process without any manual intervention. 
-However, constructing metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
+Because MT checks the relations among several executions rather than the correctness of individual outputs, it can be used to fully automate the testing process without any manual intervention. 
+However, constructing the metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
 The effectiveness of metamorphic testing is highly dependent on the specific metamorphic relations that are used, and designing effective metamorphic relations is thus a critical step when applying metamorphic testing.
 
 We describe in the next section our adaptation of MT to the problem of non-functional testing of code generators families.
 
 \subsubsection{Application of MT to the non-functional testing of code generator families}
-In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications are presented in \cite{zhou2004metamorphic}. They includes the testing of simulation programs; the testing of numerical programs such as those for solving partial differential equations; the testing of graphics-rendering programs; and testing compilers.
+In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications are presented in \cite{zhou2004metamorphic}. They includes the testing of simulation programs; the testing of numerical programs such as those for solving partial differential equations; testing programs that calculate combinatorial problems; the testing of graphics-rendering programs; and testing compilers.
 
 To apply MT, there are four basic steps to follow:
 
@@ -241,7 +227,7 @@ To apply MT, there are four basic steps to follow:
  \item Check whether these outputs satisfy the MR, and if not, report failures.
 \end{enumerate}
 
-We develop now these four points in details in order show our MT adaptation to the code generators testing problem. 
+We develop now these four points in details to show how we can adapt the MT approach to the code generators testing problem. 
 \subsubsection[(Step 1)]{Metamorphic relation }
 
 Step 1 consists in identifying necessary properties of the program under test and represent them as metamorphic relations among multiple test case inputs and their expected outputs.
@@ -250,7 +236,7 @@ In the context of code generators testing, we apply the concept of metamorphic t
 To do so, we have to define suitable MRs to automate this process.
 
 As already stated, a metamorphic relation is a relation between different executions.
-If we use the MR definition as presented in \cite{tao2010automatic,chan2006integration}:
+We use the MR definition as presented in \cite{tao2010automatic,chan2006integration}:
 
 \begin{mydef}[\textbf{Metamorphic relation}]
 
@@ -278,25 +264,25 @@ A code generator family can be looked as a function: $C : I \rightarrow P$, wher
 
 
 The availability of multiple generators with comparable functionality allow us to adapt MT in order to detect non-functional inconsistencies. In fact, if we can find out proper R relation of the non-functional behavior, we can get the metamorphic relation and conduct MT for testing code generator families.
-Let $f(P(x))$ be a function that calculates a non-functional metric of a generated program $P$ (such as execution time or memory usage of $P$) for an input test suite denoted by $x$. Since we have different program versions generated in the same family, we denote by $(P_{1}(x)$, $P_{2}(x)$,..., $P_{n}(x))$ the set of generated programs. The corresponding outputs would be $(f(P_{1})$, $f(P_{2})$,..., $f(P_{n}))$. Thus, our MR looks like this:
+Let $f(P(t_{i}))$ be a function that calculates the non-functional output (such as execution time or memory usage) of the input test suite ($t_{i}$), running on a generated program ($P$). Since we have different program versions generated in the same family, we denote by $(P_{1}(t_{i})$, $P_{2}(t_{i})$,..., $P_{n}(t_{i}))$ the set of generated programs. The corresponding outputs would be $(f(P_{1})$, $f(P_{2})$,..., $f(P_{n}))$. Thus, our MR looks like this:
 
 \begin{equation}
-	 R(P_{1}(x), P_{2}(x),..., P_{n}(x))  \Rightarrow R(f(P_{1}(x)), f(P_{2}(x)),..., f(P_{n}(x)))
+	 R(P_{1}(t_{i}), P_{2}(t_{i}),..., P_{n}(t_{i}))  \Rightarrow R(f(P_{1}(t_{i})), f(P_{2}(t_{i})),..., f(P_{n}(t_{i})))
 \end{equation}
 
-On the one hand, we use the following equation $P_{1}(x) \equiv P_{2}(x)$ to denote \textit{the functional equivalence relation} between two generated programs $P_{1}$ and $P_{2}$ from the same family. This means that the generated programs $P_{1}$ and $P_{2}$ have the same behavioral design, and for any test suite $x$, they have the same functional output. 
+On the one hand, we use the following equation $P_{1}(t_{i}) \equiv P_{2}(t_{i})$ to denote \textit{the functional equivalence relation} between two generated programs $P_{1}$ and $P_{2}$ from the same family. This means that the generated programs $P_{1}$ and $P_{2}$ have the same behavioral design, and for any test suite $t_{i}$, they have the same functional output. 
 If this relation is not satisfied that means, that there is at least one faulty code generator that produced incorrect code. In this this work, we focus on the non-functional testing, so we ensure that this relation is ensured by excluding all the programs that do not exhibit the same behavior. 
 
 
 On the other hand, since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite across the different versions. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in different languages and executed using different technologies (e.g., interpreters for PHP, JVM for JAVA, etc.). 
-This observation is also based on initial experiments, where we evaluate the resource usage/execution time of several test suites across a set of equivalent versions generated using a code generator family (presented in details in the evaluation section \ref{sec:cg_evaluation}). As a consequence, we use the notation $\Delta\{f(P_{1}(x)), f(P_{2}(x))\}$ to designate the variation of memory usage or execution time of test suite execution $x$ across two version of generated code written in different languages $P_{1}$ and $P_{2}$. We suppose that this variation should note exceed a certain threshold value $T$, otherwise, we raise a code generator inconsistency.
+This observation is also based on initial experiments, where we evaluate the resource usage/execution time of several test suites across a set of equivalent versions generated using a code generator family (presented in details in the evaluation section \ref{sec:cg_evaluation}). As a consequence, we use the notation $\Delta\{f(P_{1}(t_{i})), f(P_{2}(t_{i}))\}$ to designate the variation of memory usage or execution time of test suite execution $t_{i}$ across two version of generated code written in different languages $P_{1}$ and $P_{2}$. We suppose that this variation should note exceed a certain threshold value $T$, otherwise, we raise a code generator inconsistency.
 Based on this intuition, the MR can be represented as:
 
 \begin{equation}
-P_{1}(x) \equiv P_{2}(x) \equiv ... \equiv P_{n}(x) \Rightarrow \Delta\{f(P_{1}(x)), f(P_{2}(x)),..., f(P_{n}(x))\} < T\quad (n\geqslant 2)
+P_{1}(t_{i}) \equiv P_{2}(t_{i}) \equiv ... \equiv P_{n}(t_{i}) \Rightarrow \Delta\{f(P_{1}(t_{i})), f(P_{2}(t_{i})),..., f(P_{n}(t_{i}))\} < T\quad (n\geqslant 2)
 \end{equation}
 
-This MR is equivalent to say that: \textbf{if} a set of functionally equivalent programs are generated using the same code generator family $((P_{1}(x)$, $P_{2}(x)$,...,$P_{n}(x))$, and with the same input parameters $x$ \textbf{then} the comparison of their non-functional outputs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$ should be the same while taking into account a tolerance interval defined by the variation $\Delta$ that may not exceed a specific threshold value $T$.
+This MR is equivalent to say that: \textbf{if} a set of functionally equivalent programs are generated using the same code generator family $((P_{1}(t_{i})$, $P_{2}(t_{i})$,...,$P_{n}(t_{i}))$, and with the same test suite $t_{i}$, \textbf{then} the comparison of their non-functional outputs $(f(P_{1}(t_{i}))$, $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i})))$ should be the same while taking into account a tolerance interval defined by the variation $\Delta$ that shall not exceed a specific threshold value $T$.
 
 The generated code that violates this metamorphic property represents an inconsistency and its corresponding code generator is considered as defective.
 
@@ -313,10 +299,10 @@ The generated code that violates this metamorphic property represents an inconsi
 	\label{fig:cg_MT}
 \end{figure}
 
-So far, we have defined the metamorphic property (MR) necessary for inconsistencies detection. We describe now our automatic metamorphic testing approach based on this relation (steps 2, 3, and 4). 
+So far, we have defined the MR necessary for inconsistencies detection. We describe now our automatic metamorphic testing approach based on this relation (steps 2, 3, and 4). 
 Figure \ref{fig:cg_MT} shows the approach overview.
 The code generator family takes the same input program I and generate a set of equivalent test programs $(P_{1}$, $P_{2}$,...,$P_{n})$. Test suites are also automatically generated since we suppose that they are created at design time. In fact, the same test suite (test cases + input data values) is passed to all generated programs. This corresponds to step 2 where new follow-up test cases must be generated or selected in order to verify their outputs using the MR. 
-Then, generated programs and their corresponding test suites are executed (step 3). Afterwards, we measure the memory usage or execution time of these generated programs $(f(P_{1}(x))$, $f(P_{2}(x))$,..., $f(P_{n}(x)))$. Finally, the execution results are compared and verified using the MR defined earlier (step 4).
+Then, generated programs and their corresponding test suites are executed (step 3). Afterwards, we measure the memory usage or execution time of these generated programs $(f(P_{1}(t_{i}))$, $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i})))$. Finally, the execution results are compared and verified using the MR defined earlier (step 4).
 In this process, inconsistencies will be reported when we detect singular performance behavior of one running test suites for a specific target.
 
 
@@ -329,7 +315,7 @@ One of the main question that may be raised when applying our MT approach is how
 
 To do so, we conduct a statistical analysis of the non-functional outputs of original test inputs in order to find an accurate threshold value $T$ and then, detect inconsistencies using follow-up test inputs.
  
-Before that, the non-functional outputs need to be prepared to make them suitable for the statistical techniques employed by our methodology. Thus, we describe first our process for data preparation:
+Before that, the non-functional outputs need to be prepared to make them suitable for the statistical methods employed by our methodology. Thus, we describe first our process for data preparation:
 
 \paragraph{Data preparation}~\\ 
 As depicted in Table \ref{tab:Non-functional output results}, each program comes with a set of test suites $(t_{1}$, $t_{2}$,..., $t_{m})$. Evaluating a test suite requires the calculation of the memory usage or execution time $f(P_{1}(t_{i}))$,  $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i}))$ where $(1 \leq i \leq m)$  across all target software platforms. Thus, obtained results represent a matrix where columns indicate the non-functional value (raw data) for each target software platform and rows indicate the corresponding test suite.
@@ -349,13 +335,13 @@ As depicted in Table \ref{tab:Non-functional output results}, each program comes
 	\caption{Non-functional output results}
 	\label{tab:Non-functional output results}
 \end{table}
-The non-functional data should be converted into a format that is understood by our statistical methods. One way to compare these non-functional outputs is to study the factor differences. In other words, we would evaluate for each target platform the number of times (the factor) that a test suite takes to run compared to a reference test suite. The reference test suite in our case is the minimum obtained non-functional value across the n target platforms. The resulting factor is the ratio between the actual non-functional value and the minimum value obtained among the n versions. The following equation is applied for each cell in order to transform our data:
+The non-functional data should be converted into a format that is understood by our statistical methods. One way to compare these non-functional outputs is to study the factor differences. In other words, we would evaluate for each target platform the number of times (the factor) that a test suite takes to run compared to a reference test suite. The reference test suite in our case is the minimum obtained non-functional value across the $n$ target platforms. The resulting factor is the ratio between the actual non-functional value and the minimum value obtained among the $n$ versions. The following equation is applied for each cell in order to transform our data:
 
 \begin{equation}
 F(f(P_{j}(t_{i})))=\frac{f(P_{j}(t_{i}))}{Min(f(P_{1}(t_{i})),..., f(P_{n}(t_{i})))}  
 \end{equation}
 
-The reference value will get a factor value $F = 1$ corresponding to the minimum value among the n targets. The maximum value is the one leading to the maximum deviation for the reference test suite. For example, let $P_{1}$ be the generated program in Java. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to Java.
+The reference value will get a factor value $F = 1$ corresponding to the minimum value among the $n$ targets. The maximum value is the one leading to the maximum deviation from the reference test suite. For example, let $P_{1}$ be the generated program in JAVA. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to JAVA.
 
 Next step is to automatically detect the large deviations, we describe then, our statistical approaches.
 
@@ -380,9 +366,9 @@ Table \ref{tab:Statistical methods} gives an overview of these two statistical m
 \end{table}
 
 \subparagraph{R-Chart}~\\
-In this approach, the automatic variation detection between the different versions of code is determined by comparing the non-functional measurements based on a statistical quality control technique called \textit{R-Chart} or \textit{range chart}. 
+In this approach, the automatic variation detection between the different versions of code is determined by comparing the non-functional measurements based on a statistical quality control technique called \textit{R-Chart} or \textit{range chart}\cite{malik2013automatic}. 
 R-Chart is used to analyze variation within processes. It is designed to detect changes in variation over time and to evaluate the consistency of process variation.
-R-Chart uses control limits to represent the limits of variation that should be expected from a process. LCL denotes the Lower Control Limit and UCL denotes the Upper Control Limits UCL.
+R-Chart uses control limits (LCL and UCL) to represent the limits of variation that should be expected from a process. LCL denotes the Lower Control Limit and UCL denotes the Upper Control Limits UCL.
  
 When a process is within the controlled limits, any variation is normal. It is said that the process is \textbf{in control}. 
 Outside limit variations, however, considered as deviations and the R-chart is considered as \textbf{out of control} which means that the process variation is not stable. Thus, It tells that there is an inconsistency leading to this high variation deviation (see Figure \ref{fig:cg-rechart})
@@ -411,32 +397,25 @@ LCL = D_{3}\bar{R}
 \end{split} 
 \label{eqUCL}
 \end{equation}
-where $D_{4}$, $D_{3}$, are control chart constants that depend on the number of variables inside each process. For example of a code generator family composed of five code generators, $D_{4}$ is equal to and $D_{3}$ is equal to 0. 
+where $D_{4}$, $D_{3}$, are control chart constants that depend on the number of variables inside each process. For example,  for a family composed of five code generators, $D_{4}$ is equal to $2.114$ and $D_{3}$ is equal to 0. 
 
 From a MT perspective, the UCL represents the threshold $T$ value from which we detect a high variation deviation, leading to an inconsistency. As we stated earlier, the UCL is a function of $\bar{R}$, and $\bar{R}$ is a function of range differences. So, the UCL value is sensitive to new generated follow-up test suites. In order to evaluate the MR for new generated test suites, the UCL (or $T$) value is updated and the variation is evaluated with the new threshold value. 
 
 We present in the following another statistical approach that is input insensitive and can find a general threshold value to define variation limit.
 
 
-
-
-
-%\subparagraph{title} 
-
-
 \subparagraph{PCA}~\\
-
 With a large number of program versions, the non-functional data matrix (Table \ref{tab:Non-functional output results}) may be too large to study and interpret the variation properly. There would be too many pairwise correlations between the different versions to consider and the variation is impossible to display (graphically) when test suites are executed in more than three target platforms.
 With 12 variables, for example, there will be more than 200 three-dimensional scatter plots to be designed to study the variation and correlations.
 To interpret the data in a more meaningful form, it is therefore necessary to reduce the number of variables composing our data.
 
-Principal Component Analysis\footnote{\url{https://en.wikipedia.org/wiki/Principal_component_analysis}} (PCA) is a multivariate statistical approach that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called Principal Components (PC). It can be applied when data are collected on a large number of variables from a single population. Thus, we apply the PCA approach to our case study because our dimension space as it is presented in Table\ref{tab:Non-functional output results}, is composed of a set of processes (test suites) where $n$ variables (e.g., target programming languages) are composing each observation. The variability within our model is correlated to these $n$ variables representing the test suites running on $n$ target platforms. 
+Principal Component Analysis\footnote{\url{https://en.wikipedia.org/wiki/Principal_component_analysis}} (PCA) is a multivariate statistical approach that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called Principal Components (PCs). It can be applied when data are collected on a large number of variables from a single population. Thus, we apply the PCA approach to our case study because our dimension space as it is presented in Table \ref{tab:Non-functional output results}, is composed of a set of processes (test suites) where $n$ variables (e.g., target programming languages) are composing each observation. The variability within our model is correlated to these $n$ variables representing the test suites running on $n$ target platforms. 
 
-The main objective of PCA is to reduce the dimensionality of the original data and explain the maximum amount of variance with the fewest number of principal components. To do so, PCA is concerned with summarizing the variance-covariance matrix. It involves computing the eigenvectors and eigenvalues of the variance-covariance matrix. The eigenvectors are used to project the data from $p$ dimensions down to a lower dimensional representation. The eigenvalues give the variance of the data in the direction of the eigenvector. The first eigenvector is the vector which defines the direction of maximumn variance in the data.
+The main objective of applying PCA is to reduce the dimensionality of the original data and explain the maximum amount of variance with the fewest number of principal components. To do so, PCA is concerned with summarizing the variance-covariance matrix. It involves computing the eigenvectors and eigenvalues of the variance-covariance matrix. The eigenvectors are used to project the data from $p$ dimensions down to a lower dimensional representation. The eigenvalues give the variance of the data in the direction of the eigenvector. The first eigenvector is the vector which defines the direction of maximumn variance in the data.
 
 The first principal component is calculated such that it accounts for the greatest possible variance in the data set. The second principal component is calculated in the same way, with the condition that it is uncorrelated with (i.e., perpendicular to) the first principal component and that it accounts for the next highest variance. The eigenvector associated with the largest eigenvalue has the same direction as the first principal component. The eigenvector associated with the second largest eigenvalue determines the direction of the second principal component.
 
-PCA use many data transformations and statistical concepts. We are not interested in studying all the mathematical aspects of PCA. Thus, we use an existing R package\footnote{\url{http://factominer.free.fr/}} to transform and reduce our data into two PCs in order to visualize the variation of all our data points in a 2-dimensional space.
+PCA uses many data transformations and statistical concepts. We are not interested in studying all the mathematical aspects of PCA. Thus, we use an existing R package\footnote{\url{http://factominer.free.fr/}} to transform and reduce our data into two PCs in order to visualize the variation of all our data points in a 2-dimensional space.
 
 Our intuition behind the PCA approach is to conduct an extreme-value analysis in order to find data points at the boundaries of multivariate data. These extreme points represent, from a statistical perspective, \textit{outliers}. Following our MT approach, these points correspond to the inconsistencies (or deviation) we would detect. 
 
@@ -446,15 +425,15 @@ SD measures the statistical distance from a PC score to the center of the scores
 \begin{equation}
 SD_{i}=\sqrt{\sum_{j=1}^{a} \frac{t_{ij}^{2}}{\lambda_{j}}}
 \end{equation}
-where $a$ is the number of PCs forming the PCA space, $t_{ij}$ are the elements of the score matrix obtained after running PCA, and $\lambda_{j}$ is the variance of the $j$th PC which corresponds to the $j$th eigenvalue.
+where $a$ is the number of PCs forming the PCA space, $t_{ij}$ are the elements of the score matrix obtained after running PCA, and $\lambda_{j}$ is the variance of the $j^{th}$ PC which corresponds to the $j^{th}$ eigenvalue.
 
-In order to find the outliers, we compute the 97.5\%-Quantile Q of the Chi-square distribution as a cutoff value of the SD ($\sqrt{\chi_{a,0.975}^{2} }$). It corresponds to an ellipse that covers 97.5\% of the data points and this forms a confidence ellipse.
-Any samples whose SD are larger than the cutoff are identified as the outliers. This cut-off represents the variation threshold $T$ we would define using this PCA approach.
+In order to find the outliers, we compute the 97.5\%-Quantile Q of the Chi-square distribution as a cutoff value of the SD ($\sqrt{\chi_{a,0.975}^{2} }$). It corresponds to a confidence ellipse that covers 97.5\% of the data points.
+Any samples whose SD are larger than the cutoff value, they are identified as the outliers. This cut-off represents the variation threshold $T$ we would define using this PCA approach.
 
 %It is equal to the squared Mahalanobis distance from the model center to sample i within the score subspace.
 %Cut-off values help to distinguish between outliers and regular observations. Any samples whose Mahalanobis distances are larger than the cutoff are identified as the outliers.
 \begin{remark}
-The R-chart method presented earlier, defines a dynamic threshold value (UCL) where follow-up test suites influence on this value. However, using PCA, we are able to analyze the non-functional data of original test suites in order to define a general threshold value (Cutoffs) which is steady. Thus, follow-up test suites that exceed this value, causing a high performance or resource usage deviation, are identified as inconsistencies (outliers).
+The R-chart method presented earlier, defines a dynamic threshold value (UCL) where follow-up test suites influence on this value. However, using PCA, we are able to analyze the non-functional data of original test suites in order to define a general threshold value (Cutoff) which is steady. Thus, follow-up test suites that exceed this value, causing a high performance or resource usage deviation, are identified as inconsistencies (outliers).
 \end{remark}
 
 We move now to present the evaluation of our approach.
@@ -487,32 +466,32 @@ One way to prove the effectiveness of our approach is to create benchmarks. Thus
 In fact, each Haxe library comes with an API and a set of test suites. These tests, written in Haxe, represent a set of unit tests that covers the different functions of the API. The main task of these tests is to check the correct functional behavior of generated programs. To prepare our benchmark, we remove all the tests that fail to compile to our five targets (i.e., errors, crashes and failures) and we keep only test suites that are functionally correct in order to focus only on the non-functional properties.
 Moreover, we add manually new test cases to some libraries in order to extend the number of test suites. The number of test suites depends on the number of existing functions within the Haxe library.
 
-We use then these test suites to transform functional tests into stress tests. This can be useful to study the impact of this load on the resource usage properties of the five target versions. For example, if one test suite consumes a lot of resources for a specific target, then this could be explained by the fact that the code generator under test has produced code that is very greedy in terms of resources.
-Thus, we run each test suite 1K times to get comparable values in terms of resource usage.
-Table \ref{tab:Description of selected benchmark libraries} describes the Haxe libraries that we have selected in this benchmark to evaluate our
-approach and the number of test suites used per benchmark.
 
 \begin{table}[h]
 	\centering
 	
-		\begin{tabular}{|c|c|p{8.5cm}|}				
-			\hline
-			\textbf{Library} & \textbf{\#TestSuites} & \textbf{Description} \\
-			\hhline{|=|=|=|}
-			Color  &  19 &  Color conversion from/to any color space   \\ \hline
-			Core & 51  & Provides extensions to many types  \\ \hline
-			Hxmath & 6  & A 2D/3D math library  \\ \hline
-			Format  &  4 & Format library such as dates, number formats   \\ \hline
-			Promise & 5  & Library for lightweight promises and futures  \\ \hline
-			Culture & 5  & Localization library for Haxe \\ \hline
-			Math & 5  & Generation of random values \\ \hline
-		\end{tabular}
+	\begin{tabular}{|c|c|p{8.5cm}|}				
+		\hline
+		\textbf{Library} & \textbf{\#TestSuites} & \textbf{Description} \\
+		\hhline{|=|=|=|}
+		Color  &  19 &  Color conversion from/to any color space   \\ \hline
+		Core & 51  & Provides extensions to many types  \\ \hline
+		Hxmath & 6  & A 2D/3D math library  \\ \hline
+		Format  &  4 & Format library such as dates, number formats   \\ \hline
+		Promise & 5  & Library for lightweight promises and futures  \\ \hline
+		Culture & 5  & Localization library for Haxe \\ \hline
+		Math & 5  & Generation of random values \\ \hline
+	\end{tabular}
 	
 	\caption{Description of selected benchmark libraries}
 	\label{tab:Description of selected benchmark libraries}
 \end{table}
 
+We use then these test suites to transform functional tests into stress tests. This can be useful to study the impact of this load on the resource usage properties of the five target versions. 
+We run each test suite 1K times to get comparable values in terms of resource usage.
+Table \ref{tab:Description of selected benchmark libraries} describes the Haxe libraries that we have selected in this benchmark to evaluate our approach and the number of test suites used per benchmark.
 In total, we have 95 test suites to execute across all benchmark programs.
+
 \subsubsection{Evaluation metrics used}
 We use to evaluate the efficiency of generated code using the following non-functional metrics:
 
@@ -536,12 +515,8 @@ Figure \ref{fig:settingup.pdf} shows a big picture of the testing and monitoring
 	\label{fig:settingup.pdf}
 \end{figure}
 
-First, a first component is created in where we install the Haxe code generators and compilers. It takes as an input the Haxe library we would test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. These files are saved in a shared repository call \textit{Data Volume}.
-
-Afterwards, generated files are compiled (if needed) and automatically executed within the execution container (Step 2). This execution container is a pre-configured container instance where we install all the required execution environments such as php interpreter, NodeJS, etc. 
-
+First, a first component is created in where we install the Haxe code generators and compilers. It takes as an input the Haxe library we would test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. Afterwards, generated files are compiled (if needed) and automatically executed within the execution container (Step 2). This execution container is a pre-configured container instance where we install all the required execution environments such as php interpreter, NodeJS, etc. 
 In the meantime, while running test suites inside the container, we collect runtime resource usage data using the components showed in step 3, 4, and 5 (presented in details in Chapter \ref{chap:docker}).
-
 Finally, in step 6 we provide a mechanism to extract these resource usage metrics via http requests. In our experiment, we are gathering the maximum memory usage values without presenting the graphs of resource usage profiles.
 
 To obtain comparable and reproducible results, we use the same hardware across all experiments: a farm of AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (\SI{2.0}{\GHz}), running Linux with a 64 bit kernel and \SI{16}{\giga\byte} of system memory. We reserve one core and \SI{4}{\giga\byte} of memory for each running container. 
@@ -551,7 +526,7 @@ In the following paragraphs, we report the methodology we used to answer \textbf
 
 \subsubsection{Method}
 We now conduct experiments based on the new created benchmark. 
-The goal of running these experiments is to observe and compare the behavior of generated code in order to detect code generator inconsistencies.
+The goal of running these experiments is to observe and compare the behavior of generated code using the defined MR in order to detect code generator inconsistencies.
 %We recall, as mentioned in the motivation, that we are not using any oracle function to detect inconsistencies. However, we rely on the comparison results across different targets to detect code generator inconsistencies.
 
 Therefore, we set up, first, our container-based infrastructure as it is presented in Section \ref{sec:cg-An infrastructure for non-functional testing using system containers} in order to generate, execute, and collect the resource usage metrics of our benchmark programs.
@@ -589,14 +564,14 @@ Afterwards, we prepare and scale our raw data to make it valuable for efficient 
 	\caption{Memory usage variation of test suites across the different Haxe benchmarks}
 	\label{rm}
 \end{figure}
-The results of R-charts for the seven benchmark programs relative to the performance and resource usage variation are reported in Figures \ref{rt} and \ref{rm}. For Figure \ref{rt}, we report the performance variation for each test suite corresponding to the range difference $R$ between the maximum and minimum execution time among the five targets (JAVA, JS, C++, C\#, and PHP). 
+The results of R-charts for the seven benchmark programs relative to the performance and resource usage variation are reported in Figures \ref{rt} and \ref{rm}. For Figure \ref{rt}, we report the performance variation corresponding to the range difference $R$ between the maximum and minimum execution time of each test suite across the five targets (JAVA, JS, C++, C\#, and PHP). 
 The execution time is of course scaled by dividing all values by the minimum execution time per test suite. 
 The LCL for our experiments is always equal to 0 because the $D_{3}$ constant value as defined in equation \ref{eqUCL}, is equal to zero according to the R-chart constants table\footnote{\url{http://www.bessegato.com.br/UFJF/resources/table_of_control_chart_constants_old.pdf}}. In fact, the $D_{3}$ constant changes depending on the number of subgroups. In our experiments, our data record is composed of five subgroups corresponding to the five target programming languages.
 The central line (in green) corresponds to $R$-$bar$. This value changes from one benchmark to another depending on the average of $R$ across all test suites in the benchmark. As a consequence, $UCL$, which is a function of $R$-$bar$, changes as long as we add new test suites to the experiments. $UCL$ is equal to $D_{4}*\bar{R}$ where $D_{4}=2.114$ according to the R-chart constants table. We recall that we have classified the R-chart approach as input sensitive since the average variation $R$-$bar$ and the threshold value $UCL$ change dynamically by adding new follow-up test suites to the corresponding benchmark. 
-We note as well that these parameter values are appropriate to each benchmark program. We made this separation because we believe that the variation is highly dependent on the domain context and on the program under test. For example, testing the memory usage or performance of a program that performs a high mathematical computation (e.g., image processing, statistical analysis, etc) is not the same as a generated web application, since data types are handled differently. The R-charts used for measuring the memory usage variation follow the same concept as we have just been describing for performance variation.  
+We note as well that these parameter values are appropriate to each benchmark program. We made the threshold values specific for each benchmark because we believe that the variation is highly dependent on the domain context and on the program under test. For example, testing the memory usage or performance of a program that performs a high mathematical computation (e.g., image processing, statistical analysis, etc) is not the same as a generated web application, since data types are handled differently. The R-charts used for measuring the memory usage variation follow the same concept as we have just been describing for performance variation.  
 
-Results in Figure \ref{rt}, show that most of the performance variations are in the interval $[0-UCL]$, which corresponds to \textit{in-control} variation zone as it is described in Section \ref{sec:cg-Variation threshold}. However, we remark for several test suites that the performance variation becomes relatively high (higher than the $UCL$ value of the corresponding benchmark program). We detect 11 performance deviations lying in the \textit{out of control} variation zone. For the other test suites, the variation is even less than the total average variations $R$-$bar$. There are only 7 test suites among the remaining 84 ones where the variation lies in the interval $[\bar{R}-UCL]$. This variation is high but we are not detecting it asa performance deviation because according to the R-chart, variation in this zone is still \textit{in-control}. 
-The 11 performance deviation we have detected can be explained by the fact that the execution time of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
+Results in Figure \ref{rt}, show that most of the performance variations are in the interval $[0-UCL]$, which corresponds to \textit{in-control} variation zone as it is described in Section \ref{sec:cg-Variation threshold}. However, we remark for several test suites that the performance variation becomes relatively high (higher than the $UCL$ value of the corresponding benchmark program). We detect 11 among 95 performance deviations lying in the \textit{out of control} variation zone. For the other test suites, the variation is even less than the total average variations $R$-$bar$. There are only 7 test suites among the remaining 84 ones where the variation lies in the interval $[\bar{R}-UCL]$. This variation is high but we are not detecting it as a performance deviation because according to the R-chart, variation in this zone is still \textit{in-control}. 
+The 11 performance deviations we have detected can be explained by the fact that the execution time of one or more test suites varies considerably from one language to another. This argues the idea that the code generator has produced a suspect code behavior for one or more target language, which led to a high performance variation. We provide later better explanation in order to detect the faulty code generators.
 
 Similarly, Figure \ref{rm} resumes the comparison results of test suites execution regarding the memory usage. The variation in this experiment are more important than previous results. This can be argued by the fact that the memory utilization and allocation patterns are different for each language. Nevertheless, we can recognize some points where the variation is extremely high. Thus, we detect 15 among 95 test suites that exceed the corresponding $UCL$ value. 
 When the variation is below UCL, we detect 14 among the 80 remaining test suites where the variation lies in the interval $[\bar{R}-UCL]$, which is relatively high. 
@@ -623,7 +598,7 @@ To resume, we have detected 11 extreme performance variations and 15 extreme mem
 	\caption{Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}
 	\label{sd}
 \end{figure}
-We apply the PCA approach as an alternative to the R-chart approach. Figure \ref{pca} shows the dispersion of our data points in the PC subspace. PC1 et PC2 represent the directions of our two first principal components, having the highest orthogonal variations. Our data points represent the performance variation (Figure \ref{pcat}) and the memory usage variation (Figure \ref{pcam}) of the 95 test suites we have executed. Variation points are colored according to benchmark program they belong to (displayed in the figure legend). At the first glance, we can clearly see that the variation points are situated in the same area except some points that lie far from this point cloud. In Figure \ref{pcat}, the pink points corresponding to the Math benchmark show visually the largest deviation from the point cloud. The three core test suites (in red) which are identified as performance deviations in R-chat, show also a deviation in the PCA scatter plot. Points 91 relative to the Math benchmark is deviating from the cloud point. However, in the R-chart diagram, it is not detected as a performance deviation (see the test suite 3 of Figure \ref{rt7}). In fact, this test suite takes more than 80 times to run. Compared to other test suites, the performance variation does not generally exceed 80. In effect, PCA performs a complete analysis of the whole data we have collected in all benchmarks. Thus, variations are displayed with respect to all test suites variations in all benchmarks. It is not limited to the variation inside the target benchmark program as we used to do using R-charts. We report the same results in Figure \ref{pcam} about the memory usage variation in the PCA. 
+We apply the PCA approach as an alternative to the R-chart approach. Figure \ref{pca} shows the dispersion of our data points in the PC subspace. PC1 et PC2 represent the directions of our two first principal components, having the highest orthogonal variations. Our data points represent the performance variation (Figure \ref{pcat}) and the memory usage variation (Figure \ref{pcam}) of the 95 test suites we have executed. Variation points are colored according to benchmark program they belong to (displayed in the figure legend). At the first glance, we can clearly see that the variation points are situated in the same area except some points that lie far from this point cloud. In Figure \ref{pcat}, the pink points corresponding to the Math benchmark show visually the largest deviation from the point cloud. The three Core test suites (in red) which are identified as performance deviations in R-chat, show also a deviation in the PCA scatter plot. Points 91 relative to the Math benchmark is deviating from the cloud point. However, in the R-chart diagram, it is not detected as a performance deviation (see the test suite 3 of Figure \ref{rt7}). In fact, this test suite takes more than 80 times to run. Compared to other test suites, the performance variation does not generally exceed 80. In effect, PCA performs a complete analysis of the whole data we have collected in all benchmarks. Thus, variations are displayed with respect to all test suites variations in all benchmarks. It is not limited to the variation inside the target benchmark program as we used to do using R-charts. We report the same results in Figure \ref{pcam} about the memory usage variation in the PCA. 
 
 
 To confirm this observation, we present in Figure \ref{sd}, the results of applying our outliers detection approach to the previous presented PCAs. We identify 4 inconsistencies (or outliers) in each diagnostic plot. Inconsistencies in Figure \ref{pcat} are relative to the performance deviations. Points 31 and 32 correspond to the test suites 12 and 11 in benchmark Core of Figure \ref{rt1}. Points 91 and 95 correspond to the test suites 3 and 1 in benchmark Math of Figure \ref{rt7}. For memory usage variation, we detect points 25, 29, 82, and 92 which corresponds relatively to the test suites 21 and 6 of benchmark Core, 2 of benchmark Promise, and 3 of benchmark Math.
@@ -686,14 +661,14 @@ We can clearly see that this technique help to identify only the extreme value o
 Now that we have observed the performance and memory usage variations of test suites execution, we can analyze the extreme points we have detected using R-chart to observe in greater depth the source of such deviation.
 For that reason, we present in Table \ref{perf-tab} and \ref{mem-tab} the raw data values of these test suites leading to an extreme variation in terms of execution time and memory usage. We report the inconsistencies gathered from the first approach, R-chart.
 
-Table \ref{perf-tab} shows the execution time factor of each test suite execution in a specific target language. This factor is scaled with respect to the the lowest execution time among the five targets. We also report the $UCL$ defined per benchmark. In the last column, we report the code generator that caused such large deviation. To do so, we designate by defective CG the code generator in where the test suite execution time factor exceeds the $UCL$ value.
+Table \ref{perf-tab} shows the execution time factor of each test suite execution in a specific target language. This factor is scaled with respect to the the lowest execution time among the five targets. We also report the $UCL$ defined per benchmark. In the last column, we report the code generator that caused such large deviation. To do so, we designate by defective CG the code generator in where the test suite performance factor exceeds the $UCL$ value.
 
-We can clearly see that the PHP code has a singular behavior regarding the performance with a factor ranging from x27.29 for test suite 5 in benchmark Culture (Format\_TS3) to x481.7 for Math\_TS1. For example, if Math\_TS1 takes $1$ minute to run in JS, the same test suite in PHP will take around $8$ hours to run which is a very large gap. 
+We can clearly see that the PHP code has a singular behavior regarding the performance with a factor ranging from x27.29 for test suite 5 in benchmark Culture (Culture\_TS5) to x481.7 for Math\_TS1. For example, if Math\_TS1 takes $1$ minute to run in JS, the same test suite in PHP will take around $8$ hours to run which is a very large gap. 
 The highest factor detected for other languages is x5.41 which is not negligible but it represents a small deviation compared to PHP deviations. While it is true that we are comparing different versions of generated code, it was expected to get some variations while running test cases in terms of execution time. However, in the case of PHP code generator, it is far to be a simple variation but it is more likely to be a code generator inconsistency that led to such performance regression.
 
 
 Meanwhile, we gathered information about the points that led to the highest variation in terms of memory usage. Table \ref{mem-tab} shows these results. 
-Again, we can identify a singular behavior of the PHP code regarding the memory usage with a factor ranging from x52.47 to x675. For other test suites versions, the factor varies from x1 to x160.84. We observe as well a singular behavior of the JAVA code for Core\_TS6, Core\_TS32, and Promise\_TS2 yielding to a variation higher than the $UCL$. 
+Again, we can identify a singular behavior of the PHP code regarding the memory usage with a factor ranging from x52.47 to x675. For other test suites versions, the factor varies from x1 to x160.84. We observe as well a singular behavior of the JAVA code for Core\_TS6, Core\_TS32, and Promise\_TS2, yielding to a variation higher than the $UCL$. 
 These results prove that the PHP and JAVA code generators are not always effective and they constitute a threat for the generated software in terms of memory usage.
 
 %Besides the performance issues of PHP code generator presented in table~5, the results of memory usage confirm our claim since the PHP code has the highest memory utilization.
@@ -711,7 +686,7 @@ These inconsistencies need to be fixed by code generator creators in order to en
 
 Thus, to understand this particular singular performance of the PHP code when applying the test suite Core\_TS4 for example, we looked (manually) into the PHP code corresponding to this test suite. In fact, we observe the intensive use of \textit{"arrays"} in most of the functions under test. Arrays are known to be slow in PHP and PHP library has introduced much more advanced functions such as $array\_fill$ and specialized abstract types such as \textit{"SplFixedArray"}\footnote{\url{http://php.net/manual/fr/class.splfixedarray.php}} to overcome this limitation. So, by changing just these two parts in the generated code, we improve the PHP code speed with a factor x5 which is very valuable. We also reduce the memory usage of this test suite by a factor of x2.
 
-In short, the lack of use of specific types, in native PHP standard library, by the PHP code generator such as \textit{SplFixedArray} shows a real impact on the non-functional behavior of generated code. In contrast, selecting carefully the adequate types and functions to generate code can lead to performance improvement. The types used in the code generator are not the best ones. 
+In short, the lack of use of specific types, in native PHP standard library, by the PHP code generator such as \textit{SplFixedArray} shows a real impact on the non-functional behavior of generated code. Obviously, the types used in the code generator are not the best ones. In contrast, selecting carefully the adequate types and functions to generate code can lead to performance improvement. 
 
 \subsection{Threats to validity}
 We resume, in the following paragraphs, external and internal threats that can be raised:
@@ -739,20 +714,19 @@ We resume, in the following paragraphs, external and internal threats that can b
 
 \section{Conclusion}
 \label{sec:cg-conclusion}
-Our approach is a black-box testing technique and it does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
 
 
 
-In this work we have described a new approach for testing and monitoring the code generators families using a container-based infrastructure. 
-We used a set of micro-services in order to provide a fine-grained understanding of resource consumption. 
+
+In this work we have described a testing approach, based on MRs as test oracles, to identify code generator inconsistencies. The availability of multiple generators with comparable functionality allow us to define the MR as a comparison between the non-functional outcomes, while taking into account a tolerance variation interval. It relies on statistical methods, namely R-chart and PCA, in order to define the variation intervals.
+
 To validate our approach, we evaluate a popular family of code generators: HAXE. 
 The evaluation results show that we can find real issues in existing code generators. 
+Our approach does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
 In particular, we show that we could find two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
 
-As a current work, we are discussing with the Haxe community to submit a patch with the first findings. 
-We are also conducting the same evaluation for two other code generators families: ThingML and TypeScript. 
-As a future work, we are going to improve our understanding on the threshold which can provide a best precision for detecting performance issues in code generators. 
-In this paper, we detected inconsistencies related to the execution speed and memory usage. In the future, we seek, using the same testing infrastructure, to detect more code generator inconsistencies related to other non-functional metrics such CPU consumption, etc. 
+
+
 
 
 

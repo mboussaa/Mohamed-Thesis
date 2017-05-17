@@ -668,6 +668,13 @@ Paul Marinescu, Petr Hosek, and Cristian Cadar.
 \newblock In {\em Proceedings of the 2014 International Symposium on Software
   Testing and Analysis}, pages 93--104. ACM, 2014.
 
+\bibitem[MHH13]{malik2013automatic}
+Haroon Malik, Hadi Hemmati, and Ahmed~E Hassan.
+\newblock Automatic detection of performance deviations in the load testing of
+  large scale systems.
+\newblock In {\em Proceedings of the 2013 International Conference on Software
+  Engineering}, pages 1012--1021. IEEE Press, 2013.
+
 \bibitem[MJL{\etalchar{+}}06]{musset2006acceleo}
 Jonathan Musset, {\'E}tienne Juliot, St{\'e}phane Lacrampe, William Piers,
   C{\'e}dric Brun, Laurent Goubet, Yvan Lussaud, and Freddy Allilaire.

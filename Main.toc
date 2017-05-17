@@ -60,87 +60,87 @@
 \contentsline {chapter}{To the reader: summary of contributions}{77}{chapter*.11}
 \contentsline {chapter}{\numberline {4}Automatic non-functional testing of code generators families}{81}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction}{82}{section.4.1}
-\contentsline {section}{\numberline {4.2}Context and motivations}{84}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Code generator families}{84}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.2}Context and motivations}{83}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Code generator families}{83}{subsection.4.2.1}
 \contentsline {paragraph}{a. Haxe.}{84}{section*.12}
 \contentsline {paragraph}{b. ThingML.}{84}{section*.13}
 \contentsline {paragraph}{c. TypeScript.}{85}{section*.14}
-\contentsline {subsection}{\numberline {4.2.2}Issues when testing a code generator family}{86}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}Issues when testing a code generator family}{85}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}The traditional process for non-functional testing of a code generator family}{86}{section.4.3}
 \contentsline {section}{\numberline {4.4}Approach overview}{88}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}An infrastructure for non-functional testing using system containers}{88}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}A metamorphic testing method for automatic detection of code generators inconsistencies}{90}{subsection.4.4.2}
 \contentsline {subsubsection}{\numberline {4.4.2.1}Basic concept of metamorphic testing}{90}{subsubsection.4.4.2.1}
-\contentsline {subsubsection}{\numberline {4.4.2.2}Application of MT to the non-functional testing of code generator families}{92}{subsubsection.4.4.2.2}
-\contentsline {subsubsection}{\numberline {4.4.2.3}(Step 1)}{93}{subsubsection.4.4.2.3}
-\contentsline {subsubsection}{\numberline {4.4.2.4}(Steps 2, 3, and 4)}{95}{subsubsection.4.4.2.4}
-\contentsline {subsubsection}{\numberline {4.4.2.5}Variation threshold}{96}{subsubsection.4.4.2.5}
-\contentsline {paragraph}{Data preparation}{96}{section*.15}
-\contentsline {paragraph}{Statistical analysis}{97}{section*.16}
-\contentsline {subparagraph}{R-Chart}{97}{section*.17}
-\contentsline {subparagraph}{PCA}{99}{section*.18}
-\contentsline {section}{\numberline {4.5}Evaluation}{101}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Experimental setup}{101}{subsection.4.5.1}
-\contentsline {subsubsection}{\numberline {4.5.1.1}Code generators under test: Haxe compilers}{101}{subsubsection.4.5.1.1}
-\contentsline {subsubsection}{\numberline {4.5.1.2}Cross-platform benchmark}{102}{subsubsection.4.5.1.2}
-\contentsline {subsubsection}{\numberline {4.5.1.3}Evaluation metrics used}{103}{subsubsection.4.5.1.3}
-\contentsline {subsubsection}{\numberline {4.5.1.4}Setting up infrastructure}{103}{subsubsection.4.5.1.4}
-\contentsline {subsection}{\numberline {4.5.2}Experimental methodology and results}{105}{subsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.2.1}Method}{105}{subsubsection.4.5.2.1}
-\contentsline {subsubsection}{\numberline {4.5.2.2}Results}{105}{subsubsection.4.5.2.2}
-\contentsline {paragraph}{R-chart results}{105}{section*.19}
-\contentsline {paragraph}{PCA results}{109}{section*.20}
-\contentsline {paragraph}{Detected inconsistencies }{111}{section*.21}
-\contentsline {subsubsection}{\numberline {4.5.2.3}Analysis}{113}{subsubsection.4.5.2.3}
-\contentsline {subsection}{\numberline {4.5.3}Threats to validity}{114}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Conclusion}{115}{section.4.6}
-\contentsline {chapter}{\numberline {5}NOTICE: An approach for auto-tuning compilers}{117}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introduction}{119}{section.5.1}
-\contentsline {section}{\numberline {5.2}Motivation}{121}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Compiler optimizations}{121}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Example: GCC compiler}{122}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}Evolutionary exploration of compiler optimizations}{124}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Novelty search adaptation}{124}{subsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.1.1}Optimization sequence representation}{126}{subsubsection.5.3.1.1}
-\contentsline {subsubsection}{\numberline {5.3.1.2}Novelty metric}{126}{subsubsection.5.3.1.2}
-\contentsline {subsection}{\numberline {5.3.2}Novelty search for multi-objective optimization}{127}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Evaluation}{128}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Research questions}{128}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Experimental setup}{129}{subsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.2.1}Programs used in the empirical study}{129}{subsubsection.5.4.2.1}
-\contentsline {subsubsection}{\numberline {5.4.2.2}Parameters tuning}{130}{subsubsection.5.4.2.2}
-\contentsline {subsubsection}{\numberline {5.4.2.3}Evaluation metrics used}{131}{subsubsection.5.4.2.3}
-\contentsline {subsubsection}{\numberline {5.4.2.4}Setting up infrastructure}{132}{subsubsection.5.4.2.4}
-\contentsline {subsection}{\numberline {5.4.3}Experimental methodology and results}{132}{subsection.5.4.3}
-\contentsline {subsubsection}{\numberline {5.4.3.1}RQ1. Mono-objective SBSE validation}{132}{subsubsection.5.4.3.1}
-\contentsline {paragraph}{Method}{132}{section*.22}
-\contentsline {paragraph}{Results}{134}{table.5.4}
-\contentsline {subsubsection}{\numberline {5.4.3.2}RQ2. Sensitivity}{135}{subsubsection.5.4.3.2}
-\contentsline {paragraph}{Method}{135}{section*.24}
-\contentsline {paragraph}{Results}{135}{section*.25}
-\contentsline {subsubsection}{\numberline {5.4.3.3}RQ3. Impact of optimizations on resource usage}{136}{subsubsection.5.4.3.3}
-\contentsline {paragraph}{Method 1}{137}{section*.26}
-\contentsline {paragraph}{Results 1}{137}{section*.27}
-\contentsline {paragraph}{Method 2}{137}{section*.28}
-\contentsline {paragraph}{Results 2}{138}{figure.5.7}
-\contentsline {subsubsection}{\numberline {5.4.3.4}RQ4. Trade-offs between non-functional properties}{140}{subsubsection.5.4.3.4}
-\contentsline {paragraph}{Method}{140}{section*.30}
-\contentsline {paragraph}{Results}{141}{section*.31}
-\contentsline {subsection}{\numberline {5.4.4}Discussions}{143}{subsection.5.4.4}
-\contentsline {subsection}{\numberline {5.4.5}Threats to validity}{144}{subsection.5.4.5}
-\contentsline {subsection}{\numberline {5.4.6}Tool support overview}{144}{subsection.5.4.6}
-\contentsline {section}{\numberline {5.5}Conclusion}{146}{section.5.5}
-\contentsline {chapter}{\numberline {6}A lightweight execution environment for automatic generators testing }{149}{chapter.6}
-\contentsline {section}{\numberline {6.1}Introduction}{149}{section.6.1}
-\contentsline {section}{\numberline {6.2}System containers as a lightweight execution environment}{150}{section.6.2}
-\contentsline {section}{\numberline {6.3}Runtime Testing Components}{152}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Monitoring Component}{152}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Back-end Database Component}{153}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Front-end Visualization Component}{154}{subsection.6.3.3}
-\contentsline {part}{III\hspace {1em}Conclusion and perspectives}{155}{part.3}
-\contentsline {chapter}{\numberline {7}Conclusion and perspectives}{157}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary of contributions}{157}{section.7.1}
-\contentsline {section}{\numberline {7.2}Perspectives}{157}{section.7.2}
-\contentsline {chapter}{\textbf {References}}{159}{section*.32}
-\contentsline {chapter}{List of Figures}{177}{section*.34}
-\contentsline {chapter}{List of Tables}{179}{section*.36}
+\contentsline {subsubsection}{\numberline {4.4.2.2}Application of MT to the non-functional testing of code generator families}{91}{subsubsection.4.4.2.2}
+\contentsline {subsubsection}{\numberline {4.4.2.3}(Step 1)}{92}{subsubsection.4.4.2.3}
+\contentsline {subsubsection}{\numberline {4.4.2.4}(Steps 2, 3, and 4)}{94}{subsubsection.4.4.2.4}
+\contentsline {subsubsection}{\numberline {4.4.2.5}Variation threshold}{95}{subsubsection.4.4.2.5}
+\contentsline {paragraph}{Data preparation}{95}{section*.15}
+\contentsline {paragraph}{Statistical analysis}{96}{section*.16}
+\contentsline {subparagraph}{R-Chart}{96}{section*.17}
+\contentsline {subparagraph}{PCA}{98}{section*.18}
+\contentsline {section}{\numberline {4.5}Evaluation}{100}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Experimental setup}{100}{subsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.1.1}Code generators under test: Haxe compilers}{100}{subsubsection.4.5.1.1}
+\contentsline {subsubsection}{\numberline {4.5.1.2}Cross-platform benchmark}{101}{subsubsection.4.5.1.2}
+\contentsline {subsubsection}{\numberline {4.5.1.3}Evaluation metrics used}{102}{subsubsection.4.5.1.3}
+\contentsline {subsubsection}{\numberline {4.5.1.4}Setting up infrastructure}{102}{subsubsection.4.5.1.4}
+\contentsline {subsection}{\numberline {4.5.2}Experimental methodology and results}{104}{subsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.2.1}Method}{104}{subsubsection.4.5.2.1}
+\contentsline {subsubsection}{\numberline {4.5.2.2}Results}{104}{subsubsection.4.5.2.2}
+\contentsline {paragraph}{R-chart results}{104}{section*.19}
+\contentsline {paragraph}{PCA results}{108}{section*.20}
+\contentsline {paragraph}{Detected inconsistencies }{110}{section*.21}
+\contentsline {subsubsection}{\numberline {4.5.2.3}Analysis}{112}{subsubsection.4.5.2.3}
+\contentsline {subsection}{\numberline {4.5.3}Threats to validity}{113}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Conclusion}{114}{section.4.6}
+\contentsline {chapter}{\numberline {5}NOTICE: An approach for auto-tuning compilers}{115}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{117}{section.5.1}
+\contentsline {section}{\numberline {5.2}Motivation}{119}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Compiler optimizations}{119}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Example: GCC compiler}{120}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Evolutionary exploration of compiler optimizations}{122}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Novelty search adaptation}{122}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}Optimization sequence representation}{124}{subsubsection.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}Novelty metric}{124}{subsubsection.5.3.1.2}
+\contentsline {subsection}{\numberline {5.3.2}Novelty search for multi-objective optimization}{125}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Evaluation}{126}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Research questions}{126}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Experimental setup}{127}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}Programs used in the empirical study}{127}{subsubsection.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.2.2}Parameters tuning}{128}{subsubsection.5.4.2.2}
+\contentsline {subsubsection}{\numberline {5.4.2.3}Evaluation metrics used}{129}{subsubsection.5.4.2.3}
+\contentsline {subsubsection}{\numberline {5.4.2.4}Setting up infrastructure}{130}{subsubsection.5.4.2.4}
+\contentsline {subsection}{\numberline {5.4.3}Experimental methodology and results}{130}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.3.1}RQ1. Mono-objective SBSE validation}{130}{subsubsection.5.4.3.1}
+\contentsline {paragraph}{Method}{130}{section*.22}
+\contentsline {paragraph}{Results}{132}{table.5.4}
+\contentsline {subsubsection}{\numberline {5.4.3.2}RQ2. Sensitivity}{133}{subsubsection.5.4.3.2}
+\contentsline {paragraph}{Method}{133}{section*.24}
+\contentsline {paragraph}{Results}{133}{section*.25}
+\contentsline {subsubsection}{\numberline {5.4.3.3}RQ3. Impact of optimizations on resource usage}{134}{subsubsection.5.4.3.3}
+\contentsline {paragraph}{Method 1}{135}{section*.26}
+\contentsline {paragraph}{Results 1}{135}{section*.27}
+\contentsline {paragraph}{Method 2}{135}{section*.28}
+\contentsline {paragraph}{Results 2}{136}{figure.5.7}
+\contentsline {subsubsection}{\numberline {5.4.3.4}RQ4. Trade-offs between non-functional properties}{138}{subsubsection.5.4.3.4}
+\contentsline {paragraph}{Method}{138}{section*.30}
+\contentsline {paragraph}{Results}{139}{section*.31}
+\contentsline {subsection}{\numberline {5.4.4}Discussions}{141}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}Threats to validity}{142}{subsection.5.4.5}
+\contentsline {subsection}{\numberline {5.4.6}Tool support overview}{142}{subsection.5.4.6}
+\contentsline {section}{\numberline {5.5}Conclusion}{144}{section.5.5}
+\contentsline {chapter}{\numberline {6}A lightweight execution environment for automatic generators testing }{147}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{147}{section.6.1}
+\contentsline {section}{\numberline {6.2}System containers as a lightweight execution environment}{148}{section.6.2}
+\contentsline {section}{\numberline {6.3}Runtime Testing Components}{150}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Monitoring Component}{150}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Back-end Database Component}{151}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Front-end Visualization Component}{152}{subsection.6.3.3}
+\contentsline {part}{III\hspace {1em}Conclusion and perspectives}{153}{part.3}
+\contentsline {chapter}{\numberline {7}Conclusion and perspectives}{155}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary of contributions}{155}{section.7.1}
+\contentsline {section}{\numberline {7.2}Perspectives}{155}{section.7.2}
+\contentsline {chapter}{\textbf {References}}{157}{section*.32}
+\contentsline {chapter}{List of Figures}{175}{section*.34}
+\contentsline {chapter}{List of Tables}{177}{section*.36}
