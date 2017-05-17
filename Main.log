@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  17 MAY 2017 21:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  17 MAY 2017 22:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1742,7 +1742,7 @@ Chapter 5.
 
 
 ] [116] [117] [118]
-<chapitre3/fig/autotuning.pdf, id=2532, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=2533, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
@@ -1766,7 +1766,7 @@ Overfull \hbox (17.62482pt too wide) detected at line 302
 [][] 
  []
 
-[123] <chapitre3/fig/individual.png, id=2663, 991.705pt x 153.57375pt>
+[123] <chapitre3/fig/individual.png, id=2664, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
@@ -1785,88 +1785,85 @@ Underfull \hbox (badness 1810) in paragraph at lines 410--412
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [127] [128] [129]
-<chapitre3/fig/infraup.pdf, id=2722, 469.755pt x 312.16624pt>
+<chapitre3/fig/infraup.pdf, id=2723, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
-Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 492.
+Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 480.
 (pdftex.def)             Requested size: 368.57838pt x 244.93196pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[130] <chapitre3/fig/sensitivity.pdf, id=2731, 494.84875pt x 121.45375pt>
+ [130 <./chapitre3/fig/infraup.pdf>]
+<chapitre3/fig/sensitivity.pdf, id=2830, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
-Package pdftex.def Info: chapitre3/fig/sensitivity.pdf used on input line 512.
+Package pdftex.def Info: chapitre3/fig/sensitivity.pdf used on input line 514.
 (pdftex.def)             Requested size: 460.72124pt x 113.07681pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[131 <./chapitre3/fig/infraup.pdf>] [132 <./chapitre3/fig/sensitivity.pdf>]
-<chapitre3/fig/box.pdf, id=2864, 1010.77625pt x 310.15875pt>
+[131] [132 <./chapitre3/fig/sensitivity.pdf>]
+<chapitre3/fig/box.pdf, id=2866, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
-Package pdftex.def Info: chapitre3/fig/box.pdf used on input line 566.
+Package pdftex.def Info: chapitre3/fig/box.pdf used on input line 568.
 (pdftex.def)             Requested size: 460.72124pt x 141.37328pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [133] [134 <./chapitre3/fig/box.pdf>]
-<chapitre3/fig/rq3.pdf, id=2893, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=2895, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
-Package pdftex.def Info: chapitre3/fig/rq3.pdf used on input line 610.
+Package pdftex.def Info: chapitre3/fig/rq3.pdf used on input line 612.
 (pdftex.def)             Requested size: 414.6463pt x 282.00253pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [135]
-<chapitre4/fig/infra_novelty_stat3.png, id=2905, 599.3592pt x 371.4678pt>
+<chapitre4/fig/infra_novelty_stat3.png, id=2907, 599.3592pt x 371.4678pt>
 File: chapitre4/fig/infra_novelty_stat3.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat3.png>
 Package pdftex.def Info: chapitre4/fig/infra_novelty_stat3.png used on input li
-ne 628.
+ne 630.
 (pdftex.def)             Requested size: 460.72124pt x 285.54929pt.
  [136 <./chapitre3/fig/rq3.pdf>]
-<chapitre4/fig/infra_novelty_stat2.png, id=2958, 547.3248pt x 343.0416pt>
+<chapitre4/fig/infra_novelty_stat2.png, id=2960, 547.3248pt x 343.0416pt>
 File: chapitre4/fig/infra_novelty_stat2.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat2.png>
 Package pdftex.def Info: chapitre4/fig/infra_novelty_stat2.png used on input li
-ne 646.
+ne 648.
 (pdftex.def)             Requested size: 460.72124pt x 288.76538pt.
  [137 <./chapitre4/fig/infra_novelty_stat3.png>]
-Overfull \hbox (5.90762pt too wide) in paragraph at lines 673--674
+Overfull \hbox (5.90762pt too wide) in paragraph at lines 675--676
 []\OT1/cmr/m/n/12 In this ex-per-i-ment, we choose to fo-cus on the trade-off $
 \OML/cmm/m/it/12 <$\OT1/cmr/m/it/12 ExecutionTime--MemoryUsage$\OML/cmm/m/it/12
  >$\OT1/cmr/m/n/12 .
  []
 
 [138 <./chapitre4/fig/infra_novelty_stat2.png>] [139]
-<chapitre3/fig/pareto.pdf, id=2980, 756.8275pt x 488.82625pt>
+<chapitre3/fig/pareto.pdf, id=2982, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
-Package pdftex.def Info: chapitre3/fig/pareto.pdf used on input line 703.
+Package pdftex.def Info: chapitre3/fig/pareto.pdf used on input line 705.
 (pdftex.def)             Requested size: 414.6463pt x 267.81847pt.
  [140 <./chapitre3/fig/pareto.pdf>] [141]
-<chapitre3/fig/tool_support.png, id=3003, 750.805pt x 439.6425pt>
+<chapitre3/fig/tool_support.png, id=3005, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
-Package pdftex.def Info: chapitre3/fig/tool_support.png used on input line 748.
+Package pdftex.def Info: chapitre3/fig/tool_support.png used on input line 750.
 
 (pdftex.def)             Requested size: 488.01747pt x 285.76424pt.
 
-Overfull \hbox (27.29623pt too wide) in paragraph at lines 748--749
+Overfull \hbox (27.29623pt too wide) in paragraph at lines 750--751
  [] 
  []
 
@@ -1874,7 +1871,7 @@ Overfull \hbox (27.29623pt too wide) in paragraph at lines 748--749
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [142] [143 <./chapitre3/fig/tool_support.png>]
-Overfull \hbox (11.765pt too wide) in paragraph at lines 781--782
+Overfull \hbox (11.765pt too wide) in paragraph at lines 783--784
 []\OT1/cmr/bx/n/12 Edit evo-lu-tion-ary al-go-rithm set-tings: \OT1/cmr/m/n/12 
 Tun-ing the evo-lu-tion-ary pa-ram-e-ters (showed
  []
@@ -2016,10 +2013,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22702 strings out of 493027
- 411773 string characters out of 6134069
- 794072 words of memory out of 5000000
- 25176 multiletter control sequences out of 15000+600000
+ 22704 strings out of 493027
+ 411803 string characters out of 6134069
+ 794173 words of memory out of 5000000
+ 25178 multiletter control sequences out of 15000+600000
  18340 words of font info for 69 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  51i,18n,77p,10384b,15541s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2047,10 +2044,10 @@ ocal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Main.pdf (186 pages, 6077319 bytes).
+Output written on Main.pdf (186 pages, 6077686 bytes).
 PDF statistics:
- 3500 PDF objects out of 3580 (max. 8388607)
- 2806 compressed objects within 29 object streams
+ 3503 PDF objects out of 3580 (max. 8388607)
+ 2809 compressed objects within 29 object streams
  649 named destinations out of 1000 (max. 500000)
  958 words of extra memory for PDF output out of 10000 (max. 10000000)
 

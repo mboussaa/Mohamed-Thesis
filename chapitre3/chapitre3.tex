@@ -33,7 +33,7 @@ In Section \ref{sec:comp-NS}, the proposed search-based technique, i.e., Novelty
 
 In Section \ref{sec:comp-eval}, we conduct an empirical study to evaluate our approach. Thus, we evaluate the implementation of our approach by explaining the design of our experiments, the research questions we set out to answer and the methods we used to answer these questions.
 
-Finally, discussions and concluding remarks are provided in Sections 4.5\@.
+Finally, discussions and concluding remarks are provided in Section \ref{notice:conclusion}\@.
 	
 
 
@@ -473,7 +473,15 @@ For mono-objective algorithms, we use to evaluate solutions using the following 
 %-\textit{Hypervolume (HV)}: corresponds to the proportion of objective space that is dominated by the Pareto front approximation returned by the algorithm and delimited by a reference point. The HV reference point is the point obtained by taking the maximum value observed. Thus, the HV metric can be computed as the area between the Pareto frontier and the HV reference point. Larger values for this metric mean better performance. The most interesting features of this indicator are its Pareto dominance compliance and its ability to capture both convergence and diversity~\cite{deb2001multi}. 
 
 \subsubsection{Setting up infrastructure}
-To answer the previous research questions, we configure NOTICE to run different experiments. Figure 4.3 shows a big picture of the testing and monitoring infrastructure considered in these experiments. 
+To answer the previous research questions, we configure NOTICE to run different experiments. Figure \ref{settttini} shows a big picture of the testing and monitoring infrastructure considered in these experiments. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{chapitre3/fig/infraup.pdf}
+	\caption{NOTICE experimental infrastructure}
+	\label{settttini}	
+\end{figure}
+
 
 First, a meta-heuristic (mono or multi-objective) is applied to generate specific optimization sequences for the GCC compiler (step 1).
 
@@ -486,12 +494,6 @@ Next, NOTICE accesses remotely to stored data in InfluxDB using HTTP request cal
 The choice of performance metrics depends on experiment objectives (Memory improvement, speedup, etc.).
 
 More details about the container-based infrastructure and the technical choices are provided in Chapter \ref{chap:docker}.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{chapitre3/fig/infraup.pdf}
-	\caption{NOTICE experimental infrastructure}
-\end{figure}
 
 To obtain comparable and reproducible results, we use the same hardware across all experiments: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory.
 
@@ -778,13 +780,14 @@ As shown in Figure \ref{fig:tool_support}, NOTICE provides different features to
 	
 	\item \textbf{Choose the optimization objective:} The goal can be reducing the execution time, memory, CPU, code size, or compilation time. For multi objective search, users can choose trade-offs between these objectives.
 	
-	\item \textbf{Edit evolutionary algorithm settings:} Tuning the evolutionary parameters (showed in Table 4.3) such as the population size, the novelty search settings, mutation and crossover probabilities, etc.
+	\item \textbf{Edit evolutionary algorithm settings:} Tuning the evolutionary parameters (showed in Table \ref{tab:Algorithm parameters}) such as the population size, the novelty search settings, mutation and crossover probabilities, etc.
 \end{itemize} 
 
 
 The console output (i.e., the execution result of this tool) displays at the end, the comparison results of standard optimization levels to the new discovered solutions.
 
 \section{Conclusion}
+\label{notice:conclusion}
 %We present an automated approach for automatic extraction of non-functional properties of generated code.
 Modern compilers come with huge number of optimizations, making complicated for compiler users to find best optimization sequences. Furthermore, auto-tuning compilers to meet user requirements is a difficult task since optimizations may depend on different properties (e.g., platform architecture, software programs, target compiler, optimization objective, etc.).
 
