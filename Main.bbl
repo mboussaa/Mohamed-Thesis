@@ -744,6 +744,11 @@ Eriko Nagai, Atsushi Hashimoto, and Nagisa Ishiura.
 \newblock In {\em Workshop on Synthesis And System Integration of Mixed
   Information Technologies (SASIMI 2013)}, pages 88--93, 2013.
 
+\bibitem[NRZ06]{nuzman2006auto}
+Dorit Nuzman, Ira Rosen, and Ayal Zaks.
+\newblock Auto-vectorization of interleaved data for simd.
+\newblock {\em ACM SIGPLAN Notices}, 41(6):132--143, 2006.
+
 \bibitem[NS07]{nethercote2007valgrind}
 Nicholas Nethercote and Julian Seward.
 \newblock Valgrind: a framework for heavyweight dynamic binary instrumentation.

@@ -37,45 +37,45 @@ Warning--can't use both volume and number fields in soltesz2007container
 Warning--can't use both volume and number fields in sturmer2005overview
 Warning--can't use both volume and number fields in whitfield1990approach
 Warning--can't use both volume and number fields in yang2011finding
-You've used 160 entries,
+You've used 161 entries,
             2543 wiz_defined-function locations,
-            1386 strings with 36630 characters,
-and the built_in function-call counts, 81430 in all, are:
-= -- 8376
-> -- 4179
+            1390 strings with 36742 characters,
+and the built_in function-call counts, 81884 in all, are:
+= -- 8423
+> -- 4204
 < -- 127
-+ -- 1530
-- -- 1499
-* -- 5885
-:= -- 12757
-add.period$ -- 560
-call.type$ -- 160
-change.case$ -- 1175
-chr.to.int$ -- 158
-cite$ -- 182
-duplicate$ -- 3271
-empty$ -- 5723
-format.name$ -- 1640
-if$ -- 17271
++ -- 1539
+- -- 1508
+* -- 5924
+:= -- 12833
+add.period$ -- 563
+call.type$ -- 161
+change.case$ -- 1182
+chr.to.int$ -- 159
+cite$ -- 183
+duplicate$ -- 3285
+empty$ -- 5753
+format.name$ -- 1650
+if$ -- 17360
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 163
-newline$ -- 802
-num.names$ -- 477
-pop$ -- 1252
+missing$ -- 164
+newline$ -- 807
+num.names$ -- 480
+pop$ -- 1256
 preamble$ -- 1
-purify$ -- 1339
+purify$ -- 1347
 quote$ -- 0
-skip$ -- 2789
+skip$ -- 2801
 stack$ -- 0
-substring$ -- 4544
-swap$ -- 1010
+substring$ -- 4576
+swap$ -- 1011
 text.length$ -- 127
 text.prefix$ -- 15
 top$ -- 0
-type$ -- 1256
+type$ -- 1264
 warning$ -- 21
-while$ -- 810
-width$ -- 170
-write$ -- 2158
+while$ -- 815
+width$ -- 171
+write$ -- 2171
 (There were 3 error messages)
