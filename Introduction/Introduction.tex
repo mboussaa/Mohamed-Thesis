@@ -1,24 +1,24 @@
 
 
 \section{Context}
-Modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of platforms and devices that provide a wide diversity of capabilities and services. These heterogeneous services may run in different environments ranging from cloud servers with virtually unlimited resources down to resource-constrained devices with only a few KB of RAM. Effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important. As a consequence, we observe in the last years~\cite{Czarnecki:2000:GPM:345203}, that software development at a higher level of abstraction received more and more attraction to tame with the runtime heterogeneity of platforms and technological stacks that exist in several domains such as mobile or Internet of Things~\cite{betz2011improving}.
+Modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of platforms and devices that provide a wide diversity of capabilities and services. These heterogeneous services may run in different environments ranging from cloud servers with virtually unlimited resources down to resource-constrained devices with only a few KB of RAM. Effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important. As a consequence, we observe in the last years~\cite{Czarnecki:2000:GPM:345203}, that model-based software development received more and more attraction to tame with the runtime heterogeneity of platforms and technological stacks that exist in several domains such as mobile or Internet of Things~\cite{betz2011improving}.
 
 Therefore, software developers tend to increasingly use generative programming~\cite{Czarnecki:2000:GPM:345203} and model-based techniques~\cite{france2007model} in order to reduce the effort of software development and maintenance by developing at a higher-level of abstraction through the use of domain-specific languages (DSLs) for example. 
-Consequently, the new advances in hardware and platform specifications have paved the way for the creation of multiple \textit{code generators} that serve as a basis for the automatic code generation to a broad range of software and hardware platforms. 
+Consequently, the new advances in hardware and platform specifications have paved the way for the creation of multiple \textit{code generators} that serve as a basis for automatically generating code to a broad range of software and hardware platforms. 
 
 On the one hand, code generators are needed to transform the high-level system specifications (e.g., textual or graphical modeling language) into conventional source code programs (e.g., General-purpose Languages GPLs such as Java, C++, etc). Automatic code generation can of course improve the quality and consistency of a program as well the productivity of software development\cite{kapteijns2009comparative}.
 %In general, the generated code has no details about the hardware platform on which the generated machine code will run. 
 %For example, the generated application can be executed in a Microsoft Windows environment as a C\# application that interacts with an SQL Server database; or in a Linux environment as a Java application interacting with a MySQL database. 
 
-On the other hand, compilers are also needed to transform the high-level programming language, that was manually written or automatically generated, into low-level machine code (i.e., binaries, executables). 
-Compilers bridge the gap between the source code programs (i.e., written using GPLs) and the target execution environment by taking into account different hardware architectures and properties such as register usage, memory organizations, hardware-specific optimizations, etc. 
+On the other hand, compilers are also needed to transform the high-level source code programs, that were manually written or automatically generated, into low-level machine code (i.e., binaries, executables). 
+Compilers bridge the gap between the input programs (i.e., written using GPLs) and the target execution environment by taking into account different hardware architectures and properties such as register usage, memory organizations, hardware-specific optimizations, etc. 
 
 With full automatic code generation, it is now possible to develop the code easily and rapidly. 
 Nevertheless, it is crucial that the software being automatically generated undergoes an appropriate verification and validation technique to determine that the code generator has generated correct code. Therefore, users can trust the code generator and gain confidence in its correct functioning. 
 Similarly, compilers have to be evaluated and examined in order to ensure that the code they produce is correct. Verifying the correctness of generated code can be either functional (e.g., verifying that the generated code exhibits the same functional behavior as described in the input program), or non-functional (e.g., verifying the non-functional properties of generated code).
 
 Moreover, code generators as well as compilers become highly configurable, offering
-(numerous) configuration options to users in order to tune the produced code for the target software platform and/or hardware architecture. Thus, finding a good combination of options that best customize the generated code according to the user requirements is in general a very challenging problem.
+(numerous) configuration options to users in order to tune the produced code with respect to the target software platform and/or hardware architecture. Thus, finding a good combination of options that best customize the generated code according to the user requirements is in general a very challenging problem.
 
 %However, code generators as well as compilers are known to be difficult to evaluate since they involve a set of complex and heterogeneous technologies and configurations whose complex interdependencies pose important testing challenges. Moreover, they become highly configurable which often make the task of choosing the best configuration set very difficult.
 
@@ -30,7 +30,7 @@ Moreover, code generators as well as compilers become highly configurable, offer
 When the software developer intends to apply automatic code production, he may create his own code generator or compiler, introducing some configuration options to the users in order to customize the generated code, or he could benefit from the work of others by using and configuring an existing off-the-shelf compiler/code generator to automatically generate code for the target software platform or hardware architecture. 
 
 As we stated in the context of this thesis, today's modern code generators are highly configurable, letting the user to easily customize the automatically generated code. In the meantime, efficiently testing configurable code generators pose important challenges since it is too costly to manually or automatically execute and test all configurations. 
-Nowadays, compilers become more user-friendly and mature than code generators\cite{fursin2008milepost}. This is because they are more used and experienced in software development than code generators. For instance, popular compilers such as GCC, LLVM, etc., do not need to be tested because they have already been (rigorously) evaluated and validated by compiler creators before tool commercialization. Therefore, software developers can trust directly use them.
+Nowadays, compilers become more user-friendly and mature than code generators\cite{fursin2008milepost}. This is because they are more used and experienced in software development than code generators. For instance, popular compilers such as GCC, LLVM, etc., do not need to be tested because they have already been (rigorously) evaluated and validated by compiler creators before tool commercialization. Therefore, software developers can directly use them.
 However, compilers such as GNU compilers provide a large selection of configuration options to control the compiler behavior. 
 For example, different categories of options can be enabled (i.e., option flags) to help developers to: debug their applications, optimize and tune application performance, select language levels and extensions for compatibility, select the target hardware architecture, and perform many other common tasks that configure the way executables are generated.
 %These compiler options can be enabled through a combination of environment variables, compiler configuration files, command line options, and plugins. 
@@ -54,7 +54,7 @@ Numerous approaches have been proposed\cite{stuermer2007systematic,yang2011findi
 
 In summary, from the user's point of view, compilers and code generators are black box components that can be used to ease the software production process. The quality of the generated software by either compilers or code generators is directly correlated to the quality of the code generator. As long as the quality of code generators is maintained and improved, the quality of generated software artifacts also improves. Any bug with these generators impacts on the software quality delivered to the market and results in a loss of confidence on the end users.
 From the one hand, compilers control the quality of the generated code through numerous configuration options than can be enabled/disabled by users. This huge configuration space pose an important challenge for users to select the best configuration options that meet some non-functional requirements.
-On the other hand, the lack of solutions for testing the non-functional properties of code generators represent an obstacle for the users who need to trust them.
+On the other hand, the lack of solutions for testing the non-functional properties of code generators represent an obstacle for the users who need to gain confidence and continue to use them.
 
 
 
@@ -69,11 +69,9 @@ On the other hand, the lack of solutions for testing the non-functional properti
 %In short, automatically testing and tuning configurable code generators pose many challenges, especially for the non-functional requirements such as the resource usage and execution speed of generated code, etc.
 \section{Scope of the thesis}
 
-In this thesis, we seek to test and evaluate the properties related to the performance and resource usage of generated code. 
-
-On the one hand, since many different software platforms can be targeted by the code generator, we provide facilities to the code generator creators and users to monitor the execution of generated code for different targets and have a deep understanding of its non-functional behavior in terms of resource usage. Consequently, we automatically detect the non-functional issues caused by some faulty code generators. 
-
-On the other hand, we provide a mechanism that helps compiler users to select the best optimization sets that satisfy specific resource usage requirements for a broad range of programs and hardware architectures.
+In this thesis, we seek to test and evaluate the properties related to the performance and resource usage of automatically generated code. 
+On the one hand, since many different software platforms can be targeted by the code generator, we provide facilities to the code generator creators/users to monitor the execution of generated code for different targets and have a deep understanding of its non-functional behavior in terms of resource usage. Consequently, we automatically detect the non-functional issues caused by some faulty code generators. 
+On the other hand, we provide a mechanism that helps compiler users to select the best optimization sets that satisfy specific resource usage or performance requirements for a broad range of programs and hardware architectures.
 
 This thesis addresses three problems: 
 	
@@ -81,7 +79,7 @@ This thesis addresses three problems:
 	
 	(2) \textbf{The problem of compilers auto-tuning:}  We benefit from recent advances in search-based software engineering in order to provide an effective approach to explore the large optimization search space and automatically tuning compilers according to user's non-functional requirements, namely performance and resource usage properties.
 
-	(3) \textbf{The problem of software platforms diversity and heterogeneity in software testing:} To handle this problem, we benefit from the recent advances in lightweight system virtualization, in particular container-based virtualization, in order to offer effective support for deploying, executing, and monitoring of automatically (or not) generated code in heterogeneous environment, based on containers.
+	(3) \textbf{The problem of software platforms diversity and hardware heterogeneity in software testing:} To handle this problem, we benefit from the recent advances in lightweight system virtualization, in particular container-based virtualization, in order to offer effective support for deploying, executing, and monitoring of automatically (or not) generated code in heterogeneous environment, based on containers.
 
 In this thesis, we use the term \textbf{"compilers"} to refer to the traditional compilers that take as input a source code and translate it into machine code like GCC, LLVM, ect. Similarly, \textbf{"Code generators"} designate the software programs that transform an input program into source code like JAVA, C++, etc. As well, we use the term \textbf{"generators"} to designate both, code generators and compilers. 
 
@@ -111,7 +109,7 @@ The challenges this research tackle can be summarized in the following research 
 
 \textit{RQ2.} How can we help compiler users to automatically choose the adequate compiler configuration that satisfies a specific non-functional requirement?
 
-\textit{RQ3.} How can we provide efficient support for resource consumption monitoring and management?
+\textit{RQ3.} How can we provide efficient support for resource consumption monitoring and management in heterogeneous environment?
 
 
 \section{Contributions}
@@ -128,7 +126,7 @@ As we stated earlier, the huge number of compiler options requires the applicati
 We evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler.
 Our experimental results show that our approach is able to auto-tune compilers according to the user requirements and construct optimizations that yield to better performance results than standard optimization levels. We also demonstrate that our approach can be used to automatically construct optimization levels that represent optimal trade-offs between multiple non-functional properties such as execution time and resource usage requirements.
 
-\textbf{Contribution III: A microservice-based infrastructure for runtime deployment and monitoring of generated code.}
+\textbf{Contribution III: A lightweight execution environment for software testing and monitoring.}
 Finally, we propose a micro-service infrastructure to ensure the deployment and monitoring of the different variants of generated code. This contribution addresses the problem of software and hardware heterogeneity. Thus, we describe an approach that automates the process of code generation, compilation, optimization, deployment, execution, and monitoring in order to provide to software developers more facilities to evaluate the quality generated code. 
 This isolated and sand-boxing environment is based on system containers, as execution platforms, to provide a fine-grained understanding and analysis of the properties related to the resource usage (CPU and memory). 
 This approach constitutes the playground for testing and evaluating the generated code from either compilers or code generators. This contribution answers mainly \textit{RQ3} but the same infrastructure is particularly used to validate the carried experiments in \textit{RQ1} and \textit{RQ2}.
@@ -139,14 +137,14 @@ The remainder of this thesis is organized  as follows:
 \textbf{Chapter \ref{chap:background}} first contextualizes this research, situating it in the domain of generative programming. We give a background about the different concepts involved in the field of generative programming as well as an overview of the different aspects of automatic code generation in software development. Finally, we discuss the different problems that make the task of compiler auto-tuning and code generators testing very difficult.
 
 \textbf{Chapter \ref{chap:SOTA}} presents the state of the art regarding our approach. This chapter provides a survey of the most used techniques for testing compilers and code generators. We focus more on the non-functional testing aspects.
-This chapter is divided on two parts. First, we study the different techniques used to test the functional and non-functional properties of code generators. Second, we study the previous approaches that have been applied for auto-tuning compiler. Finally, we discuss the limitations of the state of the art for these both domains.
+This chapter is divided on three parts. First, we study the different techniques used to test the functional and non-functional properties of code generators. Second, we study the previous approaches that have been applied for auto-tuning compiler. Finally, we present several approaches that used the container-based architecture for software testing and monitoring. At the end, we provide a summary of the sate of the art and we discuss several open challenges.
 
 \textbf{Chapter \ref{chap:code generators}} presents our approach for the non-functional testing of code generators. It shows an adaptation of the idea of metamorphic testing for detecting code generator issues. We report the results of testing multiple generators with comparable functionalities (a code generator family). The non-functional metrics we are evaluating in this section are the performance and memory usage of generated code. We also report the issues we have detected and we propose solutions for code generation improvement.
 
 \textbf{Chapter \ref{chap:compilers}} resumes our contribution for compiler auto-testing. Thus, we present an iterative process based on a search technique called Novelty search for compiler optimizations exploration. We provide two adaptations of this algorithm: mono and multi objective search. We also show how this technique can easily help compiler users to efficiently generate and evaluate the compiler optimizations. The non-functional metrics we are evaluating are the performance, memory and CPU usage. We evaluate this approach through an empirical study and we discuss the results.
 
 \textbf{Chapter \ref{chap:docker}} shows the testing infrastructure used across all experiments. It shows the usefulness of such architecture, based on system containers, to automatically deploy and execute the generated code by either compilers or code generators. 
-We evaluate our infrastructure by comparing it to a non-containerized solution. We report the comparison results between both solutions in terms of overhead and we discuss the results. We also provide a case study to show the automatic monitoring process. 
+%We evaluate our infrastructure by comparing it to a non-containerized solution. We report the comparison results between both solutions in terms of overhead and we discuss the results. We also provide a case study to show the automatic monitoring process. 
 
 \textbf{Chapter \ref{chap:conclusion}} draws conclusions and identifies future work and perspectives for testing code generators and auto-tuning compilers.
 

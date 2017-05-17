@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  17 MAY 2017 01:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  17 MAY 2017 02:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1125,23 +1125,22 @@ Overfull \hbox (0.81842pt too wide) in paragraph at lines 6--8
  gen-er-a-tive pro-gram-ming [[][]CE00b[][]]
  []
 
-[3] [4] [5] [6] [7]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+[3] [4] [5] [6]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 91.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
- [8] [9] [10]
-[11]
-Overfull \hbox (8.8027pt too wide) in paragraph at lines 166--170
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
+
+[7] [8] [9] [10] [11]
+Overfull \hbox (8.8027pt too wide) in paragraph at lines 164--168
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
 
 
-Overfull \hbox (4.3027pt too wide) in paragraph at lines 171--175
+Overfull \hbox (4.3027pt too wide) in paragraph at lines 169--173
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search
  []
@@ -2051,7 +2050,7 @@ ocal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Main.pdf (188 pages, 6077687 bytes).
+Output written on Main.pdf (188 pages, 6078016 bytes).
 PDF statistics:
  3487 PDF objects out of 3580 (max. 8388607)
  2792 compressed objects within 28 object streams
