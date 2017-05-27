@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  27 MAY 2017 13:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  27 MAY 2017 13:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,6 +947,331 @@ File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count193
 \AM@templatesizebox=\box66
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
+Package: todonotes 2012/07/25
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks34
+\pgfutil@tempdima=\dimen259
+\pgfutil@tempdimb=\dimen260
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box67
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks35
+\pgfkeys@temptoks=\toks36
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks37
+))
+\pgf@x=\dimen261
+\pgf@y=\dimen262
+\pgf@xa=\dimen263
+\pgf@ya=\dimen264
+\pgf@xb=\dimen265
+\pgf@yb=\dimen266
+\pgf@xc=\dimen267
+\pgf@yc=\dimen268
+\w@pgf@writea=\write4
+\r@pgf@reada=\read2
+\c@pgf@counta=\count194
+\c@pgf@countb=\count195
+\c@pgf@countc=\count196
+\c@pgf@countd=\count197
+\t@pgf@toka=\toks38
+\t@pgf@tokb=\toks39
+\t@pgf@tokc=\toks40
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count198
+\pgfsyssoftpath@bigbuffer@items=\count199
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen269
+\pgfmath@count=\count266
+\pgfmath@box=\box68
+\pgfmath@toks=\toks41
+\pgfmath@stack@operand=\toks42
+\pgfmath@stack@operation=\toks43
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count267
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen270
+\pgf@picmaxx=\dimen271
+\pgf@picminy=\dimen272
+\pgf@picmaxy=\dimen273
+\pgf@pathminx=\dimen274
+\pgf@pathmaxx=\dimen275
+\pgf@pathminy=\dimen276
+\pgf@pathmaxy=\dimen277
+\pgf@xx=\dimen278
+\pgf@xy=\dimen279
+\pgf@yx=\dimen280
+\pgf@yy=\dimen281
+\pgf@zx=\dimen282
+\pgf@zy=\dimen283
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen284
+\pgf@path@lasty=\dimen285
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen286
+\pgf@shorten@start@additional=\dimen287
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box69
+\pgf@hbox=\box70
+\pgf@layerbox@main=\box71
+\pgf@picture@serial@count=\count268
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen288
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen289
+\pgf@pt@y=\dimen290
+\pgf@pt@temp=\dimen291
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen292
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen293
+\pgf@sys@shading@range@num=\count269
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box72
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box73
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen294
+\pgf@nodesepend=\dimen295
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen296
+\pgffor@skip=\dimen297
+\pgffor@stack=\toks44
+\pgffor@toks=\toks45
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count270
+\pgfplotmarksize=\dimen298
+)
+\tikz@lastx=\dimen299
+\tikz@lasty=\dimen300
+\tikz@lastxsaved=\dimen301
+\tikz@lastysaved=\dimen302
+\tikzleveldistance=\dimen303
+\tikzsiblingdistance=\dimen304
+\tikz@figbox=\box74
+\tikz@figbox@bg=\box75
+\tikz@tempbox=\box76
+\tikz@tempbox@bg=\box77
+\tikztreelevel=\count271
+\tikznumberofchildren=\count272
+\tikznumberofcurrentchild=\count273
+\tikz@fig@count=\count274
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count275
+\pgfmatrixcurrentcolumn=\count276
+\pgf@matrix@numberofcolumns=\count277
+)
+\tikz@expandcount=\count278
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+\c@@todonotes@numberoftodonotes=\count279
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/changes/changes.sty
+Package: changes 2015/04/27 v2.0.4 changes package
+
+*** changes package 2015/04/27 v2.0.4 ***
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/pdfcolmk.sty
+Package: pdfcolmk 2008/08/11 v1.2 Color support for pdfTeX via marks (HO)
+Package pdfcolmk Info: The color stack of pdfTeX >= 1.40 is used. Therefore
+(pdfcolmk)             this package is not necessary and not loaded.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box78
+\UL@hyphenbox=\box79
+\UL@skip=\skip101
+\UL@hook=\toks46
+\UL@height=\dimen305
+\UL@pe=\count280
+\UL@pixel=\dimen306
+\ULC@box=\box80
+Package: ulem 2012/05/18
+\ULdepth=\dimen307
+)
+\c@Changes@AuthorCount=\count281
+\c@Changes@Author=\count282
+\c@Changes@AddCount=\count283
+\c@Changes@DeleteCount=\count284
+\c@Changes@ReplaceCount=\count285
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/truncate/truncate.sty
+Package: truncate 2001/08/20  ver 3.6
+\@Trunc@RestHyph=\toks47
+)
+\Changes@Len@summ=\skip102
+)
+\c@Changes@AddCountgs=\count286
+\c@Changes@DeleteCountgs=\count287
+\c@Changes@ReplaceCountgs=\count288
+
 (./Main.aux
 
 LaTeX Warning: Label `tab:targetlink' multiply defined.
@@ -957,52 +1282,52 @@ LaTeX Warning: Label `my-label' multiply defined.
 )
 \openout1 = `Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 309.
-LaTeX Font Info:    ... okay on input line 309.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 309.
-LaTeX Font Info:    ... okay on input line 309.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 309.
-LaTeX Font Info:    ... okay on input line 309.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 309.
-LaTeX Font Info:    ... okay on input line 309.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 309.
-LaTeX Font Info:    ... okay on input line 309.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 309.
-LaTeX Font Info:    ... okay on input line 309.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 309.
-LaTeX Font Info:    ... okay on input line 309.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
  (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count194
-\scratchdimen=\dimen259
-\scratchbox=\box67
-\nofMPsegments=\count195
-\nofMParguments=\count196
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count197
-\MPscratchDim=\dimen260
-\MPnumerator=\count198
-\makeMPintoPDFobject=\count199
-\everyMPtoPDFconversion=\toks35
+\scratchcounter=\count289
+\scratchdimen=\dimen308
+\scratchbox=\box81
+\nofMPsegments=\count290
+\nofMParguments=\count291
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count292
+\MPscratchDim=\dimen309
+\MPnumerator=\count293
+\makeMPintoPDFobject=\count294
+\everyMPtoPDFconversion=\toks49
 )
-\c@lstlisting=\count266
-\AtBeginShipoutBox=\box68
-Package hyperref Info: Link coloring ON on input line 309.
+\c@lstlisting=\count295
+\AtBeginShipoutBox=\box82
+Package hyperref Info: Link coloring ON on input line 313.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count267
+\c@section@level=\count296
 )
-LaTeX Info: Redefining \ref on input line 309.
-LaTeX Info: Redefining \pageref on input line 309.
-LaTeX Info: Redefining \nameref on input line 309.
+LaTeX Info: Redefining \ref on input line 313.
+LaTeX Info: Redefining \pageref on input line 313.
+LaTeX Info: Redefining \nameref on input line 313.
 
 (./Main.out) (./Main.out)
-\@outlinefile=\write4
-\openout4 = `Main.out'.
+\@outlinefile=\write5
+\openout5 = `Main.out'.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/dicts/translato
@@ -1022,62 +1347,63 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 )
-\c__siunitx_mathsf_int=\count268
-LaTeX Font Info:    Try loading font information for U+msa on input line 309.
+ABD: EveryShipout initializing macros
+\c__siunitx_mathsf_int=\count297
+LaTeX Font Info:    Try loading font information for U+msa on input line 313.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 309.
+LaTeX Font Info:    Try loading font information for U+msb on input line 313.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count269
+\c__siunitx_mathtt_int=\count298
 
-<CoverPage/couverture-latex.pdf, id=361, 597.50829pt x 845.0471pt>
+<CoverPage/couverture-latex.pdf, id=364, 597.50829pt x 845.0471pt>
 File: CoverPage/couverture-latex.pdf Graphic file (type pdf)
 
 <use CoverPage/couverture-latex.pdf>
-Package pdftex.def Info: CoverPage/couverture-latex.pdf used on input line 316.
+Package pdftex.def Info: CoverPage/couverture-latex.pdf used on input line 320.
 
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: CoverPage/couverture-latex.pdf Graphic file (type pdf)
  <use CoverPage/couverture-latex.pdf>
-Package pdftex.def Info: CoverPage/couverture-latex.pdf used on input line 316.
+Package pdftex.def Info: CoverPage/couverture-latex.pdf used on input line 320.
 
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<CoverPage/couverture-latex.pdf, id=364, page=1, 597.50829pt x 845.0471pt>
+<CoverPage/couverture-latex.pdf, id=367, page=1, 597.50829pt x 845.0471pt>
 File: CoverPage/couverture-latex.pdf Graphic file (type pdf)
 
 <use CoverPage/couverture-latex.pdf, page 1>
 Package pdftex.def Info: CoverPage/couverture-latex.pdf, page1 used on input li
-ne 316.
+ne 320.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: CoverPage/couverture-latex.pdf Graphic file (type pdf)
 
 <use CoverPage/couverture-latex.pdf, page 1>
 Package pdftex.def Info: CoverPage/couverture-latex.pdf, page1 used on input li
-ne 316.
+ne 320.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: CoverPage/couverture-latex.pdf Graphic file (type pdf)
 
 <use CoverPage/couverture-latex.pdf, page 1>
 Package pdftex.def Info: CoverPage/couverture-latex.pdf, page1 used on input li
-ne 316.
+ne 320.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: CoverPage/couverture-latex.pdf Graphic file (type pdf)
 
 <use CoverPage/couverture-latex.pdf, page 1>
 Package pdftex.def Info: CoverPage/couverture-latex.pdf, page1 used on input li
-ne 316.
+ne 320.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: CoverPage/couverture-latex.pdf Graphic file (type pdf)
 
 <use CoverPage/couverture-latex.pdf, page 1>
 Package pdftex.def Info: CoverPage/couverture-latex.pdf, page1 used on input li
-ne 316.
+ne 320.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
  [0
 
@@ -1096,14 +1422,14 @@ pdftex/updmap/pdftex.map}>]
 
 ] (./Main.toc [3]
 [4] [5])
-\tf@toc=\write5
-\openout5 = `Main.toc'.
+\tf@toc=\write6
+\openout6 = `Main.toc'.
 
  [6] (./Introduction/IntroductionFr.tex)pdfTeX warning (ext4): destination with
  the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.378 \chapter
+l.382 \chapter
               {Introduction}\label{chap:intro} [1
 
 
@@ -1113,32 +1439,43 @@ l.378 \chapter
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.378 \chapter
+l.382 \chapter
               {Introduction}\label{chap:intro} [2
 
 
 ]
 Chapter 1.
-(./Introduction/Introduction.tex [3] [4] [5]
-Missing character: There is no Â in font cmr12!
-Missing character: There is no £ in font cmr12!
- [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
+(./Introduction/Introduction.tex [3] [4] [5] [6] [7]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 103.
+
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
- [7] [8] [9]
-[10] [11]
-Overfull \hbox (8.8027pt too wide) in paragraph at lines 169--173
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 103.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 108.
+ [8] [9]
+Overfull \hbox (35.49529pt too wide) in paragraph at lines 138--143
+[]\OT1/cmr/bx/n/12 Contribution I: Au-to-matic de-tec-tion of in-con-sis-ten-ci
+es in code []generator|   [][][]
+ []
+
+[10]
+Overfull \hbox (63.7761pt too wide) in paragraph at lines 164--165
+\OT1/cmr/m/n/12 er-a-tive pro-cess based on a search tech-nique called Nov-elty
+ Search for com-piler []optimization|   [][][]
+ []
+
+[11]
+Overfull \hbox (8.8027pt too wide) in paragraph at lines 184--188
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
 
 
-Overfull \hbox (4.3027pt too wide) in paragraph at lines 174--178
+Overfull \hbox (4.3027pt too wide) in paragraph at lines 189--193
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search
  []
@@ -1163,14 +1500,14 @@ Overfull \hbox (38.02464pt too wide) in paragraph at lines 51--51
 s / 4419448 / Benchmarking-[]ARM-[]s-[]big-[]little-[]architecture$[][]| 
  []
 
-<Background/fig/cortex.jpg, id=651, 483.4863pt x 100.4553pt>
+<Background/fig/cortex.jpg, id=659, 483.4863pt x 100.4553pt>
 File: Background/fig/cortex.jpg Graphic file (type jpg)
 
 <use Background/fig/cortex.jpg>
 Package pdftex.def Info: Background/fig/cortex.jpg used on input line 56.
 (pdftex.def)             Requested size: 338.4381pt x 70.31822pt.
  [17 <./Background/fig/cortex.jpg>]
-<Background/fig/github.png, id=662, 395.5578pt x 286.671pt>
+<Background/fig/github.png, id=670, 395.5578pt x 286.671pt>
 File: Background/fig/github.png Graphic file (type png)
 
 <use Background/fig/github.png>
@@ -1181,14 +1518,14 @@ Package pdftex.def Info: Background/fig/github.png used on input line 93.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [18] [19 <./Background/fig/github.png>]
-<Background/fig/marriage.pdf, id=678, 585.18625pt x 161.60374pt>
+<Background/fig/marriage.pdf, id=686, 585.18625pt x 161.60374pt>
 File: Background/fig/marriage.pdf Graphic file (type pdf)
 
 <use Background/fig/marriage.pdf>
 Package pdftex.def Info: Background/fig/marriage.pdf used on input line 121.
 (pdftex.def)             Requested size: 380.36655pt x 105.04118pt.
  [20 <./Background/fig/marriage.pdf>]
-<Background/fig/compilers.pdf, id=749, 558.085pt x 142.5325pt>
+<Background/fig/compilers.pdf, id=757, 558.085pt x 142.5325pt>
 File: Background/fig/compilers.pdf Graphic file (type pdf)
 
 <use Background/fig/compilers.pdf>
@@ -1199,14 +1536,14 @@ Package pdftex.def Info: Background/fig/compilers.pdf used on input line 150.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [24] <Background/fig/GDM.pdf, id=807, 320.19624pt x 150.5625pt>
+ [24] <Background/fig/GDM.pdf, id=815, 320.19624pt x 150.5625pt>
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
 Package pdftex.def Info: Background/fig/GDM.pdf used on input line 233.
 (pdftex.def)             Requested size: 208.12508pt x 97.86446pt.
 
-<Background/fig/background_overview2.pdf, id=810, 707.64375pt x 370.38374pt>
+<Background/fig/background_overview2.pdf, id=818, 707.64375pt x 370.38374pt>
 File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
@@ -1229,7 +1566,7 @@ Overfull \hbox (50.73347pt too wide) has occurred while \output is active
 MMING \OT1/cmr/m/n/12 27
  []
 
-[27] <Background/fig/jhipster.png, id=954, 646.415pt x 215.80624pt>
+[27] <Background/fig/jhipster.png, id=962, 646.415pt x 215.80624pt>
 File: Background/fig/jhipster.png Graphic file (type png)
 
 <use Background/fig/jhipster.png>
@@ -1242,7 +1579,7 @@ MMING \OT1/cmr/m/n/12 29
  []
 
 [29 <./Background/fig/jhipster.png>]
-<Background/fig/usecase.png, id=973, 983.675pt x 846.16125pt>
+<Background/fig/usecase.png, id=980, 983.675pt x 846.16125pt>
 File: Background/fig/usecase.png Graphic file (type png)
 
 <use Background/fig/usecase.png>
@@ -1259,7 +1596,7 @@ MMING \OT1/cmr/m/n/12 31
  []
 
 [31 <./Background/fig/usecase.png>]
-<Background/fig/workflow.pdf, id=988, 507.8975pt x 374.39874pt>
+<Background/fig/workflow.pdf, id=995, 507.8975pt x 374.39874pt>
 File: Background/fig/workflow.pdf Graphic file (type pdf)
 
 <use Background/fig/workflow.pdf>
@@ -1291,7 +1628,7 @@ GENERATORS \OT1/cmr/m/n/12 41
 ]
 Chapter 3.
 (./SOTA/SOTA.tex [43] [44]
-<SOTA/fig/testing_process.png, id=1113, 541.02126pt x 507.8975pt>
+<SOTA/fig/testing_process.png, id=1120, 541.02126pt x 507.8975pt>
 File: SOTA/fig/testing_process.png Graphic file (type png)
 
 <use SOTA/fig/testing_process.png>
@@ -1349,7 +1686,7 @@ Overfull \hbox (0.3282pt too wide) in paragraph at lines 285--286
 /n/12 We present sev-eral ap-proaches
  []
 
-<SOTA/fig/iterative_compilation.pdf, id=1253, 215.80624pt x 353.32pt>
+<SOTA/fig/iterative_compilation.pdf, id=1260, 215.80624pt x 353.32pt>
 File: SOTA/fig/iterative_compilation.pdf Graphic file (type pdf)
 
 <use SOTA/fig/iterative_compilation.pdf>
@@ -1403,7 +1740,7 @@ Missing character: There is no ™ in font cmr12!
 
 
 ] [75] [76] (./chapitre0/chapitre0.tex
-<Chapitre0/fig/overview.pdf, id=1480, 2130.96124pt x 1730.465pt>
+<Chapitre0/fig/overview.pdf, id=1487, 2130.96124pt x 1730.465pt>
 File: Chapitre0/fig/overview.pdf Graphic file (type pdf)
 
 <use Chapitre0/fig/overview.pdf>
@@ -1443,7 +1780,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[84] [85] <chapitre4/fig/background.pdf, id=1710, 940.51375pt x 303.1325pt>
+[84] [85] <chapitre4/fig/background.pdf, id=1717, 940.51375pt x 303.1325pt>
 File: chapitre4/fig/background.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background.pdf>
@@ -1462,7 +1799,7 @@ CODE GENERATOR FAMILY \OT1/cmr/m/n/12 87
  []
 
 [87 <./chapitre4/fig/background.pdf>]
-<chapitre5/fig/docker_background2.pdf, id=1813, 1017.8025pt x 377.41pt>
+<chapitre5/fig/docker_background2.pdf, id=1820, 1017.8025pt x 377.41pt>
 File: chapitre5/fig/docker_background2.pdf Graphic file (type pdf)
 
 <use chapitre5/fig/docker_background2.pdf>
@@ -1487,7 +1824,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[92] [93] <chapitre4/fig/MT.pdf, id=2008, 670.505pt x 177.66376pt>
+[92] [93] <chapitre4/fig/MT.pdf, id=2015, 670.505pt x 177.66376pt>
 File: chapitre4/fig/MT.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/MT.pdf>
@@ -1510,7 +1847,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[96] <chapitre4/fig/rchat.pdf, id=2086, 443.6575pt x 290.08376pt>
+[96] <chapitre4/fig/rchat.pdf, id=2093, 443.6575pt x 290.08376pt>
 File: chapitre4/fig/rchat.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/rchat.pdf>
@@ -1532,7 +1869,7 @@ NG OF CODE GENERATORS FAMILIES
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[101] <chapitre4/fig/settingup.pdf, id=2155, 482.80376pt x 337.26pt>
+[101] <chapitre4/fig/settingup.pdf, id=2162, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
@@ -1549,49 +1886,49 @@ NG OF CODE GENERATORS FAMILIES
  []
 
 [102] [103 <./chapitre4/fig/settingup.pdf>]
-<chapitre4/fig/1.png, id=2341, 1357.2306pt x 371.4678pt>
+<chapitre4/fig/1.png, id=2348, 1357.2306pt x 371.4678pt>
 File: chapitre4/fig/1.png Graphic file (type png)
 
 <use chapitre4/fig/1.png>
 Package pdftex.def Info: chapitre4/fig/1.png used on input line 544.
 (pdftex.def)             Requested size: 442.29547pt x 121.05435pt.
 
-<chapitre4/fig/2.png, id=2342, 673.0746pt x 372.4314pt>
+<chapitre4/fig/2.png, id=2349, 673.0746pt x 372.4314pt>
 File: chapitre4/fig/2.png Graphic file (type png)
 
 <use chapitre4/fig/2.png>
 Package pdftex.def Info: chapitre4/fig/2.png used on input line 545.
 (pdftex.def)             Requested size: 221.14421pt x 122.36287pt.
 
-<chapitre4/fig/3.png, id=2343, 673.0746pt x 372.4314pt>
+<chapitre4/fig/3.png, id=2350, 673.0746pt x 372.4314pt>
 File: chapitre4/fig/3.png Graphic file (type png)
 
 <use chapitre4/fig/3.png>
 Package pdftex.def Info: chapitre4/fig/3.png used on input line 546.
 (pdftex.def)             Requested size: 221.14421pt x 122.36287pt.
 
-<chapitre4/fig/4.png, id=2344, 673.5564pt x 371.9496pt>
+<chapitre4/fig/4.png, id=2351, 673.5564pt x 371.9496pt>
 File: chapitre4/fig/4.png Graphic file (type png)
 
 <use chapitre4/fig/4.png>
 Package pdftex.def Info: chapitre4/fig/4.png used on input line 547.
 (pdftex.def)             Requested size: 221.14421pt x 122.11943pt.
 
-<chapitre4/fig/5.png, id=2345, 673.5564pt x 371.9496pt>
+<chapitre4/fig/5.png, id=2352, 673.5564pt x 371.9496pt>
 File: chapitre4/fig/5.png Graphic file (type png)
 
 <use chapitre4/fig/5.png>
 Package pdftex.def Info: chapitre4/fig/5.png used on input line 548.
 (pdftex.def)             Requested size: 221.14421pt x 122.11943pt.
 
-<chapitre4/fig/6.png, id=2346, 673.5564pt x 373.8768pt>
+<chapitre4/fig/6.png, id=2353, 673.5564pt x 373.8768pt>
 File: chapitre4/fig/6.png Graphic file (type png)
 
 <use chapitre4/fig/6.png>
 Package pdftex.def Info: chapitre4/fig/6.png used on input line 549.
 (pdftex.def)             Requested size: 221.14421pt x 122.75218pt.
 
-<chapitre4/fig/7.png, id=2347, 671.1474pt x 373.8768pt>
+<chapitre4/fig/7.png, id=2354, 671.1474pt x 373.8768pt>
 File: chapitre4/fig/7.png Graphic file (type png)
 
 <use chapitre4/fig/7.png>
@@ -1601,49 +1938,49 @@ Package pdftex.def Info: chapitre4/fig/7.png used on input line 550.
 
 LaTeX Warning: Float too large for page by 67.89473pt on input line 553.
 
-<chapitre4/fig/11.png, id=2348, 1361.5668pt x 366.168pt>
+<chapitre4/fig/11.png, id=2355, 1361.5668pt x 366.168pt>
 File: chapitre4/fig/11.png Graphic file (type png)
 
 <use chapitre4/fig/11.png>
 Package pdftex.def Info: chapitre4/fig/11.png used on input line 557.
 (pdftex.def)             Requested size: 442.29547pt x 118.94173pt.
 
-<chapitre4/fig/22.png, id=2349, 675.4836pt x 365.6862pt>
+<chapitre4/fig/22.png, id=2356, 675.4836pt x 365.6862pt>
 File: chapitre4/fig/22.png Graphic file (type png)
 
 <use chapitre4/fig/22.png>
 Package pdftex.def Info: chapitre4/fig/22.png used on input line 558.
 (pdftex.def)             Requested size: 221.14421pt x 119.72264pt.
 
-<chapitre4/fig/33.png, id=2350, 676.4472pt x 365.6862pt>
+<chapitre4/fig/33.png, id=2357, 676.4472pt x 365.6862pt>
 File: chapitre4/fig/33.png Graphic file (type png)
 
 <use chapitre4/fig/33.png>
 Package pdftex.def Info: chapitre4/fig/33.png used on input line 559.
 (pdftex.def)             Requested size: 221.14421pt x 119.54967pt.
 
-<chapitre4/fig/44.png, id=2351, 675.4836pt x 365.6862pt>
+<chapitre4/fig/44.png, id=2358, 675.4836pt x 365.6862pt>
 File: chapitre4/fig/44.png Graphic file (type png)
 
 <use chapitre4/fig/44.png>
 Package pdftex.def Info: chapitre4/fig/44.png used on input line 560.
 (pdftex.def)             Requested size: 221.14421pt x 119.72264pt.
 
-<chapitre4/fig/55.png, id=2352, 675.9654pt x 365.6862pt>
+<chapitre4/fig/55.png, id=2359, 675.9654pt x 365.6862pt>
 File: chapitre4/fig/55.png Graphic file (type png)
 
 <use chapitre4/fig/55.png>
 Package pdftex.def Info: chapitre4/fig/55.png used on input line 561.
 (pdftex.def)             Requested size: 221.14421pt x 119.63336pt.
 
-<chapitre4/fig/66.png, id=2353, 675.4836pt x 370.5042pt>
+<chapitre4/fig/66.png, id=2360, 675.4836pt x 370.5042pt>
 File: chapitre4/fig/66.png Graphic file (type png)
 
 <use chapitre4/fig/66.png>
 Package pdftex.def Info: chapitre4/fig/66.png used on input line 562.
 (pdftex.def)             Requested size: 221.14421pt x 121.30002pt.
 
-<chapitre4/fig/77.png, id=2354, 674.0382pt x 370.5042pt>
+<chapitre4/fig/77.png, id=2361, 674.0382pt x 370.5042pt>
 File: chapitre4/fig/77.png Graphic file (type png)
 
 <use chapitre4/fig/77.png>
@@ -1670,14 +2007,14 @@ NG OF CODE GENERATORS FAMILIES
 [106 <./chapitre4/fig/11.png> <./chapitre4/fig/22.png> <./chapitre4/fig/33.png>
  <./chapitre4/fig/44.png> <./chapitre4/fig/55.png> <./chapitre4/fig/66.png> <./
 chapitre4/fig/77.png>] [107]
-<chapitre4/fig/explor_ind.png, id=2415, 3604.46625pt x 3078.50125pt>
+<chapitre4/fig/explor_ind.png, id=2422, 3604.46625pt x 3078.50125pt>
 File: chapitre4/fig/explor_ind.png Graphic file (type png)
 
 <use chapitre4/fig/explor_ind.png>
 Package pdftex.def Info: chapitre4/fig/explor_ind.png used on input line 588.
 (pdftex.def)             Requested size: 322.50345pt x 275.40907pt.
 
-<chapitre4/fig/explor_ind2.png, id=2416, 3615.5075pt x 3104.59875pt>
+<chapitre4/fig/explor_ind2.png, id=2423, 3615.5075pt x 3104.59875pt>
 File: chapitre4/fig/explor_ind2.png Graphic file (type png)
 
 <use chapitre4/fig/explor_ind2.png>
@@ -1687,14 +2024,14 @@ Package pdftex.def Info: chapitre4/fig/explor_ind2.png used on input line 589.
 
 LaTeX Warning: Float too large for page by 75.4668pt on input line 592.
 
-<chapitre4/fig/mahatime.png, id=2417, 1169.36874pt x 1573.88pt>
+<chapitre4/fig/mahatime.png, id=2424, 1169.36874pt x 1573.88pt>
 File: chapitre4/fig/mahatime.png Graphic file (type png)
 
 <use chapitre4/fig/mahatime.png>
 Package pdftex.def Info: chapitre4/fig/mahatime.png used on input line 595.
 (pdftex.def)             Requested size: 225.75594pt x 303.8434pt.
 
-<chapitre4/fig/mahamem.png, id=2418, 582.175pt x 784.9325pt>
+<chapitre4/fig/mahamem.png, id=2425, 582.175pt x 784.9325pt>
 File: chapitre4/fig/mahamem.png Graphic file (type png)
 
 <use chapitre4/fig/mahamem.png>
@@ -1737,7 +2074,7 @@ Chapter 5.
 
 
 ] [116] [117] [118]
-<chapitre3/fig/autotuning.pdf, id=2531, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=2538, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
@@ -1761,7 +2098,7 @@ Overfull \hbox (17.62482pt too wide) detected at line 302
 [][] 
  []
 
-[123] <chapitre3/fig/individual.png, id=2662, 991.705pt x 153.57375pt>
+[123] <chapitre3/fig/individual.png, id=2669, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
@@ -1780,14 +2117,14 @@ Underfull \hbox (badness 1810) in paragraph at lines 410--412
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [127] [128] [129]
-<chapitre3/fig/infraup.pdf, id=2721, 469.755pt x 312.16624pt>
+<chapitre3/fig/infraup.pdf, id=2728, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
 Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 480.
 (pdftex.def)             Requested size: 368.57838pt x 244.93196pt.
  [130 <./chapitre3/fig/infraup.pdf>]
-<chapitre3/fig/sensitivity.pdf, id=2828, 494.84875pt x 121.45375pt>
+<chapitre3/fig/sensitivity.pdf, id=2835, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1798,7 +2135,7 @@ Package pdftex.def Info: chapitre3/fig/sensitivity.pdf used on input line 514.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [131] [132 <./chapitre3/fig/sensitivity.pdf>]
-<chapitre3/fig/box.pdf, id=2864, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=2871, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1809,7 +2146,7 @@ Package pdftex.def Info: chapitre3/fig/box.pdf used on input line 568.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [133] [134 <./chapitre3/fig/box.pdf>]
-<chapitre3/fig/rq3.pdf, id=2893, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=2900, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1820,7 +2157,7 @@ Package pdftex.def Info: chapitre3/fig/rq3.pdf used on input line 612.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [135]
-<chapitre4/fig/infra_novelty_stat3.png, id=2905, 599.3592pt x 371.4678pt>
+<chapitre4/fig/infra_novelty_stat3.png, id=2912, 599.3592pt x 371.4678pt>
 File: chapitre4/fig/infra_novelty_stat3.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat3.png>
@@ -1828,7 +2165,7 @@ Package pdftex.def Info: chapitre4/fig/infra_novelty_stat3.png used on input li
 ne 630.
 (pdftex.def)             Requested size: 460.72124pt x 285.54929pt.
  [136 <./chapitre3/fig/rq3.pdf>]
-<chapitre4/fig/infra_novelty_stat2.png, id=2958, 547.3248pt x 343.0416pt>
+<chapitre4/fig/infra_novelty_stat2.png, id=2965, 547.3248pt x 343.0416pt>
 File: chapitre4/fig/infra_novelty_stat2.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat2.png>
@@ -1843,14 +2180,14 @@ Overfull \hbox (5.90762pt too wide) in paragraph at lines 675--676
  []
 
 [138 <./chapitre4/fig/infra_novelty_stat2.png>] [139]
-<chapitre3/fig/pareto.pdf, id=2980, 756.8275pt x 488.82625pt>
+<chapitre3/fig/pareto.pdf, id=2987, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
 Package pdftex.def Info: chapitre3/fig/pareto.pdf used on input line 705.
 (pdftex.def)             Requested size: 414.6463pt x 267.81847pt.
  [140 <./chapitre3/fig/pareto.pdf>] [141]
-<chapitre3/fig/tool_support.png, id=3003, 750.805pt x 439.6425pt>
+<chapitre3/fig/tool_support.png, id=3010, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
@@ -1978,25 +2315,28 @@ Missing character: There is no ” in font cmr12!
 
 
 ])
-\tf@lof=\write6
-\openout6 = `Main.lof'.
+\tf@lof=\write7
+\openout7 = `Main.lof'.
 
  [176] (./Main.lot)
-\tf@lot=\write7
-\openout7 = `Main.lot'.
+\tf@lot=\write8
+\openout8 = `Main.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 452.
+\Changes@OutFile=\write9
+\openout9 = `Main.soc'.
+
  [177
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 452.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 456.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 456.
 
 (./Main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 452.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 452.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 456.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 456.
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: 011974F4FDF58849B706CBFAAA3E8B7C;6891.
+(rerunfilecheck)             Checksum: DEEAA9DB708B2A46F439C320542A67A0;6891.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2007,13 +2347,13 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22704 strings out of 493027
- 411803 string characters out of 6134069
- 794173 words of memory out of 5000000
- 25178 multiletter control sequences out of 15000+600000
- 18340 words of font info for 69 fonts, out of 8000000 for 9000
+ 32726 strings out of 493027
+ 632126 string characters out of 6134069
+ 984043 words of memory out of 5000000
+ 34965 multiletter control sequences out of 15000+600000
+ 18446 words of font info for 70 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 51i,18n,77p,10384b,15541s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,18n,83p,10384b,24230s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
@@ -2038,10 +2378,10 @@ ocal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Main.pdf (186 pages, 6078085 bytes).
+Output written on Main.pdf (186 pages, 6080741 bytes).
 PDF statistics:
- 3501 PDF objects out of 3580 (max. 8388607)
- 2807 compressed objects within 29 object streams
- 649 named destinations out of 1000 (max. 500000)
- 958 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3508 PDF objects out of 3580 (max. 8388607)
+ 2814 compressed objects within 29 object streams
+ 651 named destinations out of 1000 (max. 500000)
+ 970 words of extra memory for PDF output out of 10000 (max. 10000000)
 
