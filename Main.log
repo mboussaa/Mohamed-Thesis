@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  17 MAY 2017 22:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.12)  27 MAY 2017 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,31 +1119,26 @@ l.378 \chapter
 
 ]
 Chapter 1.
-(./Introduction/Introduction.tex
-Overfull \hbox (0.81842pt too wide) in paragraph at lines 6--8
-[]\OT1/cmr/m/n/12 Therefore, soft-ware de-vel-op-ers tend to in-creas-ingly use
- gen-er-a-tive pro-gram-ming [[][]CE00b[][]]
- []
-
-[3] [4] [5]
+(./Introduction/Introduction.tex [3] [4] [5]
 Missing character: There is no Â in font cmr12!
 Missing character: There is no £ in font cmr12!
  [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
-
-[7] [8] [9] [10] [11]
-Overfull \hbox (8.8027pt too wide) in paragraph at lines 166--170
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
+ [7] [8] [9]
+[10] [11]
+Overfull \hbox (8.8027pt too wide) in paragraph at lines 169--173
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search-
  []
 
 
-Overfull \hbox (4.3027pt too wide) in paragraph at lines 171--175
+Overfull \hbox (4.3027pt too wide) in paragraph at lines 174--178
 []\OT1/cmr/m/n/12 Mohamed Bous-saa, Olivier Barais, Ger-son Suny^^Se, Beno^^^Pt
  Baudry: \OT1/cmr/bx/n/12 A Nov-elty Search
  []
@@ -1168,14 +1163,14 @@ Overfull \hbox (38.02464pt too wide) in paragraph at lines 51--51
 s / 4419448 / Benchmarking-[]ARM-[]s-[]big-[]little-[]architecture$[][]| 
  []
 
-<Background/fig/cortex.jpg, id=654, 483.4863pt x 100.4553pt>
+<Background/fig/cortex.jpg, id=651, 483.4863pt x 100.4553pt>
 File: Background/fig/cortex.jpg Graphic file (type jpg)
 
 <use Background/fig/cortex.jpg>
 Package pdftex.def Info: Background/fig/cortex.jpg used on input line 56.
 (pdftex.def)             Requested size: 338.4381pt x 70.31822pt.
  [17 <./Background/fig/cortex.jpg>]
-<Background/fig/github.png, id=665, 395.5578pt x 286.671pt>
+<Background/fig/github.png, id=662, 395.5578pt x 286.671pt>
 File: Background/fig/github.png Graphic file (type png)
 
 <use Background/fig/github.png>
@@ -1186,14 +1181,14 @@ Package pdftex.def Info: Background/fig/github.png used on input line 93.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [18] [19 <./Background/fig/github.png>]
-<Background/fig/marriage.pdf, id=681, 585.18625pt x 161.60374pt>
+<Background/fig/marriage.pdf, id=678, 585.18625pt x 161.60374pt>
 File: Background/fig/marriage.pdf Graphic file (type pdf)
 
 <use Background/fig/marriage.pdf>
 Package pdftex.def Info: Background/fig/marriage.pdf used on input line 121.
 (pdftex.def)             Requested size: 380.36655pt x 105.04118pt.
  [20 <./Background/fig/marriage.pdf>]
-<Background/fig/compilers.pdf, id=752, 558.085pt x 142.5325pt>
+<Background/fig/compilers.pdf, id=749, 558.085pt x 142.5325pt>
 File: Background/fig/compilers.pdf Graphic file (type pdf)
 
 <use Background/fig/compilers.pdf>
@@ -1204,14 +1199,14 @@ Package pdftex.def Info: Background/fig/compilers.pdf used on input line 150.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [24] <Background/fig/GDM.pdf, id=810, 320.19624pt x 150.5625pt>
+ [24] <Background/fig/GDM.pdf, id=807, 320.19624pt x 150.5625pt>
 File: Background/fig/GDM.pdf Graphic file (type pdf)
 
 <use Background/fig/GDM.pdf>
 Package pdftex.def Info: Background/fig/GDM.pdf used on input line 233.
 (pdftex.def)             Requested size: 208.12508pt x 97.86446pt.
 
-<Background/fig/background_overview2.pdf, id=813, 707.64375pt x 370.38374pt>
+<Background/fig/background_overview2.pdf, id=810, 707.64375pt x 370.38374pt>
 File: Background/fig/background_overview2.pdf Graphic file (type pdf)
 
 <use Background/fig/background_overview2.pdf>
@@ -1234,7 +1229,7 @@ Overfull \hbox (50.73347pt too wide) has occurred while \output is active
 MMING \OT1/cmr/m/n/12 27
  []
 
-[27] <Background/fig/jhipster.png, id=957, 646.415pt x 215.80624pt>
+[27] <Background/fig/jhipster.png, id=954, 646.415pt x 215.80624pt>
 File: Background/fig/jhipster.png Graphic file (type png)
 
 <use Background/fig/jhipster.png>
@@ -1247,7 +1242,7 @@ MMING \OT1/cmr/m/n/12 29
  []
 
 [29 <./Background/fig/jhipster.png>]
-<Background/fig/usecase.png, id=976, 983.675pt x 846.16125pt>
+<Background/fig/usecase.png, id=973, 983.675pt x 846.16125pt>
 File: Background/fig/usecase.png Graphic file (type png)
 
 <use Background/fig/usecase.png>
@@ -1264,7 +1259,7 @@ MMING \OT1/cmr/m/n/12 31
  []
 
 [31 <./Background/fig/usecase.png>]
-<Background/fig/workflow.pdf, id=991, 507.8975pt x 374.39874pt>
+<Background/fig/workflow.pdf, id=988, 507.8975pt x 374.39874pt>
 File: Background/fig/workflow.pdf Graphic file (type pdf)
 
 <use Background/fig/workflow.pdf>
@@ -1296,7 +1291,7 @@ GENERATORS \OT1/cmr/m/n/12 41
 ]
 Chapter 3.
 (./SOTA/SOTA.tex [43] [44]
-<SOTA/fig/testing_process.png, id=1116, 541.02126pt x 507.8975pt>
+<SOTA/fig/testing_process.png, id=1113, 541.02126pt x 507.8975pt>
 File: SOTA/fig/testing_process.png Graphic file (type png)
 
 <use SOTA/fig/testing_process.png>
@@ -1354,7 +1349,7 @@ Overfull \hbox (0.3282pt too wide) in paragraph at lines 285--286
 /n/12 We present sev-eral ap-proaches
  []
 
-<SOTA/fig/iterative_compilation.pdf, id=1256, 215.80624pt x 353.32pt>
+<SOTA/fig/iterative_compilation.pdf, id=1253, 215.80624pt x 353.32pt>
 File: SOTA/fig/iterative_compilation.pdf Graphic file (type pdf)
 
 <use SOTA/fig/iterative_compilation.pdf>
@@ -1408,7 +1403,7 @@ Missing character: There is no ™ in font cmr12!
 
 
 ] [75] [76] (./chapitre0/chapitre0.tex
-<Chapitre0/fig/overview.pdf, id=1483, 2130.96124pt x 1730.465pt>
+<Chapitre0/fig/overview.pdf, id=1480, 2130.96124pt x 1730.465pt>
 File: Chapitre0/fig/overview.pdf Graphic file (type pdf)
 
 <use Chapitre0/fig/overview.pdf>
@@ -1448,7 +1443,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[84] [85] <chapitre4/fig/background.pdf, id=1712, 940.51375pt x 303.1325pt>
+[84] [85] <chapitre4/fig/background.pdf, id=1710, 940.51375pt x 303.1325pt>
 File: chapitre4/fig/background.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/background.pdf>
@@ -1467,7 +1462,7 @@ CODE GENERATOR FAMILY \OT1/cmr/m/n/12 87
  []
 
 [87 <./chapitre4/fig/background.pdf>]
-<chapitre5/fig/docker_background2.pdf, id=1815, 1017.8025pt x 377.41pt>
+<chapitre5/fig/docker_background2.pdf, id=1813, 1017.8025pt x 377.41pt>
 File: chapitre5/fig/docker_background2.pdf Graphic file (type pdf)
 
 <use chapitre5/fig/docker_background2.pdf>
@@ -1492,7 +1487,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[92] [93] <chapitre4/fig/MT.pdf, id=2010, 670.505pt x 177.66376pt>
+[92] [93] <chapitre4/fig/MT.pdf, id=2008, 670.505pt x 177.66376pt>
 File: chapitre4/fig/MT.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/MT.pdf>
@@ -1515,7 +1510,7 @@ Overfull \hbox (75.77623pt too wide) has occurred while \output is active
 G OF CODE GENERATORS FAMILIES
  []
 
-[96] <chapitre4/fig/rchat.pdf, id=2088, 443.6575pt x 290.08376pt>
+[96] <chapitre4/fig/rchat.pdf, id=2086, 443.6575pt x 290.08376pt>
 File: chapitre4/fig/rchat.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/rchat.pdf>
@@ -1537,7 +1532,7 @@ NG OF CODE GENERATORS FAMILIES
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[101] <chapitre4/fig/settingup.pdf, id=2157, 482.80376pt x 337.26pt>
+[101] <chapitre4/fig/settingup.pdf, id=2155, 482.80376pt x 337.26pt>
 File: chapitre4/fig/settingup.pdf Graphic file (type pdf)
 
 <use chapitre4/fig/settingup.pdf>
@@ -1554,49 +1549,49 @@ NG OF CODE GENERATORS FAMILIES
  []
 
 [102] [103 <./chapitre4/fig/settingup.pdf>]
-<chapitre4/fig/1.png, id=2343, 1357.2306pt x 371.4678pt>
+<chapitre4/fig/1.png, id=2341, 1357.2306pt x 371.4678pt>
 File: chapitre4/fig/1.png Graphic file (type png)
 
 <use chapitre4/fig/1.png>
 Package pdftex.def Info: chapitre4/fig/1.png used on input line 544.
 (pdftex.def)             Requested size: 442.29547pt x 121.05435pt.
 
-<chapitre4/fig/2.png, id=2344, 673.0746pt x 372.4314pt>
+<chapitre4/fig/2.png, id=2342, 673.0746pt x 372.4314pt>
 File: chapitre4/fig/2.png Graphic file (type png)
 
 <use chapitre4/fig/2.png>
 Package pdftex.def Info: chapitre4/fig/2.png used on input line 545.
 (pdftex.def)             Requested size: 221.14421pt x 122.36287pt.
 
-<chapitre4/fig/3.png, id=2345, 673.0746pt x 372.4314pt>
+<chapitre4/fig/3.png, id=2343, 673.0746pt x 372.4314pt>
 File: chapitre4/fig/3.png Graphic file (type png)
 
 <use chapitre4/fig/3.png>
 Package pdftex.def Info: chapitre4/fig/3.png used on input line 546.
 (pdftex.def)             Requested size: 221.14421pt x 122.36287pt.
 
-<chapitre4/fig/4.png, id=2346, 673.5564pt x 371.9496pt>
+<chapitre4/fig/4.png, id=2344, 673.5564pt x 371.9496pt>
 File: chapitre4/fig/4.png Graphic file (type png)
 
 <use chapitre4/fig/4.png>
 Package pdftex.def Info: chapitre4/fig/4.png used on input line 547.
 (pdftex.def)             Requested size: 221.14421pt x 122.11943pt.
 
-<chapitre4/fig/5.png, id=2347, 673.5564pt x 371.9496pt>
+<chapitre4/fig/5.png, id=2345, 673.5564pt x 371.9496pt>
 File: chapitre4/fig/5.png Graphic file (type png)
 
 <use chapitre4/fig/5.png>
 Package pdftex.def Info: chapitre4/fig/5.png used on input line 548.
 (pdftex.def)             Requested size: 221.14421pt x 122.11943pt.
 
-<chapitre4/fig/6.png, id=2348, 673.5564pt x 373.8768pt>
+<chapitre4/fig/6.png, id=2346, 673.5564pt x 373.8768pt>
 File: chapitre4/fig/6.png Graphic file (type png)
 
 <use chapitre4/fig/6.png>
 Package pdftex.def Info: chapitre4/fig/6.png used on input line 549.
 (pdftex.def)             Requested size: 221.14421pt x 122.75218pt.
 
-<chapitre4/fig/7.png, id=2349, 671.1474pt x 373.8768pt>
+<chapitre4/fig/7.png, id=2347, 671.1474pt x 373.8768pt>
 File: chapitre4/fig/7.png Graphic file (type png)
 
 <use chapitre4/fig/7.png>
@@ -1606,49 +1601,49 @@ Package pdftex.def Info: chapitre4/fig/7.png used on input line 550.
 
 LaTeX Warning: Float too large for page by 67.89473pt on input line 553.
 
-<chapitre4/fig/11.png, id=2350, 1361.5668pt x 366.168pt>
+<chapitre4/fig/11.png, id=2348, 1361.5668pt x 366.168pt>
 File: chapitre4/fig/11.png Graphic file (type png)
 
 <use chapitre4/fig/11.png>
 Package pdftex.def Info: chapitre4/fig/11.png used on input line 557.
 (pdftex.def)             Requested size: 442.29547pt x 118.94173pt.
 
-<chapitre4/fig/22.png, id=2351, 675.4836pt x 365.6862pt>
+<chapitre4/fig/22.png, id=2349, 675.4836pt x 365.6862pt>
 File: chapitre4/fig/22.png Graphic file (type png)
 
 <use chapitre4/fig/22.png>
 Package pdftex.def Info: chapitre4/fig/22.png used on input line 558.
 (pdftex.def)             Requested size: 221.14421pt x 119.72264pt.
 
-<chapitre4/fig/33.png, id=2352, 676.4472pt x 365.6862pt>
+<chapitre4/fig/33.png, id=2350, 676.4472pt x 365.6862pt>
 File: chapitre4/fig/33.png Graphic file (type png)
 
 <use chapitre4/fig/33.png>
 Package pdftex.def Info: chapitre4/fig/33.png used on input line 559.
 (pdftex.def)             Requested size: 221.14421pt x 119.54967pt.
 
-<chapitre4/fig/44.png, id=2353, 675.4836pt x 365.6862pt>
+<chapitre4/fig/44.png, id=2351, 675.4836pt x 365.6862pt>
 File: chapitre4/fig/44.png Graphic file (type png)
 
 <use chapitre4/fig/44.png>
 Package pdftex.def Info: chapitre4/fig/44.png used on input line 560.
 (pdftex.def)             Requested size: 221.14421pt x 119.72264pt.
 
-<chapitre4/fig/55.png, id=2354, 675.9654pt x 365.6862pt>
+<chapitre4/fig/55.png, id=2352, 675.9654pt x 365.6862pt>
 File: chapitre4/fig/55.png Graphic file (type png)
 
 <use chapitre4/fig/55.png>
 Package pdftex.def Info: chapitre4/fig/55.png used on input line 561.
 (pdftex.def)             Requested size: 221.14421pt x 119.63336pt.
 
-<chapitre4/fig/66.png, id=2355, 675.4836pt x 370.5042pt>
+<chapitre4/fig/66.png, id=2353, 675.4836pt x 370.5042pt>
 File: chapitre4/fig/66.png Graphic file (type png)
 
 <use chapitre4/fig/66.png>
 Package pdftex.def Info: chapitre4/fig/66.png used on input line 562.
 (pdftex.def)             Requested size: 221.14421pt x 121.30002pt.
 
-<chapitre4/fig/77.png, id=2356, 674.0382pt x 370.5042pt>
+<chapitre4/fig/77.png, id=2354, 674.0382pt x 370.5042pt>
 File: chapitre4/fig/77.png Graphic file (type png)
 
 <use chapitre4/fig/77.png>
@@ -1675,14 +1670,14 @@ NG OF CODE GENERATORS FAMILIES
 [106 <./chapitre4/fig/11.png> <./chapitre4/fig/22.png> <./chapitre4/fig/33.png>
  <./chapitre4/fig/44.png> <./chapitre4/fig/55.png> <./chapitre4/fig/66.png> <./
 chapitre4/fig/77.png>] [107]
-<chapitre4/fig/explor_ind.png, id=2417, 3604.46625pt x 3078.50125pt>
+<chapitre4/fig/explor_ind.png, id=2415, 3604.46625pt x 3078.50125pt>
 File: chapitre4/fig/explor_ind.png Graphic file (type png)
 
 <use chapitre4/fig/explor_ind.png>
 Package pdftex.def Info: chapitre4/fig/explor_ind.png used on input line 588.
 (pdftex.def)             Requested size: 322.50345pt x 275.40907pt.
 
-<chapitre4/fig/explor_ind2.png, id=2418, 3615.5075pt x 3104.59875pt>
+<chapitre4/fig/explor_ind2.png, id=2416, 3615.5075pt x 3104.59875pt>
 File: chapitre4/fig/explor_ind2.png Graphic file (type png)
 
 <use chapitre4/fig/explor_ind2.png>
@@ -1692,14 +1687,14 @@ Package pdftex.def Info: chapitre4/fig/explor_ind2.png used on input line 589.
 
 LaTeX Warning: Float too large for page by 75.4668pt on input line 592.
 
-<chapitre4/fig/mahatime.png, id=2419, 1169.36874pt x 1573.88pt>
+<chapitre4/fig/mahatime.png, id=2417, 1169.36874pt x 1573.88pt>
 File: chapitre4/fig/mahatime.png Graphic file (type png)
 
 <use chapitre4/fig/mahatime.png>
 Package pdftex.def Info: chapitre4/fig/mahatime.png used on input line 595.
 (pdftex.def)             Requested size: 225.75594pt x 303.8434pt.
 
-<chapitre4/fig/mahamem.png, id=2420, 582.175pt x 784.9325pt>
+<chapitre4/fig/mahamem.png, id=2418, 582.175pt x 784.9325pt>
 File: chapitre4/fig/mahamem.png Graphic file (type png)
 
 <use chapitre4/fig/mahamem.png>
@@ -1742,7 +1737,7 @@ Chapter 5.
 
 
 ] [116] [117] [118]
-<chapitre3/fig/autotuning.pdf, id=2533, 359.3425pt x 114.4275pt>
+<chapitre3/fig/autotuning.pdf, id=2531, 359.3425pt x 114.4275pt>
 File: chapitre3/fig/autotuning.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/autotuning.pdf>
@@ -1766,7 +1761,7 @@ Overfull \hbox (17.62482pt too wide) detected at line 302
 [][] 
  []
 
-[123] <chapitre3/fig/individual.png, id=2664, 991.705pt x 153.57375pt>
+[123] <chapitre3/fig/individual.png, id=2662, 991.705pt x 153.57375pt>
 File: chapitre3/fig/individual.png Graphic file (type png)
 
 <use chapitre3/fig/individual.png>
@@ -1785,14 +1780,14 @@ Underfull \hbox (badness 1810) in paragraph at lines 410--412
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [127] [128] [129]
-<chapitre3/fig/infraup.pdf, id=2723, 469.755pt x 312.16624pt>
+<chapitre3/fig/infraup.pdf, id=2721, 469.755pt x 312.16624pt>
 File: chapitre3/fig/infraup.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/infraup.pdf>
 Package pdftex.def Info: chapitre3/fig/infraup.pdf used on input line 480.
 (pdftex.def)             Requested size: 368.57838pt x 244.93196pt.
  [130 <./chapitre3/fig/infraup.pdf>]
-<chapitre3/fig/sensitivity.pdf, id=2830, 494.84875pt x 121.45375pt>
+<chapitre3/fig/sensitivity.pdf, id=2828, 494.84875pt x 121.45375pt>
 File: chapitre3/fig/sensitivity.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/sensitivity.pdf>
@@ -1803,7 +1798,7 @@ Package pdftex.def Info: chapitre3/fig/sensitivity.pdf used on input line 514.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [131] [132 <./chapitre3/fig/sensitivity.pdf>]
-<chapitre3/fig/box.pdf, id=2866, 1010.77625pt x 310.15875pt>
+<chapitre3/fig/box.pdf, id=2864, 1010.77625pt x 310.15875pt>
 File: chapitre3/fig/box.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/box.pdf>
@@ -1814,7 +1809,7 @@ Package pdftex.def Info: chapitre3/fig/box.pdf used on input line 568.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [133] [134 <./chapitre3/fig/box.pdf>]
-<chapitre3/fig/rq3.pdf, id=2895, 721.69624pt x 490.83376pt>
+<chapitre3/fig/rq3.pdf, id=2893, 721.69624pt x 490.83376pt>
 File: chapitre3/fig/rq3.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/rq3.pdf>
@@ -1825,7 +1820,7 @@ Package pdftex.def Info: chapitre3/fig/rq3.pdf used on input line 612.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [135]
-<chapitre4/fig/infra_novelty_stat3.png, id=2907, 599.3592pt x 371.4678pt>
+<chapitre4/fig/infra_novelty_stat3.png, id=2905, 599.3592pt x 371.4678pt>
 File: chapitre4/fig/infra_novelty_stat3.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat3.png>
@@ -1833,7 +1828,7 @@ Package pdftex.def Info: chapitre4/fig/infra_novelty_stat3.png used on input li
 ne 630.
 (pdftex.def)             Requested size: 460.72124pt x 285.54929pt.
  [136 <./chapitre3/fig/rq3.pdf>]
-<chapitre4/fig/infra_novelty_stat2.png, id=2960, 547.3248pt x 343.0416pt>
+<chapitre4/fig/infra_novelty_stat2.png, id=2958, 547.3248pt x 343.0416pt>
 File: chapitre4/fig/infra_novelty_stat2.png Graphic file (type png)
 
 <use chapitre4/fig/infra_novelty_stat2.png>
@@ -1848,14 +1843,14 @@ Overfull \hbox (5.90762pt too wide) in paragraph at lines 675--676
  []
 
 [138 <./chapitre4/fig/infra_novelty_stat2.png>] [139]
-<chapitre3/fig/pareto.pdf, id=2982, 756.8275pt x 488.82625pt>
+<chapitre3/fig/pareto.pdf, id=2980, 756.8275pt x 488.82625pt>
 File: chapitre3/fig/pareto.pdf Graphic file (type pdf)
 
 <use chapitre3/fig/pareto.pdf>
 Package pdftex.def Info: chapitre3/fig/pareto.pdf used on input line 705.
 (pdftex.def)             Requested size: 414.6463pt x 267.81847pt.
  [140 <./chapitre3/fig/pareto.pdf>] [141]
-<chapitre3/fig/tool_support.png, id=3005, 750.805pt x 439.6425pt>
+<chapitre3/fig/tool_support.png, id=3003, 750.805pt x 439.6425pt>
 File: chapitre3/fig/tool_support.png Graphic file (type png)
 
 <use chapitre3/fig/tool_support.png>
@@ -1931,13 +1926,12 @@ NMENT FOR AUTOMATIC GENERATORS TESTING
 
 ] [154]
 Chapter 7.
-(./Conclusion/Conclusion.tex) [155
+(./Conclusion/Conclusion.tex [155
 
 
-] [156
+]) [156] (./Main.bbl [157
 
 
-] (./Main.bbl [157
 
 
 ]
@@ -2002,7 +1996,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 452.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 452.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 452.
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: D788AAE40643DA9BE48239AECE5223CB;6905.
+(rerunfilecheck)             Checksum: 011974F4FDF58849B706CBFAAA3E8B7C;6891.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2044,10 +2038,10 @@ ocal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Main.pdf (186 pages, 6077686 bytes).
+Output written on Main.pdf (186 pages, 6078085 bytes).
 PDF statistics:
- 3503 PDF objects out of 3580 (max. 8388607)
- 2809 compressed objects within 29 object streams
+ 3501 PDF objects out of 3580 (max. 8388607)
+ 2807 compressed objects within 29 object streams
  649 named destinations out of 1000 (max. 500000)
  958 words of extra memory for PDF output out of 10000 (max. 10000000)
 

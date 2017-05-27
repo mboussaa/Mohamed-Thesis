@@ -1,24 +1,27 @@
 
 
 \section{Context}
-Modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of platforms and devices that provide a wide diversity of capabilities and services. These heterogeneous services may run in different environments ranging from cloud servers with virtually unlimited resources down to resource-constrained devices with only a few KB of RAM. Effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important. As a consequence, we observe in the last years~\cite{Czarnecki:2000:GPM:345203}, that model-based software development received more and more attraction to tame with the runtime heterogeneity of platforms and technological stacks that exist in several domains such as mobile or Internet of Things~\cite{betz2011improving}.
+Modern software systems rely nowadays on a highly heterogeneous and dynamic interconnection of platforms and devices that provide a wide diversity of capabilities and services. These heterogeneous services may run in different environments ranging from cloud servers with virtually unlimited resources down to resource-constrained devices with only a few KB of RAM. Effectively developing software artifacts for multiple target platforms and hardware technologies is then becoming increasingly important. As a consequence, we observe in the last years~\cite{Czarnecki:2000:GPM:345203}, that generative software development received more and more attraction to tame with the runtime heterogeneity of platforms and technological stacks that exist in several domains such as mobile or Internet of Things~\cite{betz2011improving}.
 
-Therefore, software developers tend to increasingly use generative programming~\cite{Czarnecki:2000:GPM:345203} and model-based techniques~\cite{france2007model} in order to reduce the effort of software development and maintenance by developing at a higher-level of abstraction through the use of domain-specific languages (DSLs) for example. 
-Consequently, the new advances in hardware and platform specifications have paved the way for the creation of multiple \textit{code generators} that serve as a basis for automatically generating code to a broad range of software and hardware platforms. 
+Generative programming provides a software abstraction layer that software developers can use to specify the desired system behavior (e.g., using domain-specific languages DSLs, models, etc.) and automatically generate software artifacts. As a consequence, the new advances in hardware and platform specifications have paved the way for the creation of multiple \textit{generators} that serve as a basis for automatically generating code to a broad range of software and hardware platforms. 
 
-On the one hand, code generators are needed to transform the high-level system specifications (e.g., textual or graphical modeling language) into conventional source code programs (e.g., General-purpose Languages GPLs such as Java, C++, etc). Automatic code generation can of course improve the quality and consistency of a program as well the productivity of software development\cite{kapteijns2009comparative}.
+%Therefore, software developers tend to increasingly use generative programming~\cite{Czarnecki:2000:GPM:345203} and model-based techniques~\cite{france2007model} in order to reduce the effort of software development and maintenance by developing at a higher-level of abstraction through the use of domain-specific languages (DSLs) for example. 
+
+Automatic code generation involves code generators, needed to transform the high-level system specifications (e.g., textual or graphical modeling language) into conventional source code programs (e.g., General-purpose Languages GPLs such as Java, C++, etc), and compilers needed to transform the high-level source code programs, that were manually written or automatically generated, into low-level machine code (i.e., binaries, executables). 
+Compilers bridge the gap between the input programs (i.e., written using GPLs) and the target execution environment by taking into account different hardware architectures and properties such as register usage, memory organizations, hardware-specific optimizations, etc. 
 %In general, the generated code has no details about the hardware platform on which the generated machine code will run. 
 %For example, the generated application can be executed in a Microsoft Windows environment as a C\# application that interacts with an SQL Server database; or in a Linux environment as a Java application interacting with a MySQL database. 
-
-On the other hand, compilers are also needed to transform the high-level source code programs, that were manually written or automatically generated, into low-level machine code (i.e., binaries, executables). 
-Compilers bridge the gap between the input programs (i.e., written using GPLs) and the target execution environment by taking into account different hardware architectures and properties such as register usage, memory organizations, hardware-specific optimizations, etc. 
-
-With full automatic code generation, it is now possible to develop the code easily and rapidly. 
-Nevertheless, it is crucial that the software being automatically generated undergoes an appropriate verification and validation technique to determine that the code generator has generated correct code. Therefore, users can trust the code generator and gain confidence in its correct functioning. 
-Similarly, compilers have to be evaluated and examined in order to ensure that the code they produce is correct. Verifying the correctness of generated code can be either functional (e.g., verifying that the generated code exhibits the same functional behavior as described in the input program), or non-functional (e.g., verifying the non-functional properties of generated code).
-
-Moreover, code generators as well as compilers become highly configurable, offering
+ 
+With full automatic code generation, it is now possible to develop the code easily and rapidly, improving the quality and consistency of a program as well the productivity of software development\cite{kapteijns2009comparative}. 
+Moreover, modern generators (e.g., C compilers) become highly configurable, offering
 (numerous) configuration options to users in order to tune the produced code with respect to the target software platform and/or hardware architecture. Thus, finding a good combination of options that best customize the generated code according to the user requirements is in general a very challenging problem.
+
+
+Nevertheless, it is crucial that the software being automatically generated undergoes an appropriate verification and validation technique to verify the correct behavior of generators. Therefore, users can trust the generator and gain confidence in its correct functioning. 
+%Similarly, generators have to be evaluated and examined in order to ensure that the code they produce is correct. 
+Verifying the correctness of generated code can be either functional (e.g., verifying that the generated code exhibits the same functional behavior as described in the input program), or non-functional (e.g., verifying the non-functional properties of generated code).
+
+
 
 %However, code generators as well as compilers are known to be difficult to evaluate since they involve a set of complex and heterogeneous technologies and configurations whose complex interdependencies pose important testing challenges. Moreover, they become highly configurable which often make the task of choosing the best configuration set very difficult.
 

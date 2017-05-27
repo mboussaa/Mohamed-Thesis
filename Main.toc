@@ -139,7 +139,7 @@
 \contentsline {subsection}{\numberline {6.3.3}Front-end Visualization Component}{152}{subsection.6.3.3}
 \contentsline {part}{III\hspace {1em}Conclusion and perspectives}{153}{part.3}
 \contentsline {chapter}{\numberline {7}Conclusion and perspectives}{155}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary of contributions}{155}{section.7.1}
+\contentsline {section}{\numberline {7.1}Conclusion}{155}{section.7.1}
 \contentsline {section}{\numberline {7.2}Perspectives}{155}{section.7.2}
 \contentsline {chapter}{\textbf {References}}{157}{section*.32}
 \contentsline {chapter}{List of Figures}{175}{section*.34}
