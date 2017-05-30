@@ -8,7 +8,7 @@ As discussed in the state of the art chapter, there are many approaches that add
 	
 This chapter presents an alternative approach to previous research efforts. 
 We present NOTICE, an approach for automatically tuning compilers. 
-Our approach applies a set of meta-heuristics (i.e., mono-objective and multi-objective evolutionary algorithms) to efficiently explore the huge search space of optimizations according to one or many non-functional metrics.
+Our approach applies a set of meta-heuristics (\ie, mono-objective and multi-objective evolutionary algorithms) to efficiently explore the huge search space of optimizations according to one or many non-functional metrics.
 
 NOTICE relies on system containers as a controlled sand-boxing execution environment, to run the iterative process and effectively extract the non-functional properties related to the resource usage of optimized code through the monitoring of generated code.
  
@@ -25,11 +25,11 @@ Among the different challenges we have identified in the state of the art, we ar
 
 This chapter is organized as follows: 
 
-Section \ref{sec:comp-intro} introduces the context of this work, i.e., auto-tuning compilers, and gives a preview of our main contributions in this field.
+Section \ref{sec:comp-intro} introduces the context of this work, \ie, auto-tuning compilers, and gives a preview of our main contributions in this field.
 
 Section \ref{sec:comp-motiv} describes the motivation and the challenges behind this work. We present in this section the GCC compiler as a motivation example to better explain the problem. The GCC compiler will also be used by NOTICE to evaluate and validate our approach. 
 
-In Section \ref{sec:comp-NS}, the proposed search-based technique, i.e., Novelty Search (NS), is presented. We describe our NS adaptation to the compiler auto-tuning problem. Thus, we present in details our algorithm, the evaluation metrics and the iterative evolutionary process. 
+In Section \ref{sec:comp-NS}, the proposed search-based technique, \ie, Novelty Search (NS), is presented. We describe our NS adaptation to the compiler auto-tuning problem. Thus, we present in details our algorithm, the evaluation metrics and the iterative evolutionary process. 
 
 In Section \ref{sec:comp-eval}, we conduct an empirical study to evaluate our approach. Thus, we evaluate the implementation of our approach by explaining the design of our experiments, the research questions we set out to answer and the methods we used to answer these questions.
 
@@ -53,7 +53,7 @@ Thus, it is necessary to detect possible issues caused by source code changes su
 
 
 We also note that when trying to optimize software performance, many non-functional properties and design constraints must be involved and satisfied simultaneously to better optimize code.
-Several research efforts try to optimize a single criterion (usually the execution time)~\cite{ballal2015compiler,chen2012deconstructing,demertzi2011analyzing} and ignore other important non-functional properties, more precisely resource consumption properties (e.g., memory or CPU usage) that must be taken into consideration and can be equally important in relation to the performance. Sometimes, improving program execution time can result in a high resource usage which may decrease system performance. For example, embedded systems for which code is generated often have limited resources. Thus, optimization techniques must be applied whenever possible to generate efficient code and improve performance (in terms of execution time) with respect to available resources (CPU or memory usage)~\cite{nagiub2013automatic}.
+Several research efforts try to optimize a single criterion (usually the execution time)~\cite{ballal2015compiler,chen2012deconstructing,demertzi2011analyzing} and ignore other important non-functional properties, more precisely resource consumption properties (\eg, memory or CPU usage) that must be taken into consideration and can be equally important in relation to the performance. Sometimes, improving program execution time can result in a high resource usage which may decrease system performance. For example, embedded systems for which code is generated often have limited resources. Thus, optimization techniques must be applied whenever possible to generate efficient code and improve performance (in terms of execution time) with respect to available resources (CPU or memory usage)~\cite{nagiub2013automatic}.
 Therefore, it is important to construct optimization levels that represent multiple trade-offs between non-functional properties, enabling the software designer to choose among different optimal solutions which best suit the system specifications.
 
 
@@ -248,7 +248,7 @@ NS is a divergent evolutionary algorithm which rewards optimization sequences th
 
 Moreover, we claim that the search towards effective optimization sequences is not straightforward since the interactions between optimizations is too complex and difficult to define. 
 
-For instance, in a previous work~\cite{chen2012deconstructing}, Chen et al. showed that handful optimizations may lead to higher performance than other techniques of iterative optimization. 
+For instance, in a previous work~\cite{chen2012deconstructing}, Chen \etal showed that handful optimizations may lead to higher performance than other techniques of iterative optimization. 
 In fact, the fitness-based search may be trapped into some local optima that cannot escape\cite{bodin1998iterative}. 
 This phenomenon is known as \textit{"diversity loss"}. For example, if the most effective optimization sequence that induces less execution time lies far from the search space defined by the gradient of the fitness function, then some promising search areas may not be reached. 
 The issue of premature convergence to local optima has been a common problem in evolutionary algorithms. 
@@ -385,8 +385,8 @@ To explore the impact of compiler optimizations a set of input programs are need
 To this end, we use a random C program generator called Csmith~\cite{yang2011finding}.
 Csmith is a tool that can generate random C programs that statically and dynamically conform to the C99 standard. It has been widely used to perform functional testing of compilers~\cite{chen2016empirical,le2014compiler,nagai2013scaling} but not the case for checking non-functional requirements. Csmith can generate C programs that use a much wider range of C features including complex control flow and data structures such as pointers, arrays, and structs. 
 
-Csmith programs come with their test suites that explore the structure of generated programs (i.e., high quality code coverage).
-Yang et al.~\cite{yang2011finding} argue that Csmith is an effective bug-finding tool because it generates tests that explore atypical combinations of C language features. They also argue that larger programs are more effective for functional testing. 
+Csmith programs come with their test suites that explore the structure of generated programs (\ie, high quality code coverage).
+Yang \etal~\cite{yang2011finding} argue that Csmith is an effective bug-finding tool because it generates tests that explore atypical combinations of C language features. They also argue that larger programs are more effective for functional testing. 
 
 Thus, we run Csmith for 24 hours and gathered the largest generated programs. We depicted 111 C programs with an average number of source lines of 12K. 10 programs are used as training set for RQ1, 100 other programs to answer RQ2 and one last program to run RQ4 experiment.
 
@@ -506,7 +506,7 @@ In the following paragraphs, we report the methodology and results of our experi
 
 To answer the first research question RQ1, we conduct a mono-objective search for compiler optimization exploration in order to evaluate the non-functional properties of optimized code. Thus, we generate optimization sequences using three search-based techniques (RS, GA, and NS) and compare their performance results to standard GCC optimization levels (O1, O2, O3, and Ofast). 
 
-In this experiment, we choose to optimize for execution time (S), memory usage (MR), and CPU consumption (CR). Each non-functional property is improved separately and independently of other metrics. We recall that other properties can be also optimized using NOTICE (e.g., code size, compilation time, etc.), but in this experiment, we focus only on three properties.
+In this experiment, we choose to optimize for execution time (S), memory usage (MR), and CPU consumption (CR). Each non-functional property is improved separately and independently of other metrics. We recall that other properties can be also optimized using NOTICE (\eg, code size, compilation time, etc.), but in this experiment, we focus only on three properties.
 
 
 \begin{figure}[h]
@@ -556,7 +556,7 @@ This can be explained by the fact that standard GCC levels apply some aggressive
 
 \subsubsection{RQ2. Sensitivity}
 \paragraph{Method}
-Another interesting experiment is to test the sensitivity of input programs to compiler optimizations and evaluate the general applicability of best optimal optimization sets, previously discovered in RQ1. These sequences correspond to the best generated sequences using NS for the three non-functional properties S, MR and CR (i.e., sequences obtained in column 8 of Table \ref{tab:Results of mono-objective optimizations}). 
+Another interesting experiment is to test the sensitivity of input programs to compiler optimizations and evaluate the general applicability of best optimal optimization sets, previously discovered in RQ1. These sequences correspond to the best generated sequences using NS for the three non-functional properties S, MR and CR (\ie, sequences obtained in column 8 of Table \ref{tab:Results of mono-objective optimizations}). 
 
 Thus, we apply best discovered optimizations in RQ1 to new unseen Csmith (100 new random programs) and we compare then, the performance improvement across these programs (see right side of Figure \ref{fig:sensitivity.pdf}). We also apply standard optimizations, O2 and O3, to new Csmith programs in order to compare the performance results.
 The idea of this experiment is to test whether new generated Csmith programs are sensitive to previously discovered optimizations or not. 
@@ -596,13 +596,13 @@ In the following, we describe two methods to run experiments. The first is based
 
 In this experiment, we use NOTICE to provide an understanding of optimizations impact, in terms of resource consumption, when trying to optimize for execution time. 
 
-Thus, we choose one instance of obtained results in RQ1 related to the best speedup improvement (i.e., results obtained in line 1 of Table \ref{tab:Results of mono-objective optimizations}) and we study the impact of speedup improvement on memory and CPU consumption. We also compare the resource usage data to standard GCC levels as they were presented in Table \ref{tab:Results of mono-objective optimizations}. Improvements are always calculated over the non-optimized version (O0). The following measurements are based on the training set of 10 Csmith programs.
+Thus, we choose one instance of obtained results in RQ1 related to the best speedup improvement (\ie, results obtained in line 1 of Table \ref{tab:Results of mono-objective optimizations}) and we study the impact of speedup improvement on memory and CPU consumption. We also compare the resource usage data to standard GCC levels as they were presented in Table \ref{tab:Results of mono-objective optimizations}. Improvements are always calculated over the non-optimized version (O0). The following measurements are based on the training set of 10 Csmith programs.
 
 \paragraph{Results 1}
 
 Figure \ref{fig:rq3.pdf} shows the impact of speedup optimization on resource consumption. For instance, O2 and O3 that led to the best speedup improvement among standard optimization levels in RQ1, present opposite impact on resource usage. Applying O2 induces -8.4\% of MR and -5\% of CR. However, applying O3 improves MR and CR respectively by 3.4\% and 4.2\%. Hence, we note that when applying standard levels, there is no clear correlation between speedup and resource usage since compiler optimizations are generally used to optimize the execution speed and never evaluated to reduce system resources.
 
-On the other hand, the outcome of applying different mono-objective algorithms for speedup optimization also proves that resource consumption is always in conflict with execution speed. The highest MR and CR is reached using NS with respectively 1.2\% and 5.4\%. This improvement is considerably low compared to scores reached when we have applied resource usage metrics as key objectives in RQ1 (i.e., 15.6\% for MR and 23.5\% for CR). Furthermore, we note that generated sequences using RS and GA have a high impact on system resources since all resource usage values are worse than the baseline.
+On the other hand, the outcome of applying different mono-objective algorithms for speedup optimization also proves that resource consumption is always in conflict with execution speed. The highest MR and CR is reached using NS with respectively 1.2\% and 5.4\%. This improvement is considerably low compared to scores reached when we have applied resource usage metrics as key objectives in RQ1 (\ie, 15.6\% for MR and 23.5\% for CR). Furthermore, we note that generated sequences using RS and GA have a high impact on system resources since all resource usage values are worse than the baseline.
 
 These results agree to the idea that compiler optimizations do not put too much emphasis on the trade-off between execution time and resource consumption.
 
@@ -617,11 +617,11 @@ These results agree to the idea that compiler optimizations do not put too much 
 
 \paragraph{Method 2}
 
-Now, we study the impact of applying standard levels (01, O2, O3, Ofast) on the memory usage across 5 different Cbench programs. We compare the results with solutions generated using NOTICE which have the best memory consumption reduction (i.e., generated by NS). 
+Now, we study the impact of applying standard levels (01, O2, O3, Ofast) on the memory usage across 5 different Cbench programs. We compare the results with solutions generated using NOTICE which have the best memory consumption reduction (\ie, generated by NS). 
 
 Figure \ref{fig:infra_novelty_stat3.pdf} shows this comparison across different benchmark programs. It presents the percentage of saved memory of standard and novelty optimizations over O0 level (no optimization applied).
 
-To study the correlation between execution time and memory consumption of running programs, we present in Figure \ref{fig:infra_novelty_stat2.pdf} an evaluation of the speedup according standard levels. Again, we compare these results to the sequence that had the best memory reduction in Figure \ref{fig:infra_novelty_stat3.pdf} (i.e., NS solution). 
+To study the correlation between execution time and memory consumption of running programs, we present in Figure \ref{fig:infra_novelty_stat2.pdf} an evaluation of the speedup according standard levels. Again, we compare these results to the sequence that had the best memory reduction in Figure \ref{fig:infra_novelty_stat3.pdf} (\ie, NS solution). 
 
 \paragraph{Results 2}
 
@@ -762,7 +762,7 @@ As shown in Figure \ref{fig:tool_support}, NOTICE provides different features to
 	
 	\item \textbf{Select the target computer architecture:} choose the processor architecture where the experiments will be running such as x64, x86, ARM. This is part of our future work since we are running experiments only on native GCC compiler with x64 architecture. We are preparing a QEMU docker image to handle platforms heterogeneity.
 	
-	\item \textbf{Define the compiler version:} For now, NOTICE supports all GCC compiler versions from 3.x to 5.x. The process of extracting the target optimizations to evolve is done automatically (i.e., optimizations enabled by O1, O2, O3 and Ofast)
+	\item \textbf{Define the compiler version:} For now, NOTICE supports all GCC compiler versions from 3.x to 5.x. The process of extracting the target optimizations to evolve is done automatically (\ie, optimizations enabled by O1, O2, O3 and Ofast)
 	
 	\item \textbf{Configure the monitoring components:} This refers to the containers needed to extract all the information about the resource consumption. Configuring these components is possible with NOTICE such as image versions, labels, ports, logins, passwords.
 	
@@ -784,12 +784,12 @@ As shown in Figure \ref{fig:tool_support}, NOTICE provides different features to
 \end{itemize} 
 
 
-The console output (i.e., the execution result of this tool) displays at the end, the comparison results of standard optimization levels to the new discovered solutions.
+The console output (\ie, the execution result of this tool) displays at the end, the comparison results of standard optimization levels to the new discovered solutions.
 
 \section{Conclusion}
 \label{notice:conclusion}
 %We present an automated approach for automatic extraction of non-functional properties of generated code.
-Modern compilers come with huge number of optimizations, making complicated for compiler users to find best optimization sequences. Furthermore, auto-tuning compilers to meet user requirements is a difficult task since optimizations may depend on different properties (e.g., platform architecture, software programs, target compiler, optimization objective, etc.).
+Modern compilers come with huge number of optimizations, making complicated for compiler users to find best optimization sequences. Furthermore, auto-tuning compilers to meet user requirements is a difficult task since optimizations may depend on different properties (\eg, platform architecture, software programs, target compiler, optimization objective, etc.).
 
 Hence, compiler users merely use standard optimization levels (O1, O2, O3 and Ofast) to enhance the code quality without taking too much care about the impact of optimizations on system resources.
 

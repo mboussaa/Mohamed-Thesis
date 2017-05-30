@@ -1,18 +1,44 @@
 In this chapter, we first summarize all the contributions of this thesis, recalling the challenges and how we addressed each of them. Next and finally, we discuss some perspectives for future work.
 
-\section{Conclusion}
-Today's modern software development requires more automatic and flexible approaches to face the continuous innovation in industry production.
-As a consequence, generative programming (GP) techniques are increasingly applied to automatically generate and reuse software artifacts.
-GP is a software engineering paradigm that focuses on the automatic software synthesis to improve programmer productivity. It allows software programmers to write code at a higher abstraction level 
+\section{Summary of contributions}
+Generative software development has paved the way for the creation of multiple generators that serve as a basis for automatically generating code to a broad range of software and hardware platforms. With full automatic code generation, users are able to rapidly synthesize software artifacts for various software platforms. In addition, they can easily customize the generated code for the target hardware platform since modern generators (\ie, C compilers) become highly configurable, offering numerous configuration options that the user can apply. 
+The quality of the automatically generated software is highly correlated to the configuration settings as well as the generator itself.
+Therefore, we have highlighted, throughout this thesis, the challenges that we face when testing and auto-tuning generators. 
+
+In reviewing the state of the art, we identified numerous approaches for testing generators. However, few of them evaluate the non-functional properties of automatically generated code, namely the performance and resource usage properties. The main issue we have identified when testing the non-functional properties is the oracle problem, since there is no a clear definition of how the oracle might be defined when it comes to the test of the performance and resource usage properties. Similarly, research in auto-tuning generators, especially compilers, has been studied for decades, proposing different solutions for exploring the large optimization search space. However, they  do not exploit the recent advances in search-based software engineering to effectively find the best configuration set. 
  
 %in order to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity. 
 
+From a software engineering point of view, this thesis contributes to improve the quality and reliability of generators. The contributions are summarized as follows: 
 
+Our first contribution addresses the problem of non-functional testing of generators. In particular, we tackle the oracle problem in the domain of code generators testing. Thus, we propose an approach for automatically detecting inconsistencies in code generators in terms of non-functional properties (\ie, resource usage and performance).
+Our approach is based on the intuition that a code generator is often a member of a family of code generators. Therefore, we benefit from the existence of multiple generators with comparable functionality (\ie, code generator families) to apply the idea of metamorphic testing~\cite{zhou2004metamorphic}, defining high-level test oracles (\ie, metamorphic relations) as test oracles. 
+%To do so,  since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite across the different versions.
+We define the metamorphic relation as a comparison between the variations of performance and resource usage of code, generated from the same code generator family. Any variation that exceeds a specific threshold value is automatically detected as an anomaly. We apply two statistical methods (\ie, principal component analysis and range-charts) in order to automate the inconsistencies detection.
+We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. We evaluate the properties related to the resource usage and performance for five different target software platforms. 
+We run a bench of test suites across 7 Haxe benchmark libraries in order to verify the metamorphic relation (\ie, the performance and memory usage variation) for each of them. Experimental results show that our approach is able to detect, among 95 executed test suites, 11 performance and 15 memory usage inconsistencies, violating the metamorphic relation . These results show that our approach can automatically detect real issues in code generator families.
+
+The second contribution addresses the problem of generators auto-tuning. Particularly, we are interested in auto-tuning compilers because of the large number of configuration options (i.e., optimizations) they offer to control the quality of the generated code. In this context, we exploit the recent advances in search-based software engineering in order to provide an effective approach to tune compilers (i.e., through optimizations) according to user's non-functional requirements (i.e., performance and resource usage). Our approach, called NOTICE, applies a novel formulation, compared to previous related work, of the compiler
+optimization problem using the Novelty Search algorithm\cite{lehman2008exploiting}. Novelty Search is applied to tackle the
+problem of optimizations diversity and then, providing a new way to explore the huge optimization search space. In fact, since the search
+space of possible combinations is multi-modal\cite{bodin1998iterative} and too large, we apply this technique is to explore the search space of possible compiler optimization options by considering sequence diversity as a single objective.
+We conduct an empirical study to evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler. Our experimental results show that NOTICE is able to auto-tune compilers according to user choices (heuristics, objectives, programs, etc.) and construct optimizations that yield to better performance results than standard optimization levels and classical genetic algorithms. We also demonstrate that NOTICE can be used to automatically construct optimization levels that represent optimal trade-offs between the speedup and memory usage using multi-objective algorithms.
+
+Evaluating the resource usage of automatically generated code is complex because of the diversity of software and hardware platforms that exist in the market. To handle this problem, we present in the third contribution the technical details of the infrastructure used to collect the non-functional metrics (e.g., memory and CPU consumptions) of automatically generated code (by either compilers or code generators). In fact, we benefit from the recent advances in lightweight system virtualization, in particular container-based virtualization, in order to offer effective support for automatically deploying, executing, and monitoring the generated code in heterogeneous environment.
+The same monitoring infrastructure is used to evaluate the experiments conducted in the two first contributions.
 
 \section{Perspectives}
-As a future work, we plan to explore more trade-offs among resource usage metrics \eg, the correlation between CPU consumption and platform architectures. 
-We also intend to provide more facilities to NOTICE users in order to test optimizations performed by modern compilers such as Clang, LLVM, etc.
-Finally, NOTICE can be easily adapted and integrated to new case studies. As an example, we would inspect the behavior of model-based code generators since different optimizations can be performed to generate code from models~\cite{stuermer2007systematic}. Thus, we aim to use the same approach to find non-functional issues during the code generation process.
-%As an alternative, it would be great to test model-based code generators. In the same fashion as Csmith, code generators apply to same rules to generate new software programs. Thus, we can use NOTICE to define general-purpose optimizations from a set of generated code artifacts. 
+The work presented in this thesis represents a step towards proving support to evaluate generators. In the reminder of this chapter we will describe possible improvements and extensions to the contributions of this thesis.
 
-//Auto-tuning JIT, JVM en utilisant docker
+\paragraph{Tracking the source of code generator inconsistencies} 
+In Chapter \ref{chap:code generators}, we present a black-box testing approach that identifies the presence of potential issues within code generator families. However, we do not provide detailed information about the source of the issues. We investigated the generated code manually in order to fix the bug. As a future work, we believe that a traceability method can be applied to collect and visualize information about the inconsistency, at the source code level. Thus, we can help code generator maintainers to easily identify the source of the bugs (\eg, code snippets that affect the the software performance), and fixing the issues.
+
+\paragraph{Improving the efficiency of our auto-tuning approach}
+We plan to explore more trade-offs among resource usage metrics \eg, the correlation between CPU consumption and platform architectures. 
+We also intend to provide more facilities to NOTICE users in order to test optimizations performed by modern compilers such as Clang, LLVM, etc.
+Finally, NOTICE can be easily adapted and integrated to new case studies. As an example, we would inspect the behavior of code generators since different optimizations can be performed to generate code from models~\cite{stuermer2007systematic}. As an alternative, it would be great to test model-based code generators. In the same fashion as Csmith, code generators apply to same rules to generate new software programs. Thus, we can use NOTICE to define general-purpose optimizations from a set of generated code artifacts. 
+
+\paragraph{Parallel execution and monitoring of generated code}
+Throughout the experiments conducted in this thesis we use to run containers sequentially. In order to reduce the time needed to run and monitor multiple versions of generated code (e.g., optimized versions), we intend to use a cloud infrastructure to run multiple containers in parallel. Doing so, we will be able to accelerate the testing process.
+
+
