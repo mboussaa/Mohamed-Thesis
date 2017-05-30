@@ -134,9 +134,9 @@ We distinguish four major steps: the software design using high-level system spe
 \end{figure*}
 
 
-In the first step, software developers have to define, at design time, the software's behavior using a high-level abstract language (DSLs, models, program, etc). Afterwards, developers can use platform-specific code generators to ease the software development and automatically generate code for different languages and platforms. We depict, as an example in Figure \ref{fig:bbackground.pdf}, three code generators from the same family capable to generate code to three software programming languages (JAVA, C\# and C++). The first step is to generate code from the previously designed model.
+In the first step, software developers have to define, at design time, the software's behavior using a high-level abstract language (DSLs, models, program, etc). Afterwards, developers can use platform-specific code generators to ease the software development and automatically generate code for different languages and platforms. We depict, as an example in Figure \ref{fig:bbackground.pdf}, three code generators from the same family capable to generate code to three software programming languages (Java, C\# and C++). The first step is to generate code from the previously designed model.
 % Transformations from model to code within each code generator might be different and may integrate different transformation rules. As an example, we distinguish model-to-model transformations languages such as ATL~\cite{jouault2005transforming} and template-based model-to-text transformation languages such as Acceleo~\cite{musset2006acceleo} to translate high-level system specifications into executable code and scripts~\cite{bragancca2008transformation,czarnecki2003classification}. The main task of code generators is to transform models to general-purpose and platform-dependent languages.
-Afterwards, generated software artifacts (\eg, JAVA, C\#, C++, etc.) are compiled, deployed and executed across different target platforms (\eg, Android, ARM/Linux, JVM, x86/Linux, etc.). 
+Afterwards, generated software artifacts (\eg, Java, C\#, C++, etc.) are compiled, deployed and executed across different target platforms (\eg, Android, ARM/Linux, JVM, x86/Linux, etc.). 
 %Thus, several code compilers are needed to transform source code to machine code (binaries) in order to get executed. 
 Finally, to perform the non-functional testing of generated code, developers have to collect, visualize and compare information about the performance and efficiency of running code across the different platforms. 
 Therefore, they generally use several platform-specific profilers, trackers, instrumenting and monitoring tools in order to find some inconsistencies or bugs during code execution~\cite{guana2014chaintracker,delgado2004taxonomy}. Finding inconsistencies within code generators involves analyzing and inspecting the code and that, for each execution platform. For example, one way to handle that, is to analyze the memory footprint of software execution and find memory leaks~\cite{nethercote2007valgrind}. Developers can then inspect the generated code and find some fragments of the code-base that have triggered this issue. %Such non-functional error could occur when the code generator produces code that presents for example: incorrect typing, faulty memory management, code-smells, etc. 
@@ -274,7 +274,7 @@ On the one hand, we use the following equation $P_{1}(t_{i}) \equiv P_{2}(t_{i})
 If this relation is not satisfied that means, that there is at least one faulty code generator that produced incorrect code. In this this work, we focus on the non-functional testing, so we ensure that this relation is ensured by excluding all the programs that do not exhibit the same behavior. 
 
 
-On the other hand, since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite across the different versions. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in different languages and executed using different technologies (\eg, interpreters for PHP, JVM for JAVA, etc.). 
+On the other hand, since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite across the different versions. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in different languages and executed using different technologies (\eg, interpreters for PHP, JVM for Java, etc.). 
 This observation is also based on initial experiments, where we evaluate the resource usage/execution time of several test suites across a set of equivalent versions generated using a code generator family (presented in details in the evaluation section \ref{sec:cg_evaluation}). As a consequence, we use the notation $\Delta\{f(P_{1}(t_{i})), f(P_{2}(t_{i}))\}$ to designate the variation of memory usage or execution time of test suite execution $t_{i}$ across two version of generated code written in different languages $P_{1}$ and $P_{2}$. We suppose that this variation should note exceed a certain threshold value $T$, otherwise, we raise a code generator inconsistency.
 Based on this intuition, the MR can be represented as:
 
@@ -341,7 +341,7 @@ The non-functional data should be converted into a format that is understood by 
 F(f(P_{j}(t_{i})))=\frac{f(P_{j}(t_{i}))}{Min(f(P_{1}(t_{i})),..., f(P_{n}(t_{i})))}  
 \end{equation}
 
-The reference value will get a factor value $F = 1$ corresponding to the minimum value among the $n$ targets. The maximum value is the one leading to the maximum deviation from the reference test suite. For example, let $P_{1}$ be the generated program in JAVA. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to JAVA.
+The reference value will get a factor value $F = 1$ corresponding to the minimum value among the $n$ targets. The maximum value is the one leading to the maximum deviation from the reference test suite. For example, let $P_{1}$ be the generated program in Java. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to Java.
 
 Next step is to automatically detect the large deviations, we describe then, our statistical approaches.
 
@@ -564,7 +564,7 @@ Afterwards, we prepare and scale our raw data to make it valuable for efficient 
 	\caption{Memory usage variation of test suites across the different Haxe benchmarks}
 	\label{rm}
 \end{figure}
-The results of R-charts for the seven benchmark programs relative to the performance and resource usage variation are reported in Figures \ref{rt} and \ref{rm}. For Figure \ref{rt}, we report the performance variation corresponding to the range difference $R$ between the maximum and minimum execution time of each test suite across the five targets (JAVA, JS, C++, C\#, and PHP). 
+The results of R-charts for the seven benchmark programs relative to the performance and resource usage variation are reported in Figures \ref{rt} and \ref{rm}. For Figure \ref{rt}, we report the performance variation corresponding to the range difference $R$ between the maximum and minimum execution time of each test suite across the five targets (Java, JS, C++, C\#, and PHP). 
 The execution time is of course scaled by dividing all values by the minimum execution time per test suite. 
 The LCL for our experiments is always equal to 0 because the $D_{3}$ constant value as defined in equation \ref{eqUCL}, is equal to zero according to the R-chart constants table\footnote{\url{http://www.bessegato.com.br/UFJF/resources/table_of_control_chart_constants_old.pdf}}. In fact, the $D_{3}$ constant changes depending on the number of subgroups. In our experiments, our data record is composed of five subgroups corresponding to the five target programming languages.
 The central line (in green) corresponds to $R$-$bar$. This value changes from one benchmark to another depending on the average of $R$ across all test suites in the benchmark. As a consequence, $UCL$, which is a function of $R$-$bar$, changes as long as we add new test suites to the experiments. $UCL$ is equal to $D_{4}*\bar{R}$ where $D_{4}=2.114$ according to the R-chart constants table. We recall that we have classified the R-chart approach as input sensitive since the average variation $R$-$bar$ and the threshold value $UCL$ change dynamically by adding new follow-up test suites to the corresponding benchmark. 
@@ -612,7 +612,7 @@ We can clearly see that this technique help to identify only the extreme value o
 	\resizebox{\columnwidth}{!}{%
 		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 			\hline
-			\textbf{Benchamrk}                & \textbf{Test Suite}            & \textbf{JAVA} & \textbf{JS} & \textbf{CPP} & \textbf{CS} & \textbf{PHP}                   & \textbf{UCL(R)}         & \textbf{Defective CG} \\ \hline
+			\textbf{Benchamrk}                & \textbf{Test Suite}            & \textbf{Java} & \textbf{JS} & \textbf{CPP} & \textbf{CS} & \textbf{PHP}                   & \textbf{UCL(R)}         & \textbf{Defective CG} \\ \hline
 			\textbf{Color}                    & \textbf{TS19}                  & 1.90          & 1           & 2.37         & 3.31        & \cellcolor[HTML]{E3E3E3}61.84  & 13.08                   & PHP                   \\ \hline
 			&                                & 1             & 1.59        & 1.67         & 2.78        & \cellcolor[HTML]{E3E3E3}148.20 &                         & PHP                   \\ \cline{3-7} \cline{9-9} 
 			&                                & 1.14          & 2.71        & 1            & 3.63        & \cellcolor[HTML]{E3E3E3}258.94 &                         & PHP                   \\ \cline{3-7} \cline{9-9} 
@@ -636,20 +636,20 @@ We can clearly see that this technique help to identify only the extreme value o
 	\resizebox{\columnwidth}{!}{%
 		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 			\hline
-			\textbf{Benchmark}               & \textbf{Test suite} & \textbf{JAVA}                  & \textbf{JS} & \textbf{CPP} & \textbf{CS} & \cellcolor[HTML]{FFFFFF}\textbf{PHP} & \textbf{UCL}             & \textbf{Defective CG} \\ \hline
+			\textbf{Benchmark}               & \textbf{Test suite} & \textbf{Java}                  & \textbf{JS} & \textbf{CPP} & \textbf{CS} & \cellcolor[HTML]{FFFFFF}\textbf{PHP} & \textbf{UCL}             & \textbf{Defective CG} \\ \hline
 			& \textbf{TS4}        & 1                              & 2.29        & 1.47         & 3.59        & \cellcolor[HTML]{E8E8E8}82.46        &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
 			& \textbf{TS5}        & 1                              & 3.08        & 1.83         & 4.53        & \cellcolor[HTML]{E8E8E8}109.69       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
 			\multirow{-3}{*}{\textbf{Color}} & \textbf{TS14}       & 1                              & 1.32        & 1.00         & 2.03        & \cellcolor[HTML]{E8E8E8}64.45        & \multirow{-3}{*}{43.53}  & PHP                   \\ \hline
-			& \textbf{TS6}        & \cellcolor[HTML]{E8E8E8}250.77 & 71.71       & 1            & 69.90       & \cellcolor[HTML]{E8E8E8}454.15       &                          & PHP \& JAVA           \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS6}        & \cellcolor[HTML]{E8E8E8}250.77 & 71.71       & 1            & 69.90       & \cellcolor[HTML]{E8E8E8}454.15       &                          & PHP \& Java           \\ \cline{2-7} \cline{9-9} 
 			& \textbf{TS20}       & 2.31                           & 1.34        & 1            & 3.27        & \cellcolor[HTML]{E8E8E8}296.10       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
 			& \textbf{TS21}       & 11.90                          & 1           & 14.63        & 36.18       & \cellcolor[HTML]{E8E8E8}620.22       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
 			& \textbf{TS22}       & 1                              & 2.70        & 1.74         & 4.69        & \cellcolor[HTML]{E8E8E8}247.32       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
-			& \textbf{TS32}       & \cellcolor[HTML]{E8E8E8}270.78 & 2.27        & 1            & 5.61        & 153.37                               &                          & JAVA                  \\ \cline{2-7} \cline{9-9} 
+			& \textbf{TS32}       & \cellcolor[HTML]{E8E8E8}270.78 & 2.27        & 1            & 5.61        & 153.37                               &                          & Java                  \\ \cline{2-7} \cline{9-9} 
 			& \textbf{TS33}       & 1.82                           & 1.12        & 1            & 54.19       & \cellcolor[HTML]{E8E8E8}250.35       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
 			& \textbf{TS34}       & 1                              & 1.17        & 1.48         & 3.90        & \cellcolor[HTML]{E8E8E8}236.97       &                          & PHP                   \\ \cline{2-7} \cline{9-9} 
 			\multirow{-8}{*}{\textbf{Core}}  & \textbf{TS40}       & 160.84                         & 1.10        & 1            & 49.43       & \cellcolor[HTML]{E8E8E8}259.20       & \multirow{-8}{*}{190.03} & PHP                   \\ \hline
 			\textbf{Hxmath}                  & \textbf{TS2}        & 1                              & 1.16        & 1.91         & 2.82        & \cellcolor[HTML]{E8E8E8}296.16       & 181.11                   & PHP                   \\ \hline
-			\textbf{Promise}                 & \textbf{TS2}        & \cellcolor[HTML]{E8E8E8}214.53 & 92.45       & 1            & 57.68       & \cellcolor[HTML]{E8E8E8}224.41       & 106.82                   & PHP \& JAVA           \\ \hline
+			\textbf{Promise}                 & \textbf{TS2}        & \cellcolor[HTML]{E8E8E8}214.53 & 92.45       & 1            & 57.68       & \cellcolor[HTML]{E8E8E8}224.41       & 106.82                   & PHP \& Java           \\ \hline
 			\textbf{Culture}                 & \textbf{TS4}        & 2.75                           & 1.01        & 2.52         & 1           & \cellcolor[HTML]{E8E8E8}52.47        & 34.63                    & PHP                   \\ \hline
 			\textbf{Math}                    & \textbf{TS3}        & 1.29                           & 1           & 1.72         & 3.60        & \cellcolor[HTML]{E8E8E8}675.00       & 464.80                   & PHP                   \\ \hline
 		\end{tabular}%
@@ -668,8 +668,8 @@ The highest factor detected for other languages is x5.41 which is not negligible
 
 
 Meanwhile, we gathered information about the points that led to the highest variation in terms of memory usage. Table \ref{mem-tab} shows these results. 
-Again, we can identify a singular behavior of the PHP code regarding the memory usage with a factor ranging from x52.47 to x675. For other test suites versions, the factor varies from x1 to x160.84. We observe as well a singular behavior of the JAVA code for Core\_TS6, Core\_TS32, and Promise\_TS2, yielding to a variation higher than the $UCL$. 
-These results prove that the PHP and JAVA code generators are not always effective and they constitute a threat for the generated software in terms of memory usage.
+Again, we can identify a singular behavior of the PHP code regarding the memory usage with a factor ranging from x52.47 to x675. For other test suites versions, the factor varies from x1 to x160.84. We observe as well a singular behavior of the Java code for Core\_TS6, Core\_TS32, and Promise\_TS2, yielding to a variation higher than the $UCL$. 
+These results prove that the PHP and Java code generators are not always effective and they constitute a threat for the generated software in terms of memory usage.
 
 %Besides the performance issues of PHP code generator presented in table~5, the results of memory usage confirm our claim since the PHP code has the highest memory utilization.
 
@@ -839,7 +839,7 @@ In particular, we show that we could find two kinds of errors: the lack of use o
 	\resizebox{0.75\linewidth}{!}{%
 		\begin{tabular}{|l|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=5.2]|S[table-format=3.2]|}
 			\hline
-			\multirow{2}{*}{}    & \multicolumn{2}{c|}{\textbf{JS}}   & \multicolumn{2}{c|}{\textbf{JAVA}} & \multicolumn{2}{c|}{\textbf{C++}}  & \multicolumn{2}{c|}{\textbf{CS}}   & \multicolumn{2}{c|}{\textbf{PHP}}  \\ \cline{2-11} 
+			\multirow{2}{*}{}    & \multicolumn{2}{c|}{\textbf{JS}}   & \multicolumn{2}{c|}{\textbf{Java}} & \multicolumn{2}{c|}{\textbf{C++}}  & \multicolumn{2}{c|}{\textbf{CS}}   & \multicolumn{2}{c|}{\textbf{PHP}}  \\ \cline{2-11} 
 			& \textbf{Time(s)} & \textbf{Factor} & \textbf{Time(s)} & \textbf{Factor} & \textbf{Time(s)} & \textbf{Factor} & \textbf{Time(s)} & \textbf{Factor} & \textbf{Time(s)} & \textbf{Factor} \\ \hline
 			\textbf{Color\_TS19} & 4.52             & x1.0            & 8.61             & x1.9            & 10.73            & x2.4            & 14.99            & x3.3            & 279.27           & x61.8           \\ \hline
 			\textbf{Core\_TS4}   & 665.78           & x1.0            & 416.85           & x0.6            & 699.11           & x1.1            & 1161.29          & x1.7            & 61777.21         & x92.8           \\ \hline
@@ -862,7 +862,7 @@ In particular, we show that we could find two kinds of errors: the lack of use o
 	\resizebox{0.75\linewidth}{!}{%
 		\begin{tabular}{|l|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|S[table-format=3.2]|}
 			\hline
-			\multirow{2}{*}{}    & \multicolumn{2}{c|}{\textbf{JS}}      & \multicolumn{2}{c|}{\textbf{JAVA}}    & \multicolumn{2}{c|}{\textbf{C++}}     & \multicolumn{2}{c|}{\textbf{CS}}      & \multicolumn{2}{c|}{\textbf{PHP}}     \\ \cline{2-11} 
+			\multirow{2}{*}{}    & \multicolumn{2}{c|}{\textbf{JS}}      & \multicolumn{2}{c|}{\textbf{Java}}    & \multicolumn{2}{c|}{\textbf{C++}}     & \multicolumn{2}{c|}{\textbf{CS}}      & \multicolumn{2}{c|}{\textbf{PHP}}     \\ \cline{2-11} 
 			& \textbf{Memory(Mb)} & \textbf{Factor} & \textbf{Memory(Mb)} & \textbf{Factor} & \textbf{Memory(Mb)} & \textbf{Factor} & \textbf{Memory(Mb)} & \textbf{Factor} & \textbf{Memory(Mb)} & \textbf{Factor} \\ \hline
 			\textbf{Color\_TS6}  & 900.70              & x1.0            & 1362.55              & x1.5            & 2275.49             & x2.5            & 1283.31             & x1.4            & 758.79              & x0.8            \\ \hline
 			\textbf{Color\_TS19} & 253.01              & x1.0            & 819.92              & x3.2            & 923.99              & x3.7            & 327.61              & x1.3            & 2189.86             & x8.7            \\ \hline
