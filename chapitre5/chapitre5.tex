@@ -16,8 +16,7 @@ We present in this Chapter, a technical description of this lightweight runtime 
 
 
 The general overview of the technical implementation is shown in Figure \ref{fig:docker_background2.pdf}. In the following subsections, we describe the deployment and testing architecture of generated code using system containers.
-
-To accelerate the execution of the test suite 140 x number of compilers, the execution of the tests is parallelized so as to use all the available core on your local PC. An alternative setup leverages Docker so as to deploy tests on any number of nodes \eg in the cloud.
+ 
 
 First, we create a new Docker image in where we install the Haxe code generators and compilers (through the configuration file "Dockerfile"). Then a new instance of that image is created. It takes as an input the Haxe library we would to test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. These files are saved in a shared repository.
 In Docker environment, this repository is called "data volume". A data volume is a specially-designated directory within containers that shares data with the host machine. 
@@ -35,7 +34,7 @@ Grafana can  request data from the database. We recall that InfluxDB also provid
 \fi
 \section{System containers as a lightweight execution environment}
 
-System containers is an operating system-level virtualization method for running multiple isolated Linux systems (containers) on a control host using a single Linux kernel. 
+System container is an operating system-level virtualization method for running multiple isolated Linux systems (containers) on a control host using a single Linux kernel. 
 The Linux kernel provides the cgroups functionality that allows limitation and prioritization of resources (CPU, memory, block I/O, network, etc.) for each container without the need of starting any virtual machines~\cite{luotowards}.
 These containers share the same OS and hardware as the hosting machine and it is very useful to use them in order to create new configurable and isolated instances to run. 
 With container-based virtualization, we reduce the overhead associated with having each guest running a new installed operating system like using virtual machines. This approach can also improve the performance because there is just one operating system taking care of hardware calls.
