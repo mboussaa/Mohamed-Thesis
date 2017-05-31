@@ -1,15 +1,15 @@
 \section{Introduction}
 
-Software platforms diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}, constitutes a major obstacle for software testing. In fact, running tests requires many environment configurations and settings in order to test the whole application. For example, testing a web application requires the installation of the maven dependencies, web server, libraries, etc. When software developers upgrades the web server version for example, they need to rebuild the application and run the same integration tests in order to check that no errors  have been incorporated. Thus, testing applications in different execution environments and system settings becomes very time consuming and tedious.
+Software platforms diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}, constitutes a major obstacle for software testing. In fact, running tests requires many environment configurations and settings in order to test the whole application. For example, testing a web application requires the installation of the maven dependencies, web server, libraries, etc. When software developers upgrades the web server version for example, they need to rebuild the application and run the same integration tests in order to check that no errors  have been incorporated. Thus, testing applications using different execution environments and system settings becomes very time consuming and tedious.
 
-For instance, as we discussed in Chapter \ref{chap:code generators} and \ref{chap:compilers}, to evaluate the automatically generated code (by either code generators or compilers), we use to generate code, compile it, deploy it, and then execute test cases. To do so, different system configurations were required to ensure these steps such as installing the generator version (GCC or Haxe versions), install interpreters, maven dependencies, etc. 
+For instance, as we discussed in Chapter \ref{chap:code generators} and \ref{chap:compilers}, to evaluate the automatically generated code (by either code generators or compilers), we use to generate code, compile it, and then run test cases. To do so, different system configurations were required to ensure these steps such as installing the generator version (GCC or Haxe versions), install interpreters, compilers, maven dependencies, etc. 
 
-One way to test highly-configurable code generators is to use the virtualization technology. For instance, an alternative method leverages container-based system virtualization (\eg, Docker) to automate the code generation, deployment, and test of applications inside pre-configured software containers, by providing an additional layer of abstraction and automation of operating system-level virtualization on Linux. 
-This technology enables to mimic the real execution environment and reproduce the tests in an isolated and highly configurable system containers.
+One way to test these configurable generators is to use the virtualization technology. For instance, an alternative method leverages container-based system virtualization (\eg, Docker) to automate the code generation, deployment, and testing inside pre-configured software containers.
+This technology enables to mimic the execution environment settings and reproduce the tests in an isolated and highly configurable system containers.
 
-When it comes to evaluate the resource consumptions of automatically generated code, this technique becomes very valuable because it allows a fine resource management and isolation. Moreover, it facilitates resource usage limitation and extraction of tests running inside containers. 
+When it comes to evaluate the resource consumptions of automatically generated code, this technology becomes very valuable because it allows a fine-grained resource management and isolation. Moreover, it facilitates resource usage extraction and limitation of programs running inside containers. 
 
-We present in this Chapter, a detailed technical description of this lightweight runtime environment and its benefit for automating the non-functional test of automatically generated code. 
+We present in this Chapter, a technical description of this lightweight runtime environment and its benefit for automating the non-functional tests of generated code. 
 
 \iffalse
 
