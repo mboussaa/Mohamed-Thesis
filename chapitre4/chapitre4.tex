@@ -1,8 +1,8 @@
 
-The intensive use of generative programming techniques provides an elegant engineering solution to deal with the heterogeneity of platforms and technological stacks. The use of domain-specific languages for example, leads to the creation of numerous code generators that automatically translate high-level system specifications into multi-target executable code. Producing correct and efficient code generator is complex and error-prone. Consequently, code generators have to be tested with the same effort as for the manually written code.
+The intensive use of generative programming techniques provides an elegant engineering solution to deal with the heterogeneity of platforms and technological stacks. The use of domain-specific languages for example, leads to the creation of numerous code generators that automatically translate high-level system specifications into multi-target executable code. Producing correct and efficient code generator is complex and error-prone. Consequently, generated code has to be tested with the same effort as for the manually written code.
 We presented in Chapter \ref{chap:SOTA} several approaches that addressed the automatic functional testing of code generators. However, automatically testing the non-functional properties of generated code remains a challenging task that has not been addressed yet.
 
-This chapter describes a testing approach that automatically detect anomalies in code generators in terms of non-functional properties (\ie, resource usage and performance). In fact, we adapt the idea of metamorphic testing to the problem of code generators testing. Hence, our approach relies on the definition of high-level test oracles (\ie, metamorphic relations) to check the potential inefficient code generator among a family of code generators. Moreover, we apply different statistical methods in order to automate the inconsistencies detection.
+This chapter describes a testing approach that automatically detects anomalies in code generators in terms of non-functional properties (\ie, resource usage and performance). In fact, we adapt the idea of metamorphic testing to the problem of code generators testing. Hence, our approach relies on the definition of high-level test oracles (\ie, metamorphic relations) to check the potential inefficient code generator among a family of code generators. Moreover, we apply different statistical methods in order to automate the inconsistencies detection.
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. 
 %Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in Haxe code generators.
 
@@ -147,7 +147,8 @@ Therefore, software testers generally use to report statistics about the perform
 \label{sec:cd_approach}
 Now, we describe our approach overview. Our contributions in this work are divided in two parts:
 \begin{itemize}
-	\item First, we describe our testing infrastructure for the automatic code generation deployment and monitoring. This work is presented in more details in Chapter \ref{chap:docker}. This contribution addresses the problem of software diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}.
+	\item First, we describe our testing infrastructure for the automatic code generation deployment and monitoring. 
+	This contribution addresses the problem of software diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}.
 	
 	\item Second, we present a methodology for automatically detecting inconsistencies in a code generator family. This approach addresses the oracle problem when testing the resource usage and performance properties.
 \end{itemize}
@@ -493,7 +494,7 @@ Table \ref{tab:Description of selected benchmark libraries} describes the Haxe l
 In total, we have 95 test suites to execute across all benchmark programs.
 
 \subsubsection{Evaluation metrics used}
-We use to evaluate the efficiency of generated code using the following non-functional metrics:
+We evaluate the efficiency of generated code using the following non-functional metrics:
 
 -\textit{Memory usage}:
 It corresponds to the maximum memory consumption of the running test suite. Memory usage is measured in \SI{}{\mega\byte}
@@ -501,7 +502,7 @@ It corresponds to the maximum memory consumption of the running test suite. Memo
 -\textit{Execution time}:
 Program execution time is measured in seconds.
 
-We recall that our testing infrastructure is able to evaluate other non-functional properties of generated code such as code generation time, compilation time, code size, CPU usage. We choose to focus, in this experiment, on the performance (\ie, execution time) and resource usage (\ie, memory usage).
+We recall that our testing infrastructure is able to evaluate other non-functional properties of generated code such as code generation time, compilation time, code size, CPU usage. We choose to focus, in this experiment, on the performance (\ie, execution time) and resource usage (\ie, memory usage). Technical details about resource usage monitoring are presented in Chapter \ref{chap:docker}. 
 
 \subsubsection{Setting up infrastructure}
 
@@ -721,9 +722,8 @@ We resume, in the following paragraphs, external and internal threats that can b
 In this work we have described a testing approach, based on MRs as test oracles, to identify code generator inconsistencies. The availability of multiple generators with comparable functionality allow us to define the MR as a comparison between the non-functional outcomes, while taking into account a tolerance variation interval. It relies on statistical methods, namely R-chart and PCA, in order to define the variation intervals.
 
 To validate our approach, we evaluate a popular family of code generators: HAXE. 
-The evaluation results show that we can find real issues in existing code generators. 
-Our approach does not provide detailed information about the source of the issues. Nevertheless, we rather provide a mechanism to detect these potential issues within a set of code generator families so that, these issues may be investigated and fixed afterwards by code generators/software maintainers. 
-In particular, we show that we could find two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
+The evaluation results show that we can find real issues in existing code generators.  
+In particular, we show that we could find two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program. These issues need to be investigated and fixed by code generator maintainers/experts.
 
 
 
