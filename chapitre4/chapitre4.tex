@@ -353,12 +353,12 @@ Table \ref{tab:Statistical methods} gives an overview of these two statistical m
 \begin{table}[h]
 	\centering
 	
-	\begin{tabular}{|l| l |l |}				
+	\begin{tabular}{| l |l |}				
 		\hline
 		
-		\textbf{Type} &  \textbf{Technique} &  \textbf{Method}    \\ \hline
-		Input sensitive  &  R-chart &  Define T as an upper control limit  \\ \hline
-		Input insensitive &  PCA &  The PC score distance used to define the T \\ \hline
+		\textbf{Technique} &  \textbf{Method}    \\ \hline
+	    R-chart &  Define T as a variation between an upper and lower control limit  \\ \hline
+		PCA &  A cutoff value of the PC score distances defines the T \\ \hline
 	\end{tabular}
 	
 	\caption{Variation analysis approaches}
@@ -368,7 +368,7 @@ Table \ref{tab:Statistical methods} gives an overview of these two statistical m
 \subparagraph{R-Chart}~\\
 In this approach, the automatic variation detection between the different versions of code is determined by comparing the non-functional measurements based on a statistical quality control technique called \textit{R-Chart} or \textit{range chart}\cite{malik2013automatic}. 
 R-Chart is used to analyze variation within processes. It is designed to detect changes in variation over time and to evaluate the consistency of process variation.
-R-Chart uses control limits (LCL and UCL) to represent the limits of variation that should be expected from a process. LCL denotes the Lower Control Limit and UCL denotes the Upper Control Limits UCL.
+R-Chart uses control limits (LCL and UCL) to represent the limits of variation that should be expected from a process. LCL denotes the Lower Control Limit and UCL denotes the Upper Control Limits.
  
 When a process is within the controlled limits, any variation is normal. It is said that the process is \textbf{in control}. 
 Outside limit variations, however, considered as deviations and the R-chart is considered as \textbf{out of control} which means that the process variation is not stable. Thus, It tells that there is an inconsistency leading to this high variation deviation (see Figure \ref{fig:cg-rechart})
@@ -401,11 +401,11 @@ where $D_{4}$, $D_{3}$, are control chart constants that depend on the number of
 
 From a MT perspective, the UCL represents the threshold $T$ value from which we detect a high variation deviation, leading to an inconsistency. As we stated earlier, the UCL is a function of $\bar{R}$, and $\bar{R}$ is a function of range differences. So, the UCL value is sensitive to new generated follow-up test suites. In order to evaluate the MR for new generated test suites, the UCL (or $T$) value is updated and the variation is evaluated with the new threshold value. 
 
-We present in the following another statistical approach that is input insensitive and can find a general threshold value to define variation limit.
+We present in the following an alternative statistical approach to analyze the variation of all our data.
 
 
 \subparagraph{PCA}~\\
-With a large number of program versions, the non-functional data matrix (Table \ref{tab:Non-functional output results}) may be too large to study and interpret the variation properly. There would be too many pairwise correlations between the different versions to consider and the variation is impossible to display (graphically) when test suites are executed in more than three target platforms.
+With a large number of program versions, the matrix of non-functional data (Table \ref{tab:Non-functional output results}) may be too large to study and interpret the variation properly. There would be too many pairwise correlations between the different versions to consider and the variation is impossible to display (graphically) when test suites are executed in more than three target platforms.
 With 12 variables, for example, there will be more than 200 three-dimensional scatter plots to be designed to study the variation and correlations.
 To interpret the data in a more meaningful form, it is therefore necessary to reduce the number of variables composing our data.
 
@@ -420,21 +420,21 @@ PCA uses many data transformations and statistical concepts. We are not interest
 Our intuition behind the PCA approach is to conduct an extreme-value analysis in order to find data points at the boundaries of multivariate data. These extreme points represent, from a statistical perspective, \textit{outliers}. Following our MT approach, these points correspond to the inconsistencies (or deviation) we would detect. 
 
 Outliers have an important influence over the PCs. An outlier is defined as an observation which does not follow the model followed by the majority of the data.
-One way to detect outliers is to use a metric called Score Distance (SD). SD measures the outlyingness of the observations within the PCA space. It thus measures how far an observation lies from the rest of the data within the PCA subspace. 
+One way to detect outliers is to use a metric called Score Distance (SD). SD measures the dispersion of the observations within the PCA space. It thus measures how far an observation lies from the rest of the data within the PCA subspace. 
 SD measures the statistical distance from a PC score to the center of the scores. For an observation $x_{i}$ the  score distance is defined as:
 \begin{equation}
 SD_{i}=\sqrt{\sum_{j=1}^{a} \frac{t_{ij}^{2}}{\lambda_{j}}}
 \end{equation}
 where $a$ is the number of PCs forming the PCA space, $t_{ij}$ are the elements of the score matrix obtained after running PCA, and $\lambda_{j}$ is the variance of the $j^{th}$ PC which corresponds to the $j^{th}$ eigenvalue.
 
-In order to find the outliers, we compute the 97.5\%-Quantile Q of the Chi-square distribution as a cutoff value of the SD ($\sqrt{\chi_{a,0.975}^{2} }$). It corresponds to a confidence ellipse that covers 97.5\% of the data points.
+In order to find the outliers, we compute the 97.5\%-Quantile Q of the Chi-square distribution as a cutoff value of the SD ($\sqrt{\chi_{a,0.975}^{2} }$). It corresponds to a confidence ellipse that covers 97.5\% of the data points. According to the table of the Chi-Square distribution\footnote{\url{https://store.fmi.uni-sofia.bg/fmi/statist/education/Virtual_Labs/tables/tables3.html}} this value is equal to $\sqrt{7.38}=2.71$.
 Any samples whose SD are larger than the cutoff value, they are identified as the outliers. This cut-off represents the variation threshold $T$ we would define using this PCA approach.
 
 %It is equal to the squared Mahalanobis distance from the model center to sample i within the score subspace.
 %Cut-off values help to distinguish between outliers and regular observations. Any samples whose Mahalanobis distances are larger than the cutoff are identified as the outliers.
-\begin{remark}
-The R-chart method presented earlier, defines a dynamic threshold value (UCL) where follow-up test suites influence on this value. However, using PCA, we are able to analyze the non-functional data of original test suites in order to define a general threshold value (Cutoff) which is steady. Thus, follow-up test suites that exceed this value, causing a high performance or resource usage deviation, are identified as inconsistencies (outliers).
-\end{remark}
+%\begin{remark}
+%The R-chart method presented earlier, defines a dynamic threshold value (UCL) where follow-up test suites influence on this value. However, using PCA, we are able to analyze the non-functional data of original test suites in order to define a general threshold value (Cutoff) which is steady. Thus, follow-up test suites that exceed this value, causing a high performance or resource usage deviation, are identified as inconsistencies (outliers).
+%\end{remark}
 
 We move now to present the evaluation of our approach.
 
@@ -567,7 +567,7 @@ Afterwards, we prepare and scale our raw data to make it valuable for efficient 
 The results of R-charts for the seven benchmark programs relative to the performance and resource usage variation are reported in Figures \ref{rt} and \ref{rm}. For Figure \ref{rt}, we report the performance variation corresponding to the range difference $R$ between the maximum and minimum execution time of each test suite across the five targets (Java, JS, C++, C\#, and PHP). 
 The execution time is of course scaled by dividing all values by the minimum execution time per test suite. 
 The LCL for our experiments is always equal to 0 because the $D_{3}$ constant value as defined in equation \ref{eqUCL}, is equal to zero according to the R-chart constants table\footnote{\url{http://www.bessegato.com.br/UFJF/resources/table_of_control_chart_constants_old.pdf}}. In fact, the $D_{3}$ constant changes depending on the number of subgroups. In our experiments, our data record is composed of five subgroups corresponding to the five target programming languages.
-The central line (in green) corresponds to $R$-$bar$. This value changes from one benchmark to another depending on the average of $R$ across all test suites in the benchmark. As a consequence, $UCL$, which is a function of $R$-$bar$, changes as long as we add new test suites to the experiments. $UCL$ is equal to $D_{4}*\bar{R}$ where $D_{4}=2.114$ according to the R-chart constants table. We recall that we have classified the R-chart approach as input sensitive since the average variation $R$-$bar$ and the threshold value $UCL$ change dynamically by adding new follow-up test suites to the corresponding benchmark. 
+The central line (in green) corresponds to $R$-$bar$. This value changes from one benchmark to another depending on the average of $R$ across all test suites in the benchmark. As a consequence, $UCL$, which is a function of $R$-$bar$, changes as long as we add new test suites to the experiments. $UCL$ is equal to $D_{4}*\bar{R}$ where $D_{4}=2.114$ according to the R-chart constants table. We recall that the average variation $R$-$bar$ and the threshold value $UCL$ change dynamically by adding new follow-up test suites to the corresponding benchmark. 
 We note as well that these parameter values are appropriate to each benchmark program. We made the threshold values specific for each benchmark because we believe that the variation is highly dependent on the domain context and on the program under test. For example, testing the memory usage or performance of a program that performs a high mathematical computation (\eg, image processing, statistical analysis, etc) is not the same as a generated web application, since data types are handled differently. The R-charts used for measuring the memory usage variation follow the same concept as we have just been describing for performance variation.  
 
 Results in Figure \ref{rt}, show that most of the performance variations are in the interval $[0-UCL]$, which corresponds to \textit{in-control} variation zone as it is described in Section \ref{sec:cg-Variation threshold}. However, we remark for several test suites that the performance variation becomes relatively high (higher than the $UCL$ value of the corresponding benchmark program). We detect 11 among 95 performance deviations lying in the \textit{out of control} variation zone. For the other test suites, the variation is even less than the total average variations $R$-$bar$. There are only 7 test suites among the remaining 84 ones where the variation lies in the interval $[\bar{R}-UCL]$. This variation is high but we are not detecting it as a performance deviation because according to the R-chart, variation in this zone is still \textit{in-control}. 
@@ -578,7 +578,7 @@ When the variation is below UCL, we detect 14 among the 80 remaining test suites
 One of the reasons that caused this variation may occur when the test suite executes some parts of the code (in a specific language) that are so greedy in terms of resources. This may not be the case when the variation is lower than the $\bar{R}$ for example.
 
 
-To resume, we have detected 11 extreme performance variations and 15 extreme memory usage variations. We assume then, that faulty code generators, in identified points, represent a threat for software quality since the generated code has shown symptoms of poor-quality design. 
+To resume, we have detected 11 extreme performance variations and 15 extreme memory usage variations among the 95 executed test suites. We assume then, that faulty code generators, in identified points, represent a threat for software quality since the generated code has shown symptoms of poor-quality design. 
 
 
 
@@ -598,11 +598,11 @@ To resume, we have detected 11 extreme performance variations and 15 extreme mem
 	\caption{Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}
 	\label{sd}
 \end{figure}
-We apply the PCA approach as an alternative to the R-chart approach. Figure \ref{pca} shows the dispersion of our data points in the PC subspace. PC1 et PC2 represent the directions of our two first principal components, having the highest orthogonal variations. Our data points represent the performance variation (Figure \ref{pcat}) and the memory usage variation (Figure \ref{pcam}) of the 95 test suites we have executed. Variation points are colored according to benchmark program they belong to (displayed in the figure legend). At the first glance, we can clearly see that the variation points are situated in the same area except some points that lie far from this point cloud. In Figure \ref{pcat}, the pink points corresponding to the Math benchmark show visually the largest deviation from the point cloud. The three Core test suites (in red) which are identified as performance deviations in R-chat, show also a deviation in the PCA scatter plot. Points 91 relative to the Math benchmark is deviating from the cloud point. However, in the R-chart diagram, it is not detected as a performance deviation (see the test suite 3 of Figure \ref{rt7}). In fact, this test suite takes more than 80 times to run. Compared to other test suites, the performance variation does not generally exceed 80. In effect, PCA performs a complete analysis of the whole data we have collected in all benchmarks. Thus, variations are displayed with respect to all test suites variations in all benchmarks. It is not limited to the variation inside the target benchmark program as we used to do using R-charts. We report the same results in Figure \ref{pcam} about the memory usage variation in the PCA. 
+We apply the PCA approach as an alternative to the R-chart approach. Figure \ref{pca} shows the dispersion of our data points in the PC subspace. PC1 et PC2 represent the directions of our two first principal components, having the highest orthogonal variations. Our data points represent the performance variation (Figure \ref{pcat}) and the memory usage variation (Figure \ref{pcam}) of the 95 test suites we have executed. Variation points are colored according to benchmark program they belong to (displayed in the figure legend). At the first glance, we can clearly see that the variation points are situated in the same area except some points that lie far from this point cloud. In Figure \ref{pcat}, the pink points corresponding to the Math benchmark show visually the largest deviation from the point cloud. The three Core test suites (in red) which are identified as performance deviations in R-chat, show also a deviation in the PCA scatter plot. Points 91 relative to the Math benchmark is deviating from the cloud point. However, in the R-chart diagram, it is not detected as a performance deviation (see the test suite 3 of Figure \ref{rt7}). In fact, this test suite takes more than 80 times to run. Compared to other test suites, the performance variation does not exceed 80. In effect, PCA performs a complete analysis of the whole data we have collected in all benchmarks. Thus, variations are displayed with respect to all test suites variations in all benchmarks. It is not limited to the variation inside the target benchmark program as we used to do using R-charts. We report the same results in Figure \ref{pcam} about the memory usage variation in the PCA. 
 
 
-To confirm this observation, we present in Figure \ref{sd}, the results of applying our outliers detection approach to the previous presented PCAs. We identify 4 inconsistencies (or outliers) in each diagnostic plot. Inconsistencies in Figure \ref{pcat} are relative to the performance deviations. Points 31 and 32 correspond to the test suites 12 and 11 in benchmark Core of Figure \ref{rt1}. Points 91 and 95 correspond to the test suites 3 and 1 in benchmark Math of Figure \ref{rt7}. For memory usage variation, we detect points 25, 29, 82, and 92 which corresponds relatively to the test suites 21 and 6 of benchmark Core, 2 of benchmark Promise, and 3 of benchmark Math.
-We can clearly see that this technique help to identify only the extreme value outliers. We used 97.5\%-Quantile to define the cutoff value that is commonly used in the literature\cite{enot2008preprocessing,hubert2009robust}. If we decrease this value we will be able to detect more variation points. 
+To confirm this observation, we present in Figure \ref{sd}, the results of our outliers detection approach. We identify 4 inconsistencies (or outliers) in each diagnostic plot. Inconsistencies in Figure \ref{pcat} are relative to the performance deviations. Points 31 and 32 correspond to the test suites 12 and 11 in benchmark Core of Figure \ref{rt1}. Points 91 and 95 correspond to the test suites 3 and 1 in benchmark Math of Figure \ref{rt7}. For memory usage variation, we detect points 25, 29, 82, and 92 which corresponds relatively to the test suites 21 and 6 of benchmark Core, 2 of benchmark Promise, and 3 of benchmark Math.
+We can clearly see that this technique help to identify only the extreme value outliers. We used 97.5\%-Quantile of the Chi-square distribution to define the cutoff value which is commonly used in the literature\cite{enot2008preprocessing,hubert2009robust}. If we decrease this value we will be able to detect more variation points. 
 
 
 \paragraph{Detected inconsistencies }~\\
