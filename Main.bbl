@@ -779,6 +779,12 @@ Matthew Patrick, Andrew~P Craig, Nik~J Cunniffe, Matthew Parry, and
 \newblock In {\em Proceedings of the 25th International Symposium on Software
   Testing and Analysis}, pages 235--246. ACM, 2016.
 
+\bibitem[PE04]{pan2004rating}
+Zhelong Pan and Rudolf Eigenmann.
+\newblock Rating compiler optimizations for automatic performance tuning.
+\newblock In {\em Proceedings of the 2004 ACM/IEEE conference on
+  Supercomputing}, page~14. IEEE Computer Society, 2004.
+
 \bibitem[PE06]{pan2006fast}
 Zhelong Pan and Rudolf Eigenmann.
 \newblock Fast and effective orchestration of compiler optimizations for

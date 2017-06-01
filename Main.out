@@ -35,7 +35,7 @@
 \BOOKMARK [2][-]{subsection.3.1.2}{Non-functional testing of code generators}{section.3.1}% 35
 \BOOKMARK [1][-]{section.3.2}{Compilers auto-tuning techniques}{chapter.3}% 36
 \BOOKMARK [2][-]{subsection.3.2.1}{Iterative compilation}{section.3.2}% 37
-\BOOKMARK [2][-]{subsection.3.2.2}{Implementation of iterative compilation system}{section.3.2}% 38
+\BOOKMARK [2][-]{subsection.3.2.2}{Implementation of the iterative compilation process}{section.3.2}% 38
 \BOOKMARK [2][-]{subsection.3.2.3}{Iterative compilation search techniques}{section.3.2}% 39
 \BOOKMARK [1][-]{section.3.3}{Lightweight system virtualization for automatic software testing}{chapter.3}% 40
 \BOOKMARK [2][-]{subsection.3.3.1}{Application in software testing}{section.3.3}% 41
