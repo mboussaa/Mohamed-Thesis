@@ -227,7 +227,7 @@ This results in a huge space with $2^{76}$ possible optimization combinations.
 The full list of optimizations is available here~\cite{mboussaa}.
 %In our approach, we did not consider some optimization options that are enabled by default, since they do not affect the performance of generated binaries.
 
-Optimization flags in GCC can be turned off by using \textit{"-fno-"}+flag instead of \textit{"-f"}+flag in the beginning of each optimization. 
+Optimization flags in GCC can be turned off by using \textit{``-fno-"}+flag instead of \textit{``-f"}+flag in the beginning of each optimization. 
 We use this technique to play with compiler switches.
 
 
@@ -250,7 +250,7 @@ Moreover, we claim that the search towards effective optimization sequences is n
 
 For instance, in a previous work~\cite{chen2012deconstructing}, Chen \etal showed that handful optimizations may lead to higher performance than other techniques of iterative optimization. 
 In fact, the fitness-based search may be trapped into some local optima that cannot escape\cite{bodin1998iterative}. 
-This phenomenon is known as \textit{"diversity loss"}. For example, if the most effective optimization sequence that induces less execution time lies far from the search space defined by the gradient of the fitness function, then some promising search areas may not be reached. 
+This phenomenon is known as \textit{``diversity loss"}. For example, if the most effective optimization sequence that induces less execution time lies far from the search space defined by the gradient of the fitness function, then some promising search areas may not be reached. 
 The issue of premature convergence to local optima has been a common problem in evolutionary algorithms. 
 Many methods are proposed to overcome this problem~\cite{banzhaf1996effect}. 
 However, all these efforts use a fitness-based selection to guide the search. Considering diversity as the unique objective function to be optimized may be a key solution to this problem.
@@ -517,7 +517,7 @@ In this experiment, we choose to optimize for execution time (S), memory usage (
 \end{figure}
 
 
-As it is shown on the left side of Figure \ref{fig:sensitivity.pdf}, given a list of optimizations and a non-functional objective, we use NOTICE to search for the best optimization sequence across a set of input programs that we call \textit{"the training set"}. This \textit{"training set"} is composed of random Csmith programs (10 programs). We apply then generated sequences to these programs. Therefore, the code quality metric, in this setting, is equal to the average performance improvement (S, MR, or CR) and that, for all programs under test. 
+As it is shown on the left side of Figure \ref{fig:sensitivity.pdf}, given a list of optimizations and a non-functional objective, we use NOTICE to search for the best optimization sequence across a set of input programs that we call \textit{``the training set"}. This \textit{``training set"} is composed of random Csmith programs (10 programs). We apply then generated sequences to these programs. Therefore, the code quality metric, in this setting, is equal to the average performance improvement (S, MR, or CR) and that, for all programs under test. 
 
 
 To summarize, in this experiment we aim to: (1) compare the performance of our proposed diversity-based exploration of optimization sequences (NS) to GA and RS; and (2) demonstrate that NOTICE is able to find the optimal solution relative to the input training set.
