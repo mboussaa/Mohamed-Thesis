@@ -35,12 +35,12 @@
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {R-chart of the Promise benchmark program}}}{102}{figure.4.7}
 \contentsline {subfigure}{\numberline {(f)}{\ignorespaces {R-chart of the Culture benchmark program}}}{102}{figure.4.7}
 \contentsline {subfigure}{\numberline {(g)}{\ignorespaces {R-chart of the Math benchmark program}}}{102}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces PCAs showing the dispersion of our data over the PC subspace}}{105}{figure.4.8}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Test suites relative to the execution times }}}{105}{figure.4.8}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Test suites relative to the memory consumptions}}}{105}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}}{106}{figure.4.9}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance deviations}}}{106}{figure.4.9}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memory usage deviations}}}{106}{figure.4.9}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces PCAs showing the dispersion of our data over the PC subspace}}{104}{figure.4.8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Test suites relative to the execution times }}}{104}{figure.4.8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Test suites relative to the memory consumptions}}}{104}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagnostic plots using score distance SD. The vertical lines indicate critical values separating regular observations from outliers (97.5\%)}}{105}{figure.4.9}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance deviations}}}{105}{figure.4.9}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memory usage deviations}}}{105}{figure.4.9}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{115}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{121}{figure.5.2}
