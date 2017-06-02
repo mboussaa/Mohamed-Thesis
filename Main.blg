@@ -16,6 +16,10 @@ Repeated entry---line 352 of file uw-ethesis.bib
  : @inproceedings{pan2006fast
  :                           ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 1471 of file uw-ethesis.bib
+ : @inproceedings{boussaa2015novelty
+ :                                  ,
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in mboussaa
 Warning--can't use both volume and number fields in cao2012yin
 Warning--can't use both volume and number fields in chafi2010language
@@ -78,4 +82,4 @@ warning$ -- 21
 while$ -- 825
 width$ -- 173
 write$ -- 2199
-(There were 3 error messages)
+(There were 4 error messages)

@@ -71,14 +71,13 @@ As a result, most software engineering programmers that are not familiar with co
 	\label{fig:autotuning.pdf}
 \end{figure}
 
-To explore the large optimization space, users have to evaluate the effect of optimizations according to a specific performance objective (see Figure \ref{fig:autotuning.pdf}). Performance can depend on different properties such as execution time, compilation time, resource consumption, code size, etc.
+To explore the large optimization space, users have to evaluate the effect of optimizations according to a specific non-functional objective (see Figure \ref{fig:autotuning.pdf}). Optimizations influence on different properties such as execution time, compilation time, resource consumption, code size, etc.
 Thus, finding the optimal optimization combination for an input source code is a challenging and time-consuming problem. 
-Many approaches~\cite{hoste2008cole,martins2014exploration} have attempted to solve this optimization selection problem using techniques such as Genetic Algorithms (GAs), machine learning techniques, etc.
+%Many approaches~\cite{hoste2008cole,martins2014exploration} have attempted to solve this optimization selection problem using techniques such as Genetic Algorithms (GAs), machine learning techniques, etc.
 
 %problem
 It is important to notice that performing optimizations to source code can be so expensive at resource usage that it may induce compiler bugs or crashes. 
 Indeed, in a resource-constrained environment and because of insufficient resources, compiler optimizations can lead to memory leaks or execution crashes~\cite{yang2011finding}. 
-
 Thus, it becomes necessary to test the non-functional properties of optimized code and check its behavior regarding optimizations which can lead to performance improvement or regression.
 
 
@@ -189,9 +188,7 @@ The GNU Compiler Collection, GCC, is a very popular collection of programming co
 GCC exposes its various optimizations via a number of flags that can be turned on or off through command-line compiler switches. 
 
 For instance, version 4.8.4 provides a wide range of command-line options that can be enabled or disabled, including more than 150 options for optimization. The diversity of available optimization options makes the design space for optimization level very huge, increasing the need for heuristics to explore the search space of feasible optimization sequences.
-
 As it is shown in Table \ref{tab:Compiler optimization options}, we count 76 optimization flags that are enabled by the four default optimization levels (O1, O2, O3, Ofast). 
-
 Each standard level is composed by a number of optimizations. These levels are defined by compiler designers based on their experiences and preliminary experiments. The goal of defining these standard levels is to build general and program independent sequences that represent trade-offs among several non-functional properties.
 
 For instance, O1 enables the optimization flags that reduce the code size and execution time without performing any optimization that reduces the compilation time. It turns on 32 flags. 
@@ -199,9 +196,7 @@ O2 increases the compilation time and reduces the execution time of generated co
 O3 is more aggressive level which enables all O2 options plus 8 more optimizations. 
 Finally, Ofast is the most aggressive level which enables optimizations that are not valid for all standard-compliant programs. It turns on all O3 optimizations plus one more aggressive optimization. 
 This results in a huge space with $2^{76}$ possible optimization combinations.
-The full list of optimizations is available here~\cite{mboussaa}.
 %In our approach, we did not consider some optimization options that are enabled by default, since they do not affect the performance of generated binaries.
-
 Optimization flags in GCC can be turned off by using \textit{``-fno-"}+flag instead of \textit{``-f"}+flag in the beginning of each optimization. 
 We use this technique to play with compiler switches.
 
@@ -210,29 +205,26 @@ We use this technique to play with compiler switches.
 \section{Evolutionary exploration of compiler optimizations}
 \label{sec:comp-NS}
 Many techniques (meta-heuristics, random search, etc.) can be used to explore the large set of optimization combinations of modern compilers. 
-In our approach, we particularly study the use of the Novelty Search technique to identify the set of compiler optimization options that optimize the non-functional properties of code.
+In our approach, we particularly study the use of the Novelty Search (NS) technique to identify the set of compiler optimization options that optimize the non-functional properties of code.
 
 \subsection{Novelty search adaptation}
+\label{sec:adapNS}
 
 In this work, we aim at providing a new alternative for choosing effective compiler optimization options compared to the state of the art approaches. 
 In fact, since the search space of possible combinations is too large, we aim at using a new search-based technique called Novelty Search~\cite{lehman2008exploiting} to tackle this issue. 
 The idea of this technique is to explore the search space of possible compiler flag options by considering sequence diversity as a single objective. 
 Instead of having a fitness-based selection that maximizes one of the non-functional objectives, we select optimization sequences based on a novelty score showing how different they are compared to all other combinations evaluated so far. 
-
-NS is a divergent evolutionary algorithm which rewards optimization sequences that diverge from previously discovered ones. Thus, evolution can be viewed as a divergent process compared to the traditional convergent approaches that exert the selection pressure based on fitness values.
+NS is a divergent evolutionary algorithm which rewards optimization sequences that diverge from previously discovered ones. Thus, evolution can be viewed as a divergent process compared to the traditional convergent approaches such GAs that exert the selection pressure based on fitness values.
 
 Moreover, we claim that the search towards effective optimization sequences is not straightforward since the interactions between optimizations is too complex and difficult to define. 
-
 For instance, in a previous work~\cite{chen2012deconstructing}, Chen \etal showed that handful optimizations may lead to higher performance than other techniques of iterative optimization. 
 In fact, the fitness-based search may be trapped into some local optima that cannot escape\cite{bodin1998iterative}. 
 This phenomenon is known as \textit{``diversity loss"}. For example, if the most effective optimization sequence that induces less execution time lies far from the search space defined by the gradient of the fitness function, then some promising search areas may not be reached. 
 The issue of premature convergence to local optima has been a common problem in evolutionary algorithms. 
-Many methods are proposed to overcome this problem~\cite{banzhaf1996effect}. 
-However, all these efforts use a fitness-based selection to guide the search. Considering diversity as the unique objective function to be optimized may be a key solution to this problem.
+As discussed in the state of the art, many methods are proposed to overcome this problem~\cite{banzhaf1996effect}. However, all these efforts use a fitness-based selection to guide the search. Considering diversity as the unique objective function to be optimized may be a key solution to this problem.
 
 Therefore, during the evolutionary process, we select optimization sequences that remain in sparse regions of the search space in order to guide the search towards novelty. 
 In the meantime, we choose to gather the non-functional metrics relative to the resource consumption (memory and CPU usage) of optimized code. 
-We describe in more details the way we are collecting these non-functional metrics in Section 4.4.
 
 \begin{algorithm}
 	\algsetup{linenosize=\tiny}
@@ -280,9 +272,7 @@ Generally, NS acts like GAs (Example of GA use in  \cite{cooper2002adaptive}). H
 Algorithm~\ref{algo:search} describes the overall idea of our NS adaptation. The algorithm takes as input a source code program and a list of optimizations. 
 
 We initialize first the novelty parameters and create a new archive with limit size L (lines 1 \& 2). In this example, we gather information about memory consumption. In lines 3 \& 4, we compile and execute the input program without any optimization (O0). Then, we measure the resulting memory consumption. By doing so, we will be able to compare it to the memory consumption of new generated solutions. The best solution is the one that yields to the lowest memory consumption compared to O0 usage.
-
 Before starting the evolutionary process, we generate an initial population with random sequences. Line 6-21 encode the main NS loop, which searches for the best sequence in terms of memory consumption. For each sequence in the population, we compile the input program, execute it and evaluate the solution by calculating the average distance from its k-nearest neighbors. Sequences that get a novelty metric higher than the novelty threshold T are added to the archive. T defines the threshold for how novel a sequence has to be before it is added to the archive. In the meantime, we check if the optimization sequence yields to the lowest memory consumption so that, we can consider it as the best solution. 
-
 Finally, genetic operators (mutation and crossover) are applied afterwards to fulfill the next population. This process is iterated until reaching the maximum number of evaluations.
 
 
@@ -351,7 +341,7 @@ Our experiments aim at answering the following research questions:
 \textbf{RQ4: Trade-offs between non-functional properties.} 
 \textit{How can multi-objective approaches be useful to find trade-offs between non-functional properties?}
 
-To answer these questions, we conduct several experiments using NOTICE to validate our global approach for non-functional testing of compilers using system containers.
+To answer these questions, we conduct several experiments using NOTICE to validate our global approach for compiler auto-tuning.
 
 
 \subsection{Experimental setup}
@@ -359,19 +349,15 @@ To answer these questions, we conduct several experiments using NOTICE to valida
 To explore the impact of compiler optimizations a set of input programs are needed. 
 To this end, we use a random C program generator called Csmith~\cite{yang2011finding}.
 Csmith is a tool that can generate random C programs that statically and dynamically conform to the C99 standard. It has been widely used to perform functional testing of compilers~\cite{chen2016empirical,le2014compiler,nagai2013scaling} but not the case for checking non-functional requirements. Csmith can generate C programs that use a much wider range of C features including complex control flow and data structures such as pointers, arrays, and structs. 
-
 Csmith programs come with their test suites that explore the structure of generated programs (\ie, high quality code coverage).
 Yang \etal~\cite{yang2011finding} argue that Csmith is an effective bug-finding tool because it generates tests that explore atypical combinations of C language features. They also argue that larger programs are more effective for functional testing. 
-
 Thus, we run Csmith for 24 hours and gathered the largest generated programs. We depicted 111 C programs with an average number of source lines of 12K. 10 programs are used as training set for RQ1, 100 other programs to answer RQ2 and one last program to run RQ4 experiment.
-
 The selected Csmith programs are described in more details at~\cite{mboussaa}.
 
 %Moreover, we run experiments on commonly used benchmarks in iterative compilation named Collective Benchmark (Cbench)~\cite{fursin2009collective}. It is a collection of open-source sequential programs in C, targeting specific areas of the embedded market. It comes with multiple datasets assembled by the community to enable realistic benchmarking and research on program and architecture optimization. Cbench contains more than 20 C programs. 
 
 
 Moreover, we run experiments on commonly used benchmarks named Collective Benchmark (cBench)~\cite{fursin2009collective}. It is a collection of open-source sequential programs in C targeting specific areas of the embedded market. It comes with multiple datasets assembled by the community to enable realistic benchmarking and research on program and architecture optimization. cBench contains more than 20 C programs. Table \ref{tab:Description of selected benchmark programs} describes the programs we have selected from this benchmark to evaluate our approach.
-
 These real world benchmark programs are used to study the influence of compiler optimizations on the resource usage in RQ3 experiments.
  
 \begin{table}[h]
@@ -393,7 +379,7 @@ These real world benchmark programs are used to study the influence of compiler 
 			\\
 			
 			\hline
-			consumer\_tiffdither& 15399 & Convert a greyscale image to bilevel using dithering
+			consumer\_tiffdither& 15399 & Convert a grey-scale image to bi-level
 			\\
 			\hline	
 		\end{tabular}
@@ -408,13 +394,13 @@ An important aspect for meta-heuristic search algorithms lies in the parameters 
 NOTICE implements three mono-objective search algorithms (Random Search (RS), NS, and GA~\cite{cooper2002adaptive}) and two multi-objective optimizations (NS and NSGA-II~\cite{deb2002fast}). Each initial population/solution of different algorithms is completely random. The stopping criterion is when the maximum number of fitness evaluations is reached.
 The resulting parameter values are listed in Table \ref{tab:Algorithm parameters}. The same parameter settings are applied to all algorithms under comparison.
 
-NS, which is our main concern in this work, is implemented as described in Section 3. During the evolutionary process, each solution is evaluated using the novelty metric. Novelty is calculated for each solution by taking the mean of its 15 nearest optimization sequences in terms of similarity (considering all sequences in the current population and in the archive). Initially, the archive is empty. Novelty distance is normalized in the range [0-100].
+NS, which is our main concern in this work, is implemented as described in Section \ref{sec:adapNS}. During the evolutionary process, each solution is evaluated using the novelty metric. Novelty is calculated for each solution by taking the mean of its 15 nearest optimization sequences in terms of similarity (considering all sequences in the current population and in the archive). Initially, the archive is empty. Novelty distance is normalized in the range [0-100].
 Then, to create next populations, an elite of the 10 most novel organisms is copied unchanged, after which the rest of the new population is created by tournament selection according to novelty (tournament size = 2). Standard genetic programming crossover and mutation operators are applied to these novel sequences in order to produce offspring individuals and fulfill the next population (crossover = 0.5, mutation = 0.1).
 In the meantime, individuals that get a score higher than 30 (threshold T), they are automatically added to the archive as well. 
 In fact, this threshold is dynamic. Every 200 evaluations, we check how many individuals have been copied into the archive. If this number is below 3, the threshold is increased by multiplying it by 0.95, whereas if solutions added to archive are above 3, the threshold is decreased by multiplying it by 1.05. 
 Moreover, as the size of the archive grows, the nearest-neighbor calculation that determines the novelty scores for individuals becomes more computationally demanding. So, to avoid having low accuracy of novelty, we choose to limit the size of the archive (archive size = 500). Hence, it follows a first-in first-out data structure which means that when a new solution gets added, the oldest solution in the novelty archive will be discarded. Thus, we ensure individual diversity by removing old sequences that may no longer be reachable from the current population.
 
-Algorithm parameters were tuned individually in preliminary experiments. For each parameter, a set of values was tested. The parameter values chosen are the mostly used in the literature~\cite{inden2013examination}. The value that yielded the highest performance score was chosen.  
+Algorithm parameters were tuned individually in preliminary experiments. The parameter values chosen are the mostly used in the literature~\cite{inden2013examination,boussaa2015novelty}. The value that yielded the highest performance score was chosen.  
 
 \begin{table}
 	\centering
@@ -424,9 +410,9 @@ Algorithm parameters were tuned individually in preliminary experiments. For eac
 		Novelty nearest-k  & 15 &  Tournament size & 2\\ 
 		Novelty threshold & 30 &  Mutation prob. & 0.1\\  
 		Max archive size & 500 &  Crossover & 0.5  \\  
-		Population size & 50 &  Nb generations &  100 \\  
-		Individual length & 76 & Elitism & 10  \\ 
-		Scaling archive prob. & 0.05 & Solutions added to archive & 3  \\ 	\hline
+		Population size & 50 & Elitism  & 10  \\  
+		Individual length & 76 & Scaling archive prob. & 0.05   \\ 	\hline
+  
 	\end{tabular}
 	\label{tab:Algorithm parameters}
 \end{table}
@@ -457,20 +443,11 @@ To answer the previous research questions, we configure NOTICE to run different 
 	\label{settttini}	
 \end{figure}
 
-
 First, a meta-heuristic (mono or multi-objective) is applied to generate specific optimization sequences for the GCC compiler (step 1).
-
 During all experiments, we use GCC 4.8.4, as it is introduced in the motivation section, although it is possible to choose another compiler version using NOTICE since the process of optimizations extraction is done automatically. 
-
-Then, we generate a new optimized code and deploy the output binary within a new instance of our preconfigured Docker image (step 2). While executing the optimized code inside the container, we collect runtime performance data (step 4) and record it in a new time-series database using our InfluxDB back-end container (step 5). 
-
-Next, NOTICE accesses remotely to stored data in InfluxDB using HTTP request calls and assigns new performance values to the current solution (step 6). 
-
-The choice of performance metrics depends on experiment objectives (Memory improvement, speedup, etc.).
-
-More details about the container-based infrastructure and the technical choices are provided in Chapter \ref{chap:docker}.
-
-To obtain comparable and reproducible results, we use the same hardware across all experiments: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory.
+Then, we apply the optimizations to the input source code program and execute the optimized code within a new container instance (step 2). While running the optimized code, we collect runtime monitoring data (steps 3, 4, and 5). More details about these three steps are provided in Chapter \ref{chap:docker}.
+Finally, NOTICE assigns a performance/resource usage metric to the current solution (step 6). 
+The choice of non-functional metrics depends on experiment objectives (Memory improvement, speedup, trade-offs, etc.).
 
 
 \subsection{Experimental methodology and results}
@@ -547,11 +524,9 @@ If so, this will be useful for compiler users and researchers to use NOTICE in o
 
 \paragraph{Results}
 Figure \ref{fig:box.pdf} shows the distribution of memory, CPU and speedup improvement across 100 new Csmith programs. For each non-functional property, we apply O2, O3 and best NS sequences. Speedup results show that the three optimization strategies lead to almost the same distribution with a median value of 1.12 for speedup. 
-
 This can be explained by the fact that NS might need more time to find the sequence that best optimizes the execution speed. Meanwhile, O2 and O3 have also the same impact on CR and MR which is almost the same for both levels (CR median value is 8\% and around 5\% for MR).
 
 However, the impact of applying best generated sequences using NS clearly outperforms O2 and O3 with almost 10\% of CPU improvement and 7\% of memory improvement. 
-
 This proves that NS sequences are efficient and can be used to optimize resource consumption of new Csmith programs. This result also proves that Csmith code generator applies the same rules and structures to generate C code. For this reason, applied optimization sequences always have a positive impact on the non-functional properties.
 
 \noindent\fbox{\parbox{\linewidth-2\fboxrule-2\fboxsep}{
@@ -562,7 +537,6 @@ This proves that NS sequences are efficient and can be used to optimize resource
 
 \subsubsection{RQ3. Impact of optimizations on resource usage}
 In this experiment, we evaluate the impact of applying the standard optimization levels and the new discovered sequences on the resource usage. We also study the correlation between speedup and resource consumption of generated code. 
-
 The idea of this experiment is to: (1) prove, or not, the usefulness of involving resource usage metrics as key objectives for performance improvement; (2) the need, or not, of multi-objective search strategy to handle the different non-functional requirements such as resource usage and performance properties.
 
 In the following, we describe two methods to run experiments. The first is based on Csmith programs and the second is based on Cbench programs.
@@ -570,7 +544,6 @@ In the following, we describe two methods to run experiments. The first is based
 \paragraph{Method 1}
 
 In this experiment, we use NOTICE to provide an understanding of optimizations impact, in terms of resource consumption, when trying to optimize for execution time. 
-
 Thus, we choose one instance of obtained results in RQ1 related to the best speedup improvement (\ie, results obtained in line 1 of Table \ref{tab:Results of mono-objective optimizations}) and we study the impact of speedup improvement on memory and CPU consumption. We also compare the resource usage data to standard GCC levels as they were presented in Table \ref{tab:Results of mono-objective optimizations}. Improvements are always calculated over the non-optimized version (O0). The following measurements are based on the training set of 10 Csmith programs.
 
 \paragraph{Results 1}
@@ -592,46 +565,31 @@ These results agree to the idea that compiler optimizations do not put too much 
 
 \paragraph{Method 2}
 
-Now, we study the impact of applying standard levels (01, O2, O3, Ofast) on the memory usage across 5 different Cbench programs. We compare the results with solutions generated using NOTICE which have the best memory consumption reduction (\ie, generated by NS). 
-
-Figure \ref{fig:infra_novelty_stat3.pdf} shows this comparison across different benchmark programs. It presents the percentage of saved memory of standard and novelty optimizations over O0 level (no optimization applied).
-
-To study the correlation between execution time and memory consumption of running programs, we present in Figure \ref{fig:infra_novelty_stat2.pdf} an evaluation of the speedup according standard levels. Again, we compare these results to the sequence that had the best memory reduction in Figure \ref{fig:infra_novelty_stat3.pdf} (\ie, NS solution). 
+Now, we study the impact of applying standard levels (01, O2, O3, Ofast) on the memory usage of 5 different Cbench programs. We compare the results with solutions generated using NOTICE, having the best memory consumption reduction (\ie, generated by NS). 
+Figure \ref{fig:infra_novelty_stat3.pdf} shows this comparison across different benchmark programs. It presents the percentage of saved memory by standard and novelty optimizations over O0 level (no optimization applied).
 
 \paragraph{Results 2}
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=1.\linewidth]{chapitre4/fig/infra_novelty_stat3.png}
+	\includegraphics[width=0.9\linewidth]{chapitre4/fig/infra_novelty_stat3.png}
 	\caption{Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}
 	\label{fig:infra_novelty_stat3.pdf}
 \end{figure}
 
 
-As expected, the results show that NS clearly outperforms standard optimizations for all benchmark programs. 
-
-Using NS, we are able to reach a maximum memory consumption reduction of almost 26\% for the case rsynth program against a maximum of 18\% reduction using Ofast option.
-
+As expected, the results show that NS clearly outperforms standard optimizations for all benchmark programs. Using NS, we are able to reach a maximum memory consumption reduction of almost 26\% for the case rsynth program against a maximum of 18\% reduction using Ofast option.
 We remark as well that the impact of applying standard optimizations on memory consumption for each program differs from one program to another. 
-
-Using O1 for bzip2e and O2, O3 for tiffmedian can even increase the memory consumption by almost 13 \%. 
-
+Using O1 for bzip2e and O2, O3 for tiffmedian increase the memory consumption by almost 13 \%. 
 This agrees to the idea that standard optimizations does not produce always the same impact results on resource consumption and may be highly dependent on the benchmark and the source code they have been tested on. 
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=1.\linewidth]{chapitre4/fig/infra_novelty_stat2.png}
-	\caption{Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}
-	\label{fig:infra_novelty_stat2.pdf}
-\end{figure}
+%In Figure \ref{fig:infra_novelty_stat2.pdf}, we can see that optimizations yield to high level of speedup for all benchmark programs (between 1.5 and 4.3).
 
-In Figure \ref{fig:infra_novelty_stat2.pdf}, we can see that optimizations yield to high level of speedup for all benchmark programs (between 1.5 and 4.3).
+%We can also observe that the different optimization levels do not differ too much in term of execution time. 
 
-We can also observe that the different optimization levels do not differ too much in term of execution time. 
+%We distinguish that Ofast is more efficient for all programs and NS sequence has almost the same speedup as Ofast. 
 
-We distinguish that Ofast is more efficient for all programs and NS sequence has almost the same speedup as Ofast. 
-
-NS solutions have equal or less performance improvement compared to all standard levels for all benchmarks. 
+%NS solutions have equal or less performance improvement compared to all standard levels for all benchmarks. 
 
 %The results of this experiments shows that optimizing for memory usage using NS does not affect programs execution time and we demonstrate that we can find optimizations that reduce memory usage while guaranteeing program performance.
 
@@ -646,20 +604,13 @@ NS solutions have equal or less performance improvement compared to all standard
 \subsubsection{RQ4. Trade-offs between non-functional properties}
 \paragraph{Method}
 Finally, to answer RQ4, we use NOTICE again to find trade-offs between non-functional properties. 
-
 In this experiment, we choose to focus on the trade-off \textit{$<$ExecutionTime--MemoryUsage$>$}. In addition to our NS adaptation for multi-objective optimization, we implement a commonly used multi-objective approach namely NSGA-II~\cite{deb2002fast}. 
-
 We denote our NS adaptation by \textit{NS-II}. We recall that NS-II is not a multi-objective approach as NSGA-II. It uses the same NS algorithm. However, in this experiment, it returns the optimal Pareto front solutions instead of returning one optimal solution relative to one goal. 
-
 Apart from that, we apply different optimization strategies to assess our approach. 	
 First, we apply standard GCC levels. Second, we apply best generated sequences relative to memory and speedup optimization (the same sequences that we have used in RQ2). Thus, we denote by \textit{NS-MR} the sequence that yields to the best memory improvement MR and \textit{NS-S} to the sequence that leads to the best speedup. This is useful to compare mono-objective solutions to new generated ones.
-	
 In this experiment, we assess the efficiency of generated sequences using only one Csmith program.
-
 We evaluate the quality of the obtained Pareto optimal optimization based on raw data values of memory and execution time. Then, we compare qualitatively the results by visual inspection of the Pareto frontiers.
-
 The goal of this experiment is to check whether it exists, or not, a sequence that can reduce both execution time and memory usage.
-
 We report the comparison results of our NS adaptation for optimizations generation to the current state-of-the-art multi-objective approaches namely NSGA-II. 
 
 \paragraph{Results}
@@ -668,9 +619,7 @@ Figure \ref{fig:pareto.pdf} shows the Pareto optimal solutions that achieved the
 The horizontal axis indicates the memory usage in raw data (in Bytes) as it is collected using NOTICE. In similar fashion, the vertical axis shows the execution time in seconds. Furthermore, the figure shows the impact of applying standard GCC options and best NS sequences on memory and execution time. 
 
 Based on these results, we can see that NSGA-II performs better than NS-II. In fact, NSGA-II yields to the best set of solutions that presents the optimal trade-off between the two objectives. Then, it is up to the compiler user to use one solution from this Pareto front that satisfies his non-functional requirements (six solutions for NSGA-II and five for NS-II). 
-
 For example, he could choose one solution that maximizes the execution speed in favor of memory reduction. 
-
 On the other side, NS-II is capable to generate only one non-dominated solution. For NS-MR, it reduces as expected the memory consumption compared to other optimization levels. The same effect is observed on the execution time when applying the best speedup sequence NS-S. We also note that all standard GCC levels are dominated by our different heuristics NS-II, NSGA-II, NS-S and NS-MR.
 
 This agrees to the claim that standard compiler levels do not present a suitable trade-off between execution time and memory usage.
@@ -686,22 +635,19 @@ This agrees to the claim that standard compiler levels do not present a suitable
 \noindent\fbox{\parbox{\linewidth-2\fboxrule-2\fboxsep}{
 			\textbf{Key findings for RQ4.} \\
 			-- NOTICE is able to construct optimization levels that represent optimal trade-offs between non-functional properties. \\
-			-- NS is more effective when it is applied for mono-objective search. \\
+			-- NS is more effective when it is applied to mono-objective search. \\
 			-- NSGA-II performs better than our NS adaptation for multi-objective optimization. However, NS-II performs clearly better than standard GCC optimizations and previously discovered sequences in RQ1.
 		}}
 		
 \subsection{Discussions}
 Through these experiments, we showed that NOTICE is able to provide facilities to compiler users to test the non-functional properties of generated code. 
-
-It provides also a support to search for the best optimization sequences through mono-objective and multi-objective search algorithms. NOTICE infrastructure has shown its capability and scalability to satisfy user requirements and key objectives in order to produce efficient code in terms of non-functional properties. 
+It provides a support to search for the best optimization sequences through mono-objective and multi-objective search algorithms. NOTICE infrastructure has shown its capability and scalability to satisfy user requirements and key objectives in order to produce efficient code in terms of non-functional properties. 
 
 During all experiments, standard optimization levels have been fairly outperformed by our different heuristics. 
 Moreover, we have also shown (in RQ1 and RQ3) that optimizing for performance may be, in some cases, greedy in terms of resource usage. For example, the impact of standard optimization levels on resource usage is not always efficient even though it leads to performance improvement. 
-
 Thus, compiler users can use NOTICE to evaluate the impact of optimizations on the non-functional properties and build their specific sequences by trying to find trade-offs among these non-functional properties (RQ4). 
 
 We would notice that for RQ1, experiments take about 21 days to run all algorithms. This run time might seem long but, it should be noted that this search can be conducted only once, since in RQ2 we showed that best gathered optimizations can be used with unseen programs of the same category as the training set, used to generate optimizations. This has to be proved with other case studies. 
-
 Multi-objective search as conducted in RQ4, takes about 48 hours, which we believe is acceptable for practical use. Nevertheless, speeding up the search speed may be an interesting feature for future research.
 		
 \subsection{Threats to validity}
@@ -765,19 +711,13 @@ The console output (\ie, the execution result of this tool) displays at the end,
 \label{notice:conclusion}
 %We present an automated approach for automatic extraction of non-functional properties of generated code.
 Modern compilers come with huge number of optimizations, making complicated for compiler users to find best optimization sequences. Furthermore, auto-tuning compilers to meet user requirements is a difficult task since optimizations may depend on different properties (\eg, platform architecture, software programs, target compiler, optimization objective, etc.).
-
 Hence, compiler users merely use standard optimization levels (O1, O2, O3 and Ofast) to enhance the code quality without taking too much care about the impact of optimizations on system resources.
 
 In this chapter, we have introduced first a novel formulation of the compiler optimization problem based on Novelty Search. The idea of this approach is to drive the search for best optimizations toward novelty. 
-
 Our work presents the first attempt to introduce diversity in iterative compilation. Experiments have shown that Novelty Search can be easily applied to mono and multi-objective search problems. 
-
 In addition, we have reported the results of an empirical study of our approach compared to different state-of-the-art approaches, and the obtained results have provided evidence to support the claim that Novelty Search is able to generate effective optimizations.
-
 Second, we have presented an automated tool for automatic extraction of non-functional properties of optimized code, called NOTICE. NOTICE applies different heuristics (including Novelty Search) and performs compiler auto-tuning through the monitoring of generated code in a controlled sand-boxing environment. In fact, NOTICE uses a set of micro-services to provide a fine-grained understanding of optimization effects on resource consumption. 
-
 We evaluated the effectiveness of our approach by verifying the optimizations performed by GCC compiler. Then, we studied the impact of optimizations on memory consumption and execution time.
-
 Results showed that our approach is able to automatically extract information about memory and CPU consumption. We were also able to find better optimization sequences than standard GCC optimization levels and construct optimizations that present optimal trade-offs between speedup and memory usage.
 
 

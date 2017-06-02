@@ -45,12 +45,11 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Process of compiler optimization exploration}}{113}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Solution representation}}{119}{figure.5.2}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces NOTICE experimental infrastructure}}{124}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{126}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{128}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{130}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}}{131}{figure.5.7}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Evaluating the speedup after applying standard optimization options compared to best generated optimization using NS}}{132}{figure.5.8}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{135}{figure.5.9}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Snapshot of NOTICE GUI interface}}{137}{figure.5.10}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Evaluation strategy to answer RQ1 and RQ2}}{125}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of the obtained performance results across 100 unseen Csmith programs, for each non-functional property: Speedup (S), memory (MR) and CPU (CR) and for each optimization strategy: O2, O3 and NS}}{127}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Impact of speedup improvement on memory and CPU consumption for each optimization strategy}}{129}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Evaluating the amount of saved memory after applying standard optimization options compared to best generated optimization using NS}}{130}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Comparison results of obtained Pareto fronts using NSGA-II and NS-II}}{132}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Snapshot of NOTICE GUI interface}}{135}{figure.5.9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -54,7 +54,7 @@ Docker\footnote{\url{https://www.docker.com}} is an engine that automates the de
 %To achieve that, Docker uses the Linux container technology. 
 Using Docker, we can define pre-configured applications and servers to host as virtual images. We can also define the way the service should be deployed in the host machine using configuration files called Docker files. 
 \paragraph{The generator case study}
-When testing or tuning generators (in Chapter \ref{chap:code generators} and \ref{chap:compilers}), we proceed as follows:
+When testing or tuning generators (in Chapters \ref{chap:code generators} and \ref{chap:compilers}), we proceed as follows:
 Instead of configuring all generators under test (GUTs) within the same host machine, we wrap each GUT within a container. To do so, we create a new configuration image for each GUT (\ie, the Docker image) where we install all the libraries, compilers, and dependencies needed to ensure the code generation and compilation. Thereby, the GUT produce code within multiple instances of pre-configured Docker images.
 %As properties, we can define the OS where the service has to run, dependencies, etc. 
 %A simple way to build images automatically is to use Dockerfiles which represents configuration files.
@@ -65,6 +65,7 @@ We can then instantiate different containers from these Docker images.
 %Basically, each container deploys an optimized version of the input source code program.
 Next, each generated code is executed individually inside an isolated Linux container. By doing so, we ensure that each executed program runs in isolation without being affected by the host machine or any other processes. Moreover, since a container is cheap to create, we are able to create too many containers as long as we have new programs to execute.  
 Since each program execution requires a new container to be created, it is crucial to remove and kill containers that have finished their job to eliminate the load on the system. We run the experiment on top of a private data-center that provide a bare-metal installation of Docker and Docker swarm. On a single machine,  containers/softwares are running sequentially and we pin $p$ cores and $n$ Gbytes of memory for each container\footnote{$p$ and $n$ can be cofigured}. Once the execution is done, resources reserved for the container are automatically released to enable spawning next containers. Therefore, the host machine will not suffer too much from performance trade-offs.
+We use the same hardware across all experiments in Chapters \ref{chap:code generators} and \ref{chap:compilers}: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory.
 
 In short, the main advantages of this approach are:
 \begin{itemize}
