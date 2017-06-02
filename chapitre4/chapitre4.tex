@@ -332,15 +332,14 @@ The non-functional data should be converted into a format that can be understood
 F(f(P_{j}(t_{i})))=\frac{f(P_{j}(t_{i}))}{Min(f(P_{1}(t_{i})),..., f(P_{n}(t_{i})))}  
 \end{equation}
 
-The reference execution will automatically get a score value $F = 1$. The maximum value is the one leading to the maximum deviation from the reference test suite execution. For example, let $P_{1}$ be the generated program in Java. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to Java.
-
-Next step is to automatically detect the large deviations, we describe then, our statistical approaches.
+The reference execution will automatically get a score value $F = 1$. The maximum value is the one leading to the maximum deviation from the reference execution. For example, let $P_{1}$ be the generated program in Java. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to Java.
 
 \paragraph{Statistical analysis}~\\
  
-In our MT approach, an inconsistency is a performance deviation corresponding to the extreme variation values.
-We propose two methods to automatically detect these inconsistencies: Principal components analysis (PCA) and R charts (R-chart).\\
-Table \ref{tab:Statistical methods} gives an overview of these two statistical methods.
+In our MT approach, an inconsistency is a resource usage/performance variation that exceeds a specific threshold value $T$. 
+We propose the use of two variation analysis methods\cite{malik2013automatic}: principal components analysis (PCA) and range charts (R-chart). Table \ref{tab:Statistical methods} gives an overview of these two statistical methods.
+The key objective of these methods is to evaluate the memory usage and performance variation, and consequently defining an appropriate $T$ value for our MR. 
+
 \begin{table}[h]
 	\centering
 	
@@ -357,14 +356,14 @@ Table \ref{tab:Statistical methods} gives an overview of these two statistical m
 \end{table}
 
 \subparagraph{R-Chart}~\\
-In this approach, the automatic variation detection between the different versions of code is determined by comparing the non-functional measurements based on a statistical quality control technique called \textit{R-Chart} or \textit{range chart}\cite{malik2013automatic}. 
-R-Chart is used to analyze variation within processes. It is designed to detect changes in variation over time and to evaluate the consistency of process variation.
-R-Chart uses control limits (LCL and UCL) to represent the limits of variation that should be expected from a process. LCL denotes the Lower Control Limit and UCL denotes the Upper Control Limits.
+In this approach, the variation evaluation between the different versions is determined by comparing the non-functional measurements based on a statistical quality control technique called \textit{R-Chart} or \textit{range chart}\cite{malik2013automatic}. 
+R-Chart is used to analyze the variation within processes. It is designed to detect changes in variation over time and to evaluate the consistency of process variation.
+R-Chart uses control limits (LCL and UCL) to represent the limits of variation that should be expected from a process. LCL denotes the Lower Control Limit and UCL denotes the Upper Control Limit.
  
 When a process is within the controlled limits, any variation is normal. It is said that the process is \textbf{in control}. 
-Outside limit variations, however, considered as deviations and the R-chart is considered as \textbf{out of control} which means that the process variation is not stable. Thus, It tells that there is an inconsistency leading to this high variation deviation (see Figure \ref{fig:cg-rechart})
+Outside limit variations, however, it is considered as deviation and the R-chart is considered as \textbf{out of control} which means that the process variation is not stable. Thus, it tells that there is an inconsistency leading to this high variation deviation (see Figure \ref{fig:cg-rechart}).
 
-In our case, a process represents the $n$ non-functional outputs obtained after the execution of a test suite $t_{i}$. As we defined the metamorphic relation, this variation within a single process have to be lower than a threshold $T$. In our settings, this variation must be between the LCL and UCL.
+In our case, a process represents the $n$ non-functional outputs obtained after the execution of a test suite $t_{i}$. As we defined the MR, the variation within a single process has to be lower than a threshold $T$. In our settings, this variation must be between the LCL and UCL.
 
 \begin{figure}[h]
 	\centering
@@ -373,13 +372,13 @@ In our case, a process represents the $n$ non-functional outputs obtained after 
 	\label{fig:cg-rechart}
 \end{figure}
 
-Therefore, for each process we calculate the range $R$ corresponding to the difference between the maximum and minimum non-functional outputs for each test suite across all target platforms:
+Therefore, for each test suite we calculate the range $R$ corresponding to the difference between the maximum and minimum non-functional outputs across all target platforms.
 
 \begin{equation}
 R(t_{i})= Max(f(P_{1}(t_{i})),..., f(P_{n}(t_{i}))) - Min(f(P_{1}(t_{i})),..., f(P_{n}(t_{i})))  
 \end{equation}
-The R displays change in the within process dispersion to quantify the variation of executing the same test suite $t_{i}$ across different versions of the program under test.
-To determine whether the process is in control or not, we need to determine the control limits values. UCL and LCL reflect the actual amount of variation that is observed. Both, are a function of R-bar ($\bar{R}$). $\bar{R}$ is the average of R across all processes (test suites).
+R quantifies the variation results when running the same test suite $t_{i}$ across different program versions.
+To determine whether the variation is in control or not, we need to determine the control limits values. UCL and LCL reflect the actual amount of variation that is observed. Both metrics are a function of R-bar ($\bar{R}$). $\bar{R}$ is the average of R for all test suites.
 The UCL and LCL are calculated as follows:
 \begin{equation}
 \begin{split} 
@@ -388,9 +387,9 @@ LCL = D_{3}\bar{R}
 \end{split} 
 \label{eqUCL}
 \end{equation}
-where $D_{4}$, $D_{3}$, are control chart constants that depend on the number of variables inside each process. For example,  for a family composed of five code generators, $D_{4}$ is equal to $2.114$ and $D_{3}$ is equal to 0. 
+where $D_{4}$, $D_{3}$, are control chart constants that depend on the number of variables inside each process (see constants values\footnote{\url{http://www.bessegato.com.br/UFJF/resources/table_of_control_chart_constants_old.pdf}}). 
 
-From a MT perspective, the UCL represents the threshold $T$ value from which we detect a high variation deviation, leading to an inconsistency. As we stated earlier, the UCL is a function of $\bar{R}$, and $\bar{R}$ is a function of range differences. So, the UCL value is sensitive to new generated follow-up test suites. In order to evaluate the MR for new generated test suites, the UCL (or $T$) value is updated and the variation is evaluated with the new threshold value. 
+For example, for a family composed of less than 7 code generators, the $D_{3}$ value is equal to $0$, and as a consequence LCL = $0$. In this case, the UCL represents the threshold $T$ value from which we detect a high variation deviation, leading to an inconsistency. As we stated earlier, the UCL is a function of $\bar{R}$, and $\bar{R}$ is a function of range differences. So, the UCL value (or $T$) is sensitive to new test suites. So, when a new test suite is executed, the $T$ value is updated and the variation is evaluated with the new threshold value. 
 
 We present in the following an alternative statistical approach to analyze the variation of all our data.
 
