@@ -1,16 +1,21 @@
 
-The intensive use of generative programming techniques provides an elegant engineering solution to deal with the heterogeneity of platforms and technological stacks. The use of domain-specific languages for example, leads to the creation of numerous code generators that automatically translate high-level system specifications into multi-target executable code. Producing correct and efficient code generator is complex and error-prone. Consequently, generated code has to be tested with the same effort as for the manually written code.
-We presented in Chapter \ref{chap:SOTA} several approaches that addressed the automatic functional testing of code generators. However, automatically testing the non-functional properties of generated code remains a challenging task that has not been addressed yet.
+Generative software development has paved the way to the creation of numerous code generators that automatically translate high-level system specifications into multi-target executable code.
+To preserve software reliability and quality, generated code has to be tested with the same effort as for the manually written code. 
+Any issue with code generators should be detected and corrected as early as possible in order to ensure the correct behavior of delivered software.
+We presented in Chapter \ref{chap:SOTA} several approaches that address the automatic functional testing of code generators. However, automatically testing the non-functional properties of generated code remains a challenging task that has not been addressed yet.
 
 This chapter describes a testing approach that automatically detects anomalies in code generators in terms of non-functional properties (\ie, resource usage and performance). In fact, we adapt the idea of metamorphic testing to the problem of code generators testing. Hence, our approach relies on the definition of high-level test oracles (\ie, metamorphic relations) to check the potential inefficient code generator among a family of code generators. Moreover, we apply different statistical methods in order to automate the inconsistencies detection.
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. 
-%Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in Haxe code generators.
+Experimental results show that our approach is able to detect some performance inconsistencies that reveal real issues in Haxe code generators.
 
 This chapter is organized as follows: 
 
-Section \ref{sec:cg_introduction} introduces the context of this work, \ie, the non-functional testing of code generators.
+%Section \ref{sec:cg_introduction} introduces the context of this work, \ie, the non-functional testing of code generators.
 
-Section \ref{sec:cg_Motivation} presents the motivations behind this work. In particular, we discuss in this section three motivation examples and the problems we are addressing.
+Section \ref{sec:cg_Motivation} presents the motivations behind this work. In particular, we discuss three motivation examples and the challenges we are facing.
+
+Section \ref{sec:trad} presents the traditional process for non-functional testing of a code generator family.
+
 
 Section \ref{sec:cd_approach} describes the general approach overview and the testing strategy.
 
@@ -18,7 +23,7 @@ In Section \ref{sec:cg_evaluation}, the evaluation and results of our experiment
 
 Finally, we conclude in Section \ref{sec:cg-conclusion}. 
 
-
+\iffalse
 \section{Introduction}
 \label{sec:cg_introduction}
 
@@ -50,27 +55,25 @@ In this chapter, we are presenting the following contributions:
 	In this contribution, we focus on detecting anomalies related to performance and resource usage properties. 
 	
 	\item We report the results of an empirical study by evaluating the non-functional properties of the Haxe code generators. 
-	Haxe is a popular high-level programming language\footnote{\num{1442} GitHub stars} that involves a set of cross-platform code generators able to generate code to different target platforms. The obtained results provide evidence to support the claim that our proposed approach is able to detect code generator issues.
+	Haxe is a popular high-level programming language\footnote{\num{1892} GitHub stars} that involves a set of cross-platform code generators able to generate code to different target platforms. The obtained results provide evidence to support the claim that our proposed approach is able to detect code generator issues.
 	
 
 	
 \end{itemize}
-
+\fi
 \section{Context and motivations}
 \label{sec:cg_Motivation}
 
 \subsection{Code generator families}
-When confronted with the requirement to generate code for a wide range of languages, middleware, libraries, hardware architectures, and operating systems, different customizable code generators can be used to easily and efficiently  generate code for different platforms.
-
-This work is based on the intuition that a code generator is often a member of a family of code generators\cite{chae2008building}.
+Today, different customizable code generators can be used to easily and efficiently generate code for different software platforms, programming languages, operating systems, etc. This work is based on the intuition that a code generator is often a member of a family of code generators\cite{chae2008building}.
 
 \begin{mydef}[\textbf{Code generator family}]
-	We define a code generator family as a set of code generators that takes as input the same language/model and generate code for different target platforms.
+	We define a code generator family as a set of code generators that takes as input the same language/model and generate code for different target software platforms.
 \end{mydef}
 %Thus, we can automatically compare the performance between different versions
 %of generated code (coming from the same source program). Based on this comparison, we can automatically detect singular resource consumptions that could reveal a code generator bug.
 
-For example, this concept is widely used in the industry by applying the \textit{``write once, run everywhere"} paradigm, where users can benefit from a family of code generators (\eg, cross-platform code generators\cite{fumero2015runtime}) to generate from the manually written (high-level) code different implementations of the same program in different languages. This technique is very useful to address diverse software platforms and programming languages.
+For example, this concept is widely used in the industry when applying the \textit{``write once, run everywhere"} paradigm. Users can benefit from a family of code generators (\eg, cross-platform code generators\cite{fumero2015runtime}) to generate from the manually written (high-level) code, different implementations of the same program in different languages. This technique is very useful to address diverse software platforms and programming languages.
 
 As motivating examples for this research work, we can cite three approaches that intensively develop and use code generator families: 
 \paragraph{a. Haxe.} 	Haxe\footnote{\url{http://haxe.org/}}~\cite{dasnois2011haxe} is an open source toolkit for cross-platform development which compiles to a number of different programming platforms, including JavaScript, Flash, PHP, C++, C\#, and Java. Haxe involves many features: the Haxe language, multi-platform compilers, and different native libraries. The Haxe language is a high-level programming language which is strictly typed. This language supports both, functional and object-oriented programming paradigms. It has a common type hierarchy, making certain API available on every target platform. Moreover, Haxe comes with a set of code generators that translate manually-written code (in Haxe language) to different target languages and platforms.  
@@ -81,9 +84,9 @@ This project is popular (more than \num{1440} stars on GitHub).
 This project is still confidential, but it is a good candidate to represent the modeling community practices.
 
 \paragraph{c. TypeScript.} TypeScript\footnote{\url{https://www.typescriptlang.org/}}is a typed superset of JavaScript that compiles to plain JavaScript~\cite{rastogi2015safe}. In fact, it does not compile to only one version of JavaScript. It can transform TypeScript to EcmaScript 3, 5 or 6. It can generate JavaScript that uses different system modules ('none', 'commonjs', 'amd', 'system', 'umd', 'es6', or 'es2015')\footnote{Each of this variation point can target different code generators (function \textit{emitES6Module} vs \textit{emitUMDModule} in emitter.ts for example).}. 
-This project is popular (more than \num{12619} stars on GitHub).
+This project is popular (more than \num{22478} stars on GitHub).
 
-Functionally testing a code generator family in this case would be simple. Since the generated programs have the same input program, the oracle can be defined as the comparison between the functional outputs of these programs which should be the same.
+Functional testing of a code generator family is simple. Since the produced programs are generated form the same high-level program, the oracle can be defined as a comparison between their functional outputs, which should be the same.
 In fact, based on the three sample projects presented above, we remark that all GitHub code repositories of the corresponding projects use unit tests to check the correctness of code generators.  
 
 In terms of non-functional tests, we observe that ThingML and TypeScript do not provide any specific tests to check the consistency of code generators regarding the memory or CPU usage properties. Haxe provides two test cases\footnote{https://github.com/HaxeFoundation/haxe/tree/development/tests/benchs} to benchmark the resulting generated code. One serves to benchmark an example in which object allocations are deliberately (over) used to measure how memory access/GC mixes with numeric processing in different target languages. The second test evaluates the network speed across different target platforms.
@@ -91,7 +94,7 @@ In terms of non-functional tests, we observe that ThingML and TypeScript do not 
 
 \subsection{Issues when testing a code generator family}
 
-The main difficulties with testing the resource usage properties of code generators is that we cannot just observe the execution of produced code, but we have to observe and compare the execution of generated programs with equivalent (or reference) implementations (\ie, in other languages). Even if there is no explicit oracle to detect inconsistencies for a single code generator, we could benefit from the family of code generators to compare the behavior of several generated programs and detect singular resource consumption profiles that could reveal a code generator inconsistency~\cite{hundt2011loop}. 
+The main difficulties when testing the resource usage properties of code generators is that we cannot just observe the execution of produced code, but we have to observe and compare the execution of generated programs with equivalent (or reference) implementations (\ie, in other languages). Even if there is no explicit oracle to detect inconsistencies for a single code generator, we could benefit from the family of code generators to compare the behavior of several generated programs and detect singular resource consumption profiles that could reveal a code generator inconsistency~\cite{hundt2011loop}. 
 
 As a consequence, we define a code generator inconsistency as:
 
@@ -100,7 +103,7 @@ As a consequence, we define a code generator inconsistency as:
 	A generated code that exhibits an unexpected behavior in terms of performance or resource usage compared to all equivalent implementations in the same code generator family.
 \end{mydef}
 
-The potential issues that can result in code generator inconsistencies can be resumed as following:
+The possible issues that can result in code generator inconsistencies can be resumed as following:
 \begin{itemize}
 	\setlength\itemsep{0em}
 	\item  the lack of use of a \textbf{specific function that exists in the standard library} of the target API language  that can speed or reduce the memory consumption of the resulting program.
@@ -108,21 +111,22 @@ The potential issues that can result in code generator inconsistencies can be re
 	\item  the lack of use of\textbf{ a specific language feature in a target language} that can speed or reduce the memory consumption of the resulting program. 
 \end{itemize}
 
-Next section discusses the common process used by developers to automatically test the performance of generated code. We also illustrate how we can benefit from the code generators families to identify suspect singular behaviors.
+Next section discusses the common process used by developers to test the non-functional properties of generated code. We also illustrate how we can benefit from code generator families to identify unexpected behaviors.
 
 
 %In short, then, we believe that testing the non-functional properties of code generators remains challenging and time-consuming task because developers have to analyze and verify code for each target platform using platform-dependent tools which makes the task of maintaining code generators very tedious. The heterogeneity of platforms and the diversity of target software languages increase the need of supporting tools that can evaluate the consistency and coherence of generated code regarding the non-functional properties. This paper describes a new approach, based on micro-services as execution platforms, to automate and ease the non-functional testing of code generators. This runtime monitoring infrastructure provides a fine-grained understanding of resource consumption and analysis of generated code's behavior.
 
 \section{The traditional process for non-functional testing of a code generator family}
-A reliable and acceptable way to increase the confidence in the correctness of a code generator family is to validate and check the functionality of generated code, which is a common practice for compiler validation and testing~\cite{jorges2014back,stuermer2007systematic,sturmer2005overview}.
+\label{sec:trad}
+A reliable and acceptable way to increase confidence in code generators is to validate and check the functional behavior of generated code, which is a common practice in generators testing~\cite{jorges2014back,stuermer2007systematic,sturmer2005overview}.
 %Therefore, developers try to check the syntactic and semantic correctness of the generated code by means of different techniques such as static analysis, test suites, etc., and ensure that the code is behaving correctly.  
 However, proving that the generated code is functionally correct is not enough to claim the effectiveness of the code generator under test. 
 
 In fact, code generators have to respect different requirements to preserve software reliability and quality~\cite{demertzi2011analyzing}. 
-In this case, ensuring the code quality of generated code requires examining several non-functional properties such as code size, resource or energy consuption, execution time, etc~\cite{pan2006fast}.
+In this case, ensuring the quality of generated code requires examining several non-functional properties such as code size, resource or energy consumption, execution time, etc~\cite{pan2006fast}.
 %A \textit{non-mature} code generator might generate defective software artifacts (code smells) that violates common software engineering practices, resulting in a poor-quality code that can affect system reliability and performance (\eg, high resource usage, high execution time, etc.).
-Figure \ref{fig:bbackground.pdf} summarizes the classical steps required to ensure the code generation and non-functional testing of produced code from design time to runtime. 
-We distinguish four major steps: the software design using high-level system specifications, code generation by means of code generators, code execution, and non-functional testing of generated code. 
+Figure \ref{fig:bbackground.pdf} summarizes the classical steps required to ensure the code generation and non-functional testing of a code generator family. 
+We distinguish four major steps: software design using high-level system specifications, code generation, code execution, and non-functional testing of generated code. 
 
 
 \begin{figure*}[t]
@@ -140,17 +144,17 @@ Afterwards, generated software artifacts (\eg, Java, C\#, C++, etc.) are compile
 %Thus, several code compilers are needed to transform source code to machine code (binaries) in order to get executed. 
 Finally, to perform the non-functional testing of generated code, developers have to collect, visualize and compare information about the performance and efficiency of running code across the different platforms. 
 Therefore, they generally use several platform-specific profilers, trackers, instrumenting and monitoring tools in order to find some inconsistencies or bugs during code execution~\cite{guana2014chaintracker,delgado2004taxonomy}. Finding inconsistencies within code generators involves analyzing and inspecting the code and that, for each execution platform. For example, one way to handle that, is to analyze the memory footprint of software execution and find memory leaks~\cite{nethercote2007valgrind}. Developers can then inspect the generated code and find some fragments of the code-base that have triggered this issue. %Such non-functional error could occur when the code generator produces code that presents for example: incorrect typing, faulty memory management, code-smells, etc. 
-Therefore, software testers generally use to report statistics about the performance of generated code in order to fix, refactor, and optimize the code generation process. Compared to this classical testing approach, our proposed work seeks to automate the last three steps: generate code, execute it on top of different platforms, and find code generator inconsistencies. 
+Then, they report this information in order to fix, refactor, and optimize the code generation process. Compared to this classical (and manual) testing approach, our proposed work seeks to automate the last three steps: the code generation and execution on top of different software platforms, and the detection of non-functional issues.
 
 
 \section{Approach overview}
 \label{sec:cd_approach}
-Now, we describe our approach overview. Our contributions in this work are divided in two parts:
+Our contributions in this work are divided into two parts:
 \begin{itemize}
-	\item First, we describe our testing infrastructure for the automatic code generation deployment and monitoring. 
+	\item First, we describe our infrastructure for resource usage monitoring. 
 	This contribution addresses the problem of software diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}.
 	
-	\item Second, we present a methodology for automatically detecting inconsistencies in a code generator family. This approach addresses the oracle problem when testing the resource usage and performance properties.
+	\item Second, we present a methodology for automatic detection of inconsistencies in code generator families. This approach addresses the oracle problem when testing the non-functional properties.
 \end{itemize}
 
 
@@ -158,16 +162,16 @@ Now, we describe our approach overview. Our contributions in this work are divid
 \label{sec:cg-An infrastructure for non-functional testing using system containers}
 In this contribution, we focus on evaluating the non-functional properties related to the resource usage and performance of generated code. To do so, many system configurations (\ie, execution environments, libraries, compilers, etc.) must be taken into account to efficiently generate and test code. 
 
-However, tuning different applications (\ie, generated code) with different configurations on one single machine is complex. A single system has limited resources and this can lead to performance regressions. Moreover, each execution environment comes with a collection of appropriate tools such as compilers, code generators, debuggers, profilers, etc. Therefore, we need to deploy the test harness, \ie, the produced binaries, on an elastic infrastructure that provide facilities to the code generator developers to ensure the deployment and monitoring of generated code in different environment settings. 
-Consequently, the testing infrastructure should provide support to automatically:
+However, tuning different applications (\ie, generated code) with different configurations on one single machine is complex. A single system has limited resources and this can lead to performance regressions. Moreover, each execution environment comes with a collection of appropriate tools such as compilers, code generators, debuggers, profilers, etc. Therefore, we need to deploy the test harness, \ie, the produced binaries, on an elastic infrastructure that provides facilities to the code generator developers to ensure the deployment and monitoring of generated code in different environment settings. 
+Consequently, the testing infrastructure provides support to automatically:
 \begin{enumerate}
 	\item Deploy the generated code, its dependencies, and its execution environments
 	\item Execute the produced binaries in an isolated environment 
 	\item Monitor the execution 
-	\item Gather performance metrics (CPU, Memory, etc.)
+	\item Gather resource usage metrics (CPU, Memory, etc.)
 \end{enumerate}
 
-To ensure these four main steps, we rely on system containers~\cite{soltesz2007container} as a dynamic and customizable execution environment for running and evaluating the generated programs in terms of resource usage.
+To ensure these four main steps, we rely on system containers~\cite{soltesz2007container} as a dynamic and configurable execution environment for running and evaluating the generated programs in terms of resource usage.
 
 \begin{figure*}[h]
 	\center
@@ -176,28 +180,22 @@ To ensure these four main steps, we rely on system containers~\cite{soltesz2007c
 	\label{fig:cg-infra}
 \end{figure*}
 
-Figure \ref{fig:cg-infra} shows the new container-based infrastructure used for testing code generators. Compared to the classical method presented in Figure \ref{fig:bbackground.pdf}, we added the following features: 
+Figure \ref{fig:cg-infra} shows the container-based infrastructure used for testing code generators. Compared to the classical method presented in Figure \ref{fig:bbackground.pdf}, we add the following features: 
 \begin{itemize}
 	\item[--] At the code generation level: Code generators are configured inside different containers in order to generate code for the target platform.
-	\item[--] At the code execution level: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform a new instance is created.
+	\item[--] At the code execution level: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform, a new instance is created.
 	\item[--] At the non-functional testing level: We add a runtime monitoring engine (based on containers) in order to extract the resource usage properties.
 \end{itemize}
 
 Chapter \ref{chap:docker} provides more details about the technical choices we have made to synthesize this testing infrastructure.
 
-
-
-
-\subsection{A metamorphic testing method for automatic detection of code generators inconsistencies}
-Automatically detecting non-functional issues in code generators raises the oracle problem since there is no a clear definition of how the oracle might be defined and how we can determine the expected outcomes of selected test cases.
-
-We discussed in section \ref{sec:cg-Summary: oracle definition approaches} of Chapter \ref{chap:SOTA} several approaches from the software testing community to alleviate the oracle problem. Among the attractive approaches that can be applied to test code generators, we distinguish the metamorphic testing approach (derived oracles). This approach is already applied for generators, especially for testing compilers\cite{donaldson2016metamorphic,tao2010automatic,le2014compiler}. In the following, we describe the basic concept of metamorphic testing and our adaptation of this testing approach to test the code generator families in terms of resource usage and performance.
+\subsection{A metamorphic testing approach for automatic detection of code generator inconsistencies}
+We discussed in Section \ref{sec:cg-Summary: oracle definition approaches} several approaches proposed by the software testing community in order to alleviate the oracle problem. Among the attractive approaches that can be applied to test code generators, we distinguish the metamorphic testing approach (derived oracles). In the following, we describe the basic concept of metamorphic testing and our adaptation of this method to test code generator families in terms of resource usage and performance.
 
 \subsubsection{Basic concept of metamorphic testing}
-In this section, we shall introduce the basic concept of metamorphic testing (MT). 
-MT, proposed by Chen \etal \cite{chen1998metamorphic}, is a technique conceived to alleviate the oracle problem. It is based on the idea that often it is simpler to understand the relation between test cases' outputs rather than reasoning about the relation between test inputs and outputs. 
+In this section, we shall introduce the basic concept of metamorphic testing (MT), proposed by Chen \etal \cite{chen1998metamorphic}. The idea of MT is to derive test oracles from the relation between test cases' outputs instead of reasoning about the relation between test inputs and outputs. 
 
-MT recommends that, given one or more test cases (called ``source test cases'', ``original test cases", or ``successful test cases") and their expected outcomes (obtained through multiple executions of the target program under test), one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented. In this case, the generation of the follow-up test cases and verification of the test results require the respect of the MR.
+MT recommends that, given one or more test cases (called ``source test cases", ``original test cases", or ``successful test cases") and their expected outcomes (obtained through multiple executions of the target program under test), one or more follow-up test cases can be constructed to verify the necessary properties (called Metamorphic Relations MRs) of the system or function to be implemented. In this case, the generation of the follow-up test cases and verification of the test results require the respect of the MR.
 
 %For example, let \textit{sine} be a function implementing a specification \textit{S}. Let \textit{D} represent the input domain which represents the input values for which we would calculate the \textit{sine}. Usually, the testing process should verify if the \textit{sine(x) = S(x)} $\forall$ \textit{x} $\in$ \textit{D}. The procedure through which the testing program can check whether \textit{sine(x) = S(x)} is called an oracle.
 %Automatically generating  \textit{D} (test data) and executing test cases in this example is simple. It consists in generating random numerical values for example. However, it is impossible to do an exhaustive testing to automatically check the expected output.
@@ -210,14 +208,14 @@ MT generates follow-up test cases as long as the metamorphic relations are respe
 This is an example of a metamorphic relation: an input transformation that can be used to generate new test cases from existing test data, and an output relation MR, that compares the outputs produced by a pair of test cases.
 MR can be any properties involving the inputs and outputs of two or more executions of the target program such as equalities, inequalities, convergence constraints, and many others.
 
-Because MT checks the relations among several executions rather than the correctness of individual outputs, it can be used to fully automate the testing process without any manual intervention. 
+Because MT checks the relation among several executions rather than the correctness of individual outputs, it can be used to fully automate the testing process without any manual intervention. 
 However, constructing the metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
-The effectiveness of metamorphic testing is highly dependent on the specific metamorphic relations that are used, and designing effective metamorphic relations is thus a critical step when applying metamorphic testing.
+The effectiveness of metamorphic testing is highly dependent on the identified metamorphic relations, and designing effective metamorphic relations is thus a critical step when applying metamorphic testing.
 
 We describe in the next section our adaptation of MT to the problem of non-functional testing of code generators families.
 
-\subsubsection{Application of MT to the non-functional testing of code generator families}
-In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications are presented in \cite{zhou2004metamorphic}. They includes the testing of simulation programs; the testing of numerical programs such as those for solving partial differential equations; testing programs that calculate combinatorial problems; the testing of graphics-rendering programs; and testing compilers.
+\subsubsection{Adaptation of the MT approach to detect code generator inconsistencies}
+In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications are presented in \cite{zhou2004metamorphic}. We note that MT is recently applied to compilers testing\cite{donaldson2016metamorphic,tao2010automatic,le2014compiler}.
 
 To apply MT, there are four basic steps to follow:
 
@@ -228,15 +226,10 @@ To apply MT, there are four basic steps to follow:
  \item Check whether these outputs satisfy the MR, and if not, report failures.
 \end{enumerate}
 
-We develop now these four points in details to show how we can adapt the MT approach to the code generators testing problem. 
+We develop now these four points in details to show how we can adapt the MT approach to the code generator testing problem. 
 \subsubsection[(Step 1)]{Metamorphic relation }
 
-Step 1 consists in identifying necessary properties of the program under test and represent them as metamorphic relations among multiple test case inputs and their expected outputs.
-
-In the context of code generators testing, we apply the concept of metamorphic testing described above to detect inconsistencies that violate MRs.
-To do so, we have to define suitable MRs to automate this process.
-
-As already stated, a metamorphic relation is a relation between different executions.
+Step 1 consists in identifying the necessary properties of the program under test and represent them as metamorphic relations. As already stated, a metamorphic relation is a relation derived from different system executions.
 We use the MR definition as presented in \cite{tao2010automatic,chan2006integration}:
 
 \begin{mydef}[\textbf{Metamorphic relation}]
@@ -261,35 +254,31 @@ Furthermore, $x_{1}, x_{2},..., x_{k}$ are known as source test cases and $x_{k+
 
 \end{mydef}
 
-A code generator family can be looked as a function: $C : I \rightarrow P$, where $I$ is the domain of valid high-level source programs and $P$ is the domain of the target programs that are generated by the different code generators of the same family. The property of a code generator family implies that the generated programs $P$ share the same behavior as it is specified in $I$ using the high-level system specification. 
+A code generator family can be seen as a function: $C : I \rightarrow P$, where $I$ is the domain of valid high-level source programs and $P$ is the domain of the target programs that are generated by the different code generators of the same family. The property of a code generator family implies that the generated programs $P$ share the same behavior as it is specified in $I$. 
 
-
-The availability of multiple generators with comparable functionality allow us to adapt MT in order to detect non-functional inconsistencies. In fact, if we can find out proper R relation of the non-functional behavior, we can get the metamorphic relation and conduct MT for testing code generator families.
+The availability of multiple generators with comparable functionality allows us to adapt the MT in order to detect non-functional inconsistencies. In fact, if we can find out proper relation $R$ (see equation \ref{eqR}) of the non-functional behavior, we can get the metamorphic relation and conduct MT for testing code generator families.
 Let $f(P(t_{i}))$ be a function that calculates the non-functional output (such as execution time or memory usage) of the input test suite ($t_{i}$), running on a generated program ($P$). Since we have different program versions generated in the same family, we denote by $(P_{1}(t_{i})$, $P_{2}(t_{i})$,..., $P_{n}(t_{i}))$ the set of generated programs. The corresponding outputs would be $(f(P_{1})$, $f(P_{2})$,..., $f(P_{n}))$. Thus, our MR looks like this:
 
 \begin{equation}
+\label{eqR}
 	 R(P_{1}(t_{i}), P_{2}(t_{i}),..., P_{n}(t_{i}))  \Rightarrow R(f(P_{1}(t_{i})), f(P_{2}(t_{i})),..., f(P_{n}(t_{i})))
 \end{equation}
 
 On the one hand, we use the following equation $P_{1}(t_{i}) \equiv P_{2}(t_{i})$ to denote \textit{the functional equivalence relation} between two generated programs $P_{1}$ and $P_{2}$ from the same family. This means that the generated programs $P_{1}$ and $P_{2}$ have the same behavioral design, and for any test suite $t_{i}$, they have the same functional output. 
-If this relation is not satisfied that means, that there is at least one faulty code generator that produced incorrect code. In this this work, we focus on the non-functional testing, so we ensure that this relation is ensured by excluding all the programs that do not exhibit the same behavior. 
+If this relation is not satisfied, then there is at least one faulty code generator that produced incorrect code. In this this work, we focus on the non-functional testing, so we ensure that this relation is ensured by excluding all the programs that do not exhibit the same behavior. 
 
 
 On the other hand, since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite across the different versions. Obviously, we are expecting to get a variation between different executions because we are comparing the execution time and memory usage of test suites that are written in different languages and executed using different technologies (\eg, interpreters for PHP, JVM for Java, etc.). 
-This observation is also based on initial experiments, where we evaluate the resource usage/execution time of several test suites across a set of equivalent versions generated using a code generator family (presented in details in the evaluation section \ref{sec:cg_evaluation}). As a consequence, we use the notation $\Delta\{f(P_{1}(t_{i})), f(P_{2}(t_{i}))\}$ to designate the variation of memory usage or execution time of test suite execution $t_{i}$ across two version of generated code written in different languages $P_{1}$ and $P_{2}$. We suppose that this variation should note exceed a certain threshold value $T$, otherwise, we raise a code generator inconsistency.
+This observation is also based on initial experiments, where we evaluate the resource usage/execution time of several test suites across a set of equivalent versions generated using a code generator family (presented in details in the evaluation, Section \ref{sec:cg_evaluation}). As a consequence, we use the notation $\Delta\{f(P_{1}(t_{i})), f(P_{2}(t_{i}))\}$ to designate the variation of memory usage or execution time of test suite execution $t_{i}$ across two versions of generated code $P_{1}$ and $P_{2}$ written in different languages. We suppose that this variation should note exceed a certain threshold value $T$, otherwise, we raise a code generator inconsistency.
 Based on this intuition, the MR can be represented as:
 
 \begin{equation}
 P_{1}(t_{i}) \equiv P_{2}(t_{i}) \equiv ... \equiv P_{n}(t_{i}) \Rightarrow \Delta\{f(P_{1}(t_{i})), f(P_{2}(t_{i})),..., f(P_{n}(t_{i}))\} < T\quad (n\geqslant 2)
 \end{equation}
 
-This MR is equivalent to say that: \textbf{if} a set of functionally equivalent programs are generated using the same code generator family $((P_{1}(t_{i})$, $P_{2}(t_{i})$,...,$P_{n}(t_{i}))$, and with the same test suite $t_{i}$, \textbf{then} the comparison of their non-functional outputs $(f(P_{1}(t_{i}))$, $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i})))$ should be the same while taking into account a tolerance interval defined by the variation $\Delta$ that shall not exceed a specific threshold value $T$.
+This MR is equivalent to say that: \textbf{if} a set of functionally equivalent programs are generated using the same code generator family $((P_{1}(t_{i})$, $P_{2}(t_{i})$,...,$P_{n}(t_{i}))$, and with the same input test suite $t_{i}$, \textbf{then} the comparison of their non-functional outputs $(f(P_{1}(t_{i}))$, $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i})))$ should be the same while taking into account a tolerance interval defined by the variation $\Delta$ that shall not exceed a specific threshold value $T$.
 
 The generated code that violates this metamorphic property represents an inconsistency and its corresponding code generator is considered as defective.
-
- 
-
-
 
 \subsubsection[(Steps 2, 3, and 4)]{Metamorphic testing}
 \label{sec:cg-Metamorphic testing}
@@ -302,9 +291,11 @@ The generated code that violates this metamorphic property represents an inconsi
 
 So far, we have defined the MR necessary for inconsistencies detection. We describe now our automatic metamorphic testing approach based on this relation (steps 2, 3, and 4). 
 Figure \ref{fig:cg_MT} shows the approach overview.
-The code generator family takes the same input program I and generate a set of equivalent test programs $(P_{1}$, $P_{2}$,...,$P_{n})$. Test suites are also automatically generated since we suppose that they are created at design time. In fact, the same test suite (test cases + input data values) is passed to all generated programs. This corresponds to step 2 where new follow-up test cases must be generated or selected in order to verify their outputs using the MR. 
+The code generator family takes the same input program I and generate a set of equivalent test programs $(P_{1}$, $P_{2}$,...,$P_{n})$. 
+This corresponds to step 2. In our MT adaptation, follow-up test cases represent the equivalent test programs that are automatically generated using a code generator family. 
+Test suites are also generated automatically since we suppose that they are already defined at design time. In fact, the same test suite (test cases + input data values) is passed to all generated programs. 
 Then, generated programs and their corresponding test suites are executed (step 3). Afterwards, we measure the memory usage or execution time of these generated programs $(f(P_{1}(t_{i}))$, $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i})))$. Finally, the execution results are compared and verified using the MR defined earlier (step 4).
-In this process, inconsistencies will be reported when we detect singular performance behavior of one running test suites for a specific target.
+In this process, inconsistencies will be reported when one of the follow-up equivalent test program violates the MR.
 
 
 
@@ -312,14 +303,12 @@ In this process, inconsistencies will be reported when we detect singular perfor
 
 \subsubsection{Variation threshold}
 \label{sec:cg-Variation threshold}
-One of the main question that may be raised when applying our MT approach is how can we find the right variation threshold $T$ from which an inconsistency is detected? Answering this question is very important to prove the effectiveness of our MT approach.
-
-To do so, we conduct a statistical analysis of the non-functional outputs of original test inputs in order to find an accurate threshold value $T$ and then, detect inconsistencies using follow-up test inputs.
- 
+One of the questions that may be raised when applying our MT approach is how can we find the right variation threshold $T$ from which an inconsistency is detected? Answering this question is very important to prove the effectiveness of our MT approach.
+To do so, we conduct a statistical analysis of our non-functional data in order to find an accurate threshold value $T$.
 Before that, the non-functional outputs need to be prepared to make them suitable for the statistical methods employed by our methodology. Thus, we describe first our process for data preparation:
 
 \paragraph{Data preparation}~\\ 
-As depicted in Table \ref{tab:Non-functional output results}, each program comes with a set of test suites $(t_{1}$, $t_{2}$,..., $t_{m})$. Evaluating a test suite requires the calculation of the memory usage or execution time $f(P_{1}(t_{i}))$,  $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i}))$ where $(1 \leq i \leq m)$  across all target software platforms. Thus, obtained results represent a matrix where columns indicate the non-functional value (raw data) for each target software platform and rows indicate the corresponding test suite.
+As depicted in Table \ref{tab:Non-functional output results}, each program comes with a set of test suites $(t_{1}$, $t_{2}$,..., $t_{m})$. Evaluating a test suite requires the calculation of the memory usage or execution time $f(P_{1}(t_{i}))$,  $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i}))$ where $(1 \leq i \leq m)$  for all target software platforms. Thus, obtained results represent a matrix where columns indicate the non-functional value (raw data) for each target software platform and rows indicate the corresponding test suite.
 \begin{table}[h]
 	\centering
 	
@@ -333,16 +322,17 @@ As depicted in Table \ref{tab:Non-functional output results}, each program comes
 		$t_{m}$ &  $f(P_{1}(t_{m}))$ &  $f(P_{2}(t_{m}))$ & ... & $f(P_{n}(t_{m}))$  \\ \hline
 	\end{tabular}
 	
-	\caption{Non-functional output results}
+	\caption{Results of test suites execution}
 	\label{tab:Non-functional output results}
 \end{table}
-The non-functional data should be converted into a format that is understood by our statistical methods. One way to compare these non-functional outputs is to study the factor differences. In other words, we would evaluate for each target platform the number of times (the factor) that a test suite takes to run compared to a reference test suite. The reference test suite in our case is the minimum obtained non-functional value across the $n$ target platforms. The resulting factor is the ratio between the actual non-functional value and the minimum value obtained among the $n$ versions. The following equation is applied for each cell in order to transform our data:
+
+The non-functional data should be converted into a format that can be understood by our statistical methods. One way to compare these non-functional outputs is to study the factor differences. In other words, we would evaluate for each target platform the number of times (the factor) that a test suite takes to run compared to a reference execution. The reference execution corresponds to the minimum obtained non-functional value of $t_{i}$ execution across the $n$ target platforms. The resulting factor is the ratio between the actual non-functional value and the minimum value obtained among the $n$ versions. The following equation is applied for each cell in order to transform our data:
 
 \begin{equation}
 F(f(P_{j}(t_{i})))=\frac{f(P_{j}(t_{i}))}{Min(f(P_{1}(t_{i})),..., f(P_{n}(t_{i})))}  
 \end{equation}
 
-The reference value will get a factor value $F = 1$ corresponding to the minimum value among the $n$ targets. The maximum value is the one leading to the maximum deviation from the reference test suite. For example, let $P_{1}$ be the generated program in Java. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to Java.
+The reference execution will automatically get a score value $F = 1$. The maximum value is the one leading to the maximum deviation from the reference test suite execution. For example, let $P_{1}$ be the generated program in Java. If the execution time needed to run $t_{1}$ yields to the minimum value $f(P_{1}(t_{1}))$ compared to other versions, then $f(P_{1}(t_{1}))$ will get a factor value $F$ equal to $1$ and the other versions will be divided by $f(P_{1}(t_{1}))$ to get the corresponding factor values compared to Java.
 
 Next step is to automatically detect the large deviations, we describe then, our statistical approaches.
 
@@ -412,7 +402,7 @@ To interpret the data in a more meaningful form, it is therefore necessary to re
 
 Principal Component Analysis\footnote{\url{https://en.wikipedia.org/wiki/Principal_component_analysis}} (PCA) is a multivariate statistical approach that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called Principal Components (PCs). It can be applied when data are collected on a large number of variables from a single population. Thus, we apply the PCA approach to our case study because our dimension space as it is presented in Table \ref{tab:Non-functional output results}, is composed of a set of processes (test suites) where $n$ variables (\eg, target programming languages) are composing each observation. The variability within our model is correlated to these $n$ variables representing the test suites running on $n$ target platforms. 
 
-The main objective of applying PCA is to reduce the dimensionality of the original data and explain the maximum amount of variance with the fewest number of principal components. To do so, PCA is concerned with summarizing the variance-covariance matrix. It involves computing the eigenvectors and eigenvalues of the variance-covariance matrix. The eigenvectors are used to project the data from $p$ dimensions down to a lower dimensional representation. The eigenvalues give the variance of the data in the direction of the eigenvector. The first eigenvector is the vector which defines the direction of maximumn variance in the data.
+The main objective of applying PCA is to reduce the dimensionality of the original data and explain the maximum amount of variance with the fewest number of principal components. To do so, PCA is concerned with summarizing the variance-covariance matrix. It involves computing the eigenvectors and eigenvalues of the variance-covariance matrix. The eigenvectors are used to project the data from $p$ dimensions down to a lower dimensional representation. The eigenvalues give the variance of the data in the direction of the eigenvector. The first eigenvector is the vector which defines the direction of maximum variance in the data.
 
 The first principal component is calculated such that it accounts for the greatest possible variance in the data set. The second principal component is calculated in the same way, with the condition that it is uncorrelated with (\ie, perpendicular to) the first principal component and that it accounts for the next highest variance. The eigenvector associated with the largest eigenvalue has the same direction as the first principal component. The eigenvector associated with the second largest eigenvalue determines the direction of the second principal component.
 
@@ -518,7 +508,7 @@ Figure \ref{fig:settingup.pdf} shows a big picture of the testing and monitoring
 
 First, a first component is created in where we install the Haxe code generators and compilers. It takes as an input the Haxe library we would test and the list of test suites (step 1). It produces as an output the source code for specific software platforms. Afterwards, generated files are compiled (if needed) and automatically executed within the execution container (Step 2). This execution container is a pre-configured container instance where we install all the required execution environments such as php interpreter, NodeJS, etc. 
 In the meantime, while running test suites inside the container, we collect runtime resource usage data using the components showed in step 3, 4, and 5 (presented in details in Chapter \ref{chap:docker}).
-Finally, in step 6 we provide a mechanism to extract these resource usage metrics via http requests. In our experiment, we are gathering the maximum memory usage values without presenting the graphs of resource usage profiles.
+Finally, in step 6 we provide a mechanism to extract these resource usage metrics via HTTP requests. In our experiment, we are gathering the maximum memory usage values without presenting the graphs of resource usage profiles.
 
 To obtain comparable and reproducible results, we use the same hardware across all experiments: a farm of AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (\SI{2.0}{\GHz}), running Linux with a 64 bit kernel and \SI{16}{\giga\byte} of system memory. We reserve one core and \SI{4}{\giga\byte} of memory for each running container. 
 
