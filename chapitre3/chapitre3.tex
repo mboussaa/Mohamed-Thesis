@@ -1,77 +1,53 @@
 Ensuring the code quality during software development is very important in software engineering. It provides facilities to the software developers to maintain, test, and debug their source code. 
-When it comes to the compiler level, enhancing the quality of generated code depends on the optimizations applied by the compiler during code transformation. This is useful to improve the quality of generated binaries in terms of different non-functional properties. 
-Therefore, providing an effective approach to help compiler users to auto-tune compilers becomes crucial.  
+When it comes to the compiler level, ensuring the quality of generated code highly depends on the applied configurations (\ie, optimizations) to the compiler. %Therefore, providing an effective approach to help users configuring (or tuning) compilers becomes crucial.  
 
-However, there exist different factors that make this task very complex such as the huge number of optimizations provided by modern compilers, the optimization dependency on the target computer architecture and the application to optimize, the unpredictable optimization interactions, the conflicting objectives, etc. 
+However, as discussed in Chapter \ref{chap:background}, compiler tuning is challenging because of the huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific non-functional requirements. It also requires a comprehensive understanding of the underlying system architecture, the target application, and the available compiler optimizations.
+%In some cases, these optimizations may negatively decrease the quality of the software and deteriorate application performance over time~\cite{molyneaux2009art}. As a consequence, compiler creators usually define fixed and program-independent sequence optimizations, which are based on their experiences and heuristics. For example, in GCC, we can distinguish optimization levels from O1 to O3. Each optimization level involves a fixed list of compiler optimization options and provides different trade-offs in terms of non-functional properties. Nevertheless, there is no guarantee that these optimization levels will perform well on untested architectures or for unseen applications.  Thus, it is necessary to detect possible issues caused by source code changes such as performance regressions and help users to validate optimizations that induce performance improvement.
+We also note that when trying to optimize software performance, many non-functional properties and design constraints must be involved and satisfied simultaneously to better optimize code. Sometimes, improving program execution time can result in a high resource usage which may decrease system performance. For example, embedded systems for which code is generated often have limited resources. Thus, optimization techniques must be applied whenever possible to generate efficient code and improve performance (in terms of execution time) with respect to available resources (CPU or memory usage)~\cite{nagiub2013automatic}.
+Therefore, it is important to construct optimization levels that represent multiple trade-offs between non-functional properties, enabling the software designer to choose among different optimal solutions which best suit the system specifications.
 
-As discussed in the state of the art chapter, there are many approaches that address these optimization issues in order to help compiler users to efficiently generate code with respect to many non-functional properties such as code size, energy consumption, execution time, etc. 
+As discussed in the state of the art chapter, there are many approaches that address these optimization issues in order to help users configuring (or tuning) compilers with respect to many non-functional properties such as code size, energy consumption, execution time, etc. 
 	
 This chapter presents an alternative approach to previous research efforts. 
 We present NOTICE, an approach for automatically tuning compilers. 
-Our approach applies a set of meta-heuristics (\ie, mono-objective and multi-objective evolutionary algorithms) to efficiently explore the huge search space of optimizations according to one or many non-functional metrics.
+Our approach is based on micro-services to automate the deployment and monitoring of different variants of optimized code. NOTICE is an on-demand tool that employs mono and multi-objective evolutionary search algorithms to construct optimization sequences that satisfy user key objectives (execution time, code size, compilation time, CPU or memory usage, etc.).
+In this chapter, we make the following contributions:
+ \begin{itemize} 
+ 	
+ 	\item We introduce a novel formulation, compared to previous related work, of the compiler optimization problem using Novelty Search~\cite{lehman2008exploiting}. NS is applied to tackle the problem of optimizations diversity and then, providing a new way to explore the huge optimization search space. 
+ 	
+ 	
+ 	\item We also demonstrate that NOTICE can be used to automatically construct optimization levels that represent optimal trade-offs between multiple non-functional properties. In our approach, we study the relationship between the runtime execution of optimized code and the resource consumption profiles (CPU and memory usage) by providing a fine-grained understanding and analysis of compilers behavior regarding optimizations. Thus, we study the trade-offs execution time/memory usage, etc.
+ 	
+ 	
+ 	\item We conduct an empirical study to evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler.
+ 	Our experimental results show that NOTICE is able to auto-tune compilers according to user choices (heuristics, objectives, programs, etc.) and construct optimizations that yield to better performance results than standard optimization levels using mono-objective and multi-objective optimization. We also demonstrate that NOTICE can be used to automatically construct optimization levels that represent optimal trade-offs between the speedup and memory usage.
+ 	% and, to the best of our knowledge, this is the first paper in the literature to %use Novelty Search to evaluate optimization sequences.
+ \end{itemize}
 
-NOTICE relies on system containers as a controlled sand-boxing execution environment, to run the iterative process and effectively extract the non-functional properties related to the resource usage of optimized code through the monitoring of generated code.
- 
-
-We evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler.
-
-Among the different challenges we have identified in the state of the art, we are addressing, in this contribution, three main optimization challenges. They can be summarized as follows: 
-\begin{itemize} 
-	\item \textbf{Effectively exploring the large optimization search space:} We apply a novelty search algorithm to effectively explore the huge search space.
-	\item \textbf{Finding trade-offs between conflicting objectives:} We apply a multi-objective optimization to find trade-offs between conflicting objectives such as speedup and memory usage.
-	\item \textbf{Mimic the execution environment:} Based on system virtualization, we use containers to mimic the real hardware environment and provide a sandbox infrastructure for code deployment, execution, and monitoring.
-\end{itemize} 
+%Among the different challenges we have identified in the state of the art, we are addressing, in this contribution, three main optimization challenges. They can be summarized as follows: 
+%\begin{itemize} 
+%	\item \textbf{Effectively exploring the large optimization search space:} We apply a novelty search algorithm to effectively explore the huge search space.
+%	\item \textbf{Finding trade-offs between conflicting objectives:} We apply a multi-objective optimization to find trade-offs between conflicting objectives such as speedup and memory usage.
+%	\item \textbf{Mimic the execution environment:} Based on system virtualization, we use containers to mimic the real hardware environment and provide a sandbox infrastructure for code deployment, execution, and monitoring.
+%\end{itemize} 
 	
 
 This chapter is organized as follows: 
 
-Section \ref{sec:comp-intro} introduces the context of this work, \ie, auto-tuning compilers, and gives a preview of our main contributions in this field.
+%Section \ref{sec:comp-intro} introduces the context of this work, \ie, auto-tuning compilers, and gives a preview of our main contributions in this field.
 
 Section \ref{sec:comp-motiv} describes the motivation and the challenges behind this work. We present in this section the GCC compiler as a motivation example to better explain the problem. The GCC compiler will also be used by NOTICE to evaluate and validate our approach. 
 
-In Section \ref{sec:comp-NS}, the proposed search-based technique, \ie, Novelty Search (NS), is presented. We describe our NS adaptation to the compiler auto-tuning problem. Thus, we present in details our algorithm, the evaluation metrics and the iterative evolutionary process. 
+In Section \ref{sec:comp-NS}, the proposed search-based technique, \ie, Novelty Search (NS), is presented. We describe our NS adaptation to the compiler auto-tuning problem. Thus, we present in details the algorithm, the evaluation metrics and the iterative evolutionary process. 
 
 In Section \ref{sec:comp-eval}, we conduct an empirical study to evaluate our approach. Thus, we evaluate the implementation of our approach by explaining the design of our experiments, the research questions we set out to answer and the methods we used to answer these questions.
 
 Finally, discussions and concluding remarks are provided in Section \ref{notice:conclusion}\@.
 	
+%Compiler users tend to improve software programs in a safe and profitable way. Modern compilers provide a broad collection of optimizations that can be applied during the code generation process.  For functional testing of compilers, software testers generally use to run a set of test suites on different optimized software versions and compare the functional outcome that can be either pass (correct behavior) or fail (incorrect behavior, crashes, or bugs)~\cite{chen2016empirical,hoste2008cole,le2014compiler}.
 
-
-\section{Introduction}
-\label{sec:comp-intro}
-Compiler users tend to improve software programs in a safe and profitable way. Modern compilers provide a broad collection of optimizations that can be applied during the code generation process. 
-For functional testing of compilers, software testers generally use to run a set of test suites on different optimized software versions and compare the functional outcome that can be either pass (correct behavior) or fail (incorrect behavior, crashes, or bugs)~\cite{chen2016empirical,hoste2008cole,le2014compiler}.
-
-In terms of non-functional requirements, improvement of the source code applications can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
-
-Evaluating the non-functional properties of generated code is challenging because compilers may have a huge number of potential optimization combinations, making it hard and time-consuming for software developers to find/construct the sequence of optimizations that satisfies user specific key objectives and criteria. It also requires a comprehensive understanding of the underlying system architecture, the target application, and the available optimizations of the compiler.
-
-In some cases, these optimizations may negatively decrease the quality of the software and deteriorate application performance over time~\cite{molyneaux2009art}. 
-As a consequence, compiler creators usually define fixed and program-independent sequence optimizations, which are based on their experiences and heuristics. For example, in GCC, we can distinguish optimization levels from O1 to O3. Each optimization level involves a fixed list of compiler optimization options and provides different trade-offs in terms of non-functional properties.
-Nevertheless, there is no guarantee that these optimization levels will perform well on untested architectures or for unseen applications. 
-Thus, it is necessary to detect possible issues caused by source code changes such as performance regressions and help users to validate optimizations that induce performance improvement.
-
-
-We also note that when trying to optimize software performance, many non-functional properties and design constraints must be involved and satisfied simultaneously to better optimize code.
-Several research efforts try to optimize a single criterion (usually the execution time)~\cite{ballal2015compiler,chen2012deconstructing,demertzi2011analyzing} and ignore other important non-functional properties, more precisely resource consumption properties (\eg, memory or CPU usage) that must be taken into consideration and can be equally important in relation to the performance. Sometimes, improving program execution time can result in a high resource usage which may decrease system performance. For example, embedded systems for which code is generated often have limited resources. Thus, optimization techniques must be applied whenever possible to generate efficient code and improve performance (in terms of execution time) with respect to available resources (CPU or memory usage)~\cite{nagiub2013automatic}.
-Therefore, it is important to construct optimization levels that represent multiple trade-offs between non-functional properties, enabling the software designer to choose among different optimal solutions which best suit the system specifications.
-
-
-In this chapter, we propose NOTICE (as NOn-functional TestIng of CompilErs), a component-based framework for auto-tuning C compilers. Our approach is based on micro-services to automate the deployment and monitoring of different variants of optimized code. NOTICE is an on-demand tool that employs mono and multi-objective evolutionary search algorithms to construct optimization sequences that satisfy user key objectives (execution time, code size, compilation time, CPU or memory usage, etc.).
-In this chapter, we make the following contributions:
-\begin{itemize} 
-	
-	\item We introduce a novel formulation, compared to previous related work, of the compiler optimization problem using Novelty Search~\cite{lehman2008exploiting}. NS is applied to tackle the problem of optimizations diversity and then, providing a new way to explore the huge optimization search space. 
-	
-		
-	\item We also demonstrate that NOTICE can be used to automatically construct optimization levels that represent optimal trade-offs between multiple non-functional properties. In our approach, we study the relationship between the runtime execution of optimized code and the resource consumption profiles (CPU and memory usage) by providing a fine-grained understanding and analysis of compilers behavior regarding optimizations. Thus, we study the trade-offs execution time/memory usage, etc.
-	
-
-	\item We conduct an empirical study to evaluate the effectiveness of our approach by verifying the optimizations performed by the GCC compiler.
-	Our experimental results show that NOTICE is able to auto-tune compilers according to user choices (heuristics, objectives, programs, etc.) and construct optimizations that yield to better performance results than standard optimization levels using mono-objective and multi-objective optimization. We also demonstrate that NOTICE can be used to automatically construct optimization levels that represent optimal trade-offs between the speedup and memory usage.
-	% and, to the best of our knowledge, this is the first paper in the literature to %use Novelty Search to evaluate optimization sequences.
-\end{itemize}
-
+%In terms of non-functional requirements, improvement of the source code applications can refer to several different non-functional properties of the produced code such as code size, resource or energy consumption, execution time, among others~\cite{almagor2004finding,pan2006fast}.
 
 %CBSE PAPER
 %The difference between classical compilers like GCC, LLVM and code generators is that code generators are used only by few people comparing to famous compilers like GCC. Moreover, code generators face a high rate of changes and update versions due to new development needs. Hence, it becomes necessary to check the quality of produced code. This will help software maintainers to verify the correct functioning of code generators.  Among the most important properties to check, we distinguish the non functional properties.
@@ -80,7 +56,6 @@ In this chapter, we make the following contributions:
 
 \section{Motivation}
 \label{sec:comp-motiv}
-\subsection{Compiler optimizations}
 
 In the past, researchers have shown that the choice of optimization sequences may influence software performance~\cite{almagor2004finding,chen2012deconstructing}. 
 As a consequence, software-performance optimization becomes a key objective for both, software industries and developers, which are often willing to pay additional costs to meet specific performance goals, especially for resource-constrained systems.
@@ -91,7 +66,7 @@ As a result, most software engineering programmers that are not familiar with co
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.9\linewidth]{chapitre3/fig/autotuning.pdf}
+	\includegraphics[width=0.75\linewidth]{chapitre3/fig/autotuning.pdf}
 	\caption{Process of compiler optimization exploration}
 	\label{fig:autotuning.pdf}
 \end{figure}
@@ -110,7 +85,7 @@ Thus, it becomes necessary to test the non-functional properties of optimized co
 
 
 
-\subsection{Example: GCC compiler}
+\subsection*{Example: GCC compiler}
 \begin{table}
 	\label{table:options}
 	\centering
