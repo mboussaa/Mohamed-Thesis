@@ -438,15 +438,15 @@ To answer the previous research questions, we configure NOTICE to run different 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\linewidth]{chapitre3/fig/infraup.pdf}
+	\includegraphics[width=0.7\linewidth]{chapitre3/fig/infraup.pdf}
 	\caption{NOTICE experimental infrastructure}
 	\label{settttini}	
 \end{figure}
 
 First, a meta-heuristic (mono or multi-objective) is applied to generate specific optimization sequences for the GCC compiler (step 1).
 During all experiments, we use GCC 4.8.4, as it is introduced in the motivation section, although it is possible to choose another compiler version using NOTICE since the process of optimizations extraction is done automatically. 
-Then, we apply the optimizations to the input source code program and execute the optimized code within a new container instance (step 2). While running the optimized code, we collect runtime monitoring data (steps 3, 4, and 5). More details about these three steps are provided in Chapter \ref{chap:docker}.
-Finally, NOTICE assigns a performance/resource usage metric to the current solution (step 6). 
+Then, we compile the input source code program using the set of generated optimizations (step 2). Afterwards, we execute the optimized code within a new container instance (step 3). While running the optimized code, we collect resource usage metrics (step 4). More details about the runtime monitoring engine are provided in Chapter \ref{chap:docker}.
+Finally, NOTICE evaluates the set of optimizations, giving a performance/resource usage score to the current solution (step 5). 
 The choice of non-functional metrics depends on experiment objectives (Memory improvement, speedup, trade-offs, etc.).
 
 

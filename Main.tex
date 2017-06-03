@@ -64,6 +64,7 @@
 % Specify the document class, default style attributes, and page dimensions
 % For hyperlinked PDF, suitable for viewing on a computer, use this:
 \documentclass[letterpaper,12pt,titlepage, english, openright]{book}
+
 \setcounter{secnumdepth}{3}  %% Avec un numero.
 \setcounter{tocdepth}{2}   
  \hyphenation{op-tical net-works semi-conduc-tor}
@@ -141,7 +142,9 @@
 % This package allows if-then-else control structures.
 \usepackage{ifthen}
 \newboolean{PrintVersion}
-\setboolean{PrintVersion}{false} 
+\setboolean{PrintVersion}{true}
+
+
 % CHANGE THIS VALUE TO "true" as necessary, to improve printed results for hard copies
 % by overriding some options of the hyperref package below.
 
@@ -176,14 +179,7 @@
     filecolor=magenta,      % color of file links
     urlcolor=cyan           % color of external links
 }
-\ifthenelse{\boolean{PrintVersion}}{   % for improved print quality, change some hyperref options
-\hypersetup{	% override some previously defined hyperref options
-%    colorlinks,%
-    citecolor=black,%
-    filecolor=black,%
-    linkcolor=black,%
-    urlcolor=black}
-}{} % end of ifthenelse (no else)
+ 
 
 % Setting up the page margins...
 % uWaterloo thesis requirements specify a minimum of 1 inch (72pt) margin at the
@@ -232,6 +228,9 @@
 %======================================================================
 %=========================GPCEEEEEEEEEEEE
 \newcommand{\cL}{{\cal L}}
+
+\setlength{\oddsidemargin}{0pt} % Marge gauche sur pages impaires
+\setlength{\evensidemargin}{10pt} % Marge gauche sur pages paires 
 
 
 \usepackage{standalone}
@@ -379,25 +378,25 @@
 \mainmatter
 
 \input{Introduction/IntroductionFr.tex}
-\chapter{Introduction}\label{chap:intro}
+\chapter[]{Introduction}\label{chap:intro}
 \input{Introduction/Introduction.tex}
 \part{Background and State of the Art}
-\chapter{Background}\label{chap:background}
+\chapter[]{Background}\label{chap:background}
 \input{Background/Background.tex}
-\chapter{State of the art}\label{chap:SOTA}
+\chapter[]{State of the art}\label{chap:SOTA}
 \input{SOTA/SOTA.tex}
 \part{Contributions}
-\chapter*{To the reader: summary of contributions}\label{chap:summary}
+\chapter*[]{To the reader: summary of contributions}\label{chap:summary}
 \addcontentsline{toc}{chapter}{To the reader: summary of contributions}
 \input{chapitre0/chapitre0.tex}
-\chapter{Automatic non-functional testing of code generators families}\label{chap:code generators}
+\chapter[]{Automatic non-functional testing of code generators families}\label{chap:code generators}
 \input{chapitre4/chapitre4.tex}
 \chapter{NOTICE: An approach for auto-tuning compilers}\label{chap:compilers}
 \input{chapitre3/chapitre3.tex}
-\chapter{A lightweight execution environment for automatic generators testing }\label{chap:docker}
+\chapter[]{A lightweight execution environment for automatic generators testing }\label{chap:docker}
 \input{chapitre5/chapitre5.tex}
 \part{Conclusion and perspectives}
-\chapter{Conclusion and perspectives}\label{chap:conclusion}
+\chapter[]{Conclusion and perspectives}\label{chap:conclusion}
 \input{Conclusion/Conclusion.tex}
 
 
