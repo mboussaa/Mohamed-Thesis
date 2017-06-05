@@ -9,7 +9,9 @@ In reviewing the state of the art, we identified numerous approaches for testing
  
 %in order to provide a new integrated software engineering approach which enables the advanced exploitation of the different dimensions of software diversity. 
 
-From a software engineering point of view, this thesis contributes to improve the quality and reliability of generators. The contributions are summarized as follows: 
+From a software engineering point of view, this thesis contributes to improve the quality and reliability of generators. In particular, we provide a mechanism that helps generator creators/maintainers to efficiently test their created code generators, and thus provide evidence to the end users of the quality of generated code. We also provide facilities to the generator users to effectively auto-tune exiting generators in order to produce a high-quality code.
+
+The contributions are summarized as follows: 
 
 Our first contribution addresses the problem of non-functional testing of generators. In particular, we tackle the oracle problem in the domain of code generators testing. Thus, we propose an approach for automatically detecting inconsistencies in code generators in terms of non-functional properties (\ie, resource usage and performance).
 Our approach is based on the intuition that a code generator is often a member of a family of code generators. Therefore, we benefit from the existence of multiple generators with comparable functionality (\ie, code generator families) to apply the idea of metamorphic testing~\cite{zhou2004metamorphic}, defining high-level test oracles (\ie, metamorphic relations) as test oracles. 
