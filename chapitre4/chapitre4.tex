@@ -175,16 +175,16 @@ To ensure these four main steps, we rely on system containers~\cite{soltesz2007c
 
 \begin{figure*}[h]
 	\center
-	\includegraphics[width=1.\linewidth]{chapitre5/fig/docker_background2.pdf}
+	\includegraphics[width=1.\linewidth]{chapitre4/fig/background2.pdf}
 	\caption{A technical overview of the different processes involved to ensure the code generation and non-functional testing of produced code from design time to runtime.}
 	\label{fig:cg-infra}
 \end{figure*}
 
 Figure \ref{fig:cg-infra} shows the container-based infrastructure used for testing code generators. Compared to the classical method presented in Figure \ref{fig:bbackground.pdf}, we add the following features: 
 \begin{itemize}
-	\item[--] At the code generation level: Code generators are configured inside different containers in order to generate code for the target platform.
-	\item[--] At the code execution level: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform, a new instance is created.
-	\item[--] At the non-functional testing level: We add a runtime monitoring engine (based on containers) in order to extract the resource usage properties.
+	\item[--] \textit{At the code generation level}: Code generators are configured inside different containers in order to generate code for the target platform.
+	\item[--] \textit{At the code execution level}: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform, a new instance is created.
+	\item[--] \textit{At the non-functional testing level}: We add a runtime monitoring engine (based on containers) in order to extract and save the resource usage metrics for all running containers. Finally, inconsistencies detection involves the analysis of the resource usage data extracted from the database in order to find issues with the generated code. This step is discussed in details in the next section.
 \end{itemize}
 
 Chapter \ref{chap:docker} provides more details about the technical choices we have made to synthesize this testing infrastructure.
@@ -707,7 +707,7 @@ Our approach is based on the intuition that a code generator is often a member o
 %To do so,  since we are comparing equivalent implementations of the same program written in different languages, we assume that the memory usage and execution time should be more or less the same with a small variation for each test suite across the different versions.
 We define the metamorphic relation as a comparison between the variations of performance and resource usage of code, generated from the same code generator family. Any variation that exceeds a specific threshold value is automatically detected as an anomaly. We apply two statistical methods (\ie, principal component analysis and range-charts) in order to automate the inconsistencies detection.
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. We evaluate the properties related to the resource usage and performance for five different target software platforms. 
-We run a bench of test suites across 7 Haxe benchmark libraries in order to verify the metamorphic relation (\ie, the performance and memory usage variation) for each of them. Experimental results show that our approach is able to detect, among 95 executed test suites, 11 performance and 15 memory usage inconsistencies, violating the metamorphic relation. These results show that our approach can automatically detect real issues in code generator families. In particular, we show that we could find at least two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program. These issues need to be investigated and fixed by code generator maintainers/experts.
+We run a bench of test suites across 7 Haxe benchmark libraries in order to verify the metamorphic relation (\ie, the performance and memory usage variation) for each of them. Experimental results show that our approach is able to detect, among 95 executed test suites, 11 performance and 15 memory usage inconsistencies, violating the metamorphic relation. We answered RQ1, showing that our approach can automatically detect real issues in code generator families. In particular, we show that we could find at least two kinds of errors: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program. These issues need to be investigated and fixed by code generator maintainers/experts.
 
 
 

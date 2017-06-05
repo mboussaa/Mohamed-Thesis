@@ -309,56 +309,27 @@
 \usepackage{todonotes}
 \usepackage{changes}
 \definechangesauthor[name={Gerson Sunyé}, color=orange]{gs}
+
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[RO,LE]{\footnotesize\thepage}
+\fancyhead[RE]{\footnotesize\slshape\leftmark}
+\pagestyle{fancy}
+
 \begin{document}
 
-\addtocounter{page}{-1}%√ßa c'est pour revenir √  0
-%\fontfamilly{phv}
+\addtocounter{page}{-1}%√ßa c'est pour revenir 
 
-%%  1ere de Couverture:
-%\include{couverture-latex}
 \includepdf{CoverPage/couverture-latex.pdf}
 
-%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
-%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
 ~\cleardoublepage
 
 
 %\remerciements
 \frontmatter
-\input{./Acknowledgements/Acknowledgements}
 
-%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
-%~\newpage
-
-
-
-%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}               
-%~\newpage\relax
-%~\newpage\thispagestyle{empty}
-%\newpage\thispagestyle{empty}\addtocounter{page}{-1}
-%\cleardoublepage
-%\newpage\thispagestyle{empty}\addtocounter{page}{-1}
-%\cleardoublepage
-
-%\fontfamilly{phv}
-% For a large document, it is a good idea to divide your thesis
-% into several files, each one containing one chapter.
-% To illustrate this idea, the "front pages" (i.e., title page,
-% declaration, borrowers' page, abstract, acknowledgements,
-% dedication, table of contents, list of tables, list of figures,
-% nomenclature) are contained within the file "uw-ethesis-frontpgs.tex" which is
-% included into the document by the following statement.
-%----------------------------------------------------------------------
-% FRONT MATERIAL
-%----------------------------------------------------------------------
-%\input{uw-ethesis-frontpgs} 
- 
-
- 
- 
-
- 
- 
 \tableofcontents%%{Table des mati√®res}
 
  
@@ -368,35 +339,29 @@
 %%                            %%
 %%----------------------------%%
 
-%======================================================================
-
-
-
-%~\newpage\thispagestyle{empty}\addtocounter{page}{-1}               
-%~\newpage\relax
 
 \mainmatter
 
-\input{Introduction/IntroductionFr.tex}
-\chapter[]{Introduction}\label{chap:intro}
+%\input{Introduction/IntroductionFr.tex}
+\chapter[Introduction]{Introduction}\label{chap:intro}
 \input{Introduction/Introduction.tex}
 \part{Background and State of the Art}
-\chapter[]{Background}\label{chap:background}
+\chapter[Background]{Background}\label{chap:background}
 \input{Background/Background.tex}
-\chapter[]{State of the art}\label{chap:SOTA}
+\chapter[State of the art]{State of the art}\label{chap:SOTA}
 \input{SOTA/SOTA.tex}
 \part{Contributions}
-\chapter*[]{To the reader: summary of contributions}\label{chap:summary}
+\chapter*{To the reader: summary of contributions}\label{chap:summary}
 \addcontentsline{toc}{chapter}{To the reader: summary of contributions}
 \input{chapitre0/chapitre0.tex}
-\chapter[]{Automatic non-functional testing of code generators families}\label{chap:code generators}
+\chapter[Automatic non-functional testing of code generator families]{Automatic non-functional testing of code generators families}\label{chap:code generators}
 \input{chapitre4/chapitre4.tex}
-\chapter{NOTICE: An approach for auto-tuning compilers}\label{chap:compilers}
+\chapter[NOTICE: An approach for auto-tuning compilers]{NOTICE: An approach for auto-tuning compilers}\label{chap:compilers}
 \input{chapitre3/chapitre3.tex}
-\chapter[]{A lightweight execution environment for automatic generators testing }\label{chap:docker}
+\chapter{A lightweight execution environment for automatic generators testing }\label{chap:docker}
 \input{chapitre5/chapitre5.tex}
 \part{Conclusion and perspectives}
-\chapter[]{Conclusion and perspectives}\label{chap:conclusion}
+\chapter[Conclusion and perspectives]{Conclusion and perspectives}\label{chap:conclusion}
 \input{Conclusion/Conclusion.tex}
 
 

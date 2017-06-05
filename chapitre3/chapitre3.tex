@@ -681,7 +681,9 @@ As shown in Figure \ref{fig:tool_support}, NOTICE provides different features to
 	
 	\item \textbf{Select datasets:} In case the selected program requires a dataset such as the case for Cbench programs, NOTICE allows the user to choose the dataset for the selected program. We recall that Cbench comes with a set of 20 datasets for each benchamrk program.
 	
-	\item \textbf{Select the target computer architecture:} choose the processor architecture where the experiments will be running such as x64, x86, ARM. This is part of our future work since we are running experiments only on native GCC compiler with x64 architecture. We are preparing a QEMU docker image to handle platforms heterogeneity.
+	\item \textbf{Select the target computer architecture:} choose the processor architecture where the experiments will be running such as x64, x86, ARM. In our experiments, we use native GCC compiler of the host machine, with x64 architecture.
+	%This is part of our future work since we are running experiments only on native GCC compiler with x64 architecture. 
+	%We are preparing a QEMU docker image to handle platforms heterogeneity.
 	
 	\item \textbf{Define the compiler version:} For now, NOTICE supports all GCC compiler versions from 3.x to 5.x. The process of extracting the target optimizations to evolve is done automatically (\ie, optimizations enabled by O1, O2, O3 and Ofast)
 	
@@ -697,9 +699,9 @@ As shown in Figure \ref{fig:tool_support}, NOTICE provides different features to
  	
 	\item \textbf{Choose the number of iterations:} The user can define the number of iterations for each algorithm which corresponds to the number of generated optimization sequences.
 
-	\item \textbf{Choose the search time:} Instead of limiting the number of iterations, the user can fix a limit search time (in hours). 
+	\item \textbf{Choose the search time:} Instead of limiting the number of iterations, the user can fix a limited tuning time (in hours). 
 	
-	\item \textbf{Choose the optimization objective:} The goal can be reducing the execution time, memory, CPU, code size, or compilation time. For multi objective search, users can choose trade-offs between these objectives.
+	\item \textbf{Choose the tuning goals:} The goal can be reducing the execution time, memory, CPU, code size, or compilation time. For multi objective search, users can choose trade-offs between these objectives.
 	
 	\item \textbf{Edit evolutionary algorithm settings:} Tuning the evolutionary parameters (showed in Table \ref{tab:Algorithm parameters}) such as the population size, the novelty search settings, mutation and crossover probabilities, etc.
 \end{itemize} 
