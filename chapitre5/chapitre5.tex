@@ -60,23 +60,23 @@ In short, the main advantages of this micro-services approach are:
 
 
 
-\section{Runtime Monitoring Containers}
+\section{Runtime Monitoring Engine}
 \label{mon:Runtime Testing}
 In order to monitor the applications (\ie, tests) running within containers, we aim to use a set of Docker components to ease the extraction of resource usage information.
 
 
-\subsection{Monitoring Component}
+\subsection{Monitoring Container}
 First, a monitoring component is needed to collect the resource usage and performance characteristics of running containers. As discussed earlier, Docker relies on Cgroups file systems to expose a lot of metrics about accumulated CPU cycles, memory, block I/O usage, etc. Therefore, our monitoring component automates the extraction of these runtime performance metrics stored in Cgroups files. 
 Among the popular ways to do that is to monitor each container via the Docker API, or by installing an agent for detailed visibility inside each container. 
 The Docker client already provides a command-line tool to inspect containers' resource consumption. The command \textit{docker stats}, for example, can be used to get the stats about the running containers at runtime. 
 If we want to do that manually, we can access to live resource consumption of each container available at the Cgroups file system via stats found in \textit{``/sys/fs/cgroup/cpu/docker/(longid)/''} (for CPU consumption) and \textit{``/sys/fs/cgroup/memory/docker/(longid)/''} (for stats related to memory consumption). Our monitoring component automates the process of service discovery and metrics aggregation for each new container. Thus, instead of gathering manually metrics located in Cgroups file systems, it extracts automatically the runtime resource usage statistics relative to the running component (\ie, the executed test suite within a container). We note that resource usage information is collected in raw data. This process may induce a little overhead because it performs a very fine-grained accounting of resource usage on running container. Fortunately, this may not affect the gathered data since we run only one test suite or application within each container.
 To ease the monitoring process, we integrate cAdvisor, a Container Advisor\footnote{\url{https://github.com/google/cadvisor}}. cAdvisor monitors service containers at runtime as described above. It has been widely used in different projects such as Heapster\footnote{\url{https://github.com/kubernetes/heapster}} and Google Cloud Platform\footnote{\url{https://cloud.google.com/}}. 
 
-However, cAdvisor monitors and aggregates live data over only 60 seconds interval. Therefore, we record all data over time, since container's creation, in a time-series database. It allows the end users to run queries and define non-functional metrics from historical data. Thereby, to make the gathered data truly valuable for resource usage monitoring, we link our monitoring component to a back-end database component. 
+However, cAdvisor monitors and aggregates live data over only 60 seconds interval. Therefore, we record all data over time, since container's creation, in a time-series database. It allows the end users to run queries and define non-functional metrics from historical data. Thereby, to make the gathered data truly valuable for resource usage monitoring, we link our monitoring component to a back-end database container. 
 
 
 
-\subsection{Back-end Database Component}
+\subsection{Back-end Database Container}
 This component represents a time-series database back-end. It is plugged with the previously described monitoring component to save the non-functional data for long-term retention, analytics and visualization. 
 During application execution, resource usage stats are continuously sent to this component. When a container is killed, we are able to access to its relative resource usage metrics through the database. We choose a time series database because we are collecting time series data that correspond to the resource utilization profiles of programs execution.
 
@@ -124,22 +124,22 @@ To give an idea about the data gathered by the monitoring component and stored i
 	\label{tab:metrics}
 \end{table}
 
-Apart from that, we provide information about the application size (\eg, size of generated binaries) and the compilation time needed to produce code.
-For instance, resource usage statistics are collected and stored using the previously described components. It is relevant to show resource usage profiles of running programs overtime. To do so, we present a front-end visualization component for resource usage profiling. 
+Apart from that, we provide information about the application size (\eg, size of generated binaries) and the compilation time required to produce code.
+For instance, resource usage statistics are collected and stored using the previously described components. It is relevant to show resource usage profiles of running programs overtime. To do so, we present a front-end visualization container for resource usage profiling. 
 
-\subsection{Front-end Visualization Component}
+\subsection{Front-end Visualization Container}
 
-Once we gather and store resource usage data, the next step is visualizing them. That is the role of the visualization component. It will be the endpoint component that we use to visualize the recorded data. Therefore, we provide a dashboard to run queries and view different resource consumption profiles of running components, through a web UI. Thereby, we can compare visually the profiles of resource consumption among containers. Moreover, we can use this component to export the data currently being viewed into static CSV document. So, we can perform statistical analysis on this data to detect inconsistencies or performance anomalies.
-As a visualization component, we use Grafana\footnote{\url{https://github.com/grafana/grafana}}, a time-series visualization tool available for Docker. Grafana lets us display live results over time in much pretty looking graphs. Same as InfluxDB, we use SQL queries to extract non-functional metrics from the database for visualization and analysis.
+Once we gather and store resource usage data, the next step is visualizing them. That is the role of the visualization container. It will be the endpoint component that we use to visualize the recorded data. Therefore, we provide a dashboard to run queries and view different resource consumption profiles of running components, through a Web UI. Thereby, we can compare visually the profiles of resource consumption among containers. Moreover, we can use this component to export the data currently being viewed into static CSV document. So, we can perform statistical analysis on this data to detect inconsistencies or performance anomalies.
+As a visualization component, we use Grafana\footnote{\url{https://github.com/grafana/grafana}}, a time-series visualization tool available for Docker. Grafana lets us display live results over time in much pretty looking graphs. Same as InfluxDB, we use SQL queries to extract the non-functional data from the database for visualization and analysis.
 
 \section{The generator case study}
 \label{mon:case study}
 We present now an adaptation of this micro-service infrastructure to the generator case study as applied in Chapters \ref{chap:code generators} and \ref{chap:compilers}. We recall that we used containers as means for running different variants of optimized code in Chapter \ref{chap:compilers}, and for running a bench of test suites across different software platforms in Chapter \ref{chap:code generators}. 
 The runtime monitoring components, presented in this chapter, are used in both contributions to evaluate the resource usage of generated code. 
-An overview of the micro-services solution applied for the generator case study is shown in Figure \ref{mon:infra}. In the following, we describe in details the infrastructure settings:
+An overview of the micro-service and technical solutions applied for the generator case study is shown in Figure \ref{mon:infra}. In the following, we describe in details the infrastructure settings:
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.75\linewidth]{chapitre5/fig/infra_summary}
+	\includegraphics[width=0.73\linewidth]{chapitre5/fig/infra_summary}
 	\caption{Our container-based infrastructure for automatic generators testing}
 	\label{mon:infra}
 \end{figure}
@@ -159,7 +159,7 @@ Since each program execution requires a new container to be created, it is cruci
 While running containers, we run the three monitoring containers described above in order to monitor the running workload. To do so, we use Docker Compose\footnote{\url{https://docs.docker.com/compose/overview/}} to run all containers simultaneously. The concept of Docker Compose is similiar to Dockerfiles. It uses a configuration file to run and link multi-container Docker services. We set up the Compose file so that we run all services and particularly to map running containers to cAdvisor and InfluxDB, using Docker ports and network links in order to stream resource usage data.
 
 \paragraph{Resource usage extraction}
-The end users have two ways to extract the information about the resource usage of generated code. It is possible to directly request the remote time series database via HTTP requests, executing SQL-like queries such as the example presented in Section \ref{listing}. They can request different metrics such as CPU, memory usage, disk writing speed, etc. An alternative solution is to visualize the resource consumption of generated code within the web-based dashboard provided by Grafana. The visualization tool is not used when auto-tuning and testing generators because we just needed to extract the CPU or memory usage for each test or optimized code. 
+The end users have two ways to extract the information about the resource usage of generated code. It is possible to directly request the remote time series database via HTTP requests, executing SQL-like queries like the example presented in Section \ref{listing}. They can request different metrics such as CPU, memory usage, disk writing speed, etc. An alternative solution is to visualize the resource consumption of generated code within the web-based dashboard provided by Grafana. The visualization tool is not used when auto-tuning and testing generators because we just needed to extract the CPU or memory usage for each test or optimized code. 
 
 We use the same hardware across all experiments in Chapters \ref{chap:code generators} and \ref{chap:compilers}: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory.	
 
@@ -171,5 +171,5 @@ We use the same hardware across all experiments in Chapters \ref{chap:code gener
 
 \section{Conclusion}
 \label{mon:coclusion}
-Evaluating the resource usage of automatically generated code is complex because of the diversity of software and hardware platforms that exist in the market. We present in this chapter, the technical details of the infrastructure used to collect the non-functional metrics (e.g., memory and CPU consumptions) of automatically generated code (by either compilers or code generators). In fact, we benefit from the recent advances in lightweight system virtualization, in particular container-based virtualization, in order to offer effective support for automatically deploying, executing, and monitoring the generated code in heterogeneous environment.
-The same monitoring infrastructure is used to evaluate the experiments conducted in the two first contributions.
+We presented in this chapter, the technical details of the infrastructure used to collect the non-functional metrics (e.g., memory and CPU consumptions) of automatically generated code (by either compilers or code generators). This solution offers effective support for automatically deploying, executing, and testing the generated code in different environment settings.
+The same monitoring infrastructure is used to evaluate quality of generated code in the two first contributions of this thesis. The experiments conducted in Chapters \ref{chap:code generators} and \ref{chap:compilers} showed the usefulness of this infrastructure for tuning and testing generators.
