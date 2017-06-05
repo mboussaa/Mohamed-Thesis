@@ -313,6 +313,12 @@ Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and TAMT Meyarivan.
 \newblock {\em Evolutionary Computation, IEEE Transactions on}, 6(2):182--197,
   2002.
 
+\bibitem[DVPY{\etalchar{+}}17]{danglot2017emerging}
+Benjamin Danglot, Oscar Vera-Perez, Zhongxing Yu, Martin Monperrus, and Benoit
+  Baudry.
+\newblock The emerging field of test amplification: A survey.
+\newblock {\em arXiv preprint arXiv:1705.10692}, 2017.
+
 \bibitem[DW81]{davis1981pseudo}
 Martin~D Davis and Elaine~J Weyuker.
 \newblock Pseudo-oracles for non-testable programs.

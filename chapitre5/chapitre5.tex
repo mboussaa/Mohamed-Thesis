@@ -136,7 +136,8 @@ As a visualization component, we use Grafana\footnote{\url{https://github.com/gr
 \label{mon:case study}
 We present now an adaptation of this micro-service infrastructure to the generator case study as applied in Chapters \ref{chap:code generators} and \ref{chap:compilers}. We recall that we used containers as means for running different variants of optimized code in Chapter \ref{chap:compilers}, and for running a bench of test suites across different software platforms in Chapter \ref{chap:code generators}. 
 The runtime monitoring components, presented in this chapter, are used in both contributions to evaluate the resource usage of generated code. 
-An overview of the micro-service and technical solutions applied for the generator case study is shown in Figure \ref{mon:infra}. In the following, we describe in details the infrastructure settings:
+An overview of the micro-service and technical solutions applied for the generator case study is shown in Figure \ref{mon:infra}. In the following, we describe in details the infrastructure settings. The experimental material is also available online\footnote{\url{https://testingcodegenerators.wordpress.com/}}\footnote{\url{https://noticegcc.wordpress.com/}}.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.73\linewidth]{chapitre5/fig/infra_summary}
@@ -161,8 +162,7 @@ While running containers, we run the three monitoring containers described above
 \paragraph{Resource usage extraction}
 The end users have two ways to extract the information about the resource usage of generated code. It is possible to directly request the remote time series database via HTTP requests, executing SQL-like queries like the example presented in Section \ref{listing}. They can request different metrics such as CPU, memory usage, disk writing speed, etc. An alternative solution is to visualize the resource consumption of generated code within the web-based dashboard provided by Grafana. The visualization tool is not used when auto-tuning and testing generators because we just needed to extract the CPU or memory usage for each test or optimized code. 
 
-We use the same hardware across all experiments in Chapters \ref{chap:code generators} and \ref{chap:compilers}: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory.	
-
+We use the same hardware across all experiments in Chapters \ref{chap:code generators} and \ref{chap:compilers}: an AMD A10-7700K APU Radeon(TM) R7 Graphics processor with 4 CPU cores (2.0 GHz), running Linux with a 64 bit kernel and 16 GB of system memory. 
 
 
 \begin{remark}
