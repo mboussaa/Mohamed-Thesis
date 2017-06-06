@@ -64,7 +64,13 @@
 % Specify the document class, default style attributes, and page dimensions
 % For hyperlinked PDF, suitable for viewing on a computer, use this:
 \documentclass[letterpaper,12pt,titlepage, english, openright]{book}
+\usepackage{afterpage}
 
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
 \setcounter{secnumdepth}{3}  %% Avec un numero.
 \setcounter{tocdepth}{2}   
  \hyphenation{op-tical net-works semi-conduc-tor}
@@ -229,8 +235,8 @@
 %=========================GPCEEEEEEEEEEEE
 \newcommand{\cL}{{\cal L}}
 
-\setlength{\oddsidemargin}{0pt} % Marge gauche sur pages impaires
-\setlength{\evensidemargin}{10pt} % Marge gauche sur pages paires 
+\setlength{\oddsidemargin}{15pt} % Marge gauche sur pages impaires
+\setlength{\evensidemargin}{-15pt} % Marge gauche sur pages paires 
 
 
 \usepackage{standalone}
@@ -330,7 +336,7 @@
 
 \includepdf{CoverPage/couverture-latex.pdf}
 
-~\cleardoublepage
+%~\cleardoublepage
 
 
 %\remerciements
@@ -364,7 +370,7 @@
 \input{chapitre3/chapitre3.tex}
 \chapter{A lightweight execution environment for automatic generators testing }\label{chap:docker}
 \input{chapitre5/chapitre5.tex}
-\part{Conclusion and perspectives}
+\part{Conclusion and Perspectives}
 \chapter[Conclusion and perspectives]{Conclusion and perspectives}\label{chap:conclusion}
 \input{Conclusion/Conclusion.tex}
 
@@ -419,7 +425,8 @@
 \addcontentsline{toc}{chapter}{List of Tables}
 \markboth{List of Tables}{List of Tables}
 \listoftables
-\newpage
+\afterpage{\blankpage}
 %\input{acronym.tex}
 \includepdf{acronym/acronym.pdf}
+
 \end{document}

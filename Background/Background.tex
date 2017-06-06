@@ -214,7 +214,7 @@ As a consequence, generative programming (GP) techniques are increasingly applie
 \end{mydef}
 
 
-Generative software development consists in using higher-level programming techniques such as meta-programming, modeling, DSL, etc. in order to provide a new integrated software engineering approach that offers the promise of moving from ``one-of-a-kind'' software systems to the delivery of wide diversity of software (\eg, through automatic code generation).
+Generative software development consists in using higher-level programming techniques such as meta-programming, modeling, DSL, etc. in order to provide a new integrated software engineering solution that enables the exploitation of the different dimensions of software diversity (\eg, through automatic code generation).
 
 In principle, the generative programming concept can be seen as a mapping between a problem space and a solution space~\cite{czarnecki2005overview} (see Figure~\ref{fig:GDM}). 
 
@@ -402,26 +402,26 @@ Examples:  C2J, JavaDoc, Jazillian, Closure Compiler, Coccinelle, CoffeeScript, 
 \item \textbf{Inline code expander:} This model reads code as input and builds new file that uses the input code as a base but with sections of the code expanded, based on the design of the original one. 
 It starts with designing a new language. Usually this new language is an existing language with some syntax extensions. The inline code expander is then used to turn this language into production code in a high-level language.
 
-Example: Embedded SQL languages such as SQLJ (for Java) and Pro*C (for C). The SQL can be embedded in the C or Java code. The generator builds production C code by expanding the SQL into C code which implements the queries for example.
+Examples: Embedded SQL languages such as SQLJ (for Java) and Pro*C (for C). The SQL can be embedded in the C or Java code. The generator builds production C code by expanding the SQL into C code which implements the queries for example.
 
 \item \textbf{Mixed code generator:} This model has the same processing flow as the inline code expander, except that the input file is a real source file that can be compiled and ran. The generated output file keeps the original markup that will denote where the generated code is placed. It enables code generation for multiple small code fragments within a single file or distributed throughout multiple files. Generally, transformation rules are defined using regular expressions.
 
 
-Example: Codify is a commercial mixed-code generator which can generate multiple code fragments in a single file from special commands. Another example is the replacement of comments in the input file by the corresponding code.
+Examples: Codify is a commercial mixed-code generator which can generate multiple code fragments in a single file from special commands. Another example is the replacement of comments in the input file by the corresponding code.
 
 \item \textbf{Partial class generator:} A partial class generator takes an abstract definition as input instead of code (\eg, UML class diagram) and then builds the output code. User then, can extend it by creating derived classes and adding methods to complete the design. Turning models into code is done through a sequence of transformations. For example, platform-independent model (PIM) is transformed into a platform specific model (PSM). Then code generation is performed from PSM by using some sort of template-based code transformations.
 %As an example, in model-driven engineering, a platform-dependent model (PIM) is transformed into a platform specific model (PSM). PIM to PSM translations are done either by hand or by applying automatic model transformation tools. Then code generation is performed from PSM by using some sort of template-based code generator.
 
-Example: ArgoUML and Codegen translate UML class diagrams to general-purpose languages such as C\#, Java and C++. They do not generate complete implementations, but they try to convert the input UML class diagrams into skeleton code that the user can easily edit it. 
+Examples: ArgoUML and Codegen translate UML class diagrams to general-purpose languages such as C\#, Java and C++. They do not generate complete implementations, but they try to convert the input UML class diagrams into skeleton code that the user can easily edit it. 
 
 \item \textbf{Tier generator:} In this model the generator builds a complete set of output code from an abstract definition. It has the same concept as partial class generator. The big difference between tier and partial class generation is that in the tier model the generator builds all the code for a tier. This code is meant to be used without extension. The partial class generator model however, lets the engineer create the rest of the derived classes that will complete the functionality for the tier.
 .
-Examples: Database access layer, web client layer, data export, import, or conversion layers
+Examples: Database access layer, web client layer, data export, import, or conversion layers.
 
 \item \textbf{Full-domain language:} Domain languages are basically new languages that have types, syntax and operations and they are used for a specific type of problem. 
 Domain languages are the extreme end of automatic code generation because developers have to write a compiler for each problem domain and language. 
 
-Example: Matlab is a domain specific math language that makes it easy to represent mathematical operations. DSLs such as ThingML\footnote{\url{http://thingml.org/}} and its code generators.
+Examples: Matlab is a domain-specific math language used to represent mathematical operations, DSLs such as ThingML\footnote{\url{http://thingml.org/}} and its code generators.
 
 \end{itemize}
 %Generators are based on domain-specific models which define the semantics of the system specification language and also contain the knowledge of how to produce efficient implementations[REF]. 
@@ -432,7 +432,7 @@ Testing code generators raise different challenges. In the following, we discuss
 \begin{itemize}
 	\item[--] \textbf{The oracle problem}: 
 	
-	To test the automatic code generation, test oracles are required to assess whether a test has passed or not. A test
+	To automate the testing process, test oracles are required to assess whether a test has passed or not. A test
 	oracle checks whether the result of executing a test is as expected.
 	In case of functional testing of code generators, the test oracle can be easily defined. For example, it can be defined as the comparison result between the simulated or executed model and its corresponding implementation. 
 	However, in case of non-functional testing of code generators, the test oracle is complex to define. In fact, the generated code has to meet certain performance requirements (\eg, execution speed, utilization of resources, etc.). Proving that the generated code respects one of these non-functional requirements is not obvious. 
