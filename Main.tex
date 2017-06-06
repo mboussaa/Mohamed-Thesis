@@ -318,6 +318,12 @@
 \fancyhead[RE]{\footnotesize\slshape\leftmark}
 \pagestyle{fancy}
 
+\usepackage{hyperref}
+\usepackage{acronym}
+\usepackage[acronym,nomain]{glossaries}
+
+% Generate the glossary
+\makeglossaries
 \begin{document}
 
 %\addtocounter{page}{-1}%√ßa c'est pour revenir 
@@ -413,6 +419,7 @@
 \addcontentsline{toc}{chapter}{List of Tables}
 \markboth{List of Tables}{List of Tables}
 \listoftables
-
-
+\newpage
+%\input{acronym.tex}
+\includepdf{acronym/acronym.pdf}
 \end{document}
