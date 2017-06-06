@@ -166,10 +166,11 @@ We use the same hardware across all experiments in Chapters \ref{chap:code gener
 
 
 \begin{remark}
-	We would notice that this testing infrastructure can be generalized and adapted to other case studies other than generators. Using system containers, any software application/generated code can be easily deployed within containers (\ie, by configuring the container image). It will be later executed and monitored using our runtime monitoring engine. 
+	We would notice that this testing infrastructure can be generalized and adapted to other case studies other than generators. Using system containers, any software application/generated code can be easily executed and monitored using Docker. However, among the limitations of this micro-services infrastructure is that containers require Linux kernel to run. Running Docker engine on macOS or Windows requires a virtual machine to deploy small Linux-based OS that has Docker pre-installed. Collecting the resource usage of these windows containers for example, may induce an overhead due the use of Docker within virtual machines, and consequently the accuracy of gathered data may be impacted. In addition, resource isolation in Docker has some limitations, especially for disk I/O metrics. It has been recently shown\cite{xavier2015performance}, that the	isolation layer does not properly isolate the shared resources when running disk-intensive workloads within containers, causing some performance interferences. 
+	
 \end{remark}
 
 \section{Conclusion}
 \label{mon:coclusion}
 We presented in this chapter, the technical details of the infrastructure used to collect the non-functional metrics (e.g., memory and CPU consumptions) of automatically generated code (by either compilers or code generators). This solution offers effective support for automatically deploying, executing, and testing the generated code in different environment settings.
-The same monitoring infrastructure is used to evaluate quality of generated code in the two first contributions of this thesis. The experiments conducted in Chapters \ref{chap:code generators} and \ref{chap:compilers} showed the usefulness of this infrastructure for tuning and testing generators.
+The same monitoring infrastructure is used to evaluate quality of generated code in the two first contributions of this thesis. The experiments conducted in Chapters \ref{chap:code generators} and \ref{chap:compilers} showed the usefulness of this infrastructure for tuning and testing generators. 

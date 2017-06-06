@@ -1006,6 +1006,14 @@ Deborah Whitfield and Mary~Lou Soffa.
 \newblock An approach to ordering optimizing transformations.
 \newblock In {\em ACM SIGPLAN Notices}, volume~25, pages 137--146. ACM, 1990.
 
+\bibitem[XDOR{\etalchar{+}}15]{xavier2015performance}
+Miguel~G Xavier, Israel~C De~Oliveira, Fabio~D Rossi, Robson~D Dos~Passos,
+  Kassiano~J Matteussi, and C{\'e}sar~AF De~Rose.
+\newblock A performance isolation analysis of disk-intensive workloads on
+  container-based clouds.
+\newblock In {\em Parallel, Distributed and Network-Based Processing (PDP),
+  2015 23rd Euromicro International Conference on}, pages 253--260. IEEE, 2015.
+
 \bibitem[YCER11]{yang2011finding}
 Xuejun Yang, Yang Chen, Eric Eide, and John Regehr.
 \newblock Finding and understanding bugs in c compilers.

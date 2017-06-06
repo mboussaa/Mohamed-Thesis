@@ -103,13 +103,13 @@ As a consequence, we define a code generator inconsistency as:
 	A generated code that exhibits an unexpected behavior in terms of performance or resource usage compared to all equivalent implementations in the same code generator family.
 \end{mydef}
 
-The possible issues that can result in code generator inconsistencies can be resumed as following:
-\begin{itemize}
-	\setlength\itemsep{0em}
-	\item  the lack of use of a \textbf{specific function that exists in the standard library} of the target API language  that can speed or reduce the memory consumption of the resulting program.
-	\item the lack of use of \textbf{a specific type that exists in the standard library} of the target language  that can speed or reduce the memory consumption of the resulting program.
-	\item  the lack of use of\textbf{ a specific language feature in a target language} that can speed or reduce the memory consumption of the resulting program. 
-\end{itemize}
+%The possible issues that can result in code generator inconsistencies can be resumed as following:
+%\begin{itemize}
+%	\setlength\itemsep{0em}
+%	\item  the lack of use of a \textbf{specific function that exists in the standard library} of the target API language  that can speed or reduce the memory consumption of the resulting program.
+%	\item the lack of use of \textbf{a specific type that exists in the standard library} of the target language  that can speed or reduce the memory consumption of the resulting program.
+%	\item  the lack of use of\textbf{ a specific language feature in a target language} that can speed or reduce the memory consumption of the resulting program. 
+%\end{itemize}
 
 Next section discusses the common process used by developers to test the non-functional properties of generated code. We also illustrate how we can benefit from code generator families to identify unexpected behaviors.
 
@@ -666,7 +666,7 @@ To give more insights about the source of this issue, we provide in the followin
 
 
 %Our testing infrastructure allows to automatically detect inconsistencies among a set of code generators. 
-These inconsistencies need to be fixed by code generator creators in order to enhance the quality of generated code (PHP code for example). Since we are proposing a black-box testing approach, our solution is not able to provide more precise and detailed information about the part of code that has caused these performance issues, which is one of the limitations of our testing approach.
+These inconsistencies need to be fixed by code generator creators in order to enhance the quality of generated code (PHP code for example). Since we are proposing a black-box testing approach, our solution is not able to provide more precise and detailed information about the part of code causing these performance issues, which is one of the limitations of our testing approach.
 
 Therefore, to understand this unexpected behavior of the PHP code when applying the test suite Core\_TS4 for example, we looked (manually) into the PHP code corresponding to this test suite. In fact, we observe the intensive use of \textit{``arrays"} in most of the functions under test. Arrays are known to be slow in PHP and PHP library has introduced much more advanced functions such as $array\_fill$ and specialized abstract types such as \textit{``SplFixedArray"}\footnote{\url{http://php.net/manual/fr/class.splfixedarray.php}} to overcome this limitation. So, by just changing these two parts in the generated code, we improve the PHP code speed with a factor x5 which is very valuable. We also reduce the memory usage of this test suite by a factor of x2.
 
