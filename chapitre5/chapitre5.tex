@@ -134,9 +134,9 @@ As a visualization component, we use Grafana\footnote{\url{https://github.com/gr
 
 \section{The generator case study}
 \label{mon:case study}
-We present now an adaptation of this micro-service infrastructure to the generator case study as applied in Chapters \ref{chap:code generators} and \ref{chap:compilers}. We recall that we used containers as means for running different variants of optimized code in Chapter \ref{chap:compilers}, and for running a bench of test suites across different software platforms in Chapter \ref{chap:code generators}. 
+We present now an adaptation of this micro-service infrastructure to the generator case study, as applied in Chapters \ref{chap:code generators} and \ref{chap:compilers}. We recall that we used containers as means for running different variants of optimized code in Chapter \ref{chap:compilers}, and for running a bench of test suites across different software platforms in Chapter \ref{chap:code generators}. 
 The runtime monitoring components, presented in this chapter, are used in both contributions to evaluate the resource usage of generated code. 
-An overview of the micro-service and technical solutions applied for the generator case study is shown in Figure \ref{mon:infra}. In the following, we describe in details the infrastructure settings. The experimental material is also available online\footnote{\url{https://testingcodegenerators.wordpress.com/}}\footnote{\url{https://noticegcc.wordpress.com/}}.
+An overview of the micro-service and technical solutions applied for the generator case study are shown in Figure \ref{mon:infra}. In the following, we describe in details the infrastructure settings. The experimental material is also available online\footnote{\url{https://testingcodegenerators.wordpress.com/}}\footnote{\url{https://noticegcc.wordpress.com/}}.
 
 \begin{figure}[h]
 	\centering
@@ -149,7 +149,7 @@ An overview of the micro-service and technical solutions applied for the generat
 \paragraph{Code generation}
 Before starting to monitor and test applications, we have to deploy the generated code (by compilers or code generators) on different Docker containers. 
 Thus, instead of configuring all generators under test (GUTs) within the same host machine, we deploy each GUT within a container. To do so, we create a new configuration image for each GUT (\ie, the Docker image) where we install all the libraries, compilers, and dependencies needed to ensure the code generation and compilation. Thereby, the GUT produces code within multiple instances of pre-configured Docker images. So, we use Dockerfiles to configure all these settings.
-We use the public Docker registry\footnote{\url{https://hub.docker.com/}} which represents a cloud-based registry service for saving, and managing all our Docker images. 
+We use the public Docker registry\footnote{\url{https://hub.docker.com/}} (a cloud-based registry service) to save and manage all our Docker images. 
 Once code generation is done, the generated output files are saved in a shared repository. In Docker environment, this repository is called \textit{data volume}. It is a specially-designated directory within containers that shares data with the host machine and with other running containers.
  
 \paragraph{Deployment and execution}

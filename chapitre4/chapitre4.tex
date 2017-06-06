@@ -73,7 +73,7 @@ Today, different customizable code generators can be used to easily and efficien
 %Thus, we can automatically compare the performance between different versions
 %of generated code (coming from the same source program). Based on this comparison, we can automatically detect singular resource consumptions that could reveal a code generator bug.
 
-For example, this concept is widely used in the industry when applying the \textit{``write once, run everywhere"} paradigm. Users can benefit from a family of code generators (\eg, cross-platform code generators\cite{fumero2015runtime}) to generate from the manually written (high-level) code, different implementations of the same program in different languages. This technique is very useful to address diverse software platforms and programming languages.
+For example, this concept is widely used in industry when applying the \textit{``write once, run everywhere"} paradigm. Users can benefit from a family of code generators (\eg, cross-platform code generators\cite{fumero2015runtime}) to generate from the manually written (high-level) code, different implementations of the same program in different languages. This technique is very useful to address diverse software platforms and programming languages.
 
 As motivating examples for this research work, we can cite three approaches that intensively develop and use code generator families: 
 \paragraph{a. Haxe.} 	Haxe\footnote{\url{http://haxe.org/}}~\cite{dasnois2011haxe} is an open source toolkit for cross-platform development which compiles to a number of different programming platforms, including JavaScript, Flash, PHP, C++, C\#, and Java. Haxe involves many features: the Haxe language, multi-platform compilers, and different native libraries. The Haxe language is a high-level programming language which is strictly typed. This language supports both, functional and object-oriented programming paradigms. It has a common type hierarchy, making certain API available on every target platform. Moreover, Haxe comes with a set of code generators that translate manually-written code (in Haxe language) to different target languages and platforms.  
@@ -151,7 +151,7 @@ Then, they report this information in order to fix, refactor, and optimize the c
 \label{sec:cd_approach}
 Our contributions in this work are divided into two parts:
 \begin{itemize}
-	\item First, we describe our infrastructure for resource usage monitoring. 
+	\item First, we describe our testing infrastructure. 
 	This contribution addresses the problem of software diversity and hardware heterogeneity, as discussed in Chapter \ref{chap:background}.
 	
 	\item Second, we present a methodology for automatic detection of inconsistencies in code generator families. This approach addresses the oracle problem when testing the non-functional properties.
@@ -184,13 +184,13 @@ Figure \ref{fig:cg-infra} shows the container-based infrastructure used for test
 \begin{itemize}
 	\item[--] \textit{At the code generation level}: Code generators are configured inside different containers in order to generate code for the target platform.
 	\item[--] \textit{At the code execution level}: Libraries, compilers and different dependencies are configured in different containers in order to execute the generated code. For each target platform, a new instance is created.
-	\item[--] \textit{At the non-functional testing level}: We add a runtime monitoring engine (based on containers) in order to extract and save the resource usage metrics for all running containers. Finally, inconsistencies detection involves the analysis of the resource usage data extracted from the database in order to find issues with the generated code. This step is discussed in details in the next section.
+	\item[--] \textit{At the non-functional testing level}: We add a runtime monitoring engine (based on containers) in order to extract and save the resource usage metrics of all running containers. Finally, inconsistencies detection involves the analysis of the resource usage data extracted from the database in order to find issues with the generated code. This step is discussed in details in the next section.
 \end{itemize}
 
 Chapter \ref{chap:docker} provides more details about the technical choices we have made to synthesize this testing infrastructure.
 
 \subsection{A metamorphic testing approach for automatic detection of code generator inconsistencies}
-We discussed in Section \ref{sec:cg-Summary: oracle definition approaches} several approaches proposed by the software testing community in order to alleviate the oracle problem. Among the attractive approaches that can be applied to test code generators, we distinguish the metamorphic testing approach (derived oracles). In the following, we describe the basic concept of metamorphic testing and our adaptation of this method to test code generator families in terms of resource usage and performance.
+We discussed in Section \ref{sec:cg-Summary: oracle definition approaches} several approaches proposed by the software testing community in order to alleviate the oracle problem. Among the attractive approaches that can be applied to test code generators, we distinguish the metamorphic testing approach (derived oracles). In the following, we describe the basic concept of metamorphic testing and our adaptation of this method for the non-functional testing of code generator families.
 
 \subsubsection{Basic concept of metamorphic testing}
 In this section, we shall introduce the basic concept of metamorphic testing (MT), proposed by Chen \etal \cite{chen1998metamorphic}. The idea of MT is to derive test oracles from the relation between test cases' outputs instead of reasoning about the relation between test inputs and outputs. 
@@ -212,7 +212,7 @@ Because MT checks the relation among several executions rather than the correctn
 However, constructing the metamorphic relations is typically a manual task that demands thorough knowledge of the program under test. It also depends on the application context and domain. 
 The effectiveness of metamorphic testing is highly dependent on the identified metamorphic relations, and designing effective metamorphic relations is thus a critical step when applying metamorphic testing.
 
-We describe in the next section our adaptation of MT to the problem of non-functional testing of code generators families.
+We describe in the next section our adaptation of MT to the problem of non-functional testing of code generator families.
 
 \subsubsection{Adaptation of the MT approach to detect code generator inconsistencies}
 In general, MT can be applied to any problem in which a necessary property involving multiple executions of the target function can be formulated. Some examples of successful applications are presented in \cite{zhou2004metamorphic}. We note that MT is recently applied to compilers testing\cite{donaldson2016metamorphic,tao2010automatic,le2014compiler}.
@@ -502,7 +502,7 @@ Figure \ref{fig:settingup.pdf} shows a big picture of the testing infrastructure
 \end{figure}
 
 First, a first component is created in where we install the Haxe code generators and compilers. It takes as an input the Haxe library we would evaluate and the list of test suites (step 1). It produces as an output the source code files relative to the target software platforms. Afterwards, generated files are compiled (if needed) and automatically executed within the execution container (step 2). This component is a pre-configured container instance where we install the required execution environments such as php interpreter, node (for JS), mono (for C\#), etc. 
-In the meantime, while running test suites inside the container, we collect runtime resource usage data (step 3). Chapter \ref{chap:docker}) presents more details about the monitoring engine.
+In the meantime, while running test suites inside the container, we collect runtime resource usage data (step 3). Chapter \ref{chap:docker} presents more details about the monitoring engine.
 Finally, in step 4, we analyze the non-functional data in order to detect code generator inconsistencies.
 
 \subsection{Experimental methodology and results}
