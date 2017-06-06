@@ -305,7 +305,7 @@ In this process, inconsistencies will be reported when one of the follow-up equi
 \label{sec:cg-Variation threshold}
 One of the questions that may be raised when applying our MT approach is how can we find the right variation threshold $T$ from which an inconsistency is detected? Answering this question is very important to prove the effectiveness of our MT approach.
 To do so, we conduct a statistical analysis of our non-functional data in order to find an accurate threshold value $T$.
-Before that, the non-functional outputs need to be prepared to make them suitable for the statistical methods employed by our methodology. Thus, we describe first our process for data preparation:
+Before that, the non-functional outputs need to be prepared to make them suitable for the statistical methods employed by our methodology. Thus, we describe first our process for data preparation.
 
 \paragraph{Data preparation}~\\ 
 As depicted in Table \ref{tab:Non-functional output results}, each program comes with a set of test suites $(t_{1}$, $t_{2}$,..., $t_{m})$. Evaluating a test suite requires the calculation of the memory usage or execution time $f(P_{1}(t_{i}))$,  $f(P_{2}(t_{i}))$,..., $f(P_{n}(t_{i}))$ where $(1 \leq i \leq m)$  for all target software platforms. Thus, obtained results represent a matrix where columns indicate the non-functional value (raw data) for each target software platform and rows indicate the corresponding test suite.
