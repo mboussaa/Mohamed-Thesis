@@ -35,9 +35,9 @@
 \newcommand{\LABO}{HAPPY}
 \newcommand{\LABOEXT}{How Are Pears Painted in Yellow ?}
 \newcommand{\COMPU}{IFSIC}
-\newcommand{\PRESp}{P.}
-\newcommand{\PRESn}{\textsc{Dugland}}
-\newcommand{\PRESq}{gargamel}
+\newcommand{\PRESp}{}
+\newcommand{\PRESn}{\textsc{}}
+\newcommand{\PRESq}{}
 \newcommand{\ADVp}{S.}
 \newcommand{\ADVn}{\textsc{Dublair}}
 \newcommand{\ADVq}{grand schtroumpf}
@@ -50,7 +50,7 @@
 \newcommand{\EXAqi}{schtroumpf faineant}
 \newcommand{\EXAti}{\'Examinateur}
 \newcommand{\Mpres}{M}
-\newcommand{\TPres}{Président}
+\newcommand{\TPres}{}
 \newcommand{\Mrap}{M}
 \newcommand{\TRap}{Rapporteur}
 \newcommand{\Mexa}{MM}
@@ -104,8 +104,8 @@
 }
 
 \newcommand{\JURY}{
-{\vspace{-1mm}\bfseries\TailleJury\PRESp~\PRESn\vspace{-1mm}\newline}
-{\small\PRESq\authorspacing\mbox{\small\textit{\TPres}}\\}
+{\vspace{-1mm}\bfseries\TailleJury}
+{\small\PRESq\mbox{\small\textit{\TPres}}\\}
 \Lrap{i}\\
 \setcounter{III}{1}%
 \whiledo{{\value{III}<\value{nrap}}}{\stepcounter{III}\Lrap{\roman{III}}\\}%
@@ -492,13 +492,6 @@ qui  a dirigé ma thèse.\\[\baselineskip]
 }
 
 % Prenom Nom Qualite du president du jury
-\newcommand{\President}[4][M]{%
-\renewcommand{\Mpres}{#1}%
-\ifthenelse{\equal{#1}{Mme}}{\renewcommand{\TPres}{Présidente}}{}%
-\renewcommand{\PRESp}{#2}%
-\renewcommand{\PRESn}{\textsc{#3}}%
-\renewcommand{\PRESq}{#4}%
-}
 
 \newcommand{\Advisor}[4][M]{%
 \stepcounter{nadv}%

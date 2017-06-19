@@ -1,82 +1,87 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Context}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Motivation}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{Scope of the thesis}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{Challenges}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.5}{Contributions}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.6}{Overview of this thesis}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.7}{Publications}{chapter.1}% 8
-\BOOKMARK [-1][-]{part.1}{I Background and State of the Art}{}% 9
-\BOOKMARK [0][-]{chapter.2}{Background}{part.1}% 10
-\BOOKMARK [1][-]{section.2.1}{Diversity in software engineering}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.1.1}{Hardware heterogeneity}{section.2.1}% 12
-\BOOKMARK [2][-]{subsection.2.1.2}{Software diversity}{section.2.1}% 13
-\BOOKMARK [2][-]{subsection.2.1.3}{Matching software diversity to heterogeneous hardware: the marriage}{section.2.1}% 14
-\BOOKMARK [1][-]{section.2.2}{From classical software development to generative programming}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.2.1}{Overview of the generative software development process}{section.2.2}% 16
-\BOOKMARK [2][-]{subsection.2.2.2}{Automatic code generation in GP: a highly configurable process}{section.2.2}% 17
-\BOOKMARK [2][-]{subsection.2.2.3}{Stakeholders and their roles for testing and tuning generators}{section.2.2}% 18
-\BOOKMARK [1][-]{section.2.3}{Testing code generators}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.3.1}{Testing workflow}{section.2.3}% 20
-\BOOKMARK [2][-]{subsection.2.3.2}{Types of code generators}{section.2.3}% 21
-\BOOKMARK [2][-]{subsection.2.3.3}{Why testing code generators is complex?}{section.2.3}% 22
-\BOOKMARK [1][-]{section.2.4}{Compilers auto-tuning}{chapter.2}% 23
-\BOOKMARK [2][-]{subsection.2.4.1}{Code optimization}{section.2.4}% 24
-\BOOKMARK [2][-]{subsection.2.4.2}{Why compilers auto-tuning is complex?}{section.2.4}% 25
-\BOOKMARK [1][-]{section.2.5}{Summary: challenges for testing and tuning configurable generators}{chapter.2}% 26
-\BOOKMARK [0][-]{chapter.3}{State of the art}{part.1}% 27
-\BOOKMARK [1][-]{section.3.1}{Testing code generators}{chapter.3}% 28
-\BOOKMARK [2][-]{subsection.3.1.1}{Functional testing of code generators}{section.3.1}% 29
-\BOOKMARK [2][-]{subsection.3.1.2}{Non-functional testing of code generators}{section.3.1}% 30
-\BOOKMARK [1][-]{section.3.2}{Compilers auto-tuning techniques}{chapter.3}% 31
-\BOOKMARK [2][-]{subsection.3.2.1}{Iterative compilation}{section.3.2}% 32
-\BOOKMARK [2][-]{subsection.3.2.2}{Implementation of the iterative compilation process}{section.3.2}% 33
-\BOOKMARK [2][-]{subsection.3.2.3}{Iterative compilation search techniques}{section.3.2}% 34
-\BOOKMARK [1][-]{section.3.3}{Lightweight system virtualization for automatic software testing}{chapter.3}% 35
-\BOOKMARK [2][-]{subsection.3.3.1}{Application in software testing}{section.3.3}% 36
-\BOOKMARK [2][-]{subsection.3.3.2}{Application in runtime monitoring}{section.3.3}% 37
-\BOOKMARK [1][-]{section.3.4}{Summary \046 open challenges}{chapter.3}% 38
-\BOOKMARK [-1][-]{part.2}{II Contributions}{}% 39
-\BOOKMARK [0][-]{chapter*.5}{To the reader: summary of contributions}{part.2}% 40
-\BOOKMARK [0][-]{chapter.4}{Automatic non-functional testing of code generator families}{part.2}% 41
-\BOOKMARK [1][-]{section.4.1}{Context and motivations}{chapter.4}% 42
-\BOOKMARK [2][-]{subsection.4.1.1}{Code generator families}{section.4.1}% 43
-\BOOKMARK [2][-]{subsection.4.1.2}{Issues when testing a code generator family}{section.4.1}% 44
-\BOOKMARK [1][-]{section.4.2}{The traditional process for non-functional testing of a code generator family}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.3}{Approach overview}{chapter.4}% 46
-\BOOKMARK [2][-]{subsection.4.3.1}{An infrastructure for non-functional testing using system containers}{section.4.3}% 47
-\BOOKMARK [2][-]{subsection.4.3.2}{A metamorphic testing approach for automatic detection of code generator inconsistencies}{section.4.3}% 48
-\BOOKMARK [1][-]{section.4.4}{Evaluation}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.4.1}{Experimental setup}{section.4.4}% 50
-\BOOKMARK [2][-]{subsection.4.4.2}{Experimental methodology and results}{section.4.4}% 51
-\BOOKMARK [2][-]{subsection.4.4.3}{Threats to validity}{section.4.4}% 52
-\BOOKMARK [1][-]{section.4.5}{Conclusion}{chapter.4}% 53
-\BOOKMARK [0][-]{chapter.5}{NOTICE: An approach for auto-tuning compilers}{part.2}% 54
-\BOOKMARK [1][-]{section.5.1}{Motivation}{chapter.5}% 55
-\BOOKMARK [1][-]{section.5.2}{Evolutionary exploration of compiler optimizations}{chapter.5}% 56
-\BOOKMARK [2][-]{subsection.5.2.1}{Novelty search adaptation}{section.5.2}% 57
-\BOOKMARK [2][-]{subsection.5.2.2}{Novelty search for multi-objective optimization}{section.5.2}% 58
-\BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 59
-\BOOKMARK [2][-]{subsection.5.3.1}{Research questions}{section.5.3}% 60
-\BOOKMARK [2][-]{subsection.5.3.2}{Experimental setup}{section.5.3}% 61
-\BOOKMARK [2][-]{subsection.5.3.3}{Experimental methodology and results}{section.5.3}% 62
-\BOOKMARK [2][-]{subsection.5.3.4}{Discussions}{section.5.3}% 63
-\BOOKMARK [2][-]{subsection.5.3.5}{Threats to validity}{section.5.3}% 64
-\BOOKMARK [2][-]{subsection.5.3.6}{Tool support overview}{section.5.3}% 65
-\BOOKMARK [1][-]{section.5.4}{Conclusion}{chapter.5}% 66
-\BOOKMARK [0][-]{chapter.6}{A lightweight execution environment for automatic generators testing }{part.2}% 67
-\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 68
-\BOOKMARK [1][-]{section.6.2}{System containers as a lightweight execution environment}{chapter.6}% 69
-\BOOKMARK [1][-]{section.6.3}{Runtime Monitoring Engine}{chapter.6}% 70
-\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Container}{section.6.3}% 71
-\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Container}{section.6.3}% 72
-\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Container}{section.6.3}% 73
-\BOOKMARK [1][-]{section.6.4}{The generator case study}{chapter.6}% 74
-\BOOKMARK [1][-]{section.6.5}{Conclusion}{chapter.6}% 75
-\BOOKMARK [-1][-]{part.3}{III Conclusion and Perspectives}{}% 76
-\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 77
-\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 78
-\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 79
-\BOOKMARK [0][-]{section*.37}{References}{part.3}% 80
-\BOOKMARK [0][-]{section*.39}{List of Figures}{part.3}% 81
-\BOOKMARK [0][-]{section*.41}{List of Tables}{part.3}% 82
+\BOOKMARK [0][-]{chapter*.2}{R\351sum\351 en Fran\347ais}{}% 1
+\BOOKMARK [1][-]{section*.3}{Contexte}{chapter*.2}% 2
+\BOOKMARK [1][-]{section*.4}{Motivations}{chapter*.2}% 3
+\BOOKMARK [1][-]{section*.5}{Probl\351matique}{chapter*.2}% 4
+\BOOKMARK [1][-]{section*.6}{Contributions}{chapter*.2}% 5
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 6
+\BOOKMARK [1][-]{section.1.1}{Context}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Motivation}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{Scope of the thesis}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.4}{Challenges}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.5}{Contributions}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.6}{Overview of this thesis}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.7}{Publications}{chapter.1}% 13
+\BOOKMARK [-1][-]{part.1}{I Background and State of the Art}{}% 14
+\BOOKMARK [0][-]{chapter.2}{Background}{part.1}% 15
+\BOOKMARK [1][-]{section.2.1}{Diversity in software engineering}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.1.1}{Hardware heterogeneity}{section.2.1}% 17
+\BOOKMARK [2][-]{subsection.2.1.2}{Software diversity}{section.2.1}% 18
+\BOOKMARK [2][-]{subsection.2.1.3}{Matching software diversity to heterogeneous hardware: the marriage}{section.2.1}% 19
+\BOOKMARK [1][-]{section.2.2}{From classical software development to generative programming}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.1}{Overview of the generative software development process}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.2}{Automatic code generation in GP: a highly configurable process}{section.2.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.3}{Stakeholders and their roles for testing and tuning generators}{section.2.2}% 23
+\BOOKMARK [1][-]{section.2.3}{Testing code generators}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.3.1}{Testing workflow}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.2}{Types of code generators}{section.2.3}% 26
+\BOOKMARK [2][-]{subsection.2.3.3}{Why testing code generators is complex?}{section.2.3}% 27
+\BOOKMARK [1][-]{section.2.4}{Compilers auto-tuning}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.4.1}{Code optimization}{section.2.4}% 29
+\BOOKMARK [2][-]{subsection.2.4.2}{Why compilers auto-tuning is complex?}{section.2.4}% 30
+\BOOKMARK [1][-]{section.2.5}{Summary: challenges for testing and tuning configurable generators}{chapter.2}% 31
+\BOOKMARK [0][-]{chapter.3}{State of the art}{part.1}% 32
+\BOOKMARK [1][-]{section.3.1}{Testing code generators}{chapter.3}% 33
+\BOOKMARK [2][-]{subsection.3.1.1}{Functional testing of code generators}{section.3.1}% 34
+\BOOKMARK [2][-]{subsection.3.1.2}{Non-functional testing of code generators}{section.3.1}% 35
+\BOOKMARK [1][-]{section.3.2}{Compilers auto-tuning techniques}{chapter.3}% 36
+\BOOKMARK [2][-]{subsection.3.2.1}{Iterative compilation}{section.3.2}% 37
+\BOOKMARK [2][-]{subsection.3.2.2}{Implementation of the iterative compilation process}{section.3.2}% 38
+\BOOKMARK [2][-]{subsection.3.2.3}{Iterative compilation search techniques}{section.3.2}% 39
+\BOOKMARK [1][-]{section.3.3}{Lightweight system virtualization for automatic software testing}{chapter.3}% 40
+\BOOKMARK [2][-]{subsection.3.3.1}{Application in software testing}{section.3.3}% 41
+\BOOKMARK [2][-]{subsection.3.3.2}{Application in runtime monitoring}{section.3.3}% 42
+\BOOKMARK [1][-]{section.3.4}{Summary \046 open challenges}{chapter.3}% 43
+\BOOKMARK [-1][-]{part.2}{II Contributions}{}% 44
+\BOOKMARK [0][-]{chapter*.10}{To the reader: summary of contributions}{part.2}% 45
+\BOOKMARK [0][-]{chapter.4}{Automatic non-functional testing of code generator families}{part.2}% 46
+\BOOKMARK [1][-]{section.4.1}{Context and motivations}{chapter.4}% 47
+\BOOKMARK [2][-]{subsection.4.1.1}{Code generator families}{section.4.1}% 48
+\BOOKMARK [2][-]{subsection.4.1.2}{Issues when testing a code generator family}{section.4.1}% 49
+\BOOKMARK [1][-]{section.4.2}{The traditional process for non-functional testing of a code generator family}{chapter.4}% 50
+\BOOKMARK [1][-]{section.4.3}{Approach overview}{chapter.4}% 51
+\BOOKMARK [2][-]{subsection.4.3.1}{An infrastructure for non-functional testing using system containers}{section.4.3}% 52
+\BOOKMARK [2][-]{subsection.4.3.2}{A metamorphic testing approach for automatic detection of code generator inconsistencies}{section.4.3}% 53
+\BOOKMARK [1][-]{section.4.4}{Evaluation}{chapter.4}% 54
+\BOOKMARK [2][-]{subsection.4.4.1}{Experimental setup}{section.4.4}% 55
+\BOOKMARK [2][-]{subsection.4.4.2}{Experimental methodology and results}{section.4.4}% 56
+\BOOKMARK [2][-]{subsection.4.4.3}{Threats to validity}{section.4.4}% 57
+\BOOKMARK [1][-]{section.4.5}{Conclusion}{chapter.4}% 58
+\BOOKMARK [0][-]{chapter.5}{NOTICE: An approach for auto-tuning compilers}{part.2}% 59
+\BOOKMARK [1][-]{section.5.1}{Motivation}{chapter.5}% 60
+\BOOKMARK [1][-]{section.5.2}{Evolutionary exploration of compiler optimizations}{chapter.5}% 61
+\BOOKMARK [2][-]{subsection.5.2.1}{Novelty search adaptation}{section.5.2}% 62
+\BOOKMARK [2][-]{subsection.5.2.2}{Novelty search for multi-objective optimization}{section.5.2}% 63
+\BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 64
+\BOOKMARK [2][-]{subsection.5.3.1}{Research questions}{section.5.3}% 65
+\BOOKMARK [2][-]{subsection.5.3.2}{Experimental setup}{section.5.3}% 66
+\BOOKMARK [2][-]{subsection.5.3.3}{Experimental methodology and results}{section.5.3}% 67
+\BOOKMARK [2][-]{subsection.5.3.4}{Discussions}{section.5.3}% 68
+\BOOKMARK [2][-]{subsection.5.3.5}{Threats to validity}{section.5.3}% 69
+\BOOKMARK [2][-]{subsection.5.3.6}{Tool support overview}{section.5.3}% 70
+\BOOKMARK [1][-]{section.5.4}{Conclusion}{chapter.5}% 71
+\BOOKMARK [0][-]{chapter.6}{A lightweight execution environment for automatic generators testing }{part.2}% 72
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 73
+\BOOKMARK [1][-]{section.6.2}{System containers as a lightweight execution environment}{chapter.6}% 74
+\BOOKMARK [1][-]{section.6.3}{Runtime Monitoring Engine}{chapter.6}% 75
+\BOOKMARK [2][-]{subsection.6.3.1}{Monitoring Container}{section.6.3}% 76
+\BOOKMARK [2][-]{subsection.6.3.2}{Back-end Database Container}{section.6.3}% 77
+\BOOKMARK [2][-]{subsection.6.3.3}{Front-end Visualization Container}{section.6.3}% 78
+\BOOKMARK [1][-]{section.6.4}{The generator case study}{chapter.6}% 79
+\BOOKMARK [1][-]{section.6.5}{Conclusion}{chapter.6}% 80
+\BOOKMARK [-1][-]{part.3}{III Conclusion and Perspectives}{}% 81
+\BOOKMARK [0][-]{chapter.7}{Conclusion and perspectives}{part.3}% 82
+\BOOKMARK [1][-]{section.7.1}{Summary of contributions}{chapter.7}% 83
+\BOOKMARK [1][-]{section.7.2}{Perspectives}{chapter.7}% 84
+\BOOKMARK [0][-]{section*.42}{References}{part.3}% 85
+\BOOKMARK [0][-]{section*.44}{List of Figures}{part.3}% 86
+\BOOKMARK [0][-]{section*.46}{List of Tables}{part.3}% 87
