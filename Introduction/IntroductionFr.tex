@@ -8,11 +8,73 @@
 \markboth{R\'esum\'e en Fran\c{c}ais}{R\'esum\'e en Fran\c{c}ais}
 \section*{Contexte}
 \addcontentsline{toc}{section}{Contexte}
+Les techniques \'emergentes de l'ing\'enierie dirig\'ee par les mod\`eles et de la programmation g\'en\'erative ont permis la cr\'eation de plusieurs g\'en\'erateurs (g\'en\'erateurs de code et compilateurs). Ceux-ci sont souvent utilis\'es afin de faciliter le d\'eveloppement logiciel et automatiser le processus de g\'en\'eration de code \`a partir des sp\'ecifications abstraites. En effet, les utilisateurs sont devenus capables de synth\'etiser rapidement des artefacts logiciels pour une large gamme de plateformes logicielles et mat\'erielles. En outre, les g\'en\'erateurs modernes comme les compilateurs C, sont devenus hautement configurables, offrant de nombreuses options de configuration \`a l'utilisateur de mani\`ere \`a personnaliser facilement le code g\'en\'er\'e pour la plateforme mat\'erielle cible. Par cons\'equent, la qualit\'e logicielle est devenue fortement corr\'el\'ee aux param\`etres de configuration ainsi qu'au g\'en\'erateur lui-m\^eme. Dans ce contexte, il est devenu indispensable de v\'erifier le bon comportement des g\'en\'erateurs. D'une part, il est important de tester les programmes g\'en\'er\'es afin de d\'etecter des anomalies de g\'en\'erateurs et les corriger. D'autre part, il est crucial d'aider les utilisateurs \`a bien param\'etrer les g\'en\'erateurs afin de satisfaire les exigences des plateformes logicielle et mat\'erielle cibles. 
+
+
 \section*{Motivations}
 \addcontentsline{toc}{section}{Motivations}
-\section*{Probl\'ematique}
-\addcontentsline{toc}{section}{Probl\'ematique}
+Aujourd'hui, les g\'en\'erateurs populaires tels que GCC, LLVM, etc., sont fr\'equemment utilis\'es dans l'industrie afin de traduire le code source \'ecrit en langage humain vers un code machine de bas niveau (p. ex. binaires,  ex\'ecutables). Ces g\'en\'erateurs, connus sous le nom compilateurs, offrent une large gamme d'options de configuration aux utilisateurs pour contr\^oler le comportement du g\'en\'erateur.
+Diff\'erentes cat\'egories d'options peuvent \^etre activ\'ees pour aider les d\'eveloppeurs \`a d\'eboguer, optimiser l'application g\'en\'er\'ee ou encore s\'electionner l'architecture mat\'erielle cible. 
+Par exemple, GCC version 4.8.4 offre une large s\'election d'options en ligne de commande, y compris plus de 150 options d'optimisation. Cela constitue un espace de configuration tr\`es large avec $2^{150}$  combinaisons d'optimisation possibles pouvant \^etre appliqu\'ees par l'utilisateur pour optimiser la qualit\'e du code g\'en\'er\'e (comme le temps d'ex\'ecution, la taille du binaire, le temps de compilations, etc.). En outre, la construction d'une seule s\'equence d'optimisation pour tous les programmes en entr\'ee est impossible car les interactions entre les optimisations sont trop complexes et difficiles \`a d\'efinir. De plus, l'impact des optimisations est fortement corr\'el\'e au mat\'eriel cible et au code source d'entr\'ee.
+Cet exemple montre combien il est difficile de param\'etrer les g\'en\'erateurs (tel que les compilateurs) dans le but de produire un code machine qui satisfait diff\'erentes propri\'et\'es non-fonctionnelles.
+
+Il est aussi essentiel de tester les g\'en\'erateurs afin d'assurer que la g\'en\'eration automatique de code n'introduit aucune anomalie dans le produit final. Toute anomalie dans le code g\'en\'er\'e entrainerait une perte de confiance de la part des utilisateurs qui n'utiliseront plus ces g\'en\'erateurs lors du d\'eveloppement logiciel. En cons\'equence, les d\'eveloppeurs de g\'en\'erateurs doivent bien v\'erifier et tester le bon comportement  du code automatiquement g\'en\'er\'e.
+Contrairement aux compilateurs qui disposent de plusieurs solutions de test \cite{yang2011finding, le2014compiler}, il en existe peu pour \'evaluer automatiquement les comportement des g\'en\'erateurs de code, dont aucune ne se base sur le test des propri\'et\'es non-fonctionnelles. 
+En effet, les g\'en\'erateurs de code sont moins utilis\'es et exp\'eriment\'es dans l'industrie par rapport aux compilateurs. Ils sont \'egalement difficiles \`a tester puisqu'ils impliquent un ensemble de technologies tr\`es complexes et h\'et\'erog\`enes\cite{guana2015developers, guana2014chaintracker}.
+Le test des g\'en\'erateurs de code implique principalement les cr\'eateurs/experts de l'outil. N\'eanmoins, les utilisateurs sont \'egalement responsables de cette validation puisqu'ils reportent continuellement les anomalies rencontr\'ees lors de la g\'en\'eration de code.
+De nombreuses approches ont \'et\'e propos\'ees~\cite{stuermer2007systematic, yang2011finding} afin de tester le comportement fonctionnel du code g\'en\'er\'e. Cependant, peu de solutions \'evaluent les propri\'et\'es non-fonctionnelles, \`a savoir les propri\'et\'es li\'ees \`a la performance et l'utilisation des ressources du code g\'en\'er\'e.
+
+En r\'esum\'e, les g\'en\'erateurs (compilateurs et g\'en\'erateurs de code) sont des composants essentiel pour la production automatique du code. La qualit\'e du logiciel g\'en\'er\'e est directement corr\'el\'ee \`a la qualit\'e du g\'en\'erateur lui-m\^eme. Tant que la qualit\'e des g\'en\'erateurs est maintenue et am\'elior\'ee, la qualit\'e des artefacts logiciels g\'en\'er\'es s'am\'eliore \'egalement puisque toute anomalie avec ces g\'en\'erateurs affecte directement la qualit\'e du produit logiciel final.
+En particulier, lorsque la g\'en\'eration automatique de code est utilis\'ee, nous identifions deux probl\`emes majeurs qui menacent la qualit\'e du logiciel g\'en\'er\'e:
+D'une part, l'espace de configuration tr\`es large pose un important d\'efi aux utilisateurs qui doivent s\'electionner les meilleures options d'optimisation, r\'epondant \`a certaines exigences non-fonctionnelles.
+D'autre part, la complexit\'e des g\'en\'erateurs de code ainsi que le manque de solutions pour \'evaluer les propri\'et\'es non-fonctionnelles du code g\'en\'er\'e repr\'esente un obstacle pour les cr\'eateurs de g\'en\'erateurs qui veulent assurer la qualit\'e du logiciel automatiquement g\'en\'er\'e.
+
+
+\section*{Probl\'ematiques}
+\addcontentsline{toc}{section}{Probl\'ematiques}
+Nous avons identifi\'e trois probl\'ematiques pour le test et la configuration automatique des g\'en\'erateurs.
+
+\textbf{Le test des g\'en\'erateurs de code (le probl\`eme de l'oracle):} 
+
+Le test des g\'en\'erateurs de code rel\`eve le probl\`eme de l'oracle. Un oracle de test est le m\'ecanisme par lequel un testeur peut d\'eterminer si un test passe ou pas. En ce qui 
+concerne les tests non-fonctionnels des g\'en\'erateurs de code, ce probl\`eme devient tr\`es r\'ecurrent parce que il est assez difficile de d\'eterminer le comportement non-fonctionnel attendu du code \`a tester (p. ex. la consommation de m\'emoire). D\'eterminer si les mesures non-fonctionnelles correspondent \`a une anomalie de g\'en\'erateur ou non, n'est pas ais\'e. Pour contourner ce probl\`eme, des techniques telles que les tests m\'etamorphiques\cite{chen1998metamorphic} sont appliqu\'ees pour tester des programmes sans d\'efinir explicitement un oracle. Cette technique emploie des relations m\'etamorphiques de haut-niveau pour v\'erifier automatiquement les r\'esultats des tests. Alors, quels types d'oracles pouvons-nous d\'efinir? Comment pouvons-nous d\'etecter automatiquement des anomalies de g\'en\'erateurs? Toutes ces questions soul\`event des d\'efis importants dans le test des g\'en\'erateurs de code.
+
+
+\textbf{La configuration automatique des compilateurs (exploration de l'espace de recherche des optimisations):}
+
+La plupart des compilateurs fournissent un tr\`es grand nombre d'optimisations qui permettent d'am\'eliorer la qualit\'e du code g\'en\'er\'e. Cependant, pour explorer un tel espace d'optimisation, les utilisateurs doivent \'evaluer leurs effets selon une propri\'et\'e non-fonctionnelle sp\'ecifique tel que le temps d'ex\'ecution, la taille du binaire, etc. Du fait de la difficult\'e de la construction d'une s\'equence d'optimisation donn\'ee, de la complexit\'e des interactions et de l'effet impr\'evisible des optimisations, les utilisateurs trouvent des difficult\'es \`a choisir la meilleure configuration de compilateur qui satisfait une exigence non-fonctionnelle sp\'ecifique.
+
+
+\textbf{La surveillance de la consommation des ressources du code g\'en\'er\'e (g\'erer la diversit\'e des plateformes logicielles et mat\'erielles):}
+
+Pour \'evaluer les propri\'et\'es li\'ees \`a l'utilisation des ressources du code g\'en\'er\'e (par des compilateurs ou des g\'en\'erateurs de code), les d\'eveloppeurs doivent compiler, d\'eployer et ex\'ecuter les artefacts logiciels g\'en\'er\'es sur diff\'erentes plateformes d'ex\'ecution. Ensuite, ils utilisent souvent plusieurs profileurs, d\'ebogueurs et outils de surveillance sp\'ecifiques \`a la plateformes~\cite{guana2014chaintracker, delgado2004taxonomy} afin de trouver des anomalies lors de l'ex\'ecution du code g\'en\'er\'e. En raison de l'h\'et\'erog\'en\'eit\'e des plateformes d'ex\'ecution logicielle et mat\'erielle, la collecte d'informations sur l'utilisation des ressources du code g\'en\'er\'e devient une t\^ache tr\`es couteuse, puisque les d\'eveloppeurs doivent analyser et v\'erifier le code g\'en\'er\'e pour chacune des plateformes cibles \`a l'aide d'outils sp\'ecifiques.
+
+
+
+
+Les d\'efis de cette recherche peuvent \^etre r\'esum\'es dans les questions de recherche suivantes:
+
+\textit{RQ1.} Comment pouvons-nous aider les d\'eveloppeurs \`a tester automatiquement le code g\'en\'er\'e et d\'etecter des anomalies non-fonctionnelles de g\'en\'erateurs de code ? 
+
+\textit{RQ2.} Comment pouvons-nous aider les utilisateurs des compilateurs \`a choisir automatiquement la configuration d'optimisation ad\'equate qui satisfait une exigence non-fonctionnelle sp\'ecifique? 
+
+\textit{RQ3.} Comment pouvons-nous faciliter la mise en place d'outils de surveillance de la consommation des ressources dans un environnement h\'et\'erog\`ene?
+
+
 \section*{Contributions}
 \addcontentsline{toc}{section}{Contributions}
+Cette th\`ese \'etablit trois contributions principales. Elles sont bri\`evement d\'ecrites dans le reste de cette section.  
 
+\textbf{Contribution I: d\'etection automatique des inconsistances dans les familles de g\'en\'erateurs de code.} 
+
+Dans cette contribution, nous abordons le probl\`eme de l'oracle dans le domaine du test  non-fonctionnel des g\'en\'erateurs de code. La disponibilit\'e de multiples g\'en\'erateurs de code avec des fonctionnalit\'es comparables (c.-\`a-d. familles de g\'en\'erateurs de code) nous permet d'appliquer l'id\'ee du test m\'etamorphique~\cite{zhou2004metamorphic} en d\'efinissant des oracles de test de haut-niveau (c.-\`a-d. relation m\'etamorphique) pour d\'etecter des inconsistances. Nous d\'efinissons la relation m\'etamorphique comme la comparaison entre les variations de performance et de l'utilisation des ressources des diff\'erentes versions, g\'en\'er\'ees \`a partir de la m\^eme famille de g\'en\'erateurs de code. Une inconsistance est d\'etect\'ee lorsque le code g\'en\'er\'e pr\'esente un comportement inattendu par rapport \`a toutes les impl\'ementations \'equivalentes de la m\^eme famille.
+Nous \'evaluons notre approche en analysant la performance de Haxe, un langage de programmation de haut niveau impliquant un ensemble de g\'en\'erateurs de code multi-plateformes. Nous \'evaluons les propri\'et\'es li\'ees \`a la performance et \`a l'utilisation des ressources du code g\'en\'er\'e pour cinq plateformes logicielles cibles. Les r\'esultats exp\'erimentaux montrent que notre approche est capable de d\'etecter plusieurs inconsistances qui r\'ev\`elent des probl\`emes r\'eels dans cette famille de g\'en\'erateurs de code.  
+
+\textbf{Contribution II: une approche pour l'auto-configuration des compilateurs. }
+
+Comme nous l'avons indiqu\'e pr\'ec\'edemment, le grand nombre d'options de compilation n\'ecessite une m\'ethode efficace pour explorer l'espace d'optimisation. Ainsi, nous appliquons, dans cette contribution, une m\'eta-heuristique appel\'ee \textit{Novelty Search}~\cite{lehman2008exploiting} pour l'exploration de cet espace de recherche. Cette approche aide les utilisateurs \`a param\'etrer automatiquement les compilateurs pour une architecture mat\'erielle cible et pour une m\'etrique non-fonctionnelle sp\'ecifique tel que la performance et l'utilisation des ressources. Nous \'evaluons l'efficacit\'e de notre approche en v\'erifiant les optimisations fournies par le compilateur GCC. Nos r\'esultats exp\'erimentaux montrent que notre approche permet d'auto-configurer les compilateurs en fonction des besoins de l'utilisateur et de construire des optimisations qui surpassent les niveaux d'optimisation standard. Nous d\'emontrons \'egalement que notre approche peut \^etre utilis\'ee pour construire automatiquement des niveaux d'optimisation qui repr\'esentent des compromis optimaux entre plusieurs propri\'et\'es non-fonctionnelles telles que le temps d'ex\'ecution et la consommation des ressources.  
+
+\textbf{Contribution III: Un environnement d'ex\'ecution l\'eger pour le test et la surveillance de la consommation des ressources des logiciels.}
+
+Enfin, nous proposons une infrastructure bas\'ee sur les micro-services pour assurer le d\'eploiement et la surveillance de la consommation des ressources des diff\'erentes variantes du code g\'en\'er\'e. Cette contribution traite le probl\`eme de l'h\'et\'erog\'en\'eit\'e des plateformes logicielles et mat\'erielles. Nous d\'ecrivons une approche qui automatise le processus de g\'en\'eration, compilation, et ex\'ecution du code dans le but de faciliter le test et l'auto-configuration des g\'en\'erateurs. Cet environnement isol\'e repose sur des conteneurs syst\`eme, comme plateformes d'ex\'ecution, pour une surveillance et analyse fine des propri\'et\'es li\'ees \`a l'utilisation des ressources (CPU et m\'emoire). Cette infrastructure constitue un terrain de jeu pour tester et r\'egler les g\'en\'erateurs. Cette contribution r\'epond principalement \`a \textit{RQ3}, mais celle-ci est particuli\`erement utilis\'ee pour valider les exp\'eriences port\'ees dans \textit{RQ1} et \textit{RQ2}. 
 

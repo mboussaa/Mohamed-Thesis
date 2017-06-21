@@ -157,7 +157,6 @@ This thesis establishes three core contributions. They are briefly described in 
 In this contribution, we tackle the oracle problem in the domain of code generators testing.
 The availability of multiple generators with comparable functionality (\ie, code generator families) allows us to apply the idea of metamorphic testing~\cite{zhou2004metamorphic} by defining high-level test oracles (\ie, metamorphic relation) to detect issues. We define the metamorphic relation as a comparison between the variations of performance and resource usage of code, generated from the same code generator family.
 We evaluate our approach by analyzing the performance of Haxe, a popular high-level programming language that involves a set of cross-platform code generators. We evaluate the properties related to the resource usage and performance for five target software platforms. Experimental results show that our approach is able to detect several performance inconsistencies that reveal real issues in this code generator family. 
-%In particular, we show that we could find two kinds of errors during code transformation: the lack of use of a specific function and an abstract type that exist in the standard library of the target language which can reduce the memory usage/execution time of the resulting program.
 
 \textbf{Contribution II: An approach for auto-tuning compilers.}
 As we stated earlier, the huge number of compiler options requires the application of a search method to explore the large design space. Thus, we apply, in this contribution, a search-based meta-heuristic called \textit{Novelty Search}~\cite{lehman2008exploiting} for compiler optimizations exploration. This approach helps compiler users to efficiently explore the large optimization search space and auto-tune compilers according to the performance and resource usage properties and that, for a specific hardware architecture. 
@@ -185,7 +184,7 @@ This chapter is divided into three sections. First, we study the different techn
 %We evaluate our infrastructure by comparing it to a non-containerized solution. We report the comparison results between both solutions in terms of overhead and we discuss the results. We also provide a case study to show the automatic monitoring process. 
 
 \textbf{Chapter \ref{chap:conclusion}} draws conclusions and identifies future directions for testing and auto-tuning generators.
-
+\newpage
 \section{Publications}
 
 \begin{itemize}
