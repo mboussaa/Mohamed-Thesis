@@ -320,7 +320,7 @@ As an example, Table~\ref{iccgccllvm} depicts the number of optimizations availa
 \end{table}
 
 On the other hand, code generators offer the possibility to customize the generated code for the target software platform. Code generators provide general configuration options necessary for building software artifacts (\eg, select the target programming language, dependencies, platform settings, libraries, etc.).
-As an example, JHipster\footnote{https://jhipster.github.io/} is a concrete example of generative programming application in industry. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
+As an example, JHipster\footnote{\url{https://jhipster.github.io/}} is a concrete example of generative programming application in industry. JHipster is an application generator based on YO generator which provides tools to generate quickly modern web applications using Java stack on the server side (using Spring Boot) and a responsive Web front-end on the client side (with AngularJS and Bootstrap).
 The generated web application can be quite different from one user to another. It really depends on the options/choices selected by the user to build a configured application. The selected parameter values will configure the way the JHipster code generators will produce code. 
 For example, Figure~\ref{fig:jhipster} shows a feature model of some configuration examples that the user can select. When building applications, the user may select the database type he would generate, the Java version, the network protocol, etc. 
 Using this feature model, \textbf{more than 10k diverse architecture types} of project can be selected which means that 10k program variants may be generated depending on the different criteria.
@@ -452,14 +452,14 @@ Testing code generators raise different challenges. In the following, we discuss
 			\centering
 			\sisetup{table-number-alignment = right}
 			\caption{Metrics of the TargetLink code generator}
-			\begin{tabular}{| l | S | }\hline
-				\textbf{Metrics} & \textbf{TargetLink code generator 2.0}  \\	\hhline{|=|=|}	
-				No. of classes  & 3000\\ 
-				No. of files & 6000 \\  
-				No. of functions & 51000 \\  
-				Lines (total) & 1800000 \\  
-				Lines of code & 990000 \\ 
-				Lines of comments  & 560000 \\ 	\hline
+			\begin{tabular}{| l | l | }\hline
+				\textbf{Metrics} & \textbf{TargetLink 2.0}  \\	\hhline{|=|=|}	
+				No. of classes  & \num{3000}\\ 
+				No. of files & \num{6000} \\  
+				No. of functions & \num{51000} \\  
+				Lines (total) & \num{1800000} \\  
+				Lines of code & \num{990000} \\ 
+				Lines of comments  & \num{560000} \\ 	\hline
 			\end{tabular}
 			\label{tab:targetlinkk}
 		\end{table}

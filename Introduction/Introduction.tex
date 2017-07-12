@@ -108,8 +108,8 @@ This thesis addresses three problems:
 
 	(3) \textbf{The problem of software platforms diversity and hardware heterogeneity in software testing:} Running tests and evaluating the resource usage in heterogeneous environments is tedious. To handle this problem, we benefit from the recent advances in lightweight system virtualization, in particular container-based virtualization, in order to offer effective support for automatically deploying, executing, and monitoring code in heterogeneous environment, and collect non-functional metrics (\eg, memory and CPU consumptions).
 	
-
-In the rest of the thesis, we use the term \textbf{``compilers''} to refer to the traditional compilers that take as input a source code and translate it into machine code like GCC, LLVM, etc. Similarly, \textbf{``Code generators''} designate the software programs that transform an input program into source code like Java, C++, etc. Finally, we use the term \textbf{``generators''} to designate both, code generators and compilers. 
+\newpage
+In the rest of the thesis, we use the term \textbf{``compilers''} to refer to the traditional compilers that take as input a source code and translate it into machine code like GCC, LLVM, etc. Similarly, \textbf{``code generators''} designate the software programs that transform an input program into source code like Java, C++, etc. Finally, we use the term \textbf{``generators''} to designate both, code generators and compilers. 
 
 \section{Challenges}
 %Due to new advances in hardware and system specification, creating an effective code generators (including compilers) is not simple and it is becoming more and more challenging.
@@ -152,7 +152,7 @@ The challenges this research tackle can be summarized in the following research 
 
 \section{Contributions}
 This thesis establishes three core contributions. They are briefly described in the rest of this section.
-
+\newpage
 \textbf{Contribution I: Automatic detection of inconsistencies in code generator families.}
 In this contribution, we tackle the oracle problem in the domain of code generators testing.
 The availability of multiple generators with comparable functionality (\ie, code generator families) allows us to apply the idea of metamorphic testing~\cite{zhou2004metamorphic} by defining high-level test oracles (\ie, metamorphic relation) to detect issues. We define the metamorphic relation as a comparison between the variations of performance and resource usage of code, generated from the same code generator family.
@@ -167,7 +167,7 @@ Our experimental results show that our approach is able to auto-tune compilers a
 Finally, we propose a micro-service infrastructure to ensure the deployment and monitoring of the different variants of generated code. This contribution addresses the problem of software and hardware heterogeneity. Thus, we describe an approach that automates the process of code generation and compilation, execution, and monitoring in order to facilitate the testing and auto-tuning process.
 This isolated and sand-boxing environment is based on system containers, as execution platforms, to provide a fine-grained understanding and analysis of the properties related to the resource usage (CPU and memory). 
 This approach constitutes the playground for testing and tuning generators. This contribution answers mainly \textit{RQ3} but the same infrastructure is particularly used to validate the carried experiments in \textit{RQ1} and \textit{RQ2}.
-
+\newpage
 \section{Overview of this thesis}
 The remainder of this thesis is organized  as follows:
 

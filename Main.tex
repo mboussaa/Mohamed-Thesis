@@ -328,6 +328,7 @@
 \usepackage{acronym}
 \usepackage[acronym,nomain]{glossaries}
 
+
 % Generate the glossary
 \makeglossaries
 \begin{document}
@@ -341,7 +342,7 @@
 
 %\remerciements
 \frontmatter
-
+\input{./Acknowledgements/Acknowledgements}
 \tableofcontents%%{Table des mati√®res}
 
 \input{Introduction/IntroductionFr.tex}
@@ -358,7 +359,9 @@
 \addcontentsline{toc}{chapter}{To the reader: summary of contributions}
 \input{chapitre0/chapitre0.tex}
 \chapter[Automatic non-functional testing of code generator families]{Automatic non-functional testing of code generator families}\label{chap:code generators}
+%\begin{flushleft}
 \input{chapitre4/chapitre4.tex}
+%\end{flushleft}
 \chapter[NOTICE: An approach for auto-tuning compilers]{NOTICE: An approach for auto-tuning compilers}\label{chap:compilers}
 \input{chapitre3/chapitre3.tex}
 \chapter{A lightweight execution environment for automatic generators testing }\label{chap:docker}

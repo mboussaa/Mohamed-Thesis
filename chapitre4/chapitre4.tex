@@ -89,7 +89,7 @@ This project is popular (more than \num{22478} stars on GitHub).
 Functional testing of a code generator family is simple. Since the produced programs are generated form the same high-level program, the oracle can be defined as a comparison between their functional outputs, which should be the same.
 In fact, based on the three sample projects presented above, we remark that all GitHub code repositories of the corresponding projects use unit tests to check the correctness of code generators.  
 
-In terms of non-functional tests, we observe that ThingML and TypeScript do not provide any specific tests to check the consistency of code generators regarding the memory or CPU usage properties. Haxe provides two test cases\footnote{https://github.com/HaxeFoundation/haxe/tree/development/tests/benchs} to benchmark the resulting generated code. One serves to benchmark an example in which object allocations are deliberately (over) used to measure how memory access/GC mixes with numeric processing in different target languages. The second test evaluates the network speed across different target platforms.
+In terms of non-functional tests, we observe that ThingML and TypeScript do not provide any specific tests to check the consistency of code generators regarding the memory or CPU usage properties. Haxe provides two test cases\footnote{\url{https://github.com/HaxeFoundation/haxe/tree/development/tests/benchs}} to benchmark the resulting generated code. One serves to benchmark an example in which object allocations are deliberately (over) used to measure how memory access/GC mixes with numeric processing in different target languages. The second test evaluates the network speed across different target platforms.
 
 
 \subsection{Issues when testing a code generator family}
@@ -567,6 +567,7 @@ To resume, we have detected 11 extreme performance variations and 15 extreme mem
 
 
 \paragraph{PCA results}~\\
+
 \begin{figure}
 	\centering  
 	\subfigure[Test suites relative to the execution times ]{\includegraphics[width=0.7\linewidth]{chapitre4/fig/explor_ind}\label{pcat}}
@@ -589,7 +590,7 @@ To confirm this observation, we present in Figure \ref{sd}, the results of our o
 We can clearly see that this technique helps to identify extreme-value outliers, which are mostly covered by the R-chart approach. We used 97.5\%-Quantile of the Chi-square distribution to define the cutoff value which is commonly used in the literature\cite{enot2008preprocessing,hubert2009robust}. If we decrease this value we will be able to detect more variation points. 
 
 
-\paragraph{Detected inconsistencies }~\\
+
 \begin{table*}[h]
 	\centering
 	
@@ -641,6 +642,8 @@ We can clearly see that this technique helps to identify extreme-value outliers,
 	\caption{Raw data values of test suites that led to the highest variation in terms of memory usage}
 	\label{mem-tab}`
 \end{table*}
+\newpage
+\paragraph{Detected inconsistencies }~\\
 
 Now that we have observed the performance and memory usage variations of test suites execution, we can analyze the extreme points we have detected using R-chart to observe in greater depth the source of such deviation.
 For that reason, we present in Table \ref{perf-tab} and \ref{mem-tab} the raw data values of these test suites leading to an extreme variation in terms of execution time and memory usage. We report the inconsistencies gathered from the first approach, R-chart.
@@ -695,7 +698,7 @@ We resume, in the following paragraphs, external and internal threats that can b
 
 
 
-
+\newpage
 \section{Conclusion}
 \label{sec:cg-conclusion}
 
